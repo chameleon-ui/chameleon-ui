@@ -1,0 +1,35 @@
+name: Phase 0 CI
+
+on:
+  schedule:
+    - cron: "30 18 * * *"
+  pull_request:
+  push:
+    branches:
+      - main
+      - feat/phase0-poc
+
+permissions:
+  contents: read
+
+jobs:
+  phase0:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: chameleon-ui
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Activate the repository pnpm version
+        shell: pwsh
+        run: |
+          corepack enable
+          corepack prepare pnpm@9.15.0 --activate
+          pnpm --version
+      - name: Install from the frozen lockfile
+        run: pnpm install --frozen-lockfile
+      - name: Run the Phase 0 gate
+        run: pnpm ci:phase0

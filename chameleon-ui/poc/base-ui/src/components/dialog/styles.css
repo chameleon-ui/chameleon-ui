@@ -1,0 +1,59 @@
+.cu-dialog__backdrop {
+  background: var(--cu-color-backdrop);
+  inset: 0;
+  position: fixed;
+}
+
+.cu-dialog__viewport {
+  display: grid;
+  inset: 0;
+  overflow-y: auto;
+  padding-block: var(--cu-poc-space-xl);
+  padding-inline: var(--cu-poc-space-md);
+  place-items: center;
+  position: fixed;
+}
+
+.cu-dialog {
+  background: var(--cu-color-surface);
+  border: var(--cu-poc-border-width-control) solid var(--cu-color-border);
+  border-radius: var(--cu-poc-radius-dialog);
+  box-shadow: var(--cu-poc-shadow-dialog);
+  color: var(--cu-color-fg);
+  inline-size: min(100%, var(--cu-poc-size-dialog));
+  padding-block: var(--cu-poc-space-lg);
+  padding-inline: var(--cu-poc-space-lg);
+}
+
+.cu-dialog:focus-visible {
+  outline: var(--cu-poc-focus-width) solid var(--cu-color-focus);
+  outline-offset: var(--cu-poc-focus-offset);
+}
+
+.cu-dialog__content {
+  display: grid;
+  gap: var(--cu-space-3);
+}
+
+.cu-dialog__title {
+  font-size: var(--cu-poc-font-size-xl);
+  margin-block: 0;
+}
+
+.cu-dialog__description {
+  color: var(--cu-color-fg-muted);
+  line-height: var(--cu-poc-line-height-body);
+  margin-block: 0;
+}
+
+.cu-dialog__body {
+  border-block-start: var(--cu-poc-border-width-control) solid var(--cu-color-border);
+  margin-block-start: var(--cu-space-2);
+  padding-block-start: var(--cu-poc-space-md);
+}
+
+.cu-dialog__actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-block-start: var(--cu-poc-space-lg);
+}

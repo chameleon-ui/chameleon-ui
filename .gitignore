@@ -1,0 +1,11 @@
+chameleon-ui/node_modules/
+chameleon-ui/**/dist/
+chameleon-ui/.turbo/
+chameleon-ui/**/.turbo/
+chameleon-ui/coverage/
+chameleon-ui/playwright-report/
+chameleon-ui/test-results/
+*.local
+.DS_Store
+.env
+.env.*

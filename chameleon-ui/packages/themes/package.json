@@ -1,0 +1,12 @@
+{
+  "name": "@chameleon-ui/themes",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"[@chameleon-ui/themes] build placeholder\"",
+    "dev": "echo \"[@chameleon-ui/themes] dev placeholder\"",
+    "lint": "echo \"[@chameleon-ui/themes] lint placeholder\"",
+    "test": "echo \"[@chameleon-ui/themes] test placeholder\""
+  }
+}

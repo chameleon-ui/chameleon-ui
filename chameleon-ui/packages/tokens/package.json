@@ -1,0 +1,25 @@
+{
+  "name": "@chameleon-ui/tokens",
+  "version": "0.0.0",
+  "private": false,
+  "type": "module",
+  "description": "DTCG design-token sources and deterministic CSS custom-property compiler",
+  "files": ["dist", "README.md"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./css": "./dist/css/variables.css"
+  },
+  "scripts": {
+    "build": "node ./scripts/build-css-vars.mjs && tsc -p tsconfig.json",
+    "dev": "node ./scripts/build-css-vars.mjs",
+    "lint": "node --check ./scripts/token-compiler.mjs && node --check ./scripts/build-css-vars.mjs && node --check ./scripts/test-token-compiler.mjs",
+    "test": "node ./scripts/test-token-compiler.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "style-dictionary": "4.3.3"
+  }
+}

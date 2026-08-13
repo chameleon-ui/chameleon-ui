@@ -1,0 +1,12 @@
+{
+  "name": "@chameleon-ui/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"[@chameleon-ui/eslint-config] build placeholder\"",
+    "dev": "echo \"[@chameleon-ui/eslint-config] dev placeholder\"",
+    "lint": "echo \"[@chameleon-ui/eslint-config] lint placeholder\"",
+    "test": "echo \"[@chameleon-ui/eslint-config] test placeholder\""
+  }
+}

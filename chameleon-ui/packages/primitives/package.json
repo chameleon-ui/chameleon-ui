@@ -1,0 +1,13 @@
+{
+  "name": "@chameleon-ui/primitives",
+  "version": "0.0.0",
+  "private": false,
+  "status": "pending-M0",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"[@chameleon-ui/primitives] build placeholder\"",
+    "dev": "echo \"[@chameleon-ui/primitives] dev placeholder\"",
+    "lint": "echo \"[@chameleon-ui/primitives] lint placeholder\"",
+    "test": "echo \"[@chameleon-ui/primitives] test placeholder\""
+  }
+}

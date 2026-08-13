@@ -1,0 +1,18 @@
+{
+  "name": "@chameleon-ui/stylelint-config",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Shared Stylelint configuration enforcing RTL-safe logical CSS properties",
+  "exports": "./src/index.mjs",
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node --check ./src/index.mjs && node --check ./scripts/lint-css.mjs",
+    "dev": "node ./scripts/lint-css.mjs ./fixtures/good.css",
+    "lint": "node --check ./src/index.mjs && node --check ./scripts/lint-css.mjs",
+    "test": "node ./scripts/test-fixtures.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "stylelint": "16.14.1"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "space": {
+    "$type": "dimension",
+    "0": { "$value": { "value": 0, "unit": "px" } },
+    "1": { "$value": { "value": 0.25, "unit": "rem" } },
+    "2": { "$value": { "value": 0.5, "unit": "rem" } },
+    "3": { "$value": { "value": 0.75, "unit": "rem" } }
+  }
+}
