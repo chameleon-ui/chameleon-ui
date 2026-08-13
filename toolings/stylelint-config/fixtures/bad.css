@@ -1,0 +1,6 @@
+.cu-demo {
+  border-left: 1px solid currentcolor;
+  left: 0;
+  margin-left: var(--cu-space-2);
+  padding-right: var(--cu-space-3);
+}

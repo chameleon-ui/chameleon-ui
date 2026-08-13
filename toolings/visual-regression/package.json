@@ -1,0 +1,12 @@
+{
+  "name": "@chameleon-ui/visual-regression",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "echo \"[@chameleon-ui/visual-regression] build placeholder\"",
+    "dev": "echo \"[@chameleon-ui/visual-regression] dev placeholder\"",
+    "lint": "echo \"[@chameleon-ui/visual-regression] lint placeholder\"",
+    "test": "echo \"[@chameleon-ui/visual-regression] test placeholder\""
+  }
+}

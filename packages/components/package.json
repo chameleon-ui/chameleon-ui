@@ -1,0 +1,13 @@
+{
+  "name": "@chameleon-ui/components",
+  "version": "0.0.0",
+  "private": false,
+  "status": "pending-M0",
+  "type": "module",
+  "scripts": {
+    "build": "echo \"[@chameleon-ui/components] build placeholder\"",
+    "dev": "echo \"[@chameleon-ui/components] dev placeholder\"",
+    "lint": "echo \"[@chameleon-ui/components] lint placeholder\"",
+    "test": "echo \"[@chameleon-ui/components] test placeholder\""
+  }
+}

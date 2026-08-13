@@ -1,0 +1,8 @@
+{
+  "cycle": {
+    "$type": "color",
+    "a": { "$value": "{cycle.b}" },
+    "b": { "$value": "{cycle.c}" },
+    "c": { "$value": "{cycle.a}" }
+  }
+}

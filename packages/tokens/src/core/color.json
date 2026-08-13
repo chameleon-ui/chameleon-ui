@@ -1,0 +1,25 @@
+{
+  "color": {
+    "$type": "color",
+    "palette": {
+      "brand": {
+        "$value": "#2563eb",
+        "$description": "Phase 0 reference brand color"
+      },
+      "ink": { "$value": "#111827" },
+      "paper": { "$value": "#ffffff" }
+    },
+    "background": {
+      "default": { "$value": "{color.palette.paper}" },
+      "inverse": { "$value": "{color.palette.ink}" }
+    },
+    "border": {
+      "default": { "$value": "#d1d5db" }
+    },
+    "fg": {
+      "default": { "$value": "{color.palette.ink}" },
+      "inverse": { "$value": "{color.palette.paper}" }
+    }
+  }
+}
+

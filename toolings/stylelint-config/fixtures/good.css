@@ -1,0 +1,7 @@
+.cu-demo {
+  border-inline-start: 1px solid currentcolor;
+  inset-inline-start: 0;
+  margin-inline: 0 auto;
+  margin-inline-start: var(--cu-space-2);
+  padding-inline-end: var(--cu-space-3);
+}

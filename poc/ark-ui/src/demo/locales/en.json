@@ -1,0 +1,56 @@
+{
+  "app": {
+    "eyebrow": "Phase 0 · Ark UI track",
+    "title": "Accessible foundations, tested in both directions",
+    "description": "A fair Button, Input, and Dialog proof of concept for the Chameleon UI headless decision."
+  },
+  "controls": {
+    "kicker": "i18n · U6",
+    "heading": "Locale & direction",
+    "locale": "Locale",
+    "english": "English (en)",
+    "pseudo": "Pseudo (en-XA)",
+    "direction": "Reading direction",
+    "ltr": "LTR",
+    "rtl": "RTL"
+  },
+  "button": {
+    "componentName": "Button",
+    "solid": "Run solid action",
+    "outline": "Run outline action",
+    "count": "{count, plural, =0 {No actions completed} one {# action completed} other {# actions completed}}"
+  },
+  "input": {
+    "componentName": "Input",
+    "label": "Project name",
+    "placeholder": "Enter at least three characters",
+    "invalid": "Use at least three characters."
+  },
+  "dialog": {
+    "componentName": "Dialog",
+    "trigger": "Open review dialog",
+    "title": "Review the Ark UI foundation",
+    "description": "Keyboard focus stays inside this dialog until it closes.",
+    "close": "Finish review",
+    "body": "Press Escape or the close button. Focus should return to the trigger."
+  },
+  "breakpoints": {
+    "title": "Three-target responsive check",
+    "description": "Resize the browser or inspect each named target. The shared content grid changes at 390, 768, and 1280 pixels without physical left/right properties.",
+    "viewport": "Target viewport"
+  },
+  "notes": {
+    "kicker": "No false capability claims",
+    "title": "Phase 0 evidence notes",
+    "keyboard": "Dialog focus, Escape dismissal, and focus restoration come from Ark UI / Zag.js.",
+    "telemetry": "No telemetry or production analytics are emitted from this POC.",
+    "migration": "The component files carry a Phase 1 migration marker; no data-ai attributes are claimed here."
+  },
+  "icu": {
+    "direction": "{direction, select, ltr {Left-to-right preview} rtl {Right-to-left preview} other {Preview}}"
+  },
+  "components": {
+    "kicker": "Button · Input · Dialog",
+    "title": "Fair component surface"
+  }
+}

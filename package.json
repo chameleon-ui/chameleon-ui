@@ -1,0 +1,26 @@
+{
+  "name": "chameleon-ui",
+  "private": true,
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=20.19.0",
+    "pnpm": "9.15.0"
+  },
+  "scripts": {
+    "build": "turbo run build --concurrency=4",
+    "dev": "turbo run dev --concurrency=4",
+    "lint": "turbo run lint --concurrency=4",
+    "typecheck": "turbo run typecheck --concurrency=4",
+    "test": "turbo run test --concurrency=4",
+    "check": "turbo run lint --concurrency=4 && turbo run typecheck --concurrency=4 && turbo run test --concurrency=4 && turbo run build --concurrency=4",
+    "poc:ark": "turbo run dev --filter=@chameleon-ui/poc-ark-ui",
+    "poc:base": "turbo run dev --filter=@chameleon-ui/poc-base-ui",
+    "ci:phase0": "turbo run lint --concurrency=4 && turbo run typecheck --concurrency=4 && turbo run test --concurrency=4 && turbo run build --concurrency=4",
+    "perf:size": "node -e \"console.log('[phase-0 reservation] perf:size starts gating in Phase 1')\"",
+    "perf:lhci": "node -e \"console.log('[phase-0 reservation] perf:lhci starts sampling in Phase 1')\""
+  },
+  "devDependencies": {
+    "turbo": "2.10.9",
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chameleon-ui.dev/schemas/component-contract/v0.1.json",
+  "title": "Chameleon UI Component Contract v0.1",
+  "description": "Machine-readable semantic contract generated from a component source directory.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "slug",
+    "name",
+    "status",
+    "purpose",
+    "scenarios",
+    "props",
+    "variants",
+    "states",
+    "composition",
+    "antiPatterns",
+    "a11y",
+    "responsive",
+    "platforms",
+    "rtl"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1",
+      "description": "Schema version, independent from the component package version."
+    },
+    "slug": { "$ref": "#/$defs/slug" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "experimental", "stable", "deprecated"]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 500
+    },
+    "scenarios": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 3, "maxLength": 160 }
+    },
+    "props": {
+      "type": "object",
+      "propertyNames": { "$ref": "#/$defs/memberName" },
+      "additionalProperties": { "$ref": "#/$defs/prop" }
+    },
+    "variants": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/variant" }
+    },
+    "states": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/state" }
+    },
+    "composition": { "$ref": "#/$defs/composition" },
+    "antiPatterns": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 5, "maxLength": 240 }
+    },
+    "a11y": { "$ref": "#/$defs/a11y" },
+    "responsive": { "$ref": "#/$defs/responsive" },
+    "platforms": { "$ref": "#/$defs/platforms" },
+    "rtl": { "$ref": "#/$defs/rtl" },
+    "dataAi": { "$ref": "#/$defs/dataAi" },
+    "telemetry": { "$ref": "#/$defs/telemetry" }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+      "maxLength": 80
+    },
+    "memberName": {
+      "type": "string",
+      "pattern": "^[a-z][A-Za-z0-9]*$",
+      "maxLength": 80
+    },
+    "stringList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+    },
+    "prop": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "required", "description"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["string", "number", "boolean", "enum", "node", "event"]
+        },
+        "required": { "type": "boolean" },
+        "description": { "type": "string", "minLength": 3, "maxLength": 240 },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "anyOf": [
+              { "type": "string" },
+              { "type": "number" },
+              { "type": "boolean" }
+            ]
+          }
+        },
+        "default": {
+          "anyOf": [
+            { "type": "string" },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "null" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "type": { "const": "enum" } }, "required": ["type"] },
+          "then": {
+            "properties": { "values": true },
+            "required": ["values"]
+          },
+          "else": {
+            "properties": { "values": false }
+          }
+        }
+      ]
+    },
+    "variant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "values", "default"],
+      "properties": {
+        "name": { "$ref": "#/$defs/memberName" },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "default": { "$ref": "#/$defs/slug" },
+        "description": { "type": "string", "minLength": 3, "maxLength": 240 }
+      }
+    },
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "description"],
+      "properties": {
+        "name": { "$ref": "#/$defs/slug" },
+        "description": { "type": "string", "minLength": 3, "maxLength": 240 }
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["allowedParents", "allowedChildren", "requiredContext"],
+      "properties": {
+        "allowedParents": { "$ref": "#/$defs/stringList" },
+        "allowedChildren": { "$ref": "#/$defs/stringList" },
+        "requiredContext": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "a11y": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role", "keyboard", "focus", "labeling"],
+      "properties": {
+        "role": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "keyboard": { "$ref": "#/$defs/stringList" },
+        "focus": { "type": "string", "minLength": 3, "maxLength": 300 },
+        "labeling": { "type": "string", "minLength": 3, "maxLength": 300 },
+        "wcag": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[1-4]\\.[0-9]+\\.[0-9]+$" }
+        }
+      }
+    },
+    "responsive": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "breakpoints"],
+      "properties": {
+        "strategy": { "type": "string", "minLength": 3, "maxLength": 240 },
+        "breakpoints": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "compact": { "type": "string", "minLength": 3, "maxLength": 240 },
+            "medium": { "type": "string", "minLength": 3, "maxLength": 240 },
+            "large": { "type": "string", "minLength": 3, "maxLength": 240 }
+          }
+        }
+      }
+    },
+    "supportLevel": {
+      "type": "string",
+      "enum": ["supported", "planned", "not-applicable"]
+    },
+    "platforms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["web", "react", "vue"],
+      "properties": {
+        "web": { "$ref": "#/$defs/supportLevel" },
+        "react": { "$ref": "#/$defs/supportLevel" },
+        "vue": { "$ref": "#/$defs/supportLevel" }
+      }
+    },
+    "rtl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supported", "strategy"],
+      "properties": {
+        "supported": { "type": "boolean" },
+        "strategy": { "type": "string", "minLength": 3, "maxLength": 240 },
+        "mirroredValues": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "dataAi": {
+      "description": "Optional static Agent-readable markers; this does not emit telemetry.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["role"],
+      "properties": {
+        "role": { "$ref": "#/$defs/slug" },
+        "states": { "$ref": "#/$defs/stringList" },
+        "intents": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "telemetry": {
+      "description": "Phase 1 hook-name reservation only; validation never sends events.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hooks"],
+      "properties": {
+        "hooks": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        }
+      }
+    }
+  }
+}
