@@ -22,7 +22,8 @@ chameleon-ui/
 │   └── install-core/    # CLI/MCP 共享安装内核（占位，防分叉）
 ├── poc/
 │   ├── ark-ui/
-│   └── base-ui/
+│   ├── base-ui/
+│   └── e2e/             # Playwright 真浏览器全矩阵
 ├── toolings/            # eslint / stylelint / tsconfig / 视觉回归
 ├── README.md
 ├── STRUCTURE.md
@@ -46,6 +47,7 @@ corepack pnpm@9.15.0 install --frozen-lockfile
 corepack pnpm@9.15.0 ci:phase0
 corepack pnpm@9.15.0 poc:ark  # http://127.0.0.1:4173
 corepack pnpm@9.15.0 poc:base # http://127.0.0.1:4174
+corepack pnpm@9.15.0 --filter @chameleon-ui/poc-e2e test
 ```
 
 Node 版本须为 `>=20.19.0`（Vite 8 的实际下限），pnpm 须为 `9.15.0`。M0 裁定、对比数据和 A0 证据见 [`../docs/project/reports/M0-基元POC与地基验收.md`](../docs/project/reports/M0-基元POC与地基验收.md)，下一阶段复现顺序见 [`../docs/project/reports/Phase-1-开工检查.md`](../docs/project/reports/Phase-1-开工检查.md)。

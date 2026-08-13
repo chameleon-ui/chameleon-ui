@@ -8,6 +8,11 @@ export default defineConfig({
     port: 4173,
     strictPort: true,
   },
+  preview: {
+    host: '127.0.0.1',
+    port: 4173,
+    strictPort: true,
+  },
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',

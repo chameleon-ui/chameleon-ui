@@ -14,7 +14,7 @@ D1  [x] poc:ark 起页  [x] poc:base 起页  [x] 双线 Button 可点  [x] build
 D2  [x] 双线 3 组件  [x] 对比表有数  [x] 演示证据
 D3  [x] Token 一键编译  [x] 物理属性 lint 红/绿  [x] O2 裁定
 D4  [x] ICU(en/en-XA plural/select)  [x] 伪本地化 ≥40% CI  [x] RTL + 三端
-D5  [x] POC 报告  [x] O1  [x] schema v0.1  [x] 本地 A0 证据  [ ] 远端样例 PR / 预算金额批复 / M0 owner 签字
+D5  [x] POC 报告  [x] O1  [x] schema v0.1  [x] 本地 A0 证据  [x] 真浏览器全矩阵  [x] 技术 M0 退出
 ```
 
 其它阶段：
