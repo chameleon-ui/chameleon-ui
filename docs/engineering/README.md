@@ -5,6 +5,7 @@
 | **工程约定与命名规范（全阶段前置）** | [工程约定与命名规范.md](./工程约定与命名规范.md) |
 | **RTL 与图标镜像工程规范** | [RTL与图标镜像工程规范.md](./RTL与图标镜像工程规范.md) |
 | **阶段目标 Phase 0–4** | [`../project/phases/`](../project/phases/) |
+| **M0 技术验收** | [`../project/reports/M0-基元POC与地基验收.md`](../project/reports/M0-基元POC与地基验收.md) |
 | 工程介绍 | [`../../chameleon-ui/README.md`](../../chameleon-ui/README.md) |
 | 文件注解 | [`../../chameleon-ui/STRUCTURE.md`](../../chameleon-ui/STRUCTURE.md) |
 | Phase 0 五日看板 | [`../../chameleon-ui/PHASE0.md`](../../chameleon-ui/PHASE0.md) |

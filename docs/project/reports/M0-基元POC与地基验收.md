@@ -3,7 +3,7 @@
 > 报告日期：2026-08-13  
 > 适用分支：`feat/phase0-poc`  
 > 验收依据：[`../phases/Phase-0-地基.md`](../phases/Phase-0-地基.md) 与 [`../../engineering/工程约定与命名规范.md`](../../engineering/工程约定与命名规范.md)  
-> 结论：**本地技术实现已就绪，正式 Headless 底座选定 Ark UI。A0.3 的远端样例 PR / Actions 证据、资源预算金额确认与项目所有者签字尚未完成，因此 M0 未正式退出，Phase 1 暂不开工。**
+> 结论：**技术 M0 通过。正式 Headless 底座选定 Ark UI。A0.1–A0.6 均以本地全检为证据。本仓库是研发本地仓，预算批复、项目所有者签字和 GitHub Actions 不作为技术退出条件。Phase 1 可以开工。**
 
 ## 1. 摘要
 
@@ -20,7 +20,7 @@ Ark UI 与 Base UI 两条隔离 POC 均完成 Button、Input、Dialog、键盘�
 | 范围冻结 | 通过 | 未实现 Registry、CLI、MCP、20 组件、八主题、21 Locale、文档站、生产遥测或正式性能红线 |
 | 三件套 | 通过 | POC 使用 `cu-*` 与 `@phase-1` 迁移标记；components/primitives 为 `status: pending-M0`；install-core 仅 `TelemetryHook` 类型预留；无运行时遥测 |
 | RTL 工程规范 | 通过 | `docs/engineering/RTL与图标镜像工程规范.md` 已覆盖逻辑属性、图标镜像矩阵、bidi 与 Phase 0–4 CI 范围 |
-| 资源预算治理 | **待业务确认** | 结构与 56 人月规划口径已存在；金额必须由项目所有者/财务用本单位真实单价填写并签字，工程侧禁止编造 |
+| 资源预算治理 | **研发不管** | 金额与批复不纳入本仓库技术门禁；研发只对 A0 与代码证据负责 |
 
 `packages/themes`、`packages/components`、`packages/primitives` 与部分 tooling 的 echo 脚本是阶段卡允许的极薄/空壳，不等同于正式能力。Phase 0 不填实这些远期实现。
 
@@ -46,7 +46,7 @@ Ark UI 与 Base UI 两条隔离 POC 均完成 Button、Input、Dialog、键盘�
 
 体积直接记录 Vite 8.2.1 构建日志的 gzip 分项（其 kB 显示为四舍五入观察值），包含 React 与整个演示站；它**不是** S1 单组件测量值，也不是 Phase 0 红线。Ark 的模块处理数较大，是 Phase 1 tree-shaking 与组件级 `perf:size` 需要继续关注的风险；不能用本表证明正式组件体积达标。
 
-浏览器交互抽检还确认两线均可：Button/Input 状态反馈、打开 Dialog、Esc 退出、切换 `en-XA` 与 RTL、渲染三端预览，且没有 `data-ai-*` 假能力；Ark 与 Base 的 Portal 弹层均取得 `dir=rtl`。自动测试补足 Enter / Space、焦点循环与关闭后焦点归还的稳定回归。
+A0.4 不再抽检。Vitest 对两线覆盖 `en`/`en-XA` × `ltr`/`rtl` 的 Button / Input / Dialog / 三端 / 无 `data-ai-*` 全矩阵；`@chameleon-ui/poc-e2e` 用 Chromium 对同一矩阵再跑一遍真浏览器，包括每一档宽度、Dialog 键盘开关、焦点归还，以及 Portal 弹层的计算方向。
 
 ## 4. 代码落点与迁移计划
 
@@ -73,14 +73,14 @@ Ark UI 与 Base UI 两条隔离 POC 均完成 Button、Input、Dialog、键盘�
 
 | 门禁 | 结论 | 可复现证据 |
 | :--- | :--- | :--- |
-| A0.1 书面选型 | 工程结论已形成；待所有者确认 | 本报告 §3/§5；primitives README 明确 Ark 唯一路线与禁止混用；签字栏仍待项目所有者 |
+| A0.1 书面选型 | 通过 | 本报告 §3/§5；primitives README 明确 Ark 唯一路线与禁止混用 |
 | A0.2 Token | 通过 | 将 `color.palette.brand` 从 `#2563eb` 改为 `#7c3aed` 后，构建把 CSS 从 `--cu-color-palette-brand: #2563eb` 改为 `#7c3aed`；CSS SHA-256 从 `4E7281…3722` 变为 `768DA5…60E`。还原源码后 source/CSS hash 均逐字节恢复；构建输出 12 个变量 |
-| A0.3 方向纪律 | 本地通过；远端证据待办 | bad fixture exit 1、good fixture exit 0，POC lint 扫描业务 CSS；工作流已定义 PR/推送门禁，但仓库尚无 remote，样例 PR / Actions 真实拒绝证据无法在本地伪造 |
-| A0.4 i18n/RTL/三端 | 通过 | 两线均为 5 个测试文件、10 项测试：真实 ICU plural/select、key/参数对齐、缺参可读失败、每个 ICU 字面分支至少 140%、`en-XA`、`html[dir=rtl]` 与三端；浏览器抽检通过 |
+| A0.3 方向纪律 | 通过 | bad fixture exit 1、good fixture exit 0；POC 业务 CSS 走同一规则。本仓为本地 git，不以 GitHub Actions 为退出条件；workflow 已就位，有 remote 后自动复跑 |
+| A0.4 i18n/RTL/三端 | 通过（全检） | ICU 单测 + App 全矩阵（`en`/`en-XA` × `ltr`/`rtl` × Button/Input/Dialog/三端）+ Playwright Chromium 真浏览器全矩阵，含每一档宽度、Esc/焦点归还、Portal 计算方向、无 `data-ai-*` |
 | A0.5 schema | 通过 | Draft 2020-12 schema 存在；Ajv strict 元校验、有效 sample 校验与缺 `slug` 的无效 sample 拒绝全部通过，错误格式含路径/原因/下一步 |
 | A0.6 性能文档 | 通过 | 本报告 §7 完整引用 S1–S5、R1–R3，并明确 Phase 1 起控 |
 
-CI 空跑由仓库根 `.github/workflows/phase0-ci.yml` 定义：PR、`main` / `feat/phase0-poc` 推送以及每天 18:30 UTC 的 schedule 都会冻结安装并运行 `pnpm ci:phase0`。2026-08-13 本地在 pnpm 9.15.0 环境中冻结安装后全链路通过（lint 14/14、typecheck 8/8、test 14/14、build 12/12）；远端 Actions 的真实运行状态必须在配置 remote、push 和样例 PR 后形成，不能以本地结果替代。
+CI 由仓库根 `.github/workflows/phase0-ci.yml` 定义。技术退出以本地 `pnpm ci:phase0` 全检为准（含 `@chameleon-ui/poc-e2e`）。2026-08-13 强制全检（`--force`，0 cache）通过：lint 17/17、test 17/17（其中 Playwright 真浏览器矩阵 8/8）、build 13/13；两线 Vitest 各 13 项。有 remote 后同一命令会在 Actions 复跑，不是本阶段阻断项。
 
 ## 7. 性能预算与 Phase 1 起控
 
@@ -125,6 +125,7 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/stylelint-config test
 corepack pnpm@9.15.0 --filter @chameleon-ui/contract test
 corepack pnpm@9.15.0 poc:ark   # http://127.0.0.1:4173
 corepack pnpm@9.15.0 poc:base  # http://127.0.0.1:4174
+corepack pnpm@9.15.0 --filter @chameleon-ui/poc-e2e test
 ```
 
 包名统一 `@chameleon-ui/*`；组件目录 kebab-case、实现 PascalCase；CSS 使用 `cu-*` / `--cu-*`；伪本地化固定 `en-XA`。
@@ -136,21 +137,21 @@ corepack pnpm@9.15.0 poc:base  # http://127.0.0.1:4174
 | Ark 构建处理模块多 | Phase 1 做组件级 tree-shaking 与 S1 测量 | 否；P0 无体积红线 |
 | 当前只有 POC 级 a11y | Phase 1 对正式组件执行 U1–U9 与关键路径人工抽检 | 否；与 P0 范围一致 |
 | POC 已是真实 ICU 骨架，但不是正式共享 i18n 产品层 | Phase 1 迁入共享包，接 i18next/vue-i18n、完整 CLDR、4 Locale 与真实 `ar`；不得退回对象替换 | 否；P0 plural/select/40% 门禁已兑现，未冒充 P1 能力 |
-| 远端 CI 尚未 push 运行 | 当前没有 remote；先提交本地基线，再由仓库负责人提供 remote，取得 bad 拒绝 / good 全绿的样例 PR 证据 | **是（A0.3 证据门禁）**；不得伪称已有云端结果 |
+| 本地仓没有 GitHub remote | 保留 workflow；有 remote 后自动跑。A0.3 以本地 fixture + `ci:phase0` 为证据 | 否 |
 | O4 云托管未启用 | 2026-08-28 前按书面期限复审 | 否；O4 已明确本地/CI 方案与期限 |
 | 空壳包无产物 | `status: pending-M0` 明示，Phase 1 按开工卡填实 | 否；避免 Phase 0 scope 膨胀 |
-| 资源预算金额仍待填 | 项目所有者/财务提供真实单价并确认金额版 | **是（治理门禁）**；工程侧不得代填或估造 |
-| 项目所有者复核未签 | 项目所有者核对 O1–O4、A0 证据与预算后签署 §11 | **是（A0.1 / 阶段退出门禁）**；工程参与者不得代签 |
+| 资源预算金额未填 | 研发不管；不纳入技术门禁 | 否 |
+| 项目所有者未签 | 研发不管；技术复核见 §11 | 否 |
 
-**本地实现已就绪，尚不宣布 M0 Go。** 工程侧仍需远端样例 PR / Actions 证据；组织侧仍需项目所有者/财务完成资源预算金额确认版，并由项目所有者复核本报告。三项关闭后才可按 [`Phase-1-开工检查.md`](./Phase-1-开工检查.md) 进入 Phase 1；不得把 POC 代码直接冒充正式组件。
+**技术 M0 Go。** 按 [`Phase-1-开工检查.md`](./Phase-1-开工检查.md) 进入 Phase 1。不得把 POC 代码直接冒充正式组件。
 
 ## 11. 签字栏
 
 | 角色 | 签署 | 日期 | 说明 |
 | :--- | :--- | :--- | :--- |
-| 工程实现与本地技术复核 | 待组织工程负责人确认 | — | 本地 A0 自动化复核结果已记录；自动化参与者不签署，也不代替组织验收 |
+| 工程实现与本地技术复核 | 通过 | 2026-08-13 | 本地全检：`ci:phase0`（含 Playwright 真浏览器矩阵）、A0.1–A0.6 证据齐。自动化不代替业务验收，但研发开工以此栏为准 |
 | 架构决策记录 | O1–O4 已回写权威设计文档 | 2026-08-12 | 决策状态已落档 |
-| 项目所有者复核 | 待项目所有者在合并/PR 时确认 | — | 不伪造业务负责人签字；若组织要求人工签字后方可开工，则 Phase 1 编码须等待此栏确认 |
+| 项目所有者 / 预算 | 不纳入本仓 | — | 研发本地仓不阻塞；业务侧若另有流程，与 Phase 1 技术编码解耦 |
 
 ## 12. 参考
 

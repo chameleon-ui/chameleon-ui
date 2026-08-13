@@ -18,7 +18,7 @@
 | `tsconfig.base.json` | 共享 TS 基配置 |
 | `.npmrc` / `.gitignore` | pnpm 与忽略规则 |
 | `../.github/workflows/phase0-ci.yml` | Git 仓库根的 Phase 0 PR/推送门禁：冻结安装后执行 `ci:phase0` |
-| `../docs/project/reports/M0-基元POC与地基验收.md` | M0 选型、A0 证据、预算引用、风险与签署记录 |
+| `../docs/project/reports/M0-基元POC与地基验收.md` | M0 选型、A0 全检证据、技术退出记录 |
 | `../docs/project/reports/Phase-1-开工检查.md` | M0 关闭后进入 Phase 1 的一页复现清单 |
 | `../docs/engineering/RTL与图标镜像工程规范.md` | M0 RTL 纪律：逻辑属性、图标矩阵、bidi 与分阶段 CI 范围 |
 
@@ -66,6 +66,7 @@ tokens / themes / contract
 | :--- | :--- | :--- |
 | `poc/ark-ui` | `@chameleon-ui/poc-ark-ui` | Ark：Button / Input / Dialog |
 | `poc/base-ui` | `@chameleon-ui/poc-base-ui` | Base：同上；对比后写 M0 |
+| `poc/e2e` | `@chameleon-ui/poc-e2e` | Playwright 真浏览器全矩阵；替代人工抽检 |
 
 不发布。结论进 `primitives`，沙箱可归档。
 
