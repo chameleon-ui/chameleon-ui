@@ -1,0 +1,22 @@
+.cu-block-approval-flow {
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-approval-flow__meta,
+.cu-block-approval-flow__error {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-approval-flow__error {
+  color: var(--cu-color-palette-brand);
+}
+
+.cu-block-approval-flow__panel {
+  display: grid;
+  gap: var(--cu-space-3);
+}

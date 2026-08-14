@@ -1,0 +1,40 @@
+{
+  "name": "@chameleon-ui/mcp-server",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "description": "Model Context Protocol server for one-shot Chameleon UI component and theme installation",
+  "bin": {
+    "chameleon-mcp": "dist/index.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@chameleon-ui/install-core": "workspace:*",
+    "@chameleon-ui/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

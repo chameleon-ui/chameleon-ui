@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "送信",
+    "cancel": "キャンセル",
+    "count": "{count, plural, =0 {操作は完了していません} other {# 件の操作が完了しました}}"
+  }
+}

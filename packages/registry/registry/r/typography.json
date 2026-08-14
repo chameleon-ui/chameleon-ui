@@ -1,0 +1,112 @@
+{
+  "id": "typography",
+  "type": "registry:ui",
+  "name": "Typography",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/typography/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"typography\",\n  \"name\": \"Typography\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents text using the design-system type scale across breakpoints.\",\n  \"scenarios\": [\n    \"Render a page heading that scales with viewport width\",\n    \"Display body copy in a readable measure\",\n    \"Show secondary metadata with a caption style\"\n  ],\n  \"props\": {\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Type scale level.\",\n      \"values\": [\n        \"heading-1\",\n        \"heading-2\",\n        \"body\",\n        \"caption\"\n      ],\n      \"default\": \"body\"\n    },\n    \"as\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic element to render; defaults from the variant if omitted.\",\n      \"values\": [\n        \"h1\",\n        \"h2\",\n        \"h3\",\n        \"p\",\n        \"span\",\n        \"div\"\n      ]\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"heading-1\",\n        \"heading-2\",\n        \"body\",\n        \"caption\"\n      ],\n      \"default\": \"body\",\n      \"description\": \"Type scale level that maps to size and weight.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Text rendered at the chosen scale.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"dialog\",\n      \"alert\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use heading variants only for visual size; keep the document outline semantic.\",\n    \"Do not hardcode colors; use token-provided foreground colors.\"\n  ],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [],\n    \"focus\": \"Text is not focusable.\",\n    \"labeling\": \"Headings create the document outline; other text is labelled by context.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Font sizes scale with the viewport using clamp() so text stays readable on compact screens.\",\n    \"breakpoints\": {\n      \"compact\": \"Heading sizes are capped at the lower clamp bound to avoid overflow.\",\n      \"medium\": \"Heading sizes grow with available space.\",\n      \"large\": \"Heading sizes reach their upper bound.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"typography\",\n    \"states\": [\n      \"heading-1\",\n      \"heading-2\",\n      \"body\",\n      \"caption\"\n    ],\n    \"intents\": [\n      \"style-text\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/index.ts",
+      "content": "export { Typography } from './Typography.js'\nexport type { TypographyProps } from './Typography.js'\n"
+    },
+    {
+      "path": "components/typography/locales/am.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"ርዕስ\",\n    \"body\": \"ዋና ጽሑፍ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ar.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"عنوان\",\n    \"body\": \"نص أساسي\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/bn.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"শিরোনাম\",\n    \"body\": \"মূল পাঠ্য\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/de.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Überschrift für diesen Abschnitt\",\n    \"body\": \"Fließtextabschnitt anzeigen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/en.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Heading\",\n    \"body\": \"Body text\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/es.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Encabezado\",\n    \"body\": \"Texto del cuerpo\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/fa.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"عنوان\",\n    \"body\": \"متن بدنه\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/fr.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Titre\",\n    \"body\": \"Corps de texte\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ha.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Kan take\",\n    \"body\": \"Rubutun jiki\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/hi.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"शीर्षक\",\n    \"body\": \"मुख्य पाठ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/id.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Judul\",\n    \"body\": \"Teks isi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ja.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"見出し\",\n    \"body\": \"本文\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ko.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"제목\",\n    \"body\": \"본문\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/pt.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Título\",\n    \"body\": \"Texto do corpo\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ru.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Заголовок\",\n    \"body\": \"Основной текст\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/sw.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Kichwa\",\n    \"body\": \"Maandishi ya mwili\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ug.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"ماۋزۇ\",\n    \"body\": \"ئاساسىي تېكىست\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/ur.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"عنوان\",\n    \"body\": \"متن\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/vi.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"Tiêu đề\",\n    \"body\": \"Nội dung\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/zh-CN.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"标题\",\n    \"body\": \"正文\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/locales/zh-HK.json",
+      "content": "{\n  \"typography\": {\n    \"heading\": \"標題\",\n    \"body\": \"內文\"\n  }\n}\n"
+    },
+    {
+      "path": "components/typography/README.md",
+      "content": "# Typography\n\nFrozen Phase 1 stub for `typography`.\n\n- Requirement: Type scale follows breakpoints\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/typography/styles.css",
+      "content": ".cu-typography {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-typography--heading-1 {\n  font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);\n  line-height: 1.15;\n  font-weight: 700;\n}\n\n.cu-typography--heading-2 {\n  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);\n  line-height: 1.25;\n  font-weight: 700;\n}\n\n.cu-typography--body {\n  font-size: 1rem;\n  line-height: 1.6;\n}\n\n.cu-typography--caption {\n  font-size: 0.875rem;\n  line-height: 1.5;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent);\n}\n"
+    },
+    {
+      "path": "components/typography/Typography.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport type TypographyVariant = 'heading-1' | 'heading-2' | 'body' | 'caption'\n\nexport interface TypographyProps {\n  variant?: TypographyVariant\n  /** Semantic element to render; defaults from the variant if omitted. */\n  as?: 'h1' | 'h2' | 'h3' | 'p' | 'span' | 'div'\n  children: ReactNode\n  className?: string\n}\n\nconst defaultElement: Record<TypographyVariant, 'h1' | 'h2' | 'p' | 'span'> = {\n  'heading-1': 'h1',\n  'heading-2': 'h2',\n  body: 'p',\n  caption: 'span',\n}\n\nexport function Typography({ variant = 'body', as, children, className }: TypographyProps) {\n  const Element = as ?? defaultElement[variant]\n  const classes = ['cu-typography', `cu-typography--${variant}`, className].filter(Boolean).join(' ')\n\n  return (\n    <Element className={classes} data-ai-role=\"typography\" data-ai-intent=\"style-text\" data-ai-state={variant} data-variant={variant}>\n      {children}\n    </Element>\n  )\n}\n"
+    }
+  ]
+}

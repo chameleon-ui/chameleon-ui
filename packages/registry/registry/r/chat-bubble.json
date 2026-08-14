@@ -1,0 +1,108 @@
+{
+  "id": "chat-bubble",
+  "type": "registry:ui",
+  "name": "ChatBubble",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/chat-bubble/ChatBubble.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface ChatBubbleProps {\n  role?: 'user' | 'assistant' | 'system'\n  children: ReactNode\n  time?: string\n  status?: 'streaming' | 'sent' | 'error'\n  statusLabel?: string\n  avatarSrc?: string\n  avatarAlt?: string\n  label?: string\n  className?: string\n}\n\nexport function ChatBubble({\n  role = 'assistant',\n  children,\n  time,\n  status,\n  statusLabel,\n  avatarSrc,\n  avatarAlt = '',\n  label,\n  className,\n}: ChatBubbleProps) {\n  const classes = ['cu-chat-bubble', 'cu-chat-bubble--' + role, status ? 'cu-chat-bubble--' + status : undefined, className]\n    .filter(Boolean)\n    .join(' ')\n  return (\n    <article className={classes} aria-label={label ?? role} data-ai-role=\"chat-bubble\" data-ai-intent=\"notify-status\" data-ai-state={status ?? role}>\n      {avatarSrc ? <img className=\"cu-chat-bubble__avatar\" src={avatarSrc} alt={avatarAlt} /> : null}\n      <div className=\"cu-chat-bubble__content\">\n        <div className=\"cu-chat-bubble__meta\">\n          <span className=\"cu-chat-bubble__role\">{role}</span>\n          {time ? <time className=\"cu-chat-bubble__time\">{time}</time> : null}\n          {statusLabel ? <span className=\"cu-chat-bubble__status\">{statusLabel}</span> : null}\n        </div>\n        <div className=\"cu-chat-bubble__body\" aria-live={status === 'streaming' ? 'polite' : undefined}>\n          {children}\n        </div>\n      </div>\n    </article>\n  )\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"chat-bubble\",\n  \"name\": \"ChatBubble\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a single chat message aligned and styled by its author role.\",\n  \"scenarios\": [\n    \"User prompt in an AI chat\",\n    \"Assistant answer with markdown body\",\n    \"System notice between turns\"\n  ],\n  \"props\": {\n    \"role\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Author role driving alignment and tone.\",\n      \"values\": [\n        \"user\",\n        \"assistant\",\n        \"system\"\n      ],\n      \"default\": \"assistant\"\n    },\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Message body content.\"\n    },\n    \"time\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Timestamp text.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label override.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"role\",\n      \"values\": [\n        \"user\",\n        \"assistant\",\n        \"system\"\n      ],\n      \"default\": \"assistant\",\n      \"description\": \"Author role.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Message bubble rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"card\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"markdown-renderer\",\n      \"text\",\n      \"code-block\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a chat bubble outside conversational UI.\",\n    \"Do not place interactive forms inside a system bubble.\"\n  ],\n  \"a11y\": {\n    \"role\": \"article\",\n    \"keyboard\": [],\n    \"focus\": \"Interactive children keep document order.\",\n    \"labeling\": \"Author role is exposed as text for screen readers.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Bubble max measure shrinks on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Near full width.\",\n      \"medium\": \"Constrained measure.\",\n      \"large\": \"Constrained measure.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"chat-bubble\",\n    \"states\": [\n      \"default\",\n      \"user\",\n      \"assistant\",\n      \"system\"\n    ],\n    \"intents\": [\n      \"notify-status\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/index.ts",
+      "content": "export { ChatBubble } from './ChatBubble.js'\nexport type { ChatBubbleProps } from './ChatBubble.js'\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/am.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ar.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"رسالة محادثة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/bn.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/de.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat-Nachrichtenblase\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/en.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/es.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/fa.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/fr.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ha.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/hi.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/id.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ja.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ko.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/pt.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ru.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/sw.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ug.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/ur.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/vi.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/zh-CN.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"对话消息\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/locales/zh-HK.json",
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chat-bubble/styles.css",
+      "content": ".cu-chat-bubble {\n  display: flex;\n  gap: var(--cu-space-2);\n  max-inline-size: 36rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-radius: var(--cu-radius-md);\n  color: var(--cu-color-fg-default);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, var(--cu-color-background-default));\n}\n\n.cu-chat-bubble--user {\n  margin-inline-start: auto;\n  background: var(--cu-color-palette-brand);\n  color: var(--cu-color-fg-inverse);\n}\n\n.cu-chat-bubble--system {\n  background: transparent;\n  border: 1px dashed var(--cu-color-border-default);\n}\n\n.cu-chat-bubble--error {\n  border: 1px solid var(--cu-color-palette-brand);\n}\n\n.cu-chat-bubble__avatar {\n  inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border-radius: 50%;\n  flex-shrink: 0;\n}\n\n.cu-chat-bubble__content {\n  min-inline-size: 0;\n}\n\n.cu-chat-bubble__meta {\n  display: flex;\n  gap: var(--cu-space-2);\n  font-size: 0.75em;\n  opacity: 0.8;\n}\n\n.cu-chat-bubble__role {\n  font-weight: 600;\n  text-transform: capitalize;\n}\n\n.cu-chat-bubble__status {\n  font-style: italic;\n}\n\n.cu-chat-bubble--streaming .cu-chat-bubble__status {\n  animation: cu-chat-bubble-pulse 1.2s ease-in-out infinite;\n}\n\n.cu-chat-bubble__body {\n  margin-block-start: var(--cu-space-1);\n}\n\n@keyframes cu-chat-bubble-pulse {\n  0%,\n  100% {\n    opacity: 0.55;\n  }\n  50% {\n    opacity: 1;\n  }\n}\n"
+    }
+  ]
+}

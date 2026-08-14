@@ -1,0 +1,49 @@
+{
+  "density": {
+    "$type": "number",
+    "compact": {
+      "$value": 0.875,
+      "$description": "Spacing scale multiplier for compact density (desktop default)."
+    },
+    "standard": {
+      "$value": 1,
+      "$description": "Spacing scale multiplier for standard density (tablet default)."
+    },
+    "comfortable": {
+      "$value": 1.125,
+      "$description": "Spacing scale multiplier for comfortable density (mobile default)."
+    },
+    "active": {
+      "$value": "{density.standard}",
+      "$description": "Currently active spacing scale multiplier. dist/css/density.css re-points it per breakpoint or [data-density]."
+    }
+  },
+  "control": {
+    "size": {
+      "$type": "dimension",
+      "compact": {
+        "$value": { "value": 2.25, "unit": "rem" },
+        "$description": "Minimum interactive control block size at compact density (=36px at 16px root)."
+      },
+      "standard": {
+        "$value": { "value": 2.5, "unit": "rem" },
+        "$description": "Minimum interactive control block size at standard density (=40px at 16px root)."
+      },
+      "comfortable": {
+        "$value": { "value": 2.75, "unit": "rem" },
+        "$description": "Minimum interactive control block size at comfortable density (=44px at 16px root); meets the touch target floor."
+      },
+      "active": {
+        "$value": "{control.size.standard}",
+        "$description": "Currently active minimum control size. dist/css/density.css re-points it per breakpoint or [data-density]."
+      }
+    }
+  },
+  "touch-target": {
+    "$type": "dimension",
+    "min": {
+      "$value": { "value": 2.75, "unit": "rem" },
+      "$description": "Minimum touch target size (vision §7.1: 44px; expressed as 2.75rem so it scales with the root font size)."
+    }
+  }
+}

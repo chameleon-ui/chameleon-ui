@@ -1,0 +1,108 @@
+{
+  "id": "input",
+  "type": "registry:ui",
+  "name": "Input",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/input/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"input\",\n  \"name\": \"Input\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Collects a single line of text with label, disabled, and invalid states.\",\n  \"scenarios\": [\n    \"Enter a project or user name\",\n    \"Show a validation error beside the field\",\n    \"Disable the field while a request is in flight\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Controlled text value.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Receives the next string value.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Visible accessible name for the text box.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents editing.\",\n      \"default\": false\n    },\n    \"invalid\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Marks the control invalid and shows error text.\",\n      \"default\": false\n    },\n    \"errorMessage\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Message shown when invalid is true.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Enabled and valid.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Not editable.\"\n    },\n    {\n      \"name\": \"invalid\",\n      \"description\": \"Failed validation; error text is shown.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"field-group\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a placeholder as the only label.\",\n    \"Do not announce errors only by color.\"\n  ],\n  \"a11y\": {\n    \"role\": \"textbox\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Printable keys insert text\"\n    ],\n    \"focus\": \"Visible focus ring; label remains associated in LTR and RTL.\",\n    \"labeling\": \"Visible label is programmatically associated.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.4.6\",\n      \"3.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"The field stretches to the inline size of its container. Target height stays at least 44px.\",\n    \"breakpoints\": {\n      \"compact\": \"Full inline size of the parent.\",\n      \"medium\": \"Content or parent width.\",\n      \"large\": \"Content or parent width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical padding and borders. Text value direction follows the document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"input\",\n    \"states\": [\n      \"default\",\n      \"disabled\",\n      \"invalid\"\n    ],\n    \"intents\": [\n      \"enter-text\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/input/index.ts",
+      "content": "export { Input } from './Input.js'\nexport type { InputProps } from './Input.js'\n"
+    },
+    {
+      "path": "components/input/Input.tsx",
+      "content": "import { FieldPrimitive } from '@chameleon-ui/primitives'\nimport type { ComponentPropsWithoutRef } from 'react'\nimport './styles.css'\n\nexport interface InputProps\n  extends Omit<ComponentPropsWithoutRef<'input'>, 'className' | 'onChange' | 'value'> {\n  value: string\n  onChange: (value: string) => void\n  label: string\n  disabled?: boolean\n  invalid?: boolean\n  errorMessage?: string\n  className?: string\n}\n\nexport function Input({\n  value,\n  onChange,\n  label,\n  disabled = false,\n  invalid = false,\n  errorMessage = 'Please review this value.',\n  className,\n  id,\n  ...props\n}: InputProps) {\n  const classes = ['cu-input', className].filter(Boolean).join(' ')\n\n  return (\n    <FieldPrimitive.Root\n      className=\"cu-field\"\n      data-ai-role=\"input\" data-ai-intent=\"enter-text\"\n      data-ai-state={invalid ? 'invalid' : disabled ? 'disabled' : 'default'}\n      disabled={disabled}\n      id={id}\n      invalid={invalid}\n    >\n      <FieldPrimitive.Label className=\"cu-field__label\">{label}</FieldPrimitive.Label>\n      <FieldPrimitive.Input\n        {...props}\n        className={classes}\n        value={value}\n        onChange={(event) => onChange(event.currentTarget.value)}\n      />\n      {invalid ? (\n        <FieldPrimitive.ErrorText className=\"cu-field__error\">{errorMessage}</FieldPrimitive.ErrorText>\n      ) : null}\n    </FieldPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/input/locales/am.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"የፕሮጀክት ስም\",\n    \"placeholder\": \"ቢያንስ ሦስት ቁምፊዎች ያስገቡ\",\n    \"invalid\": \"ቢያንስ ሦስት ቁምፊዎች ይጠቀሙ።\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ar.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"اسم المشروع\",\n    \"placeholder\": \"أدخل ثلاثة أحرف على الأقل\",\n    \"invalid\": \"استخدم ثلاثة أحرف على الأقل.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/bn.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"প্রকল্পের নাম\",\n    \"placeholder\": \"কমপক্ষে তিনটি অক্ষর লিখুন\",\n    \"invalid\": \"কমপক্ষে তিনটি অক্ষর ব্যবহার করুন।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/de.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Name des Projektplans\",\n    \"placeholder\": \"Bitte mindestens drei Zeichen in dieses Feld eingeben\",\n    \"invalid\": \"Verwenden Sie mindestens drei Zeichen für diesen Namen.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/en.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Project name\",\n    \"placeholder\": \"Enter at least three characters\",\n    \"invalid\": \"Use at least three characters.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/es.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Nombre del proyecto\",\n    \"placeholder\": \"Introduce al menos tres caracteres\",\n    \"invalid\": \"Usa al menos tres caracteres.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/fa.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"نام پروژه\",\n    \"placeholder\": \"حداقل سه نویسه وارد کنید\",\n    \"invalid\": \"حداقل سه نویسه استفاده کنید.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/fr.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Nom du projet\",\n    \"placeholder\": \"Saisissez au moins trois caractères\",\n    \"invalid\": \"Utilisez au moins trois caractères.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ha.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Sunan aikin\",\n    \"placeholder\": \"Shigar da aƙalla haruffa uku\",\n    \"invalid\": \"Yi amfani da aƙalla haruffa uku.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/hi.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"परियोजना का नाम\",\n    \"placeholder\": \"कम से कम तीन अक्षर दर्ज करें\",\n    \"invalid\": \"कम से कम तीन अक्षर का उपयोग करें।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/id.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Nama proyek\",\n    \"placeholder\": \"Masukkan minimal tiga karakter\",\n    \"invalid\": \"Gunakan minimal tiga karakter.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ja.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"プロジェクト名\",\n    \"placeholder\": \"3文字以上入力してください\",\n    \"invalid\": \"3文字以上を使用してください。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ko.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"프로젝트 이름\",\n    \"placeholder\": \"세 글자 이상 입력하세요\",\n    \"invalid\": \"세 글자 이상 사용하세요.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/pt.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Nome do projeto\",\n    \"placeholder\": \"Digite pelo menos três caracteres\",\n    \"invalid\": \"Use pelo menos três caracteres.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ru.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Название проекта\",\n    \"placeholder\": \"Введите не менее трёх символов\",\n    \"invalid\": \"Используйте не менее трёх символов.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/sw.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Jina la mradi\",\n    \"placeholder\": \"Weka angalau herufi tatu\",\n    \"invalid\": \"Tumia angalau herufi tatu.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ug.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"تۈر نامى\",\n    \"placeholder\": \"كەم دېگەندە ئۈچ ھەرپ كىرگۈزۈڭ\",\n    \"invalid\": \"كەم دېگەندە ئۈچ ھەرپ ئىشلىتىڭ.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/ur.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"منصوبے کا نام\",\n    \"placeholder\": \"کم از کم تین حروف درج کریں\",\n    \"invalid\": \"کم از کم تین حروف استعمال کریں۔\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/vi.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"Tên dự án\",\n    \"placeholder\": \"Nhập ít nhất ba ký tự\",\n    \"invalid\": \"Dùng ít nhất ba ký tự.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/zh-CN.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"项目名称\",\n    \"placeholder\": \"请至少输入三个字符\",\n    \"invalid\": \"请至少输入三个字符。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/locales/zh-HK.json",
+      "content": "{\n  \"input\": {\n    \"label\": \"專案名稱\",\n    \"placeholder\": \"請輸入至少三個字元\",\n    \"invalid\": \"請使用至少三個字元。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/input/styles.css",
+      "content": ".cu-field {\n  display: grid;\n  gap: var(--cu-space-1);\n}\n\n.cu-field__label {\n  color: var(--cu-color-fg-default);\n  font-size: 0.82rem;\n  font-weight: 700;\n}\n\n.cu-input {\n  min-inline-size: 0;\n  min-block-size: 2.75rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  color: var(--cu-color-fg-default);\n  background: var(--cu-color-background-default);\n  font: inherit;\n  transition:\n    border-color var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease),\n    box-shadow var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease);\n}\n\n.cu-input:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n.cu-input[aria-invalid='true'] {\n  border-color: var(--cu-color-palette-brand);\n}\n\n.cu-input:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n\n.cu-field__error {\n  color: var(--cu-color-palette-brand);\n  font-size: 0.82rem;\n}\n"
+    }
+  ]
+}

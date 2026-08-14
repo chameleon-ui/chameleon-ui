@@ -1,0 +1,20 @@
+{
+  "_cuSkeleton": true,
+  "iot": {
+    "title": "Device panel",
+    "subtitle": "Gauges and trends for connected equipment.",
+    "statusOnline": "Online",
+    "statusOffline": "Offline",
+    "statusAlert": "Alert",
+    "gaugeLabel": "Load {name}",
+    "chartLabel": "Trend {name}",
+    "acknowledge": "Acknowledge {name}",
+    "emptyTitle": "No devices",
+    "emptyDescription": "Connect a device to populate this panel.",
+    "emptyChart": "No data",
+    "seedAlpha": "Chiller A",
+    "seedBravo": "Pump B",
+    "seedCharlie": "Sensor C",
+    "deviceCount": "{count, plural, =0 {No devices} one {# device} other {# devices}}"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "slug": "kanban",
+  "type": "registry:block",
+  "name": "Kanban",
+  "dependencies": ["button", "card", "empty-state", "list", "tag", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Three-column board with keyboard move"
+  }
+}

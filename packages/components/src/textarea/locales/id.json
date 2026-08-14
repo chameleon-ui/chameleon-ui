@@ -1,0 +1,6 @@
+{
+  "textarea": {
+    "label": "Pesan",
+    "invalid": "Masukkan minimal sepuluh karakter."
+  }
+}

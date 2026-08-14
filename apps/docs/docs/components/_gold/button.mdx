@@ -1,0 +1,28 @@
+import { ButtonPlayground } from '@site/src/playgrounds'
+
+## Examples
+
+Interactive playground (real `@chameleon-ui/components` Button) plus live MDX you can edit.
+
+<ButtonPlayground />
+
+```jsx live
+function Example() {
+  return (
+    <Stack direction="row" gap="2" align="center">
+      <Button variant="solid">Confirm</Button>
+      <Button variant="outline">Cancel</Button>
+      <Button size="sm" variant="outline">Compact</Button>
+      <Button disabled>Disabled</Button>
+    </Stack>
+  );
+}
+```
+
+Minimal:
+
+```jsx live
+function Example() {
+  return <Button>Save changes</Button>;
+}
+```

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "collapse",
+  "name": "Collapse",
+  "status": "experimental",
+  "purpose": "Toggles the visibility of a content section with a single trigger.",
+  "scenarios": [
+    "Expand a FAQ answer",
+    "Show advanced settings",
+    "Reveal long-form content"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Trigger button label."
+    },
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Content revealed when open."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Initial open state.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Content is visible."
+    },
+    {
+      "name": "closed",
+      "description": "Content is hidden."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "form"
+    ],
+    "allowedChildren": [
+      "text",
+      "button",
+      "input"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for navigation menus.",
+    "Do not hide critical error messages inside a collapse."
+  ],
+  "a11y": {
+    "role": "button",
+    "keyboard": [
+      "Enter/Space toggles"
+    ],
+    "focus": "Trigger is focusable.",
+    "labeling": "Title labels the trigger.",
+    "wcag": [
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Content is shown/hidden without reflowing siblings.",
+    "breakpoints": {
+      "compact": "Full width trigger.",
+      "medium": "Full width trigger.",
+      "large": "Full width trigger."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "collapse",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "toggle-visibility"
+    ]
+  }
+}

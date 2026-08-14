@@ -1,0 +1,108 @@
+{
+  "id": "flow-node",
+  "type": "registry:ui",
+  "name": "FlowNode",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/flow-node/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"flow-node\",\n  \"name\": \"FlowNode\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"A positioned node card for flow diagrams with input and output ports.\",\n  \"scenarios\": [\n    \"Step in a workflow canvas\",\n    \"Task in an automation graph\",\n    \"State in a state machine view\"\n  ],\n  \"props\": {\n    \"id\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Stable node id.\"\n    },\n    \"x\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"World x position in px.\"\n    },\n    \"y\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"World y position in px.\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Node headline.\"\n    },\n    \"status\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Node status tone.\",\n      \"values\": [\n        \"default\",\n        \"active\",\n        \"success\",\n        \"failed\"\n      ],\n      \"default\": \"default\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"status\",\n      \"values\": [\n        \"default\",\n        \"active\",\n        \"success\",\n        \"failed\"\n      ],\n      \"default\": \"default\",\n      \"description\": \"Node status tone.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Node rendered at its position.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"canvas\",\n      \"mind-map\",\n      \"pipeline-view\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"badge\",\n      \"icon\"\n    ],\n    \"requiredContext\": [\n      \"canvas\"\n    ]\n  },\n  \"antiPatterns\": [\n    \"Do not position flow nodes with physical left/right CSS.\",\n    \"Do not render a flow node outside a canvas context.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [],\n    \"focus\": \"Node is focusable when it carries actions.\",\n    \"labeling\": \"Title labels the node; status has a text equivalent.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fixed world size; scales with the canvas zoom.\",\n    \"breakpoints\": {\n      \"compact\": \"Scales with zoom.\",\n      \"medium\": \"Scales with zoom.\",\n      \"large\": \"Scales with zoom.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"flow-node\",\n    \"states\": [\n      \"default\",\n      \"active\",\n      \"success\",\n      \"failed\"\n    ],\n    \"intents\": [\n      \"group-content\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/FlowNode.tsx",
+      "content": "import './styles.css'\n\nexport interface FlowNodeProps {\n  id: string\n  x: number\n  y: number\n  title: string\n  status?: 'default' | 'active' | 'success' | 'failed'\n  className?: string\n}\n\nexport function FlowNode({ id, x, y, title, status = 'default', className }: FlowNodeProps) {\n  const classes = ['cu-flow-node', 'cu-flow-node--' + status, className].filter(Boolean).join(' ')\n  return (\n    <div\n      id={id}\n      className={classes}\n      data-ai-role=\"flow-node\" data-ai-intent=\"group-content\"\n      data-ai-state={status}\n      data-canvas-node\n      style={{ transform: `translate(${x}px, ${y}px)` }}\n    >\n      <span className=\"cu-flow-node__port cu-flow-node__port--in\" aria-hidden=\"true\" />\n      <span className=\"cu-flow-node__title\">{title}</span>\n      <span className=\"cu-flow-node__port cu-flow-node__port--out\" aria-hidden=\"true\" />\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/flow-node/index.ts",
+      "content": "export { FlowNode } from './FlowNode.js'\nexport type { FlowNodeProps } from './FlowNode.js'\n"
+    },
+    {
+      "path": "components/flow-node/locales/am.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ar.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"عقدة التدفق\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/bn.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/de.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Prozessablauf-Knoten\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/en.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/es.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/fa.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/fr.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ha.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/hi.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/id.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ja.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ko.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/pt.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ru.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/sw.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ug.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/ur.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/vi.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/zh-CN.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"流程节点\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/locales/zh-HK.json",
+      "content": "{\n  \"flow-node\": {\n    \"label\": \"Flow node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/flow-node/styles.css",
+      "content": ".cu-flow-node {\n  position: absolute;\n  inset-block-start: 0;\n  inset-inline-start: 0;\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  white-space: nowrap;\n}\n\n.cu-flow-node--active {\n  border-color: var(--cu-color-palette-brand);\n  box-shadow: 0 0 0 2px color-mix(in srgb, var(--cu-color-palette-brand) 40%, transparent);\n}\n\n.cu-flow-node--success {\n  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, green);\n}\n\n.cu-flow-node--failed {\n  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);\n}\n\n.cu-flow-node__port {\n  inline-size: var(--cu-space-1);\n  block-size: var(--cu-space-1);\n  border-radius: 50%;\n  background: var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "list",
+  "name": "List",
+  "status": "experimental",
+  "purpose": "Renders a group of related items as a list.",
+  "scenarios": [
+    "Show a bullet list",
+    "Show a numbered list",
+    "Render a plain list of items"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of item strings."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "List marker style.",
+      "values": [
+        "unordered",
+        "ordered",
+        "none"
+      ],
+      "default": "unordered"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "unordered",
+        "ordered",
+        "none"
+      ],
+      "default": "unordered",
+      "description": "List marker style."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "List rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "text",
+      "page",
+      "card"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use lists for layout.",
+    "Do not mix ordered and unordered semantics without reason."
+  ],
+  "a11y": {
+    "role": "list",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Not a labelled region.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Block list.",
+    "breakpoints": {
+      "compact": "Block.",
+      "medium": "Block.",
+      "large": "Block."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; markers follow list semantics.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "list",
+    "states": [
+      "unordered",
+      "ordered",
+      "none"
+    ],
+    "intents": [
+      "enumerate-items"
+    ]
+  }
+}

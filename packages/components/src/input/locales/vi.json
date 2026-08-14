@@ -1,0 +1,7 @@
+{
+  "input": {
+    "label": "Tên dự án",
+    "placeholder": "Nhập ít nhất ba ký tự",
+    "invalid": "Dùng ít nhất ba ký tự."
+  }
+}

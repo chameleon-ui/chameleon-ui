@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "grid",
+  "name": "Grid",
+  "status": "experimental",
+  "purpose": "Two-dimensional layout container for aligning child elements.",
+  "scenarios": [
+    "Align cards in a dashboard",
+    "Create a form layout",
+    "Build a responsive gallery"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Grid items."
+    },
+    "columns": {
+      "type": "number",
+      "required": false,
+      "description": "Default column count.",
+      "default": 1
+    },
+    "gap": {
+      "type": "enum",
+      "required": false,
+      "description": "Gap between items.",
+      "values": [
+        "none",
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "gap",
+      "values": [
+        "none",
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Gap between items."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Grid laid out."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card"
+    ],
+    "allowedChildren": [
+      "card",
+      "stack",
+      "form"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use Grid for one-dimensional layouts; use Stack.",
+    "Do not nest deeply."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Children remain focusable in document order.",
+    "labeling": "Not a landmark.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Column count can be overridden by media queries externally.",
+    "breakpoints": {
+      "compact": "Columns may collapse via external CSS.",
+      "medium": "Configured columns.",
+      "large": "Configured columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "CSS Grid with logical gaps.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "grid",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "layout-columns"
+    ]
+  }
+}

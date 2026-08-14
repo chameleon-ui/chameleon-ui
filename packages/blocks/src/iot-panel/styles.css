@@ -1,0 +1,44 @@
+.cu-block-iot-panel {
+  container-type: inline-size;
+  container-name: iot;
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-iot-panel__header {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-iot-panel__meta {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-iot-panel__devices {
+  display: grid;
+  gap: var(--cu-space-3);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cu-block-iot-panel__device {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-iot-panel__device-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-2);
+}
+
+@container iot (min-inline-size: 48rem) {
+  .cu-block-iot-panel__devices {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

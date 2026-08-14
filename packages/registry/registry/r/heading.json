@@ -1,0 +1,108 @@
+{
+  "id": "heading",
+  "type": "registry:ui",
+  "name": "Heading",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/heading/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"heading\",\n  \"name\": \"Heading\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Renders a semantic heading at a chosen level.\",\n  \"scenarios\": [\n    \"Page title\",\n    \"Section heading\",\n    \"Card heading\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Heading text.\"\n    },\n    \"level\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic heading level.\",\n      \"values\": [\n        \"level-1\",\n        \"level-2\",\n        \"level-3\",\n        \"level-4\",\n        \"level-5\",\n        \"level-6\"\n      ],\n      \"default\": \"level-2\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"level\",\n      \"values\": [\n        \"level-1\",\n        \"level-2\",\n        \"level-3\",\n        \"level-4\",\n        \"level-5\",\n        \"level-6\"\n      ],\n      \"default\": \"level-2\",\n      \"description\": \"Semantic heading level.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Heading rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\",\n      \"dialog\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not skip heading levels for visual effect.\",\n    \"Do not use heading styles on non-heading elements.\"\n  ],\n  \"a11y\": {\n    \"role\": \"heading\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Contents provide the heading text.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Size scales with viewport.\",\n    \"breakpoints\": {\n      \"compact\": \"Smaller font size.\",\n      \"medium\": \"Medium size.\",\n      \"large\": \"Large size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"heading\",\n    \"states\": [\n      \"level-1\",\n      \"level-2\",\n      \"level-3\",\n      \"level-4\",\n      \"level-5\",\n      \"level-6\"\n    ],\n    \"intents\": [\n      \"structure-content\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/Heading.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport type HeadingLevel = 'level-1' | 'level-2' | 'level-3' | 'level-4' | 'level-5' | 'level-6'\n\nexport interface HeadingProps {\n  children: ReactNode\n  level?: HeadingLevel\n  className?: string\n}\n\nconst tagByLevel: Record<HeadingLevel, 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'> = {\n  'level-1': 'h1',\n  'level-2': 'h2',\n  'level-3': 'h3',\n  'level-4': 'h4',\n  'level-5': 'h5',\n  'level-6': 'h6',\n}\n\nexport function Heading({ children, level = 'level-2', className }: HeadingProps) {\n  const classes = ['cu-heading', 'cu-heading--' + level, className].filter(Boolean).join(' ')\n  const Tag = tagByLevel[level]\n  return <Tag className={classes} data-ai-role=\"heading\" data-ai-intent=\"structure-content\" data-ai-state={level}>{children}</Tag>\n}\n"
+    },
+    {
+      "path": "components/heading/index.ts",
+      "content": "export { Heading } from './Heading.js'\nexport type { HeadingProps } from './Heading.js'\n"
+    },
+    {
+      "path": "components/heading/locales/am.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ar.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"عنوان\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/bn.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/de.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Überschrift\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/en.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/es.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/fa.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/fr.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ha.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/hi.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/id.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ja.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ko.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/pt.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ru.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/sw.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ug.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/ur.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/vi.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/zh-CN.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"标题\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/locales/zh-HK.json",
+      "content": "{\n  \"heading\": {\n    \"label\": \"Heading\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heading/styles.css",
+      "content": ".cu-heading {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n  font-weight: 700;\n  line-height: 1.2;\n}\n\n.cu-heading--level-1 {\n  font-size: clamp(1.75rem, 4vw, 2.5rem);\n}\n\n.cu-heading--level-2 {\n  font-size: clamp(1.5rem, 3vw, 2rem);\n}\n\n.cu-heading--level-3 {\n  font-size: clamp(1.25rem, 2.5vw, 1.5rem);\n}\n\n.cu-heading--level-4 {\n  font-size: 1.125rem;\n}\n\n.cu-heading--level-5 {\n  font-size: 1rem;\n}\n\n.cu-heading--level-6 {\n  font-size: 0.875rem;\n  text-transform: uppercase;\n  letter-spacing: 0.05em;\n}\n"
+    }
+  ]
+}

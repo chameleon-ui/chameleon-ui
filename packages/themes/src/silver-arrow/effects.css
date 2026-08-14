@@ -1,0 +1,61 @@
+/* Silver Arrow — racing silver, sharp edges, opaque. Subtle sheen only; no glass. */
+:root {
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  font-family: var(--cu-font-family-sans);
+  font-synthesis: none;
+  letter-spacing: var(--cu-font-tracking-tight);
+  line-height: var(--cu-typography-line-height-body);
+}
+
+:root .cu-heading,
+:root .cu-navbar__brand,
+:root .cu-dialog__title {
+  font-weight: var(--cu-font-weight-semibold);
+  letter-spacing: var(--cu-font-tracking-tight);
+}
+
+:root .cu-button {
+  letter-spacing: 0.04em;
+  font-weight: var(--cu-font-weight-semibold);
+}
+
+:root .cu-navbar,
+:root .cu-app-shell__header,
+:root .cu-tab-bar {
+  background-color: var(--cu-color-background-subtle);
+  background-image: linear-gradient(180deg, var(--cu-color-background-default) 0%, var(--cu-color-background-subtle) 100%);
+  border-block-end: 2px solid var(--cu-color-palette-brand);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-tab-bar {
+  border-block-end: 0;
+  border-block-start: 2px solid var(--cu-color-palette-brand);
+}
+
+:root .cu-dialog__content,
+:root .cu-app-shell__sidebar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-app-shell__main {
+  background: var(--cu-color-background-default);
+}
+
+:root .cu-button:focus-visible,
+:root .cu-input:focus-visible,
+:root .cu-navbar__item:focus-visible,
+:root .cu-select__trigger:focus-visible {
+  outline-width: 2px;
+  outline-offset: 1px;
+}
+
+@media (hover: hover) {
+  :root .cu-button--solid:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--cu-color-palette-brand) 82%, #0f172a);
+  }
+}

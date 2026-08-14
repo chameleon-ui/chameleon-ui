@@ -1,0 +1,19 @@
+{
+  "trade": {
+    "title": "交易终端",
+    "subtitle": "查看行情、绘制标的，并检查未完成订单。",
+    "tickerLabel": "行情",
+    "chartNamed": "价格 · {symbol}",
+    "priceSeries": "最新",
+    "gridLabel": "订单",
+    "emptyLabel": "没有订单",
+    "colSymbol": "标的",
+    "colSide": "方向",
+    "colSize": "数量",
+    "colPrice": "价格",
+    "sideBuy": "买入",
+    "sideSell": "卖出",
+    "selectSymbol": "选择 {symbol}",
+    "orderCount": "{count, plural, =0 {没有未完成订单} other {# 笔未完成订单}}"
+  }
+}

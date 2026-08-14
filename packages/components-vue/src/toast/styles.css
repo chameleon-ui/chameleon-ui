@@ -1,0 +1,39 @@
+.cu-toast {
+  display: grid;
+  gap: var(--cu-space-1);
+  min-inline-size: 16rem;
+  max-inline-size: min(100%, 24rem);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border-radius: var(--cu-radius-md);
+  border-inline-start: 4px solid var(--cu-color-palette-brand);
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  box-shadow: var(--cu-shadow-md);
+}
+
+.cu-toast--success {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 70%, var(--cu-color-fg-default));
+}
+
+.cu-toast--warning {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 45%, var(--cu-color-fg-default));
+}
+
+.cu-toast--error {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 40%, var(--cu-color-fg-default));
+}
+
+.cu-toast__title {
+  font-weight: 700;
+}
+
+.cu-toast__description {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.cu-toast__close {
+  justify-self: start;
+  margin-block-start: var(--cu-space-1);
+}

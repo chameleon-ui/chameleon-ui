@@ -1,0 +1,23 @@
+import { TablePreview } from '@site/src/playgrounds'
+
+## Examples
+
+<TablePreview />
+
+```jsx live
+function Example() {
+  return (
+    <Table
+      caption="Deployments"
+      columns={[
+        { key: 'name', header: 'Name' },
+        { key: 'state', header: 'State' },
+      ]}
+      rows={[
+        { name: 'Alpha', state: 'Active' },
+        { name: 'Beta', state: 'Paused' },
+      ]}
+    />
+  );
+}
+```

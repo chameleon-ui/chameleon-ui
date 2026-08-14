@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "markdown-renderer",
+  "name": "MarkdownRenderer",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Renders Markdown text to semantic elements without raw HTML injection; friendly to streamed input.",
+  "scenarios": [
+    "Render an AI assistant reply",
+    "Display changelog entries",
+    "Show formatted documentation excerpts"
+  ],
+  "props": {
+    "markdown": {
+      "type": "string",
+      "required": true,
+      "description": "Markdown source text."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the rendered region."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Rendered content."
+    },
+    {
+      "name": "empty",
+      "description": "Empty source renders nothing."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "chat-bubble",
+      "article-card",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [
+      "code-block",
+      "link",
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not pass raw HTML through; only the supported Markdown subset renders.",
+    "Do not use it as an editor; it is read-only."
+  ],
+  "a11y": {
+    "role": "document",
+    "keyboard": [],
+    "focus": "Links inside the output stay in document order.",
+    "labeling": "Semantic headings and lists preserve document structure.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Flows with the parent measure; code blocks scroll horizontally.",
+    "breakpoints": {
+      "compact": "Narrow measure, scrollable code.",
+      "medium": "Default measure.",
+      "large": "Default measure."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "markdown-renderer",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "render-markup"
+    ]
+  }
+}

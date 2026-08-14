@@ -9,6 +9,16 @@ Phase 0 的 RTL 方向属性门禁。配置使用 Stylelint 的语法树规则�
 - `border-left/right*` → `border-inline-start/end*`
 - `left/right` → `inset-inline-start/end`
 
+## Phase 5：`chameleon/no-breakpoint-literal`
+
+组件 CSS 禁止硬编码视口断点（Phase 5 A5.2）：
+
+- `@media` 中出现宽度/高度尺寸查询（`min-width` / `max-width` / 区间语法 / 长度字面量）→ 拒绝，并提示改用 `@container` 或 tokens 的 `density.css`。
+- `@container` 中出现冻结断点的 px 字面量（`768px` / `1280px`）→ 拒绝，提示用等值 rem（`48rem` / `80rem`）。
+- `@media (prefers-reduced-motion …)`、`(hover: hover)` 等非尺寸查询不拦截。
+- 规则经 `overrides` 仅作用于 `packages/components/**/*.css`、`packages/components-vue/**/*.css` 与本包 fixtures；tokens 包生成的 `density.css` 是断点字面量的唯一合法持有者。
+- 逃逸口：`stylelint-disable` 注释 + `LEGACY-*` 单号。规范全文见 `docs/engineering/容器查询与三端规范.md`。
+
 ## 红绿验证
 
 ```bash

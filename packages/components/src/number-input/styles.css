@@ -1,0 +1,26 @@
+.cu-number-input {
+  display: grid;
+  gap: var(--cu-space-1);
+}
+
+.cu-number-input__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-number-input__input {
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  font: inherit;
+}
+
+.cu-number-input__input:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}

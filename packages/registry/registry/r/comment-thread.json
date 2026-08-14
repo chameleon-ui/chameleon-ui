@@ -1,0 +1,108 @@
+{
+  "id": "comment-thread",
+  "type": "registry:ui",
+  "name": "CommentThread",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/comment-thread/CommentThread.tsx",
+      "content": "import './styles.css'\n\nexport interface CommentItem {\n  id: string\n  author: string\n  time: string\n  text: string\n  replies?: CommentItem[]\n}\n\nexport interface CommentThreadProps {\n  comments: CommentItem[]\n  label?: string\n  replyLabel?: string\n  onReply?: (commentId: string) => void\n  className?: string\n}\n\nexport function CommentThread({ comments, label = 'Comments', replyLabel = 'Reply', onReply, className }: CommentThreadProps) {\n  const classes = ['cu-comment-thread', className].filter(Boolean).join(' ')\n\n  const renderComments = (items: CommentItem[]) => (\n    <ul className=\"cu-comment-thread__list\">\n      {items.map((comment) => (\n        <li key={comment.id} className=\"cu-comment-thread__item\">\n          <div className=\"cu-comment-thread__comment\">\n            <div className=\"cu-comment-thread__meta\">\n              <span className=\"cu-comment-thread__author\">{comment.author}</span>\n              <time className=\"cu-comment-thread__time\">{comment.time}</time>\n            </div>\n            <p className=\"cu-comment-thread__text\">{comment.text}</p>\n            {onReply ? (\n              <button\n                type=\"button\"\n                className=\"cu-comment-thread__reply\"\n                aria-label={`${replyLabel}: ${comment.author}`}\n                onClick={() => onReply(comment.id)}\n              >\n                {replyLabel}\n              </button>\n            ) : null}\n          </div>\n          {comment.replies && comment.replies.length > 0 ? renderComments(comment.replies) : null}\n        </li>\n      ))}\n    </ul>\n  )\n\n  return (\n    <section\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"comment-thread\" data-ai-intent=\"enumerate-items\"\n      data-ai-state={comments.length === 0 ? 'empty' : 'default'}\n    >\n      {renderComments(comments)}\n    </section>\n  )\n}\n"
+    },
+    {
+      "path": "components/comment-thread/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"comment-thread\",\n  \"name\": \"CommentThread\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays a nested thread of comments with author, timestamp, and reply affordance.\",\n  \"scenarios\": [\n    \"Discussion under a document\",\n    \"Review comments on a design\",\n    \"Issue conversation view\"\n  ],\n  \"props\": {\n    \"comments\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, author, time, text, replies? } in order.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the thread region.\"\n    },\n    \"replyLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for reply buttons.\"\n    },\n    \"onReply\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with the comment id when reply is activated.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Thread with comments.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No comments yet.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"card\",\n      \"article-card\"\n    ],\n    \"allowedChildren\": [\n      \"avatar\",\n      \"button\",\n      \"editor\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest replies deeper than three levels.\",\n    \"Do not render comments without an author label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"list\",\n    \"keyboard\": [\n      \"Tab moves through reply buttons\"\n    ],\n    \"focus\": \"Reply buttons are real buttons in tab order.\",\n    \"labeling\": \"Nested lists convey reply depth; author and time label each comment.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Reply indentation shrinks on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Reduced indentation.\",\n      \"medium\": \"Default indentation.\",\n      \"large\": \"Default indentation.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"comment-thread\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"enumerate-items\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/index.ts",
+      "content": "export { CommentThread } from './CommentThread.js'\nexport type { CommentItem, CommentThreadProps } from './CommentThread.js'\n"
+    },
+    {
+      "path": "components/comment-thread/locales/am.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ar.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"تعليقات\",\n    \"reply\": \"رد\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/bn.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/de.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Kommentarbereich\",\n    \"reply\": \"Antworten\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/en.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/es.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/fa.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/fr.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ha.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/hi.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/id.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ja.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ko.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/pt.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ru.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/sw.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ug.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/ur.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/vi.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/zh-CN.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"评论\",\n    \"reply\": \"回复\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/locales/zh-HK.json",
+      "content": "{\n  \"comment-thread\": {\n    \"label\": \"Comments\",\n    \"reply\": \"Reply\"\n  }\n}\n"
+    },
+    {
+      "path": "components/comment-thread/styles.css",
+      "content": ".cu-comment-thread {\n  display: block;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-comment-thread__list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-comment-thread__item .cu-comment-thread__list {\n  padding-inline-start: var(--cu-space-3);\n  border-inline-start: 1px solid var(--cu-color-border-default);\n  margin-block-start: var(--cu-space-2);\n}\n\n.cu-comment-thread__comment {\n  padding-block: var(--cu-space-2);\n}\n\n.cu-comment-thread__meta {\n  display: flex;\n  gap: var(--cu-space-2);\n  align-items: baseline;\n}\n\n.cu-comment-thread__author {\n  font-weight: 600;\n}\n\n.cu-comment-thread__time {\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n\n.cu-comment-thread__text {\n  margin: var(--cu-space-1) 0 0;\n}\n\n.cu-comment-thread__reply {\n  margin-block-start: var(--cu-space-1);\n  border: 0;\n  padding: 0;\n  background: transparent;\n  color: var(--cu-color-palette-brand);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-comment-thread__reply:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

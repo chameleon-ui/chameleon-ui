@@ -1,0 +1,17 @@
+{
+  "radius": {
+    "$type": "dimension",
+    "sm": {
+      "$value": { "value": 4, "unit": "px" },
+      "$description": "Small radius for compact chrome (chips, nested items, handles). Themes overlay this."
+    },
+    "md": {
+      "$value": { "value": 8, "unit": "px" },
+      "$description": "Default control radius (buttons, inputs, cards). Matches space.2 at a 16px root; themes overlay this."
+    },
+    "lg": {
+      "$value": { "value": 12, "unit": "px" },
+      "$description": "Large surface radius (dialogs, sheets). Matches space.3 at a 16px root; themes overlay this."
+    }
+  }
+}

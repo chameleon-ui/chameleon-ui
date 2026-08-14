@@ -1,0 +1,108 @@
+{
+  "id": "search-bar",
+  "type": "registry:ui",
+  "name": "SearchBar",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/search-bar/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"search-bar\",\n  \"name\": \"SearchBar\",\n  \"family\": \"C\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Search input with submit and clear controls inside a search landmark.\",\n  \"scenarios\": [\n    \"Filter a component catalog\",\n    \"Search documentation\",\n    \"Query a market listing\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Current query.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called with the query on edit.\"\n    },\n    \"onSubmit\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with the query on submit.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the search field.\"\n    },\n    \"placeholder\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Input placeholder.\"\n    },\n    \"clearLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the clear control.\"\n    },\n    \"submitLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the submit control.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Idle search field.\"\n    },\n    {\n      \"name\": \"filled\",\n      \"description\": \"Query present; clear control visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\",\n      \"form\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not auto-submit on every keystroke without debounce.\",\n    \"Do not remove the text label in favor of placeholder-only naming.\"\n  ],\n  \"a11y\": {\n    \"role\": \"search\",\n    \"keyboard\": [\n      \"Enter submits\",\n      \"Escape clears when filled\"\n    ],\n    \"focus\": \"Input, clear, and submit controls are in tab order.\",\n    \"labeling\": \"Search landmark plus field label name the control.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width at all breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"search-bar\",\n    \"states\": [\n      \"default\",\n      \"filled\"\n    ],\n    \"intents\": [\n      \"search-select\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/index.ts",
+      "content": "export { SearchBar } from './SearchBar.js'\nexport type { SearchBarProps } from './SearchBar.js'\n"
+    },
+    {
+      "path": "components/search-bar/locales/am.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ar.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"بحث\",\n    \"placeholder\": \"ابحث…\",\n    \"clear\": \"مسح\",\n    \"submit\": \"إرسال البحث\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/bn.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/de.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Suchleiste\",\n    \"placeholder\": \"Suchbegriff eingeben\",\n    \"clear\": \"Eingabe löschen\",\n    \"submit\": \"Suche jetzt ausführen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/en.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/es.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/fa.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/fr.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ha.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/hi.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/id.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ja.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ko.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/pt.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ru.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/sw.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ug.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/ur.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/vi.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/zh-CN.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"搜索\",\n    \"placeholder\": \"搜索…\",\n    \"clear\": \"清除\",\n    \"submit\": \"提交搜索\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/locales/zh-HK.json",
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+    },
+    {
+      "path": "components/search-bar/SearchBar.tsx",
+      "content": "import { useRef } from 'react'\nimport '../input/styles.css'\nimport './styles.css'\n\nexport interface SearchBarProps {\n  value: string\n  onChange: (value: string) => void\n  onSubmit?: (value: string) => void\n  label: string\n  placeholder?: string\n  clearLabel?: string\n  submitLabel?: string\n  className?: string\n}\n\nexport function SearchBar({\n  value,\n  onChange,\n  onSubmit,\n  label,\n  placeholder = 'Search',\n  clearLabel = 'Clear',\n  submitLabel = 'Submit search',\n  className,\n}: SearchBarProps) {\n  const inputRef = useRef<HTMLInputElement>(null)\n  const classes = ['cu-search-bar', className].filter(Boolean).join(' ')\n\n  return (\n    <form\n      className={classes}\n      role=\"search\"\n      aria-label={label}\n      data-ai-role=\"search-bar\" data-ai-intent=\"search-select\"\n      data-ai-state={value.length > 0 ? 'filled' : 'default'}\n      onSubmit={(event) => {\n        event.preventDefault()\n        onSubmit?.(value)\n      }}\n    >\n      <label className=\"cu-search-bar__label\">\n        <span className=\"cu-search-bar__label-text\">{label}</span>\n        <input\n          ref={inputRef}\n          className=\"cu-input\"\n          type=\"search\"\n          value={value}\n          placeholder={placeholder}\n          onChange={(event) => onChange(event.currentTarget.value)}\n          onKeyDown={(event) => {\n            if (event.key === 'Escape' && value.length > 0) {\n              event.preventDefault()\n              onChange('')\n            }\n          }}\n        />\n      </label>\n      {value.length > 0 ? (\n        <button\n          type=\"button\"\n          className=\"cu-search-bar__clear\"\n          aria-label={clearLabel}\n          onClick={() => {\n            onChange('')\n            inputRef.current?.focus()\n          }}\n        >\n          ×\n        </button>\n      ) : null}\n      <button type=\"submit\" className=\"cu-search-bar__submit\" aria-label={submitLabel}>\n        <span aria-hidden=\"true\">⌕</span>\n      </button>\n    </form>\n  )\n}\n"
+    },
+    {
+      "path": "components/search-bar/styles.css",
+      "content": ".cu-search-bar {\n  display: flex;\n  align-items: flex-end;\n  gap: var(--cu-space-1);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-search-bar__label {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--cu-space-1) / 2);\n}\n\n.cu-search-bar__label-text {\n  font-size: 0.875em;\n}\n\n.cu-search-bar__clear,\n.cu-search-bar__submit {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-search-bar__submit {\n  background: var(--cu-color-palette-brand);\n  border-color: var(--cu-color-palette-brand);\n  color: var(--cu-color-fg-inverse);\n}\n\n.cu-search-bar__clear:focus-visible,\n.cu-search-bar__submit:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

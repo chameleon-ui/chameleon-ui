@@ -1,0 +1,52 @@
+{
+  "$comment": "Phase 8 A2 frozen intent-search test set. Expected values were produced by searchByIntent on 2026-08-13 over the v0.2 contract catalog and are reproducible via: pnpm --filter @chameleon-ui/registry test -- src/__tests__/intent-search.test.ts",
+  "version": "1.0",
+  "frozenAt": "2026-08-13",
+  "cases": [
+    {
+      "intent": "submit a form",
+      "expectFirst": "button",
+      "expectInTop3": ["button", "form"]
+    },
+    {
+      "intent": "navigate pages",
+      "expectFirst": "link",
+      "expectInTop3": ["pagination"]
+    },
+    {
+      "intent": "upload file",
+      "expectFirst": "file-input",
+      "expectInTop3": ["file-input"]
+    },
+    {
+      "intent": "show progress",
+      "expectFirst": "progress",
+      "expectInTop3": ["progress"]
+    },
+    {
+      "intent": "toggle setting",
+      "expectFirst": "switch",
+      "expectInTop3": ["switch"]
+    },
+    {
+      "intent": "choose action from menu",
+      "expectFirst": "menu",
+      "expectInTop3": ["menu"]
+    },
+    {
+      "intent": "enter text",
+      "expectFirst": "textarea",
+      "expectInTop3": ["input"]
+    },
+    {
+      "intent": "loading placeholder",
+      "expectFirst": "skeleton",
+      "expectInTop3": ["skeleton"]
+    },
+    {
+      "intent": "navigate hierarchy",
+      "expectFirst": "link",
+      "expectInTop3": ["breadcrumb"]
+    }
+  ]
+}

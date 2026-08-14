@@ -4,7 +4,9 @@ import { fileURLToPath } from "node:url";
 import Ajv2020 from "ajv/dist/2020.js";
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const schemaPath = path.join(packageRoot, "schemas", "component-contract.schema.json");
+const componentSchemaPath = path.join(packageRoot, "schemas", "component-contract.schema.json");
+const componentSchemaV01Path = path.join(packageRoot, "schemas", "component-contract.v0.1.json");
+const designRulesSchemaPath = path.join(packageRoot, "schemas", "design-rules.schema.json");
 const samplePath = path.join(packageRoot, "samples", "button.contract.json");
 
 async function readJson(filePath) {
@@ -40,14 +42,35 @@ function formatErrors(documentPath, errors) {
  * @guarantees strict schema compilation and errors located by instance path
  */
 async function main() {
-  const [schema, sample] = await Promise.all([readJson(schemaPath), readJson(samplePath)]);
+  const [componentSchema, componentSchemaV01, designRulesSchema, sample] = await Promise.all([
+    readJson(componentSchemaPath),
+    readJson(componentSchemaV01Path),
+    readJson(designRulesSchemaPath),
+    readJson(samplePath),
+  ]);
   const ajv = new Ajv2020({ allErrors: true, strict: true, validateFormats: false });
 
-  if (!ajv.validateSchema(schema)) {
-    throw new Error(formatErrors(schemaPath, ajv.errors ?? []));
+  if (!ajv.validateSchema(componentSchema)) {
+    throw new Error(formatErrors(componentSchemaPath, ajv.errors ?? []));
   }
 
-  const validate = ajv.compile(schema);
+  if (!ajv.validateSchema(componentSchemaV01)) {
+    throw new Error(formatErrors(componentSchemaV01Path, ajv.errors ?? []));
+  }
+
+  if (componentSchemaV01?.$id?.includes("/v0.1.json") !== true) {
+    throw new Error(
+      formatErrors(componentSchemaV01Path, [
+        { instancePath: "/$id", message: "archived schema must keep the v0.1 $id" },
+      ]),
+    );
+  }
+
+  if (!ajv.validateSchema(designRulesSchema)) {
+    throw new Error(formatErrors(designRulesSchemaPath, ajv.errors ?? []));
+  }
+
+  const validate = ajv.compile(componentSchema);
   if (!validate(sample)) {
     throw new Error(formatErrors(samplePath, validate.errors ?? []));
   }
@@ -65,7 +88,7 @@ async function main() {
     );
   }
 
-  console.log("[@chameleon-ui/contract] schema meta-check and sample validation passed");
+  console.log("[@chameleon-ui/contract] component + design-rules schema meta-check and sample validation passed");
 }
 
 main().catch((error) => {

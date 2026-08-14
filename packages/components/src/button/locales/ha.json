@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Aika",
+    "cancel": "Soke",
+    "count": "{count, plural, =0 {Babu ayyukan da aka kammala} one {An kammala aiki #} other {An kammala ayyuka #}}"
+  }
+}

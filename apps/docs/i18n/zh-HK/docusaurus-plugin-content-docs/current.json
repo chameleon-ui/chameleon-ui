@@ -1,0 +1,50 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.指南": {
+    "message": "指南",
+    "description": "The label for category 指南 in sidebar"
+  },
+  "sidebar.docs.link.Bench 报告": {
+    "message": "Bench 報告",
+    "description": "The label for link Bench 报告 in sidebar"
+  },
+  "sidebar.docs.category.组件": {
+    "message": "組件",
+    "description": "The label for category 组件 in sidebar"
+  },
+  "sidebar.docs.category.A · 基础与布局": {
+    "message": "A · 基礎與佈局",
+    "description": "Family A"
+  },
+  "sidebar.docs.category.B · 导航": {
+    "message": "B · 導航",
+    "description": "Family B"
+  },
+  "sidebar.docs.category.C · 数据录入": {
+    "message": "C · 數據錄入",
+    "description": "Family C"
+  },
+  "sidebar.docs.category.D · 数据展示": {
+    "message": "D · 數據展示",
+    "description": "Family D"
+  },
+  "sidebar.docs.category.E · 反馈": {
+    "message": "E · 反饋",
+    "description": "Family E"
+  },
+  "sidebar.docs.category.F · 可视化": {
+    "message": "F · 可視化",
+    "description": "Family F"
+  },
+  "sidebar.docs.category.G · 画布与图形": {
+    "message": "G · 畫布與圖形",
+    "description": "Family G"
+  },
+  "sidebar.docs.category.H · 内容与协作": {
+    "message": "H · 內容與協作",
+    "description": "Family H"
+  }
+}

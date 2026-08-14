@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "radio-card",
+  "name": "RadioCard",
+  "status": "experimental",
+  "purpose": "Presents radio options as selectable cards.",
+  "scenarios": [
+    "Choose a plan",
+    "Choose a payment method",
+    "Choose a theme option"
+  ],
+  "props": {
+    "options": {
+      "type": "string",
+      "required": true,
+      "description": "Array of option labels."
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Selected option.",
+      "default": ""
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when selection changes."
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "description": "Radio group name."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "checked",
+      "description": "One option is selected."
+    },
+    {
+      "name": "unchecked",
+      "description": "No option is selected."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "page",
+      "dialog"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use when options are not mutually exclusive.",
+    "Do not use without a label."
+  ],
+  "a11y": {
+    "role": "radiogroup",
+    "keyboard": [
+      "Arrow keys move selection",
+      "Space selects"
+    ],
+    "focus": "Radio inputs are focusable.",
+    "labeling": "Name groups the radios; labels provide option names.",
+    "wcag": [
+      "3.3.2",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Grid or stack of cards.",
+    "breakpoints": {
+      "compact": "Single column.",
+      "medium": "Two columns.",
+      "large": "Three columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "radio-card",
+    "states": [
+      "checked",
+      "unchecked"
+    ],
+    "intents": [
+      "select-single",
+      "compare-options"
+    ]
+  }
+}

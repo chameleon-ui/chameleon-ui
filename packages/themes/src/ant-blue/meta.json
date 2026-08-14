@@ -1,0 +1,11 @@
+{
+  "id": "ant-blue",
+  "label": "Ant Blue",
+  "preview": {
+    "accent": "#1677ff",
+    "surface": "#f5f5f5"
+  },
+  "fonts": {
+    "sans": "system-ui, sans-serif"
+  }
+}

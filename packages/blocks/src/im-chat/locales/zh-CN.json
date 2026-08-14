@@ -1,0 +1,26 @@
+{
+  "im": {
+    "title": "收件箱",
+    "subtitle": "带 Markdown 回复和富文本输入的会话。",
+    "roomsLabel": "房间",
+    "roomSupport": "支持",
+    "roomDesign": "设计",
+    "roomOps": "运维",
+    "threadLabel": "会话",
+    "composerLabel": "消息编辑器",
+    "placeholder": "写一条回复",
+    "bold": "加粗",
+    "italic": "斜体",
+    "send": "发送",
+    "userLabel": "你",
+    "assistantLabel": "助手",
+    "sentLabel": "已发送",
+    "errorRequired": "发送前请先填写消息。",
+    "emptyTitle": "还没有消息",
+    "emptyDescription": "发送第一条回复以开始此会话。",
+    "assistantReply": "**已收到。** 我已把此事记入队列。",
+    "seedUser": "能总结一下队列吗？",
+    "seedAssistant": "## 队列\n队列状态 **正常**。\n- 两张未关工单\n- SLA 正常",
+    "messageCount": "{count, plural, =0 {没有消息} other {# 条消息}}"
+  }
+}

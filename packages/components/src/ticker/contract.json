@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "ticker",
+  "name": "Ticker",
+  "family": "F",
+  "status": "experimental",
+  "purpose": "Shows a horizontally scrolling strip of compact market or status items.",
+  "scenarios": [
+    "Stock price strip",
+    "Live system status feed",
+    "Exchange rate ribbon"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, label, value, trend? } ticker entries."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the ticker region."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Ticker populated with items."
+    },
+    {
+      "name": "empty",
+      "description": "No items provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not animate the strip without honoring reduced motion.",
+    "Do not place interactive controls inside ticker items."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": [],
+    "focus": "Not focusable; items are presentational.",
+    "labeling": "Region label names the feed; trend arrows have text alternatives.",
+    "wcag": [
+      "1.1.1",
+      "2.2.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Horizontal scroll strip at all breakpoints.",
+    "breakpoints": {
+      "compact": "Scrollable strip.",
+      "medium": "Scrollable strip.",
+      "large": "Scrollable strip."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "ticker",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "notify-status"
+    ]
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "date-picker",
+  "name": "DatePicker",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Picks a calendar date through an input with a month-grid popover; formatting uses Intl.",
+  "scenarios": [
+    "Choose a delivery date",
+    "Set a report start date",
+    "Book an appointment"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "ISO date string yyyy-mm-dd or empty."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the ISO date on selection."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Field label."
+    },
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for Intl formatting.",
+      "default": "en"
+    },
+    "previousMonthLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for previous month."
+    },
+    "nextMonthLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for next month."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "closed",
+      "description": "Input only."
+    },
+    {
+      "name": "open",
+      "description": "Month grid visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hand-format dates; use Intl.DateTimeFormat.",
+    "Do not allow keyboard-inaccessible day cells."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Escape closes the grid",
+      "Tab moves through day buttons"
+    ],
+    "focus": "Day cells are buttons; focus returns to the input on close.",
+    "labeling": "Field label names the input; month and year headline the grid.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Grid matches input width on compact; fixed measure on larger screens.",
+    "breakpoints": {
+      "compact": "Full width grid.",
+      "medium": "Fixed measure.",
+      "large": "Fixed measure."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "date-picker",
+    "states": [
+      "closed",
+      "open"
+    ],
+    "intents": [
+      "pick-datetime"
+    ]
+  }
+}

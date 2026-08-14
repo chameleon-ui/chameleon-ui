@@ -1,0 +1,7 @@
+{
+  "input": {
+    "label": "Name des Projektplans",
+    "placeholder": "Bitte mindestens drei Zeichen in dieses Feld eingeben",
+    "invalid": "Verwenden Sie mindestens drei Zeichen für diesen Namen."
+  }
+}

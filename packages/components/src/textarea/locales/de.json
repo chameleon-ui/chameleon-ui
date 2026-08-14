@@ -1,0 +1,6 @@
+{
+  "textarea": {
+    "label": "Ihre Nachricht",
+    "invalid": "Bitte geben Sie mindestens zehn Zeichen in dieses Feld ein."
+  }
+}

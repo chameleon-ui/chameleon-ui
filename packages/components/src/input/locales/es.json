@@ -1,0 +1,7 @@
+{
+  "input": {
+    "label": "Nombre del proyecto",
+    "placeholder": "Introduce al menos tres caracteres",
+    "invalid": "Usa al menos tres caracteres."
+  }
+}

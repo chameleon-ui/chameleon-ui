@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "approval-flow",
+  "name": "Approval flow",
+  "status": "experimental",
+  "purpose": "Walk a request through submit, review, and a recorded approve or reject decision.",
+  "scenarios": [
+    "Review an open request against a three-step tracker",
+    "Approve or reject with a required comment",
+    "Show a success or error result after the decision"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "status": {
+      "type": "string",
+      "required": false,
+      "description": "Initial request status: pending, approved, or rejected.",
+      "default": "pending"
+    },
+    "onDecide": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the decision and comment after client validation."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "pending", "description": "Decision form is visible." },
+    { "name": "approved", "description": "Success result is visible." },
+    { "name": "rejected", "description": "Error result is visible." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "dialog", "card"],
+    "allowedChildren": ["steps", "form", "result", "radio", "textarea", "card", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not skip the comment field when recording a decision.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches decision radios, comment, and submit", "Enter submits the decision form"],
+    "focus": "Fields and actions remain in document order with a visible focus ring.",
+    "labeling": "Steps, decision radios, comment, and submit have accessible names.",
+    "wcag": ["2.1.1", "2.4.7", "3.3.2", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Single-column card; steps adapt with their own @container queries. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Steps stack; form uses full inline size with 44px targets.",
+      "medium": "Steps sit in a row when the stepper container allows.",
+      "large": "Steps sit in a row when the stepper container allows."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language, never a hardcoded ltr attribute.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "approval-flow",
+    "states": ["pending", "approved", "rejected"],
+    "intents": ["review-request"]
+  }
+}

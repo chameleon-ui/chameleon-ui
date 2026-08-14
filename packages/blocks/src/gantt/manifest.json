@@ -1,0 +1,17 @@
+{
+  "slug": "gantt",
+  "type": "registry:block",
+  "name": "Gantt",
+  "dependencies": ["card", "empty-state", "tag", "timeline", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 1280,
+    "title": "Date-scale task bars with timeline"
+  }
+}

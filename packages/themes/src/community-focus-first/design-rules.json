@@ -1,0 +1,63 @@
+{
+  "version": "1.0",
+  "typography": {
+    "scale": "minor-third",
+    "lineHeightBody": 1.6,
+    "fontFamilyToken": "font.family.sans",
+    "headingWeightToken": "font.weight.semibold",
+    "tracking": "normal"
+  },
+  "spacing": {
+    "rhythm": 8,
+    "density": "comfortable",
+    "scale": {
+      "strategy": "rem-steps",
+      "steps": ["space.0", "space.1", "space.2", "space.3", "space.4"]
+    },
+    "radiusStrategy": {
+      "default": "radius.md",
+      "interactive": "radius.sm",
+      "surface": "radius.lg"
+    }
+  },
+  "colorBoundaries": {
+    "accentUsage": "primary-and-links",
+    "surfaceLayers": [
+      "color.background.default",
+      "color.background.subtle",
+      "color.background.elevated"
+    ],
+    "disabledContrast": {
+      "minimumRatio": 4.5,
+      "foregroundToken": "color.fg.muted",
+      "backgroundToken": "color.background.default"
+    },
+    "gradientPolicy": "forbidden"
+  },
+  "forbiddenPatterns": [
+    "outline-none-without-replacement",
+    "color-only-state",
+    "auto-playing-motion",
+    "invisible-focus-ring"
+  ],
+  "composition": {
+    "surfaceHierarchy": "border-over-elevation",
+    "preferredStacks": ["button", "input", "inline-alert", "stack"],
+    "componentRules": {
+      "Button": { "minWidthPx": 88, "maxWidthPx": 360, "minTouchTargetPx": 44 },
+      "Input": { "minTouchTargetPx": 44 },
+      "Link": { "minTouchTargetPx": 44 }
+    }
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "logical-properties-only; no runtime DOM mirroring",
+    "mirroredIcons": [
+      "arrow-back",
+      "arrow-forward",
+      "chevron-start",
+      "chevron-end"
+    ],
+    "bidiIsolation": "required-for-user-content"
+  }
+}

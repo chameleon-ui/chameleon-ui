@@ -1,0 +1,24 @@
+{
+  "version": "2026-01-26",
+  "kind": "mcp-apps",
+  "uri": "ui://chameleon-ui/form-submit",
+  "mimeType": "text/html;profile=mcp-app",
+  "title": "Sign in",
+  "root": {
+    "id": "signin-form",
+    "type": "form",
+    "props": { "submitLabel": "Sign in" },
+    "children": [
+      {
+        "id": "email",
+        "type": "text-field",
+        "props": { "label": "Email", "name": "email" }
+      },
+      {
+        "id": "submit",
+        "type": "button",
+        "props": { "intent": "submit", "label": "Sign in" }
+      }
+    ]
+  }
+}

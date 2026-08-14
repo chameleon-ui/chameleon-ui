@@ -1,0 +1,108 @@
+{
+  "id": "collapse",
+  "type": "registry:ui",
+  "name": "Collapse",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/collapse/Collapse.tsx",
+      "content": "import { useState } from 'react'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface CollapseProps {\n  title: string\n  children: ReactNode\n  defaultOpen?: boolean\n  className?: string\n}\n\nexport function Collapse({ title, children, defaultOpen = false, className }: CollapseProps) {\n  const [open, setOpen] = useState(defaultOpen)\n  const classes = ['cu-collapse', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} data-ai-role=\"collapse\" data-ai-intent=\"toggle-visibility\" data-ai-state={open ? 'open' : 'closed'}>\n      <button className=\"cu-collapse__trigger\" onClick={() => setOpen(!open)} type=\"button\" aria-expanded={open}>\n        {title}\n      </button>\n      {open ? <div className=\"cu-collapse__content\">{children}</div> : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/collapse/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"collapse\",\n  \"name\": \"Collapse\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Toggles the visibility of a content section with a single trigger.\",\n  \"scenarios\": [\n    \"Expand a FAQ answer\",\n    \"Show advanced settings\",\n    \"Reveal long-form content\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Trigger button label.\"\n    },\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Content revealed when open.\"\n    },\n    \"defaultOpen\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Initial open state.\",\n      \"default\": false\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"open\",\n      \"description\": \"Content is visible.\"\n    },\n    {\n      \"name\": \"closed\",\n      \"description\": \"Content is hidden.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"form\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\",\n      \"input\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for navigation menus.\",\n    \"Do not hide critical error messages inside a collapse.\"\n  ],\n  \"a11y\": {\n    \"role\": \"button\",\n    \"keyboard\": [\n      \"Enter/Space toggles\"\n    ],\n    \"focus\": \"Trigger is focusable.\",\n    \"labeling\": \"Title labels the trigger.\",\n    \"wcag\": [\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Content is shown/hidden without reflowing siblings.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width trigger.\",\n      \"medium\": \"Full width trigger.\",\n      \"large\": \"Full width trigger.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"collapse\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"toggle-visibility\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/index.ts",
+      "content": "export { Collapse } from './Collapse.js'\nexport type { CollapseProps } from './Collapse.js'\n"
+    },
+    {
+      "path": "components/collapse/locales/am.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ar.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"قسم قابل للطي\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/bn.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/de.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Aufklappbereich\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/en.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/es.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/fa.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/fr.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ha.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/hi.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/id.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ja.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ko.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/pt.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ru.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/sw.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ug.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/ur.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/vi.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/zh-CN.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"折叠面板\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/locales/zh-HK.json",
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+    },
+    {
+      "path": "components/collapse/styles.css",
+      "content": ".cu-collapse {\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  overflow: hidden;\n}\n\n.cu-collapse__trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  inline-size: 100%;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 0;\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  font-weight: 600;\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-collapse__trigger:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: -3px;\n}\n\n.cu-collapse__content {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-block-start: 1px solid var(--cu-color-border-default);\n}\n"
+    }
+  ]
+}

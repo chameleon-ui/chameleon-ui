@@ -1,0 +1,53 @@
+.cu-block-gantt {
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-gantt__meta {
+  margin-block: var(--cu-space-2) 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-gantt__chart {
+  display: grid;
+  gap: var(--cu-space-2);
+  overflow-x: auto;
+}
+
+.cu-block-gantt__row {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) minmax(12rem, 1fr);
+  gap: var(--cu-space-2);
+  align-items: center;
+}
+
+.cu-block-gantt__label {
+  display: grid;
+  gap: var(--cu-space-1);
+}
+
+.cu-block-gantt__track {
+  position: relative;
+  min-block-size: var(--cu-touch-target-min);
+  border-radius: var(--cu-space-1);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 12%, var(--cu-color-background-default));
+}
+
+.cu-block-gantt__bar {
+  position: absolute;
+  inset-block: 0;
+  min-block-size: var(--cu-touch-target-min);
+  padding: 0;
+  border: 0;
+  border-radius: var(--cu-space-1);
+  background: var(--cu-color-palette-brand);
+  cursor: pointer;
+}
+
+.cu-block-gantt__bar:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}

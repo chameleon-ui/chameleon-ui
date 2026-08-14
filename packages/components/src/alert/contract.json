@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "alert",
+  "name": "Alert",
+  "status": "experimental",
+  "purpose": "Communicates a contextual message using semantic color from tokens.",
+  "scenarios": [
+    "Inform the user about a successful action",
+    "Warn that a setting requires attention",
+    "Report an error that blocks a task"
+  ],
+  "props": {
+    "status": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic tone of the alert.",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Alert heading and accessible name."
+    },
+    "description": {
+      "type": "node",
+      "required": true,
+      "description": "Supporting content for the alert."
+    }
+  },
+  "variants": [
+    {
+      "name": "status",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info",
+      "description": "Semantic tone that maps to a token-derived accent color."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Alert is visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use an error alert for inline validation; use an invalid field.",
+    "Do not use success alerts for every minor action; reserve them for meaningful outcomes."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Alert is not focusable.",
+    "labeling": "Title labels the alert region; description is associated.",
+    "wcag": [
+      "1.4.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Alert stretches to the parent inline size and wraps text on compact screens.",
+    "breakpoints": {
+      "compact": "Full inline size of the parent.",
+      "medium": "Content or parent width.",
+      "large": "Content or parent width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. The accent border is on the inline-start side.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "alert",
+    "states": [
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "intents": [
+      "notify-status"
+    ]
+  }
+}

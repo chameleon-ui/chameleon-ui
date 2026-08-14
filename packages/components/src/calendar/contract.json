@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "calendar",
+  "name": "Calendar",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Shows a navigable month grid with selectable days; weekday and month names come from Intl.",
+  "scenarios": [
+    "Availability overview",
+    "Content schedule view",
+    "Date range anchor"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Selected ISO date string."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the ISO date when a day is picked."
+    },
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for Intl formatting.",
+      "default": "en"
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the calendar."
+    },
+    "previousMonthLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for previous month."
+    },
+    "nextMonthLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for next month."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Month grid rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "popover",
+      "date-picker"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not render weekday names by hand; derive them from Intl.",
+    "Do not make days focusable without a selection action."
+  ],
+  "a11y": {
+    "role": "grid",
+    "keyboard": [
+      "Tab moves through day buttons",
+      "Enter selects a day"
+    ],
+    "focus": "Day cells are buttons inside a grid.",
+    "labeling": "Month and year headline the grid; weekday headers use column headers.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fixed cell measure that shrinks slightly on compact.",
+    "breakpoints": {
+      "compact": "Compact cells.",
+      "medium": "Default cells.",
+      "large": "Default cells."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "calendar",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "pick-datetime"
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "loading-bar",
+  "name": "LoadingBar",
+  "family": "E",
+  "status": "experimental",
+  "purpose": "Shows page-level loading progress as a thin bar pinned to the viewport start edge.",
+  "scenarios": [
+    "Indicate route transition progress",
+    "Show initial data load",
+    "Mirror long task progress"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": false,
+      "description": "Progress 0-100; omit for indeterminate."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the progress bar."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Determinate progress."
+    },
+    {
+      "name": "indeterminate",
+      "description": "Unknown duration; animated bar."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a loading bar for local component loading; use Spinner or Skeleton.",
+    "Do not show determinate progress without a real measurable total."
+  ],
+  "a11y": {
+    "role": "progressbar",
+    "keyboard": [],
+    "focus": "Not focusable; status announced via role.",
+    "labeling": "aria-label names the loading process; aria-valuenow set when determinate.",
+    "wcag": [
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full viewport width at all breakpoints; pinned to the block-start edge.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "loading-bar",
+    "states": [
+      "default",
+      "indeterminate"
+    ],
+    "intents": [
+      "show-progress",
+      "indicate-busy"
+    ]
+  }
+}

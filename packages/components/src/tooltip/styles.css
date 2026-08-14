@@ -1,0 +1,15 @@
+.cu-tooltip__trigger {
+  display: inline-flex;
+}
+
+.cu-tooltip {
+  max-inline-size: 16rem;
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border-radius: var(--cu-radius-sm);
+  color: var(--cu-color-fg-inverse);
+  background: var(--cu-color-background-inverse);
+  font-size: 0.875rem;
+  line-height: 1.4;
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--cu-color-background-inverse) 16%, transparent);
+}

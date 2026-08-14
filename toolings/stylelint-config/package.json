@@ -2,6 +2,9 @@
   "name": "@chameleon-ui/stylelint-config",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "type": "module",
   "description": "Shared Stylelint configuration enforcing RTL-safe logical CSS properties",
   "exports": "./src/index.mjs",

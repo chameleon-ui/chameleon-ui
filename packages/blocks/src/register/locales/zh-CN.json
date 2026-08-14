@@ -1,0 +1,21 @@
+{
+  "register": {
+    "title": "创建账户",
+    "subtitle": "填写信息以加入此工作区。",
+    "nameLabel": "姓名",
+    "emailLabel": "电子邮箱",
+    "passwordLabel": "密码",
+    "confirmLabel": "确认密码",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "termsLabel": "我同意条款",
+    "submit": "创建账户",
+    "loginPrompt": "已有账户？",
+    "loginAction": "登录",
+    "errorRequired": "姓名、电子邮箱和密码为必填项。",
+    "errorInvalid": "请输入有效的电子邮箱地址。",
+    "errorMismatch": "两次输入的密码不一致。",
+    "errorTerms": "请同意条款后再继续。",
+    "accountCount": "{count, plural, =0 {尚未创建账户} other {已创建 # 个账户}}"
+  }
+}

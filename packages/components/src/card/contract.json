@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "card",
+  "name": "Card",
+  "status": "experimental",
+  "purpose": "Groups related content and actions in a contained surface.",
+  "scenarios": [
+    "Display a product summary",
+    "Show a settings panel",
+    "Present a dashboard metric"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Card content and actions."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Surface style.",
+      "values": [
+        "default",
+        "outlined",
+        "elevated"
+      ],
+      "default": "default"
+    },
+    "padding": {
+      "type": "enum",
+      "required": false,
+      "description": "Internal spacing.",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "outlined",
+        "elevated"
+      ],
+      "default": "default",
+      "description": "Surface style."
+    },
+    {
+      "name": "padding",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Internal spacing."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle card."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "grid"
+    ],
+    "allowedChildren": [
+      "text",
+      "button",
+      "badge",
+      "image"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest cards inside cards.",
+    "Do not use a card for a single standalone button."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [],
+    "focus": "Focusable children remain in document order.",
+    "labeling": "Use headings or aria-label to label the card region.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width in parent container.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "card",
+    "states": [
+      "default",
+      "outlined",
+      "elevated"
+    ],
+    "intents": [
+      "group-content",
+      "navigate-detail"
+    ]
+  }
+}

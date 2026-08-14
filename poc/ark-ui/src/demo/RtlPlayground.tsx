@@ -33,6 +33,8 @@ export function RtlPlayground({
           >
             <option value="en">{messages.controls.english}</option>
             <option value="en-XA">{messages.controls.pseudo}</option>
+            <option value="ar">{messages.controls.arabic}</option>
+            <option value="de">{messages.controls.german}</option>
           </select>
         </label>
         <fieldset className="cu-direction-group">

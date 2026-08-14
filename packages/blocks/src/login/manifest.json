@@ -1,0 +1,17 @@
+{
+  "slug": "login",
+  "type": "registry:block",
+  "name": "Login",
+  "dependencies": ["button", "card", "checkbox", "form", "input", "password-input", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 390,
+    "title": "Email and password sign-in"
+  }
+}

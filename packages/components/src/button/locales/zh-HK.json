@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "提交",
+    "cancel": "取消",
+    "count": "{count, plural, =0 {尚未完成任何操作} other {已完成 # 個操作}}"
+  }
+}

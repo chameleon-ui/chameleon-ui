@@ -1,0 +1,108 @@
+{
+  "id": "menu",
+  "type": "registry:ui",
+  "name": "Menu",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/menu/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"menu\",\n  \"name\": \"Menu\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays a list of actions or choices in a dropdown.\",\n  \"scenarios\": [\n    \"Show a user actions menu\",\n    \"Show a filter menu\",\n    \"Show a context menu trigger\"\n  ],\n  \"props\": {\n    \"triggerLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Button that opens the menu.\"\n    },\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of {label, onClick} items.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"open\",\n      \"description\": \"Menu is visible.\"\n    },\n    {\n      \"name\": \"closed\",\n      \"description\": \"Menu is hidden.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for navigation; use a link list.\",\n    \"Do not hide disabled items without a reason.\"\n  ],\n  \"a11y\": {\n    \"role\": \"menu\",\n    \"keyboard\": [\n      \"Enter/Space opens\",\n      \"Arrow keys navigate\",\n      \"Esc closes\"\n    ],\n    \"focus\": \"Focus moves into the menu on open.\",\n    \"labeling\": \"Trigger labels the menu.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Dropdown menu.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width list.\",\n      \"medium\": \"Fixed width list.\",\n      \"large\": \"Fixed width list.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"menu\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"choose-action\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/index.ts",
+      "content": "export { Menu } from './Menu.js'\nexport type { MenuProps } from './Menu.js'\n"
+    },
+    {
+      "path": "components/menu/locales/am.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ar.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"قائمة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/bn.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/de.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Optionsmenü\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/en.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/es.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/fa.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/fr.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ha.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/hi.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/id.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ja.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ko.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/pt.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ru.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/sw.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ug.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/ur.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/vi.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/zh-CN.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"菜单\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/locales/zh-HK.json",
+      "content": "{\n  \"menu\": {\n    \"label\": \"Menu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/menu/Menu.tsx",
+      "content": "import { PopoverPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface MenuItem {\n  label: string\n  onClick: () => void\n}\n\nexport interface MenuProps {\n  triggerLabel: string\n  items: MenuItem[]\n  className?: string\n}\n\nexport function Menu({ triggerLabel, items, className }: MenuProps) {\n  const classes = ['cu-menu', className].filter(Boolean).join(' ')\n  return (\n    <PopoverPrimitive.Root>\n      <PopoverPrimitive.Trigger className=\"cu-menu__trigger\">{triggerLabel}</PopoverPrimitive.Trigger>\n      <PopoverPrimitive.Positioner>\n        <PopoverPrimitive.Content className={classes} data-ai-role=\"menu\" data-ai-state=\"open\" data-ai-intent=\"choose-action\" role=\"menu\">\n          <ul className=\"cu-menu__list\">\n            {items.map((item, index) => (\n              <li className=\"cu-menu__item\" key={index}>\n                <button className=\"cu-menu__button\" onClick={item.onClick} type=\"button\" role=\"menuitem\">\n                  {item.label}\n                </button>\n              </li>\n            ))}\n          </ul>\n        </PopoverPrimitive.Content>\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/menu/styles.css",
+      "content": ".cu-menu__trigger {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-block-size: 2.75rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-menu {\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  box-shadow: var(--cu-shadow-md, 0 1px 3px color-mix(in srgb, var(--cu-color-background-inverse) 12%, transparent));\n  z-index: 10;\n  min-inline-size: 10rem;\n}\n\n.cu-menu__list {\n  list-style: none;\n  margin: 0;\n  padding: var(--cu-space-1);\n}\n\n.cu-menu__item + .cu-menu__item {\n  border-block-start: 1px solid var(--cu-color-border-default);\n}\n\n.cu-menu__button {\n  display: flex;\n  inline-size: 100%;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: 0;\n  background: transparent;\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-menu__button:focus-visible {\n  outline: 2px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n  border-radius: var(--cu-radius-sm);\n}\n"
+    }
+  ]
+}

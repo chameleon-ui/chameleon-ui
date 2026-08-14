@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "marketing-site",
+  "name": "Marketing site",
+  "status": "experimental",
+  "purpose": "Hero, pricing cards, and FAQ accordion for a marketing landing fragment.",
+  "scenarios": [
+    "Introduce a product with a hero call to action",
+    "Compare three pricing plans",
+    "Expand FAQ answers in an accordion"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onCta": {
+      "type": "event",
+      "required": false,
+      "description": "Called when a hero or plan call to action is activated."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Hero, pricing, and FAQ are visible." }
+  ],
+  "composition": {
+    "allowedParents": ["page"],
+    "allowedChildren": ["typography", "button", "accordion", "card"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not restyle this block with raw left/right CSS.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "article",
+    "keyboard": ["Tab reaches CTAs and FAQ triggers", "Enter or Space expands a FAQ item"],
+    "focus": "Actions stay in document order with a visible focus ring.",
+    "labeling": "Pricing and FAQ sections have headings; accordion triggers name the question.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Pricing uses @container with the tablet rem token; no viewport media queries.",
+    "breakpoints": {
+      "compact": "Plans stack to one column.",
+      "medium": "Plans become three columns at 48rem container inline-size.",
+      "large": "Plans remain three columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "marketing-site",
+    "states": ["default"],
+    "intents": ["browse-pricing"]
+  }
+}

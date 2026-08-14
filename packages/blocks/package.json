@@ -1,0 +1,59 @@
+{
+  "name": "@chameleon-ui/blocks",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "description": "Composable scenario blocks built from @chameleon-ui/components. Source-copy distribution; install writes go through install-core.",
+  "files": ["dist", "src", "locale-gap-table.json", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./contracts/*": "./src/*/contract.json",
+    "./manifests/*": "./src/*/manifest.json",
+    "./locale-gap-table.json": "./locale-gap-table.json"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node ./scripts/copy-assets.mjs",
+    "dev": "vitest",
+    "lint": "tsc -p tsconfig.json --noEmit && node ../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "locales:write": "node ./scripts/write-locales.mjs"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@chameleon-ui/components": "workspace:*",
+    "@chameleon-ui/i18n": "workspace:*",
+    "@chameleon-ui/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@chameleon-ui/contract": "workspace:*",
+    "@chameleon-ui/stylelint-config": "workspace:*",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.4",
+    "@types/node": "20.19.0",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.0.5",
+    "jsdom": "30.0.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "typescript": "5.9.3",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "button",
+  "name": "Button",
+  "status": "experimental",
+  "purpose": "Triggers a user-initiated action with a clear accessible name.",
+  "scenarios": [
+    "Submit a form",
+    "Open a dialog",
+    "Confirm or cancel a reversible action"
+  ],
+  "props": {
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents interaction while preserving semantic disabled state.",
+      "default": false
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Visual emphasis without changing button semantics.",
+      "values": [
+        "solid",
+        "outline"
+      ],
+      "default": "solid"
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Density control. Compact viewports keep a 44px target.",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md"
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "solid",
+        "outline"
+      ],
+      "default": "solid",
+      "description": "Controls visual emphasis without changing semantics."
+    },
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md",
+      "description": "Controls density while retaining the target-size requirement."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Enabled and idle."
+    },
+    {
+      "name": "disabled",
+      "description": "Unavailable for interaction."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "toolbar"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for navigation when a semantic link is appropriate.",
+    "Do not hide the accessible name behind an unlabeled icon."
+  ],
+  "a11y": {
+    "role": "button",
+    "keyboard": [
+      "Tab focuses",
+      "Enter activates",
+      "Space activates"
+    ],
+    "focus": "Shows a visible focus indicator and remains in document order.",
+    "labeling": "Has visible text or an explicit accessible name.",
+    "wcag": [
+      "2.1.1",
+      "2.4.7",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Keep behavior stable. Compact viewports enforce a 44px minimum target even for size=sm.",
+    "breakpoints": {
+      "compact": "Minimum target 44px in both axes.",
+      "medium": "Uses content width; sm may be denser.",
+      "large": "Uses content width; sm may be denser."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Do not mirror label text or symmetric icons.",
+    "mirroredValues": [
+      "directional-icon"
+    ]
+  },
+  "dataAi": {
+    "role": "button",
+    "states": [
+      "disabled"
+    ],
+    "intents": [
+      "submit",
+      "confirm",
+      "cancel"
+    ]
+  }
+}

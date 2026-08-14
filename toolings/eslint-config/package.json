@@ -2,6 +2,9 @@
   "name": "@chameleon-ui/eslint-config",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "type": "module",
   "scripts": {
     "build": "echo \"[@chameleon-ui/eslint-config] build placeholder\"",

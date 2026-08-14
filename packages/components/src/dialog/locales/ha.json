@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Bude tattaunawar bita",
+    "title": "Bita tushe",
+    "description": "Mayar da hankali na madanni yana cikin wannan tattaunawa har an rufe ta.",
+    "close": "Kammala bita",
+    "body": "Danna Esc ko maɓallin rufewa. Mayar da hankali ya kamata ya koma zuwa mai haifarwa."
+  }
+}

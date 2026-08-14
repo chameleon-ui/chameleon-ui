@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "success": "성공",
+    "error": "오류",
+    "warning": "경고"
+  }
+}

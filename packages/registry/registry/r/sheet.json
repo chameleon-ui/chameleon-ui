@@ -1,0 +1,108 @@
+{
+  "id": "sheet",
+  "type": "registry:ui",
+  "name": "Sheet",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/sheet/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"sheet\",\n  \"name\": \"Sheet\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a modal panel anchored to an edge of the viewport.\",\n  \"scenarios\": [\n    \"Show a confirmation sheet\",\n    \"Show a bottom action sheet\",\n    \"Show a side sheet\"\n  ],\n  \"props\": {\n    \"triggerLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Trigger button label.\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Sheet title.\"\n    },\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Sheet content.\"\n    },\n    \"closeLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Close button label.\"\n    },\n    \"position\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Edge anchor.\",\n      \"values\": [\n        \"start\",\n        \"end\",\n        \"bottom\"\n      ],\n      \"default\": \"bottom\"\n    },\n    \"open\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Controlled open state.\"\n    },\n    \"onOpenChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when open state changes.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"position\",\n      \"values\": [\n        \"start\",\n        \"end\",\n        \"bottom\"\n      ],\n      \"default\": \"bottom\",\n      \"description\": \"Edge anchor.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"open\",\n      \"description\": \"Sheet is visible.\"\n    },\n    {\n      \"name\": \"closed\",\n      \"description\": \"Sheet is hidden.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\",\n      \"form\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not open multiple sheets.\",\n    \"Do not use for primary workflows.\"\n  ],\n  \"a11y\": {\n    \"role\": \"dialog\",\n    \"keyboard\": [\n      \"Tab cycles inside\",\n      \"Escape closes\"\n    ],\n    \"focus\": \"Focus moves inside on open and returns on close.\",\n    \"labeling\": \"Title labels the sheet.\",\n    \"wcag\": [\n      \"2.4.3\",\n      \"2.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Bottom sheet on compact; side sheet on larger viewports.\",\n    \"breakpoints\": {\n      \"compact\": \"Bottom sheet.\",\n      \"medium\": \"Positioned sheet.\",\n      \"large\": \"Positioned sheet.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; start/end refer to inline edges.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"sheet\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"present-overlay\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/index.ts",
+      "content": "export { Sheet } from './Sheet.js'\nexport type { SheetProps } from './Sheet.js'\n"
+    },
+    {
+      "path": "components/sheet/locales/am.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ar.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"لوحة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/bn.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/de.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Dialogblatt\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/en.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/es.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/fa.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/fr.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ha.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/hi.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/id.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ja.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ko.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/pt.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ru.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/sw.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ug.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/ur.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/vi.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/zh-CN.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"操作面板\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/locales/zh-HK.json",
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sheet/Sheet.tsx",
+      "content": "import { DialogPrimitive } from '@chameleon-ui/primitives'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface SheetProps {\n  triggerLabel: string\n  title: string\n  closeLabel: string\n  children?: ReactNode\n  position?: 'start' | 'end' | 'bottom'\n  open?: boolean\n  onOpenChange?: (open: boolean) => void\n  className?: string\n}\n\nexport function Sheet({ triggerLabel, title, closeLabel, children, position = 'bottom', open, onOpenChange, className }: SheetProps) {\n  const classes = ['cu-sheet', 'cu-sheet--' + position, className].filter(Boolean).join(' ')\n  return (\n    <DialogPrimitive.Root open={open} onOpenChange={(details) => onOpenChange?.(details.open)}>\n      <DialogPrimitive.Trigger className=\"cu-sheet__trigger\">{triggerLabel}</DialogPrimitive.Trigger>\n      <DialogPrimitive.Portal>\n        <DialogPrimitive.Backdrop className=\"cu-sheet__backdrop\" />\n        <DialogPrimitive.Positioner>\n          <DialogPrimitive.Content className={classes} data-ai-role=\"sheet\" data-ai-intent=\"present-overlay\" data-ai-state={open ? 'open' : 'closed'}>\n            <DialogPrimitive.Title className=\"cu-sheet__title\">{title}</DialogPrimitive.Title>\n            <div className=\"cu-sheet__body\">{children}</div>\n            <DialogPrimitive.CloseTrigger className=\"cu-sheet__close\">{closeLabel}</DialogPrimitive.CloseTrigger>\n          </DialogPrimitive.Content>\n        </DialogPrimitive.Positioner>\n      </DialogPrimitive.Portal>\n    </DialogPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/sheet/styles.css",
+      "content": ".cu-sheet {\n  display: flex;\n  flex-direction: column;\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-sheet--start {\n  margin-inline-end: auto;\n  max-inline-size: 24rem;\n  block-size: 100%;\n  inline-size: 100%;\n}\n\n.cu-sheet--end {\n  margin-inline-start: auto;\n  max-inline-size: 24rem;\n  block-size: 100%;\n  inline-size: 100%;\n}\n\n.cu-sheet--bottom {\n  margin-block-start: auto;\n  max-block-size: 50vh;\n  inline-size: 100%;\n  border-start-start-radius: var(--cu-radius-lg);\n  border-start-end-radius: var(--cu-radius-lg);\n  box-shadow: var(--cu-shadow-lg);\n}\n\n.cu-sheet__backdrop {\n  position: fixed;\n  inset: 0;\n  background: color-mix(in srgb, var(--cu-color-background-inverse) 40%, transparent);\n  backdrop-filter: blur(var(--cu-blur-surface));\n  -webkit-backdrop-filter: blur(var(--cu-blur-surface));\n}\n\n.cu-sheet__title {\n  margin: 0;\n  font-size: 1.25rem;\n  font-weight: 700;\n}\n\n.cu-sheet__body {\n  flex: 1;\n  overflow: auto;\n  margin-block: var(--cu-space-3);\n}\n\n.cu-sheet__close {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-block-size: 2.75rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n"
+    }
+  ]
+}

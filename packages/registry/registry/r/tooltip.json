@@ -1,0 +1,112 @@
+{
+  "id": "tooltip",
+  "type": "registry:ui",
+  "name": "Tooltip",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/tooltip/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"tooltip\",\n  \"name\": \"Tooltip\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays supplementary information for a control on hover or focus.\",\n  \"scenarios\": [\n    \"Explain an icon button on hover\",\n    \"Show a keyboard shortcut on focus\",\n    \"Provide a hint for a form field\"\n  ],\n  \"props\": {\n    \"trigger\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Element that opens the tooltip on hover or focus.\"\n    },\n    \"content\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Content shown inside the tooltip.\"\n    },\n    \"openDelay\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Delay in milliseconds before the tooltip opens.\",\n      \"default\": 300\n    },\n    \"closeDelay\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Delay in milliseconds before the tooltip closes.\",\n      \"default\": 100\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"open\",\n      \"description\": \"Tooltip is visible.\"\n    },\n    {\n      \"name\": \"closed\",\n      \"description\": \"Tooltip is not visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"button\",\n      \"input\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not put essential instructions only in a tooltip.\",\n    \"Do not open a tooltip from a touch event without an alternative control.\"\n  ],\n  \"a11y\": {\n    \"role\": \"tooltip\",\n    \"keyboard\": [\n      \"Focus the trigger to show the tooltip\"\n    ],\n    \"focus\": \"Tooltip follows the trigger focus and pointer hover.\",\n    \"labeling\": \"Tooltip content is associated with the trigger via aria-describedby.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Tooltip stays within the viewport and avoids clipping on compact screens.\",\n    \"breakpoints\": {\n      \"compact\": \"Tooltip is not the primary touch interaction; an explicit control is preferred.\",\n      \"medium\": \"Tooltip appears on hover and focus.\",\n      \"large\": \"Tooltip appears on hover and focus.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Tooltip positioning follows the document direction.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"tooltip\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"explain-on-hover\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/index.ts",
+      "content": "export { Tooltip } from './Tooltip.js'\nexport type { TooltipProps } from './Tooltip.js'\n"
+    },
+    {
+      "path": "components/tooltip/locales/am.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"ተጨማሪ መረጃ\",\n    \"shortcut\": \"የቁልፍ ሰሌዳ አቋራጭ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ar.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"مزيد من المعلومات\",\n    \"shortcut\": \"اختصار لوحة المفاتيح\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/bn.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"আরও তথ্য\",\n    \"shortcut\": \"কীবোর্ড শর্টকাট\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/de.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Weitere Informationen anzeigen\",\n    \"shortcut\": \"Tastaturkürzel verwenden\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/en.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"More information\",\n    \"shortcut\": \"Keyboard shortcut\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/es.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Más información\",\n    \"shortcut\": \"Atajo de teclado\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/fa.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"اطلاعات بیشتر\",\n    \"shortcut\": \"میانبر صفحه‌کلید\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/fr.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Plus d'informations\",\n    \"shortcut\": \"Raccourci clavier\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ha.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Ƙarin bayani\",\n    \"shortcut\": \"Gajeren hanyar madanni\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/hi.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"अधिक जानकारी\",\n    \"shortcut\": \"कीबोर्ड शॉर्टकट\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/id.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Informasi lebih lanjut\",\n    \"shortcut\": \"Pintasan keyboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ja.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"詳細情報\",\n    \"shortcut\": \"キーボードショートカット\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ko.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"추가 정보\",\n    \"shortcut\": \"키보드 단축키\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/pt.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Mais informações\",\n    \"shortcut\": \"Atalho de teclado\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ru.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Подробнее\",\n    \"shortcut\": \"Сочетание клавиш\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/sw.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Maelezo zaidi\",\n    \"shortcut\": \"Njia ya mkato ya kibodi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ug.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"تېخىمۇ كۆپ ئۇچۇر\",\n    \"shortcut\": \"كۇنۇپكا تېز يولى\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/ur.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"مزید معلومات\",\n    \"shortcut\": \"کی بورڈ شارٹ کٹ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/vi.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"Thêm thông tin\",\n    \"shortcut\": \"Phím tắt bàn phím\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/zh-CN.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"更多信息\",\n    \"shortcut\": \"键盘快捷键\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/locales/zh-HK.json",
+      "content": "{\n  \"tooltip\": {\n    \"hint\": \"更多資訊\",\n    \"shortcut\": \"鍵盤快捷鍵\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tooltip/README.md",
+      "content": "# Tooltip\n\nFrozen Phase 1 stub for `tooltip`.\n\n- Requirement: Precise pointer; touch fallback\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/tooltip/styles.css",
+      "content": ".cu-tooltip__trigger {\n  display: inline-flex;\n}\n\n.cu-tooltip {\n  max-inline-size: 16rem;\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border-radius: var(--cu-radius-sm);\n  color: var(--cu-color-fg-inverse);\n  background: var(--cu-color-background-inverse);\n  font-size: 0.875rem;\n  line-height: 1.4;\n  box-shadow: 0 4px 12px color-mix(in srgb, var(--cu-color-background-inverse) 16%, transparent);\n}\n"
+    },
+    {
+      "path": "components/tooltip/Tooltip.tsx",
+      "content": "import { TooltipPrimitive } from '@chameleon-ui/primitives'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface TooltipProps {\n  trigger: ReactNode\n  content: ReactNode\n  openDelay?: number\n  closeDelay?: number\n  className?: string\n}\n\nexport function Tooltip({ trigger, content, openDelay = 300, closeDelay = 100, className }: TooltipProps) {\n  const classes = ['cu-tooltip', className].filter(Boolean).join(' ')\n\n  return (\n    <TooltipPrimitive.Root closeDelay={closeDelay} openDelay={openDelay}>\n      <TooltipPrimitive.Trigger asChild className=\"cu-tooltip__trigger\">\n        {trigger}\n      </TooltipPrimitive.Trigger>\n      <TooltipPrimitive.Positioner className=\"cu-tooltip__positioner\">\n        <TooltipPrimitive.Content\n          className={classes}\n          data-ai-role=\"tooltip\" data-ai-intent=\"explain-on-hover\"\n          data-ai-state=\"open\"\n          role=\"tooltip\"\n        >\n          {content}\n        </TooltipPrimitive.Content>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Root>\n  )\n}\n"
+    }
+  ]
+}

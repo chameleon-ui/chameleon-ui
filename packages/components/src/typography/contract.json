@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "typography",
+  "name": "Typography",
+  "status": "experimental",
+  "purpose": "Presents text using the design-system type scale across breakpoints.",
+  "scenarios": [
+    "Render a page heading that scales with viewport width",
+    "Display body copy in a readable measure",
+    "Show secondary metadata with a caption style"
+  ],
+  "props": {
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Type scale level.",
+      "values": [
+        "heading-1",
+        "heading-2",
+        "body",
+        "caption"
+      ],
+      "default": "body"
+    },
+    "as": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic element to render; defaults from the variant if omitted.",
+      "values": [
+        "h1",
+        "h2",
+        "h3",
+        "p",
+        "span",
+        "div"
+      ]
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "heading-1",
+        "heading-2",
+        "body",
+        "caption"
+      ],
+      "default": "body",
+      "description": "Type scale level that maps to size and weight."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Text rendered at the chosen scale."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "dialog",
+      "alert",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use heading variants only for visual size; keep the document outline semantic.",
+    "Do not hardcode colors; use token-provided foreground colors."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Text is not focusable.",
+    "labeling": "Headings create the document outline; other text is labelled by context.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Font sizes scale with the viewport using clamp() so text stays readable on compact screens.",
+    "breakpoints": {
+      "compact": "Heading sizes are capped at the lower clamp bound to avoid overflow.",
+      "medium": "Heading sizes grow with available space.",
+      "large": "Heading sizes reach their upper bound."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "typography",
+    "states": [
+      "heading-1",
+      "heading-2",
+      "body",
+      "caption"
+    ],
+    "intents": [
+      "style-text"
+    ]
+  }
+}

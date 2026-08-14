@@ -1,0 +1,108 @@
+{
+  "id": "tree",
+  "type": "registry:ui",
+  "name": "Tree",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/tree/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"tree\",\n  \"name\": \"Tree\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays hierarchical data as an expandable and collapsible tree.\",\n  \"scenarios\": [\n    \"Browse a file directory\",\n    \"Show an organization chart\",\n    \"Navigate nested categories\"\n  ],\n  \"props\": {\n    \"nodes\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, label, children? } tree nodes.\"\n    },\n    \"defaultExpandedIds\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Node ids expanded on first render.\"\n    },\n    \"toggleLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label pattern for node toggles.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Tree with collapsible nodes.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No nodes provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"drawer\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\",\n      \"badge\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a tree for flat lists; use List.\",\n    \"Do not lazy-load children without a loading indicator.\"\n  ],\n  \"a11y\": {\n    \"role\": \"tree\",\n    \"keyboard\": [\n      \"Enter or Space toggles node expansion\"\n    ],\n    \"focus\": \"Node toggles are buttons in tab order with aria-expanded.\",\n    \"labeling\": \"Each node is a treeitem labelled by its text; groups use role=group.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Indentation scales with inline direction; overflow scrolls horizontally.\",\n    \"breakpoints\": {\n      \"compact\": \"Horizontal scroll for deep levels.\",\n      \"medium\": \"Default indentation.\",\n      \"large\": \"Default indentation.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"tree\",\n    \"states\": [\n      \"default\",\n      \"empty\",\n      \"expanded\",\n      \"collapsed\"\n    ],\n    \"intents\": [\n      \"navigate-hierarchy\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/index.ts",
+      "content": "export { Tree } from './Tree.js'\nexport type { TreeNode, TreeProps } from './Tree.js'\n"
+    },
+    {
+      "path": "components/tree/locales/am.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ar.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"شجرة\",\n    \"toggleNode\": \"تبديل العقدة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/bn.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/de.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Baumstruktur\",\n    \"toggleNode\": \"Knoten ein- oder ausklappen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/en.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/es.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/fa.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/fr.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ha.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/hi.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/id.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ja.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ko.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/pt.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ru.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/sw.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ug.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/ur.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/vi.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/zh-CN.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"树\",\n    \"toggleNode\": \"切换节点\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/locales/zh-HK.json",
+      "content": "{\n  \"tree\": {\n    \"label\": \"Tree\",\n    \"toggleNode\": \"Toggle node\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tree/styles.css",
+      "content": ".cu-tree {\n  display: block;\n  color: var(--cu-color-fg-default);\n  overflow-x: auto;\n}\n\n.cu-tree__level {\n  list-style: none;\n  margin: 0;\n  padding-inline-start: var(--cu-space-3);\n}\n\n.cu-tree__row {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n  padding-block: calc(var(--cu-space-1) / 2);\n}\n\n.cu-tree__toggle {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border: 0;\n  padding: 0;\n  background: transparent;\n  color: inherit;\n  cursor: pointer;\n}\n\n.cu-tree__toggle:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-tree__spacer {\n  inline-size: var(--cu-space-3);\n}\n"
+    },
+    {
+      "path": "components/tree/Tree.tsx",
+      "content": "import { useState } from 'react'\nimport './styles.css'\n\nexport interface TreeNode {\n  id: string\n  label: string\n  children?: TreeNode[]\n}\n\nexport interface TreeProps {\n  nodes: TreeNode[]\n  defaultExpandedIds?: string[]\n  toggleLabel?: string\n  className?: string\n}\n\nexport function Tree({ nodes, defaultExpandedIds = [], toggleLabel = 'Toggle node', className }: TreeProps) {\n  const [expanded, setExpanded] = useState<Set<string>>(() => new Set(defaultExpandedIds))\n  const classes = ['cu-tree', className].filter(Boolean).join(' ')\n\n  const toggle = (id: string) => {\n    setExpanded((current) => {\n      const next = new Set(current)\n      if (next.has(id)) next.delete(id)\n      else next.add(id)\n      return next\n    })\n  }\n\n  const renderNodes = (items: TreeNode[]) => (\n    <ul className=\"cu-tree__level\" role={items === nodes ? 'tree' : 'group'}>\n      {items.map((node) => {\n        const hasChildren = Boolean(node.children?.length)\n        const isExpanded = expanded.has(node.id)\n        return (\n          <li key={node.id} className=\"cu-tree__item\" role=\"treeitem\" aria-expanded={hasChildren ? isExpanded : undefined}>\n            <div className=\"cu-tree__row\">\n              {hasChildren ? (\n                <button\n                  type=\"button\"\n                  className=\"cu-tree__toggle\"\n                  aria-label={`${toggleLabel}: ${node.label}`}\n                  onClick={() => toggle(node.id)}\n                >\n                  <span aria-hidden=\"true\">{isExpanded ? '▾' : '▸'}</span>\n                </button>\n              ) : (\n                <span className=\"cu-tree__spacer\" aria-hidden=\"true\" />\n              )}\n              <span className=\"cu-tree__label\">{node.label}</span>\n            </div>\n            {hasChildren && isExpanded ? renderNodes(node.children ?? []) : null}\n          </li>\n        )\n      })}\n    </ul>\n  )\n\n  return (\n    <div className={classes} data-ai-role=\"tree\" data-ai-intent=\"navigate-hierarchy\" data-ai-state={nodes.length === 0 ? 'empty' : 'default'}>\n      {renderNodes(nodes)}\n    </div>\n  )\n}\n"
+    }
+  ]
+}

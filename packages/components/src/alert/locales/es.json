@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "success": "Éxito",
+    "error": "Error",
+    "warning": "Advertencia"
+  }
+}

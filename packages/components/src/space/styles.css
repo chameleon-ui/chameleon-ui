@@ -1,0 +1,32 @@
+.cu-space {
+  flex: none;
+  pointer-events: none;
+  --cu-space-slot: 0px;
+}
+
+.cu-space--sm {
+  --cu-space-slot: var(--cu-space-1);
+}
+
+.cu-space--md {
+  --cu-space-slot: var(--cu-space-2);
+}
+
+.cu-space--lg {
+  --cu-space-slot: var(--cu-space-3);
+}
+
+.cu-space[data-axis='block'] {
+  block-size: var(--cu-space-slot);
+  inline-size: auto;
+}
+
+.cu-space[data-axis='inline'] {
+  inline-size: var(--cu-space-slot);
+  block-size: auto;
+}
+
+.cu-space[data-axis='both'] {
+  block-size: var(--cu-space-slot);
+  inline-size: var(--cu-space-slot);
+}

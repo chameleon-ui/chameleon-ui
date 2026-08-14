@@ -1,0 +1,20 @@
+{
+  "id": "community-focus-first",
+  "type": "registry:rules",
+  "name": "Focus First Discipline",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "rules/community-focus-first/design-rules.json",
+      "content": "{\n  \"version\": \"1.0\",\n  \"typography\": {\n    \"scale\": \"minor-third\",\n    \"lineHeightBody\": 1.6,\n    \"fontFamilyToken\": \"font.family.sans\",\n    \"headingWeightToken\": \"font.weight.semibold\",\n    \"tracking\": \"normal\"\n  },\n  \"spacing\": {\n    \"rhythm\": 8,\n    \"density\": \"comfortable\",\n    \"scale\": {\n      \"strategy\": \"rem-steps\",\n      \"steps\": [\"space.0\", \"space.1\", \"space.2\", \"space.3\", \"space.4\"]\n    },\n    \"radiusStrategy\": {\n      \"default\": \"radius.md\",\n      \"interactive\": \"radius.sm\",\n      \"surface\": \"radius.lg\"\n    }\n  },\n  \"colorBoundaries\": {\n    \"accentUsage\": \"primary-and-links\",\n    \"surfaceLayers\": [\n      \"color.background.default\",\n      \"color.background.subtle\",\n      \"color.background.elevated\"\n    ],\n    \"disabledContrast\": {\n      \"minimumRatio\": 4.5,\n      \"foregroundToken\": \"color.fg.muted\",\n      \"backgroundToken\": \"color.background.default\"\n    },\n    \"gradientPolicy\": \"forbidden\"\n  },\n  \"forbiddenPatterns\": [\n    \"outline-none-without-replacement\",\n    \"color-only-state\",\n    \"auto-playing-motion\",\n    \"invisible-focus-ring\"\n  ],\n  \"composition\": {\n    \"surfaceHierarchy\": \"border-over-elevation\",\n    \"preferredStacks\": [\"button\", \"input\", \"inline-alert\", \"stack\"],\n    \"componentRules\": {\n      \"Button\": { \"minWidthPx\": 88, \"maxWidthPx\": 360, \"minTouchTargetPx\": 44 },\n      \"Input\": { \"minTouchTargetPx\": 44 },\n      \"Link\": { \"minTouchTargetPx\": 44 }\n    }\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"logical-properties-only; no runtime DOM mirroring\",\n    \"mirroredIcons\": [\n      \"arrow-back\",\n      \"arrow-forward\",\n      \"chevron-start\",\n      \"chevron-end\"\n    ],\n    \"bidiIsolation\": \"required-for-user-content\"\n  }\n}\n"
+    },
+    {
+      "path": "rules/community-focus-first/meta.json",
+      "content": "{\n  \"id\": \"community-focus-first\",\n  \"label\": \"Focus First Discipline\",\n  \"kind\": \"community\",\n  \"pricing\": {\n    \"paid\": false\n  },\n  \"preview\": {\n    \"accent\": \"#2563eb\",\n    \"surface\": \"#f8fafc\"\n  },\n  \"fonts\": {\n    \"sans\": \"system-ui, sans-serif\"\n  }\n}\n"
+    },
+    {
+      "path": "rules/community-focus-first/tokens.json",
+      "content": "{\n  \"color\": {\n    \"focus\": {\n      \"ring\": { \"$value\": \"#2563eb\" },\n      \"ringOffset\": { \"$value\": \"#ffffff\" }\n    },\n    \"palette\": {\n      \"brand\": { \"$value\": \"#2563eb\" }\n    }\n  },\n  \"radius\": {\n    \"$type\": \"dimension\",\n    \"sm\": { \"$value\": { \"value\": 4, \"unit\": \"px\" } },\n    \"md\": { \"$value\": { \"value\": 6, \"unit\": \"px\" } },\n    \"lg\": { \"$value\": { \"value\": 8, \"unit\": \"px\" } }\n  }\n}\n"
+    }
+  ]
+}

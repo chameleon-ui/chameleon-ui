@@ -1,0 +1,112 @@
+/*
+ * Phase 5 container-query whitelist member: the root is the query container
+ * and the inner frame consumes it, so the chrome morphs with the shell's own
+ * inline size (sidebar embed, split view) rather than the raw viewport.
+ */
+.cu-app-shell {
+  container-name: app-shell;
+  container-type: inline-size;
+  min-block-size: 100vh;
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+}
+
+/* Compact base: header + main only, sidebar hidden. Optional tab-bar docks to block-end. */
+.cu-app-shell__frame {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  min-block-size: 100vh;
+}
+
+.cu-app-shell:has(.cu-app-shell__tab-bar) .cu-app-shell__frame {
+  grid-template-areas:
+    "header"
+    "main"
+    "tabbar";
+  grid-template-rows: auto 1fr auto;
+}
+
+.cu-app-shell__header {
+  grid-area: header;
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 8;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  background: var(
+    --cu-color-background-translucent,
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+.cu-app-shell__sidebar {
+  display: none;
+  grid-area: sidebar;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+  border-inline-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+.cu-app-shell__main {
+  grid-area: main;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  overflow: auto;
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+}
+
+.cu-app-shell__tab-bar {
+  grid-area: tabbar;
+}
+
+/* In-shell TabBar must size to the shell, not the viewport (A5.3 nested phone chrome). */
+.cu-app-shell__tab-bar .cu-tab-bar {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+}
+
+/* 48rem == breakpoint.tablet, 80rem == breakpoint.desktop (tokens/src/core/breakpoint.json). */
+@container (min-width: 48rem) {
+  .cu-app-shell__frame {
+    grid-template-areas:
+      "header header"
+      "sidebar main";
+    grid-template-columns: 12rem 1fr;
+  }
+
+  .cu-app-shell:has(.cu-app-shell__tab-bar) .cu-app-shell__frame {
+    grid-template-areas:
+      "header header"
+      "sidebar main"
+      "tabbar tabbar";
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .cu-app-shell__sidebar {
+    display: block;
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-app-shell__frame,
+  .cu-app-shell:has(.cu-app-shell__tab-bar) .cu-app-shell__frame {
+    grid-template-areas:
+      "header header"
+      "sidebar main";
+    grid-template-columns: 16rem 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .cu-app-shell__tab-bar {
+    display: none;
+  }
+}

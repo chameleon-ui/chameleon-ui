@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "article-card",
+  "name": "ArticleCard",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Presents an article teaser with cover, title, excerpt, metadata, and read action.",
+  "scenarios": [
+    "Blog listing grid",
+    "Knowledge base results",
+    "News feed entry"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Article headline."
+    },
+    "excerpt": {
+      "type": "string",
+      "required": false,
+      "description": "Short summary text."
+    },
+    "author": {
+      "type": "string",
+      "required": false,
+      "description": "Author display name."
+    },
+    "date": {
+      "type": "string",
+      "required": false,
+      "description": "Formatted publication date."
+    },
+    "coverSrc": {
+      "type": "string",
+      "required": false,
+      "description": "Cover image URL."
+    },
+    "coverAlt": {
+      "type": "string",
+      "required": false,
+      "description": "Cover image alt text."
+    },
+    "href": {
+      "type": "string",
+      "required": false,
+      "description": "Target URL for the read action."
+    },
+    "readLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the read action."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Teaser card rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "grid",
+      "list",
+      "page",
+      "carousel"
+    ],
+    "allowedChildren": [
+      "badge",
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not link the whole card and a nested read action at once.",
+    "Do not clip the excerpt mid-word."
+  ],
+  "a11y": {
+    "role": "article",
+    "keyboard": [
+      "Enter activates the read action"
+    ],
+    "focus": "Read action is the single tab stop.",
+    "labeling": "Title labels the article; metadata is plain text.",
+    "wcag": [
+      "1.3.1",
+      "2.4.4"
+    ]
+  },
+  "responsive": {
+    "strategy": "Cover stacks above text on compact; side-by-side on large.",
+    "breakpoints": {
+      "compact": "Stacked layout.",
+      "medium": "Stacked layout.",
+      "large": "Optional side-by-side."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "article-card",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "group-content",
+      "navigate-detail"
+    ]
+  }
+}

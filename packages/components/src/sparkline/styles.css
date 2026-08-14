@@ -1,0 +1,10 @@
+.cu-sparkline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.cu-sparkline__line {
+  fill: none;
+  stroke: var(--cu-color-palette-brand);
+  stroke-width: 1.5;
+}

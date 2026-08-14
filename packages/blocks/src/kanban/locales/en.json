@@ -1,0 +1,17 @@
+{
+  "kanban": {
+    "title": "Board",
+    "subtitle": "Move work across columns with the keyboard. Pointer drag is not included.",
+    "colTodo": "To do",
+    "colDoing": "In progress",
+    "colDone": "Done",
+    "emptyTitle": "No cards",
+    "emptyDescription": "This column has no cards yet.",
+    "moveForward": "Move {name} forward",
+    "moveBack": "Move {name} back",
+    "priorityHigh": "High",
+    "priorityMedium": "Medium",
+    "priorityLow": "Low",
+    "cardCount": "{count, plural, =0 {No cards} one {# card} other {# cards}}"
+  }
+}

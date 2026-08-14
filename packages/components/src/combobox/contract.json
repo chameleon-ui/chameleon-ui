@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "combobox",
+  "name": "Combobox",
+  "status": "experimental",
+  "purpose": "Combines a text input with a selectable dropdown list.",
+  "scenarios": [
+    "Search and select a country",
+    "Pick from a long list with filtering",
+    "Enter or select a value"
+  ],
+  "props": {
+    "options": {
+      "type": "string",
+      "required": true,
+      "description": "Array of option strings."
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Selected value.",
+      "default": ""
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when selection changes."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Input placeholder.",
+      "default": "Search or select"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Dropdown is open."
+    },
+    {
+      "name": "closed",
+      "description": "Dropdown is closed."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "page",
+      "dialog"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use when a simple Select is enough.",
+    "Do not filter options without a clear empty state."
+  ],
+  "a11y": {
+    "role": "combobox",
+    "keyboard": [
+      "Arrow keys move within options",
+      "Enter selects"
+    ],
+    "focus": "Input is focusable; list opens on focus.",
+    "labeling": "Placeholder and selected value provide the label.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Dropdown width matches input.",
+    "breakpoints": {
+      "compact": "Full width dropdown.",
+      "medium": "Input width.",
+      "large": "Input width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "combobox",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "search-select"
+    ]
+  }
+}

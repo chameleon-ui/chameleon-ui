@@ -1,0 +1,7 @@
+{
+  "radio": {
+    "payment": "결제 수단",
+    "optionCard": "신용카드",
+    "optionBank": "계좌 이체"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "شريط أدوات اللوحة",
+    "zoomIn": "تكبير",
+    "zoomOut": "تصغير",
+    "resetView": "إعادة ضبط العرض",
+    "fitView": "ملاءمة للعرض"
+  }
+}

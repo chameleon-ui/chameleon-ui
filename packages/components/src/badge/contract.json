@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "badge",
+  "name": "Badge",
+  "status": "experimental",
+  "purpose": "Displays a compact status indicator or count.",
+  "scenarios": [
+    "Show a status label",
+    "Indicate a count",
+    "Highlight metadata"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Text or number displayed in the badge."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic color emphasis.",
+      "values": [
+        "default",
+        "primary",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "default"
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Density.",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "primary",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "default",
+      "description": "Semantic color emphasis."
+    },
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md",
+      "description": "Density."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle badge."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "button",
+      "card",
+      "table",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use as the sole means of conveying critical state.",
+    "Do not put long paragraphs inside a badge."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Contents provide the accessible label.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline display adapts to parent flow.",
+    "breakpoints": {
+      "compact": "Inline.",
+      "medium": "Inline.",
+      "large": "Inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "badge",
+    "states": [
+      "default",
+      "primary",
+      "success",
+      "warning",
+      "danger"
+    ],
+    "intents": [
+      "flag-status",
+      "highlight-count"
+    ]
+  }
+}

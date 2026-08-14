@@ -1,0 +1,17 @@
+## 示例
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('2026-08-14');
+  return (
+    <DatePicker
+      label="出发日期"
+      locale="zh-CN"
+      value={value}
+      onChange={setValue}
+      previousMonthLabel="上个月"
+      nextMonthLabel="下个月"
+    />
+  );
+}
+```

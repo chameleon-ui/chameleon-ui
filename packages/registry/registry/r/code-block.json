@@ -1,0 +1,108 @@
+{
+  "id": "code-block",
+  "type": "registry:ui",
+  "name": "CodeBlock",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/code-block/CodeBlock.tsx",
+      "content": "import { useState } from 'react'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface CodeBlockProps {\n  code: string\n  language?: string\n  highlight?: boolean\n  copyLabel?: string\n  copiedLabel?: string\n  className?: string\n}\n\nconst KEYWORDS = new Set([\n  'async', 'await', 'break', 'case', 'catch', 'class', 'const', 'continue', 'def', 'default',\n  'do', 'else', 'enum', 'export', 'extends', 'false', 'finally', 'fn', 'for', 'from', 'func',\n  'function', 'go', 'if', 'impl', 'import', 'in', 'interface', 'lambda', 'let', 'match', 'mod',\n  'mut', 'new', 'nil', 'none', 'null', 'package', 'private', 'pub', 'public', 'return', 'self',\n  'static', 'struct', 'switch', 'this', 'throw', 'true', 'try', 'type', 'undefined', 'use',\n  'var', 'void', 'while', 'yield',\n])\n\nconst TOKEN_PATTERN =\n  /(\\/\\/[^\\n]*|#[^\\n]*)|(\\/\\*[\\s\\S]*?\\*\\/)|('(?:[^'\\\\\\n]|\\\\.)*'|\"(?:[^\"\\\\\\n]|\\\\.)*\"|`(?:[^`\\\\]|\\\\.)*`)|(\\b\\d+(?:\\.\\d+)?\\b)|([A-Za-z_][A-Za-z0-9_]*)/g\n\n/**\n * Language-agnostic heuristic highlighter: line/block comments, strings, numbers, and a small\n * cross-language keyword set. Kept dependency-free on purpose; a full grammar highlighter is a\n * Phase 6 budget decision.\n * @complexity time O(n) | space O(n) | n = code length\n */\nfunction tokenize(code: string): ReactNode[] {\n  const nodes: ReactNode[] = []\n  let last = 0\n  let index = 0\n  for (const match of code.matchAll(TOKEN_PATTERN)) {\n    const at = match.index ?? 0\n    if (at > last) nodes.push(code.slice(last, at))\n    const [text, lineComment, blockComment, str, num, word] = match\n    let kind: string | null = null\n    if (lineComment !== undefined || blockComment !== undefined) kind = 'comment'\n    else if (str !== undefined) kind = 'string'\n    else if (num !== undefined) kind = 'number'\n    else if (word !== undefined && KEYWORDS.has(word.toLowerCase())) kind = 'keyword'\n    if (kind) nodes.push(<span key={index} className={`cu-code-block__token--${kind}`}>{text}</span>)\n    else nodes.push(text)\n    index += 1\n    last = at + text.length\n  }\n  if (last < code.length) nodes.push(code.slice(last))\n  return nodes\n}\n\nexport function CodeBlock({ code, language, highlight = true, copyLabel = 'Copy code', copiedLabel = 'Copied', className }: CodeBlockProps) {\n  const [copied, setCopied] = useState(false)\n  const classes = ['cu-code-block', className].filter(Boolean).join(' ')\n\n  const copy = async () => {\n    try {\n      await navigator.clipboard?.writeText(code)\n    } catch {\n      // Clipboard unavailable (permission or insecure context); the state change still confirms intent.\n    }\n    setCopied(true)\n  }\n\n  return (\n    <figure className={classes} data-ai-role=\"code-block\" data-ai-intent=\"copy-snippet\" data-ai-state={copied ? 'copied' : 'default'}>\n      <figcaption className=\"cu-code-block__bar\">\n        <span className=\"cu-code-block__language\">{language ?? 'text'}</span>\n        <button type=\"button\" className=\"cu-code-block__copy\" onClick={copy}>\n          {copied ? copiedLabel : copyLabel}\n        </button>\n      </figcaption>\n      <pre className=\"cu-code-block__pre\">\n        <code>{highlight ? tokenize(code) : code}</code>\n      </pre>\n    </figure>\n  )\n}\n"
+    },
+    {
+      "path": "components/code-block/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"code-block\",\n  \"name\": \"CodeBlock\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents formatted source code with language label and a copy action.\",\n  \"scenarios\": [\n    \"API usage snippet in docs\",\n    \"Error log excerpt\",\n    \"Configuration example\"\n  ],\n  \"props\": {\n    \"code\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Source text to display.\"\n    },\n    \"language\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Language identifier shown as a label.\"\n    },\n    \"copyLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the copy button.\"\n    },\n    \"copiedLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Text shown briefly after copying.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Code shown; copy available.\"\n    },\n    {\n      \"name\": \"copied\",\n      \"description\": \"Copy just succeeded; confirmation visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"markdown-renderer\",\n      \"article-card\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not execute code from the block.\",\n    \"Do not truncate code without a scroll affordance.\"\n  ],\n  \"a11y\": {\n    \"role\": \"figure\",\n    \"keyboard\": [\n      \"Tab reaches the copy button\"\n    ],\n    \"focus\": \"Copy button is in tab order; code region itself is not focusable.\",\n    \"labeling\": \"Language label plus pre semantics describe the block.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Horizontal scroll for long lines at all breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Scrollable region.\",\n      \"medium\": \"Scrollable region.\",\n      \"large\": \"Scrollable region.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"code-block\",\n    \"states\": [\n      \"default\",\n      \"copied\"\n    ],\n    \"intents\": [\n      \"copy-snippet\",\n      \"style-text\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/index.ts",
+      "content": "export { CodeBlock } from './CodeBlock.js'\nexport type { CodeBlockProps } from './CodeBlock.js'\n"
+    },
+    {
+      "path": "components/code-block/locales/am.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ar.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"كتلة تعليمات\",\n    \"copy\": \"نسخ التعليمات\",\n    \"copied\": \"تم النسخ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/bn.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/de.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Quellcode-Block\",\n    \"copy\": \"Code kopieren\",\n    \"copied\": \"In Zwischenablage kopiert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/en.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/es.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/fa.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/fr.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ha.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/hi.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/id.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ja.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ko.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/pt.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ru.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/sw.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ug.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/ur.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/vi.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/zh-CN.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"代码块\",\n    \"copy\": \"复制代码\",\n    \"copied\": \"已复制\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/locales/zh-HK.json",
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+    },
+    {
+      "path": "components/code-block/styles.css",
+      "content": ".cu-code-block {\n  display: block;\n  margin: 0;\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-inverse);\n  color: var(--cu-color-fg-inverse);\n  overflow: hidden;\n}\n\n.cu-code-block__bar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-3);\n  border-block-end: 1px solid color-mix(in srgb, var(--cu-color-fg-inverse) 18%, transparent);\n  font-size: 0.75em;\n}\n\n.cu-code-block__copy {\n  border: 1px solid color-mix(in srgb, var(--cu-color-fg-inverse) 32%, transparent);\n  border-radius: var(--cu-radius-sm);\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-2);\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-code-block__copy:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-code-block__pre {\n  margin: 0;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  overflow-x: auto;\n  font-family: monospace;\n  font-size: 0.875em;\n}\n\n.cu-code-block__token--keyword {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 75%, var(--cu-color-fg-inverse));\n}\n\n.cu-code-block__token--string {\n  color: var(--cu-color-fg-inverse);\n}\n\n.cu-code-block__token--number {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 45%, var(--cu-color-fg-inverse));\n}\n\n.cu-code-block__token--comment {\n  color: color-mix(in srgb, var(--cu-color-fg-inverse) 56%, transparent);\n  font-style: italic;\n}\n"
+    }
+  ]
+}

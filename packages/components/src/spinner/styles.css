@@ -1,0 +1,51 @@
+.cu-spinner {
+  display: inline-flex;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  flex: none;
+  color: var(--cu-color-palette-brand);
+}
+
+.cu-spinner--sm {
+  inline-size: 1rem;
+  block-size: 1rem;
+}
+
+.cu-spinner--lg {
+  inline-size: 2rem;
+  block-size: 2rem;
+}
+
+.cu-spinner__svg {
+  inline-size: 100%;
+  block-size: 100%;
+  animation: cu-spin 1s linear infinite;
+}
+
+.cu-spinner__track,
+.cu-spinner__lead {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.cu-spinner__track {
+  stroke: color-mix(in srgb, var(--cu-color-palette-brand) 20%, transparent);
+}
+
+.cu-spinner__lead {
+  stroke: currentColor;
+  stroke-dasharray: 40 60;
+  stroke-linecap: round;
+}
+
+@keyframes cu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-spinner__svg {
+    animation-duration: 0.01ms;
+  }
+}

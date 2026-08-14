@@ -1,0 +1,108 @@
+{
+  "id": "dialog",
+  "type": "registry:ui",
+  "name": "Dialog",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/dialog/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"dialog\",\n  \"name\": \"Dialog\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a blocking task in a modal on large screens and a bottom sheet on compact screens.\",\n  \"scenarios\": [\n    \"Review a setting before continuing\",\n    \"Confirm a destructive action\",\n    \"Collect a short form without leaving the page\"\n  ],\n  \"props\": {\n    \"triggerLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name of the element that opens the dialog.\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Dialog heading and accessible name.\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Supporting text associated with the dialog.\"\n    },\n    \"closeLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name of the close action.\"\n    },\n    \"open\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Optional controlled open state.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"closed\",\n      \"description\": \"Not shown; trigger is in the tab order.\"\n    },\n    {\n      \"name\": \"open\",\n      \"description\": \"Shown; focus is trapped until dismiss.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"input\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest dialogs.\",\n    \"Do not trap focus without an Escape or close control.\"\n  ],\n  \"a11y\": {\n    \"role\": \"dialog\",\n    \"keyboard\": [\n      \"Enter/Space on trigger opens\",\n      \"Tab cycles inside\",\n      \"Escape closes and restores trigger focus\"\n    ],\n    \"focus\": \"Focus moves into the dialog on open and returns to the trigger on close. Delegated to Ark UI / Zag.\",\n    \"labeling\": \"Title labels the dialog; description is associated.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"2.4.3\",\n      \"2.4.7\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Centered modal on medium/large; compact uses a block-end bottom sheet. Escape dismisses at every breakpoint. Morph is container-driven via the viewport-sized positioner (@container 48rem == tablet).\",\n    \"breakpoints\": {\n      \"compact\": \"Bottom sheet: content docks to block-end, full inline size, start-edge radii only.\",\n      \"medium\": \"Centered modal, max inline size 32rem.\",\n      \"large\": \"Centered modal, max inline size 32rem.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical inset, padding, and action alignment. Close control is not mirrored. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"dialog\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"confirm-decision\",\n      \"collect-input\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/Dialog.tsx",
+      "content": "import { DialogPrimitive } from '@chameleon-ui/primitives'\nimport type { ReactNode } from 'react'\nimport '../button/styles.css'\nimport './styles.css'\n\nexport interface DialogProps {\n  triggerLabel: string\n  title: string\n  description: string\n  closeLabel: string\n  children?: ReactNode\n  defaultOpen?: boolean\n  open?: boolean\n  onOpenChange?: (open: boolean) => void\n}\n\nexport function Dialog({\n  triggerLabel,\n  title,\n  description,\n  closeLabel,\n  children,\n  defaultOpen,\n  open,\n  onOpenChange,\n}: DialogProps) {\n  return (\n    <DialogPrimitive.Root\n      defaultOpen={defaultOpen}\n      lazyMount\n      open={open}\n      restoreFocus\n      unmountOnExit\n      onOpenChange={(details) => onOpenChange?.(details.open)}\n    >\n      <DialogPrimitive.Trigger className=\"cu-button cu-button--solid cu-button--md cu-dialog__trigger\">\n        {triggerLabel}\n      </DialogPrimitive.Trigger>\n      <DialogPrimitive.Portal>\n        <DialogPrimitive.Backdrop className=\"cu-dialog__backdrop\" />\n        <DialogPrimitive.Positioner className=\"cu-dialog__positioner\">\n          <DialogPrimitive.Content\n        className=\"cu-dialog__content\"\n        data-ai-role=\"dialog\" data-ai-intent=\"confirm-decision\"\n        data-ai-state=\"open\"\n        dir={typeof document === 'undefined' ? undefined : document.documentElement.dir || undefined}\n      >\n            <DialogPrimitive.Title className=\"cu-dialog__title\">{title}</DialogPrimitive.Title>\n            <DialogPrimitive.Description className=\"cu-dialog__description\">\n              {description}\n            </DialogPrimitive.Description>\n            {children ? <div className=\"cu-dialog__body\">{children}</div> : null}\n            <div className=\"cu-dialog__actions\">\n              <DialogPrimitive.CloseTrigger className=\"cu-button cu-button--outline cu-button--md\">\n                {closeLabel}\n              </DialogPrimitive.CloseTrigger>\n            </div>\n          </DialogPrimitive.Content>\n        </DialogPrimitive.Positioner>\n      </DialogPrimitive.Portal>\n    </DialogPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/dialog/index.ts",
+      "content": "export { Dialog } from './Dialog.js'\nexport type { DialogProps } from './Dialog.js'\n"
+    },
+    {
+      "path": "components/dialog/locales/am.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"የግምገማ ዳይሎግ ክፈት\",\n    \"title\": \"መሠረቱን ይገምግሙ\",\n    \"description\": \"ዳይሎጉ እስኪዘጋ ድረስ የቁልፍ ቦታ ውስጥ ይቆያል።\",\n    \"close\": \"ግምገማን አጠናቅቅ\",\n    \"body\": \"Esc ወይም የመዝጋት ቁልፍ ይጫኑ። ቦታ ወደ ቀስቃሽ መመለስ አለበት።\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ar.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"فتح مربع حوار المراجعة\",\n    \"title\": \"مراجعة الأساس\",\n    \"description\": \"يبقى تركيز لوحة المفاتيح داخل مربع الحوار حتى يُغلق.\",\n    \"close\": \"إنهاء المراجعة\",\n    \"body\": \"اضغط Escape أو زر الإغلاق. يجب أن يعود التركيز إلى زر الفتح.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/bn.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"পর্যালোচনা ডায়ালগ খুলুন\",\n    \"title\": \"ভিত্তি পর্যালোচনা করুন\",\n    \"description\": \"বন্ধ না হওয়া পর্যন্ত কীবোর্ড ফোকাস এই ডায়ালগের ভিতরে থাকে।\",\n    \"close\": \"পর্যালোচনা শেষ করুন\",\n    \"body\": \"Esc বা বন্ধ বোতাম চাপুন। ফোকাস ট্রিগারে ফিরে যাওয়া উচিত।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/de.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Zum Prüfen den Dialogfenster öffnen\",\n    \"title\": \"Die Grundlage im Dialogfenster prüfen\",\n    \"description\": \"Der Tastaturfokus bleibt innerhalb dieses Dialogfensters, bis Sie es wieder schließen.\",\n    \"close\": \"Prüfung jetzt abschließen\",\n    \"body\": \"Drücken Sie Escape oder die Schaltfläche zum Schließen. Der Fokus soll zum Auslöser-Button zurückkehren.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/en.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Open review dialog\",\n    \"title\": \"Review the foundation\",\n    \"description\": \"Keyboard focus stays inside this dialog until it closes.\",\n    \"close\": \"Finish review\",\n    \"body\": \"Press Escape or the close button. Focus should return to the trigger.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/es.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Abrir diálogo de revisión\",\n    \"title\": \"Revisar la base\",\n    \"description\": \"El foco del teclado permanece dentro de este diálogo hasta que se cierre.\",\n    \"close\": \"Finalizar revisión\",\n    \"body\": \"Pulsa Esc o el botón cerrar. El foco debe volver al activador.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/fa.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"باز کردن گفتگوی بازبینی\",\n    \"title\": \"بازبینی پایه\",\n    \"description\": \"تا بسته شدن، فوکوس صفحه‌کلید داخل این گفتگو می‌ماند.\",\n    \"close\": \"پایان بازبینی\",\n    \"body\": \"Esc یا دکمه بستن را بزنید. فوکوس باید به محرک برگردد.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/fr.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Ouvrir la boîte de dialogue de révision\",\n    \"title\": \"Examiner la fondation\",\n    \"description\": \"Le focus clavier reste dans cette boîte de dialogue jusqu'à sa fermeture.\",\n    \"close\": \"Terminer la révision\",\n    \"body\": \"Appuyez sur Échap ou sur le bouton fermer. Le focus doit revenir au déclencheur.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ha.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Bude tattaunawar bita\",\n    \"title\": \"Bita tushe\",\n    \"description\": \"Mayar da hankali na madanni yana cikin wannan tattaunawa har an rufe ta.\",\n    \"close\": \"Kammala bita\",\n    \"body\": \"Danna Esc ko maɓallin rufewa. Mayar da hankali ya kamata ya koma zuwa mai haifarwa.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/hi.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"समीक्षा संवाद खोलें\",\n    \"title\": \"आधार की समीक्षा करें\",\n    \"description\": \"बंद होने तक कीबोर्ड फ़ोकस इस संवाद के अंदर रहता है।\",\n    \"close\": \"समीक्षा समाप्त करें\",\n    \"body\": \"Esc या बंद करें बटन दबाएँ। फ़ोकस ट्रिगर पर लौटना चाहिए।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/id.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Buka dialog tinjauan\",\n    \"title\": \"Tinjau fondasi\",\n    \"description\": \"Fokus keyboard tetap di dalam dialog ini sampai ditutup.\",\n    \"close\": \"Selesai tinjauan\",\n    \"body\": \"Tekan Esc atau tombol tutup. Fokus harus kembali ke pemicu.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ja.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"レビューダイアログを開く\",\n    \"title\": \"基盤を確認\",\n    \"description\": \"このダイアログを閉じるまで、キーボードフォーカスは内部に留まります。\",\n    \"close\": \"レビューを完了\",\n    \"body\": \"Esc または閉じるボタンを押してください。フォーカスはトリガーに戻るはずです。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ko.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"검토 대화상자 열기\",\n    \"title\": \"기반 검토\",\n    \"description\": \"대화상자를 닫을 때까지 키보드 포커스가 내부에 유지됩니다.\",\n    \"close\": \"검토 완료\",\n    \"body\": \"Esc 또는 닫기 버튼을 누르세요. 포커스가 트리거로 돌아가야 합니다.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/pt.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Abrir diálogo de revisão\",\n    \"title\": \"Revisar a base\",\n    \"description\": \"O foco do teclado permanece neste diálogo até ele fechar.\",\n    \"close\": \"Concluir revisão\",\n    \"body\": \"Pressione Esc ou o botão fechar. O foco deve voltar ao gatilho.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ru.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Открыть диалог проверки\",\n    \"title\": \"Проверка основы\",\n    \"description\": \"Фокус клавиатуры остаётся внутри диалога, пока он не закрыт.\",\n    \"close\": \"Завершить проверку\",\n    \"body\": \"Нажмите Esc или кнопку закрытия. Фокус должен вернуться к триггеру.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/sw.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Fungua kidirisha cha ukaguzi\",\n    \"title\": \"Kagua msingi\",\n    \"description\": \"Lengo la kibodi hubaki ndani ya kidirisha hiki hadi kifungwe.\",\n    \"close\": \"Maliza ukaguzi\",\n    \"body\": \"Bonyeza Esc au kitufe cha kufunga. Lengo linapaswa kurudi kwa kichocheo.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ug.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"تەكشۈرۈش سۆزلىشىش كۆزنىكىنى ئېچىش\",\n    \"title\": \"ئاساسنى تەكشۈرۈش\",\n    \"description\": \"بۇ سۆزلىشىش كۆزنىكى تاقىلىپ بولغۇچە كۇنۇپكا فوكۇسى ئىچىدە قالىدۇ.\",\n    \"close\": \"تەكشۈرۈشنى تاماملاش\",\n    \"body\": \"Esc ياكى تاقاش كۇنۇپكىسىنى بېسىڭ. فوكۇس قوزغاتقۇچقا قايتىشى كېرەك.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/ur.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"جائزہ ڈائیلاگ کھولیں\",\n    \"title\": \"بنیاد کا جائزہ\",\n    \"description\": \"بند ہونے تک کی بورڈ فوکس اس ڈائیلاگ کے اندر رہتا ہے۔\",\n    \"close\": \"جائزہ مکمل کریں\",\n    \"body\": \"Esc یا بند کرنے کا بٹن دبائیں۔ فوکس ٹرگر پر واپس آنا چاہیے۔\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/vi.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"Mở hộp thoại xem lại\",\n    \"title\": \"Xem lại nền tảng\",\n    \"description\": \"Tiêu điểm bàn phím giữ trong hộp thoại này cho đến khi đóng.\",\n    \"close\": \"Hoàn tất xem lại\",\n    \"body\": \"Nhấn Esc hoặc nút đóng. Tiêu điểm phải quay về nút kích hoạt.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/zh-CN.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"打开核对对话框\",\n    \"title\": \"核对基础能力\",\n    \"description\": \"在关闭之前，键盘焦点会保持在对话框内。\",\n    \"close\": \"完成核对\",\n    \"body\": \"按 Escape 或关闭按钮。焦点应回到触发器。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/locales/zh-HK.json",
+      "content": "{\n  \"dialog\": {\n    \"trigger\": \"開啟檢閱對話框\",\n    \"title\": \"檢閱基礎\",\n    \"description\": \"鍵盤焦點會留在此對話框內，直至關閉。\",\n    \"close\": \"完成檢閱\",\n    \"body\": \"按 Esc 或關閉按鈕。焦點應返回觸發元素。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/dialog/styles.css",
+      "content": ".cu-dialog__backdrop {\n  position: fixed;\n  inset: 0;\n  z-index: 30;\n  background: color-mix(in srgb, var(--cu-color-background-inverse) 66%, transparent);\n  backdrop-filter: blur(var(--cu-blur-surface, 0px));\n  -webkit-backdrop-filter: blur(var(--cu-blur-surface, 0px));\n}\n\n/*\n * Phase 5 container-query whitelist member: the positioner is viewport-sized\n * (fixed inset 0) and acts as the query container, so the bottom-sheet ->\n * centered-modal morph is driven by the container, not a viewport media query.\n */\n.cu-dialog__positioner {\n  position: fixed;\n  inset: 0;\n  z-index: 31;\n  display: grid;\n  place-items: end center;\n  overflow: auto;\n  container-type: inline-size;\n}\n\n.cu-dialog__content {\n  inline-size: 100%;\n  max-block-size: min(90vh, 36rem);\n  overflow: auto;\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  border-start-start-radius: var(--cu-radius-xl, var(--cu-radius-lg));\n  border-start-end-radius: var(--cu-radius-xl, var(--cu-radius-lg));\n  border-end-start-radius: 0;\n  border-end-end-radius: 0;\n  color: var(--cu-color-fg-default);\n  background: var(\n    --cu-color-background-translucent-thick,\n    var(--cu-color-background-elevated, var(--cu-color-background-default))\n  );\n  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1))\n    blur(var(--cu-blur-thick, var(--cu-blur-surface, 0px)));\n  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-thick, var(--cu-blur-surface, 0px)));\n  box-shadow: var(--cu-shadow-lg);\n}\n\n.cu-dialog__title {\n  margin-block: 0 var(--cu-space-2);\n}\n\n.cu-dialog__description,\n.cu-dialog__body {\n  color: var(--cu-color-fg-default);\n  line-height: 1.6;\n}\n\n.cu-dialog__body {\n  margin-block-start: var(--cu-space-3);\n}\n\n.cu-dialog__actions {\n  display: flex;\n  justify-content: end;\n  margin-block-start: var(--cu-space-3);\n}\n\n/* 48rem == breakpoint.tablet, see packages/tokens/src/core/breakpoint.json. */\n@container (min-width: 48rem) {\n  .cu-dialog__content {\n    align-self: center;\n    inline-size: min(100%, 32rem);\n    margin-block: var(--cu-space-3);\n    border-radius: var(--cu-radius-xl, var(--cu-radius-lg));\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-dialog__backdrop,\n  .cu-dialog__content {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

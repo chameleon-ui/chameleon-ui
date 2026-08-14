@@ -1,0 +1,7 @@
+{
+  "radio": {
+    "payment": "支払い方法",
+    "optionCard": "クレジットカード",
+    "optionBank": "銀行振込"
+  }
+}

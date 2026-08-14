@@ -1,0 +1,19 @@
+{
+  "iot": {
+    "title": "设备面板",
+    "subtitle": "已连接设备的仪表与趋势。",
+    "statusOnline": "在线",
+    "statusOffline": "离线",
+    "statusAlert": "告警",
+    "gaugeLabel": "{name} 负载",
+    "chartLabel": "{name} 趋势",
+    "acknowledge": "确认 {name}",
+    "emptyTitle": "没有设备",
+    "emptyDescription": "连接设备以填充此面板。",
+    "emptyChart": "暂无数据",
+    "seedAlpha": "冷机 A",
+    "seedBravo": "泵 B",
+    "seedCharlie": "传感器 C",
+    "deviceCount": "{count, plural, =0 {没有设备} other {# 台设备}}"
+  }
+}

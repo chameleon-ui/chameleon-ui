@@ -1,0 +1,22 @@
+.cu-slider {
+  display: grid;
+  gap: var(--cu-space-1);
+}
+
+.cu-slider__label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-slider__input {
+  inline-size: 100%;
+  accent-color: var(--cu-color-palette-brand);
+  cursor: pointer;
+}
+
+.cu-slider__input:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+  border-radius: var(--cu-radius-sm);
+}

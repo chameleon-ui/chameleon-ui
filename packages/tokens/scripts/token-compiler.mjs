@@ -315,3 +315,163 @@ export function compileTokenObject(root) {
 export async function compileTokenDirectory(rootDirectory) {
   return compileTokenObject(await loadTokenDirectory(rootDirectory));
 }
+
+function overlayTokenTrees(target, source, sourceFile, currentPath = []) {
+  for (const key of Object.keys(source).sort((a, b) => a.localeCompare(b, "en"))) {
+    const incoming = source[key];
+    const tokenPath = [...currentPath, key];
+
+    // DTCG metadata ($type, $description) may be a string; restating it in an
+    // overlay must not be treated as a token group.
+    if (key.startsWith("$")) {
+      target[key] = incoming;
+      continue;
+    }
+
+    if (!(key in target)) {
+      target[key] = incoming;
+      continue;
+    }
+
+    const existing = target[key];
+    const incomingIsLeaf = isObject(incoming) && "$value" in incoming;
+    const existingIsLeaf = isObject(existing) && "$value" in existing;
+
+    if (incomingIsLeaf) {
+      target[key] = incoming;
+      continue;
+    }
+
+    if (!isObject(incoming)) {
+      throw new TokenCompilerError(
+        tokenPath.join("."),
+        `overlay entry in ${sourceFile} must be an object or token leaf`,
+        "use DTCG groups or { \"$value\": ... } leaves in theme overlay tokens",
+      );
+    }
+
+    if (existingIsLeaf) {
+      throw new TokenCompilerError(
+        tokenPath.join("."),
+        `overlay group in ${sourceFile} cannot replace an existing token leaf`,
+        "rename the overlay group or override the leaf token directly",
+      );
+    }
+
+    overlayTokenTrees(existing, incoming, sourceFile, tokenPath);
+  }
+}
+
+/**
+ * @complexity time O(n log n) | space O(n) | n = merged token count
+ * @guarantees overlay replaces core leaves without copying the core source tree
+ */
+export async function compileThemeTokens(coreDirectory, overlayObject, overlayLabel = "<theme-overlay>") {
+  if (!isObject(overlayObject)) {
+    throw new TokenCompilerError(
+      overlayLabel,
+      "theme overlay must be a JSON object",
+      "place overlay tokens under named DTCG groups",
+    );
+  }
+
+  const root = await loadTokenDirectory(coreDirectory);
+  overlayTokenTrees(root, overlayObject, overlayLabel);
+  return compileTokenObject(root);
+}
+
+const MAX_EXTENDS_DEPTH = 16;
+
+/**
+ * Resolve DTCG `$extends` theme inheritance (Phase 8 §3.7).
+ *
+ * A token document may declare `"$extends": "<ref>" | ["<ref>", ...]`.
+ * Refs are resolved by the injected `loadRef` callback (fs, http, test double).
+ * Merge order: parents in array order, then the derived document — later wins
+ * on leaf conflicts, groups deep-merge (same rules as theme overlays).
+ *
+ * @complexity time O(n + e) | space O(d) | n = merged token count, e = extends edges, d <= 16
+ * @guarantees cycle-safe with a readable chain in the error; $extends never leaks into output
+ */
+export async function resolveThemeExtends(document, loadRef, options = {}) {
+  if (!isObject(document)) {
+    throw new TokenCompilerError(
+      options.label ?? "<theme>",
+      "theme token document must be a JSON object",
+      "place tokens under named DTCG groups",
+    );
+  }
+  const label = options.label ?? "<theme>";
+  const chain = options.chain ?? [label];
+
+  const extendsValue = document.$extends;
+  if (extendsValue === undefined) {
+    return { ...document };
+  }
+
+  const refs =
+    typeof extendsValue === "string"
+      ? [extendsValue]
+      : Array.isArray(extendsValue) && extendsValue.every((ref) => typeof ref === "string")
+        ? extendsValue
+        : null;
+
+  if (!refs || refs.length === 0) {
+    throw new TokenCompilerError(
+      label,
+      "$extends must be a non-empty string or array of strings",
+      'use e.g. { "$extends": "../line/tokens.json" }',
+    );
+  }
+  if (chain.length > MAX_EXTENDS_DEPTH) {
+    throw new TokenCompilerError(
+      label,
+      `$extends chain exceeds ${MAX_EXTENDS_DEPTH} levels`,
+      "flatten the inheritance chain before rebuilding",
+    );
+  }
+
+  const mergedBase = {};
+  for (const ref of refs) {
+    if (chain.includes(ref)) {
+      throw new TokenCompilerError(
+        [...chain, ref].join(" -> "),
+        "circular $extends reference detected",
+        "break the cycle by removing one link in the chain",
+      );
+    }
+    let parent;
+    try {
+      parent = await loadRef(ref);
+    } catch (error) {
+      throw new TokenCompilerError(
+        label,
+        `cannot load $extends ref "${ref}": ${error instanceof Error ? error.message : String(error)}`,
+        "check the ref path and rerun the token build",
+      );
+    }
+    const resolvedParent = await resolveThemeExtends(parent, loadRef, {
+      label: ref,
+      chain: [...chain, ref],
+    });
+    overlayTokenTrees(mergedBase, resolvedParent, ref);
+  }
+
+  const { $extends: _ignored, ...derivedBody } = document;
+  overlayTokenTrees(mergedBase, derivedBody, label);
+  return mergedBase;
+}
+
+/**
+ * Compile a theme whose tokens.json may use `$extends`.
+ * `loadRef` resolves parent documents (relative refs are the caller's concern).
+ */
+export async function compileThemeTokensWithExtends(
+  coreDirectory,
+  themeDocument,
+  loadRef,
+  overlayLabel = "<theme>",
+) {
+  const resolved = await resolveThemeExtends(themeDocument, loadRef, { label: overlayLabel });
+  return compileThemeTokens(coreDirectory, resolved, overlayLabel);
+}

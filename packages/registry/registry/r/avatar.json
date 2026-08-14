@@ -1,0 +1,108 @@
+{
+  "id": "avatar",
+  "type": "registry:ui",
+  "name": "Avatar",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/avatar/Avatar.tsx",
+      "content": "import './styles.css'\n\nexport interface AvatarProps {\n  src?: string\n  alt?: string\n  fallback?: string\n  size?: 'sm' | 'md' | 'lg'\n  className?: string\n}\n\nexport function Avatar({ src, alt, fallback, size = 'md', className }: AvatarProps) {\n  const classes = ['cu-avatar', 'cu-avatar--' + size, className].filter(Boolean).join(' ')\n  if (src) {\n    return <img className={classes} src={src} alt={alt || fallback || ''} data-ai-role=\"avatar\" data-ai-intent=\"identify-user\" data-ai-state=\"image\" />\n  }\n  return <span className={classes} data-ai-role=\"avatar\" data-ai-intent=\"identify-user\" data-ai-state=\"fallback\" aria-label={alt || fallback}>{fallback}</span>\n}\n"
+    },
+    {
+      "path": "components/avatar/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"avatar\",\n  \"name\": \"Avatar\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Represents a user or entity with an image or initials fallback.\",\n  \"scenarios\": [\n    \"Show a user profile picture\",\n    \"Display a team member\",\n    \"Render initials when an image is unavailable\"\n  ],\n  \"props\": {\n    \"src\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Image source URL.\"\n    },\n    \"alt\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible description of the image.\"\n    },\n    \"fallback\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Initials or text shown when the image is missing.\"\n    },\n    \"size\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Diameter.\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"size\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\",\n      \"description\": \"Diameter.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"image\",\n      \"description\": \"An image is loaded.\"\n    },\n    {\n      \"name\": \"fallback\",\n      \"description\": \"Fallback text is shown.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"button\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use decorative images without alt text.\",\n    \"Do not display sensitive personal information as fallback.\"\n  ],\n  \"a11y\": {\n    \"role\": \"img\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Alt or fallback provides the accessible name.\",\n    \"wcag\": [\n      \"1.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Size scales with the chosen size prop.\",\n    \"breakpoints\": {\n      \"compact\": \"Keep the same size.\",\n      \"medium\": \"Keep the same size.\",\n      \"large\": \"Keep the same size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"avatar\",\n    \"states\": [\n      \"image\",\n      \"fallback\"\n    ],\n    \"intents\": [\n      \"identify-user\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/index.ts",
+      "content": "export { Avatar } from './Avatar.js'\nexport type { AvatarProps } from './Avatar.js'\n"
+    },
+    {
+      "path": "components/avatar/locales/am.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ar.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"صورة رمزية\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/bn.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/de.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Benutzeravatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/en.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/es.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/fa.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/fr.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ha.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/hi.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/id.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ja.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ko.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/pt.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ru.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/sw.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ug.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/ur.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/vi.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/zh-CN.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"头像\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/locales/zh-HK.json",
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/avatar/styles.css",
+      "content": ".cu-avatar {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: 2.5rem;\n  block-size: 2.5rem;\n  overflow: hidden;\n  border-radius: 50%;\n  background: var(--cu-color-background-default);\n  border: 1px solid var(--cu-color-border-default);\n  color: var(--cu-color-fg-default);\n  font-weight: 600;\n  object-fit: cover;\n}\n\n.cu-avatar--sm {\n  inline-size: 1.75rem;\n  block-size: 1.75rem;\n  font-size: 0.75rem;\n}\n\n.cu-avatar--lg {\n  inline-size: 3.5rem;\n  block-size: 3.5rem;\n  font-size: 1.25rem;\n}\n"
+    }
+  ]
+}

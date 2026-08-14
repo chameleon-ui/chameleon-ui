@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "kbd",
+  "name": "Kbd",
+  "status": "experimental",
+  "purpose": "Represents a keyboard key or shortcut.",
+  "scenarios": [
+    "Show a keyboard shortcut",
+    "Label a key in documentation",
+    "Indicate a modifier key"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Key label."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Key rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "text",
+      "tooltip",
+      "page"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for interactive buttons.",
+    "Do not wrap entire paragraphs in kbd."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Contents provide the key name.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline display.",
+    "breakpoints": {
+      "compact": "Inline.",
+      "medium": "Inline.",
+      "large": "Inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "No mirroring required for individual key symbols.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "kbd",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "show-shortcut"
+    ]
+  }
+}

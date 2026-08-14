@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "tree",
+  "name": "Tree",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Displays hierarchical data as an expandable and collapsible tree.",
+  "scenarios": [
+    "Browse a file directory",
+    "Show an organization chart",
+    "Navigate nested categories"
+  ],
+  "props": {
+    "nodes": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, label, children? } tree nodes."
+    },
+    "defaultExpandedIds": {
+      "type": "string",
+      "required": false,
+      "description": "Node ids expanded on first render."
+    },
+    "toggleLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label pattern for node toggles."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Tree with collapsible nodes."
+    },
+    {
+      "name": "empty",
+      "description": "No nodes provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "drawer",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon",
+      "badge"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a tree for flat lists; use List.",
+    "Do not lazy-load children without a loading indicator."
+  ],
+  "a11y": {
+    "role": "tree",
+    "keyboard": [
+      "Enter or Space toggles node expansion"
+    ],
+    "focus": "Node toggles are buttons in tab order with aria-expanded.",
+    "labeling": "Each node is a treeitem labelled by its text; groups use role=group.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Indentation scales with inline direction; overflow scrolls horizontally.",
+    "breakpoints": {
+      "compact": "Horizontal scroll for deep levels.",
+      "medium": "Default indentation.",
+      "large": "Default indentation."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "tree",
+    "states": [
+      "default",
+      "empty",
+      "expanded",
+      "collapsed"
+    ],
+    "intents": [
+      "navigate-hierarchy"
+    ]
+  }
+}

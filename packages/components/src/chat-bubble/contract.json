@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "chat-bubble",
+  "name": "ChatBubble",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Presents a single chat message aligned and styled by its author role.",
+  "scenarios": [
+    "User prompt in an AI chat",
+    "Assistant answer with markdown body",
+    "System notice between turns"
+  ],
+  "props": {
+    "role": {
+      "type": "enum",
+      "required": false,
+      "description": "Author role driving alignment and tone.",
+      "values": [
+        "user",
+        "assistant",
+        "system"
+      ],
+      "default": "assistant"
+    },
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Message body content."
+    },
+    "time": {
+      "type": "string",
+      "required": false,
+      "description": "Timestamp text."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label override."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "role",
+      "values": [
+        "user",
+        "assistant",
+        "system"
+      ],
+      "default": "assistant",
+      "description": "Author role."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Message bubble rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "card",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "markdown-renderer",
+      "text",
+      "code-block"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a chat bubble outside conversational UI.",
+    "Do not place interactive forms inside a system bubble."
+  ],
+  "a11y": {
+    "role": "article",
+    "keyboard": [],
+    "focus": "Interactive children keep document order.",
+    "labeling": "Author role is exposed as text for screen readers.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Bubble max measure shrinks on compact.",
+    "breakpoints": {
+      "compact": "Near full width.",
+      "medium": "Constrained measure.",
+      "large": "Constrained measure."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "chat-bubble",
+    "states": [
+      "default",
+      "user",
+      "assistant",
+      "system"
+    ],
+    "intents": [
+      "notify-status"
+    ]
+  }
+}

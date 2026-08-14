@@ -1,0 +1,27 @@
+.cu-typography {
+  margin: 0;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-typography--heading-1 {
+  font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.cu-typography--heading-2 {
+  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.cu-typography--body {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.cu-typography--caption {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent);
+}

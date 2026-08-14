@@ -1,0 +1,108 @@
+{
+  "id": "card",
+  "type": "registry:ui",
+  "name": "Card",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/card/Card.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface CardProps {\n  children: ReactNode\n  variant?: 'default' | 'outlined' | 'elevated'\n  padding?: 'sm' | 'md' | 'lg'\n  className?: string\n}\n\nexport function Card({ children, variant = 'default', padding = 'md', className }: CardProps) {\n  const classes = ['cu-card', 'cu-card--' + variant, 'cu-card--padding-' + padding, className].filter(Boolean).join(' ')\n  return <div className={classes} data-ai-role=\"card\" data-ai-intent=\"group-content\" data-ai-state={variant}>{children}</div>\n}\n"
+    },
+    {
+      "path": "components/card/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"card\",\n  \"name\": \"Card\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Groups related content and actions in a contained surface.\",\n  \"scenarios\": [\n    \"Display a product summary\",\n    \"Show a settings panel\",\n    \"Present a dashboard metric\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Card content and actions.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Surface style.\",\n      \"values\": [\n        \"default\",\n        \"outlined\",\n        \"elevated\"\n      ],\n      \"default\": \"default\"\n    },\n    \"padding\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Internal spacing.\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"default\",\n        \"outlined\",\n        \"elevated\"\n      ],\n      \"default\": \"default\",\n      \"description\": \"Surface style.\"\n    },\n    {\n      \"name\": \"padding\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\",\n      \"description\": \"Internal spacing.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Idle card.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"grid\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\",\n      \"badge\",\n      \"image\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest cards inside cards.\",\n    \"Do not use a card for a single standalone button.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [],\n    \"focus\": \"Focusable children remain in document order.\",\n    \"labeling\": \"Use headings or aria-label to label the card region.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width in parent container.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"card\",\n    \"states\": [\n      \"default\",\n      \"outlined\",\n      \"elevated\"\n    ],\n    \"intents\": [\n      \"group-content\",\n      \"navigate-detail\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/card/index.ts",
+      "content": "export { Card } from './Card.js'\nexport type { CardProps } from './Card.js'\n"
+    },
+    {
+      "path": "components/card/locales/am.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ar.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"بطاقة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/bn.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/de.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Kartenkomponente\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/en.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/es.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/fa.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/fr.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ha.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/hi.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/id.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ja.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ko.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/pt.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ru.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/sw.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ug.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/ur.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/vi.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/zh-CN.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"卡片\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/locales/zh-HK.json",
+      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/card/styles.css",
+      "content": ".cu-card {\n  display: block;\n  border-radius: var(--cu-radius-lg);\n  background: var(--cu-color-background-elevated, var(--cu-color-background-default));\n  color: var(--cu-color-fg-default);\n}\n\n.cu-card--outlined {\n  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);\n}\n\n.cu-card--elevated {\n  box-shadow: var(--cu-shadow-sm);\n}\n\n.cu-card--padding-sm {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n}\n\n.cu-card--padding-md {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n}\n\n.cu-card--padding-lg {\n  padding-block: var(--cu-space-3);\n  padding-inline: calc(var(--cu-space-3) * 1.5);\n}\n"
+    }
+  ]
+}

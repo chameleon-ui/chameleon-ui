@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "success": "Imefanikiwa",
+    "error": "Hitilafu",
+    "warning": "Onyo"
+  }
+}

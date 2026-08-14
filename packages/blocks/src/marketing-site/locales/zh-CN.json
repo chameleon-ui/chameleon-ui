@@ -1,0 +1,26 @@
+{
+  "marketing": {
+    "heroTitle": "交付会适应的界面",
+    "heroBody": "用 Token、组件和场景组合界面，不必再写第二套样式语言。",
+    "heroCta": "开始构建",
+    "pricingTitle": "定价",
+    "planFree": "入门",
+    "planPro": "专业",
+    "planTeam": "团队",
+    "priceFree": "$0",
+    "pricePro": "$24",
+    "priceTeam": "$72",
+    "planFreeBody": "覆盖首个产品切片的核心组件。",
+    "planProBody": "主题、Blocks 与额外密度档位。",
+    "planTeamBody": "供产品团队共享的 Token 与评审流程。",
+    "ctaStart": "选择方案",
+    "faqTitle": "常见问题",
+    "faq1Title": "Block 的安装方式和组件一样吗？",
+    "faq1Body": "是。Block 写盘同样只走 install-core 内核。",
+    "faq2Title": "21 种语言都已撰稿了吗？",
+    "faq2Body": "英文和简体中文已撰稿。其余 Locale 提供 ICU 骨架。",
+    "faq3Title": "可以用裸 CSS 重写 Block 样式吗？",
+    "faq3Body": "不可以。Block 只消费 --cu-* Token 与逻辑属性。",
+    "planCount": "{count, plural, =0 {没有方案} other {# 个方案}}"
+  }
+}

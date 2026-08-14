@@ -1,0 +1,24 @@
+/*
+ * env() carries an explicit 0px fallback so browsers without safe-area
+ * support (or non-mobile environments) degrade to zero extra padding.
+ * Logical properties keep start/end RTL-correct.
+ */
+.cu-safe-area {
+  display: block;
+}
+
+.cu-safe-area--top {
+  padding-block-start: env(safe-area-inset-top, 0px);
+}
+
+.cu-safe-area--bottom {
+  padding-block-end: env(safe-area-inset-bottom, 0px);
+}
+
+.cu-safe-area--start {
+  padding-inline-start: env(safe-area-inset-left, 0px);
+}
+
+.cu-safe-area--end {
+  padding-inline-end: env(safe-area-inset-right, 0px);
+}

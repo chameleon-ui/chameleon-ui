@@ -1,0 +1,39 @@
+.cu-radio-card {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-radio-card__item {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  cursor: pointer;
+}
+
+.cu-radio-card__item[data-state='checked'] {
+  border-color: var(--cu-color-palette-brand);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+}
+
+.cu-radio-card__control {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border: 2px solid var(--cu-color-border-default);
+  border-radius: 50%;
+}
+
+.cu-radio-card__item[data-state='checked'] .cu-radio-card__control {
+  border-color: var(--cu-color-palette-brand);
+  background: radial-gradient(circle, var(--cu-color-palette-brand) 50%, transparent 55%);
+}
+
+.cu-radio-card__item:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+}

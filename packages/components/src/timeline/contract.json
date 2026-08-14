@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "timeline",
+  "name": "Timeline",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Presents a chronologically ordered list of events with markers and timestamps.",
+  "scenarios": [
+    "Show order fulfillment steps",
+    "Display activity history",
+    "Present project milestones"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, title, description?, time? } events in order."
+    },
+    "emptyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Text shown when items is empty."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Timeline with events."
+    },
+    {
+      "name": "empty",
+      "description": "No events to show."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "text",
+      "badge"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not render events out of chronological order.",
+    "Do not use a timeline for navigation between pages."
+  ],
+  "a11y": {
+    "role": "list",
+    "keyboard": [],
+    "focus": "Items are not focusable unless they contain actions.",
+    "labeling": "Ordered list semantics convey chronology; timestamps use time elements.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Vertical rail at all breakpoints; indentation follows inline direction.",
+    "breakpoints": {
+      "compact": "Narrow rail.",
+      "medium": "Default rail.",
+      "large": "Default rail."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "timeline",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "enumerate-items"
+    ]
+  }
+}

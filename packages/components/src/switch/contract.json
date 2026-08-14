@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "switch",
+  "name": "Switch",
+  "status": "experimental",
+  "purpose": "Toggles a setting on or off with a sliding control.",
+  "scenarios": [
+    "Enable dark mode",
+    "Turn notifications on or off",
+    "Activate airplane mode"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "required": true,
+      "description": "Controlled checked state."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Receives the next checked state."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Visible and accessible label for the switch."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents toggling the switch.",
+      "default": false
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Unchecked and enabled."
+    },
+    {
+      "name": "checked",
+      "description": "Checked and enabled."
+    },
+    {
+      "name": "disabled",
+      "description": "Cannot be toggled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "field-group"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a switch for actions that require a confirmation step; use a button.",
+    "Do not remove the visible label."
+  ],
+  "a11y": {
+    "role": "switch",
+    "keyboard": [
+      "Tab focuses",
+      "Space toggles"
+    ],
+    "focus": "Visible focus indicator on the control.",
+    "labeling": "Visible label is associated with the hidden checkbox.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "The control keeps a fixed width; the label wraps on narrow screens.",
+    "breakpoints": {
+      "compact": "Touch target stays at least 44px; label wraps.",
+      "medium": "Inline layout remains comfortable.",
+      "large": "Inline layout remains comfortable."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. The thumb uses logical transforms; direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "switch",
+    "states": [
+      "default",
+      "checked",
+      "disabled"
+    ],
+    "intents": [
+      "toggle-setting"
+    ]
+  }
+}

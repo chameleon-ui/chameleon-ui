@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "tooltip",
+  "name": "Tooltip",
+  "status": "experimental",
+  "purpose": "Displays supplementary information for a control on hover or focus.",
+  "scenarios": [
+    "Explain an icon button on hover",
+    "Show a keyboard shortcut on focus",
+    "Provide a hint for a form field"
+  ],
+  "props": {
+    "trigger": {
+      "type": "node",
+      "required": true,
+      "description": "Element that opens the tooltip on hover or focus."
+    },
+    "content": {
+      "type": "node",
+      "required": true,
+      "description": "Content shown inside the tooltip."
+    },
+    "openDelay": {
+      "type": "number",
+      "required": false,
+      "description": "Delay in milliseconds before the tooltip opens.",
+      "default": 300
+    },
+    "closeDelay": {
+      "type": "number",
+      "required": false,
+      "description": "Delay in milliseconds before the tooltip closes.",
+      "default": 100
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Tooltip is visible."
+    },
+    {
+      "name": "closed",
+      "description": "Tooltip is not visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "button",
+      "input",
+      "page"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not put essential instructions only in a tooltip.",
+    "Do not open a tooltip from a touch event without an alternative control."
+  ],
+  "a11y": {
+    "role": "tooltip",
+    "keyboard": [
+      "Focus the trigger to show the tooltip"
+    ],
+    "focus": "Tooltip follows the trigger focus and pointer hover.",
+    "labeling": "Tooltip content is associated with the trigger via aria-describedby.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Tooltip stays within the viewport and avoids clipping on compact screens.",
+    "breakpoints": {
+      "compact": "Tooltip is not the primary touch interaction; an explicit control is preferred.",
+      "medium": "Tooltip appears on hover and focus.",
+      "large": "Tooltip appears on hover and focus."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Tooltip positioning follows the document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "tooltip",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "explain-on-hover"
+    ]
+  }
+}

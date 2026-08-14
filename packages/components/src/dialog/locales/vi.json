@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Mở hộp thoại xem lại",
+    "title": "Xem lại nền tảng",
+    "description": "Tiêu điểm bàn phím giữ trong hộp thoại này cho đến khi đóng.",
+    "close": "Hoàn tất xem lại",
+    "body": "Nhấn Esc hoặc nút đóng. Tiêu điểm phải quay về nút kích hoạt."
+  }
+}

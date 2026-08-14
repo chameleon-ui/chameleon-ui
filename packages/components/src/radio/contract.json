@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "radio",
+  "name": "Radio",
+  "status": "experimental",
+  "purpose": "Selects exactly one option from a set of mutually exclusive choices.",
+  "scenarios": [
+    "Choose a payment method",
+    "Select a subscription tier",
+    "Pick a preferred language in a group"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Controlled selected value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Receives the next selected value."
+    },
+    "options": {
+      "type": "string",
+      "required": true,
+      "description": "Array of radio options with value and label."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the radio group."
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name shared by the native radio inputs."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents selecting any option.",
+      "default": false
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "One option can be selected."
+    },
+    {
+      "name": "disabled",
+      "description": "No option can be selected."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "field-group"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a radio group for boolean choices; use a checkbox or switch.",
+    "Do not remove the group label."
+  ],
+  "a11y": {
+    "role": "radiogroup",
+    "keyboard": [
+      "Tab focuses the checked radio",
+      "Arrow keys move selection within the group"
+    ],
+    "focus": "Visible focus indicator on the selected radio; roving tabindex is handled by the primitive.",
+    "labeling": "Group label is associated with the radiogroup; each option is labelled by its text.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Options stack vertically; on wide screens they may be arranged horizontally by a parent layout.",
+    "breakpoints": {
+      "compact": "Touch targets remain at least 44px high; options stack vertically.",
+      "medium": "Options remain comfortably stacked.",
+      "large": "Options may be arranged horizontally by a parent layout."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Options follow the document direction; arrow-key order is handled by the primitive.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "radio",
+    "states": [
+      "default",
+      "disabled"
+    ],
+    "intents": [
+      "select-single"
+    ]
+  }
+}

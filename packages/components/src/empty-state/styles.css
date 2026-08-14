@@ -1,0 +1,26 @@
+.cu-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  text-align: center;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-empty-state__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.cu-empty-state__description {
+  font-size: 0.875rem;
+  color: var(--cu-color-fg-default);
+  opacity: 0.8;
+}
+
+.cu-empty-state__action {
+  margin-block-start: var(--cu-space-2);
+}

@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Abrir diálogo de revisión",
+    "title": "Revisar la base",
+    "description": "El foco del teclado permanece dentro de este diálogo hasta que se cierre.",
+    "close": "Finalizar revisión",
+    "body": "Pulsa Esc o el botón cerrar. El foco debe volver al activador."
+  }
+}

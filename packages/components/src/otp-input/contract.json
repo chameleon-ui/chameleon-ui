@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "otp-input",
+  "name": "OtpInput",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Segmented one-time-code entry with automatic focus advance and paste support.",
+  "scenarios": [
+    "Two-factor sign-in",
+    "Phone number verification",
+    "Device pairing code"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Current code; shorter than length while incomplete."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the joined code on every edit."
+    },
+    "length": {
+      "type": "number",
+      "required": false,
+      "description": "Number of code cells.",
+      "default": 6
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible group label."
+    },
+    "digitLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label pattern per cell."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Disable all cells.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Partially filled."
+    },
+    {
+      "name": "complete",
+      "description": "All cells filled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not accept non-digit characters.",
+    "Do not submit automatically without an explicit user action prop."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [
+      "Arrow keys move between cells",
+      "Backspace moves to the previous cell"
+    ],
+    "focus": "Each cell is a text input; focus advances after entry.",
+    "labeling": "Group label plus per-cell labels describe the code.",
+    "wcag": [
+      "2.1.1",
+      "3.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Cells shrink on compact while staying tappable.",
+    "breakpoints": {
+      "compact": "Compact cells.",
+      "medium": "Default cells.",
+      "large": "Default cells."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "otp-input",
+    "states": [
+      "default",
+      "complete",
+      "disabled"
+    ],
+    "intents": [
+      "enter-text"
+    ]
+  }
+}

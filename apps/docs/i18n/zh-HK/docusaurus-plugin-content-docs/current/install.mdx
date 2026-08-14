@@ -1,0 +1,73 @@
+---
+id: install
+title: 安裝
+sidebar_label: 安裝
+description: CLI CTA 走 install-core。文檔站不寫盤。
+---
+
+import InstallBlock from '@site/src/components/InstallBlock'
+
+使用 CLI 或 MCP。兩者都調用 **install-core**。本站沒有第三套安裝器。
+
+<InstallBlock slug="button" />
+
+包已具備發布配置（MIT、`publishConfig.access=public`），版本仍是 0.0.0。維護者凍結 v0.1.0 之前，本倉不執行 npm publish。
+
+```
+chameleon add button
+chameleon add input
+```
+
+複製按鈕只把命令放到剪貼板。文檔站自己不寫盤。
+
+## 主題 CSS
+
+推薦：
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+```
+
+`@chameleon-ui/themes/dist/cupertino/variables.css` 與 `@chameleon-ui/tokens/dist/css/variables.css` 也已列入包 `exports`（`./dist/*`），與上面指向同一檔。不要使用未匯出的路徑。
+
+## 本地 npm link（發布前）
+
+包版本仍是 `0.0.0`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：`tokens` · `i18n` · `primitives` · `themes` · `components`。只 link `components` 會失敗。
+
+```bash
+cd chameleon-ui
+node ./scripts/link-external.mjs --apply
+# 外部工程：
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+```
+
+發布預案：首發 git tag `v0.1.0`（owner **待指定**）；`pnpm publish -r` 時 pnpm 把 `workspace:*` 改成版本號。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
+
+## 外部工程（非 pnpm workspace）
+
+給 **npm / yarn / 獨立 Vite 應用** 複製。不要把 `"workspace:*"` 寫進外部 `package.json`。Agent 先讀 `chameleon-ui/AGENTS.md`，寫 import 前調用 MCP `get_import_specifiers`。
+
+```tsx
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+import { Alert, Button, Card } from "@chameleon-ui/components";
+
+export function App() {
+  return (
+    <Card>
+      <Alert status="info" title="Linked" description="Chameleon UI is on the graph." />
+      <Button variant="solid">OK</Button>
+    </Card>
+  );
+}
+```
+
+CSS 用 `@chameleon-ui/themes/cupertino/css`。不要使用未匯出的 `@chameleon-ui/themes/cupertino/variables.css`。`dist/` 別名可以，但不是首選。
+
+## 環境
+
+Node **≥ 20.19**，pnpm **9.15.0**。各可發包已聲明 `engines.node`。
+

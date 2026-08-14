@@ -1,0 +1,108 @@
+{
+  "id": "notification",
+  "type": "registry:ui",
+  "name": "Notification",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/notification/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"notification\",\n  \"name\": \"Notification\",\n  \"family\": \"E\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a persistent notification card with title, message, and dismiss control.\",\n  \"scenarios\": [\n    \"Show a sync completion notice\",\n    \"Display a permission request\",\n    \"Present a system warning\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Notification headline.\"\n    },\n    \"message\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Notification body text.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic tone.\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\"\n    },\n    \"onDismiss\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when the dismiss control is activated.\"\n    },\n    \"dismissLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the dismiss control.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\",\n      \"description\": \"Semantic tone.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Visible notification.\"\n    },\n    {\n      \"name\": \"dismissed\",\n      \"description\": \"Dismissed by the user.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"button\",\n      \"link\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a persistent notification for transient feedback; use Toast.\",\n    \"Do not stack more than three notifications at once.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [\n      \"Escape dismisses when the notification has focus\"\n    ],\n    \"focus\": \"Dismiss control is a button in tab order.\",\n    \"labeling\": \"Title labels the notification; icon is decorative with text tone.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.3\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width on compact; fixed measure on larger breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width card.\",\n      \"medium\": \"Constrained width.\",\n      \"large\": \"Constrained width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"notification\",\n    \"states\": [\n      \"default\",\n      \"dismissed\",\n      \"info\",\n      \"success\",\n      \"warning\",\n      \"error\"\n    ],\n    \"intents\": [\n      \"notify-status\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/index.ts",
+      "content": "export { Notification } from './Notification.js'\nexport type { NotificationProps } from './Notification.js'\n"
+    },
+    {
+      "path": "components/notification/locales/am.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ar.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"إشعار\",\n    \"dismiss\": \"تجاهل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/bn.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/de.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Systembenachrichtigung\",\n    \"dismiss\": \"Benachrichtigung schließen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/en.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/es.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/fa.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/fr.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ha.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/hi.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/id.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ja.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ko.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/pt.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ru.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/sw.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ug.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/ur.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/vi.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/zh-CN.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"通知\",\n    \"dismiss\": \"关闭\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/locales/zh-HK.json",
+      "content": "{\n  \"notification\": {\n    \"label\": \"Notification\",\n    \"dismiss\": \"Dismiss\"\n  }\n}\n"
+    },
+    {
+      "path": "components/notification/Notification.tsx",
+      "content": "import './styles.css'\n\nexport interface NotificationProps {\n  title: string\n  message: string\n  variant?: 'info' | 'success' | 'warning' | 'error'\n  onDismiss?: () => void\n  dismissLabel?: string\n  className?: string\n}\n\nexport function Notification({\n  title,\n  message,\n  variant = 'info',\n  onDismiss,\n  dismissLabel = 'Dismiss',\n  className,\n}: NotificationProps) {\n  const classes = ['cu-notification', 'cu-notification--' + variant, className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} role=\"status\" data-ai-role=\"notification\" data-ai-intent=\"notify-status\" data-ai-state={variant}>\n      <div className=\"cu-notification__body\">\n        <p className=\"cu-notification__title\">{title}</p>\n        <p className=\"cu-notification__message\">{message}</p>\n      </div>\n      {onDismiss ? (\n        <button type=\"button\" className=\"cu-notification__dismiss\" aria-label={dismissLabel} onClick={onDismiss}>\n          ×\n        </button>\n      ) : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/notification/styles.css",
+      "content": ".cu-notification {\n  display: flex;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-inline-start-width: 4px;\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-notification--info {\n  border-inline-start-color: var(--cu-color-palette-brand);\n}\n\n.cu-notification--success {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, green);\n}\n\n.cu-notification--warning {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, orange);\n}\n\n.cu-notification--error {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);\n}\n\n.cu-notification__title {\n  margin: 0;\n  font-weight: 600;\n}\n\n.cu-notification__message {\n  margin: var(--cu-space-1) 0 0;\n}\n\n.cu-notification__dismiss {\n  border: 0;\n  padding: 0;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-notification__dismiss:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

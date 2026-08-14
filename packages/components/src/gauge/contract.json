@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "gauge",
+  "name": "Gauge",
+  "family": "F",
+  "status": "experimental",
+  "purpose": "Shows a single value on a semicircular dial against a maximum.",
+  "scenarios": [
+    "CPU utilization dial",
+    "Score against target",
+    "Capacity usage indicator"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current value."
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum value.",
+      "default": 100
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible description of the gauge."
+    },
+    "valueLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Formatted value text shown in the dial."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Dial rendered with the current value."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "kpi-dashboard",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a gauge for negative ranges.",
+    "Do not place multiple gauges in a row without aligned max values."
+  ],
+  "a11y": {
+    "role": "meter",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "role=meter with aria-valuemin/max/now exposes the value.",
+    "wcag": [
+      "1.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fixed intrinsic size that scales down on compact.",
+    "breakpoints": {
+      "compact": "Scaled down dial.",
+      "medium": "Intrinsic size.",
+      "large": "Intrinsic size."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "gauge",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "visualize-data",
+      "show-progress"
+    ]
+  }
+}

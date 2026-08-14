@@ -1,0 +1,42 @@
+/*
+ * Query container: the root is the container; the body consumes it so
+ * padding follows the container's own inline size rather than the viewport.
+ * 48rem == breakpoint.tablet, 80rem == breakpoint.desktop
+ * (packages/tokens/src/core/breakpoint.json).
+ */
+.cu-container {
+  inline-size: 100%;
+  margin-inline: auto;
+  color: var(--cu-color-fg-default);
+  container-type: inline-size;
+}
+
+.cu-container--sm {
+  max-inline-size: 40rem;
+}
+
+.cu-container--md {
+  max-inline-size: 64rem;
+}
+
+.cu-container--lg {
+  max-inline-size: 80rem;
+}
+
+.cu-container__body {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+}
+
+@container (min-width: 48rem) {
+  .cu-container__body {
+    padding-block: var(--cu-space-3);
+    padding-inline: var(--cu-space-3);
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-container__body {
+    padding-inline: calc(var(--cu-space-3) * 2);
+  }
+}

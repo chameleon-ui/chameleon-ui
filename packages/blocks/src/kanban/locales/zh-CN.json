@@ -1,0 +1,17 @@
+{
+  "kanban": {
+    "title": "看板",
+    "subtitle": "用键盘在列之间移动工作项。本 Block 不提供指针拖拽。",
+    "colTodo": "待办",
+    "colDoing": "进行中",
+    "colDone": "已完成",
+    "emptyTitle": "没有卡片",
+    "emptyDescription": "此列暂无卡片。",
+    "moveForward": "将 {name} 前移",
+    "moveBack": "将 {name} 后移",
+    "priorityHigh": "高",
+    "priorityMedium": "中",
+    "priorityLow": "低",
+    "cardCount": "{count, plural, =0 {没有卡片} other {# 张卡片}}"
+  }
+}

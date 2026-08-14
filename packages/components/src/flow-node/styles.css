@@ -1,0 +1,35 @@
+.cu-flow-node {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  white-space: nowrap;
+}
+
+.cu-flow-node--active {
+  border-color: var(--cu-color-palette-brand);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--cu-color-palette-brand) 40%, transparent);
+}
+
+.cu-flow-node--success {
+  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, green);
+}
+
+.cu-flow-node--failed {
+  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);
+}
+
+.cu-flow-node__port {
+  inline-size: var(--cu-space-1);
+  block-size: var(--cu-space-1);
+  border-radius: 50%;
+  background: var(--cu-color-palette-brand);
+}

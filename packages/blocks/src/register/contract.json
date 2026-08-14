@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "register",
+  "name": "Register",
+  "status": "experimental",
+  "purpose": "Name, email, and password sign-up fragment composed from form, input, password-input, and button.",
+  "scenarios": [
+    "Create an account with name, email, and password",
+    "Confirm the password before submit",
+    "Jump to the login scene from the register card"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onSubmit": {
+      "type": "event",
+      "required": false,
+      "description": "Called with name, email, password, and terms after client validation."
+    },
+    "onLoginClick": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the sign-in action is activated."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Idle sign-up form." },
+    { "name": "invalid", "description": "Client validation failed." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "dialog", "card"],
+    "allowedChildren": ["form", "input", "password-input", "button", "checkbox", "card", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not collect passwords in a plain text input when password-input is available.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons.",
+    "Password-input currently hardcodes current-password autocomplete; this block cannot override it."
+  ],
+  "a11y": {
+    "role": "form",
+    "keyboard": ["Tab moves between fields", "Enter submits the form"],
+    "focus": "Fields and actions remain in document order with a visible focus ring.",
+    "labeling": "Name, email, password, confirm, terms, and submit have visible labels.",
+    "wcag": ["2.1.1", "2.4.7", "3.3.2", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Single-column card with max-inline-size; compact viewports keep 44px targets via tokens.",
+    "breakpoints": {
+      "compact": "Card uses full inline size with 44px targets.",
+      "medium": "Card is centered up to 28rem.",
+      "large": "Card is centered up to 28rem."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language, never a hardcoded ltr attribute.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "register",
+    "states": ["default", "invalid"],
+    "intents": ["create-account"]
+  }
+}

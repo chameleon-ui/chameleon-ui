@@ -1,0 +1,50 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.指南": {
+    "message": "Guides",
+    "description": "The label for category 指南 in sidebar"
+  },
+  "sidebar.docs.link.Bench 报告": {
+    "message": "Bench report",
+    "description": "The label for link Bench 报告 in sidebar"
+  },
+  "sidebar.docs.category.组件": {
+    "message": "Components",
+    "description": "The label for category 组件 in sidebar"
+  },
+  "sidebar.docs.category.A · 基础与布局": {
+    "message": "A · Foundations & Layout",
+    "description": "Family A"
+  },
+  "sidebar.docs.category.B · 导航": {
+    "message": "B · Navigation",
+    "description": "Family B"
+  },
+  "sidebar.docs.category.C · 数据录入": {
+    "message": "C · Data Entry",
+    "description": "Family C"
+  },
+  "sidebar.docs.category.D · 数据展示": {
+    "message": "D · Data Display",
+    "description": "Family D"
+  },
+  "sidebar.docs.category.E · 反馈": {
+    "message": "E · Feedback",
+    "description": "Family E"
+  },
+  "sidebar.docs.category.F · 可视化": {
+    "message": "F · Visualization",
+    "description": "Family F"
+  },
+  "sidebar.docs.category.G · 画布与图形": {
+    "message": "G · Canvas & Graph",
+    "description": "Family G"
+  },
+  "sidebar.docs.category.H · 内容与协作": {
+    "message": "H · Content & Collaboration",
+    "description": "Family H"
+  }
+}

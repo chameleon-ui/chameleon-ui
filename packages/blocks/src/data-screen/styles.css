@@ -1,0 +1,32 @@
+.cu-block-data-screen {
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-data-screen__header {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-data-screen__meta {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-data-screen__viewport {
+  overflow: hidden;
+  inline-size: 100%;
+  min-block-size: calc(var(--cu-space-3) * 20);
+}
+
+.cu-block-data-screen__stage {
+  display: grid;
+  gap: var(--cu-space-3);
+  /* 80rem == breakpoint.desktop (1280px); 45rem == 720px design canvas */
+  inline-size: 80rem;
+  min-block-size: 45rem;
+  transform-origin: top center;
+}

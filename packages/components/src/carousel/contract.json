@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "carousel",
+  "name": "Carousel",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Cycles through a sequence of slides with previous and next controls.",
+  "scenarios": [
+    "Show featured products",
+    "Present onboarding steps",
+    "Display a media gallery"
+  ],
+  "props": {
+    "items": {
+      "type": "node",
+      "required": true,
+      "description": "Slide content rendered one at a time."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label naming the carousel region."
+    },
+    "previousLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the previous control."
+    },
+    "nextLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the next control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Showing the active slide."
+    },
+    {
+      "name": "empty",
+      "description": "No slides provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "card",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "image",
+      "card",
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not auto-advance slides without a pause control.",
+    "Do not hide critical content only inside non-active slides."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": [
+      "Arrow keys move between slides when controls are focused"
+    ],
+    "focus": "Previous and next controls are buttons in tab order.",
+    "labeling": "Region has aria-roledescription=carousel and an accessible label.",
+    "wcag": [
+      "2.2.2",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "One slide visible per viewport width at all breakpoints.",
+    "breakpoints": {
+      "compact": "Full-width slide with large touch targets.",
+      "medium": "Full-width slide.",
+      "large": "Full-width slide."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "carousel",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "switch-view"
+    ]
+  }
+}

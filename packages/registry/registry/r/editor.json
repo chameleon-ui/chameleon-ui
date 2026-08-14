@@ -1,0 +1,108 @@
+{
+  "id": "editor",
+  "type": "registry:ui",
+  "name": "Editor",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/editor/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"editor\",\n  \"name\": \"Editor\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Rich text editor with a minimal self-contained contentEditable kernel and a formatting toolbar.\",\n  \"scenarios\": [\n    \"Compose a support reply\",\n    \"Edit a release note\",\n    \"Draft a comment with emphasis\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the editable region.\"\n    },\n    \"placeholder\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Hint text shown while empty.\"\n    },\n    \"initialHtml\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Initial sanitized HTML content.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with the current HTML on every edit.\"\n    },\n    \"boldLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the bold command.\"\n    },\n    \"italicLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the italic command.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Editor ready with content.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"Editor ready and empty; placeholder visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"card\",\n      \"page\",\n      \"comment-thread\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not inject unsanitized HTML into the editable region.\",\n    \"Do not use the editor as a code editor; use CodeBlock or a dedicated control.\"\n  ],\n  \"a11y\": {\n    \"role\": \"textbox\",\n    \"keyboard\": [\n      \"Ctrl+B toggles bold\",\n      \"Ctrl+I toggles italic\"\n    ],\n    \"focus\": \"Editable region is focusable with aria-multiline; toolbar buttons precede it.\",\n    \"labeling\": \"aria-label names the editor; toolbar buttons expose command names.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width editing surface; toolbar wraps on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Toolbar wraps to two rows.\",\n      \"medium\": \"Single toolbar row.\",\n      \"large\": \"Single toolbar row.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"editor\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"compose-rich-text\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/Editor.tsx",
+      "content": "import { useRef, useState } from 'react'\nimport './styles.css'\n\nexport interface EditorProps {\n  label: string\n  placeholder?: string\n  initialHtml?: string\n  onChange?: (html: string) => void\n  boldLabel?: string\n  italicLabel?: string\n  className?: string\n}\n\n/** Minimal allowlist-style cleanup: strips executable tags, inline handlers, and javascript: URLs. Not a full sanitizer; a dedicated sanitizer is tracked as a Phase 6 todo. */\nfunction sanitizeHtml(html: string) {\n  return html\n    .replace(/<\\s*(script|style|iframe|object|embed)[^>]*>[\\s\\S]*?<\\s*\\/\\s*\\1\\s*>/gi, '')\n    .replace(/\\son\\w+\\s*=\\s*\"[^\"]*\"/gi, '')\n    .replace(/\\son\\w+\\s*=\\s*'[^']*'/gi, '')\n    .replace(/javascript:/gi, '')\n}\n\nexport function Editor({\n  label,\n  placeholder = 'Write something',\n  initialHtml = '',\n  onChange,\n  boldLabel = 'Bold',\n  italicLabel = 'Italic',\n  className,\n}: EditorProps) {\n  const regionRef = useRef<HTMLDivElement>(null)\n  const [empty, setEmpty] = useState(initialHtml.trim().length === 0)\n  const classes = ['cu-editor', className].filter(Boolean).join(' ')\n\n  const emitChange = () => {\n    const html = regionRef.current?.innerHTML ?? ''\n    setEmpty((regionRef.current?.textContent ?? '').trim().length === 0)\n    onChange?.(html)\n  }\n\n  const run = (command: 'bold' | 'italic') => {\n    regionRef.current?.focus()\n    if (typeof document.execCommand === 'function') {\n      document.execCommand(command)\n      emitChange()\n    }\n  }\n\n  return (\n    <div className={classes} data-ai-role=\"editor\" data-ai-intent=\"compose-rich-text\" data-ai-state={empty ? 'empty' : 'default'}>\n      <div className=\"cu-editor__toolbar\" role=\"toolbar\" aria-label={label}>\n        <button type=\"button\" className=\"cu-editor__command\" aria-label={boldLabel} onClick={() => run('bold')}>\n          <strong aria-hidden=\"true\">B</strong>\n        </button>\n        <button type=\"button\" className=\"cu-editor__command\" aria-label={italicLabel} onClick={() => run('italic')}>\n          <em aria-hidden=\"true\">I</em>\n        </button>\n      </div>\n      <div\n        ref={regionRef}\n        className=\"cu-editor__region\"\n        role=\"textbox\"\n        aria-label={label}\n        aria-multiline=\"true\"\n        contentEditable\n        suppressContentEditableWarning\n        data-placeholder={placeholder}\n        onInput={emitChange}\n        dangerouslySetInnerHTML={{ __html: sanitizeHtml(initialHtml) }}\n      />\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/editor/index.ts",
+      "content": "export { Editor } from './Editor.js'\nexport type { EditorProps } from './Editor.js'\n"
+    },
+    {
+      "path": "components/editor/locales/am.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ar.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"محرر نصوص\",\n    \"bold\": \"غامق\",\n    \"italic\": \"مائل\",\n    \"placeholder\": \"اكتب شيئًا\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/bn.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/de.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Formatierter Texteditor\",\n    \"bold\": \"Fett formatieren\",\n    \"italic\": \"Kursiv formatieren\",\n    \"placeholder\": \"Geben Sie hier Ihren Text ein\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/en.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/es.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/fa.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/fr.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ha.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/hi.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/id.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ja.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ko.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/pt.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ru.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/sw.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ug.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/ur.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/vi.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/zh-CN.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"富文本编辑器\",\n    \"bold\": \"加粗\",\n    \"italic\": \"斜体\",\n    \"placeholder\": \"请输入内容\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/locales/zh-HK.json",
+      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+    },
+    {
+      "path": "components/editor/styles.css",
+      "content": ".cu-editor {\n  display: block;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-editor__toolbar {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--cu-space-1);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border-block-end: 1px solid var(--cu-color-border-default);\n}\n\n.cu-editor__command {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  cursor: pointer;\n}\n\n.cu-editor__command:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-editor__region {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  min-block-size: calc(var(--cu-space-3) * 6);\n  outline: none;\n}\n\n.cu-editor__region:focus-visible {\n  box-shadow: inset 0 0 0 2px var(--cu-color-palette-brand);\n}\n\n.cu-editor__region:empty::before {\n  content: attr(data-placeholder);\n  color: color-mix(in srgb, var(--cu-color-fg-default) 56%, transparent);\n}\n"
+    }
+  ]
+}

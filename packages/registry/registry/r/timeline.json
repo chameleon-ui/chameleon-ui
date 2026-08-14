@@ -1,0 +1,108 @@
+{
+  "id": "timeline",
+  "type": "registry:ui",
+  "name": "Timeline",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/timeline/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"timeline\",\n  \"name\": \"Timeline\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a chronologically ordered list of events with markers and timestamps.\",\n  \"scenarios\": [\n    \"Show order fulfillment steps\",\n    \"Display activity history\",\n    \"Present project milestones\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, title, description?, time? } events in order.\"\n    },\n    \"emptyLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Text shown when items is empty.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Timeline with events.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No events to show.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"badge\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not render events out of chronological order.\",\n    \"Do not use a timeline for navigation between pages.\"\n  ],\n  \"a11y\": {\n    \"role\": \"list\",\n    \"keyboard\": [],\n    \"focus\": \"Items are not focusable unless they contain actions.\",\n    \"labeling\": \"Ordered list semantics convey chronology; timestamps use time elements.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Vertical rail at all breakpoints; indentation follows inline direction.\",\n    \"breakpoints\": {\n      \"compact\": \"Narrow rail.\",\n      \"medium\": \"Default rail.\",\n      \"large\": \"Default rail.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"timeline\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"enumerate-items\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/index.ts",
+      "content": "export { Timeline } from './Timeline.js'\nexport type { TimelineItem, TimelineProps } from './Timeline.js'\n"
+    },
+    {
+      "path": "components/timeline/locales/am.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ar.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"الخط الزمني\",\n    \"empty\": \"لا توجد أحداث بعد\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/bn.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/de.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Zeitstrahlansicht\",\n    \"empty\": \"Noch keine Ereignisse vorhanden\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/en.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/es.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/fa.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/fr.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ha.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/hi.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/id.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ja.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ko.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/pt.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ru.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/sw.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ug.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/ur.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/vi.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/zh-CN.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"时间线\",\n    \"empty\": \"暂无事件\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/locales/zh-HK.json",
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+    },
+    {
+      "path": "components/timeline/styles.css",
+      "content": ".cu-timeline {\n  display: block;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-timeline__list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-timeline__item {\n  display: flex;\n  gap: var(--cu-space-2);\n  padding-block-end: var(--cu-space-3);\n  position: relative;\n}\n\n.cu-timeline__marker {\n  flex: none;\n  inline-size: var(--cu-space-2);\n  block-size: var(--cu-space-2);\n  margin-block-start: var(--cu-space-1);\n  border-radius: 50%;\n  background: var(--cu-color-palette-brand);\n}\n\n.cu-timeline__title {\n  font-weight: 600;\n}\n\n.cu-timeline__time {\n  margin-inline-start: var(--cu-space-2);\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n  font-size: 0.875em;\n}\n\n.cu-timeline__description {\n  margin: var(--cu-space-1) 0 0;\n}\n\n.cu-timeline__empty {\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n"
+    },
+    {
+      "path": "components/timeline/Timeline.tsx",
+      "content": "import './styles.css'\n\nexport interface TimelineItem {\n  id: string\n  title: string\n  description?: string\n  time?: string\n}\n\nexport interface TimelineProps {\n  items: TimelineItem[]\n  emptyLabel?: string\n  className?: string\n}\n\nexport function Timeline({ items, emptyLabel = 'No events yet', className }: TimelineProps) {\n  const classes = ['cu-timeline', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} data-ai-role=\"timeline\" data-ai-intent=\"enumerate-items\" data-ai-state={items.length === 0 ? 'empty' : 'default'}>\n      {items.length === 0 ? (\n        <p className=\"cu-timeline__empty\">{emptyLabel}</p>\n      ) : (\n        <ol className=\"cu-timeline__list\">\n          {items.map((item) => (\n            <li key={item.id} className=\"cu-timeline__item\">\n              <span className=\"cu-timeline__marker\" aria-hidden=\"true\" />\n              <div className=\"cu-timeline__content\">\n                <span className=\"cu-timeline__title\">{item.title}</span>\n                {item.time ? <time className=\"cu-timeline__time\">{item.time}</time> : null}\n                {item.description ? <p className=\"cu-timeline__description\">{item.description}</p> : null}\n              </div>\n            </li>\n          ))}\n        </ol>\n      )}\n    </div>\n  )\n}\n"
+    }
+  ]
+}

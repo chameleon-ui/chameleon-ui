@@ -1,0 +1,16 @@
+import { FormPreview } from '@site/src/playgrounds'
+
+## Examples
+
+<FormPreview />
+
+```jsx live
+function Example() {
+  const [name, setName] = useState('Chameleon');
+  return (
+    <Form submitLabel="Save" onSubmit={(event) => event.preventDefault()}>
+      <Input label="Name" value={name} onChange={setName} />
+    </Form>
+  );
+}
+```

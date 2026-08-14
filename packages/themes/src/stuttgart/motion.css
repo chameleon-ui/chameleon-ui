@@ -1,0 +1,35 @@
+/* Stuttgart — measured 180ms ease. All bezier points stay in [0, 1] (no overshoot). */
+:root .cu-button,
+:root .cu-navbar__item,
+:root .cu-tab-bar__item,
+:root .cu-switch__control,
+:root .cu-switch__thumb,
+:root .cu-alert,
+:root .cu-badge,
+:root .cu-input,
+:root .cu-select__trigger {
+  transition-duration: var(--cu-motion-duration-base);
+  transition-timing-function: var(--cu-motion-easing-standard);
+}
+
+:root .cu-button,
+:root .cu-button:hover,
+:root .cu-button:focus-visible,
+:root .cu-navbar__item:hover,
+:root .cu-tab-bar__item:hover {
+  transform: none;
+}
+
+:root .cu-button:active {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .cu-button,
+  :root .cu-navbar__item,
+  :root .cu-tab-bar__item,
+  :root .cu-switch__control,
+  :root .cu-switch__thumb {
+    transition-duration: 0.01ms;
+  }
+}

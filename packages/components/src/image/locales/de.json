@@ -1,0 +1,6 @@
+{
+  "image": {
+    "label": "Bildanzeige",
+    "loadError": "Bild konnte nicht geladen werden"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "ticker",
+  "type": "registry:ui",
+  "name": "Ticker",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/ticker/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"ticker\",\n  \"name\": \"Ticker\",\n  \"family\": \"F\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Shows a horizontally scrolling strip of compact market or status items.\",\n  \"scenarios\": [\n    \"Stock price strip\",\n    \"Live system status feed\",\n    \"Exchange rate ribbon\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, label, value, trend? } ticker entries.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the ticker region.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Ticker populated with items.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No items provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not animate the strip without honoring reduced motion.\",\n    \"Do not place interactive controls inside ticker items.\"\n  ],\n  \"a11y\": {\n    \"role\": \"region\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable; items are presentational.\",\n    \"labeling\": \"Region label names the feed; trend arrows have text alternatives.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"2.2.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Horizontal scroll strip at all breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Scrollable strip.\",\n      \"medium\": \"Scrollable strip.\",\n      \"large\": \"Scrollable strip.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"ticker\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"notify-status\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/index.ts",
+      "content": "export { Ticker } from './Ticker.js'\nexport type { TickerItem, TickerProps } from './Ticker.js'\n"
+    },
+    {
+      "path": "components/ticker/locales/am.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ar.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"شريط الأخبار\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/bn.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/de.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Kurslaufband\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/en.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/es.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/fa.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/fr.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ha.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/hi.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/id.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ja.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ko.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/pt.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ru.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/sw.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ug.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/ur.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/vi.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/zh-CN.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"滚动行情\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/locales/zh-HK.json",
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+    },
+    {
+      "path": "components/ticker/styles.css",
+      "content": ".cu-ticker {\n  display: block;\n  border-block: 1px solid var(--cu-color-border-default);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  overflow: hidden;\n}\n\n.cu-ticker__strip {\n  display: flex;\n  gap: var(--cu-space-3);\n  list-style: none;\n  margin: 0;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  overflow-x: auto;\n}\n\n.cu-ticker__item {\n  display: inline-flex;\n  align-items: baseline;\n  gap: var(--cu-space-1);\n  white-space: nowrap;\n}\n\n.cu-ticker__value {\n  font-weight: 600;\n}\n\n.cu-ticker__trend--up {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, green);\n}\n\n.cu-ticker__trend--down {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, red);\n}\n\n.cu-ticker__trend-text {\n  position: absolute;\n  inline-size: 1px;\n  block-size: 1px;\n  overflow: hidden;\n  clip-path: inset(50%);\n}\n"
+    },
+    {
+      "path": "components/ticker/Ticker.tsx",
+      "content": "import './styles.css'\n\nexport interface TickerItem {\n  id: string\n  label: string\n  value: string\n  trend?: 'up' | 'down' | 'flat'\n}\n\nexport interface TickerProps {\n  items: TickerItem[]\n  label?: string\n  className?: string\n}\n\nconst TREND_GLYPH = { up: '▲', down: '▼', flat: '→' } as const\n\nexport function Ticker({ items, label = 'Ticker', className }: TickerProps) {\n  const classes = ['cu-ticker', className].filter(Boolean).join(' ')\n  return (\n    <section\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"ticker\" data-ai-intent=\"notify-status\"\n      data-ai-state={items.length === 0 ? 'empty' : 'default'}\n    >\n      <ul className=\"cu-ticker__strip\">\n        {items.map((item) => (\n          <li key={item.id} className=\"cu-ticker__item\">\n            <span className=\"cu-ticker__label\">{item.label}</span>\n            <span className=\"cu-ticker__value\">{item.value}</span>\n            {item.trend ? (\n              <span className={'cu-ticker__trend cu-ticker__trend--' + item.trend}>\n                <span aria-hidden=\"true\">{TREND_GLYPH[item.trend]}</span>\n                <span className=\"cu-ticker__trend-text\">{item.trend}</span>\n              </span>\n            ) : null}\n          </li>\n        ))}\n      </ul>\n    </section>\n  )\n}\n"
+    }
+  ]
+}

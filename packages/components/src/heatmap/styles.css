@@ -1,0 +1,31 @@
+.cu-heatmap {
+  display: block;
+  overflow-x: auto;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-heatmap__grid {
+  display: grid;
+  gap: calc(var(--cu-space-1) / 2);
+  align-items: center;
+}
+
+.cu-heatmap__row-wrap {
+  display: contents;
+}
+
+.cu-heatmap__row,
+.cu-heatmap__column {
+  font-size: 0.75em;
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+  padding-inline-end: var(--cu-space-1);
+}
+
+.cu-heatmap__cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--cu-space-3);
+  border-radius: calc(var(--cu-space-1) / 2);
+  font-size: 0.625em;
+}

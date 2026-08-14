@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "accordion",
+  "name": "Accordion",
+  "status": "experimental",
+  "purpose": "Stacks multiple collapsible sections where at most one is open at a time.",
+  "scenarios": [
+    "FAQ list",
+    "Settings categories",
+    "Form sections"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "JSON array of {title, content} items."
+    },
+    "multiple": {
+      "type": "boolean",
+      "required": false,
+      "description": "Allow multiple open items.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "One or more items are expanded."
+    },
+    {
+      "name": "closed",
+      "description": "All items are collapsed."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "card"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for primary navigation.",
+    "Do not hide required form fields inside."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": [
+      "Tab moves between triggers",
+      "Enter/Space toggles"
+    ],
+    "focus": "Triggers are focusable.",
+    "labeling": "Each trigger labels its section.",
+    "wcag": [
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width list.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "accordion",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "expand-section",
+      "collapse-section"
+    ]
+  }
+}

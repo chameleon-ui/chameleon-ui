@@ -1,0 +1,11 @@
+.cu-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-3);
+}
+
+.cu-form__actions {
+  display: flex;
+  justify-content: flex-start;
+  margin-block-start: var(--cu-space-2);
+}

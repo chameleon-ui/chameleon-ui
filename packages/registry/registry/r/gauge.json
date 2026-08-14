@@ -1,0 +1,108 @@
+{
+  "id": "gauge",
+  "type": "registry:ui",
+  "name": "Gauge",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/gauge/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"gauge\",\n  \"name\": \"Gauge\",\n  \"family\": \"F\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Shows a single value on a semicircular dial against a maximum.\",\n  \"scenarios\": [\n    \"CPU utilization dial\",\n    \"Score against target\",\n    \"Capacity usage indicator\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Current value.\"\n    },\n    \"max\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Maximum value.\",\n      \"default\": 100\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible description of the gauge.\"\n    },\n    \"valueLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Formatted value text shown in the dial.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Dial rendered with the current value.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"kpi-dashboard\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a gauge for negative ranges.\",\n    \"Do not place multiple gauges in a row without aligned max values.\"\n  ],\n  \"a11y\": {\n    \"role\": \"meter\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"role=meter with aria-valuemin/max/now exposes the value.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fixed intrinsic size that scales down on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Scaled down dial.\",\n      \"medium\": \"Intrinsic size.\",\n      \"large\": \"Intrinsic size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"gauge\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"visualize-data\",\n      \"show-progress\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/Gauge.tsx",
+      "content": "import './styles.css'\n\nexport interface GaugeProps {\n  value: number\n  max?: number\n  label: string\n  valueLabel?: string\n  className?: string\n}\n\nconst RADIUS = 70\nconst CENTER = 80\n\nexport function Gauge({ value, max = 100, label, valueLabel, className }: GaugeProps) {\n  const classes = ['cu-gauge', className].filter(Boolean).join(' ')\n  const clamped = Math.min(max, Math.max(0, value))\n  const percent = max > 0 ? (clamped / max) * 100 : 0\n  const startX = CENTER - RADIUS\n  const endX = CENTER + RADIUS\n\n  return (\n    <div className={classes} data-ai-role=\"gauge\" data-ai-intent=\"visualize-data\" data-ai-state=\"default\">\n      <svg\n        className=\"cu-gauge__svg\"\n        viewBox={`0 0 ${CENTER * 2} ${CENTER + 12}`}\n        role=\"meter\"\n        aria-label={label}\n        aria-valuemin={0}\n        aria-valuemax={max}\n        aria-valuenow={clamped}\n      >\n        <path\n          className=\"cu-gauge__track\"\n          d={`M ${startX} ${CENTER} A ${RADIUS} ${RADIUS} 0 0 1 ${endX} ${CENTER}`}\n          pathLength={100}\n        />\n        <path\n          className=\"cu-gauge__fill\"\n          d={`M ${startX} ${CENTER} A ${RADIUS} ${RADIUS} 0 0 1 ${endX} ${CENTER}`}\n          pathLength={100}\n          strokeDasharray={`${percent} 100`}\n        />\n        <text className=\"cu-gauge__value\" x={CENTER} y={CENTER - 8} textAnchor=\"middle\">\n          {valueLabel ?? String(clamped)}\n        </text>\n      </svg>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/gauge/index.ts",
+      "content": "export { Gauge } from './Gauge.js'\nexport type { GaugeProps } from './Gauge.js'\n"
+    },
+    {
+      "path": "components/gauge/locales/am.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ar.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"مقياس\",\n    \"value\": \"القيمة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/bn.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/de.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Instrumentenanzeige\",\n    \"value\": \"Messwert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/en.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/es.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/fa.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/fr.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ha.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/hi.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/id.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ja.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ko.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/pt.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ru.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/sw.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ug.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/ur.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/vi.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/zh-CN.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"仪表盘\",\n    \"value\": \"数值\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/locales/zh-HK.json",
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/gauge/styles.css",
+      "content": ".cu-gauge {\n  display: inline-block;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-gauge__svg {\n  display: block;\n  inline-size: calc(var(--cu-space-3) * 20);\n  max-inline-size: 100%;\n  block-size: auto;\n}\n\n.cu-gauge__track {\n  fill: none;\n  stroke: var(--cu-color-border-default);\n  stroke-width: 10;\n  stroke-linecap: round;\n}\n\n.cu-gauge__fill {\n  fill: none;\n  stroke: var(--cu-color-palette-brand);\n  stroke-width: 10;\n  stroke-linecap: round;\n}\n\n.cu-gauge__value {\n  fill: var(--cu-color-fg-default);\n  font-size: 1.25rem;\n  font-weight: 600;\n}\n"
+    }
+  ]
+}

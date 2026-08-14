@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "steps",
+  "name": "Steps",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Shows sequential progress through a named series of steps, optionally allowing jump selection.",
+  "scenarios": [
+    "Walk through a multi-step checkout",
+    "Show onboarding progress",
+    "Jump back to a completed setup step"
+  ],
+  "props": {
+    "items": {
+      "type": "node",
+      "required": true,
+      "description": "Ordered steps with value, label, and optional description."
+    },
+    "currentValue": {
+      "type": "string",
+      "required": true,
+      "description": "Value of the current step."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": false,
+      "description": "When provided, each step is a button that reports its value."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the steps landmark."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "start",
+      "description": "The first step is current."
+    },
+    {
+      "name": "in-progress",
+      "description": "A middle step is current."
+    },
+    {
+      "name": "complete",
+      "description": "The last step is current."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["container", "card", "dialog", "page"],
+    "allowedChildren": ["text", "button"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use Steps for peer section switching; use Tabs or Navbar.",
+    "Do not skip announcing the current step; aria-current=step is required."
+  ],
+  "a11y": {
+    "role": "navigation",
+    "keyboard": [
+      "Tab moves through step buttons when interactive",
+      "Enter or Space activates a step button"
+    ],
+    "focus": "Interactive steps are buttons in document order with a visible focus ring.",
+    "labeling": "The landmark has an accessible name; the current step uses aria-current=step.",
+    "wcag": ["1.3.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Root is a query container. Compact stacks steps; tablet/desktop place them in a row. No viewport size media.",
+    "breakpoints": {
+      "compact": "Vertical list; 44px targets.",
+      "medium": "Horizontal list at 48rem container width.",
+      "large": "Wider gap at 80rem container width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Row direction follows document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "steps",
+    "states": ["start", "in-progress", "complete"],
+    "intents": ["enumerate-items"]
+  }
+}

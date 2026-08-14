@@ -1,0 +1,22 @@
+{
+  "extends": "@docusaurus/tsconfig",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": ["node", "vitest/globals"],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler"
+  },
+  "include": [
+    "src",
+    "docs",
+    "sidebars.ts",
+    "docusaurus.config.ts",
+    "vitest.config.mts"
+  ]
+}

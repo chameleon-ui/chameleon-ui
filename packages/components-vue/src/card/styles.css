@@ -1,0 +1,29 @@
+.cu-card {
+  display: block;
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-card--outlined {
+  border: 1px solid var(--cu-color-border-default);
+}
+
+.cu-card--elevated {
+  box-shadow: var(--cu-shadow-sm);
+}
+
+.cu-card--padding-sm {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+}
+
+.cu-card--padding-md {
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-card--padding-lg {
+  padding-block: var(--cu-space-3);
+  padding-inline: calc(var(--cu-space-3) * 1.5);
+}

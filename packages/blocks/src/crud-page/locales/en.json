@@ -1,0 +1,21 @@
+{
+  "crud": {
+    "title": "Records",
+    "subtitle": "Create, review, and update rows in this workspace.",
+    "create": "New record",
+    "dialogTitle": "Create record",
+    "dialogDescription": "Add a name to insert a row.",
+    "close": "Close",
+    "nameLabel": "Name",
+    "submit": "Save",
+    "emptyTitle": "No records yet",
+    "emptyDescription": "Create the first row to populate this table.",
+    "gridLabel": "Records",
+    "emptyLabel": "No data",
+    "colName": "Name",
+    "colStatus": "Status",
+    "statusActive": "Active",
+    "errorRequired": "Name is required.",
+    "itemCount": "{count, plural, =0 {No records} one {# record} other {# records}}"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Welcome back. Continue with your email and password.",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "submit": "Sign in",
+    "registerPrompt": "Need an account?",
+    "registerAction": "Create one",
+    "errorRequired": "Email and password are required.",
+    "errorInvalid": "Enter a valid email address.",
+    "rememberLabel": "Keep me signed in",
+    "sessionCount": "{count, plural, =0 {No saved sessions} one {# saved session} other {# saved sessions}}"
+  }
+}

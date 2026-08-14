@@ -1,0 +1,112 @@
+/*
+ * Query container: the nav is the container; the list consumes it so the
+ * stack -> row morph follows the stepper's own inline size rather than the
+ * viewport. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop
+ * (packages/tokens/src/core/breakpoint.json).
+ */
+.cu-steps {
+  color: var(--cu-color-fg-default);
+  container-type: inline-size;
+}
+
+.cu-steps__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cu-steps__item {
+  display: flex;
+  flex: 1;
+  min-inline-size: 0;
+}
+
+.cu-steps__button,
+.cu-steps__static {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  inline-size: 100%;
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: inherit;
+  font: inherit;
+  text-align: start;
+}
+
+.cu-steps__button {
+  cursor: pointer;
+}
+
+.cu-steps__button:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+.cu-steps__index {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--cu-touch-target-min);
+  min-block-size: var(--cu-touch-target-min);
+  border-radius: 999px;
+  border: 1px solid var(--cu-color-border-default);
+  font-weight: 700;
+}
+
+.cu-steps__item--current .cu-steps__index {
+  background: var(--cu-color-palette-brand);
+  border-color: var(--cu-color-palette-brand);
+  color: var(--cu-color-fg-inverse);
+}
+
+.cu-steps__item--complete .cu-steps__index {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 18%, var(--cu-color-background-default));
+  border-color: var(--cu-color-palette-brand);
+}
+
+.cu-steps__copy {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cu-space-1) / 2);
+}
+
+.cu-steps__label {
+  font-weight: 650;
+}
+
+.cu-steps__description {
+  font-size: 0.875em;
+}
+
+@media (hover: hover) {
+  .cu-steps__button:hover {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+@container (min-width: 48rem) {
+  .cu-steps__list {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-steps__list {
+    gap: var(--cu-space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-steps__button {
+    transition-duration: 0.01ms;
+  }
+}

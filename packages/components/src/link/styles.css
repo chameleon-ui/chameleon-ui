@@ -1,0 +1,18 @@
+.cu-link {
+  color: var(--cu-color-palette-brand);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* Hover is gated so touch input never sticks in a hover style. */
+@media (hover: hover) {
+  .cu-link:hover {
+    color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, var(--cu-color-fg-default));
+  }
+}
+
+.cu-link:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+  border-radius: var(--cu-radius-sm);
+}

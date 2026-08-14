@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "popover",
+  "name": "Popover",
+  "status": "experimental",
+  "purpose": "Displays a floating panel of content anchored to a trigger element.",
+  "scenarios": [
+    "Show a compact menu of actions",
+    "Reveal filter controls next to a button",
+    "Display a profile card on click"
+  ],
+  "props": {
+    "trigger": {
+      "type": "node",
+      "required": true,
+      "description": "Element that opens the popover."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Popover heading and accessible name."
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "description": "Supporting text associated with the popover."
+    },
+    "closeLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the close control."
+    },
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Optional controlled open state."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Popover is visible and focus is inside."
+    },
+    {
+      "name": "closed",
+      "description": "Popover is hidden."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "dialog"
+    ],
+    "allowedChildren": [
+      "text",
+      "button",
+      "input"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a popover for task-critical flows; use a dialog.",
+    "Do not open a popover on hover alone on touch devices."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Enter/Space on trigger opens",
+      "Tab cycles inside",
+      "Escape closes"
+    ],
+    "focus": "Focus moves to the popover content on open; Escape closes and returns focus to the trigger.",
+    "labeling": "Title labels the popover; description is associated.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "On compact screens the popover is click-to-open and stays within the viewport. On larger screens it can also open on hover.",
+    "breakpoints": {
+      "compact": "Click-to-open; panel avoids clipping.",
+      "medium": "Click or hover opens.",
+      "large": "Click or hover opens."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Positioning follows the document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "popover",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "reveal-context"
+    ]
+  }
+}

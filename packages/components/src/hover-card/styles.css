@@ -1,0 +1,14 @@
+.cu-hover-card {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  box-shadow: var(--cu-shadow-md, 0 1px 3px color-mix(in srgb, var(--cu-color-background-inverse) 12%, transparent));
+  z-index: 10;
+}
+
+.cu-hover-card__trigger {
+  display: inline-flex;
+}

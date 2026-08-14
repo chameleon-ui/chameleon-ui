@@ -1,0 +1,20 @@
+{
+  "ticket": {
+    "title": "工单",
+    "subtitle": "按分诊步骤推进请求，并在时间线上记录备注。",
+    "stepsLabel": "工单阶段",
+    "stepOpen": "待处理",
+    "stepTriage": "分诊",
+    "stepProgress": "进行中",
+    "stepResolved": "已解决",
+    "noteLabel": "添加备注",
+    "submit": "添加备注",
+    "advance": "推进一步",
+    "emptyTitle": "还没有备注",
+    "emptyDescription": "添加第一条备注以开始此请求。",
+    "emptyTimeline": "还没有事件",
+    "errorRequired": "备注为必填项。",
+    "eventAdvanced": "已移至 {stage}",
+    "noteCount": "{count, plural, =0 {没有备注} other {# 条备注}}"
+  }
+}

@@ -5,3 +5,34 @@
   margin-inline-start: var(--cu-space-2);
   padding-inline-end: var(--cu-space-3);
 }
+
+/* Phase 5: container queries with token-equal rem lengths are the blessed path. */
+.cu-demo__host {
+  container-type: inline-size;
+}
+
+@container (max-width: 47.99rem) {
+  .cu-demo {
+    padding-inline: var(--cu-space-2);
+  }
+}
+
+/* Component-local container thresholds in rem are allowed when documented. */
+@container (min-width: 12rem) {
+  .cu-demo__label {
+    display: inline;
+  }
+}
+
+/* Non-size media features (hover gating, reduced motion) stay legal. */
+@media (hover: hover) {
+  .cu-demo:hover {
+    color: var(--cu-color-palette-brand);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-demo {
+    transition-duration: 0.01ms;
+  }
+}

@@ -2,11 +2,72 @@
   "name": "@chameleon-ui/themes",
   "version": "0.0.0",
   "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
+  "description": "Phase 2 tribute themes (8) overlaying @chameleon-ui/tokens core with design-rules authority",
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./dist/*": "./dist/*",
+    "./line/css": "./dist/line/variables.css",
+    "./silver-arrow/css": "./dist/silver-arrow/variables.css",
+    "./stuttgart/css": "./dist/stuttgart/variables.css",
+    "./corsa/css": "./dist/corsa/variables.css",
+    "./cupertino/css": "./dist/cupertino/variables.css",
+    "./siren/css": "./dist/siren/variables.css",
+    "./wechat/css": "./dist/wechat/variables.css",
+    "./ant-blue/css": "./dist/ant-blue/variables.css",
+    "./line/meta": "./dist/line/meta.json",
+    "./line/design-rules": "./src/line/design-rules.json",
+    "./line/tokens": "./src/line/tokens.json",
+    "./silver-arrow/meta": "./dist/silver-arrow/meta.json",
+    "./silver-arrow/design-rules": "./src/silver-arrow/design-rules.json",
+    "./silver-arrow/tokens": "./src/silver-arrow/tokens.json",
+    "./stuttgart/meta": "./dist/stuttgart/meta.json",
+    "./stuttgart/design-rules": "./src/stuttgart/design-rules.json",
+    "./stuttgart/tokens": "./src/stuttgart/tokens.json",
+    "./corsa/meta": "./dist/corsa/meta.json",
+    "./corsa/design-rules": "./src/corsa/design-rules.json",
+    "./corsa/tokens": "./src/corsa/tokens.json",
+    "./cupertino/meta": "./dist/cupertino/meta.json",
+    "./cupertino/design-rules": "./src/cupertino/design-rules.json",
+    "./cupertino/tokens": "./src/cupertino/tokens.json",
+    "./siren/meta": "./dist/siren/meta.json",
+    "./siren/design-rules": "./src/siren/design-rules.json",
+    "./siren/tokens": "./src/siren/tokens.json",
+    "./wechat/meta": "./dist/wechat/meta.json",
+    "./wechat/design-rules": "./src/wechat/design-rules.json",
+    "./wechat/tokens": "./src/wechat/tokens.json",
+    "./ant-blue/meta": "./dist/ant-blue/meta.json",
+    "./ant-blue/design-rules": "./src/ant-blue/design-rules.json",
+    "./ant-blue/tokens": "./src/ant-blue/tokens.json",
+    "./community-focus-first/meta": "./src/community-focus-first/meta.json",
+    "./community-focus-first/design-rules": "./src/community-focus-first/design-rules.json",
+    "./community-focus-first/tokens": "./src/community-focus-first/tokens.json"
+  },
   "scripts": {
-    "build": "echo \"[@chameleon-ui/themes] build placeholder\"",
-    "dev": "echo \"[@chameleon-ui/themes] dev placeholder\"",
-    "lint": "echo \"[@chameleon-ui/themes] lint placeholder\"",
-    "test": "echo \"[@chameleon-ui/themes] test placeholder\""
+    "build": "node ./scripts/build-themes.mjs && tsc -p tsconfig.json",
+    "dev": "node ./scripts/build-themes.mjs",
+    "lint": "node --check ./scripts/build-themes.mjs && node --check ./scripts/test-themes.mjs && node --check ./scripts/validate-rules.mjs && node --check ./scripts/test-themes-extends.mjs && node --check ./scripts/test-themes-regression.mjs && node --check ./scripts/test-themes-corsa-siren.mjs",
+    "test": "node ./scripts/build-themes.mjs && node ./scripts/test-themes.mjs && node ./scripts/test-themes-corsa-siren.mjs && node ./scripts/test-themes-extends.mjs && node ./scripts/test-themes-regression.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "validate-rules": "node ./scripts/validate-rules.mjs"
+  },
+  "dependencies": {
+    "@chameleon-ui/tokens": "workspace:*"
+  },
+  "devDependencies": {
+    "@chameleon-ui/contract": "workspace:*",
+    "ajv": "8.17.1",
+    "typescript": "5.9.3"
   }
 }

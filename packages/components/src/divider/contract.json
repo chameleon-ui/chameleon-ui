@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "divider",
+  "name": "Divider",
+  "status": "experimental",
+  "purpose": "Visually separates content horizontally.",
+  "scenarios": [
+    "Separate form sections",
+    "Divide a list",
+    "Create visual rhythm"
+  ],
+  "props": {
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Horizontal divider."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "list",
+      "form"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use multiple dividers to create large gaps.",
+    "Do not replace semantic headings with dividers."
+  ],
+  "a11y": {
+    "role": "separator",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Not labelled.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "No direction-specific styling.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "divider",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "separate-sections"
+    ]
+  }
+}

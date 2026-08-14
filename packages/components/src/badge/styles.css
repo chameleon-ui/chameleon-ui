@@ -1,0 +1,42 @@
+.cu-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-1);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--cu-radius-md);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+}
+
+.cu-badge--primary {
+  color: var(--cu-color-fg-inverse);
+  background: var(--cu-color-palette-brand);
+}
+
+.cu-badge--success {
+  color: var(--cu-color-fg-inverse);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 70%, #16a34a);
+}
+
+.cu-badge--warning {
+  color: var(--cu-color-fg-default);
+  background: #f59e0b;
+}
+
+.cu-badge--danger {
+  color: var(--cu-color-fg-inverse);
+  background: #dc2626;
+}
+
+.cu-badge--sm {
+  font-size: 0.75rem;
+  padding-block: calc(var(--cu-space-1) / 2);
+  padding-inline: var(--cu-space-1);
+}

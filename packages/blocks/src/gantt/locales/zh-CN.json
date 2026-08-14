@@ -1,0 +1,15 @@
+{
+  "gantt": {
+    "title": "进度计划",
+    "subtitle": "条形按起止日期计算宽度。这不是绘制引擎。",
+    "scaleLabel": "日期刻度",
+    "rangeLabel": "刻度从 {start} 到 {end}",
+    "emptyTitle": "没有任务",
+    "emptyDescription": "添加任务以绘制计划。",
+    "emptyTimeline": "还没有里程碑",
+    "statusOnTrack": "正常",
+    "statusAtRisk": "有风险",
+    "barLabel": "{name} 从 {start} 到 {end}",
+    "taskCount": "{count, plural, =0 {没有任务} other {# 项任务}}"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "checkbox",
+  "type": "registry:ui",
+  "name": "Checkbox",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/checkbox/Checkbox.tsx",
+      "content": "import { CheckboxPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface CheckboxProps {\n  checked: boolean\n  onChange: (checked: boolean) => void\n  label: string\n  disabled?: boolean\n  className?: string\n}\n\nexport function Checkbox({ checked, onChange, label, disabled = false, className }: CheckboxProps) {\n  const classes = ['cu-checkbox', className].filter(Boolean).join(' ')\n\n  return (\n    <CheckboxPrimitive.Root\n      checked={checked}\n      className={classes}\n      data-ai-role=\"checkbox\" data-ai-intent=\"toggle-option\"\n      data-ai-state={checked ? 'checked' : disabled ? 'disabled' : 'default'}\n      disabled={disabled}\n      onCheckedChange={(details) => onChange(!!details.checked)}\n    >\n      <CheckboxPrimitive.Control className=\"cu-checkbox__control\">\n        <CheckboxPrimitive.Indicator className=\"cu-checkbox__indicator\">✓</CheckboxPrimitive.Indicator>\n      </CheckboxPrimitive.Control>\n      <CheckboxPrimitive.Label className=\"cu-checkbox__label\">{label}</CheckboxPrimitive.Label>\n      <CheckboxPrimitive.HiddenInput />\n    </CheckboxPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/checkbox/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"checkbox\",\n  \"name\": \"Checkbox\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Toggles a single binary option on or off with an accessible label.\",\n  \"scenarios\": [\n    \"Subscribe to a newsletter\",\n    \"Accept terms and conditions\",\n    \"Enable an optional feature in a form\"\n  ],\n  \"props\": {\n    \"checked\": {\n      \"type\": \"boolean\",\n      \"required\": true,\n      \"description\": \"Controlled checked state.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Receives the next checked state.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Visible and accessible label for the checkbox.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents toggling the checkbox.\",\n      \"default\": false\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Unchecked and enabled.\"\n    },\n    {\n      \"name\": \"checked\",\n      \"description\": \"Checked and enabled.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Cannot be toggled.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"field-group\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a checkbox when only one of several mutually exclusive options is allowed; use a radio group.\",\n    \"Do not remove the visible label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"checkbox\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Space toggles\"\n    ],\n    \"focus\": \"Visible focus indicator on the control.\",\n    \"labeling\": \"Visible label is associated with the hidden checkbox.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"The control and label sit on one line; the touch target is at least 44px high.\",\n    \"breakpoints\": {\n      \"compact\": \"Touch target stays at least 44px; label wraps if needed.\",\n      \"medium\": \"Inline layout remains comfortable.\",\n      \"large\": \"Inline layout remains comfortable.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. The control sits at the inline start of the label.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"checkbox\",\n    \"states\": [\n      \"default\",\n      \"checked\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"toggle-option\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/index.ts",
+      "content": "export { Checkbox } from './Checkbox.js'\nexport type { CheckboxProps } from './Checkbox.js'\n"
+    },
+    {
+      "path": "components/checkbox/locales/am.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"ውሎቹን እቀበላለሁ\",\n    \"subscribe\": \"ዝማኔዎችን ይመዝገቡ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ar.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"أوافق على الشروط\",\n    \"subscribe\": \"اشترك في التحديثات\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/bn.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"আমি শর্তাবলীতে সম্মত\",\n    \"subscribe\": \"আপডেট সাবস্ক্রাইব করুন\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/de.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Ich stimme den Bedingungen zu\",\n    \"subscribe\": \"Updates und Hinweise abonnieren\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/en.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"I agree to the terms\",\n    \"subscribe\": \"Subscribe to updates\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/es.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Acepto los términos\",\n    \"subscribe\": \"Suscribirse a actualizaciones\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/fa.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"با شرایط موافقم\",\n    \"subscribe\": \"اشتراک به‌روزرسانی‌ها\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/fr.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"J'accepte les conditions\",\n    \"subscribe\": \"S’abonner aux mises à jour\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ha.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Na yarda da sharuɗɗa\",\n    \"subscribe\": \"Biyan kuɗi don sabuntawa\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/hi.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"मैं शर्तों से सहमत हूँ\",\n    \"subscribe\": \"अपडेट की सदस्यता लें\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/id.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Saya setuju dengan ketentuan\",\n    \"subscribe\": \"Berlangganan pembaruan\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ja.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"利用規約に同意します\",\n    \"subscribe\": \"更新情報を購読\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ko.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"약관에 동의합니다\",\n    \"subscribe\": \"업데이트 구독\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/pt.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Concordo com os termos\",\n    \"subscribe\": \"Assinar atualizações\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ru.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Я принимаю условия\",\n    \"subscribe\": \"Подписаться на обновления\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/sw.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Nakubali masharti\",\n    \"subscribe\": \"Jiandikishe kwa masasisho\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ug.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"شەرتلەرگە قوشۇلىمەن\",\n    \"subscribe\": \"يېڭىلانمىلارغا مۇشتەرى بولۇش\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/ur.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"میں شرائط سے متفق ہوں\",\n    \"subscribe\": \"اپ ڈیٹس کی سبسکرپشن\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/vi.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"Tôi đồng ý với điều khoản\",\n    \"subscribe\": \"Đăng ký cập nhật\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/zh-CN.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"我同意条款\",\n    \"subscribe\": \"订阅更新\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/locales/zh-HK.json",
+      "content": "{\n  \"checkbox\": {\n    \"agree\": \"我同意條款\",\n    \"subscribe\": \"訂閱更新\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkbox/README.md",
+      "content": "# Checkbox\n\nFrozen Phase 1 stub for `checkbox`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/checkbox/styles.css",
+      "content": ".cu-checkbox {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  cursor: pointer;\n  min-block-size: 2.25rem;\n}\n\n.cu-checkbox__control {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  flex: none;\n}\n\n.cu-checkbox__control:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n\n.cu-checkbox__indicator {\n  color: var(--cu-color-palette-brand);\n  visibility: hidden;\n}\n\n.cu-checkbox[data-state='checked'] .cu-checkbox__indicator {\n  visibility: visible;\n}\n\n.cu-checkbox__label {\n  color: var(--cu-color-fg-default);\n  font-size: 0.9375rem;\n  user-select: none;\n}\n\n.cu-checkbox:disabled,\n.cu-checkbox[data-disabled] {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-checkbox__indicator {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

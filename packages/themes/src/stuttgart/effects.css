@@ -1,0 +1,68 @@
+/* Stuttgart — restrained luxury: obsidian cabin, silver type, chrome hairline. Opaque metal, no glass. */
+:root {
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  font-family: var(--cu-font-family-sans);
+  font-synthesis: none;
+  letter-spacing: var(--cu-font-tracking-tight);
+  line-height: var(--cu-typography-line-height-body);
+}
+
+:root .cu-heading,
+:root .cu-navbar__brand,
+:root .cu-dialog__title {
+  font-weight: var(--cu-font-weight-bold);
+  letter-spacing: var(--cu-font-tracking-tight);
+}
+
+:root .cu-navbar,
+:root .cu-app-shell__header {
+  background: var(--cu-color-background-elevated);
+  border-block-end: 1px solid var(--cu-color-border-default);
+  box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 10%, transparent);
+}
+
+:root .cu-navbar {
+  border-block-end-color: color-mix(in srgb, var(--cu-color-palette-brand) 42%, var(--cu-color-border-default));
+}
+
+:root .cu-tab-bar,
+:root .cu-app-shell__sidebar {
+  background: var(--cu-color-background-elevated);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-navbar,
+:root .cu-dialog__content,
+:root .cu-app-shell__header {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-app-shell__main {
+  background: var(--cu-color-background-subtle);
+}
+
+:root .cu-card {
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-button:focus-visible,
+:root .cu-input:focus-visible,
+:root .cu-navbar__item:focus-visible,
+:root .cu-select__trigger:focus-visible {
+  outline-width: 2px;
+  outline-offset: 2px;
+}
+
+:root .cu-button--outline {
+  border-color: var(--cu-color-border-default);
+  background: transparent;
+}
+
+@media (hover: hover) {
+  :root .cu-button--solid:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--cu-color-palette-brand) 88%, #000);
+  }
+}

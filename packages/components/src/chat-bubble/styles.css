@@ -1,0 +1,70 @@
+.cu-chat-bubble {
+  display: flex;
+  gap: var(--cu-space-2);
+  max-inline-size: 36rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-radius: var(--cu-radius-md);
+  color: var(--cu-color-fg-default);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, var(--cu-color-background-default));
+}
+
+.cu-chat-bubble--user {
+  margin-inline-start: auto;
+  background: var(--cu-color-palette-brand);
+  color: var(--cu-color-fg-inverse);
+}
+
+.cu-chat-bubble--system {
+  background: transparent;
+  border: 1px dashed var(--cu-color-border-default);
+}
+
+.cu-chat-bubble--error {
+  border: 1px solid var(--cu-color-palette-brand);
+}
+
+.cu-chat-bubble__avatar {
+  inline-size: var(--cu-space-3);
+  block-size: var(--cu-space-3);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.cu-chat-bubble__content {
+  min-inline-size: 0;
+}
+
+.cu-chat-bubble__meta {
+  display: flex;
+  gap: var(--cu-space-2);
+  font-size: 0.75em;
+  opacity: 0.8;
+}
+
+.cu-chat-bubble__role {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.cu-chat-bubble__status {
+  font-style: italic;
+}
+
+.cu-chat-bubble--streaming .cu-chat-bubble__status {
+  animation: cu-chat-bubble-pulse 1.2s ease-in-out infinite;
+}
+
+.cu-chat-bubble__body {
+  margin-block-start: var(--cu-space-1);
+}
+
+@keyframes cu-chat-bubble-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}

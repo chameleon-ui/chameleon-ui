@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "skeleton",
+  "name": "Skeleton",
+  "status": "experimental",
+  "purpose": "Placeholder preview for content that is loading.",
+  "scenarios": [
+    "Show loading card",
+    "Show loading list",
+    "Show loading text block"
+  ],
+  "props": {
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Skeleton shape.",
+      "values": [
+        "text",
+        "circle",
+        "rectangle"
+      ],
+      "default": "text"
+    },
+    "width": {
+      "type": "string",
+      "required": false,
+      "description": "Inline width.",
+      "default": "100%"
+    },
+    "height": {
+      "type": "string",
+      "required": false,
+      "description": "Block height.",
+      "default": "1rem"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "text",
+        "circle",
+        "rectangle"
+      ],
+      "default": "text",
+      "description": "Skeleton shape."
+    }
+  ],
+  "states": [
+    {
+      "name": "loading",
+      "description": "Skeleton is visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "list"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use skeleton for long indeterminate waits without a label.",
+    "Do not set aria-busy on the skeleton itself."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Announced as loading by the parent region.",
+    "wcag": [
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline-size and block-size are configurable.",
+    "breakpoints": {
+      "compact": "Respects parent.",
+      "medium": "Respects parent.",
+      "large": "Respects parent."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "No direction-specific styling.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "skeleton",
+    "states": [
+      "loading"
+    ],
+    "intents": [
+      "indicate-loading"
+    ]
+  }
+}

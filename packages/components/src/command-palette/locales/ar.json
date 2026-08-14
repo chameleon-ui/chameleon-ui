@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "لوحة الأوامر",
+    "placeholder": "اكتب أمراً",
+    "empty": "لا توجد أوامر",
+    "close": "إغلاق"
+  }
+}

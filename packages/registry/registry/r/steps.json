@@ -1,0 +1,108 @@
+{
+  "id": "steps",
+  "type": "registry:ui",
+  "name": "Steps",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/steps/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"steps\",\n  \"name\": \"Steps\",\n  \"family\": \"B\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Shows sequential progress through a named series of steps, optionally allowing jump selection.\",\n  \"scenarios\": [\n    \"Walk through a multi-step checkout\",\n    \"Show onboarding progress\",\n    \"Jump back to a completed setup step\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Ordered steps with value, label, and optional description.\"\n    },\n    \"currentValue\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Value of the current step.\"\n    },\n    \"onSelect\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"When provided, each step is a button that reports its value.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name of the steps landmark.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"start\",\n      \"description\": \"The first step is current.\"\n    },\n    {\n      \"name\": \"in-progress\",\n      \"description\": \"A middle step is current.\"\n    },\n    {\n      \"name\": \"complete\",\n      \"description\": \"The last step is current.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\"container\", \"card\", \"dialog\", \"page\"],\n    \"allowedChildren\": [\"text\", \"button\"],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use Steps for peer section switching; use Tabs or Navbar.\",\n    \"Do not skip announcing the current step; aria-current=step is required.\"\n  ],\n  \"a11y\": {\n    \"role\": \"navigation\",\n    \"keyboard\": [\n      \"Tab moves through step buttons when interactive\",\n      \"Enter or Space activates a step button\"\n    ],\n    \"focus\": \"Interactive steps are buttons in document order with a visible focus ring.\",\n    \"labeling\": \"The landmark has an accessible name; the current step uses aria-current=step.\",\n    \"wcag\": [\"1.3.1\", \"2.4.7\", \"4.1.2\"]\n  },\n  \"responsive\": {\n    \"strategy\": \"Root is a query container. Compact stacks steps; tablet/desktop place them in a row. No viewport size media.\",\n    \"breakpoints\": {\n      \"compact\": \"Vertical list; 44px targets.\",\n      \"medium\": \"Horizontal list at 48rem container width.\",\n      \"large\": \"Wider gap at 80rem container width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Row direction follows document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"steps\",\n    \"states\": [\"start\", \"in-progress\", \"complete\"],\n    \"intents\": [\"enumerate-items\"]\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/index.ts",
+      "content": "export { Steps } from './Steps.js'\nexport type { StepItem, StepsProps, StepsStatus } from './Steps.js'\n"
+    },
+    {
+      "path": "components/steps/locales/am.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ar.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"خطوات\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/bn.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/de.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Schrittfolge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/en.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/es.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/fa.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/fr.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ha.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/hi.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/id.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ja.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ko.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/pt.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ru.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/sw.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ug.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/ur.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/vi.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/zh-CN.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"步骤\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/locales/zh-HK.json",
+      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+    },
+    {
+      "path": "components/steps/Steps.tsx",
+      "content": "import './styles.css'\n\nexport interface StepItem {\n  value: string\n  label: string\n  description?: string\n}\n\nexport type StepsStatus = 'start' | 'in-progress' | 'complete'\n\nfunction statusFor(currentIndex: number, lastIndex: number): StepsStatus {\n  if (currentIndex <= 0) return 'start'\n  if (currentIndex >= lastIndex) return 'complete'\n  return 'in-progress'\n}\n\nexport interface StepsProps {\n  items: StepItem[]\n  currentValue: string\n  onSelect?: (value: string) => void\n  label: string\n  className?: string\n}\n\nexport function Steps({ items, currentValue, onSelect, label, className }: StepsProps) {\n  const classes = ['cu-steps', className].filter(Boolean).join(' ')\n  const currentIndex = items.findIndex((item) => item.value === currentValue)\n  const state = statusFor(currentIndex, Math.max(0, items.length - 1))\n\n  return (\n    <nav className={classes} aria-label={label} data-ai-role=\"steps\" data-ai-intent=\"enumerate-items\" data-ai-state={state}>\n      <ol className=\"cu-steps__list\">\n        {items.map((item, index) => {\n          const status = index < currentIndex ? 'complete' : index === currentIndex ? 'current' : 'upcoming'\n          const content = (\n            <>\n              <span className=\"cu-steps__index\" aria-hidden=\"true\">\n                {index + 1}\n              </span>\n              <span className=\"cu-steps__copy\">\n                <span className=\"cu-steps__label\">{item.label}</span>\n                {item.description ? <span className=\"cu-steps__description\">{item.description}</span> : null}\n              </span>\n            </>\n          )\n          return (\n            <li key={item.value} className={'cu-steps__item cu-steps__item--' + status} data-status={status}>\n              {onSelect ? (\n                <button\n                  type=\"button\"\n                  className=\"cu-steps__button\"\n                  aria-current={status === 'current' ? 'step' : undefined}\n                  onClick={() => onSelect(item.value)}\n                >\n                  {content}\n                </button>\n              ) : (\n                <div className=\"cu-steps__static\" aria-current={status === 'current' ? 'step' : undefined}>\n                  {content}\n                </div>\n              )}\n            </li>\n          )\n        })}\n      </ol>\n    </nav>\n  )\n}\n"
+    },
+    {
+      "path": "components/steps/styles.css",
+      "content": "/*\n * Query container: the nav is the container; the list consumes it so the\n * stack -> row morph follows the stepper's own inline size rather than the\n * viewport. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop\n * (packages/tokens/src/core/breakpoint.json).\n */\n.cu-steps {\n  color: var(--cu-color-fg-default);\n  container-type: inline-size;\n}\n\n.cu-steps__list {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-2);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-steps__item {\n  display: flex;\n  flex: 1;\n  min-inline-size: 0;\n}\n\n.cu-steps__button,\n.cu-steps__static {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  inline-size: 100%;\n  min-block-size: var(--cu-touch-target-min);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: inherit;\n  font: inherit;\n  text-align: start;\n}\n\n.cu-steps__button {\n  cursor: pointer;\n}\n\n.cu-steps__button:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n.cu-steps__index {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-inline-size: var(--cu-touch-target-min);\n  min-block-size: var(--cu-touch-target-min);\n  border-radius: 999px;\n  border: 1px solid var(--cu-color-border-default);\n  font-weight: 700;\n}\n\n.cu-steps__item--current .cu-steps__index {\n  background: var(--cu-color-palette-brand);\n  border-color: var(--cu-color-palette-brand);\n  color: var(--cu-color-fg-inverse);\n}\n\n.cu-steps__item--complete .cu-steps__index {\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 18%, var(--cu-color-background-default));\n  border-color: var(--cu-color-palette-brand);\n}\n\n.cu-steps__copy {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--cu-space-1) / 2);\n}\n\n.cu-steps__label {\n  font-weight: 650;\n}\n\n.cu-steps__description {\n  font-size: 0.875em;\n}\n\n@media (hover: hover) {\n  .cu-steps__button:hover {\n    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));\n  }\n}\n\n@container (min-width: 48rem) {\n  .cu-steps__list {\n    flex-direction: row;\n    align-items: stretch;\n  }\n}\n\n@container (min-width: 80rem) {\n  .cu-steps__list {\n    gap: var(--cu-space-3);\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-steps__button {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

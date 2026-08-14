@@ -1,0 +1,108 @@
+{
+  "id": "skeleton",
+  "type": "registry:ui",
+  "name": "Skeleton",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/skeleton/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"skeleton\",\n  \"name\": \"Skeleton\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Placeholder preview for content that is loading.\",\n  \"scenarios\": [\n    \"Show loading card\",\n    \"Show loading list\",\n    \"Show loading text block\"\n  ],\n  \"props\": {\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Skeleton shape.\",\n      \"values\": [\n        \"text\",\n        \"circle\",\n        \"rectangle\"\n      ],\n      \"default\": \"text\"\n    },\n    \"width\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Inline width.\",\n      \"default\": \"100%\"\n    },\n    \"height\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Block height.\",\n      \"default\": \"1rem\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"text\",\n        \"circle\",\n        \"rectangle\"\n      ],\n      \"default\": \"text\",\n      \"description\": \"Skeleton shape.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"loading\",\n      \"description\": \"Skeleton is visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"list\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use skeleton for long indeterminate waits without a label.\",\n    \"Do not set aria-busy on the skeleton itself.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Announced as loading by the parent region.\",\n    \"wcag\": [\n      \"4.1.3\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline-size and block-size are configurable.\",\n    \"breakpoints\": {\n      \"compact\": \"Respects parent.\",\n      \"medium\": \"Respects parent.\",\n      \"large\": \"Respects parent.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"No direction-specific styling.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"skeleton\",\n    \"states\": [\n      \"loading\"\n    ],\n    \"intents\": [\n      \"indicate-loading\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/index.ts",
+      "content": "export { Skeleton } from './Skeleton.js'\nexport type { SkeletonProps } from './Skeleton.js'\n"
+    },
+    {
+      "path": "components/skeleton/locales/am.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ar.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"هيكل التحميل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/bn.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/de.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Ladeplatzhalter\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/en.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/es.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/fa.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/fr.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ha.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/hi.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/id.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ja.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ko.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/pt.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ru.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/sw.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ug.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/ur.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/vi.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/zh-CN.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"骨架屏\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/locales/zh-HK.json",
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+    },
+    {
+      "path": "components/skeleton/Skeleton.tsx",
+      "content": "import './styles.css'\n\nexport interface SkeletonProps {\n  variant?: 'text' | 'circle' | 'rectangle'\n  width?: string\n  height?: string\n  className?: string\n}\n\nexport function Skeleton({ variant = 'text', width = '100%', height = '1rem', className }: SkeletonProps) {\n  const classes = ['cu-skeleton', 'cu-skeleton--' + variant, className].filter(Boolean).join(' ')\n  const style = { width, height }\n  return <div aria-hidden=\"true\" className={classes} data-ai-role=\"skeleton\" data-ai-intent=\"indicate-loading\" data-ai-state=\"loading\" style={style} />\n}\n"
+    },
+    {
+      "path": "components/skeleton/styles.css",
+      "content": ".cu-skeleton {\n  display: block;\n  background: var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  animation: cu-skeleton-pulse 2s ease-in-out infinite;\n}\n\n.cu-skeleton--circle {\n  border-radius: 50%;\n}\n\n.cu-skeleton--rectangle {\n  border-radius: var(--cu-radius-md);\n}\n\n@keyframes cu-skeleton-pulse {\n  0%, 100% { opacity: 1; }\n  50% { opacity: 0.55; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-skeleton {\n    animation: none;\n  }\n}\n"
+    }
+  ]
+}

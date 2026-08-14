@@ -1,0 +1,38 @@
+/*
+ * Query container: the dashboard root is the container; the grid consumes
+ * it so columns follow the dashboard's own inline size (sidebar embed,
+ * split view) rather than the viewport. Mobile-first compact is one column;
+ * @container only enhances. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop
+ * (packages/tokens/src/core/breakpoint.json).
+ */
+.cu-kpi-dashboard {
+  display: block;
+  color: var(--cu-color-fg-default);
+  container-type: inline-size;
+}
+
+.cu-kpi-dashboard__grid {
+  display: grid;
+  gap: var(--cu-space-3);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cu-kpi-dashboard__tile {
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+}
+
+@container (min-width: 48rem) {
+  .cu-kpi-dashboard__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-kpi-dashboard__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

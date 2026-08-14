@@ -1,0 +1,112 @@
+{
+  "id": "icon",
+  "type": "registry:ui",
+  "name": "Icon",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/icon/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"icon\",\n  \"name\": \"Icon\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Decorative or semantic glyph with explicit RTL behavior.\",\n  \"scenarios\": [\n    \"Show a directional glyph that flips in RTL\",\n    \"Preserve a symmetric icon across reading directions\",\n    \"Provide a locale-aware icon that the consumer localizes\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name for the icon.\"\n    },\n    \"mode\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"RTL behavior for the icon.\",\n      \"values\": [\n        \"mirror\",\n        \"preserve\",\n        \"localized\"\n      ],\n      \"default\": \"preserve\"\n    },\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Optional SVG or glyph content; a default arrow is used when omitted.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"mode\",\n      \"values\": [\n        \"mirror\",\n        \"preserve\",\n        \"localized\"\n      ],\n      \"default\": \"preserve\",\n      \"description\": \"Controls whether the icon is mirrored, preserved, or localized for RTL.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Icon is rendered with its declared mode.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"button\",\n      \"alert\",\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"svg\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not hide the accessible name when the icon conveys meaning.\",\n    \"Do not mirror symmetric icons; use mode=preserve.\"\n  ],\n  \"a11y\": {\n    \"role\": \"img\",\n    \"keyboard\": [],\n    \"focus\": \"Icon is not focusable; it is decorative or labelled by a parent.\",\n    \"labeling\": \"A visible or aria-label accessible name is required when the icon conveys meaning.\",\n    \"wcag\": [\n      \"1.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Scales with the font size of its parent. No breakpoint-specific behavior.\",\n    \"breakpoints\": {\n      \"compact\": \"Inherits font size.\",\n      \"medium\": \"Inherits font size.\",\n      \"large\": \"Inherits font size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. mode=mirror applies a scaleX transform; mode=preserve keeps the glyph; mode=localized defers to the consumer glyph.\",\n    \"mirroredValues\": [\n      \"mirror\"\n    ]\n  },\n  \"dataAi\": {\n    \"role\": \"icon\",\n    \"states\": [\n      \"mirror\",\n      \"preserve\",\n      \"localized\"\n    ],\n    \"intents\": [\n      \"signal-meaning\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/Icon.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface IconProps {\n  /** Accessible name for the icon. */\n  label: string\n  /** RTL behavior for the icon. */\n  mode?: 'mirror' | 'preserve' | 'localized'\n  /** Optional SVG content; a default arrow is rendered when omitted. */\n  children?: ReactNode\n  className?: string\n}\n\nexport function Icon({ label, mode = 'preserve', children, className }: IconProps) {\n  const classes = ['cu-icon', `cu-icon--${mode}`, className].filter(Boolean).join(' ')\n\n  return (\n    <span\n      className={classes}\n      data-ai-role=\"icon\" data-ai-intent=\"signal-meaning\"\n      data-ai-state=\"default\"\n      data-mode={mode}\n      aria-label={label}\n      role=\"img\"\n    >\n      {children ?? <DefaultIcon />}\n    </span>\n  )\n}\n\nfunction DefaultIcon() {\n  return (\n    <svg aria-hidden=\"true\" className=\"cu-icon__svg\" viewBox=\"0 0 24 24\">\n      <path\n        d=\"M20 12H4m0 0l6-6m-6 6l6 6\"\n        fill=\"none\"\n        stroke=\"currentColor\"\n        strokeLinecap=\"round\"\n        strokeLinejoin=\"round\"\n        strokeWidth={2}\n      />\n    </svg>\n  )\n}\n"
+    },
+    {
+      "path": "components/icon/index.ts",
+      "content": "export { Icon } from './Icon.js'\nexport type { IconProps } from './Icon.js'\n"
+    },
+    {
+      "path": "components/icon/locales/am.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"ተመለስ\",\n    \"menu\": \"ምናሌ\",\n    \"close\": \"ዝጋ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ar.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"رجوع\",\n    \"menu\": \"قائمة\",\n    \"close\": \"إغلاق\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/bn.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"পিছনে\",\n    \"menu\": \"মেনু\",\n    \"close\": \"বন্ধ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/de.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Zurück zur vorherigen Ansicht\",\n    \"menu\": \"Hauptmenü öffnen\",\n    \"close\": \"Diesen Dialog schließen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/en.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Back\",\n    \"menu\": \"Menu\",\n    \"close\": \"Close\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/es.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Atrás\",\n    \"menu\": \"Menú\",\n    \"close\": \"Cerrar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/fa.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"بازگشت\",\n    \"menu\": \"منو\",\n    \"close\": \"بستن\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/fr.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Retour\",\n    \"menu\": \"Menu\",\n    \"close\": \"Fermer\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ha.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Koma baya\",\n    \"menu\": \"Menu\",\n    \"close\": \"Rufe\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/hi.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"वापस\",\n    \"menu\": \"मेनू\",\n    \"close\": \"बंद करें\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/id.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Kembali\",\n    \"menu\": \"Menu\",\n    \"close\": \"Tutup\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ja.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"戻る\",\n    \"menu\": \"メニュー\",\n    \"close\": \"閉じる\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ko.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"뒤로\",\n    \"menu\": \"메뉴\",\n    \"close\": \"닫기\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/pt.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Voltar\",\n    \"menu\": \"Menu\",\n    \"close\": \"Fechar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ru.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Назад\",\n    \"menu\": \"Меню\",\n    \"close\": \"Закрыть\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/sw.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Rudi\",\n    \"menu\": \"Menyu\",\n    \"close\": \"Funga\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ug.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"قايتىش\",\n    \"menu\": \"تىزىملىك\",\n    \"close\": \"تاقاش\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/ur.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"واپس\",\n    \"menu\": \"مینو\",\n    \"close\": \"بند کریں\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/vi.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"Quay lại\",\n    \"menu\": \"Menu\",\n    \"close\": \"Đóng\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/zh-CN.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"返回\",\n    \"menu\": \"菜单\",\n    \"close\": \"关闭\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/locales/zh-HK.json",
+      "content": "{\n  \"icon\": {\n    \"back\": \"返回\",\n    \"menu\": \"選單\",\n    \"close\": \"關閉\"\n  }\n}\n"
+    },
+    {
+      "path": "components/icon/README.md",
+      "content": "# Icon\n\nFrozen Phase 1 stub for `icon`.\n\n- Requirement: RTL mirror matrix (mirror | preserve | localized)\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/icon/styles.css",
+      "content": ".cu-icon {\n  display: inline-flex;\n  inline-size: 1em;\n  block-size: 1em;\n  flex: none;\n  color: currentColor;\n  vertical-align: middle;\n}\n\n.cu-icon--mirror {\n  transform: scaleX(-1);\n}\n\n.cu-icon__svg {\n  inline-size: 100%;\n  block-size: 100%;\n}\n"
+    }
+  ]
+}

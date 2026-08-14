@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-14T01:22:22.863Z",
+  "tool": "lighthouse",
+  "toolPin": "13.4.1",
+  "lighthouseSource": "lighthouse@13.4.1 (resolved module)",
+  "status": "measured",
+  "unmeasuredReason": null,
+  "url": "http://127.0.0.1:4175/?view=suite&locale=ar&theme=line",
+  "formFactor": "mobile",
+  "throttling": {
+    "label": "simulated Fast 4G + 4x CPU (mid-tier Android lab stand-in)",
+    "rttMs": 60,
+    "throughputKbps": 9216,
+    "requestLatencyMs": 225,
+    "downloadThroughputKbps": 8294.4,
+    "uploadThroughputKbps": 1382.4,
+    "cpuSlowdownMultiplier": 4,
+    "note": "Not a physical 4×A76 + 4GB device. Chrome/Lighthouse simulate throttling on the runner host. Cloud LHCI is not used."
+  },
+  "chromePath": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+  "host": {
+    "platform": "win32",
+    "arch": "x64",
+    "node": "v24.15.0"
+  },
+  "budgets": {
+    "R1": 2500,
+    "R2": 200,
+    "R3": 0.1
+  },
+  "metrics": {
+    "R1": {
+      "id": "R1",
+      "name": "LCP",
+      "unit": "ms",
+      "limitMs": 2500,
+      "valueMs": 609,
+      "displayValue": "0.6 s",
+      "status": "measured",
+      "source": "lighthouse.audits.largest-contentful-paint.numericValue",
+      "meetsBudget": true
+    },
+    "R2": {
+      "id": "R2",
+      "name": "INP",
+      "unit": "ms",
+      "limitMs": 200,
+      "valueMs": null,
+      "displayValue": null,
+      "status": "unmeasured",
+      "source": "lighthouse.audits.interaction-to-next-paint.numericValue",
+      "meetsBudget": null,
+      "note": "Navigation-mode Lighthouse often has no INP numericValue (no lab interaction). TBT is recorded as extra only — not used as INP."
+    },
+    "R3": {
+      "id": "R3",
+      "name": "CLS",
+      "unit": "cls",
+      "limitCls": 0.1,
+      "value": 0,
+      "displayValue": "0",
+      "status": "measured",
+      "source": "lighthouse.audits.cumulative-layout-shift.numericValue",
+      "meetsBudget": true
+    }
+  },
+  "extra": {
+    "totalBlockingTimeMs": 52,
+    "totalBlockingTimeNote": "TBT is not R2. Do not treat TBT as INP.",
+    "categories": {
+      "performance": 100,
+      "accessibility": 100
+    },
+    "lighthouseVersion": "13.4.1",
+    "fetchTime": "2026-08-14T01:22:16.935Z",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+    "environment": {
+      "networkUserAgent": "Mozilla/5.0 (Linux; Android 11; moto g power (2022)) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Mobile Safari/537.36",
+      "hostUserAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/151.0.0.0 Safari/537.36",
+      "benchmarkIndex": 2937.5,
+      "credits": {
+        "axe-core": "4.13.0"
+      }
+    }
+  },
+  "extras": [
+    {
+      "label": "docs :4176 (not R1–R3 kit page)",
+      "url": "http://127.0.0.1:4176",
+      "status": "unmeasured",
+      "unmeasuredReason": "docs preview not running; not started (R1–R3 uses demo :4175)."
+    }
+  ],
+  "legacy": {
+    "LEGACY-2026-001": "measured-local-lab",
+    "LEGACY-2026-002": "open-unmeasured",
+    "LEGACY-2026-003": "measured-local-lab"
+  },
+  "honesty": {
+    "invented": false,
+    "physicalMidTierAndroid": false,
+    "cloudLhci": false,
+    "npmPublish": false,
+    "vpatCertified": false,
+    "blindTest80": false
+  }
+}

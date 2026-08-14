@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "space",
+  "name": "Space",
+  "family": "A",
+  "status": "experimental",
+  "purpose": "Inserts a token-sized empty gap on one or both axes without laying out children.",
+  "scenarios": [
+    "Separate a heading from the following paragraph",
+    "Add inline breathing room between two controls",
+    "Reserve a square gap inside a flex row"
+  ],
+  "props": {
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Spacing token applied to the empty slot.",
+      "values": ["none", "sm", "md", "lg"],
+      "default": "md"
+    },
+    "axis": {
+      "type": "enum",
+      "required": false,
+      "description": "Axis that receives the gap. Distinct from stack, which spaces children via flex gap.",
+      "values": ["block", "inline", "both"],
+      "default": "block"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "values": ["none", "sm", "md", "lg"],
+      "default": "md",
+      "description": "Spacing token applied to the empty slot."
+    },
+    {
+      "name": "axis",
+      "values": ["block", "inline", "both"],
+      "default": "block",
+      "description": "Axis that receives the gap."
+    }
+  ],
+  "states": [
+    {
+      "name": "block",
+      "description": "Gap is applied on the block axis."
+    },
+    {
+      "name": "inline",
+      "description": "Gap is applied on the inline axis."
+    },
+    {
+      "name": "both",
+      "description": "Gap is applied on both axes."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["stack", "grid", "container", "app-shell", "page"],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use Space to wrap children; use Stack when laying out a set of items.",
+    "Do not set physical width or height; use size and axis tokens."
+  ],
+  "a11y": {
+    "role": "none",
+    "keyboard": [],
+    "focus": "Not focusable; marked aria-hidden because it has no content.",
+    "labeling": "Presentational spacer; children and siblings provide names.",
+    "wcag": ["1.3.2"]
+  },
+  "responsive": {
+    "strategy": "Token-sized slot only. Breakpoint morph is not applicable; parents choose size.",
+    "breakpoints": {
+      "compact": "Same token slot; parent may pass size=sm.",
+      "medium": "Same token slot.",
+      "large": "Same token slot."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Inline axis follows document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "space",
+    "states": ["block", "inline", "both"],
+    "intents": ["layout-flow"]
+  }
+}

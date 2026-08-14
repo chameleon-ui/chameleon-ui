@@ -1,0 +1,22 @@
+import { SelectPlayground } from '@site/src/playgrounds'
+
+## Examples
+
+<SelectPlayground />
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('a');
+  return (
+    <Select
+      label="Status"
+      value={value}
+      onChange={setValue}
+      options={[
+        { value: 'a', label: 'Active' },
+        { value: 'b', label: 'Paused' },
+      ]}
+    />
+  );
+}
+```

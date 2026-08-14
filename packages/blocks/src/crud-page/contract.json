@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "crud-page",
+  "name": "CRUD page",
+  "status": "experimental",
+  "purpose": "List, create, and page records using data-grid, form, dialog, and pagination.",
+  "scenarios": [
+    "Browse a paged record table",
+    "Create a record from a dialog form",
+    "Show an empty state when no rows exist"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "pageSize": {
+      "type": "number",
+      "required": false,
+      "description": "Rows shown per page.",
+      "default": 5
+    },
+    "onCreate": {
+      "type": "event",
+      "required": false,
+      "description": "Called after a record is inserted."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Table has one or more rows." },
+    { "name": "empty", "description": "No records to show." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["data-grid", "form", "dialog", "pagination", "card", "empty-state", "input", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not ship a second write path besides install-core when distributing this block.",
+    "Do not hide create behind an unlabeled icon."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches create, grid, and pagination", "Enter submits the create form"],
+    "focus": "Dialog restores trigger focus on close.",
+    "labeling": "Grid has an accessible name; create fields have visible labels.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Header wraps with flex; grid uses logical inline-size. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Header stacks; grid scrolls inside its viewport.",
+      "medium": "Header sits on one row when space allows.",
+      "large": "Header sits on one row when space allows."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "crud-page",
+    "states": ["default", "empty"],
+    "intents": ["manage-records"]
+  }
+}

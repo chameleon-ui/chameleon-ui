@@ -1,0 +1,11 @@
+{
+  "$comment": "Fixture for the Phase 8 A3 red-proof: deliberately invalid (missing required groups rtl/composition and wrong version). validate-rules MUST reject this document.",
+  "version": "0.9",
+  "typography": {
+    "scale": "major-second",
+    "lineHeightBody": 1.5,
+    "fontFamilyToken": "font.family.sans",
+    "headingWeightToken": "font.weight.bold",
+    "tracking": "normal"
+  }
+}

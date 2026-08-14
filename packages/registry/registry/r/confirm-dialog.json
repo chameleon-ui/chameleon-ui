@@ -1,0 +1,108 @@
+{
+  "id": "confirm-dialog",
+  "type": "registry:ui",
+  "name": "ConfirmDialog",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/confirm-dialog/ConfirmDialog.tsx",
+      "content": "import { DialogPrimitive } from '@chameleon-ui/primitives'\nimport '../button/styles.css'\nimport '../dialog/styles.css'\nimport './styles.css'\n\nexport interface ConfirmDialogProps {\n  triggerLabel: string\n  title: string\n  description: string\n  confirmLabel: string\n  cancelLabel: string\n  onConfirm?: () => void\n  className?: string\n}\n\nexport function ConfirmDialog({\n  triggerLabel,\n  title,\n  description,\n  confirmLabel,\n  cancelLabel,\n  onConfirm,\n  className,\n}: ConfirmDialogProps) {\n  return (\n    <DialogPrimitive.Root lazyMount restoreFocus unmountOnExit>\n      <DialogPrimitive.Trigger className=\"cu-button cu-button--solid cu-button--md cu-confirm-dialog__trigger\">\n        {triggerLabel}\n      </DialogPrimitive.Trigger>\n      <DialogPrimitive.Portal>\n        <DialogPrimitive.Backdrop className=\"cu-dialog__backdrop\" />\n        <DialogPrimitive.Positioner className=\"cu-dialog__positioner\">\n          <DialogPrimitive.Content\n            className={['cu-dialog__content', 'cu-confirm-dialog__content', className].filter(Boolean).join(' ')}\n            data-ai-role=\"confirm-dialog\" data-ai-intent=\"confirm-decision\"\n            data-ai-state=\"open\"\n            dir={typeof document === 'undefined' ? undefined : document.documentElement.dir || undefined}\n          >\n            <DialogPrimitive.Title className=\"cu-dialog__title\">{title}</DialogPrimitive.Title>\n            <DialogPrimitive.Description className=\"cu-dialog__description\">\n              {description}\n            </DialogPrimitive.Description>\n            <div className=\"cu-dialog__actions cu-confirm-dialog__actions\">\n              <DialogPrimitive.CloseTrigger className=\"cu-button cu-button--outline cu-button--md\">\n                {cancelLabel}\n              </DialogPrimitive.CloseTrigger>\n              <DialogPrimitive.CloseTrigger\n                className=\"cu-button cu-button--solid cu-button--md\"\n                onClick={() => onConfirm?.()}\n              >\n                {confirmLabel}\n              </DialogPrimitive.CloseTrigger>\n            </div>\n          </DialogPrimitive.Content>\n        </DialogPrimitive.Positioner>\n      </DialogPrimitive.Portal>\n    </DialogPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"confirm-dialog\",\n  \"name\": \"ConfirmDialog\",\n  \"family\": \"E\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Interrupts the user with a modal confirmation before a consequential action.\",\n  \"scenarios\": [\n    \"Confirm record deletion\",\n    \"Confirm leaving an unsaved form\",\n    \"Confirm an irreversible publish\"\n  ],\n  \"props\": {\n    \"triggerLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Label of the button that opens the dialog.\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Dialog headline.\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Explanation of the consequence.\"\n    },\n    \"confirmLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Label of the confirm action.\"\n    },\n    \"cancelLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Label of the cancel action.\"\n    },\n    \"onConfirm\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when the user confirms.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"closed\",\n      \"description\": \"Trigger visible; dialog hidden.\"\n    },\n    {\n      \"name\": \"open\",\n      \"description\": \"Dialog is displayed modally.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\",\n      \"form\"\n    ],\n    \"allowedChildren\": [\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a confirm dialog for low-risk reversible actions.\",\n    \"Do not word the confirm label ambiguously; name the action.\"\n  ],\n  \"a11y\": {\n    \"role\": \"alertdialog\",\n    \"keyboard\": [\n      \"Escape cancels\",\n      \"Enter confirms when the confirm button has focus\"\n    ],\n    \"focus\": \"Focus moves to the cancel button on open and returns to the trigger on close.\",\n    \"labeling\": \"Title and description label the dialog via aria attributes.\",\n    \"wcag\": [\n      \"2.4.3\",\n      \"3.3.4\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Centered modal on medium and large; bottom sheet on compact per Dialog convention.\",\n    \"breakpoints\": {\n      \"compact\": \"Bottom sheet layout.\",\n      \"medium\": \"Centered modal.\",\n      \"large\": \"Centered modal.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"confirm-dialog\",\n    \"states\": [\n      \"closed\",\n      \"open\"\n    ],\n    \"intents\": [\n      \"confirm-decision\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/index.ts",
+      "content": "export { ConfirmDialog } from './ConfirmDialog.js'\nexport type { ConfirmDialogProps } from './ConfirmDialog.js'\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/am.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ar.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"تأكيد\",\n    \"confirm\": \"تأكيد\",\n    \"cancel\": \"إلغاء\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/bn.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/de.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Bestätigungsdialog\",\n    \"confirm\": \"Aktion bestätigen\",\n    \"cancel\": \"Vorgang abbrechen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/en.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/es.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/fa.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/fr.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ha.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/hi.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/id.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ja.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ko.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/pt.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ru.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/sw.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ug.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/ur.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/vi.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/zh-CN.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"确认\",\n    \"confirm\": \"确认\",\n    \"cancel\": \"取消\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/locales/zh-HK.json",
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+    },
+    {
+      "path": "components/confirm-dialog/styles.css",
+      "content": ".cu-confirm-dialog__content {\n  max-inline-size: calc(var(--cu-space-3) * 40);\n}\n\n.cu-confirm-dialog__actions {\n  justify-content: flex-end;\n}\n"
+    }
+  ]
+}

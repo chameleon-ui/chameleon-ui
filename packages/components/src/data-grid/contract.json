@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "data-grid",
+  "name": "DataGrid",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Virtualized data grid rendering tens of thousands of rows in a windowed viewport with a replaceable virtualization engine.",
+  "scenarios": [
+    "Browse 10k log entries",
+    "Audit a large transaction table",
+    "Scroll a telemetry feed"
+  ],
+  "props": {
+    "columns": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { key, header, width?, render? } column definitions."
+    },
+    "rows": {
+      "type": "string",
+      "required": true,
+      "description": "Array of row data objects; tested at 10k entries."
+    },
+    "rowHeight": {
+      "type": "number",
+      "required": false,
+      "description": "Fixed row height in px.",
+      "default": 36
+    },
+    "height": {
+      "type": "number",
+      "required": false,
+      "description": "Viewport height in px.",
+      "default": 420
+    },
+    "overscan": {
+      "type": "number",
+      "required": false,
+      "description": "Extra rows rendered beyond the viewport.",
+      "default": 6
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the grid."
+    },
+    "getRowId": {
+      "type": "string",
+      "required": false,
+      "description": "Row id accessor for stable keys."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Windowed rows rendered."
+    },
+    {
+      "name": "empty",
+      "description": "No rows provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card"
+    ],
+    "allowedChildren": [
+      "tag",
+      "badge",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not render all rows at once; keep virtualization on.",
+    "Do not use variable row heights with the fixed-height engine."
+  ],
+  "a11y": {
+    "role": "grid",
+    "keyboard": [
+      "Page keys move the viewport",
+      "Tab moves through cell actions"
+    ],
+    "focus": "Row cells expose aria-rowindex against the full row count.",
+    "labeling": "aria-label names the grid; aria-rowcount reflects total rows.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Viewport height stays fixed; columns scroll horizontally on compact.",
+    "breakpoints": {
+      "compact": "Horizontal column scroll.",
+      "medium": "Fit container.",
+      "large": "Fit container."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "data-grid",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "inspect-tabular-data"
+    ]
+  }
+}

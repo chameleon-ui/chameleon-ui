@@ -1,0 +1,108 @@
+{
+  "id": "list",
+  "type": "registry:ui",
+  "name": "List",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/list/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"list\",\n  \"name\": \"List\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Renders a group of related items as a list.\",\n  \"scenarios\": [\n    \"Show a bullet list\",\n    \"Show a numbered list\",\n    \"Render a plain list of items\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of item strings.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"List marker style.\",\n      \"values\": [\n        \"unordered\",\n        \"ordered\",\n        \"none\"\n      ],\n      \"default\": \"unordered\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"unordered\",\n        \"ordered\",\n        \"none\"\n      ],\n      \"default\": \"unordered\",\n      \"description\": \"List marker style.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"List rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"text\",\n      \"page\",\n      \"card\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use lists for layout.\",\n    \"Do not mix ordered and unordered semantics without reason.\"\n  ],\n  \"a11y\": {\n    \"role\": \"list\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Not a labelled region.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Block list.\",\n    \"breakpoints\": {\n      \"compact\": \"Block.\",\n      \"medium\": \"Block.\",\n      \"large\": \"Block.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; markers follow list semantics.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"list\",\n    \"states\": [\n      \"unordered\",\n      \"ordered\",\n      \"none\"\n    ],\n    \"intents\": [\n      \"enumerate-items\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/list/index.ts",
+      "content": "export { List } from './List.js'\nexport type { ListProps } from './List.js'\n"
+    },
+    {
+      "path": "components/list/List.tsx",
+      "content": "import './styles.css'\n\nexport interface ListProps {\n  items: string[]\n  variant?: 'unordered' | 'ordered' | 'none'\n  className?: string\n}\n\nexport function List({ items, variant = 'unordered', className }: ListProps) {\n  const classes = ['cu-list', 'cu-list--' + variant, className].filter(Boolean).join(' ')\n  const Tag = variant === 'ordered' ? 'ol' : 'ul'\n  return (\n    <Tag className={classes} data-ai-role=\"list\" data-ai-intent=\"enumerate-items\" data-ai-state={variant}>\n      {items.map((item, index) => <li className=\"cu-list__item\" key={index}>{item}</li>)}\n    </Tag>\n  )\n}\n"
+    },
+    {
+      "path": "components/list/locales/am.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ar.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"قائمة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/bn.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/de.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"Auflistung\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/en.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/es.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/fa.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/fr.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ha.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/hi.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/id.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ja.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ko.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/pt.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ru.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/sw.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ug.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/ur.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/vi.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/zh-CN.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"列表\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/locales/zh-HK.json",
+      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+    },
+    {
+      "path": "components/list/styles.css",
+      "content": ".cu-list {\n  margin: 0;\n  padding-inline-start: var(--cu-space-3);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-list--none {\n  list-style: none;\n  padding-inline-start: 0;\n}\n\n.cu-list__item {\n  padding-block: calc(var(--cu-space-1) / 2);\n}\n"
+    }
+  ]
+}

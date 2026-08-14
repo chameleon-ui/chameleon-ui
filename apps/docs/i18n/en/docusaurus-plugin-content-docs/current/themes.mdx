@@ -1,0 +1,23 @@
+---
+id: themes
+title: Themes
+sidebar_label: Themes
+description: Eight official homage themes from @chameleon-ui/themes.
+---
+
+import ThemeList from '@site/src/components/ThemeList'
+
+Overlay themes from `@chameleon-ui/themes` (8 official homage themes, free). Cleared by the project owner for official shipping; do not claim recognition rates. Community marketplace packs may be free or paid.
+
+<ThemeList />
+
+Use the navbar theme switcher. Overlays are scoped to `data-theme` on the document element.
+
+Load overlay CSS through package `exports`; do not guess a filesystem path:
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+```
+
+`import "@chameleon-ui/themes/dist/cupertino/variables.css"` also works (`exports["./dist/*"]`).
+

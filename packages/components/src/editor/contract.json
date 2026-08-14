@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "editor",
+  "name": "Editor",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Rich text editor with a minimal self-contained contentEditable kernel and a formatting toolbar.",
+  "scenarios": [
+    "Compose a support reply",
+    "Edit a release note",
+    "Draft a comment with emphasis"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the editable region."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Hint text shown while empty."
+    },
+    "initialHtml": {
+      "type": "string",
+      "required": false,
+      "description": "Initial sanitized HTML content."
+    },
+    "onChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the current HTML on every edit."
+    },
+    "boldLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the bold command."
+    },
+    "italicLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the italic command."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Editor ready with content."
+    },
+    {
+      "name": "empty",
+      "description": "Editor ready and empty; placeholder visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "page",
+      "comment-thread"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not inject unsanitized HTML into the editable region.",
+    "Do not use the editor as a code editor; use CodeBlock or a dedicated control."
+  ],
+  "a11y": {
+    "role": "textbox",
+    "keyboard": [
+      "Ctrl+B toggles bold",
+      "Ctrl+I toggles italic"
+    ],
+    "focus": "Editable region is focusable with aria-multiline; toolbar buttons precede it.",
+    "labeling": "aria-label names the editor; toolbar buttons expose command names.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width editing surface; toolbar wraps on compact.",
+    "breakpoints": {
+      "compact": "Toolbar wraps to two rows.",
+      "medium": "Single toolbar row.",
+      "large": "Single toolbar row."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "editor",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "compose-rich-text"
+    ]
+  }
+}

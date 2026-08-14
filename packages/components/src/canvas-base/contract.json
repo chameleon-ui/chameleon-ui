@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "canvas-base",
+  "name": "Canvas",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "Zoomable and pannable canvas base with minimap and grid snapping; Canvas 2D grid backend with a DOM node layer.",
+  "scenarios": [
+    "Host a flow editor",
+    "Pan across a large diagram",
+    "Zoom into a dense graph with minimap orientation"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Canvas items rendered inside the transformed world layer."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the canvas region."
+    },
+    "initialZoom": {
+      "type": "number",
+      "required": false,
+      "description": "Initial zoom factor.",
+      "default": 1
+    },
+    "minZoom": {
+      "type": "number",
+      "required": false,
+      "description": "Smallest zoom factor.",
+      "default": 0.25
+    },
+    "maxZoom": {
+      "type": "number",
+      "required": false,
+      "description": "Largest zoom factor.",
+      "default": 2
+    },
+    "gridSize": {
+      "type": "number",
+      "required": false,
+      "description": "Grid cell size in world px.",
+      "default": 24
+    },
+    "snapToGrid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Snap world coordinates to the grid.",
+      "default": false
+    },
+    "showMinimap": {
+      "type": "boolean",
+      "required": false,
+      "description": "Render the minimap overview.",
+      "default": false
+    },
+    "onViewportChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called with { zoom, offsetX, offsetY } on every pan or zoom."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Canvas idle at rest."
+    },
+    {
+      "name": "panning",
+      "description": "User is dragging the viewport."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [
+      "flow-node",
+      "edge",
+      "canvas-toolbar"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest one canvas inside another.",
+    "Do not claim WebGL or worker rendering; the backend is Canvas 2D plus DOM."
+  ],
+  "a11y": {
+    "role": "application",
+    "keyboard": [
+      "Arrow keys pan the viewport",
+      "Plus and minus keys zoom"
+    ],
+    "focus": "Canvas region is focusable; interactive nodes keep their own tab order.",
+    "labeling": "aria-label names the canvas; zoom level is announced via aria-description.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fills the parent region; minimap hides on compact.",
+    "breakpoints": {
+      "compact": "No minimap; touch pan only.",
+      "medium": "Minimap visible.",
+      "large": "Minimap visible."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "canvas-base",
+    "states": [
+      "default",
+      "panning"
+    ],
+    "intents": [
+      "pan-canvas"
+    ]
+  }
+}

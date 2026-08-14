@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "link",
+  "name": "Link",
+  "status": "experimental",
+  "purpose": "Navigates to another resource or anchor.",
+  "scenarios": [
+    "Navigate to a page",
+    "Open an external reference",
+    "Jump to an anchor"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Link text."
+    },
+    "href": {
+      "type": "string",
+      "required": true,
+      "description": "Destination URL."
+    },
+    "external": {
+      "type": "boolean",
+      "required": false,
+      "description": "Opens in a new tab and sets rel.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Link rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "text",
+      "button",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a link for actions; use Button.",
+    "Do not omit href for a clickable link."
+  ],
+  "a11y": {
+    "role": "link",
+    "keyboard": [
+      "Tab focuses",
+      "Enter activates"
+    ],
+    "focus": "Focus is visible.",
+    "labeling": "Contents provide the accessible name.",
+    "wcag": [
+      "2.1.1",
+      "2.4.4"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline.",
+    "breakpoints": {
+      "compact": "Inline.",
+      "medium": "Inline.",
+      "large": "Inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "link",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "navigate"
+    ]
+  }
+}

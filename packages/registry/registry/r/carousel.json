@@ -1,0 +1,108 @@
+{
+  "id": "carousel",
+  "type": "registry:ui",
+  "name": "Carousel",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/carousel/Carousel.tsx",
+      "content": "import { useState } from 'react'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface CarouselProps {\n  items: ReactNode[]\n  label: string\n  previousLabel: string\n  nextLabel: string\n  className?: string\n}\n\nexport function Carousel({ items, label, previousLabel, nextLabel, className }: CarouselProps) {\n  const [index, setIndex] = useState(0)\n  const classes = ['cu-carousel', className].filter(Boolean).join(' ')\n  const count = items.length\n\n  const move = (delta: number) => {\n    setIndex((current) => (count === 0 ? 0 : (current + delta + count) % count))\n  }\n\n  return (\n    <section\n      className={classes}\n      aria-roledescription=\"carousel\"\n      aria-label={label}\n      data-ai-role=\"carousel\" data-ai-intent=\"switch-view\"\n      data-ai-state={count === 0 ? 'empty' : 'default'}\n    >\n      <div className=\"cu-carousel__viewport\" aria-roledescription=\"slide\">\n        {count > 0 ? items[index] : null}\n      </div>\n      {count > 1 ? (\n        <div className=\"cu-carousel__controls\">\n          <button type=\"button\" className=\"cu-carousel__control\" aria-label={previousLabel} onClick={() => move(-1)}>\n            <span aria-hidden=\"true\">‹</span>\n          </button>\n          <span className=\"cu-carousel__position\">\n            {index + 1} / {count}\n          </span>\n          <button type=\"button\" className=\"cu-carousel__control\" aria-label={nextLabel} onClick={() => move(1)}>\n            <span aria-hidden=\"true\">›</span>\n          </button>\n        </div>\n      ) : null}\n    </section>\n  )\n}\n"
+    },
+    {
+      "path": "components/carousel/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"carousel\",\n  \"name\": \"Carousel\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Cycles through a sequence of slides with previous and next controls.\",\n  \"scenarios\": [\n    \"Show featured products\",\n    \"Present onboarding steps\",\n    \"Display a media gallery\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Slide content rendered one at a time.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label naming the carousel region.\"\n    },\n    \"previousLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the previous control.\"\n    },\n    \"nextLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the next control.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Showing the active slide.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No slides provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"card\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"image\",\n      \"card\",\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not auto-advance slides without a pause control.\",\n    \"Do not hide critical content only inside non-active slides.\"\n  ],\n  \"a11y\": {\n    \"role\": \"region\",\n    \"keyboard\": [\n      \"Arrow keys move between slides when controls are focused\"\n    ],\n    \"focus\": \"Previous and next controls are buttons in tab order.\",\n    \"labeling\": \"Region has aria-roledescription=carousel and an accessible label.\",\n    \"wcag\": [\n      \"2.2.2\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"One slide visible per viewport width at all breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Full-width slide with large touch targets.\",\n      \"medium\": \"Full-width slide.\",\n      \"large\": \"Full-width slide.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"carousel\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"switch-view\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/index.ts",
+      "content": "export { Carousel } from './Carousel.js'\nexport type { CarouselProps } from './Carousel.js'\n"
+    },
+    {
+      "path": "components/carousel/locales/am.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ar.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"عارض الشرائح\",\n    \"previousSlide\": \"الشريحة السابقة\",\n    \"nextSlide\": \"الشريحة التالية\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/bn.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/de.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Karussellansicht\",\n    \"previousSlide\": \"Vorherige Folie anzeigen\",\n    \"nextSlide\": \"Nächste Folie anzeigen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/en.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/es.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/fa.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/fr.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ha.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/hi.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/id.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ja.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ko.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/pt.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ru.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/sw.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ug.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/ur.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/vi.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/zh-CN.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"轮播\",\n    \"previousSlide\": \"上一张\",\n    \"nextSlide\": \"下一张\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/locales/zh-HK.json",
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+    },
+    {
+      "path": "components/carousel/styles.css",
+      "content": ".cu-carousel {\n  display: block;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  overflow: hidden;\n}\n\n.cu-carousel__viewport {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  min-block-size: calc(var(--cu-space-3) * 8);\n}\n\n.cu-carousel__controls {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-block-start: 1px solid var(--cu-color-border-default);\n}\n\n.cu-carousel__control {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  cursor: pointer;\n}\n\n.cu-carousel__control:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-carousel__position {\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n"
+    }
+  ]
+}

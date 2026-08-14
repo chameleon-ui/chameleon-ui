@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "mind-map",
+  "name": "MindMap",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "Lays out a topic tree as a deterministic left-to-right mind map on the canvas base.",
+  "scenarios": [
+    "Brainstorm outline",
+    "Table of contents map",
+    "Decision tree sketch"
+  ],
+  "props": {
+    "root": {
+      "type": "string",
+      "required": true,
+      "description": "Root node { id, label, children? }."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the map region."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Map rendered."
+    },
+    {
+      "name": "empty",
+      "description": "No root provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card"
+    ],
+    "allowedChildren": [
+      "flow-node",
+      "edge"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a mind map for cyclic graphs; use GraphView.",
+    "Do not exceed six levels of depth in one map."
+  ],
+  "a11y": {
+    "role": "tree",
+    "keyboard": [],
+    "focus": "Node labels are exposed in document order.",
+    "labeling": "Region label names the map; hierarchy mirrors the data tree.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Layout is world-based; container scrolls on compact.",
+    "breakpoints": {
+      "compact": "Scrollable canvas.",
+      "medium": "Fits container.",
+      "large": "Fits container."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "mind-map",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "enumerate-items"
+    ]
+  }
+}

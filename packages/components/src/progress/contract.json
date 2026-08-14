@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "progress",
+  "name": "Progress",
+  "status": "experimental",
+  "purpose": "Displays the completion progress of a task.",
+  "scenarios": [
+    "Show file upload progress",
+    "Show form completion",
+    "Show loading progress"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current value."
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum value.",
+      "default": 100
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Thickness.",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md",
+      "description": "Thickness."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Progress rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "form"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for indeterminate loading without a label.",
+    "Do not set value above max."
+  ],
+  "a11y": {
+    "role": "progressbar",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Value and max provide the accessible state.",
+    "wcag": [
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width bar.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Native progress bar inherits direction; fill grows from inline-start.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "progress",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "show-progress"
+    ]
+  }
+}

@@ -1,9 +1,11 @@
 import IntlMessageFormat from 'intl-messageformat'
 import en from './locales/en.json'
 import enXA from './locales/en-XA.json'
+import ar from './locales/ar.json'
+import de from './locales/de.json'
 import { expandPseudoMessages } from './pseudo-locale'
 
-export type Locale = 'en' | 'en-XA'
+export type Locale = 'en' | 'en-XA' | 'ar' | 'de'
 
 export interface Messages {
   app: {
@@ -17,6 +19,8 @@ export interface Messages {
     locale: string
     english: string
     pseudo: string
+    arabic: string
+    german: string
     direction: string
     ltr: string
     rtl: string
@@ -89,6 +93,8 @@ const expandedPseudo = expandPseudoMessages(flattenMessages(en), flattenMessages
 const dictionaries: Record<Locale, Messages> = {
   en,
   'en-XA': expandMessageTree(enXA, expandedPseudo),
+  ar,
+  de,
 }
 
 type PrimitiveMessageValue = string | number | boolean | Date | null | undefined

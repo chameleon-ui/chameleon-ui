@@ -1,0 +1,19 @@
+{
+  "trade": {
+    "title": "Trading terminal",
+    "subtitle": "Watch the tape, chart a symbol, and inspect working orders.",
+    "tickerLabel": "Markets",
+    "chartNamed": "Price · {symbol}",
+    "priceSeries": "Last",
+    "gridLabel": "Orders",
+    "emptyLabel": "No orders",
+    "colSymbol": "Symbol",
+    "colSide": "Side",
+    "colSize": "Size",
+    "colPrice": "Price",
+    "sideBuy": "Buy",
+    "sideSell": "Sell",
+    "selectSymbol": "Select {symbol}",
+    "orderCount": "{count, plural, =0 {No working orders} one {# working order} other {# working orders}}"
+  }
+}

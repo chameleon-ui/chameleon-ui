@@ -1,0 +1,108 @@
+{
+  "id": "kbd",
+  "type": "registry:ui",
+  "name": "Kbd",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/kbd/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"kbd\",\n  \"name\": \"Kbd\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Represents a keyboard key or shortcut.\",\n  \"scenarios\": [\n    \"Show a keyboard shortcut\",\n    \"Label a key in documentation\",\n    \"Indicate a modifier key\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Key label.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Key rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"text\",\n      \"tooltip\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for interactive buttons.\",\n    \"Do not wrap entire paragraphs in kbd.\"\n  ],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Contents provide the key name.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline display.\",\n    \"breakpoints\": {\n      \"compact\": \"Inline.\",\n      \"medium\": \"Inline.\",\n      \"large\": \"Inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"No mirroring required for individual key symbols.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"kbd\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"show-shortcut\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/index.ts",
+      "content": "export { Kbd } from './Kbd.js'\nexport type { KbdProps } from './Kbd.js'\n"
+    },
+    {
+      "path": "components/kbd/Kbd.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface KbdProps {\n  children: ReactNode\n  className?: string\n}\n\nexport function Kbd({ children, className }: KbdProps) {\n  const classes = ['cu-kbd', className].filter(Boolean).join(' ')\n  return <kbd className={classes} data-ai-role=\"kbd\" data-ai-state=\"default\" data-ai-intent=\"show-shortcut\">{children}</kbd>\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/am.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ar.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"مفتاح لوحة المفاتيح\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/bn.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/de.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Tastenkombination\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/en.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/es.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/fa.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/fr.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ha.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/hi.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/id.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ja.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ko.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/pt.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ru.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/sw.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ug.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/ur.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/vi.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/zh-CN.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"键盘按键\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/locales/zh-HK.json",
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kbd/styles.css",
+      "content": ".cu-kbd {\n  display: inline-block;\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-1);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font-family: monospace;\n  font-size: 0.875em;\n}\n"
+    }
+  ]
+}

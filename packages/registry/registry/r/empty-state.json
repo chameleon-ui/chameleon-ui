@@ -1,0 +1,108 @@
+{
+  "id": "empty-state",
+  "type": "registry:ui",
+  "name": "EmptyState",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/empty-state/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"empty-state\",\n  \"name\": \"EmptyState\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Communicates an empty data set and optionally prompts the next action.\",\n  \"scenarios\": [\n    \"No search results\",\n    \"Empty inbox\",\n    \"No connected accounts\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Primary message.\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Supporting message.\"\n    },\n    \"action\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Optional action element.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Empty state displayed.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"card\",\n      \"table\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for loading states.\",\n    \"Do not blame the user.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Focus moves to the action if present.\",\n    \"labeling\": \"Title is the accessible message.\",\n    \"wcag\": [\n      \"4.1.3\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Centered block with max width.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Max width 24rem.\",\n      \"large\": \"Max width 24rem.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"empty-state\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"prompt-first-action\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/EmptyState.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface EmptyStateProps {\n  title: string\n  description?: string\n  action?: ReactNode\n  className?: string\n}\n\nexport function EmptyState({ title, description, action, className }: EmptyStateProps) {\n  const classes = ['cu-empty-state', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} data-ai-role=\"empty-state\" data-ai-state=\"default\" data-ai-intent=\"prompt-first-action\" role=\"status\">\n      <div className=\"cu-empty-state__title\">{title}</div>\n      {description ? <div className=\"cu-empty-state__description\">{description}</div> : null}\n      {action ? <div className=\"cu-empty-state__action\">{action}</div> : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/empty-state/index.ts",
+      "content": "export { EmptyState } from './EmptyState.js'\nexport type { EmptyStateProps } from './EmptyState.js'\n"
+    },
+    {
+      "path": "components/empty-state/locales/am.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ar.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"حالة فارغة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/bn.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/de.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Leerer Anzeigezustand\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/en.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/es.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/fa.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/fr.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ha.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/hi.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/id.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ja.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ko.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/pt.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ru.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/sw.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ug.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/ur.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/vi.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/zh-CN.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"空状态\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/locales/zh-HK.json",
+      "content": "{\n  \"empty-state\": {\n    \"label\": \"Empty state\"\n  }\n}\n"
+    },
+    {
+      "path": "components/empty-state/styles.css",
+      "content": ".cu-empty-state {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  text-align: center;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-empty-state__title {\n  font-size: 1.125rem;\n  font-weight: 600;\n}\n\n.cu-empty-state__description {\n  font-size: 0.875rem;\n  color: var(--cu-color-fg-default);\n  opacity: 0.8;\n}\n\n.cu-empty-state__action {\n  margin-block-start: var(--cu-space-2);\n}\n"
+    }
+  ]
+}

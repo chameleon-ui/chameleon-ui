@@ -1,0 +1,15 @@
+{
+  "id": "community-focus-first",
+  "label": "Focus First Discipline",
+  "kind": "community",
+  "pricing": {
+    "paid": false
+  },
+  "preview": {
+    "accent": "#2563eb",
+    "surface": "#f8fafc"
+  },
+  "fonts": {
+    "sans": "system-ui, sans-serif"
+  }
+}

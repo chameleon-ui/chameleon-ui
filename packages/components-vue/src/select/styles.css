@@ -1,0 +1,90 @@
+.cu-select {
+  display: inline-block;
+}
+
+.cu-select__label {
+  display: block;
+  color: var(--cu-color-fg-default);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-block-end: var(--cu-space-1);
+}
+
+.cu-select__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  min-inline-size: 10rem;
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  font: inherit;
+  cursor: pointer;
+  gap: var(--cu-space-2);
+}
+
+.cu-select__trigger:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+.cu-select__trigger:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cu-select__indicator {
+  font-size: 0.75rem;
+}
+
+.cu-select__content {
+  background: var(--cu-color-background-default);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shadow-md);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-1);
+}
+
+.cu-select__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cu-select__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-block-size: 2.25rem;
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border-radius: var(--cu-radius-sm);
+  cursor: pointer;
+  gap: var(--cu-space-2);
+}
+
+.cu-select__item[data-highlighted] {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 12%, transparent);
+}
+
+.cu-select__item-indicator {
+  inline-size: 1rem;
+  text-align: center;
+  visibility: hidden;
+}
+
+.cu-select__item[data-state='checked'] .cu-select__item-indicator {
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-select__indicator,
+  .cu-select__item {
+    transition-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "image",
+  "name": "Image",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Renders an image with loading state, error fallback, and optional caption.",
+  "scenarios": [
+    "Show a product photo",
+    "Display a user avatar with fallback",
+    "Present a figure with caption"
+  ],
+  "props": {
+    "src": {
+      "type": "string",
+      "required": true,
+      "description": "Image source URL."
+    },
+    "alt": {
+      "type": "string",
+      "required": true,
+      "description": "Alternative text; empty string marks decorative images."
+    },
+    "caption": {
+      "type": "string",
+      "required": false,
+      "description": "Visible caption below the image."
+    },
+    "errorLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Text shown when the image fails to load."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Image loaded."
+    },
+    {
+      "name": "error",
+      "description": "Image failed to load; fallback shown."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "article-card",
+      "page",
+      "grid"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not omit alt text for informative images.",
+    "Do not use an image to present text that could be real text."
+  ],
+  "a11y": {
+    "role": "img",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "alt attribute carries the text alternative; caption uses figcaption.",
+    "wcag": [
+      "1.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Scales to container width while preserving aspect ratio.",
+    "breakpoints": {
+      "compact": "Full container width.",
+      "medium": "Full container width.",
+      "large": "Full container width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "image",
+    "states": [
+      "default",
+      "error"
+    ],
+    "intents": [
+      "signal-meaning"
+    ]
+  }
+}

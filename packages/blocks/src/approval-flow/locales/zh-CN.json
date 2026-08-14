@@ -1,0 +1,25 @@
+{
+  "approval": {
+    "title": "审批请求",
+    "subtitle": "审阅请求后，用备注批准或驳回。",
+    "subject": "硬件更新 · 第三季度",
+    "stepsLabel": "审批步骤",
+    "stepSubmit": "已提交",
+    "stepSubmitHint": "请求已进入队列。",
+    "stepReview": "审阅",
+    "stepReviewHint": "用书面备注做出决定。",
+    "stepDone": "完成",
+    "stepDoneHint": "决定已记录。",
+    "decisionLabel": "决定",
+    "approve": "批准",
+    "reject": "驳回",
+    "commentLabel": "备注",
+    "submit": "提交决定",
+    "errorRequired": "请选择决定并填写备注。",
+    "successTitle": "请求已批准",
+    "successBody": "将通知申请人。",
+    "rejectedTitle": "请求已驳回",
+    "rejectedBody": "将把备注通知申请人。",
+    "requestCount": "{count, plural, =0 {没有待处理请求} other {# 个待处理请求}}"
+  }
+}

@@ -1,0 +1,28 @@
+.cu-statistic {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--cu-space-1);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-statistic__label {
+  font-size: 0.875em;
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+}
+
+.cu-statistic__value {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.cu-statistic__trend--up {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, green);
+}
+
+.cu-statistic__trend--down {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, red);
+}
+
+.cu-statistic__trend--flat {
+  color: var(--cu-color-border-default);
+}
