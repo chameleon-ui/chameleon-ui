@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { createCatalog, directionForLocale } from '@chameleon-ui/i18n'
@@ -39,6 +42,38 @@ describe('AppShell', () => {
     const tabSlot = document.querySelector('.cu-app-shell__tab-bar')
     expect(tabSlot).not.toBeNull()
     expect(tabSlot?.querySelector('[data-testid="shell-tab"]')).not.toBeNull()
+  })
+
+  it('places one navigation node in a single slot — not a sidebar plus tab-bar pair', () => {
+    render(
+      <AppShell header={<span>Header</span>} navigation={<nav data-testid="shell-nav">Nav</nav>}>
+        <span>Main</span>
+      </AppShell>,
+    )
+
+    const navSlot = document.querySelector('.cu-app-shell__nav')
+    expect(navSlot).not.toBeNull()
+    expect(navSlot?.querySelector('[data-testid="shell-nav"]')).not.toBeNull()
+    expect(document.querySelector('.cu-app-shell__sidebar')).toBeNull()
+    expect(document.querySelector('.cu-app-shell__tab-bar')).toBeNull()
+    expect(screen.queryByRole('complementary')).toBeNull()
+  })
+
+  it('pins compact navigation to the block-end while main is the scrollport', () => {
+    const css = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'styles.css'), 'utf8').replace(
+      /\/\*[\s\S]*?\*\//g,
+      '',
+    )
+    expect(css).toMatch(/minmax\(0,\s*1fr\)/)
+    expect(css).toMatch(/block-size:\s*100%/)
+    expect(css).toMatch(/min-block-size:\s*0/)
+    expect(css).toMatch(/overflow:\s*hidden/)
+    expect(css).toMatch(/\.cu-app-shell__nav\s*\{[^}]*position:\s*sticky/)
+    expect(css).toMatch(/inset-inline-start:\s*0/)
+    expect(css).toMatch(/\.cu-app-shell__main\s*\{[^}]*min-block-size:\s*0/)
+    expect(css).toMatch(/\.cu-app-shell__main\s*\{[^}]*overflow-x:\s*hidden/)
+    expect(css).toMatch(/\.cu-app-shell__main\s*\{[^}]*overflow-y:\s*auto/)
+    expect(css).toMatch(/\.cu-app-shell__main\s*\{[^}]*scrollbar-gutter:\s*stable/)
   })
 
   it('keeps Arabic copy and RTL direction together', () => {

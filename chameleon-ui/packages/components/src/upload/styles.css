@@ -2,6 +2,7 @@
   display: grid;
   gap: var(--cu-space-2);
   color: var(--cu-color-fg-default);
+  position: relative;
 }
 
 .cu-upload__dropzone {
@@ -45,13 +46,33 @@
 }
 
 .cu-upload__file {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--cu-space-2);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--cu-space-1) var(--cu-space-2);
   padding-block: var(--cu-space-1);
   padding-inline: var(--cu-space-2);
   border: 1px solid var(--cu-color-border-default);
   border-radius: var(--cu-radius-sm);
+}
+
+.cu-upload__progress {
+  grid-column: 1 / -1;
+  inline-size: 100%;
+  accent-color: var(--cu-color-palette-brand);
+}
+
+.cu-upload__error {
+  grid-column: 1 / -1;
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 20%, red);
+  font-size: 0.8125rem;
+}
+
+.cu-upload__sr {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
 }
 
 .cu-upload__size {

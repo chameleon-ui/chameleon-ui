@@ -4,8 +4,9 @@ A stdio Model Context Protocol server for Chameleon UI. All file writes go
 through `@chameleon-ui/install-core`. Read-only tools (`get_contract`,
 `get_design_rules`, `get_import_specifiers`) do not write disk.
 
-Consumer agents: follow `chameleon-ui/AGENTS.md`. Call `get_import_specifiers`
-before writing any CSS/JS import.
+Consumer agents: follow `chameleon-ui/AGENTS.md` and the docs-site
+page `guides/for-agents`. Call `get_import_specifiers` before writing any
+CSS/JS import.
 
 ## Run
 
@@ -41,8 +42,8 @@ app** (for example stock-analyzer), not as a second write path:
 
 Replace the two paths. `CU_TARGET_DIR` is where `install_*` tools write.
 Read-only tools work with the bundled catalog even when the target dir is
-empty. Packages are unpublished (`0.0.0`); `npx @chameleon-ui/mcp-server`
-is **not** available until v0.1.0.
+empty. Packages are unpublished (`0.1.0`); `npx @chameleon-ui/mcp-server`
+is **not** available until a registry publish.
 
 ## Tools
 
@@ -52,7 +53,7 @@ is **not** available until v0.1.0.
 | `get_component` | Full registry item (files + deps). Prefer `get_contract` for the v0.2 JSON |
 | `get_contract` | v0.2 `contract.json` by slug |
 | `get_design_rules` | `design-rules.json` by theme id (or community rules pack id) |
-| `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Call before writing imports |
+| `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Call before writing imports. Includes version matrix, Vite template path, dual-track note. |
 | `list_themes` | The 8 official tribute themes |
 | `install_component` | Install one component via install-core |
 | `install_theme` | Install one theme via install-core |

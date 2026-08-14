@@ -1,29 +1,45 @@
-# Agent consume guide
+# Agent consume specification
 
-**SSOT:** [`chameleon-ui/AGENTS.md`](../../chameleon-ui/AGENTS.md). Follow that file. This page is how to **attach MCP** and prompt an agent in an external app (the stock-analyzer dogfood case).
+**Machine SSOT:** [`chameleon-ui/AGENTS.md`](../../chameleon-ui/AGENTS.md). Follow that file. This page is the attach and composition spec for an external consumer app.
+
+Public docs (same rules, product tone): `chameleon-ui/apps/docs/docs/guides/for-agents.mdx`.
 
 Do not invent CSS specifiers. Do not copy `workspace:*` into a consumer `package.json`. `bench.generation_quality` is honestly `null` without a generator — do not fabricate a score.
 
-## Prompt to paste into the consumer repo
+## Required order
 
-```
-You are building a React app that consumes @chameleon-ui/*.
-Read chameleon-ui/AGENTS.md and obey it.
+1. Call MCP `get_import_specifiers` before any import.
+2. CSS: `import "@chameleon-ui/themes/line/css"` for product chrome (visual flagship), or another homage id from `list_themes`. Never `.../cupertino/variables.css`.
+3. Components: `import { Button, Card, Table } from "@chameleon-ui/components"`.
+4. Before emitting a component, call `get_contract` with that slug (v0.2 + `dataAi` triple).
+5. Before choosing density / radius / RTL, call `get_design_rules` for the theme id.
+6. The consumer app is **not** a pnpm workspace. **NEVER** write `workspace:*`. Link all five runtime packages (see AGENTS.md).
+7. Disk writes only via `chameleon add` / MCP `install_*` (install-core).
+8. SchemaRenderer default map is 10 slugs. For Table / Chart / KpiDashboard import `@chameleon-ui/components`.
+9. `adapter-ag-ui` is POC. Do not treat it as supported.
 
-1. Call MCP get_import_specifiers before any import.
-2. CSS: import "@chameleon-ui/themes/cupertino/css" (not .../cupertino/variables.css).
-3. Components: import { Button, Card, Table } from "@chameleon-ui/components".
-4. Before emitting a component, call get_contract with that slug (v0.2 + dataAi triple).
-5. Before choosing density/radius/RTL, call get_design_rules for the theme id.
-6. This app is NOT a pnpm workspace. NEVER write workspace:*. Link all five runtime packages (see AGENTS.md).
-7. Disk writes only via chameleon add / MCP install_* (install-core).
-8. SchemaRenderer default map is 10 slugs. For Table/Chart/KpiDashboard import the component package.
-9. adapter-ag-ui is POC. Do not treat it as supported.
+## App chrome
+
+Native model: tab controller + per-tab stack. Not website chrome.
+
+| Role | Component | AppShell slot |
+| :--- | :--- | :--- |
+| Root destinations | `Navigation` | `navigation` |
+| Stack (title, back) | `NavigationBar` | `header` |
+| Site links | `Navbar` | not AppShell |
+
+One `items` list; CSS morphs TabBar ↔ rail ↔ sidebar. Do not compose `Sidebar` + `TabBar`. Switching tabs does not push; back pops (`useTabStacks`). Compact overflow is four pins + More.
+
+```tsx
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 ```
 
 ## MCP attach (Cursor)
 
-In the **consumer** app (e.g. stock-analyzer), after building the server:
+In the **consumer** app, after building the server:
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
@@ -38,14 +54,14 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
       "command": "node",
       "args": ["D:/ChameleonUI/chameleon-ui/packages/mcp-server/dist/index.js"],
       "env": {
-        "CU_TARGET_DIR": "D:/path/to/stock-analyzer"
+        "CU_TARGET_DIR": "D:/path/to/consumer-app"
       }
     }
   }
 }
 ```
 
-Replace both paths. `npx @chameleon-ui/mcp-server` is not available until npm publish (`v0.1.0`, not done).
+Replace both paths. `npx @chameleon-ui/mcp-server` is not available until npm publish (packages are `0.1.0`, still unpublished).
 
 ## Tools the agent must use
 
@@ -58,6 +74,8 @@ Replace both paths. `npx @chameleon-ui/mcp-server` is not available until npm pu
 | List skins | `list_themes` |
 | Scaffold files into `CU_TARGET_DIR` | `install_with_theme` (four-piece) |
 
+Also on the server: `get_component` · `install_component` · `install_theme` · `install_bundle` · `telemetry_opt_out` · `record_intent`.
+
 ## External app install (unpublished)
 
 ```bash
@@ -66,6 +84,8 @@ node ./scripts/link-external.mjs --apply
 # consumer:
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
+
+Official Vite + Windows template: `chameleon-ui/templates/external-vite-react`. Pin `react@^19`, `@ark-ui/react@5.38.0`, FormatJS as in AGENTS.md. Height chain: `html, body, #root { block-size: 100% }`. Dual-track: package five vs `chameleon add` — docs `guides/consume.mdx`.
 
 Copy-pasteable `App.tsx` that compiles outside this workspace:
 

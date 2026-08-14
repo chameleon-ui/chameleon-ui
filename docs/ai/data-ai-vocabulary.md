@@ -11,7 +11,7 @@
 | `data-ai-state` | `contract.dataAi.states` | 当前状态，值域为契约 states 子集 |
 | `data-ai-intent` | `contract.dataAi.intents[0]` | 首要意图；完整意图集在契约中 |
 
-## intent 词表（69 项）
+## intent 词表（70 项）
 
 | intent | 语义 |
 | :--- | :--- |
@@ -55,6 +55,7 @@
 | `navigate-overlay` | Navigate within an overlay panel. |
 | `navigate-pages` | Move between pages of a result set. |
 | `navigate-sections` | Switch between top-level sections of the shell. |
+| `navigate-stack` | Move back or forward within the current tab's navigation stack. |
 | `notify-status` | Communicate a persistent status message. |
 | `notify-transient` | Communicate a transient confirmation or alert. |
 | `pan-canvas` | Pan, zoom, or inspect a 2D canvas surface. |

@@ -100,6 +100,10 @@ describe('MCP tool surface', () => {
     expect(result.never).toContain('workspace:*')
     expect(result.unpublishedLink.inExternalApp).toContain('@chameleon-ui/tokens')
     expect(result.unpublishedLink.inExternalApp).toContain('@chameleon-ui/components')
+    expect(result.unpublishedLink.viteTemplate).toBe('templates/external-vite-react')
+    expect(result.unpublishedLink.note).toContain('0.1.0')
+    expect(result.preferred.componentSlug).toBe('@chameleon-ui/components/button')
+    expect(result.versionMatrix.arkUi).toBe('5.38.0')
   })
 
   it('rejects unknown tools', async () => {

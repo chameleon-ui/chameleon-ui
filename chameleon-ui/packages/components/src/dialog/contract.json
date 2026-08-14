@@ -34,6 +34,22 @@
       "type": "boolean",
       "required": false,
       "description": "Optional controlled open state."
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "required": false,
+      "description": "Uncontrolled initial open state."
+    },
+    "onOpenChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the dialog opens or closes. Compact morphs to a sheet; the event is the same.",
+      "payload": "(open: boolean) => void"
+    },
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Optional body between the description and the close action."
     }
   },
   "variants": [],
@@ -106,5 +122,25 @@
       "confirm-decision",
       "collect-input"
     ]
-  }
+  },
+  "mechanics": "Dialog is one component. CSS container queries on the positioner restyle it: compact docks as a block-end sheet; from 48rem it is a centered modal. Escape and the close control dismiss at every breakpoint. onOpenChange(open) is the only open-state event — do not swap Dialog for ActionSheet with matchMedia. Focus trap and restore are delegated to Ark/Zag.",
+  "usage": [
+    "Import Dialog from @chameleon-ui/components.",
+    "Pass triggerLabel, title, description, and closeLabel. Bind open and onOpenChange for controlled use.",
+    "Put extra fields in children. Do not nest dialogs. Do not emit a second ActionSheet for compact."
+  ],
+  "exports": [
+    {
+      "name": "Dialog",
+      "kind": "component",
+      "signature": "function Dialog(props: DialogProps): JSX.Element",
+      "description": "Blocking task: modal on large, sheet on compact. Same events."
+    },
+    {
+      "name": "DialogProps",
+      "kind": "type",
+      "signature": "interface DialogProps",
+      "description": "triggerLabel, title, description, closeLabel, open, onOpenChange, children."
+    }
+  ]
 }

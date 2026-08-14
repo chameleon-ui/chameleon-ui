@@ -56,6 +56,46 @@ describe('Upload', () => {
     expect(received).toHaveLength(1)
   })
 
+  it('rejects files that miss accept or exceed maxSize', () => {
+    const accepted: File[] = []
+    const rejected: Array<{ name: string; reason: string }> = []
+    render(
+      <Upload
+        accept=".txt,text/plain"
+        label="Attachments"
+        maxSize={100}
+        onFiles={(files) => {
+          accepted.push(...files)
+        }}
+        onReject={(items) => {
+          rejected.push(...items.map((item) => ({ name: item.file.name, reason: item.reason })))
+        }}
+      />,
+    )
+    const zone = screen.getByRole('button', { name: 'Attachments' })
+    fireEvent.drop(zone, {
+      dataTransfer: {
+        files: [file('ok.txt', 40), file('big.txt', 400), new File(['x'], 'photo.png', { type: 'image/png' })],
+      },
+    })
+    expect(accepted.map((entry) => entry.name)).toEqual(['ok.txt'])
+    expect(rejected).toEqual([
+      { name: 'big.txt', reason: 'size' },
+      { name: 'photo.png', reason: 'type' },
+    ])
+  })
+
+  it('renders caller-measured progress from the files prop', () => {
+    render(
+      <Upload
+        files={[{ name: 'report.csv', size: 2048, progress: 40, status: 'uploading' }]}
+        label="Attachments"
+      />,
+    )
+    expect(screen.getByText('report.csv')).toBeInTheDocument()
+    expect(screen.getByRole('progressbar')).toHaveValue(40)
+  })
+
   it('reads bundled locale messages', () => {
     expect(requireMessage(createCatalog(en), 'upload.dropzone')).toBeDefined()
     expect(requireMessage(createCatalog(ar), 'upload.browse')).toBeDefined()

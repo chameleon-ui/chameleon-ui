@@ -3,7 +3,7 @@
   "slug": "sidebar",
   "name": "Sidebar",
   "status": "experimental",
-  "purpose": "Provides the persistent or collapsible side navigation panel; the tablet/desktop member of the Navigation morph pair with TabBar.",
+  "purpose": "Specialized persistent or collapsible side panel. For three-end chrome use Navigation (one list, CSS morph). Do not pair this with TabBar to fake a morph.",
   "scenarios": [
     "Show top-level destinations beside the content on desktop",
     "Collapse navigation to a rail on tablet widths",
@@ -98,8 +98,8 @@
     "requiredContext": []
   },
   "antiPatterns": [
-    "Do not render the sidebar and the tab bar for the same destination set at one breakpoint.",
-    "Do not put the only navigation in the sidebar without a compact alternative (tab-bar)."
+    "Do not compose Sidebar with TabBar for three-end chrome — that is two components. Use Navigation.",
+    "Do not treat this as the compact navigation form; the compact form lives on Navigation."
   ],
   "a11y": {
     "role": "complementary",
@@ -118,9 +118,9 @@
     ]
   },
   "responsive": {
-    "strategy": "Desktop form of the Navigation morph: persistent 16rem panel. Collapses to a 4.5rem rail via the toggle or when its own host slot narrows to 12rem (container query). On compact the shell replaces it with tab-bar.",
+    "strategy": "Single-form side panel. Collapses to a 4.5rem rail via the toggle or when its own host slot narrows to 12rem. Three-end morph is Navigation, not a pair with TabBar.",
     "breakpoints": {
-      "compact": "Composition contract: app-shell uses tab-bar instead; a directly rendered sidebar still works as an inline panel.",
+      "compact": "Still a side panel if rendered directly; AppShell's legacy sidebar slot is hidden on compact.",
       "medium": "Collapsible sidebar; in a 12rem host slot it switches to the label-free rail via container query.",
       "large": "Persistent 16rem sidebar with labels."
     }

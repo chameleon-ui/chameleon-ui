@@ -18,7 +18,8 @@
     "onChange": {
       "type": "event",
       "required": true,
-      "description": "Receives the next selected value."
+      "description": "Receives the next selected value.",
+      "payload": "(value: string) => void"
     },
     "options": {
       "type": "string",
@@ -109,5 +110,25 @@
     "intents": [
       "choose-option"
     ]
-  }
+  },
+  "mechanics": "Select is a labeled listbox. value and onChange are required (controlled). options is an array of { value, label }. Keyboard and screen-reader behavior come from the primitive; CSS does not replace the listbox with a native select.",
+  "usage": [
+    "Import Select from @chameleon-ui/components.",
+    "Pass label, options, value, and onChange. Keep the selected value in React state.",
+    "Set disabled while options are loading. Do not use placeholder as the only label."
+  ],
+  "exports": [
+    {
+      "name": "Select",
+      "kind": "component",
+      "signature": "function Select(props: SelectProps): JSX.Element",
+      "description": "Accessible listbox with value, onChange, options, and label."
+    },
+    {
+      "name": "SelectProps",
+      "kind": "type",
+      "signature": "interface SelectProps",
+      "description": "Public props including options: Array<{ value, label }>."
+    }
+  ]
 }

@@ -1,5 +1,4 @@
 import {
-  ActionSheet,
   AppShell,
   Button,
   Card,
@@ -8,18 +7,19 @@ import {
   Heading,
   HoverCard,
   Input,
+  Navigation,
+  NavigationBar,
   Popover,
-  Sidebar,
   Stack,
-  TabBar,
   Typography,
+  useTabStacks,
 } from '@chameleon-ui/components'
 import { PHASE_2_LOCALES, type Phase2Locale } from '@chameleon-ui/i18n'
 import { themeIds, type ThemeId } from '@chameleon-ui/themes'
 import { useLayoutEffect, useRef, useState, type ReactNode } from 'react'
 import { readLocaleParam, readThemeParam } from './messages'
 
-export type ThreeEndKind = 'phone' | 'tablet' | 'desktop' | 'proof'
+export type ThreeEndKind = 'phone' | 'tablet' | 'desktop'
 
 export const THREE_END_VIEWPORTS = [
   { end: 'phone' as const, width: 390, height: 720, label: '手机' },
@@ -28,7 +28,7 @@ export const THREE_END_VIEWPORTS = [
 ] as const
 
 export function readEndParam(value: string | null): ThreeEndKind {
-  if (value === 'tablet' || value === 'desktop' || value === 'proof') return value
+  if (value === 'tablet' || value === 'desktop') return value
   return 'phone'
 }
 
@@ -48,8 +48,41 @@ function navItems(t: DemoT) {
   return [
     { value: 'home', label: t('demo.threeEndNavHome') },
     { value: 'search', label: t('demo.threeEndNavSearch') },
+    { value: 'library', label: t('demo.threeEndNavLibrary') },
+    { value: 'messages', label: t('demo.threeEndNavMessages') },
+    { value: 'orders', label: t('demo.threeEndNavOrders') },
+    { value: 'wallet', label: t('demo.threeEndNavWallet') },
+    { value: 'activity', label: t('demo.threeEndNavActivity') },
+    { value: 'favorites', label: t('demo.threeEndNavFavorites') },
+    { value: 'notifications', label: t('demo.threeEndNavNotifications') },
+    { value: 'settings', label: t('demo.threeEndNavSettings') },
+    { value: 'help', label: t('demo.threeEndNavHelp') },
     { value: 'me', label: t('demo.threeEndNavMe') },
   ]
+}
+
+function DemoNavigation({
+  t,
+  items,
+  active,
+  onSelect,
+}: {
+  t: DemoT
+  items: ReturnType<typeof navItems>
+  active?: string
+  onSelect?: (value: string) => void
+}) {
+  return (
+    <Navigation
+      label={t('navigation.label')}
+      items={items}
+      activeValue={active}
+      onSelect={onSelect}
+      moreLabel={t('navigation.more')}
+      collapseLabel={t('navigation.collapse')}
+      expandLabel={t('navigation.expand')}
+    />
+  )
 }
 
 function readMedia(query: string) {
@@ -158,77 +191,63 @@ function RevealPair({ t }: { t: DemoT }) {
   )
 }
 
-function OverlayBlock({ t, defaultDialog = false }: { t: DemoT; defaultDialog?: boolean }) {
-  const [sheetOpen, setSheetOpen] = useState(false)
-  const [dialogOpen, setDialogOpen] = useState(defaultDialog)
+function OverlayBlock({ t }: { t: DemoT }) {
+  const [dialogOpen, setDialogOpen] = useState(false)
 
   return (
     <div className="cu-three-end-overlay-well" data-three-end="overlay-well">
       <Stack gap="2">
-        <div className="cu-three-end-phone-only">
-          <Typography variant="caption">{t('demo.threeEndOverlayHintPhone')}</Typography>
-        </div>
-        <div className="cu-three-end-wide-only">
-          <Typography variant="caption">{t('demo.threeEndOverlayHintWide')}</Typography>
-        </div>
-        <Stack direction="row" gap="2">
-          <div className="cu-three-end-wide-only">
-            <Dialog
-              closeLabel={t('dialog.close')}
-              description={t('dialog.description')}
-              title={t('dialog.title')}
-              triggerLabel={t('dialog.trigger')}
-              open={dialogOpen}
-              onOpenChange={setDialogOpen}
-            >
-              <p>{t('dialog.body')}</p>
-            </Dialog>
-          </div>
-          <div className="cu-three-end-phone-only">
-            <ActionSheet
-              triggerLabel={t('actionSheet.label')}
-              title={t('actionSheet.label')}
-              cancelLabel={t('actionSheet.cancel')}
-              open={sheetOpen}
-              onOpenChange={setSheetOpen}
-              actions={[
-                { value: 'share', label: t('demo.selectOptionA') },
-                { value: 'delete', label: t('demo.selectOptionB') },
-              ]}
-            />
-          </div>
-        </Stack>
+        <Typography variant="caption">{t('demo.threeEndOverlayHint')}</Typography>
+        <Dialog
+          closeLabel={t('dialog.close')}
+          description={t('dialog.description')}
+          title={t('dialog.title')}
+          triggerLabel={t('dialog.trigger')}
+          open={dialogOpen}
+          onOpenChange={setDialogOpen}
+        >
+          <p>{t('dialog.body')}</p>
+        </Dialog>
       </Stack>
     </div>
   )
 }
 
-function InlineContainerProof({ t }: { t: DemoT }) {
-  const items = navItems(t)
-  return (
-    <div className="cu-three-end-inline-proof" data-three-end="proof-inline">
-      <Stack gap="2">
-        <Typography variant="heading-2">{t('demo.threeEndProofTitle')}</Typography>
-        <Typography variant="body">{t('demo.threeEndProofLead')}</Typography>
-        <section className="cu-three-end-proof-narrow" data-three-end-container="narrow">
-          <Typography variant="caption">{t('demo.threeEndProofNarrow')}</Typography>
-          <AppShell
-            className="cu-three-end-shell cu-three-end-shell--proof-narrow"
-            header={<Typography variant="heading-2">{t('demo.threeEndProofNarrow')}</Typography>}
-            sidebar={<Sidebar label={t('sidebar.label')} items={items} />}
-            sidebarLabel={t('appShell.sidebar')}
-            tabBar={<TabBar label={t('tabBar.label')} items={items} />}
-          >
-            <Typography variant="body">{t('appShell.main')}</Typography>
-          </AppShell>
-        </section>
-      </Stack>
-    </div>
-  )
-}
-
-function ShellMain({ t }: { t: DemoT }) {
+function ShellMain({
+  t,
+  stack,
+}: {
+  t: DemoT
+  stack: ReturnType<typeof useTabStacks>
+}) {
   const [draft, setDraft] = useState('')
+
+  if (stack.canPop) {
+    return (
+      <Stack gap="3">
+        <Typography variant="body">{t('demo.threeEndNavDetailBody', { label: stack.current.title })}</Typography>
+      </Stack>
+    )
+  }
+
+  if (stack.tab !== 'home') {
+    return (
+      <Stack gap="3">
+        <Typography variant="body">{t('demo.threeEndNavPage', { label: stack.current.title })}</Typography>
+        <Button
+          onClick={() =>
+            stack.push({
+              id: `${stack.tab}-detail`,
+              title: t('demo.threeEndNavDetail', { label: stack.current.title }),
+            })
+          }
+        >
+          {t('demo.threeEndOpenDetail')}
+        </Button>
+      </Stack>
+    )
+  }
+
   return (
     <Stack gap="3">
       <Heading level="level-1">{t('demo.threeEndTitle')}</Heading>
@@ -246,92 +265,41 @@ function ShellMain({ t }: { t: DemoT }) {
           <OverlayBlock t={t} />
         </Stack>
       </Card>
-      <InlineContainerProof t={t} />
     </Stack>
   )
 }
 
 function MorphShell({ t, toolbar }: { t: DemoT; toolbar?: ReactNode }) {
   const items = navItems(t)
+  const stack = useTabStacks(
+    items.map((item) => ({ value: item.value, title: String(item.label) })),
+    'home',
+  )
 
   return (
     <>
+      {toolbar ? <div className="cu-demo-inspector">{toolbar}</div> : null}
       <AppShell
         className="cu-three-end-shell"
         header={
-          <>
-            {toolbar}
-            <AdaptiveBanners t={t} />
-          </>
-        }
-        sidebar={
-          <Sidebar
-            label={t('sidebar.label')}
-            items={items}
-            collapsible
-            collapseLabel={t('sidebar.collapse')}
-            expandLabel={t('sidebar.expand')}
+          <NavigationBar
+            title={stack.current.title}
+            backLabel={stack.previous?.title ?? t('navigationBar.back')}
+            onBack={stack.canPop ? stack.pop : undefined}
           />
         }
-        sidebarLabel={t('appShell.sidebar')}
-        tabBar={<TabBar label={t('tabBar.label')} items={items} />}
+        navigation={<DemoNavigation t={t} items={items} active={stack.tab} onSelect={stack.selectTab} />}
       >
-        <ShellMain t={t} />
+        <ShellMain t={t} stack={stack} />
       </AppShell>
     </>
-  )
-}
-
-function ProofStage({ t }: { t: DemoT }) {
-  const items = navItems(t)
-  return (
-    <div className="cu-three-end-proof" data-three-end="proof">
-      <Stack gap="3">
-        <Heading level="level-2">{t('demo.threeEndProofTitle')}</Heading>
-        <Typography variant="body">{t('demo.threeEndProofLead')}</Typography>
-        <div className="cu-three-end-rulers" aria-hidden="true">
-          <div className="cu-three-end-ruler-line cu-three-end-ruler-line--viewport">
-            <span>viewport 1280px</span>
-          </div>
-          <div className="cu-three-end-ruler-line cu-three-end-ruler-line--container">
-            <span>container 320px</span>
-          </div>
-        </div>
-        <div className="cu-three-end-proof-grid">
-          <section className="cu-three-end-proof-narrow" data-three-end-container="narrow">
-            <Typography variant="caption">{t('demo.threeEndProofNarrow')}</Typography>
-            <AppShell
-              className="cu-three-end-shell cu-three-end-shell--proof-narrow"
-              header={<Typography variant="heading-2">{t('demo.threeEndProofNarrow')}</Typography>}
-              sidebar={<Sidebar label={t('sidebar.label')} items={items} />}
-              sidebarLabel={t('appShell.sidebar')}
-              tabBar={<TabBar label={t('tabBar.label')} items={items} />}
-            >
-              <Typography variant="body">{t('appShell.main')}</Typography>
-            </AppShell>
-            <OverlayBlock t={t} defaultDialog />
-          </section>
-          <section className="cu-three-end-proof-wide" data-three-end-container="wide">
-            <Typography variant="caption">{t('demo.threeEndProofWide')}</Typography>
-            <AppShell
-              className="cu-three-end-shell cu-three-end-shell--proof-wide"
-              header={<Typography variant="heading-2">{t('demo.threeEndProofWide')}</Typography>}
-              sidebar={<Sidebar label={t('sidebar.label')} items={items} />}
-              sidebarLabel={t('appShell.sidebar')}
-            >
-              <Typography variant="body">{t('appShell.main')}</Typography>
-            </AppShell>
-          </section>
-        </div>
-      </Stack>
-    </div>
   )
 }
 
 export function ThreeEndStage({ t, end, toolbar }: { t: DemoT; end: ThreeEndKind; toolbar?: ReactNode }) {
   return (
     <div className="cu-three-end-stage" data-three-end="stage" data-three-end-end={end} data-cu-shell>
-      {end === 'proof' ? <ProofStage t={t} /> : <MorphShell t={t} toolbar={toolbar} />}
+      <MorphShell t={t} toolbar={toolbar} />
     </div>
   )
 }
@@ -420,16 +388,6 @@ export function ThreeEndPlayground({ t, locale, theme, onLocale, onTheme, onBack
               />
             </figure>
           ))}
-          <figure className="cu-three-end-col" data-three-end="frame" data-end="proof">
-            <figcaption>桌面 1280 · 内嵌 320px 容器</figcaption>
-            <iframe
-              title="容器查询实证 1280"
-              src={stageSrc('proof', locale, theme)}
-              width={1280}
-              height={920}
-              className="cu-three-end-iframe"
-            />
-          </figure>
         </div>
       </details>
     </div>

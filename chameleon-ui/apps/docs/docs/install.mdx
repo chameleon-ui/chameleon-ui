@@ -11,7 +11,7 @@ import InstallBlock from '@site/src/components/InstallBlock'
 
 <InstallBlock slug="button" />
 
-包已具备发布配置（MIT、`publishConfig.access=public`），版本仍是 0.0.0。维护者冻结 v0.1.0 之前，本仓不执行 npm publish。
+包已具备发布配置（MIT、`publishConfig.access=public`），版本是 0.1.0。本仓不执行 npm publish。
 
 ```
 chameleon add button
@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## 本地 npm link（发布前）
 
-包版本仍是 `0.0.0`，本仓不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必须 **全量** link：`tokens` · `i18n` · `primitives` · `themes` · `components`。只 link `components` 会失败。
+包版本是 `0.1.0`，本仓不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必须 **全量** link：`tokens` · `i18n` · `primitives` · `themes` · `components`。只 link `components` 会失败。
 
 ```bash
 cd chameleon-ui
@@ -47,7 +47,7 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chame
 
 ## 外部工程（非 pnpm workspace）
 
-给 **npm / yarn / 独立 Vite 应用** 复制。不要把 `"workspace:*"` 写进外部 `package.json`。Agent 先读 `chameleon-ui/AGENTS.md`，写 import 前调用 MCP `get_import_specifiers`。
+给 **npm / yarn / 独立 Vite 应用** 复制。不要把 `"workspace:*"` 写进外部 `package.json`。编码 Agent 读 [编码 Agent 集成](./guides/for-agents.mdx) 与 `chameleon-ui/AGENTS.md`，写 import 前调用 MCP `get_import_specifiers`。
 
 ```tsx
 import "@chameleon-ui/themes/cupertino/css";
@@ -70,4 +70,16 @@ CSS 用 `@chameleon-ui/themes/cupertino/css`。不要使用未导出的 `@chamel
 ## 环境
 
 Node **≥ 20.19**，pnpm **9.15.0**。各可发包已声明 `engines.node`。
+
+## 双轨与外部 Vite
+
+整包依赖五件套，或 `chameleon add` 拷源码——先选一条。Windows + Vite 的 `preserveSymlinks` / `dedupe` / `fs.allow` 已写进仓库 `templates/external-vite-react`。完整 checklist、版本矩阵、高度链与 ThemeProvider：[外部接入](./guides/consume.mdx)。
+
+```bash
+node ./scripts/link-external.mjs --print-vite
+node ./scripts/pack-external.mjs
+```
+
+应用根钉死：`react@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`。React 18 不在 peer 范围。
+
 

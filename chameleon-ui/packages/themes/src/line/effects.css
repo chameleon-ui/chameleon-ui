@@ -1,7 +1,8 @@
-/* cu-effects:line — hairline product language: tiny radius, no bounce easing, no glass. */
+/* cu-effects:line — flagship hairline product language: warm canvas, paper rail, no scaffold grid. */
 :root {
-  --cu-tracking: 0em;
+  --cu-tracking: -0.011em;
   --cu-font-weight-heading: 600;
+  -webkit-font-smoothing: antialiased;
 }
 
 :root .cu-app-shell {
@@ -17,31 +18,51 @@
 
 :root .cu-app-shell__main {
   background-color: var(--cu-color-background-subtle);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0H0M0 0V16' fill='none' stroke='%230a0a0a' stroke-opacity='0.045' stroke-width='1'/%3E%3C/svg%3E");
-  background-size: 16px 16px;
+  background-image: none;
 }
 
 :root .cu-app-shell__sidebar,
-:root .cu-sidebar {
-  background: var(--cu-color-background-subtle);
+:root .cu-sidebar,
+:root .cu-navigation__frame {
+  background: var(--cu-color-background-elevated);
   border-inline-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
 }
 
-:root .cu-sidebar__item[aria-current='page'] {
-  border-inline-start: 2px solid var(--cu-color-fg-default);
+:root .cu-sidebar__item[aria-current='page'],
+:root .cu-navigation__item[aria-current='page'] {
+  border-inline-start: none;
   border-radius: var(--cu-radius-sm);
   background: color-mix(in srgb, var(--cu-color-fg-default) 6%, transparent);
   color: var(--cu-color-fg-default);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+}
+
+:root .cu-heading,
+:root .cu-typography--heading-1,
+:root .cu-typography--heading-2,
+:root .cu-navigation-bar__title,
+:root .cu-navigation__header {
+  font-weight: var(--cu-font-weight-heading, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
 }
 
 :root .cu-button {
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  font-weight: var(--cu-typography-weight-medium, 500);
+  letter-spacing: -0.014em;
 }
 
+:root .cu-card,
+:root .cu-card--default,
 :root .cu-card--elevated {
-  box-shadow: var(--cu-shadow-sm, none);
+  box-shadow: var(--cu-shadow-sm);
   border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-empty-state__description,
+:root .cu-typography--caption,
+:root .cu-field__label {
+  color: var(--cu-color-fg-muted);
 }
 
 :root .cu-dialog__backdrop {
@@ -51,7 +72,8 @@
 }
 
 :root .cu-dialog__content,
-:root .cu-tab-bar {
+:root .cu-tab-bar,
+:root .cu-navigation {
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
   background: var(--cu-color-background-elevated);

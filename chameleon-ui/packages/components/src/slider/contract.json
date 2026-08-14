@@ -3,7 +3,7 @@
   "slug": "slider",
   "name": "Slider",
   "status": "experimental",
-  "purpose": "Selects a numeric value from a continuous range.",
+  "purpose": "Selects a numeric value from a range using a native input. Supports step, marks, and an optional dual-thumb pair.",
   "scenarios": [
     "Set a volume level",
     "Choose a price range",
@@ -13,7 +13,7 @@
     "value": {
       "type": "number",
       "required": true,
-      "description": "Current value."
+      "description": "Current value, or a [min, max] pair for a dual-thumb range."
     },
     "min": {
       "type": "number",
@@ -26,6 +26,23 @@
       "required": false,
       "description": "Maximum value.",
       "default": 100
+    },
+    "step": {
+      "type": "number",
+      "required": false,
+      "description": "Native range step. Defaults to 1.",
+      "default": 1
+    },
+    "marks": {
+      "type": "string",
+      "required": false,
+      "description": "Optional tick values rendered under the track (number[])."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents pointer and keyboard changes.",
+      "default": false
     },
     "onChange": {
       "type": "event",
@@ -47,7 +64,15 @@
   "states": [
     {
       "name": "default",
-      "description": "Slider rendered."
+      "description": "Single-thumb slider rendered."
+    },
+    {
+      "name": "range",
+      "description": "Dual-thumb range pair."
+    },
+    {
+      "name": "disabled",
+      "description": "Interaction blocked."
     }
   ],
   "composition": {
@@ -96,7 +121,9 @@
   "dataAi": {
     "role": "slider",
     "states": [
-      "default"
+      "default",
+      "range",
+      "disabled"
     ],
     "intents": [
       "adjust-value"

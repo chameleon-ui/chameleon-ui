@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/components",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -12,13 +12,18 @@
   "type": "module",
   "description": "React component implementations. Import primitives, never @ark-ui/*.",
   "files": ["dist", "src", "catalog.json", "README.md", "LICENSE"],
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
     "./catalog.json": "./catalog.json",
-    "./contracts/*": "./src/*/contract.json"
+    "./contracts/*": "./src/*/contract.json",
+    "./*": {
+      "types": "./dist/*/index.d.ts",
+      "import": "./dist/*/index.js"
+    }
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && node ./scripts/copy-css.mjs",

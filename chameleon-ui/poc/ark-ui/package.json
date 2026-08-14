@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/poc-ark-ui",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "engines": {
     "node": ">=20.19.0"

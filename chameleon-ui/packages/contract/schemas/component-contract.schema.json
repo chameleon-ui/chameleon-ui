@@ -75,7 +75,26 @@
     "platforms": { "$ref": "#/$defs/platforms" },
     "rtl": { "$ref": "#/$defs/rtl" },
     "dataAi": { "$ref": "#/$defs/dataAi" },
-    "telemetry": { "$ref": "#/$defs/telemetry" }
+    "telemetry": { "$ref": "#/$defs/telemetry" },
+    "mechanics": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 2000,
+      "description": "How the component works: morph, state, and pairing rules. Optional; docs synthesize from purpose + responsive when omitted."
+    },
+    "usage": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 10, "maxLength": 400 },
+      "description": "Ordered usage steps. Optional; docs synthesize from required props and scenarios when omitted."
+    },
+    "exports": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/exportEntry" },
+      "description": "Public package exports (component, hooks, helpers, types)."
+    }
   },
   "$defs": {
     "slug": {
@@ -123,6 +142,12 @@
             { "type": "boolean" },
             { "type": "null" }
           ]
+        },
+        "payload": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 160,
+          "description": "Event handler signature, e.g. (value: string) => void. Meaningful when type is event."
         }
       },
       "allOf": [
@@ -229,6 +254,24 @@
         "supported": { "type": "boolean" },
         "strategy": { "type": "string", "minLength": 3, "maxLength": 240 },
         "mirroredValues": { "$ref": "#/$defs/stringList" }
+      }
+    },
+    "exportEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "kind", "signature", "description"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[A-Za-z_][A-Za-z0-9]*$",
+          "maxLength": 80
+        },
+        "kind": {
+          "type": "string",
+          "enum": ["component", "hook", "function", "type"]
+        },
+        "signature": { "type": "string", "minLength": 3, "maxLength": 240 },
+        "description": { "type": "string", "minLength": 3, "maxLength": 240 }
       }
     },
     "dataAi": {

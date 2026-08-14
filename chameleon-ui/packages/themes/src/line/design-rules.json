@@ -5,14 +5,14 @@
     "lineHeightBody": 1.5,
     "fontFamilyToken": "font.family.sans",
     "headingWeightToken": "font.weight.semibold",
-    "tracking": "normal"
+    "tracking": "tight"
   },
   "spacing": {
     "rhythm": 8,
     "density": "comfortable",
     "scale": {
       "strategy": "rem-steps",
-      "steps": ["space.0", "space.1", "space.2", "space.3"]
+      "steps": ["space.0", "space.1", "space.2", "space.3", "space.4", "space.5", "space.6"]
     },
     "radiusStrategy": {
       "default": "radius.md",
@@ -40,6 +40,7 @@
     "purple-blue-gradient",
     "drop-shadow-heavy",
     "spring-easing",
+    "scaffold-grid",
     "glass-morphism"
   ],
   "composition": {

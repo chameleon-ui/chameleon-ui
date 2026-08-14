@@ -2,15 +2,44 @@
 id: schema
 title: 契约 Schema
 sidebar_label: 契约 Schema
-description: 本站托管的版本化 component-contract schema。
+description: 组件契约 v0.2 与 design-rules。Agent 在发 JSX 之前读取同一份 JSON。
 ---
 
-component-contract schema v0.1 由本站免登录提供。
+每个 catalog slug 有一份 **v0.2** `contract.json`。文档站的 API 表、何时用/何时不用、无障碍、三端、RTL、`data-ai` 都从这份 JSON 渲染，禁止手抄第二套。
 
-- [v0.1.json](pathname:///schemas/component-contract/v0.1.json)
-- [v0.2.json](pathname:///schemas/component-contract/v0.2.json)
+## 机器入口
+
+| 通道 | 用法 |
+| :--- | :--- |
+| MCP | `get_contract` `{ "slug": "button" }` |
+| 包导出 | `@chameleon-ui/components/contracts/<slug>` |
+| 磁盘 | `packages/components/src/<slug>/contract.json` |
+| 设计纪律 | MCP `get_design_rules` `{ "theme_id": "cupertino" }` → `@chameleon-ui/themes/cupertino/design-rules` |
+
+编码 Agent 工作流见 [编码 Agent 集成](./guides/for-agents.mdx)。
+
+## Schema 文件
+
+本站免登录提供：
+
+- [component-contract v0.2](pathname:///schemas/component-contract/v0.2.json) — **现行**。`$id`：`https://chameleon-ui.dev/schemas/component-contract/v0.2.json`
+- [component-contract v0.1](pathname:///schemas/component-contract/v0.1.json) — 归档可读。破坏性变更换路径，不覆盖旧 `$id`。
 - [design-rules v1.0](pathname:///schemas/design-rules/v1.0.json)
 
-本地路径：`/schemas/component-contract/v0.1.json`。`$id` 仍是 `https://chameleon-ui.dev/schemas/component-contract/v0.1.json`。本机 R&D 仓并未部署该公网主机。
+公网主机尚未从本 R&D 仓部署。本机文档站提供同一份镜像。
 
-破坏性变更必须换路径 `/schemas/component-contract/v0.2.json` 和新 `$id`。v0.1 保持可读。
+## v0.2 必填面
+
+Agent 发出 JSX 前至少读这些键：
+
+| 键 | 用途 |
+| :--- | :--- |
+| `purpose` / `scenarios` / `antiPatterns` | 用或不用 |
+| `props` / `variants` / `states` | API |
+| `composition` | 允许的父/子 |
+| `a11y` | role、键盘、焦点 |
+| `responsive` | compact / medium / large |
+| `rtl` | 方向与镜像值 |
+| `dataAi` | `role` + `states` + `intents`（三件套，均必填） |
+
+`dataAi.intents` 必须登记在 `docs/ai/data-ai-vocabulary.md`。映射表：`docs/ai/component-contract-v0.2-mapping.md`。

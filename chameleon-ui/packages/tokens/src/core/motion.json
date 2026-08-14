@@ -1,0 +1,20 @@
+{
+  "motion": {
+    "duration": {
+      "fast": {
+        "$value": "140ms",
+        "$description": "Control hover/focus color. Themes overlay; line is snappier."
+      },
+      "base": {
+        "$value": "200ms",
+        "$description": "Default enter/leave for chrome."
+      }
+    },
+    "easing": {
+      "standard": {
+        "$value": "cubic-bezier(0.25, 0.1, 0.25, 1)",
+        "$description": "Standard product easing. Bounce/spring are forbidden in line."
+      }
+    }
+  }
+}

@@ -3,7 +3,7 @@
   "slug": "tab-bar",
   "name": "TabBar",
   "status": "experimental",
-  "purpose": "Mobile bottom navigation bar; the compact-screen member of the Navigation morph pair with Sidebar.",
+  "purpose": "Specialized mobile bottom navigation bar. For three-end chrome use Navigation (one list, CSS morph). Do not pair this with Sidebar to fake a morph.",
   "scenarios": [
     "Switch between the three to five top-level destinations on a phone",
     "Keep primary navigation reachable by the thumb",
@@ -60,7 +60,8 @@
   "antiPatterns": [
     "Do not use for content switching inside a page; use tabs.",
     "Do not exceed five destinations in the bar.",
-    "Do not keep the bar visible at desktop when composed in app-shell — that slot hides at 80rem."
+    "Do not compose TabBar with Sidebar for three-end chrome — that is two components. Use Navigation.",
+    "Do not keep the bar visible at desktop when composed in app-shell's legacy slot — that slot hides at 80rem."
   ],
   "a11y": {
     "role": "tablist",
@@ -79,11 +80,11 @@
     ]
   },
   "responsive": {
-    "strategy": "Compact navigation form docked to the block-end edge with env(safe-area-inset-bottom) padding. Named container tab-bar shrinks labels at 20rem. Composed in app-shell: visible on compact and tablet, hidden at desktop (80rem).",
+    "strategy": "Single-form compact bar docked to the block-end edge with env(safe-area-inset-bottom) padding. Named container tab-bar shrinks labels at 20rem. Three-end morph is Navigation, not a pair with Sidebar.",
     "breakpoints": {
       "compact": "Bottom bar; every item hit area >= 44px; safe-area bottom inset applied.",
-      "medium": "Composition contract: app-shell shows collapsible sidebar AND this bar.",
-      "large": "Composition contract: app-shell hides this bar and keeps the persistent sidebar."
+      "medium": "Still this bar if rendered directly; AppShell's legacy tabBar slot stays visible until 80rem.",
+      "large": "AppShell's legacy tabBar slot is hidden; use Navigation for a persistent sidebar form."
     }
   },
   "platforms": {

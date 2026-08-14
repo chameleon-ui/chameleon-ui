@@ -9,7 +9,7 @@ const locales = [
   { locale: 'ar', dir: 'rtl' },
 ] as const
 
-const whitelist = ['app-shell', 'table', 'sidebar', 'tab-bar', 'safe-area'] as const
+const whitelist = ['app-shell', 'table', 'sidebar', 'tab-bar', 'safe-area', 'navigation'] as const
 
 async function computed(page: Page, selector: string, property: string) {
   return page.locator(selector).first().evaluate((element, prop) => getComputedStyle(element).getPropertyValue(prop), property)
@@ -53,10 +53,12 @@ test.describe('Phase 5 whitelist morph matrix (A5.4 / A5.5 / T5.8)', () => {
         await expect(lab.locator('.cu-action-sheet__trigger')).toBeVisible()
 
         if (width === 390) {
-          expect(await computed(page, '.cu-app-shell__sidebar', 'display')).toBe('none')
+          expect(await computed(page, '[data-lab-slot="app-shell"] .cu-navigation__list', 'flex-direction')).toBe('row')
           expect(columnTracks(await gridTemplateColumns(page))).toHaveLength(1)
         } else {
-          expect(await computed(page, '.cu-app-shell__sidebar', 'display')).toBe('block')
+          expect(await computed(page, '[data-lab-slot="app-shell"] .cu-navigation__list', 'flex-direction')).toBe(
+            'column',
+          )
           const tracks = columnTracks(await gridTemplateColumns(page))
           expect(tracks).toHaveLength(2)
           expect(Number.parseFloat(tracks[0] ?? '')).toBeCloseTo(width === 768 ? 192 : 256, 0)

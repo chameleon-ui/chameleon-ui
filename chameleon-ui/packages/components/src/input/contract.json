@@ -18,7 +18,8 @@
     "onChange": {
       "type": "event",
       "required": true,
-      "description": "Receives the next string value."
+      "description": "Receives the next string value.",
+      "payload": "(value: string) => void"
     },
     "label": {
       "type": "string",
@@ -114,5 +115,25 @@
     "intents": [
       "enter-text"
     ]
-  }
+  },
+  "mechanics": "Input is a labelled controlled text box. value and onChange are required. invalid reveals errorMessage and marks the control. The field stretches to its container; compact keeps a 44px target. Placeholder is not a substitute for label.",
+  "usage": [
+    "Import Input from @chameleon-ui/components. Keep the field controlled: value plus onChange.",
+    "Always pass label. When invalid is true, pass errorMessage so the error is not color-only.",
+    "Set disabled while a request is in flight."
+  ],
+  "exports": [
+    {
+      "name": "Input",
+      "kind": "component",
+      "signature": "function Input(props: InputProps): JSX.Element",
+      "description": "Labeled text field with value, onChange, disabled, and invalid."
+    },
+    {
+      "name": "InputProps",
+      "kind": "type",
+      "signature": "interface InputProps",
+      "description": "Public props for the controlled text field."
+    }
+  ]
 }

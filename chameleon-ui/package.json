@@ -43,6 +43,7 @@
     "publish:check": "node ./scripts/check-publish-ready.mjs",
     "ai:check": "node ./scripts/ai-check.mjs",
     "link:external": "node ./scripts/link-external.mjs",
+    "pack:external": "node ./scripts/pack-external.mjs",
     "perf:size": "node ./benchmarks/scripts/check-size.mjs",
     "perf:lhci": "node ./scripts/perf-lhci.mjs"
   },

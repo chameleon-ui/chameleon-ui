@@ -102,7 +102,7 @@
     },
     {
       "path": "components/typography/styles.css",
-      "content": ".cu-typography {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-typography--heading-1 {\n  font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);\n  line-height: 1.15;\n  font-weight: 700;\n}\n\n.cu-typography--heading-2 {\n  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);\n  line-height: 1.25;\n  font-weight: 700;\n}\n\n.cu-typography--body {\n  font-size: 1rem;\n  line-height: 1.6;\n}\n\n.cu-typography--caption {\n  font-size: 0.875rem;\n  line-height: 1.5;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent);\n}\n"
+      "content": ".cu-typography {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-typography--heading-1 {\n  font-size: var(--cu-typography-size-heading-1);\n  line-height: var(--cu-typography-line-height-tight);\n  font-weight: var(--cu-typography-weight-semibold, 600);\n  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);\n}\n\n.cu-typography--heading-2 {\n  font-size: var(--cu-typography-size-heading-2);\n  line-height: var(--cu-typography-line-height-snug);\n  font-weight: var(--cu-typography-weight-semibold, 600);\n  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);\n}\n\n.cu-typography--body {\n  font-size: var(--cu-typography-size-body, 1rem);\n  line-height: var(--cu-typography-line-height-body, 1.6);\n  letter-spacing: var(--cu-typography-tracking-body, 0em);\n}\n\n.cu-typography--caption {\n  font-size: var(--cu-typography-size-caption, 0.875rem);\n  line-height: var(--cu-typography-line-height-snug, 1.25);\n  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));\n}\n"
     },
     {
       "path": "components/typography/Typography.tsx",

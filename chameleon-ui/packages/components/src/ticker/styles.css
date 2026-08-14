@@ -14,6 +14,8 @@
   padding-block: var(--cu-space-2);
   padding-inline: var(--cu-space-3);
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  contain: layout style;
 }
 
 .cu-ticker__item {

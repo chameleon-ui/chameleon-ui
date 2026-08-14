@@ -39,6 +39,12 @@
       "description": "Extra rows rendered beyond the viewport.",
       "default": 6
     },
+    "width": {
+      "type": "number",
+      "required": false,
+      "description": "Max viewport inline size in px.",
+      "default": 960
+    },
     "label": {
       "type": "string",
       "required": true,
@@ -123,5 +129,11 @@
     "intents": [
       "inspect-tabular-data"
     ]
-  }
+  },
+  "mechanics": "DataGrid is a fixed-row-height window. Scroll is a passive listener coalesced to animation frames. React state updates only when the row or column window changes, not on every pixel. Rows use computeWindow; columns use computeVariableWindow on real widths. The header is position:sticky and does not read scrollTop. DOM row count stays O(viewport + overscan) at 10k rows. Table is the non-windowed semantic alternative.",
+  "usage": [
+    "Import DataGrid from @chameleon-ui/components for 10k-row views. Use Table for small semantic tables.",
+    "Pass columns, rows, and label. Set rowHeight and height so the window can be computed.",
+    "Do not turn virtualization off. Do not use variable row heights with this engine."
+  ]
 }

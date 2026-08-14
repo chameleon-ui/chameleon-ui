@@ -124,5 +124,10 @@
     "intents": [
       "visualize-data"
     ]
-  }
+  },
+  "mechanics": "Chart paints SVG. Series longer than 96 points are downsampled (first and last samples kept) so DOM node count stays O(paint budget), not O(data). Color comes from token classes, not hex in markup. This is not a WebGL engine.",
+  "usage": [
+    "Import Chart from @chameleon-ui/components. Pass label and series: Array<{ name, data }>.",
+    "Use type bar, line, or area. Long feeds are downsampled for paint; do not claim per-sample SVG nodes."
+  ]
 }

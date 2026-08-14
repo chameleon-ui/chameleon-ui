@@ -24,6 +24,8 @@ MIT 許可的 React 組件，底座為 Ark/Zag。只從正式包安裝。內測 
 
 <CopyLine code="chameleon add button" />
 
+編碼 Agent 不要從本頁猜 import。按 [編碼 Agent 整合](./guides/for-agents.mdx) 的次序呼叫 MCP：`get_import_specifiers` → `get_contract` → 再寫 JSX。
+
 ```jsx live
 function Example() {
   return (

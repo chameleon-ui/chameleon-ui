@@ -2,6 +2,7 @@ import {
   ActionSheet,
   AppShell,
   Dialog,
+  Navigation,
   SafeArea,
   Sidebar,
   Stack,
@@ -36,16 +37,7 @@ export function LabPreview({ t, labCase }: LabPreviewProps) {
         <section data-lab-slot="app-shell">
           <AppShell
             header={<Typography variant="heading-2">{t('demo.labHeading')}</Typography>}
-            sidebar={
-              <nav aria-label={t('appShell.sidebar')}>
-                <ul className="cu-demo-nav">
-                  {navItems.map((item) => (
-                    <li key={item.value}>{item.label}</li>
-                  ))}
-                </ul>
-              </nav>
-            }
-            sidebarLabel={t('appShell.sidebar')}
+            navigation={<Navigation label={t('navigation.label')} items={navItems} />}
           >
             <Stack gap="3">
               <Typography variant="body">{t('appShell.main')}</Typography>
@@ -100,8 +92,10 @@ export function LabPreview({ t, labCase }: LabPreviewProps) {
             />
           </Stack>
         </section>
+        <section className="cu-lab-tab-bar-slot" data-lab-slot="tab-bar">
+          <TabBar label={t('tabBar.label')} items={navItems} />
+        </section>
       </div>
-      <TabBar label={t('tabBar.label')} items={navItems} />
     </div>
   )
 }

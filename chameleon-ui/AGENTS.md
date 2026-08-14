@@ -2,7 +2,7 @@
 
 You are generating or editing an app that **consumes** Chameleon UI. Follow this file. Do not invent import paths. Do not copy `workspace:*` into the consumer `package.json`.
 
-SSOT for agents: this file. Longer attach notes: `docs/ai/agent-consume.md`. SchemaRenderer: `docs/ai/schema-renderer.md`.
+SSOT for agents: this file. Product spec: docs site **编码 Agent 集成** (`apps/docs/docs/guides/for-agents.mdx`). Attach notes: [`docs/ai/agent-consume.md`](../docs/ai/agent-consume.md). SchemaRenderer: [`docs/ai/schema-renderer.md`](../docs/ai/schema-renderer.md).
 
 ## NEVER
 
@@ -26,6 +26,8 @@ Also valid (same files): `@chameleon-ui/themes/dist/cupertino/variables.css`, `@
 
 Replace `cupertino` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
 
+**`line` is the visual flagship.** The others are tribute overlays. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
+
 Before writing imports, call MCP `get_import_specifiers`.
 
 ## JS
@@ -36,9 +38,31 @@ import { Button, Card, Table } from "@chameleon-ui/components";
 
 Named exports are PascalCase. Slugs are kebab-case (`data-grid` → `DataGrid`).
 
+Optional per-slug (tree-shake friendlier): `import { Button } from "@chameleon-ui/components/button"`.
+
+## App chrome
+
+Tab controller + per-tab stack. Not a marketing navbar.
+
+```tsx
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+
+<AppShell
+  header={<NavigationBar title={title} backLabel={back} onBack={canPop ? pop : undefined} />}
+  navigation={<Navigation label="Main" items={tabs} activeValue={tab} onSelect={selectTab} />}
+>
+  {screen}
+</AppShell>
+```
+
+- One `items` list. CSS morphs TabBar ↔ rail ↔ sidebar. Do **not** compose `Sidebar` + `TabBar`.
+- Switching tabs does not push. Back pops (`useTabStacks`).
+- Compact overflow: four pins + More. `Navbar` is site links only — never AppShell header.
+- Height chain: `html, body, #root { block-size: 100% }`. AppShell fills its parent. Do not set `min-block-size: 100dvh` on the shell. Do not freeze a desktop CSS Grid that fights Navigation morph.
+
 ## External app (not this pnpm workspace)
 
-Packages are `0.0.0` and **not on npm**. Node ≥ 20.19.
+Packages are `0.1.0` and **not on npm**. Node ≥ 20.19.
 
 ```bash
 cd chameleon-ui
@@ -47,7 +71,21 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-Link **all five**. Linking only `components` fails. After v0.1.0 publish (not done): `npm install` those names instead.
+Link **all five**. Linking only `components` fails. After npm publish (not done): `npm install` those names instead.
+
+Official Vite + Windows template: `templates/external-vite-react`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite`. Tarballs (still unpublished): `node ./scripts/pack-external.mjs`. Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+
+Pin at the consumer root: `react@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
+
+```tsx
+import { ThemeProvider, ToastProvider } from "@chameleon-ui/components";
+
+<ThemeProvider theme="cupertino" locale="zh-CN">
+  <ToastProvider>{app}</ToastProvider>
+</ThemeProvider>
+```
+
+Single theme: also import `@chameleon-ui/themes/<id>/css`. Multi-theme: pass `overlays` (raw CSS) so only `[data-theme]` paints.
 
 ## CLI / writes
 

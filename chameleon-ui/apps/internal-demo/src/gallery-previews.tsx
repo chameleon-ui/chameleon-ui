@@ -59,6 +59,8 @@ import {
   MindMap,
   MultiSelect,
   Navbar,
+  Navigation,
+  NavigationBar,
   Notification,
   NumberInput,
   OtpInput,
@@ -279,7 +281,7 @@ function RadioCardPreview({ t }: { t: DemoT }) {
 }
 
 function SliderPreview({ t }: { t: DemoT }) {
-  const [value, setValue] = useState(40)
+  const [value, setValue] = useState<number | readonly [number, number]>(40)
   return <Slider label={t('slider.label')} value={value} onChange={setValue} />
 }
 
@@ -519,8 +521,15 @@ const PREVIEWS: Record<string, Preview> = {
   'app-shell': (t) => (
     <AppShell
       header={<Typography variant="heading-2">{t('demo.title')}</Typography>}
-      sidebar={<Typography variant="caption">{t('appShell.sidebar')}</Typography>}
-      sidebarLabel={t('appShell.sidebar')}
+      navigation={
+        <Navigation
+          label={t('navigation.label')}
+          items={[
+            { value: 'account', label: t('tabs.account') },
+            { value: 'security', label: t('tabs.security') },
+          ]}
+        />
+      }
     >
       <Typography variant="body">{t('appShell.main')}</Typography>
     </AppShell>
@@ -839,6 +848,24 @@ const PREVIEWS: Record<string, Preview> = {
       <Typography variant="body">{t('masonry.label')}</Typography>
       <Typography variant="caption">{t('typography.body')}</Typography>
     </Masonry>
+  ),
+  navigation: (t) => (
+    <Navigation
+      collapseLabel={t('navigation.collapse')}
+      expandLabel={t('navigation.expand')}
+      items={[
+        { value: 'account', label: t('tabs.account') },
+        { value: 'security', label: t('tabs.security') },
+      ]}
+      label={t('navigation.label')}
+    />
+  ),
+  'navigation-bar': (t) => (
+    <NavigationBar
+      backLabel={t('navigationBar.back')}
+      onBack={() => undefined}
+      title={t('tabs.account')}
+    />
   ),
   navbar: (t) => (
     <Navbar

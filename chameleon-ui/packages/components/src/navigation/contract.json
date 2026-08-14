@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "navigation",
+  "name": "Navigation",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Tab controller (UITabBarController / Android BottomNavigation). One items list morphs TabBar ↔ collapsible rail ↔ sidebar. Stack chrome is NavigationBar, not this component.",
+  "scenarios": [
+    "Drive AppShell chrome with one destination list across phone, tablet, and desktop",
+    "Collapse the tablet rail without mounting a second navigation tree",
+    "Keep the same aria-current destination as the window or host container resizes",
+    "Keep a long desktop list (10+) behind More on compact instead of a second nav tree"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the navigation landmark."
+    },
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "NavigationItem[]: { value, label }. Compact pins the first maxCompactItems plus More; overflow lists in the sidebar form."
+    },
+    "header": {
+      "type": "node",
+      "required": false,
+      "description": "Optional content above the list in the sidebar form; hidden in the compact tab-bar form."
+    },
+    "activeValue": {
+      "type": "string",
+      "required": false,
+      "description": "Value of the current destination; sets aria-current."
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "Uncontrolled initial destination when activeValue is omitted."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the destination value when an item is activated. Does not push a stack.",
+      "payload": "(value: string) => void"
+    },
+    "maxCompactItems": {
+      "type": "number",
+      "required": false,
+      "description": "Compact tab-bar pins before More. Capped at 4. Extra items overflow.",
+      "default": 4
+    },
+    "moreLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Compact overflow control label.",
+      "default": "More"
+    },
+    "collapsible": {
+      "type": "boolean",
+      "required": false,
+      "description": "Render the tablet collapse toggle. CSS hides it on compact and desktop.",
+      "default": true
+    },
+    "collapsed": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled collapsed state (tablet rail)."
+    },
+    "defaultCollapsed": {
+      "type": "boolean",
+      "required": false,
+      "description": "Uncontrolled initial collapsed state.",
+      "default": false
+    },
+    "onCollapsedChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the tablet rail collapsed state changes.",
+      "payload": "(collapsed: boolean) => void"
+    },
+    "expandLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Toggle accessible name when collapsed.",
+      "default": "Expand navigation"
+    },
+    "collapseLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Toggle accessible name when expanded.",
+      "default": "Collapse navigation"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "expanded",
+      "description": "Sidebar form shows labels; compact tab-bar form always shows labels."
+    },
+    {
+      "name": "collapsed",
+      "description": "Tablet rail hides labels; items keep accessible names. Compact ignores this state."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not pass a Sidebar and a TabBar for the same destination set — that is two components, not a three-end morph.",
+    "Do not use matchMedia or a device picker to swap navigation trees.",
+    "Do not drop destinations on compact; extra items go behind More and list in the sidebar form.",
+    "Do not put the current screen title or back control here; that is NavigationBar (the stack)."
+  ],
+  "a11y": {
+    "role": "navigation",
+    "keyboard": [
+      "Tab moves through items, More, and the tablet toggle",
+      "Enter/Space activates the focused item; Escape closes More"
+    ],
+    "focus": "One landmark stays in the tab order at every breakpoint; CSS hide of the toggle removes it from painting, not from the accessibility tree until display:none applies.",
+    "labeling": "The nav is labelled via the label prop; collapsed items keep aria-label text.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.1",
+      "2.5.5",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "One DOM tree. Compact is a tab bar of up to four pins plus More. Overflow items list in the sidebar form at 48rem. No second navigation tree.",
+    "breakpoints": {
+      "compact": "Up to four pins plus More; extra destinations open in a sheet above the bar.",
+      "medium": "Vertical collapsible sidebar listing every destination, including overflow.",
+      "large": "Persistent 16rem sidebar listing every destination; More and the collapse toggle hide."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; item order follows the document direction; the collapse chevron mirrors under [dir=rtl].",
+    "mirroredValues": [
+      "collapse-chevron"
+    ]
+  },
+  "dataAi": {
+    "role": "navigation",
+    "states": [
+      "expanded",
+      "collapsed"
+    ],
+    "intents": [
+      "navigate-sections"
+    ]
+  },
+  "mechanics": "Navigation is the tab controller (UITabBarController / BottomNavigation): one items list, one DOM tree. Named-container CSS on AppShell restyles that tree — compact is a tab bar (first N pins + More), medium is a 12rem collapsible rail, large is a 16rem sidebar. onSelect(value) switches the current destination and must not push a stack; stack chrome is NavigationBar plus useTabStacks. splitNavigationItems(items, maxCompactItems) is the same compact/overflow split the component uses. Do not mount Sidebar and TabBar for the same destinations.",
+  "usage": [
+    "Import Navigation from @chameleon-ui/components. Do not import workspace:* or packages/components/src.",
+    "Pass label and one items list. Bind activeValue and onSelect; selecting a tab must not push.",
+    "Place the same Navigation node in AppShell navigation so CSS morphs TabBar to sidebar.",
+    "Pair with NavigationBar and useTabStacks so back pops only the active tab stack.",
+    "Optional: bind collapsed and onCollapsedChange for the tablet rail. CSS hides the toggle on compact and desktop."
+  ],
+  "exports": [
+    {
+      "name": "Navigation",
+      "kind": "component",
+      "signature": "function Navigation(props: NavigationProps): JSX.Element",
+      "description": "Tab controller that morphs TabBar, rail, and sidebar from one items list."
+    },
+    {
+      "name": "splitNavigationItems",
+      "kind": "function",
+      "signature": "splitNavigationItems(items: NavigationItem[], maxCompactItems?: number)",
+      "description": "Same compact/overflow split the component uses. Cap is 4 pins."
+    },
+    {
+      "name": "NavigationItem",
+      "kind": "type",
+      "signature": "{ value: string; label: ReactNode }",
+      "description": "One root destination. value is the onSelect argument."
+    },
+    {
+      "name": "NavigationProps",
+      "kind": "type",
+      "signature": "interface NavigationProps",
+      "description": "Public props for Navigation, including onSelect and onCollapsedChange."
+    }
+  ]
+}

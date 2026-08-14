@@ -19,6 +19,14 @@ describe('Sparkline', () => {
     expect(screen.getByRole('img', { name: 'Latency trend' })).toHaveAttribute('data-ai-state', 'empty')
   })
 
+  it('does not emit one SVG point per sample on a long series', () => {
+    const data = Array.from({ length: 4000 }, (_, index) => index)
+    render(<Sparkline data={data} label="Latency trend" width={96} />)
+    const svg = screen.getByRole('img', { name: 'Latency trend' })
+    const points = svg.querySelector('polyline')?.getAttribute('points') ?? ''
+    expect(points.split(' ').length).toBeLessThanOrEqual(96)
+  })
+
   it('reads bundled locale messages', () => {
     const catalog = createCatalog(en)
     expect(requireMessage(catalog, 'sparkline.label')).toBeDefined()

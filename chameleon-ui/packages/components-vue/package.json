@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/components-vue",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -12,6 +12,7 @@
   "type": "module",
   "description": "Vue component implementations. Import primitives-vue and tokens; never @ark-ui/*.",
   "files": ["dist", "src", "README.md", "LICENSE"],
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

@@ -50,12 +50,20 @@ for (const name of packageDirs) {
   if (pkg.license !== 'MIT') fail(`${pkg.name} license must be MIT`)
   if (pkg.publishConfig?.access !== 'public') fail(`${pkg.name} needs publishConfig.access=public`)
   if (!(await exists(join(packagesRoot, name, 'LICENSE')))) fail(`${pkg.name} missing LICENSE file`)
-  if (pkg.version !== '0.0.0') {
-    fail(`${pkg.name} is ${pkg.version}; first public tag is still v0.1.0. Do not pretend it was published.`)
+  if (pkg.version !== '0.1.0') {
+    fail(`${pkg.name} is ${pkg.version}; product version is 0.1.0. This repo still does not npm publish.`)
   }
   if (pkg.engines?.node !== '>=20.19.0') {
     fail(`${pkg.name} engines.node must be >=20.19.0 (Node 18 is unsupported)`)
   }
+}
+
+function cssExportTarget(entry) {
+  if (typeof entry === 'string') return entry
+  if (entry && typeof entry === 'object') {
+    return entry.style ?? entry.default ?? entry.import
+  }
+  return undefined
 }
 
 const themeIds = [
@@ -72,18 +80,37 @@ const themesPkg = JSON.parse(await readFile(join(packagesRoot, 'themes', 'packag
 if (themesPkg.exports?.['./dist/*'] !== './dist/*') {
   fail('@chameleon-ui/themes must export ./dist/* so dist/<id>/variables.css specifiers resolve')
 }
+if (!Array.isArray(themesPkg.sideEffects) || !themesPkg.sideEffects.includes('**/*.css')) {
+  fail('@chameleon-ui/themes must declare sideEffects for CSS')
+}
 for (const id of themeIds) {
-  if (themesPkg.exports?.[`./${id}/css`] !== `./dist/${id}/variables.css`) {
+  if (cssExportTarget(themesPkg.exports?.[`./${id}/css`]) !== `./dist/${id}/variables.css`) {
     fail(`@chameleon-ui/themes missing canonical CSS export ./${id}/css`)
   }
 }
 
 const tokensPkg = JSON.parse(await readFile(join(packagesRoot, 'tokens', 'package.json'), 'utf8'))
-if (tokensPkg.exports?.['./css'] !== './dist/css/variables.css') {
+if (cssExportTarget(tokensPkg.exports?.['./css']) !== './dist/css/variables.css') {
   fail('@chameleon-ui/tokens missing canonical ./css export')
 }
 if (tokensPkg.exports?.['./dist/*'] !== './dist/*') {
   fail('@chameleon-ui/tokens must export ./dist/* so dist/css/variables.css specifiers resolve')
+}
+if (!Array.isArray(tokensPkg.sideEffects) || !tokensPkg.sideEffects.includes('**/*.css')) {
+  fail('@chameleon-ui/tokens must declare sideEffects for CSS')
+}
+
+const componentsPkg = JSON.parse(await readFile(join(packagesRoot, 'components', 'package.json'), 'utf8'))
+if (!Array.isArray(componentsPkg.sideEffects) || !componentsPkg.sideEffects.includes('**/*.css')) {
+  fail('@chameleon-ui/components must declare sideEffects for CSS')
+}
+if (!componentsPkg.exports?.['./*']) {
+  fail('@chameleon-ui/components must export ./* for per-slug imports')
+}
+
+const primitivesPkg = JSON.parse(await readFile(join(packagesRoot, 'primitives', 'package.json'), 'utf8'))
+if (primitivesPkg.peerDependencies?.['@ark-ui/react'] !== '5.38.0') {
+  fail('@chameleon-ui/primitives must peer @ark-ui/react@5.38.0')
 }
 
 const appsRoot = join(root, 'apps')

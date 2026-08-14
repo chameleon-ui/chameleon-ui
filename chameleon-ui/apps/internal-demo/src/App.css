@@ -6,6 +6,8 @@
 
 [data-theme='line'] {
   font-family: system-ui, sans-serif;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
 }
 
 [data-theme='silver-arrow'] {
@@ -47,9 +49,27 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  block-size: 100%;
+}
+
+html.cu-demo-vr,
+html.cu-demo-vr body,
+html.cu-demo-vr #root,
+html.cu-demo-adaptive,
+html.cu-demo-adaptive body,
+html.cu-demo-adaptive #root,
+html.cu-demo-three-end-stage,
+html.cu-demo-three-end-stage body,
+html.cu-demo-three-end-stage #root {
+  overflow: hidden;
+}
+
 body {
   min-inline-size: 20rem;
-  min-block-size: 100vh;
+  min-block-size: 100%;
   margin: 0;
 }
 
@@ -58,11 +78,6 @@ input,
 select,
 textarea {
   font: inherit;
-}
-
-.cu-demo-vr,
-.cu-demo-vr body {
-  overflow: hidden;
 }
 
 .cu-demo-kicker {
@@ -109,15 +124,40 @@ textarea {
   cursor: pointer;
 }
 
-/* Full-window gallery chrome: TabBar / sidebar follow the shell container, not a click. */
+/* Demo inspector is not app chrome — theme/locale live outside UIKit-like shell. */
 .cu-demo-adaptive {
+  display: flex;
+  flex-direction: column;
   container-type: inline-size;
-  min-block-size: 100vh;
+  block-size: 100%;
+  min-block-size: 0;
+  overflow: hidden;
 }
 
-.cu-demo-adaptive .cu-three-end-shell,
-.cu-demo-adaptive .cu-three-end-shell .cu-app-shell__frame {
-  min-block-size: 100vh;
+.cu-demo-inspector {
+  flex: none;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(--cu-color-background-elevated, var(--cu-color-background-default));
+}
+
+.cu-demo-adaptive > .cu-three-end-stage,
+.cu-demo-adaptive > .cu-app-shell {
+  flex: 1 1 0;
+  min-block-size: 0;
+  max-block-size: none;
+  block-size: auto;
+  overflow: hidden;
+}
+
+.cu-demo-adaptive > .cu-three-end-stage .cu-three-end-shell,
+.cu-demo-adaptive > .cu-three-end-stage .cu-three-end-shell .cu-app-shell__frame,
+.cu-demo-adaptive > .cu-app-shell .cu-app-shell__frame {
+  flex: 1 1 0;
+  block-size: auto;
+  min-block-size: 0;
+  max-block-size: none;
 }
 
 .cu-demo-adaptive-hint {
@@ -232,6 +272,8 @@ textarea {
 .cu-demo-section[data-demo-slug='app-shell'] .cu-app-shell,
 .cu-demo-section[data-demo-slug='app-shell'] .cu-app-shell__frame {
   min-block-size: 12rem;
+  max-block-size: 12rem;
+  block-size: 12rem;
 }
 
 .cu-demo-canvas-host {
@@ -289,7 +331,11 @@ html.cu-demo-blind body {
   inline-size: 100%;
 }
 
-/* Lab chrome only — does not override env() padding on .cu-safe-area. */
+.cu-lab-tab-bar-slot .cu-tab-bar {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+}
 .cu-lab-safe-area-slot {
   margin-block: var(--cu-space-3);
   margin-inline: var(--cu-space-3);
@@ -413,12 +459,19 @@ html.cu-demo-three-end-stage body {
 }
 
 .cu-three-end-live .cu-three-end-stage {
-  min-block-size: calc(100vh - 7rem);
+  flex: 1 1 0;
+  min-block-size: 0;
+  max-block-size: none;
+  block-size: auto;
+  overflow: hidden;
 }
 
 .cu-three-end-live .cu-three-end-shell,
 .cu-three-end-live .cu-three-end-shell .cu-app-shell__frame {
-  min-block-size: calc(100vh - 7rem);
+  flex: 1 1 0;
+  block-size: auto;
+  min-block-size: 0;
+  max-block-size: none;
 }
 
 .cu-three-end-live .cu-three-end-overlay-well {
@@ -470,14 +523,25 @@ html.cu-demo-three-end-stage body {
   container-type: inline-size;
   display: flex;
   flex-direction: column;
-  min-block-size: 100vh;
+  block-size: 100%;
+  min-block-size: 0;
+  overflow: hidden;
   color: var(--cu-color-fg-default);
   background: var(--cu-color-background-default);
 }
 
 .cu-three-end-stage .cu-three-end-shell,
 .cu-three-end-stage .cu-three-end-shell .cu-app-shell__frame {
-  min-block-size: 100%;
+  flex: 1 1 0;
+  block-size: auto;
+  min-block-size: 0;
+  max-block-size: none;
+}
+
+html.cu-demo-three-end-stage,
+html.cu-demo-three-end-stage body,
+html.cu-demo-three-end-stage #root {
+  block-size: 100%;
 }
 
 html.cu-demo-three-end-stage .cu-three-end-stage .cu-three-end-shell,
@@ -524,93 +588,10 @@ html.cu-demo-three-end-stage .cu-three-end-stage .cu-three-end-shell .cu-app-she
   background: var(--cu-color-background-default);
 }
 
-html.cu-demo-three-end-stage:not([data-end='proof']) .cu-dialog__positioner,
-html.cu-demo-three-end-stage:not([data-end='proof']) .cu-action-sheet__positioner,
-html.cu-demo-three-end-stage:not([data-end='proof']) .cu-dialog__backdrop,
-html.cu-demo-three-end-stage:not([data-end='proof']) .cu-action-sheet__backdrop {
-  inset-block-start: auto;
-  inset-block-end: 0;
-  block-size: 22rem;
-  max-block-size: 22rem;
-}
-
-.cu-three-end-proof {
-  min-block-size: 100vh;
-  padding-block: var(--cu-space-3);
-  padding-inline: var(--cu-space-3);
-}
-
-.cu-three-end-proof > .cu-stack {
-  min-block-size: calc(100vh - 2 * var(--cu-space-3));
-}
-
-.cu-three-end-proof-grid {
-  display: grid;
-  flex: 1 1 auto;
-  grid-template-columns: 20rem minmax(0, 1fr);
-  gap: var(--cu-space-3);
-  align-items: stretch;
-}
-
-.cu-three-end-proof-narrow {
-  display: flex;
-  flex-direction: column;
-  inline-size: 20rem;
-  max-inline-size: 100%;
-  margin-inline-end: auto;
-  border: 2px dashed var(--cu-color-palette-brand);
-  background: var(--cu-color-background-default);
-}
-
-.cu-three-end-rulers {
-  display: flex;
-  flex-direction: column;
-  gap: var(--cu-space-1);
-}
-
-.cu-three-end-ruler-line {
-  display: flex;
-  align-items: center;
-  min-block-size: 1.5rem;
-  padding-inline: var(--cu-space-2);
-  border: 1px solid var(--cu-color-border-default);
-  font-size: 0.75rem;
-  font-weight: 700;
-}
-
-.cu-three-end-ruler-line--viewport {
-  inline-size: 100%;
-  background: color-mix(in srgb, var(--cu-color-palette-brand) 18%, var(--cu-color-background-default));
-}
-
-.cu-three-end-ruler-line--container {
-  inline-size: 20rem;
-  max-inline-size: 100%;
-  background: color-mix(in srgb, var(--cu-color-palette-brand) 42%, var(--cu-color-background-default));
-}
-
-.cu-three-end-proof-wide .cu-three-end-shell--proof-wide,
-.cu-three-end-proof-wide .cu-three-end-shell--proof-wide .cu-app-shell__frame {
-  min-block-size: 28rem;
-}
-
-.cu-three-end-proof-narrow .cu-three-end-shell--proof-narrow,
-.cu-three-end-proof-narrow .cu-three-end-shell--proof-narrow .cu-app-shell__frame {
-  min-block-size: 16rem;
-}
-
-.cu-three-end-proof-narrow .cu-three-end-overlay-well {
-  min-block-size: 22rem;
-}
-
-html.cu-demo-three-end-stage[data-end='proof'] .cu-dialog__positioner,
-html.cu-demo-three-end-stage[data-end='proof'] .cu-action-sheet__positioner,
-html.cu-demo-three-end-stage[data-end='proof'] .cu-dialog__backdrop,
-html.cu-demo-three-end-stage[data-end='proof'] .cu-action-sheet__backdrop {
-  inset-inline-start: 0;
-  inset-inline-end: auto;
-  inline-size: 20rem;
-  max-inline-size: 20rem;
+html.cu-demo-three-end-stage .cu-dialog__positioner,
+html.cu-demo-three-end-stage .cu-action-sheet__positioner,
+html.cu-demo-three-end-stage .cu-dialog__backdrop,
+html.cu-demo-three-end-stage .cu-action-sheet__backdrop {
   inset-block-start: auto;
   inset-block-end: 0;
   block-size: 22rem;

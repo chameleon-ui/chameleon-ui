@@ -12,6 +12,8 @@ import {
   Icon,
   Input,
   MarkdownRenderer,
+  Navigation,
+  NavigationBar,
   Popover,
   Radio,
   Select,
@@ -27,6 +29,7 @@ import {
   Toast,
   Tooltip,
   Typography,
+  useTabStacks,
 } from '@chameleon-ui/components'
 import { useState, type ReactNode } from 'react'
 
@@ -69,7 +72,7 @@ const EXAMPLES: Record<string, ComponentExample> = {
       {
         id: 'common',
         labelKey: SNIP_COMBO,
-        code: `<Stack direction="row" gap="2" align="center">\n  <Button variant="solid">Confirm</Button>\n  <Button variant="outline">Cancel</Button>\n  <Button size="sm" variant="outline">Compact</Button>\n  <Button disabled>Disabled</Button>\n</Stack>`,
+        code: `<Stack direction="row" gap="2" align="center">\n  <Button variant="solid">Confirm</Button>\n  <Button variant="outline">Cancel</Button>\n  <Button variant="ghost" tone="danger">Delete</Button>\n  <Button loading>Saving</Button>\n  <Button disabled>Disabled</Button>\n</Stack>`,
       },
     ],
   },
@@ -192,7 +195,18 @@ const EXAMPLES: Record<string, ComponentExample> = {
   },
   toast: {
     live: StatefulToast,
-    snippets: [{ id: 'minimal', labelKey: SNIP_MIN, code: `<Toast open={open} title="Saved" description="Done." closeLabel="Close" onOpenChange={setOpen} />` }],
+    snippets: [
+      {
+        id: 'minimal',
+        labelKey: SNIP_MIN,
+        code: `<Toast open={open} title="Saved" description="Done." closeLabel="Close" onOpenChange={setOpen} />`,
+      },
+      {
+        id: 'common',
+        labelKey: SNIP_COMBO,
+        code: `<ToastProvider>\n  <SaveButton />\n</ToastProvider>\n\nfunction SaveButton() {\n  const toast = useToast()\n  return <Button onClick={() => toast.push({ title: 'Saved', status: 'success' })}>Save</Button>\n}`,
+      },
+    ],
   },
   alert: {
     live: () => <Alert title="Alert" description="Semantic color comes from the active theme tokens." />,
@@ -214,14 +228,113 @@ const EXAMPLES: Record<string, ComponentExample> = {
     snippets: [{ id: 'minimal', labelKey: SNIP_MIN, code: `<Popover trigger={<Button variant="outline">Open</Button>} title="Popover" description="�? closeLabel="Close" />` }],
   },
   'app-shell': {
-    live: () => (
-      <div className="cu-docs-mini-shell">
-        <AppShell header={<span>Header</span>} sidebar={<span>Nav</span>} sidebarLabel="Preview">
-          Main
-        </AppShell>
-      </div>
-    ),
-    snippets: [{ id: 'minimal', labelKey: SNIP_MIN, code: `<AppShell header={…} sidebar={…} sidebarLabel="Nav">�?/AppShell>` }],
+    live: AppShellPlayground,
+    snippets: [
+      {
+        id: 'minimal',
+        labelKey: SNIP_MIN,
+        code: `import { AppShell, Navigation, NavigationBar } from '@chameleon-ui/components'
+
+<AppShell
+  header={<NavigationBar title="Home" />}
+  navigation={
+    <Navigation
+      label="Main"
+      items={items}
+      activeValue={tab}
+      onSelect={selectTab}
+    />
+  }
+>
+  {children}
+</AppShell>`,
+      },
+      {
+        id: 'common',
+        labelKey: SNIP_COMBO,
+        code: `import { AppShell, Navigation, NavigationBar, useTabStacks } from '@chameleon-ui/components'
+
+const tabs = [
+  { value: 'home', title: 'Home' },
+  { value: 'search', title: 'Search' },
+]
+const stacks = useTabStacks(tabs)
+
+<AppShell
+  header={
+    <NavigationBar
+      title={stacks.current.title}
+      backLabel={stacks.previous?.title}
+      onBack={stacks.canPop ? stacks.pop : undefined}
+    />
+  }
+  navigation={
+    <Navigation
+      label="Main"
+      items={tabs.map((tab) => ({ value: tab.value, label: tab.title }))}
+      activeValue={stacks.tab}
+      onSelect={stacks.selectTab}
+    />
+  }
+>
+  {children}
+</AppShell>`,
+      },
+    ],
+  },
+  navigation: {
+    live: NavigationPlayground,
+    snippets: [
+      {
+        id: 'minimal',
+        labelKey: SNIP_MIN,
+        code: `import { Navigation } from '@chameleon-ui/components'
+
+const [active, setActive] = useState('home')
+
+<Navigation
+  label="Main"
+  items={[
+    { value: 'home', label: 'Home' },
+    { value: 'search', label: 'Search' },
+    { value: 'library', label: 'Library' },
+    { value: 'messages', label: 'Messages' },
+    { value: 'orders', label: 'Orders' },
+  ]}
+  activeValue={active}
+  onSelect={setActive}
+  moreLabel="More"
+/>`,
+      },
+    ],
+  },
+  'navigation-bar': {
+    live: NavigationBarPlayground,
+    snippets: [
+      {
+        id: 'minimal',
+        labelKey: SNIP_MIN,
+        code: `import { NavigationBar, useTabStacks } from '@chameleon-ui/components'
+
+const stacks = useTabStacks([
+  { value: 'library', title: 'Library' },
+  { value: 'search', title: 'Search' },
+])
+
+<NavigationBar
+  title={stacks.current.title}
+  backLabel={stacks.previous?.title}
+  onBack={stacks.canPop ? stacks.pop : undefined}
+/>`,
+      },
+      {
+        id: 'common',
+        labelKey: SNIP_COMBO,
+        code: `stacks.selectTab(value) // switch tab — does not push
+stacks.push({ id: 'album', title: 'Album' })
+stacks.pop() // wire to NavigationBar onBack`,
+      },
+    ],
   },
   stack: {
     live: () => (
@@ -303,20 +416,24 @@ function PlaygroundFrame({ children }: { children: ReactNode }) {
 }
 
 export function ButtonPlayground() {
-  const [variant, setVariant] = useState<'solid' | 'outline'>('solid')
+  const [variant, setVariant] = useState<'solid' | 'outline' | 'ghost'>('solid')
   const [size, setSize] = useState<'sm' | 'md'>('md')
+  const [tone, setTone] = useState<'brand' | 'danger'>('brand')
   const [disabled, setDisabled] = useState(false)
+  const [loading, setLoading] = useState(false)
   return (
     <Playground
       controls={
         <>
-          <Control label="variant" value={variant} options={['solid', 'outline']} onChange={(v) => setVariant(v as 'solid' | 'outline')} />
+          <Control label="variant" value={variant} options={['solid', 'outline', 'ghost']} onChange={(v) => setVariant(v as 'solid' | 'outline' | 'ghost')} />
           <Control label="size" value={size} options={['sm', 'md']} onChange={(v) => setSize(v as 'sm' | 'md')} />
+          <Control label="tone" value={tone} options={['brand', 'danger']} onChange={(v) => setTone(v as 'brand' | 'danger')} />
           <Toggle label="disabled" checked={disabled} onChange={setDisabled} />
+          <Toggle label="loading" checked={loading} onChange={setLoading} />
         </>
       }
     >
-      <Button variant={variant} size={size} disabled={disabled}>
+      <Button loading={loading} size={size} tone={tone} variant={variant} disabled={disabled}>
         Action
       </Button>
     </Playground>
@@ -439,6 +556,78 @@ export function CardPlayground() {
         <Typography variant="body">Groups related content and actions.</Typography>
       </Card>
     </Playground>
+  )
+}
+
+const PREVIEW_TABS = [
+  { value: 'home', title: 'Home' },
+  { value: 'search', title: 'Search' },
+  { value: 'library', title: 'Library' },
+  { value: 'messages', title: 'Messages' },
+  { value: 'orders', title: 'Orders' },
+]
+
+function AppShellPlayground() {
+  const stacks = useTabStacks(PREVIEW_TABS)
+  return (
+    <div className="cu-docs-mini-shell cu-docs-mini-shell--tall">
+      <AppShell
+        header={
+          <NavigationBar
+            title={stacks.current.title}
+            backLabel={stacks.previous?.title}
+            onBack={stacks.canPop ? stacks.pop : undefined}
+            trailing={
+              <Button size="sm" onClick={() => stacks.push({ id: 'detail', title: 'Detail' })}>
+                Open
+              </Button>
+            }
+          />
+        }
+        navigation={
+          <Navigation
+            label="Preview"
+            items={PREVIEW_TABS.map((tab) => ({ value: tab.value, label: tab.title }))}
+            activeValue={stacks.tab}
+            onSelect={stacks.selectTab}
+            moreLabel="More"
+          />
+        }
+      >
+        {stacks.current.title}
+      </AppShell>
+    </div>
+  )
+}
+
+function NavigationPlayground() {
+  const [active, setActive] = useState('home')
+  return (
+    <Navigation
+      label="Preview"
+      items={PREVIEW_TABS.map((tab) => ({ value: tab.value, label: tab.title }))}
+      activeValue={active}
+      onSelect={setActive}
+      moreLabel="More"
+    />
+  )
+}
+
+function NavigationBarPlayground() {
+  const stacks = useTabStacks(PREVIEW_TABS.slice(0, 2))
+  return (
+    <PlaygroundFrame>
+      <NavigationBar
+        title={stacks.current.title}
+        backLabel={stacks.previous?.title}
+        onBack={stacks.canPop ? stacks.pop : undefined}
+        trailing={
+          <Button size="sm" onClick={() => stacks.push({ id: 'album', title: 'Album' })}>
+            Open
+          </Button>
+        }
+      />
+    </PlaygroundFrame>
   )
 }
 

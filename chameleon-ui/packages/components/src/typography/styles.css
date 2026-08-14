@@ -4,24 +4,27 @@
 }
 
 .cu-typography--heading-1 {
-  font-size: clamp(1.75rem, 4vw + 1rem, 2.5rem);
-  line-height: 1.15;
-  font-weight: 700;
+  font-size: var(--cu-typography-size-heading-1);
+  line-height: var(--cu-typography-line-height-tight);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
 }
 
 .cu-typography--heading-2 {
-  font-size: clamp(1.5rem, 3vw + 1rem, 2rem);
-  line-height: 1.25;
-  font-weight: 700;
+  font-size: var(--cu-typography-size-heading-2);
+  line-height: var(--cu-typography-line-height-snug);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
 }
 
 .cu-typography--body {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: var(--cu-typography-size-body, 1rem);
+  line-height: var(--cu-typography-line-height-body, 1.6);
+  letter-spacing: var(--cu-typography-tracking-body, 0em);
 }
 
 .cu-typography--caption {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent);
+  font-size: var(--cu-typography-size-caption, 0.875rem);
+  line-height: var(--cu-typography-line-height-snug, 1.25);
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
 }

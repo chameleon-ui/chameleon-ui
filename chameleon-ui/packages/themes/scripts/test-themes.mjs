@@ -131,23 +131,26 @@ async function main() {
     }
 
     if (themeId === "line") {
-      assert(css.includes("--cu-radius-sm: 2px"), "line: tiny sm radius 2px");
-      assert(css.includes("--cu-radius-md: 4px"), "line: tiny md radius 4px");
-      assert(css.includes("--cu-radius-lg: 6px"), "line: tiny lg radius 6px");
+      assert(css.includes("--cu-radius-sm: 4px"), "line: hairline sm radius 4px");
+      assert(css.includes("--cu-radius-md: 8px"), "line: hairline md radius 8px");
+      assert(css.includes("--cu-radius-lg: 12px"), "line: hairline lg radius 12px");
       assert(css.includes("--cu-blur-surface: 0px"), "line: blur must be zero (no glass)");
       assert(css.includes("--cu-blur-overlay: 0px"), "line: overlay blur must be zero");
       assert(css.includes("--cu-blur-thick: 0px"), "line: thick blur must be zero");
-      assert(css.includes("--cu-shadow-sm: none"), "line: flat / hairline, not drop-shadow-heavy");
-      assert(css.includes("--cu-motion-duration-fast: 80ms"), "line: snappy 80ms");
-      assert(css.includes("--cu-motion-duration-base: 120ms"), "line: 120ms base, no bounce");
+      assert(css.includes("--cu-shadow-sm: 0 1px 2px"), "line: whisper elevation, not drop-shadow-heavy");
+      assert(!css.includes("--cu-shadow-sm: none"), "line: cards need a hairline shadow");
+      assert(css.includes("--cu-motion-duration-fast: 120ms"), "line: snappy 120ms");
+      assert(css.includes("--cu-motion-duration-base: 180ms"), "line: 180ms base, no bounce");
       assert(
         css.includes("--cu-motion-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1)"),
         "line: standard ease, no overshoot",
       );
-      assert(css.includes("--cu-color-palette-brand: #111827"), "line: ink brand");
-      assert(css.includes("--cu-color-background-subtle: #f4f5f6"), "line: cool canvas");
+      assert(css.includes("--cu-color-palette-brand: #171717"), "line: ink brand");
+      assert(css.includes("--cu-color-background-subtle: #f4f3ef"), "line: warm canvas");
+      assert(css.includes("--cu-color-background-elevated: #ffffff"), "line: paper rail");
       assert(css.includes("cu-effects:line"), "line: effects.css must be concatenated");
       assert(css.includes("Theme effects overlay"), "line: effects overlay marker");
+      assert(!css.includes("background-size: 16px 16px"), "line: no scaffold grid on main");
       assert(!hasOvershootBezier(css), "line: motion must not use overshoot (no bounce easing)");
       assert(!css.includes("linear-gradient"), "line: gradientPolicy forbidden");
       assert(
@@ -158,6 +161,8 @@ async function main() {
       assert(designRules.composition.surfaceHierarchy === "flat", "line: flat hierarchy");
       assert(designRules.forbiddenPatterns.includes("spring-easing"), "line: forbids spring-easing");
       assert(designRules.forbiddenPatterns.includes("elastic-bounce"), "line: forbids elastic-bounce");
+      assert(designRules.forbiddenPatterns.includes("scaffold-grid"), "line: forbids scaffold grid");
+      assert(designRules.typography.tracking === "tight", "line: tight tracking");
     }
 
     if (themeId === "ant-blue") {
@@ -216,9 +221,14 @@ async function main() {
 
   const pkg = JSON.parse(await readFile(path.join(packageRoot, "package.json"), "utf8"));
   assert(pkg.exports["./dist/*"] === "./dist/*", "package exports must alias ./dist/* (filesystem-shaped CSS imports)");
+  function cssExportTarget(entry) {
+    if (typeof entry === "string") return entry;
+    if (entry && typeof entry === "object") return entry.style ?? entry.default ?? entry.import;
+    return undefined;
+  }
   for (const themeId of themeIds) {
     assert(
-      pkg.exports[`./${themeId}/css`] === `./dist/${themeId}/variables.css`,
+      cssExportTarget(pkg.exports[`./${themeId}/css`]) === `./dist/${themeId}/variables.css`,
       `${themeId}: canonical CSS export ./<id>/css missing`,
     );
   }

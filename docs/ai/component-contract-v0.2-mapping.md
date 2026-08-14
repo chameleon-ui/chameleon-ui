@@ -26,6 +26,12 @@
 | `rtl` | `rtlBehavior` | supported/strategy/mirroredValues | 键改名 |
 | `dataAi` | （报告 §8.1 运行时标注的契约侧声明） | role/states/intents 词表 | 报告无独立字段；v0.2 起必填 |
 | `telemetry` | （预留） | 埋点 hook 名占位，默认不发送 | 报告无独立字段 |
+| `mechanics` | （可选） | 工作原理：morph、状态、配对 | 报告无独立字段；缺省时文档从 purpose + responsive 合成 |
+| `usage` | （可选） | 有序使用步骤 | 报告无独立字段；缺省时文档从 required props / events / scenarios 合成 |
+| `exports` | （可选） | 包导出：component / hook / function / type | 报告无独立字段；缺省时文档合成组件名 |
+| `props.*.payload` | （可选） | 事件回调签名 | 仅 `type=event` 有意义 |
+
+v0.2 增补（非破坏）：`mechanics` / `usage` / `exports` / `props.payload` 均为 optional。现有契约不写这些键仍然合法。
 
 ## v0.1 → v0.2 破坏性变更清单
 

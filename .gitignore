@@ -19,3 +19,4 @@ blob-report/
 .env.*
 chameleon-ui/benchmarks/reports/.lhci-tmp/
 chameleon-ui/benchmarks/reports/.chrome-user-data/
+chameleon-ui/dist-tarballs/

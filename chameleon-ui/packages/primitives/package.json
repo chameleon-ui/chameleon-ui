@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/primitives",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -25,9 +25,11 @@
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
+  "sideEffects": false,
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "@ark-ui/react": "5.38.0"
   },
   "dependencies": {
     "@ark-ui/react": "5.38.0"

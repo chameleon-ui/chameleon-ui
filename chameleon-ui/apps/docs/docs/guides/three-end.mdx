@@ -1,39 +1,53 @@
 ---
 title: 三端一体
 sidebar_label: 三端一体
-description: 同一页三种可见形态：手机 TabBar、桌面侧栏、容器查询实证。不是换 Token。
+description: 同一 API，容器宽度驱动形态。Navigation 是 Tab 控制器；NavigationBar 是栈铬件。不是换 Token，不是 Sidebar+TabBar。
 ---
 
-三端一体不是换一套色板。愿景 v3.0 §7.1 要求同一 API 在手机 / 平板 / 桌面变成不同的导航、浮层和密度。
+三端一体是 **同一棵组件树** 随容器 inline-size 变形，不是换色板，也不是 `matchMedia` 换两套导航。
 
-**打开内测 Demo，30 秒内应能看见形态差：**
+断点是 Token（`48rem` / `80rem`），不是组件 CSS 里的 `768px` 字面量。规范：仓库 `docs/engineering/容器查询与三端规范.md`。
 
-[http://127.0.0.1:5175/?view=three-end](http://127.0.0.1:5175/?view=three-end)
+## 双控制器
 
-建议加上 `&locale=zh-CN`。视口开关是 **手机 390 / 平板 768 / 桌面 1280**。每个框里是真实组件，不是示意图。
+| 角色 | 组件 | 窄容器 | ≥48rem | ≥80rem |
+| :--- | :--- | :--- | :--- | :--- |
+| 根目的地 | `Navigation`（`AppShell.navigation`） | 底部栏形态（最多 4 钉 + 更多） | 12rem 可折叠侧栏 | 16rem 持久侧栏 |
+| 栈 | `NavigationBar`（`AppShell.header`） | 标题居中，返回在前 | 标题靠前 | 同左 |
+| 浮层 | 同一个 `Dialog` | 贴底 | 居中 | 居中 |
+| 密度 | `tokens/density.css` | comfortable，触控 ≥44px | standard | compact |
 
-## 能看见什么
+`ActionSheet` 是独立动作列表。不要把它当成 Dialog 的桌面形态。`Sidebar` 与 `TabBar` 仍存在，只用于 **故意单形态** 的铬件；三端路径必须用 `Navigation`。`Navbar` 是站点链接，不是 AppShell 栈。
 
-| 端 | 导航 | 浮层 | 密度 |
-| :--- | :--- | :--- | :--- |
-| 手机 \<768 | 底部 `TabBar`，`AppShell` 侧栏藏起 | `ActionSheet` 贴底（同一任务在桌面是 `Dialog`） | comfortable，`--cu-control-size-active` ≥44px |
-| 平板 768–1279 | 可折叠 `Sidebar` + `TabBar` | 居中 `Dialog` | standard |
-| 桌面 ≥1280 | 持久 `Sidebar`，无 `TabBar` | 居中 `Dialog` | compact |
+## 应用接线
 
-悬停只在精细指针上：桌面 `HoverCard`，手机改成点按 `Popover` / `Collapse`。标题用 `clamp` 流变。
-
-## 容器查询实证（A5.3）
-
-同一页下方有一个 **1280 宽的 iframe**，里面嵌了 **320px 灰盒**。如果组件跟窗口，这里会出现侧栏、对话框会居中。实际：侧栏藏了、`Dialog` 贴底——跟的是**盒子**，不是窗口。
-
-实验室页 `/?view=lab` 仍给视觉回归用。人眼对照请走 `/?view=three-end`。
-
-## 应用里怎么接
-
-```ts
+```tsx
 import "@chameleon-ui/themes/cupertino/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+
+<AppShell
+  header={<NavigationBar title={title} onBack={canPop ? pop : undefined} />}
+  navigation={<Navigation label="Main" items={tabs} activeValue={tab} onSelect={onSelect} />}
+>
+  {screen}
+</AppShell>
 ```
 
-只引 `tokens/css` 时密度停在 standard，不会随端切换。组件 CSS 禁止写视口宽度媒体查询；断点在 Token，形态走 `@container`。规范：仓库 `docs/engineering/容器查询与三端规范.md`。
+只引 `tokens/css` 时密度停在 standard。组件 CSS 禁止视口宽度媒体查询；形态走命名容器 `app-shell` 上的 `@container`。
+
+切 Tab 不 push。返回是 pop。钩子：`useTabStacks`。
+
+## 高度链 checklist
+
+AppShell 填满**父级**，不填满视口口号。消费方必须保证：
+
+1. `html, body, #root { block-size: 100%; }`
+2. 不要给壳写 `min-block-size: 100dvh`（比父级高时会裁掉 compact 底栏）
+3. 嵌套预览覆盖 `block-size` / `max-block-size`
+4. 业务页跟壳的容器宽度走，不要写死桌面双栏 Grid 对抗三端变形
+
+完整接入与反例：[外部接入](./consume.mdx)。
+
+编码 Agent 的完整规则见 [编码 Agent 集成](./for-agents.mdx)。

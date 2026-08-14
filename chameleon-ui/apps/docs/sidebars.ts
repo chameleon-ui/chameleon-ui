@@ -21,10 +21,13 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: [
         'install',
+        'guides/consume',
+        'guides/for-agents',
         'themes',
         'locales',
         'schema',
         'schema-renderer',
+        'guides/three-end',
         'bench',
         {
           type: 'link',
@@ -35,7 +38,6 @@ const sidebars: SidebarsConfig = {
         'dashboard',
         'vpat',
         'gaps',
-        'guides/three-end',
       ],
     },
     {

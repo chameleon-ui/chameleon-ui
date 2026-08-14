@@ -14,19 +14,26 @@
 
 本标准定义**每个组件页必须具备的结构**、**信息架构（IA）规范**、以及**数据单一来源（SSOT）机制**。
 
-## 1. 每组件文档结构（必备 9 节） / Per-component template
+## 1. 每组件文档结构（必备节） / Per-component template
 
 每个组件页按以下顺序渲染，缺节即不合格。标 ★ 的节由 `contract.json` 自动生成（见 §3），禁止手抄。
 
 1. **标题 + 一句话用途** — 组件名 + `contract.purpose` ★（what/why，一句话，禁止营销词）。
-2. **何时用 / 何时不用** — `contract.scenarios`（何时用）+ `contract.antiPatterns`（何时不用）★。
-3. **交互示例** — live preview，渲染**真实组件**（`@chameleon-ui/components`），附 variant/size/state 切换器（Playground）。禁止静态暗色占位框。
-4. **代码示例** — 可复制代码块：import 语句 + 最小用法 + 常见组合。代码必须能编译（对应真实 props）。
-5. **API 表** ★ — Props 全枚举（name / type / required / default / 描述），Variants，Sizes，States。全部来自 `contract.props` / `contract.variants` / `contract.states`。
-6. **无障碍** ★ — `contract.a11y`：role、键盘交互、focus、labeling、WCAG 条款。
-7. **三端行为** ★ — `contract.responsive`：compact / medium / large 三档差异。
-8. **RTL 行为** ★ — `contract.rtl`：strategy、mirroredValues。
-9. **设计 token 引用** — 组件消费的 token 族（color/space…）。当前 token 面仅有 `tokens/src/core/{color,space}.json`（Phase 2 事实）；正文引用 `--cu-color-*` / `--cu-space-*` 族，不逐条罗列不存在的 token。
+2. **工作原理** ★ — `contract.mechanics`；缺省时由 purpose + `responsive.strategy` + composition/platforms 合成。说明 morph、状态与配对，不是 Demo 口吻。
+3. **用法** ★ — 合法 `import { Name } from '@chameleon-ui/components'` + 由必填 props/事件合成的最小代码 + `contract.usage` 步骤（缺省则由 required props / events / scenarios 合成）+ `scenarios`（何时用）+ `antiPatterns`（何时不用）。
+4. **交互示例** — live preview，渲染**真实组件**（`@chameleon-ui/components`）。禁止静态暗色占位框。无 playground 时仍须有合成代码，并标注 preview pending。
+5. **代码示例** — 可复制代码块：import + 最小用法 + 常见组合。无手写 snippet 时用契约合成。
+6. **API** ★ — Props（非 event）、**Events**（`type: event`，含 payload 签名）、**Exports**（component / hook / function / type）、Variants、States。全部来自 `contract.props` / `contract.exports` / `contract.variants` / `contract.states`。
+7. **组合** ★ — `contract.composition`：allowedParents / allowedChildren / requiredContext。
+8. **编码 Agent** ★ — MCP `get_contract` / `search_components` / `get_import_specifiers` 配方、生成约束、`contract.dataAi`（role / states / intents）。禁止 `workspace:*` 与源码相对导入。
+9. **无障碍** ★ — `contract.a11y`：role、键盘交互、focus、labeling、WCAG 条款。
+10. **三端行为** ★ — `contract.responsive`：compact / medium / large 三档差异。
+11. **RTL 行为** ★ — `contract.rtl`：strategy、mirroredValues。
+12. **平台** ★ — `contract.platforms`：web / React / Vue。
+13. **设计 token 引用** — `--cu-color-*` / `--cu-space-*` 族，不逐条罗列不存在的 token。
+14. **安装 CTA** — `chameleon add <slug>`（install-core）。
+
+编码 Agent 的产品规范在 `docs/guides/for-agents.mdx`（三语文档站）与仓库 `chameleon-ui/AGENTS.md`。禁止把内测 Demo 操作说明当成 Agent 文档。
 
 ## 2. 信息架构（IA）规范 / Nav & IA
 
@@ -49,7 +56,7 @@
 
 - **唯一事实源**：每个组件的 `packages/components/src/<slug>/contract.json`（schema v0.1，`@chameleon-ui/contract` 校验）。
 - **加载方式**：`apps/docs/scripts/generate-component-mdx.mjs` 在 collect/build 时把全部 `contract.json` 打进 `src/generated/contracts.ts`，并为每个 catalog slug 生成 `docs/components/<slug>.mdx`。`ComponentPage` 只读这份 map（禁止手抄 props）。无运行时 fetch、无 loading 闪烁；组件契约一改，重新构建即更新，**不会漂移**。
-- **禁止手抄**：props/variants/sizes/states/a11y/responsive/rtl/antiPatterns 一律从 contract 读。页面代码里只允许写：示例代码（examples）、族映射（families）、chrome 文案（locales）。
+- **禁止手抄**：props/events/exports/variants/states/a11y/responsive/rtl/antiPatterns/mechanics/usage 一律从 contract 读。页面代码里只允许写：示例代码（examples）、族映射（families）、chrome 文案（locales）。
 - 旧路径 `/contracts/<slug>.json` 运行时 fetch 已废弃（保留 `collect-public.mjs` 的产物供外部消费者使用，但页面不再消费）。
 
 ## 4. 内容纪律 / Content rules
@@ -61,7 +68,7 @@
 
 ## 5. 验收清单 / Acceptance checklist
 
-- [x] 每个组件页 9 节齐备（金标 8 个组件全量 live MDX，其余 slug 走同一模板自动渲染；playground 未就绪时仍有契约 API）。
+- [x] 每个组件页必备节齐备（工作原理、用法、API/事件/导出、编码 Agent；金标 8 个组件全量 live MDX，其余 slug 走同一模板；playground 未就绪时仍有合成用法与契约 API）。
 - [x] API 表 100% 来自 contract.json（grep 页面代码无手抄 props）。
 - [x] 导航八族分组 + 族名中英翻译 + 搜索 + 面包屑。
 - [x] 首页为落地页（value prop + install + quick start + 主题/locale 展示）。

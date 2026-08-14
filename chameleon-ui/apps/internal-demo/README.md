@@ -28,7 +28,7 @@ Root alias: `corepack pnpm@9.15.0 demo`
 
 | Path | What |
 | :--- | :--- |
-| `/` | Full-window live gallery shell. Resize the browser: phone TabBar / tablet sidebar+TabBar / desktop sidebar. No device clicker. |
+| `/` | Full-window live shell. Resize the browser: one Navigation morphs phone tab-bar / tablet rail / desktop sidebar. No device clicker. |
 | `/?locale=ar&theme=line` | Arabic + RTL (`dir` comes from language) |
 | `/?view=suite&locale=ar&theme=line` | AppShell + catalog `common10` (official visual-regression target) |
 | `/?view=lab&lab=narrow\|wide\|native` | Phase 5 container-driven lab (A5.3 pairing + P5 morph matrix) |

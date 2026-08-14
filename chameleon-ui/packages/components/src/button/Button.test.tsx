@@ -31,6 +31,41 @@ describe('Button', () => {
     expect(onClick).toHaveBeenCalledTimes(2)
   })
 
+  it('blocks activation while loading and exposes a busy state', async () => {
+    const user = userEvent.setup()
+    const onClick = vi.fn()
+    render(
+      <Button loading onClick={onClick}>
+        Save
+      </Button>,
+    )
+    const button = screen.getByRole('button', { name: 'Save' })
+    expect(button).toHaveAttribute('data-ai-state', 'loading')
+    expect(button).toHaveAttribute('aria-busy', 'true')
+    expect(button).toBeDisabled()
+    await user.click(button)
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  it('applies danger tone and ghost variant classes', () => {
+    render(
+      <Button tone="danger" variant="ghost">
+        Delete
+      </Button>,
+    )
+    const button = screen.getByRole('button', { name: 'Delete' })
+    expect(button).toHaveClass('cu-button--ghost', 'cu-button--tone-danger')
+    expect(button).toHaveAttribute('data-tone', 'danger')
+  })
+
+  it('renders a leading icon without replacing the accessible name', () => {
+    render(
+      <Button icon={<span data-testid="lead">★</span>}>Save</Button>,
+    )
+    expect(screen.getByTestId('lead')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Save' })).toBeInTheDocument()
+  })
+
   it('formats ICU plural copy from bundled locales', () => {
     const catalog = createCatalog(en)
     expect(formatMessage('en', requireMessage(catalog, 'button.count'), { count: 0 })).toBe(

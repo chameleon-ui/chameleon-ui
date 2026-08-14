@@ -9,6 +9,18 @@
   "changePolicy": "Replacement requires a change note. Do not silently swap slugs.",
   "changeLog": [
     {
+      "date": "2026-08-14",
+      "slug": "navigation-bar",
+      "change": "added",
+      "reason": "Stack chrome (UINavigationBar / Android Toolbar). Root tabs stay on Navigation (UITabBarController). Navbar remains site/marketing links."
+    },
+    {
+      "date": "2026-08-14",
+      "slug": "navigation",
+      "change": "added",
+      "reason": "Three-end Navigation: one items API morphs TabBar ↔ collapsible rail ↔ persistent sidebar via container queries. Sidebar + TabBar remain specialized single-form chrome, not a morph pair."
+    },
+    {
       "date": "2026-08-13",
       "slug": "action-sheet",
       "change": "added",
@@ -667,7 +679,7 @@
       "name": "Sidebar",
       "tier": "base",
       "implementation": "complete",
-      "requirement": "Desktop persistent / tablet collapsible navigation; Navigation morph pair with tab-bar.",
+      "requirement": "Specialized persistent or collapsible side panel. Three-end chrome uses Navigation, not a pair with tab-bar.",
       "family": "B"
     },
     {
@@ -1092,6 +1104,24 @@
       "family": "B",
       "implementation": "complete",
       "requirement": "Shows sequential progress through a named series of steps, optionally allowing jump selection."
+    },
+    {
+      "n": 102,
+      "slug": "navigation",
+      "name": "Navigation",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Single three-end tab controller: one items API morphs from compact TabBar to collapsible rail to persistent sidebar via container queries."
+    },
+    {
+      "n": 103,
+      "slug": "navigation-bar",
+      "name": "NavigationBar",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Stack chrome for the current view controller (title, back, bar items). Root destinations stay on Navigation."
     }
   ],
   "s5Suite": {

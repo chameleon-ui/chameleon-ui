@@ -55,7 +55,7 @@
   `workspace:*`；普通（非 pnpm-workspace）工程 `npm link` 单个 `components` 报找不到子包。
 - **规避**：把 5 个子包**全部** link；或依赖 monorepo 内 `<子包>/node_modules` 预解析。
 - **建议**：提供对外**聚合入口**或明确“本地链接须全量”的说明；确认发布预案
-  （当前 `publishConfig.access:public` 但版本 `0.0.0`、未发布）。
+  （当前 `publishConfig.access:public` 但版本 `0.1.0`、未发布）。
 - **状态（2026-08-14）**：文档 + `link-external` 脚本已落地。未新建聚合 npm 包。发布前全量 link **仍是正确用法**。npm 首发 owner **待指定**。
 
 ### P2-1 环境门槛未在 `engines` 声明
@@ -107,7 +107,7 @@ node ./scripts/link-external.mjs
 | ID | 处理 |
 | :-- | :-- |
 | **P1-1** | `@chameleon-ui/themes` / `@chameleon-ui/tokens` 增加 `exports["./dist/*"]`，`dist/cupertino/variables.css` 与 canonical `cupertino/css`（及 `tokens/css`）指向同一文件。`themeCssSpecifier` / `themeCssDistSpecifier` 与 `tokensCssSpecifier` 写入 `.d.ts`。包 README、文档站「安装 / 主题」（zh-CN / zh-HK / en）写明入口。文档站 `theme.ts` 改为走包 exports 而非相对 `dist/` 文件。`publish:check` 与 themes/tokens 测试锁定该 `exports`。 |
-| **P1-2（文档/DX）** | 保持 `workspace:*`（pnpm 发布时改写；`catalog.test.ts` 仍断言该协议）。新增 `chameleon-ui/scripts/link-external.mjs`（`pnpm link:external`），默认打印、`--apply` 按 tokens → i18n → primitives → themes → components 执行 `npm link`。components README、两份 CONTRIBUTING、文档站安装页写明：**发布前必须全量 link，只 link components 会失败**。发布预案仍是首发 tag `v0.1.0`、`publishConfig.access=public`、版本 `0.0.0`、本仓不 npm publish。 |
+| **P1-2（文档/DX）** | 保持 `workspace:*`（pnpm 发布时改写；`catalog.test.ts` 仍断言该协议）。新增 `chameleon-ui/scripts/link-external.mjs`（`pnpm link:external`），默认打印、`--apply` 按 tokens → i18n → primitives → themes → components 执行 `npm link`。components README、两份 CONTRIBUTING、文档站安装页写明：**发布前必须全量 link，只 link components 会失败**。发布预案仍是首发 tag `v0.1.0`、`publishConfig.access=public`、版本 `0.1.0`、本仓不 npm publish。 |
 | **P2-1** | 各 workspace 包（及原已声明的根 `chameleon-ui/package.json`、docs、poc-base-ui）补 `engines.node: >=20.19.0`。工作区根 README 与工程塔 README 明示 Node≥20.19 / pnpm 9.15。`publish:check` 对可发包强制该 `engines`。 |
 | **AI-copy DX** | Agent 从文档抄错 specifier 的根因：缺少消费方 SSOT。新增 `chameleon-ui/AGENTS.md`、`docs/ai/agent-consume.md`、`.cursor/rules/chameleon-ui-consume.mdc`。MCP 增加 `get_contract` / `get_design_rules` / `get_import_specifiers`（首选 CSS 为 `@chameleon-ui/themes/cupertino/css`，明确 `workspace:*` 为 never）。安装 MDX 三语增加「外部工程」可复制 `App.tsx`。`pnpm ai:check` 在文档/MCP/契约漂移时变红。SchemaRenderer 一页纸写明默认 10 slug；AG-UI 仍标 POC。`generation_quality` 保持诚实 null。 |
 

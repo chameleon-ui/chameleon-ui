@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/docs",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Phase 2 public docs site (Docusaurus 3 + MDX). Dogfoods official packages only. Not the inner demo.",
   "scripts": {

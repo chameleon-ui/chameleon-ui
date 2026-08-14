@@ -27,6 +27,14 @@ describe('Chart', () => {
     expect(svg.querySelectorAll('rect')).toHaveLength(8)
   })
 
+  it('caps SVG nodes when the series is longer than the paint budget', () => {
+    const data = Array.from({ length: 2000 }, (_, index) => index)
+    render(<Chart type="bar" series={[{ name: 'Load', data }]} label="Load" />)
+    const svg = screen.getByRole('img', { name: 'Load' })
+    expect(svg.querySelectorAll('rect').length).toBeLessThanOrEqual(96)
+    expect(svg.querySelectorAll('rect').length).toBeGreaterThan(0)
+  })
+
   it('shows the empty state without data', () => {
     render(<Chart series={[]} label="Revenue" emptyLabel="No data" />)
     expect(screen.getByText('No data')).toBeInTheDocument()

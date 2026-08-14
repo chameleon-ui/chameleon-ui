@@ -28,4 +28,7 @@
   min-block-size: var(--cu-space-3);
   border-radius: calc(var(--cu-space-1) / 2);
   font-size: 0.625em;
+  contain: layout style paint;
+  content-visibility: auto;
+  contain-intrinsic-size: 2.5rem 1.5rem;
 }

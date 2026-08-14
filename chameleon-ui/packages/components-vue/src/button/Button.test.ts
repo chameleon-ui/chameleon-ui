@@ -25,4 +25,27 @@ describe('Button', () => {
     expect(wrapper.attributes('data-ai-state')).toBe('disabled')
     expect(wrapper.attributes('disabled')).toBeDefined()
   })
+
+  it('blocks interaction and marks loading state', () => {
+    const wrapper = mount(Button, {
+      props: { loading: true },
+      slots: { default: 'Save' },
+    })
+
+    expect(wrapper.attributes('data-ai-state')).toBe('loading')
+    expect(wrapper.attributes('aria-busy')).toBe('true')
+    expect(wrapper.attributes('disabled')).toBeDefined()
+    expect(wrapper.find('.cu-button__spinner').exists()).toBe(true)
+  })
+
+  it('applies danger tone and ghost variant', () => {
+    const wrapper = mount(Button, {
+      props: { tone: 'danger', variant: 'ghost' },
+      slots: { default: 'Delete' },
+    })
+
+    expect(wrapper.classes()).toContain('cu-button--ghost')
+    expect(wrapper.classes()).toContain('cu-button--tone-danger')
+    expect(wrapper.attributes('data-tone')).toBe('danger')
+  })
 })

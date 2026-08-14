@@ -88,5 +88,25 @@
     "intents": [
       "inspect-tabular-data"
     ]
-  }
+  },
+  "mechanics": "Table renders semantic rows and columns. columns is Array<{ key, header, render? }>; rows is an array of objects keyed by column.key. caption is the accessible name. This is data, not layout — use Stack or AppShell for page chrome.",
+  "usage": [
+    "Import Table from @chameleon-ui/components.",
+    "Pass columns and rows. Add caption for the accessible name.",
+    "Keep header cells. Do not use Table only to position unrelated UI."
+  ],
+  "exports": [
+    {
+      "name": "Table",
+      "kind": "component",
+      "signature": "function Table(props: TableProps): JSX.Element",
+      "description": "Semantic data table with columns, rows, and caption."
+    },
+    {
+      "name": "TableProps",
+      "kind": "type",
+      "signature": "interface TableProps",
+      "description": "columns, rows, and optional caption."
+    }
+  ]
 }

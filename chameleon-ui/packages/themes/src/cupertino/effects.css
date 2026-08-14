@@ -31,6 +31,7 @@
 :root .cu-app-shell__header,
 :root .cu-navbar,
 :root .cu-tab-bar,
+:root .cu-navigation,
 :root .cu-sidebar,
 :root .cu-three-end-chrome {
   background: var(--cu-color-background-translucent);
@@ -124,6 +125,7 @@
   :root .cu-app-shell__header,
   :root .cu-navbar,
   :root .cu-tab-bar,
+  :root .cu-navigation,
   :root .cu-sidebar,
   :root .cu-app-shell__sidebar,
   :root .cu-three-end-chrome,
