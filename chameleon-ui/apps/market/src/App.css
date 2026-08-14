@@ -1,0 +1,120 @@
+.cu-market-kicker {
+  margin: 0;
+  color: var(--cu-color-fg-muted, #6b7280);
+  font-size: var(--cu-font-size-sm, 0.875rem);
+}
+
+.cu-market-body {
+  padding: var(--cu-space-4, 1rem);
+}
+
+.cu-market-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-1, 0.25rem);
+  font-size: var(--cu-font-size-sm, 0.875rem);
+}
+
+.cu-market-field input,
+.cu-market-field select,
+.cu-market-field textarea {
+  padding: var(--cu-space-2, 0.5rem);
+  border: 1px solid var(--cu-color-border-default, #d1d5db);
+  border-radius: var(--cu-radius-md, 0.375rem);
+  font: inherit;
+}
+
+.cu-market-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-3, 0.75rem);
+  max-inline-size: 480px;
+}
+
+.cu-market-card {
+  padding: var(--cu-space-3, 0.75rem);
+  border: 1px solid var(--cu-color-border-default, #d1d5db);
+  border-radius: var(--cu-radius-lg, 0.5rem);
+  background: var(--cu-color-background-elevated, #ffffff);
+}
+
+.cu-market-id {
+  margin: 0;
+  font-family: monospace;
+  font-size: var(--cu-font-size-sm, 0.875rem);
+  color: var(--cu-color-fg-muted, #6b7280);
+}
+
+.cu-market-status {
+  margin: 0;
+  font-size: var(--cu-font-size-sm, 0.875rem);
+  text-transform: capitalize;
+}
+
+.cu-market-pricing {
+  padding: var(--cu-space-1, 0.25rem) var(--cu-space-2, 0.5rem);
+  border-radius: var(--cu-radius-sm, 0.25rem);
+  font-size: var(--cu-font-size-sm, 0.875rem);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.cu-market-pricing[data-pricing='free'] {
+  background: var(--cu-color-background-success, #dcfce7);
+  color: var(--cu-color-fg-success, #166534);
+}
+
+.cu-market-pricing[data-pricing='paid'] {
+  background: var(--cu-color-background-warning, #fef3c7);
+  color: var(--cu-color-fg-warning, #92400e);
+}
+
+.cu-market-empty {
+  color: var(--cu-color-fg-muted, #6b7280);
+}
+
+.cu-market-error {
+  color: var(--cu-color-fg-danger, #dc2626);
+}
+
+.cu-market-result {
+  padding: var(--cu-space-3, 0.75rem);
+  border-radius: var(--cu-radius-md, 0.375rem);
+  background: var(--cu-color-background-subtle, #f3f4f6);
+}
+
+.cu-market-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2, 0.5rem);
+}
+
+.cu-market-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cu-color-fg-default, #111827);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+}
+
+.cu-market-checks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2, 0.5rem);
+}
+
+.cu-market-check-ok {
+  color: var(--cu-color-fg-success, #166534);
+}
+
+.cu-market-check-fail {
+  color: var(--cu-color-fg-danger, #dc2626);
+}

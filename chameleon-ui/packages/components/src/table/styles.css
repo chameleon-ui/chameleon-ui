@@ -1,0 +1,55 @@
+/*
+ * Phase 5 container-query whitelist member: the root is the query container,
+ * so compact padding follows the table's own inline size, not the viewport.
+ */
+.cu-table {
+  inline-size: 100%;
+  overflow: auto;
+  container-type: inline-size;
+}
+
+.cu-table__table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-table__caption {
+  caption-side: top;
+  text-align: start;
+  font-weight: 700;
+  margin-block-end: var(--cu-space-2);
+}
+
+.cu-table__header,
+.cu-table__cell {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-block-end: 1px solid var(--cu-color-border-default);
+  text-align: start;
+}
+
+.cu-table__header {
+  font-weight: 700;
+  color: var(--cu-color-fg-default);
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 4%, var(--cu-color-background-default));
+}
+
+/* Hover is gated so touch input never sticks in a hover style. */
+@media (hover: hover) {
+  .cu-table__row:hover {
+    background: color-mix(in srgb, var(--cu-color-palette-brand) 4%, transparent);
+  }
+}
+
+/* 47.99rem == breakpoint.tablet (48rem) lower-bound companion, see breakpoint.json. */
+@container (max-width: 47.99rem) {
+  .cu-table__table {
+    min-inline-size: 100%;
+  }
+
+  .cu-table__header,
+  .cu-table__cell {
+    padding-inline: var(--cu-space-2);
+  }
+}

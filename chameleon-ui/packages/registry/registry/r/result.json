@@ -1,0 +1,108 @@
+{
+  "id": "result",
+  "type": "registry:ui",
+  "name": "Result",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/result/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"result\",\n  \"name\": \"Result\",\n  \"family\": \"E\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents the outcome of a process with status icon, title, description, and actions.\",\n  \"scenarios\": [\n    \"Show a payment success page\",\n    \"Display a 404 empty result\",\n    \"Present a failed import summary\"\n  ],\n  \"props\": {\n    \"status\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Outcome tone.\",\n      \"values\": [\n        \"success\",\n        \"error\",\n        \"info\",\n        \"warning\"\n      ],\n      \"default\": \"info\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Result headline.\"\n    },\n    \"description\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Supporting explanation.\"\n    },\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Action area below the description.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"status\",\n      \"values\": [\n        \"success\",\n        \"error\",\n        \"info\",\n        \"warning\"\n      ],\n      \"default\": \"info\",\n      \"description\": \"Outcome tone.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Result panel rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"dialog\"\n    ],\n    \"allowedChildren\": [\n      \"button\",\n      \"link\",\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a result for inline field errors; use InlineAlert.\",\n    \"Do not leave the user without a next action on error results.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Actions follow the description in tab order.\",\n    \"labeling\": \"Status icon has a text equivalent derived from status.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Centered single column at all breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width, stacked.\",\n      \"medium\": \"Centered measure.\",\n      \"large\": \"Centered measure.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"result\",\n    \"states\": [\n      \"default\",\n      \"success\",\n      \"error\",\n      \"info\",\n      \"warning\"\n    ],\n    \"intents\": [\n      \"notify-status\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/result/index.ts",
+      "content": "export { Result } from './Result.js'\nexport type { ResultProps } from './Result.js'\n"
+    },
+    {
+      "path": "components/result/locales/am.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ar.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"النتيجة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/bn.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/de.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Ergebnisanzeige\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/en.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/es.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/fa.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/fr.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ha.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/hi.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/id.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ja.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ko.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/pt.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ru.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/sw.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ug.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/ur.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/vi.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/zh-CN.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"结果\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/locales/zh-HK.json",
+      "content": "{\n  \"result\": {\n    \"label\": \"Result\"\n  }\n}\n"
+    },
+    {
+      "path": "components/result/Result.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface ResultProps {\n  status?: 'success' | 'error' | 'info' | 'warning'\n  title: string\n  description?: string\n  children?: ReactNode\n  className?: string\n}\n\nconst STATUS_GLYPH = { success: '✓', error: '✕', info: 'ℹ', warning: '⚠' } as const\n\nexport function Result({ status = 'info', title, description, children, className }: ResultProps) {\n  const classes = ['cu-result', 'cu-result--' + status, className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} role=\"status\" data-ai-role=\"result\" data-ai-intent=\"notify-status\" data-ai-state={status}>\n      <span className=\"cu-result__icon\" aria-hidden=\"true\">\n        {STATUS_GLYPH[status]}\n      </span>\n      <p className=\"cu-result__title\">{title}</p>\n      {description ? <p className=\"cu-result__description\">{description}</p> : null}\n      {children ? <div className=\"cu-result__actions\">{children}</div> : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/result/styles.css",
+      "content": ".cu-result {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  gap: var(--cu-space-2);\n  padding-block: calc(var(--cu-space-3) * 2);\n  padding-inline: var(--cu-space-3);\n  text-align: center;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-result__icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: calc(var(--cu-space-3) * 4);\n  block-size: calc(var(--cu-space-3) * 4);\n  border-radius: 50%;\n  font-size: 1.5em;\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 12%, var(--cu-color-background-default));\n}\n\n.cu-result--error .cu-result__icon {\n  background: color-mix(in srgb, red 14%, var(--cu-color-background-default));\n}\n\n.cu-result--success .cu-result__icon {\n  background: color-mix(in srgb, green 14%, var(--cu-color-background-default));\n}\n\n.cu-result--warning .cu-result__icon {\n  background: color-mix(in srgb, orange 16%, var(--cu-color-background-default));\n}\n\n.cu-result__title {\n  margin: 0;\n  font-size: 1.25em;\n  font-weight: 600;\n}\n\n.cu-result__description {\n  margin: 0;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n\n.cu-result__actions {\n  margin-block-start: var(--cu-space-2);\n  display: flex;\n  gap: var(--cu-space-2);\n}\n"
+    }
+  ]
+}

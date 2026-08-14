@@ -1,0 +1,15 @@
+.cu-separator {
+  margin: 0;
+  border: 0;
+  background: var(--cu-color-border-default);
+}
+
+.cu-separator--horizontal {
+  inline-size: 100%;
+  block-size: 1px;
+}
+
+.cu-separator--vertical {
+  inline-size: 1px;
+  block-size: 1.5em;
+}

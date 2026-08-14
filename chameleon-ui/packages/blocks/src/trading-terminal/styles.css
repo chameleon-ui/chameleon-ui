@@ -1,0 +1,37 @@
+.cu-block-trading-terminal {
+  container-type: inline-size;
+  container-name: trading;
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-trading-terminal__header {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-trading-terminal__meta {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-trading-terminal__symbols {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-trading-terminal__body {
+  display: grid;
+  gap: var(--cu-space-3);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@container trading (min-inline-size: 48rem) {
+  .cu-block-trading-terminal__body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

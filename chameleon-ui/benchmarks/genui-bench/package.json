@@ -1,0 +1,28 @@
+{
+  "name": "@chameleon-ui/genui-bench",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "type": "module",
+  "description": "Phase 2 GenUI-Bench harness. Calls install-core; does not invent scores.",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/index.js",
+    "bench": "node dist/index.js",
+    "dev": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@chameleon-ui/install-core": "workspace:*",
+    "@chameleon-ui/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

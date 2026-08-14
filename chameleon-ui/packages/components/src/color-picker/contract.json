@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "color-picker",
+  "name": "ColorPicker",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Picks a color from a swatch grid or by entering a hex value.",
+  "scenarios": [
+    "Choose a theme accent",
+    "Tag color assignment",
+    "Chart series color override"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Current hex color like #2563eb."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the next hex value."
+    },
+    "swatches": {
+      "type": "string",
+      "required": false,
+      "description": "Hex swatch list; defaults to a token-derived set."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the picker."
+    },
+    "hexLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the hex input."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Picker rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "popover",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not accept invalid hex without an error state.",
+    "Do not rely on swatch color alone; expose the hex text."
+  ],
+  "a11y": {
+    "role": "listbox",
+    "keyboard": [
+      "Tab moves across swatches",
+      "Enter selects"
+    ],
+    "focus": "Swatches are buttons; hex input follows in tab order.",
+    "labeling": "Swatch buttons expose their hex value as the accessible name.",
+    "wcag": [
+      "1.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Swatch grid wraps; fixed swatch size.",
+    "breakpoints": {
+      "compact": "Wrapped grid.",
+      "medium": "Wrapped grid.",
+      "large": "Wrapped grid."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "color-picker",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "choose-option"
+    ]
+  }
+}

@@ -1,0 +1,64 @@
+.cu-radio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2);
+}
+
+.cu-radio__label {
+  color: var(--cu-color-fg-default);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cu-radio__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  cursor: pointer;
+  min-block-size: 2.25rem;
+}
+
+.cu-radio__control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: 50%;
+  background: var(--cu-color-background-default);
+  flex: none;
+}
+
+.cu-radio__control:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+}
+
+.cu-radio__indicator {
+  color: var(--cu-color-palette-brand);
+  font-size: 0.75rem;
+  visibility: hidden;
+}
+
+.cu-radio__item[data-state='checked'] .cu-radio__indicator {
+  visibility: visible;
+}
+
+.cu-radio__text {
+  color: var(--cu-color-fg-default);
+  font-size: 0.9375rem;
+  user-select: none;
+}
+
+.cu-radio[data-disabled],
+.cu-radio__item[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-radio__indicator {
+    transition-duration: 0.01ms;
+  }
+}

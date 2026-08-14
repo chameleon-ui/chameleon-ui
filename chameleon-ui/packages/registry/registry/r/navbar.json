@@ -1,0 +1,108 @@
+{
+  "id": "navbar",
+  "type": "registry:ui",
+  "name": "Navbar",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/navbar/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"navbar\",\n  \"name\": \"Navbar\",\n  \"family\": \"B\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Provides horizontal (or stacked, when narrow) primary navigation with an optional brand region.\",\n  \"scenarios\": [\n    \"Site-wide links across the top of a marketing page\",\n    \"Switch application sections from a header\",\n    \"Stack navigation on a compact embedded host\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name of the navigation landmark.\"\n    },\n    \"items\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Navigation items with value, label, and optional href.\"\n    },\n    \"brand\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Optional brand or product name region.\"\n    },\n    \"activeValue\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Value of the current page item.\"\n    },\n    \"onSelect\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with the item value when a control is activated.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"No item marked current.\"\n    },\n    {\n      \"name\": \"active\",\n      \"description\": \"An item is marked as the current page.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\"app-shell\", \"header\", \"page\"],\n    \"allowedChildren\": [\"link\", \"button\", \"text\"],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not put the only navigation in a navbar that disappears on compact without an alternative.\",\n    \"Do not use a navbar for sequential wizard progress; use Steps.\"\n  ],\n  \"a11y\": {\n    \"role\": \"navigation\",\n    \"keyboard\": [\n      \"Tab moves through brand and items\",\n      \"Enter activates the focused link or button\"\n    ],\n    \"focus\": \"Items are real links or buttons in document order with a visible focus ring.\",\n    \"labeling\": \"The nav landmark has an accessible name; current page uses aria-current.\",\n    \"wcag\": [\"1.3.1\", \"2.4.1\", \"2.4.7\"]\n  },\n  \"responsive\": {\n    \"strategy\": \"Root is a query container. Compact stacks items; tablet/desktop switch the list to a row. No viewport size media.\",\n    \"breakpoints\": {\n      \"compact\": \"Brand above a vertical item list; 44px targets.\",\n      \"medium\": \"Horizontal item list at 48rem container width.\",\n      \"large\": \"Wider brand padding and item gap at 80rem container width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Row direction follows document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"navbar\",\n    \"states\": [\"default\", \"active\"],\n    \"intents\": [\"navigate-sections\"]\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/index.ts",
+      "content": "export { Navbar } from './Navbar.js'\nexport type { NavbarItem, NavbarProps } from './Navbar.js'\n"
+    },
+    {
+      "path": "components/navbar/locales/am.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ar.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"شريط التنقل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/bn.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/de.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navigationsleiste\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/en.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/es.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/fa.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/fr.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ha.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/hi.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/id.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ja.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ko.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/pt.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ru.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/sw.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ug.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/ur.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/vi.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/zh-CN.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"导航栏\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/locales/zh-HK.json",
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navbar/Navbar.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface NavbarItem {\n  value: string\n  label: ReactNode\n  href?: string\n}\n\nexport interface NavbarProps {\n  label: string\n  items: NavbarItem[]\n  brand?: ReactNode\n  activeValue?: string\n  onSelect?: (value: string) => void\n  className?: string\n}\n\nexport function Navbar({\n  label,\n  items,\n  brand,\n  activeValue,\n  onSelect,\n  className,\n}: NavbarProps) {\n  const classes = ['cu-navbar', className].filter(Boolean).join(' ')\n\n  return (\n    <nav\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"navbar\"\n      data-ai-intent=\"navigate-sections\"\n      data-ai-state={activeValue ? 'active' : 'default'}\n    >\n      <div className=\"cu-navbar__frame\">\n        {brand ? <div className=\"cu-navbar__brand\">{brand}</div> : null}\n        <ul className=\"cu-navbar__list\">\n          {items.map((item) => {\n            const current = activeValue === item.value\n            const itemClass = 'cu-navbar__item'\n            const labelNode = <span className=\"cu-navbar__label\">{item.label}</span>\n            return (\n              <li key={item.value} className=\"cu-navbar__entry\">\n                {item.href ? (\n                  <a\n                    className={itemClass}\n                    href={item.href}\n                    aria-current={current ? 'page' : undefined}\n                    onClick={() => onSelect?.(item.value)}\n                  >\n                    {labelNode}\n                  </a>\n                ) : (\n                  <button\n                    type=\"button\"\n                    className={itemClass}\n                    aria-current={current ? 'page' : undefined}\n                    onClick={() => onSelect?.(item.value)}\n                  >\n                    {labelNode}\n                  </button>\n                )}\n              </li>\n            )\n          })}\n        </ul>\n      </div>\n    </nav>\n  )\n}\n"
+    },
+    {
+      "path": "components/navbar/styles.css",
+      "content": "/*\n * Query container: the nav is the container; the frame consumes it so the\n * stack -> row morph follows the navbar's own inline size rather than the\n * viewport. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop\n * (packages/tokens/src/core/breakpoint.json).\n */\n.cu-navbar {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);\n  background: var(\n    --cu-color-background-translucent,\n    var(--cu-color-background-default)\n  );\n  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));\n  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));\n  color: var(--cu-color-fg-default);\n  container-type: inline-size;\n}\n\n.cu-navbar__frame {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-2);\n}\n\n.cu-navbar__brand {\n  font-weight: 700;\n  padding-inline: var(--cu-space-2);\n}\n\n.cu-navbar__list {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-navbar__item {\n  display: flex;\n  align-items: center;\n  min-block-size: var(--cu-touch-target-min);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: none;\n  border-radius: var(--cu-radius-md);\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  text-align: start;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.cu-navbar__item[aria-current='page'] {\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n  color: var(--cu-color-palette-brand);\n  font-weight: 700;\n}\n\n.cu-navbar__item:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n@media (hover: hover) {\n  .cu-navbar__item:hover:not([aria-current='page']) {\n    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));\n  }\n}\n\n@container (min-width: 48rem) {\n  .cu-navbar__frame {\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-between;\n  }\n\n  .cu-navbar__list {\n    flex-direction: row;\n    flex-wrap: wrap;\n  }\n}\n\n@container (min-width: 80rem) {\n  .cu-navbar__list {\n    gap: var(--cu-space-2);\n  }\n\n  .cu-navbar__brand {\n    padding-inline: var(--cu-space-3);\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-navbar__item {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

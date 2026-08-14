@@ -1,0 +1,108 @@
+{
+  "id": "inline-alert",
+  "type": "registry:ui",
+  "name": "InlineAlert",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/inline-alert/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"inline-alert\",\n  \"name\": \"InlineAlert\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays a contextual message within a form or page.\",\n  \"scenarios\": [\n    \"Show a form-level error\",\n    \"Explain a disabled field\",\n    \"Highlight a tip\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Alert message.\"\n    },\n    \"status\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic tone.\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"status\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\",\n      \"description\": \"Semantic tone.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Alert rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"field\",\n      \"page\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for non-contextual global alerts.\",\n    \"Do not hide the alert without a way to read it again.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Contents are the alert message.\",\n    \"wcag\": [\n      \"4.1.3\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width within parent.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; accent on inline-start.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"inline-alert\",\n    \"states\": [\n      \"info\",\n      \"success\",\n      \"warning\",\n      \"error\"\n    ],\n    \"intents\": [\n      \"flag-field-error\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/index.ts",
+      "content": "export { InlineAlert } from './InlineAlert.js'\nexport type { InlineAlertProps } from './InlineAlert.js'\n"
+    },
+    {
+      "path": "components/inline-alert/InlineAlert.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface InlineAlertProps {\n  children: ReactNode\n  status?: 'info' | 'success' | 'warning' | 'error'\n  className?: string\n}\n\nexport function InlineAlert({ children, status = 'info', className }: InlineAlertProps) {\n  const classes = ['cu-inline-alert', 'cu-inline-alert--' + status, className].filter(Boolean).join(' ')\n  return <div className={classes} data-ai-role=\"inline-alert\" data-ai-intent=\"flag-field-error\" data-ai-state={status} role=\"status\">{children}</div>\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/am.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ar.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"تنبيه مضمن\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/bn.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/de.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline-Hinweisnachricht\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/en.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/es.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/fa.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/fr.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ha.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/hi.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/id.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ja.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ko.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/pt.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ru.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/sw.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ug.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/ur.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/vi.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/zh-CN.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"行内警告\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/locales/zh-HK.json",
+      "content": "{\n  \"inline-alert\": {\n    \"label\": \"Inline alert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/inline-alert/styles.css",
+      "content": ".cu-inline-alert {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-radius: var(--cu-radius-md);\n  border-inline-start: 4px solid var(--cu-color-border-default);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font-size: 0.875rem;\n}\n\n.cu-inline-alert--info {\n  border-inline-start-color: var(--cu-color-palette-brand);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n}\n\n.cu-inline-alert--success {\n  border-inline-start-color: #16a34a;\n  background: color-mix(in srgb, #16a34a 10%, var(--cu-color-background-default));\n}\n\n.cu-inline-alert--warning {\n  border-inline-start-color: #f59e0b;\n  background: color-mix(in srgb, #f59e0b 10%, var(--cu-color-background-default));\n}\n\n.cu-inline-alert--error {\n  border-inline-start-color: #dc2626;\n  background: color-mix(in srgb, #dc2626 10%, var(--cu-color-background-default));\n}\n"
+    }
+  ]
+}

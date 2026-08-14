@@ -1,0 +1,108 @@
+{
+  "id": "sidebar",
+  "type": "registry:ui",
+  "name": "Sidebar",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/sidebar/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"sidebar\",\n  \"name\": \"Sidebar\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Provides the persistent or collapsible side navigation panel; the tablet/desktop member of the Navigation morph pair with TabBar.\",\n  \"scenarios\": [\n    \"Show top-level destinations beside the content on desktop\",\n    \"Collapse navigation to a rail on tablet widths\",\n    \"Highlight the current destination with aria-current\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible name of the navigation landmark.\"\n    },\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of destinations with value and label.\"\n    },\n    \"header\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Optional content above the navigation list.\"\n    },\n    \"activeValue\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Value of the current destination; sets aria-current.\"\n    },\n    \"onSelect\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with the destination value when an item is activated.\"\n    },\n    \"collapsible\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Show the collapse toggle (tablet pattern).\",\n      \"default\": false\n    },\n    \"collapsed\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Controlled collapsed state.\"\n    },\n    \"defaultCollapsed\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Uncontrolled initial collapsed state.\",\n      \"default\": false\n    },\n    \"onCollapsedChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when the collapsed state changes.\"\n    },\n    \"expandLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Toggle accessible name when collapsed.\",\n      \"default\": \"Expand sidebar\"\n    },\n    \"collapseLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Toggle accessible name when expanded.\",\n      \"default\": \"Collapse sidebar\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"expanded\",\n      \"description\": \"Full 16rem panel with visible labels.\"\n    },\n    {\n      \"name\": \"collapsed\",\n      \"description\": \"4.5rem rail; labels hidden, items keep accessible names.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not render the sidebar and the tab bar for the same destination set at one breakpoint.\",\n    \"Do not put the only navigation in the sidebar without a compact alternative (tab-bar).\"\n  ],\n  \"a11y\": {\n    \"role\": \"complementary\",\n    \"keyboard\": [\n      \"Tab moves through items and the toggle\",\n      \"Enter/Space activates the focused item\"\n    ],\n    \"focus\": \"Document order is header, items, toggle; the collapse toggle exposes aria-expanded and aria-controls.\",\n    \"labeling\": \"The aside and nav landmarks are labelled via the label prop; collapsed items keep aria-label text.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"2.4.1\",\n      \"2.5.5\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Desktop form of the Navigation morph: persistent 16rem panel. Collapses to a 4.5rem rail via the toggle or when its own host slot narrows to 12rem (container query). On compact the shell replaces it with tab-bar.\",\n    \"breakpoints\": {\n      \"compact\": \"Composition contract: app-shell uses tab-bar instead; a directly rendered sidebar still works as an inline panel.\",\n      \"medium\": \"Collapsible sidebar; in a 12rem host slot it switches to the label-free rail via container query.\",\n      \"large\": \"Persistent 16rem sidebar with labels.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; the border is on the inline-end, items align to inline-start, and the directional collapse chevron mirrors under [dir=rtl].\",\n    \"mirroredValues\": [\n      \"collapse-chevron\"\n    ]\n  },\n  \"dataAi\": {\n    \"role\": \"sidebar\",\n    \"states\": [\n      \"expanded\",\n      \"collapsed\"\n    ],\n    \"intents\": [\n      \"navigate-sections\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/index.ts",
+      "content": "export { Sidebar } from './Sidebar.js'\nexport type { SidebarItem, SidebarProps } from './Sidebar.js'\n"
+    },
+    {
+      "path": "components/sidebar/locales/am.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"የጎን አሞሌ\",\n    \"expand\": \"የጎን አሞሌን ዘርጋ\",\n    \"collapse\": \"የጎን አሞሌን ምጠን\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ar.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"الشريط الجانبي\",\n    \"expand\": \"توسيع الشريط الجانبي\",\n    \"collapse\": \"طي الشريط الجانبي\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/bn.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"সাইডবার\",\n    \"expand\": \"সাইডবার প্রসারিত করুন\",\n    \"collapse\": \"সাইডবার সঙ্কুচিত করুন\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/de.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Seitenleiste\",\n    \"expand\": \"Seitenleiste ausklappen\",\n    \"collapse\": \"Seitenleiste einklappen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/en.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Sidebar\",\n    \"expand\": \"Expand sidebar\",\n    \"collapse\": \"Collapse sidebar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/es.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Barra lateral\",\n    \"expand\": \"Expandir barra lateral\",\n    \"collapse\": \"Contraer barra lateral\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/fa.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"نوار کناری\",\n    \"expand\": \"گسترش نوار کناری\",\n    \"collapse\": \"جمع کردن نوار کناری\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/fr.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Barre latérale\",\n    \"expand\": \"Déplier la barre latérale\",\n    \"collapse\": \"Replier la barre latérale\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ha.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Bangaren gefe\",\n    \"expand\": \"Faɗaɗa bangaren gefe\",\n    \"collapse\": \"Ƙuntata bangaren gefe\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/hi.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"साइडबार\",\n    \"expand\": \"साइडबार फैलाएँ\",\n    \"collapse\": \"साइडबार समेटें\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/id.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Bilah sisi\",\n    \"expand\": \"Luaskan bilah sisi\",\n    \"collapse\": \"Ciutkan bilah sisi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ja.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"サイドバー\",\n    \"expand\": \"サイドバーを展開\",\n    \"collapse\": \"サイドバーを折りたたむ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ko.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"사이드바\",\n    \"expand\": \"사이드바 펼치기\",\n    \"collapse\": \"사이드바 접기\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/pt.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Barra lateral\",\n    \"expand\": \"Expandir barra lateral\",\n    \"collapse\": \"Recolher barra lateral\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ru.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Боковая панель\",\n    \"expand\": \"Развернуть боковую панель\",\n    \"collapse\": \"Свернуть боковую панель\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/sw.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Upau wa pembeni\",\n    \"expand\": \"Panua upau wa pembeni\",\n    \"collapse\": \"Kunja upau wa pembeni\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ug.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"يان تاختا\",\n    \"expand\": \"يان تاختىنى يېيىش\",\n    \"collapse\": \"يان تاختىنى يىغىش\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/ur.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"سائڈبار\",\n    \"expand\": \"سائڈبار پھیلائیں\",\n    \"collapse\": \"سائڈبار سمیٹیں\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/vi.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"Thanh bên\",\n    \"expand\": \"Mở rộng thanh bên\",\n    \"collapse\": \"Thu gọn thanh bên\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/zh-CN.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"侧边栏\",\n    \"expand\": \"展开侧边栏\",\n    \"collapse\": \"收起侧边栏\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/locales/zh-HK.json",
+      "content": "{\n  \"sidebar\": {\n    \"label\": \"側邊欄\",\n    \"expand\": \"展開側邊欄\",\n    \"collapse\": \"收合側邊欄\"\n  }\n}\n"
+    },
+    {
+      "path": "components/sidebar/Sidebar.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport { useId, useState } from 'react'\nimport './styles.css'\n\nexport interface SidebarItem {\n  value: string\n  label: ReactNode\n}\n\nexport interface SidebarProps {\n  /** Accessible name of the navigation landmark. */\n  label: string\n  items: SidebarItem[]\n  header?: ReactNode\n  activeValue?: string\n  onSelect?: (value: string) => void\n  /** Show the collapse toggle (tablet pattern). */\n  collapsible?: boolean\n  collapsed?: boolean\n  defaultCollapsed?: boolean\n  onCollapsedChange?: (collapsed: boolean) => void\n  /** Toggle accessible name when collapsed. */\n  expandLabel?: string\n  /** Toggle accessible name when expanded. */\n  collapseLabel?: string\n  className?: string\n}\n\nexport function Sidebar({\n  label,\n  items,\n  header,\n  activeValue,\n  onSelect,\n  collapsible = false,\n  collapsed,\n  defaultCollapsed = false,\n  onCollapsedChange,\n  expandLabel = 'Expand sidebar',\n  collapseLabel = 'Collapse sidebar',\n  className,\n}: SidebarProps) {\n  const [internalCollapsed, setInternalCollapsed] = useState(defaultCollapsed)\n  const isCollapsed = collapsed ?? internalCollapsed\n  const navId = useId()\n\n  function requestCollapsedChange(next: boolean) {\n    if (collapsed === undefined) setInternalCollapsed(next)\n    onCollapsedChange?.(next)\n  }\n\n  const classes = [\n    'cu-sidebar',\n    isCollapsed && 'cu-sidebar--collapsed',\n    className,\n  ]\n    .filter(Boolean)\n    .join(' ')\n\n  return (\n    <aside\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"sidebar\"\n      data-ai-intent=\"navigate-sections\"\n      data-ai-state={isCollapsed ? 'collapsed' : 'expanded'}\n    >\n      {header ? <div className=\"cu-sidebar__header\">{header}</div> : null}\n      <nav id={navId} className=\"cu-sidebar__nav\" aria-label={label}>\n        <ul className=\"cu-sidebar__list\">\n          {items.map((item) => (\n            <li key={item.value} className=\"cu-sidebar__entry\">\n              <button\n                type=\"button\"\n                className=\"cu-sidebar__item\"\n                aria-current={activeValue === item.value ? 'page' : undefined}\n                aria-label={typeof item.label === 'string' ? item.label : undefined}\n                onClick={() => onSelect?.(item.value)}\n              >\n                <span className=\"cu-sidebar__label\">{item.label}</span>\n              </button>\n            </li>\n          ))}\n        </ul>\n      </nav>\n      {collapsible ? (\n        <button\n          type=\"button\"\n          className=\"cu-sidebar__toggle\"\n          aria-expanded={!isCollapsed}\n          aria-controls={navId}\n          aria-label={isCollapsed ? expandLabel : collapseLabel}\n          onClick={() => requestCollapsedChange(!isCollapsed)}\n        >\n          <span aria-hidden=\"true\" className=\"cu-sidebar__toggle-icon\" data-direction={isCollapsed ? 'expand' : 'collapse'}>\n            <svg viewBox=\"0 0 24 24\" className=\"cu-sidebar__toggle-svg\">\n              <path\n                d={isCollapsed ? 'M9 6l6 6-6 6' : 'M15 6l-6 6 6 6'}\n                fill=\"none\"\n                stroke=\"currentColor\"\n                strokeLinecap=\"round\"\n                strokeLinejoin=\"round\"\n                strokeWidth={2}\n              />\n            </svg>\n          </span>\n          <span className=\"cu-sidebar__label\">{isCollapsed ? expandLabel : collapseLabel}</span>\n        </button>\n      ) : null}\n    </aside>\n  )\n}\n"
+    },
+    {
+      "path": "components/sidebar/styles.css",
+      "content": "/*\n * Phase 5 container-query whitelist member: the sidebar is its own query\n * container, so a narrow host slot (e.g. the 12rem tablet column in\n * app-shell) collapses it to a rail without any viewport media query.\n */\n.cu-sidebar {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-2);\n  inline-size: 16rem;\n  min-block-size: 100%;\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-2);\n  border-inline-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);\n  background: var(--cu-color-background-subtle, var(--cu-color-background-default));\n  color: var(--cu-color-fg-default);\n  container-type: inline-size;\n}\n\n.cu-sidebar--collapsed {\n  inline-size: 4.5rem;\n}\n\n.cu-sidebar__header {\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  font-weight: 700;\n}\n\n.cu-sidebar__nav {\n  flex: 1;\n  overflow: auto;\n}\n\n.cu-sidebar__list {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-sidebar__item {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  inline-size: 100%;\n  min-block-size: var(--cu-touch-target-min);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: none;\n  border-radius: var(--cu-radius-sm);\n  background: transparent;\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-sidebar__item[aria-current='page'] {\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n  color: var(--cu-color-palette-brand);\n  font-weight: 700;\n}\n\n.cu-sidebar__item:focus-visible,\n.cu-sidebar__toggle:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n@media (hover: hover) {\n  .cu-sidebar__item:hover:not([aria-current='page']),\n  .cu-sidebar__toggle:hover {\n    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));\n  }\n}\n\n.cu-sidebar__toggle {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  min-block-size: var(--cu-touch-target-min);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: transparent;\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-sidebar__toggle-icon {\n  display: inline-flex;\n  inline-size: 1em;\n  block-size: 1em;\n  flex: none;\n}\n\n.cu-sidebar__toggle-svg {\n  inline-size: 100%;\n  block-size: 100%;\n}\n\n/* Directional affordance: the chevron mirrors under RTL (U6). */\n[dir='rtl'] .cu-sidebar__toggle-icon {\n  transform: scaleX(-1);\n}\n\n/*\n * Explicit collapsed state and container-driven rail (host slot <= 12rem,\n * e.g. the app-shell tablet column) both hide labels; items keep their\n * aria-label and stay keyboard/touch reachable at >= 44px.\n */\n.cu-sidebar--collapsed .cu-sidebar__label {\n  display: none;\n}\n\n.cu-sidebar--collapsed .cu-sidebar__item,\n.cu-sidebar--collapsed .cu-sidebar__toggle {\n  justify-content: center;\n}\n\n@container (max-width: 12rem) {\n  .cu-sidebar__label {\n    display: none;\n  }\n\n  .cu-sidebar__item,\n  .cu-sidebar__toggle {\n    justify-content: center;\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-sidebar,\n  .cu-sidebar__item,\n  .cu-sidebar__toggle {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

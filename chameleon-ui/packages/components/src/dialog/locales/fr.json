@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Ouvrir la boîte de dialogue de révision",
+    "title": "Examiner la fondation",
+    "description": "Le focus clavier reste dans cette boîte de dialogue jusqu'à sa fermeture.",
+    "close": "Terminer la révision",
+    "body": "Appuyez sur Échap ou sur le bouton fermer. Le focus doit revenir au déclencheur."
+  }
+}

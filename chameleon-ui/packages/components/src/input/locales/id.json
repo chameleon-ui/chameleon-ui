@@ -1,0 +1,7 @@
+{
+  "input": {
+    "label": "Nama proyek",
+    "placeholder": "Masukkan minimal tiga karakter",
+    "invalid": "Gunakan minimal tiga karakter."
+  }
+}

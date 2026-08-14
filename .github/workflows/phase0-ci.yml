@@ -1,4 +1,4 @@
-name: Phase 0 CI
+name: Phase 4 CI
 
 on:
   schedule:
@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  phase0:
+  phase4:
     runs-on: windows-latest
     defaults:
       run:
@@ -31,5 +31,13 @@ jobs:
           pnpm --version
       - name: Install from the frozen lockfile
         run: pnpm install --frozen-lockfile
-      - name: Run the Phase 0 gate
-        run: pnpm ci:phase0
+      - name: Run the Phase 4 gate (includes ci:phase3)
+        run: pnpm ci:phase4
+      - name: Upload visual regression artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-artifacts
+          path: |
+            chameleon-ui/toolings/visual-regression/artifacts/**
+            chameleon-ui/toolings/visual-regression/test-results/**

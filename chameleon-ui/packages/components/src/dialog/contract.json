@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "dialog",
+  "name": "Dialog",
+  "status": "experimental",
+  "purpose": "Presents a blocking task in a modal on large screens and a bottom sheet on compact screens.",
+  "scenarios": [
+    "Review a setting before continuing",
+    "Confirm a destructive action",
+    "Collect a short form without leaving the page"
+  ],
+  "props": {
+    "triggerLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the element that opens the dialog."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Dialog heading and accessible name."
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "description": "Supporting text associated with the dialog."
+    },
+    "closeLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the close action."
+    },
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Optional controlled open state."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "closed",
+      "description": "Not shown; trigger is in the tab order."
+    },
+    {
+      "name": "open",
+      "description": "Shown; focus is trapped until dismiss."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "input",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest dialogs.",
+    "Do not trap focus without an Escape or close control."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Enter/Space on trigger opens",
+      "Tab cycles inside",
+      "Escape closes and restores trigger focus"
+    ],
+    "focus": "Focus moves into the dialog on open and returns to the trigger on close. Delegated to Ark UI / Zag.",
+    "labeling": "Title labels the dialog; description is associated.",
+    "wcag": [
+      "2.1.1",
+      "2.4.3",
+      "2.4.7"
+    ]
+  },
+  "responsive": {
+    "strategy": "Centered modal on medium/large; compact uses a block-end bottom sheet. Escape dismisses at every breakpoint. Morph is container-driven via the viewport-sized positioner (@container 48rem == tablet).",
+    "breakpoints": {
+      "compact": "Bottom sheet: content docks to block-end, full inline size, start-edge radii only.",
+      "medium": "Centered modal, max inline size 32rem.",
+      "large": "Centered modal, max inline size 32rem."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical inset, padding, and action alignment. Close control is not mirrored. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "dialog",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "confirm-decision",
+      "collect-input"
+    ]
+  }
+}

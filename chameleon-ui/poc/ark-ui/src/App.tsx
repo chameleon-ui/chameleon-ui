@@ -15,7 +15,8 @@ export function App() {
   const [projectName, setProjectName] = useState('')
   const [actionCount, setActionCount] = useState(0)
   const messages = useMemo(() => getMessages(locale), [locale])
-  const primitiveLocale = direction === 'rtl' ? 'ar' : 'en'
+  const primitiveLocale =
+    locale === 'ar' || direction === 'rtl' ? 'ar' : locale === 'de' ? 'de' : 'en'
   const invalid = projectName.length > 0 && projectName.length < 3
 
   useEffect(() => {

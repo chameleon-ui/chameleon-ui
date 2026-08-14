@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "hover-card",
+  "name": "HoverCard",
+  "status": "experimental",
+  "purpose": "Reveals supplementary content when the pointer hovers over a trigger.",
+  "scenarios": [
+    "Show a preview card",
+    "Display a user profile tooltip",
+    "Reveal a definition"
+  ],
+  "props": {
+    "trigger": {
+      "type": "node",
+      "required": true,
+      "description": "Hover trigger element."
+    },
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Content shown on hover."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Card is visible."
+    },
+    {
+      "name": "closed",
+      "description": "Card is hidden."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "card",
+      "button"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for touch-only interfaces.",
+    "Do not hide critical content inside hover."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Focus trigger may show card",
+      "Esc dismisses"
+    ],
+    "focus": "Focus remains on trigger; card is not focusable.",
+    "labeling": "Children provide the content label.",
+    "wcag": [
+      "1.4.13"
+    ]
+  },
+  "responsive": {
+    "strategy": "Positioned popover.",
+    "breakpoints": {
+      "compact": "May be suppressed.",
+      "medium": "Hover only.",
+      "large": "Hover only."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "hover-card",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "preview-detail"
+    ]
+  }
+}

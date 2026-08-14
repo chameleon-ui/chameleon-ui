@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "container",
+  "name": "Container",
+  "family": "A",
+  "status": "experimental",
+  "purpose": "Centers page content with a max inline-size and token padding that morphs by container query.",
+  "scenarios": [
+    "Wrap a marketing page section to a readable measure",
+    "Constrain a form on large screens",
+    "Provide a query container for nested layout primitives"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Contained content."
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Maximum inline size of the container.",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Maximum inline size of the container."
+    }
+  ],
+  "states": [
+    {
+      "name": "sm",
+      "description": "Narrow measure."
+    },
+    {
+      "name": "md",
+      "description": "Default measure."
+    },
+    {
+      "name": "lg",
+      "description": "Wide measure."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["app-shell", "page", "main"],
+    "allowedChildren": ["any"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest containers to fake a grid; use Grid or Masonry.",
+    "Do not set physical left/right margins; centering uses margin-inline."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Not focusable; children remain in document order.",
+    "labeling": "Children provide their own labels.",
+    "wcag": ["1.3.1"]
+  },
+  "responsive": {
+    "strategy": "Root is a query container. Compact uses tighter padding; tablet/desktop increase padding. Max size is the size prop.",
+    "breakpoints": {
+      "compact": "Full parent width up to size; padding space-2.",
+      "medium": "Padding space-3 at 48rem container width.",
+      "large": "Wider inline padding at 80rem container width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Centering uses margin-inline; padding uses padding-inline.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "container",
+    "states": ["sm", "md", "lg"],
+    "intents": ["group-content"]
+  }
+}

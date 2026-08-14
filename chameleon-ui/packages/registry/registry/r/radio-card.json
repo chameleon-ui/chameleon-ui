@@ -1,0 +1,108 @@
+{
+  "id": "radio-card",
+  "type": "registry:ui",
+  "name": "RadioCard",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/radio-card/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"radio-card\",\n  \"name\": \"RadioCard\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents radio options as selectable cards.\",\n  \"scenarios\": [\n    \"Choose a plan\",\n    \"Choose a payment method\",\n    \"Choose a theme option\"\n  ],\n  \"props\": {\n    \"options\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of option labels.\"\n    },\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Selected option.\",\n      \"default\": \"\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called when selection changes.\"\n    },\n    \"name\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Radio group name.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"checked\",\n      \"description\": \"One option is selected.\"\n    },\n    {\n      \"name\": \"unchecked\",\n      \"description\": \"No option is selected.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"page\",\n      \"dialog\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use when options are not mutually exclusive.\",\n    \"Do not use without a label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"radiogroup\",\n    \"keyboard\": [\n      \"Arrow keys move selection\",\n      \"Space selects\"\n    ],\n    \"focus\": \"Radio inputs are focusable.\",\n    \"labeling\": \"Name groups the radios; labels provide option names.\",\n    \"wcag\": [\n      \"3.3.2\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Grid or stack of cards.\",\n    \"breakpoints\": {\n      \"compact\": \"Single column.\",\n      \"medium\": \"Two columns.\",\n      \"large\": \"Three columns.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"radio-card\",\n    \"states\": [\n      \"checked\",\n      \"unchecked\"\n    ],\n    \"intents\": [\n      \"select-single\",\n      \"compare-options\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/index.ts",
+      "content": "export { RadioCard } from './RadioCard.js'\nexport type { RadioCardProps } from './RadioCard.js'\n"
+    },
+    {
+      "path": "components/radio-card/locales/am.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ar.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"بطاقة اختيار\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/bn.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/de.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Optionsauswahl-Karte\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/en.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/es.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/fa.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/fr.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ha.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/hi.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/id.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ja.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ko.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/pt.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ru.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/sw.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ug.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/ur.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/vi.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/zh-CN.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"单选卡片\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/locales/zh-HK.json",
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio-card/RadioCard.tsx",
+      "content": "import { RadioGroupPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface RadioCardProps {\n  options: string[]\n  value?: string\n  onChange: (value: string) => void\n  name: string\n  className?: string\n}\n\nexport function RadioCard({ options, value = '', onChange, name, className }: RadioCardProps) {\n  const classes = ['cu-radio-card', className].filter(Boolean).join(' ')\n  return (\n    <RadioGroupPrimitive.Root\n      className={classes}\n      data-ai-role=\"radio-card\" data-ai-intent=\"select-single\"\n      data-ai-state={value ? 'checked' : 'unchecked'}\n      name={name}\n      value={value}\n      onValueChange={(details) => onChange(details.value ?? '')}\n    >\n      {options.map((option) => (\n        <RadioGroupPrimitive.Item className=\"cu-radio-card__item\" key={option} value={option}>\n          <RadioGroupPrimitive.ItemControl className=\"cu-radio-card__control\" />\n          <RadioGroupPrimitive.ItemText className=\"cu-radio-card__text\">{option}</RadioGroupPrimitive.ItemText>\n        </RadioGroupPrimitive.Item>\n      ))}\n    </RadioGroupPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/radio-card/styles.css",
+      "content": ".cu-radio-card {\n  display: grid;\n  gap: var(--cu-space-2);\n}\n\n.cu-radio-card__item {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  cursor: pointer;\n}\n\n.cu-radio-card__item[data-state='checked'] {\n  border-color: var(--cu-color-palette-brand);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n}\n\n.cu-radio-card__control {\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n  border: 2px solid var(--cu-color-border-default);\n  border-radius: 50%;\n}\n\n.cu-radio-card__item[data-state='checked'] .cu-radio-card__control {\n  border-color: var(--cu-color-palette-brand);\n  background: radial-gradient(circle, var(--cu-color-palette-brand) 50%, transparent 55%);\n}\n\n.cu-radio-card__item:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n"
+    }
+  ]
+}

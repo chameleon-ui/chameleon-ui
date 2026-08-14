@@ -1,0 +1,16 @@
+{
+  "shadow": {
+    "sm": {
+      "$value": "0 1px 3px color-mix(in srgb, {color.background.inverse} 12%, transparent)",
+      "$description": "Low elevation (raised cards). Color tracks color.background.inverse; themes may overlay."
+    },
+    "md": {
+      "$value": "0 8px 24px color-mix(in srgb, {color.background.inverse} 16%, transparent)",
+      "$description": "Mid elevation (menus, toasts, select popovers). Color tracks color.background.inverse."
+    },
+    "lg": {
+      "$value": "0 28px 80px color-mix(in srgb, {color.background.inverse} 32%, transparent)",
+      "$description": "High elevation (dialogs, action sheets). Color tracks color.background.inverse."
+    }
+  }
+}

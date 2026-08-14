@@ -1,0 +1,108 @@
+{
+  "id": "safe-area",
+  "type": "registry:ui",
+  "name": "SafeArea",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/safe-area/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"safe-area\",\n  \"name\": \"SafeArea\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Applies device safe-area insets (notch, home indicator) as padding on chosen edges.\",\n  \"scenarios\": [\n    \"Keep a fixed bottom bar clear of the home indicator\",\n    \"Pad a full-screen layout so the notch never covers content\",\n    \"Inset only the block-end edge of a mobile page\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Content to inset.\"\n    },\n    \"top\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Apply the top safe-area inset (status bar / notch).\",\n      \"default\": false\n    },\n    \"bottom\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Apply the bottom safe-area inset (home indicator / gesture bar).\",\n      \"default\": true\n    },\n    \"start\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Apply the inline-start safe-area inset.\",\n      \"default\": false\n    },\n    \"end\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Apply the inline-end safe-area inset.\",\n      \"default\": false\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Insets are applied according to the chosen edges.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"tab-bar\",\n      \"action-sheet\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\",\n      \"tab-bar\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest multiple SafeArea components for the same edge.\",\n    \"Do not use SafeArea as a generic spacing utility; use Stack or space tokens.\"\n  ],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [\n      \"No interactive behavior; focus passes to children.\"\n    ],\n    \"focus\": \"Focus order is unchanged; the wrapper is a non-interactive region.\",\n    \"labeling\": \"No accessible name; a presentational layout wrapper.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Insets resolve from env(safe-area-inset-*) with a 0px fallback; identical structure at every breakpoint, the values are device-driven rather than breakpoint-driven.\",\n    \"breakpoints\": {\n      \"compact\": \"env() insets apply on notched / gesture-navigation devices.\",\n      \"medium\": \"Same as compact; insets are 0 where the device has no unsafe edges.\",\n      \"large\": \"Typically resolves to 0 on desktop browsers (fallback path).\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical padding only; start/end map to inline-start/inline-end and follow document direction.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"safe-area\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"fit-safe-area\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/index.ts",
+      "content": "export { SafeArea } from './SafeArea.js'\nexport type { SafeAreaProps } from './SafeArea.js'\n"
+    },
+    {
+      "path": "components/safe-area/locales/am.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"ደህንነቱ የተጠበቀ ቦታ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ar.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"المنطقة الآمنة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/bn.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"নিরাপদ এলাকা\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/de.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Sicherer Bereich\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/en.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Safe area\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/es.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Área segura\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/fa.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"ناحیه امن\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/fr.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Zone sécurisée\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ha.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Yanki mai aminci\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/hi.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"सुरक्षित क्षेत्र\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/id.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Area aman\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ja.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"セーフエリア\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ko.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"안전 영역\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/pt.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Área segura\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ru.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Безопасная область\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/sw.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Eneo salama\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ug.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"بىخەتەر رايون\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/ur.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"محفوظ علاقہ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/vi.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"Vùng an toàn\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/zh-CN.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"安全区\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/locales/zh-HK.json",
+      "content": "{\n  \"safeArea\": {\n    \"label\": \"安全區\"\n  }\n}\n"
+    },
+    {
+      "path": "components/safe-area/SafeArea.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface SafeAreaProps {\n  children?: ReactNode\n  /** Apply the top safe-area inset (status bar / notch). */\n  top?: boolean\n  /** Apply the bottom safe-area inset (home indicator / gesture bar). */\n  bottom?: boolean\n  /** Apply the inline-start safe-area inset. */\n  start?: boolean\n  /** Apply the inline-end safe-area inset. */\n  end?: boolean\n  className?: string\n}\n\nexport function SafeArea({ children, top = false, bottom = true, start = false, end = false, className }: SafeAreaProps) {\n  const classes = [\n    'cu-safe-area',\n    top && 'cu-safe-area--top',\n    bottom && 'cu-safe-area--bottom',\n    start && 'cu-safe-area--start',\n    end && 'cu-safe-area--end',\n    className,\n  ]\n    .filter(Boolean)\n    .join(' ')\n\n  return (\n    <div className={classes} data-ai-role=\"safe-area\" data-ai-intent=\"fit-safe-area\" data-ai-state=\"default\">\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/safe-area/styles.css",
+      "content": "/*\n * env() carries an explicit 0px fallback so browsers without safe-area\n * support (or non-mobile environments) degrade to zero extra padding.\n * Logical properties keep start/end RTL-correct.\n */\n.cu-safe-area {\n  display: block;\n}\n\n.cu-safe-area--top {\n  padding-block-start: env(safe-area-inset-top, 0px);\n}\n\n.cu-safe-area--bottom {\n  padding-block-end: env(safe-area-inset-bottom, 0px);\n}\n\n.cu-safe-area--start {\n  padding-inline-start: env(safe-area-inset-left, 0px);\n}\n\n.cu-safe-area--end {\n  padding-inline-end: env(safe-area-inset-right, 0px);\n}\n"
+    }
+  ]
+}

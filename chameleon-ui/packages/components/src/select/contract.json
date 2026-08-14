@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "select",
+  "name": "Select",
+  "status": "experimental",
+  "purpose": "Presents a list of options in a collapsible menu that is keyboard and screen-reader accessible.",
+  "scenarios": [
+    "Choose a country or language from a long list",
+    "Select a status in a form",
+    "Navigate options with the keyboard"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Controlled selected value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Receives the next selected value."
+    },
+    "options": {
+      "type": "string",
+      "required": true,
+      "description": "Array of option objects with value and label."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the select."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Text shown when no option is selected.",
+      "default": "Select an option"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents opening the listbox.",
+      "default": false
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle and selectable."
+    },
+    {
+      "name": "disabled",
+      "description": "Cannot be opened or changed."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "field-group"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a select for only two options; consider a radio group.",
+    "Do not remove the visible label."
+  ],
+  "a11y": {
+    "role": "combobox",
+    "keyboard": [
+      "Enter/Space opens the listbox",
+      "Arrow keys move highlight",
+      "Enter selects"
+    ],
+    "focus": "Trigger is focusable; focus moves into the listbox when opened.",
+    "labeling": "Visible label is associated with the combobox.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "The trigger stretches to the parent inline size. The listbox is positioned absolutely and stays within the viewport.",
+    "breakpoints": {
+      "compact": "Full inline size of the parent; listbox uses available space.",
+      "medium": "Content or parent width.",
+      "large": "Content or parent width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir; listbox opens in the flow direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "select",
+    "states": [
+      "default",
+      "disabled"
+    ],
+    "intents": [
+      "choose-option"
+    ]
+  }
+}

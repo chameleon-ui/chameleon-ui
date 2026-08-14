@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "iot-panel",
+  "name": "IoT panel",
+  "status": "experimental",
+  "purpose": "Device cards with status badges, load gauges, and trend charts.",
+  "scenarios": [
+    "Scan online, alert, and offline devices",
+    "Acknowledge an alert to return a device to online",
+    "Show an empty state when no devices are connected"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onAcknowledge": {
+      "type": "event",
+      "required": false,
+      "description": "Called when an alert device is acknowledged."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Devices are present and none are alerting." },
+    { "name": "alert", "description": "At least one device is alerting." },
+    { "name": "empty", "description": "No devices to show." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["card", "gauge", "chart", "badge", "button", "empty-state", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not present this template as a live SCADA or twin runtime.",
+    "Do not size the device grid with viewport width media queries."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches badges, gauges, charts, and acknowledge actions"],
+    "focus": "Acknowledge stays in document order with a visible focus ring.",
+    "labeling": "Gauges and charts include the device name; badges name the status.",
+    "wcag": ["1.1.1", "2.1.1", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Device cards stack; @container at 48rem places three columns. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Cards stack to one column.",
+      "medium": "Cards become three columns at 48rem container inline-size.",
+      "large": "Cards remain three columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "iot-panel",
+    "states": ["default", "alert", "empty"],
+    "intents": ["monitor-devices"]
+  }
+}

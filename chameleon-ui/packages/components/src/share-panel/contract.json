@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "share-panel",
+  "name": "SharePanel",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Offers share targets and a copyable link for the current content.",
+  "scenarios": [
+    "Share a dashboard view",
+    "Share a market listing",
+    "Copy a deep link"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Panel headline."
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "description": "Canonical URL to share."
+    },
+    "targets": {
+      "type": "string",
+      "required": false,
+      "description": "Subset of x | linkedin | email | copy targets to show."
+    },
+    "copyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the copy action."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Panel with targets."
+    },
+    {
+      "name": "copied",
+      "description": "Link copy just succeeded."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "dialog",
+      "popover",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not open share targets without user activation.",
+    "Do not list targets the current platform cannot open."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [
+      "Tab moves across target buttons"
+    ],
+    "focus": "All targets are buttons in tab order.",
+    "labeling": "Panel title labels the group; each target button is named.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Targets wrap on compact.",
+    "breakpoints": {
+      "compact": "Wrapped targets.",
+      "medium": "Single row.",
+      "large": "Single row."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "share-panel",
+    "states": [
+      "default",
+      "copied"
+    ],
+    "intents": [
+      "share-content"
+    ]
+  }
+}

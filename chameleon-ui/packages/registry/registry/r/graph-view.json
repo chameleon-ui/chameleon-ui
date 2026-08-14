@@ -1,0 +1,108 @@
+{
+  "id": "graph-view",
+  "type": "registry:ui",
+  "name": "GraphView",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/graph-view/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"graph-view\",\n  \"name\": \"GraphView\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Renders nodes and links as a deterministic ring-layout relationship diagram.\",\n  \"scenarios\": [\n    \"Service dependency overview\",\n    \"Entity relationship preview\",\n    \"Team network snapshot\"\n  ],\n  \"props\": {\n    \"nodes\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, label } graph nodes.\"\n    },\n    \"links\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { source, target } id pairs.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the graph region.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Graph rendered.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No nodes provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"flow-node\",\n      \"edge\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use the ring layout for graphs over 40 nodes.\",\n    \"Do not claim force simulation; layout is deterministic.\"\n  ],\n  \"a11y\": {\n    \"role\": \"img\",\n    \"keyboard\": [],\n    \"focus\": \"Node labels are listed in a companion list for screen readers.\",\n    \"labeling\": \"aria-label summarizes node and link counts.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Scales to container via viewBox.\",\n    \"breakpoints\": {\n      \"compact\": \"Scaled down.\",\n      \"medium\": \"Fits container.\",\n      \"large\": \"Fits container.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"graph-view\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"enumerate-items\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/GraphView.tsx",
+      "content": "import './styles.css'\n\nexport interface GraphNode {\n  id: string\n  label: string\n}\n\nexport interface GraphLink {\n  source: string\n  target: string\n}\n\nexport interface GraphViewProps {\n  nodes: GraphNode[]\n  links: GraphLink[]\n  label: string\n  className?: string\n}\n\nconst SIZE = 320\nconst CENTER = SIZE / 2\nconst RADIUS = 120\n\n/**\n * @complexity time O(n + m) | space O(n) | n = nodes, m = links; ring layout places node i at a fixed angle\n * @guarantees deterministic positions with no simulation; large graphs must paginate or filter upstream\n */\nexport function GraphView({ nodes, links, label, className }: GraphViewProps) {\n  const classes = ['cu-graph-view', className].filter(Boolean).join(' ')\n  const positions = new Map<string, { x: number; y: number }>()\n  nodes.forEach((node, index) => {\n    const angle = (2 * Math.PI * index) / Math.max(1, nodes.length) - Math.PI / 2\n    positions.set(node.id, { x: CENTER + RADIUS * Math.cos(angle), y: CENTER + RADIUS * Math.sin(angle) })\n  })\n\n  return (\n    <div className={classes} data-ai-role=\"graph-view\" data-ai-intent=\"enumerate-items\" data-ai-state={nodes.length === 0 ? 'empty' : 'default'}>\n      <svg className=\"cu-graph-view__svg\" viewBox={`0 0 ${SIZE} ${SIZE}`} role=\"img\" aria-label={label}>\n        {links.map((link, index) => {\n          const from = positions.get(link.source)\n          const to = positions.get(link.target)\n          if (!from || !to) return null\n          return <line key={index} className=\"cu-graph-view__link\" x1={from.x} y1={from.y} x2={to.x} y2={to.y} />\n        })}\n        {nodes.map((node) => {\n          const position = positions.get(node.id)\n          if (!position) return null\n          return (\n            <g key={node.id} className=\"cu-graph-view__node\">\n              <circle cx={position.x} cy={position.y} r={16} />\n              <text x={position.x} y={position.y + 32} textAnchor=\"middle\" className=\"cu-graph-view__label\">\n                {node.label}\n              </text>\n            </g>\n          )\n        })}\n      </svg>\n      <ul className=\"cu-graph-view__list\">\n        {nodes.map((node) => (\n          <li key={node.id}>{node.label}</li>\n        ))}\n      </ul>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/graph-view/index.ts",
+      "content": "export { GraphView } from './GraphView.js'\nexport type { GraphLink, GraphNode, GraphViewProps } from './GraphView.js'\n"
+    },
+    {
+      "path": "components/graph-view/locales/am.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ar.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"عرض الرسم البياني\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/bn.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/de.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Beziehungsgraphansicht\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/en.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/es.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/fa.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/fr.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ha.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/hi.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/id.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ja.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ko.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/pt.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ru.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/sw.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ug.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/ur.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/vi.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/zh-CN.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"关系图\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/locales/zh-HK.json",
+      "content": "{\n  \"graph-view\": {\n    \"label\": \"Graph view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/graph-view/styles.css",
+      "content": ".cu-graph-view {\n  display: block;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-graph-view__svg {\n  display: block;\n  inline-size: 100%;\n  max-inline-size: calc(var(--cu-space-3) * 40);\n  block-size: auto;\n}\n\n.cu-graph-view__link {\n  stroke: var(--cu-color-border-default);\n  stroke-width: 1.5;\n}\n\n.cu-graph-view__node circle {\n  fill: color-mix(in srgb, var(--cu-color-palette-brand) 16%, var(--cu-color-background-default));\n  stroke: var(--cu-color-palette-brand);\n}\n\n.cu-graph-view__label {\n  fill: var(--cu-color-fg-default);\n  font-size: 0.75rem;\n}\n\n.cu-graph-view__list {\n  position: absolute;\n  inline-size: 1px;\n  block-size: 1px;\n  overflow: hidden;\n  clip-path: inset(50%);\n}\n"
+    }
+  ]
+}

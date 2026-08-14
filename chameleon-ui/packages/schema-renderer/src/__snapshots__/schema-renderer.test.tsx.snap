@@ -1,0 +1,219 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`schema-renderer examples (snapshot-green) > renders empty-results.json without issues and matches the snapshot 1`] = `
+<div>
+  <div
+    data-schema-renderer="root"
+  >
+    <div
+      class="cu-stack cu-stack--column cu-stack--gap-2"
+      data-ai-intent="layout-flow"
+      data-ai-role="stack"
+      data-ai-state="default"
+      data-align="stretch"
+      data-direction="column"
+      data-gap="2"
+      data-justify="start"
+    >
+      <h3
+        class="cu-heading cu-heading--level-3"
+        data-ai-intent="structure-content"
+        data-ai-role="heading"
+        data-ai-state="level-3"
+      >
+        Search results
+      </h3>
+      <div
+        class="cu-empty-state"
+        data-ai-intent="prompt-first-action"
+        data-ai-role="empty-state"
+        data-ai-state="default"
+        role="status"
+      >
+        <div
+          class="cu-empty-state__title"
+        >
+          No matches
+        </div>
+        <div
+          class="cu-empty-state__description"
+        >
+          Try a different query or clear the filters.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`schema-renderer examples (snapshot-green) > renders login-form.json without issues and matches the snapshot 1`] = `
+<div>
+  <div
+    data-schema-renderer="root"
+  >
+    <div
+      class="cu-card cu-card--outlined cu-card--padding-lg"
+      data-ai-intent="group-content"
+      data-ai-role="card"
+      data-ai-state="outlined"
+    >
+      <h2
+        class="cu-heading cu-heading--level-2"
+        data-ai-intent="structure-content"
+        data-ai-role="heading"
+        data-ai-state="level-2"
+      >
+        Sign in
+      </h2>
+      <div
+        class="cu-stack cu-stack--column cu-stack--gap-2"
+        data-ai-intent="layout-flow"
+        data-ai-role="stack"
+        data-ai-state="default"
+        data-align="stretch"
+        data-direction="column"
+        data-gap="2"
+        data-justify="start"
+      >
+        <div
+          class="cu-field"
+          data-ai-intent="enter-text"
+          data-ai-role="input"
+          data-ai-state="default"
+          data-part="root"
+          data-scope="field"
+          id="field::_r_0_"
+          role="group"
+        >
+          <label
+            class="cu-field__label"
+            data-part="label"
+            data-scope="field"
+            for="_r_0_"
+            id="field::_r_0_::label"
+          >
+            Email
+          </label>
+          <input
+            class="cu-input"
+            data-part="input"
+            data-scope="field"
+            id="_r_0_"
+            type="email"
+            value=""
+          />
+        </div>
+        <div
+          class="cu-field"
+          data-ai-intent="enter-text"
+          data-ai-role="input"
+          data-ai-state="default"
+          data-part="root"
+          data-scope="field"
+          id="field::_r_1_"
+          role="group"
+        >
+          <label
+            class="cu-field__label"
+            data-part="label"
+            data-scope="field"
+            for="_r_1_"
+            id="field::_r_1_::label"
+          >
+            Password
+          </label>
+          <input
+            class="cu-input"
+            data-part="input"
+            data-scope="field"
+            id="_r_1_"
+            type="password"
+            value=""
+          />
+        </div>
+        <button
+          class="cu-button cu-button--solid cu-button--md"
+          data-ai-intent="submit"
+          data-ai-role="button"
+          data-ai-state="default"
+          data-size="md"
+          data-variant="solid"
+          type="button"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`schema-renderer examples (snapshot-green) > renders status-card.json without issues and matches the snapshot 1`] = `
+<div>
+  <div
+    data-schema-renderer="root"
+  >
+    <div
+      class="cu-card cu-card--default cu-card--padding-md"
+      data-ai-intent="group-content"
+      data-ai-role="card"
+      data-ai-state="default"
+    >
+      <div
+        class="cu-stack cu-stack--row cu-stack--gap-1"
+        data-ai-intent="layout-flow"
+        data-ai-role="stack"
+        data-ai-state="default"
+        data-align="center"
+        data-direction="row"
+        data-gap="1"
+        data-justify="start"
+      >
+        <span
+          class="cu-badge cu-badge--success cu-badge--md"
+          data-ai-intent="flag-status"
+          data-ai-role="badge"
+          data-ai-state="success"
+        >
+          Live
+        </span>
+        <span
+          class="cu-typography cu-typography--caption"
+          data-ai-intent="style-text"
+          data-ai-role="typography"
+          data-ai-state="caption"
+          data-variant="caption"
+        >
+          US East
+        </span>
+      </div>
+      <hr
+        class="cu-divider"
+        data-ai-intent="separate-sections"
+        data-ai-role="divider"
+        data-ai-state="default"
+      />
+      <div
+        aria-label="Deploy complete"
+        aria-live="polite"
+        class="cu-alert cu-alert--info"
+        data-ai-intent="notify-status"
+        data-ai-role="alert"
+        data-ai-state="info"
+        role="status"
+      >
+        <div
+          class="cu-alert__title"
+        >
+          Deploy complete
+        </div>
+        <div
+          class="cu-alert__description"
+        >
+          v0.2 rolled out to all regions.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

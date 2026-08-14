@@ -1,0 +1,21 @@
+{
+  "crud": {
+    "title": "记录",
+    "subtitle": "在此工作区中创建、查看和更新行。",
+    "create": "新建记录",
+    "dialogTitle": "创建记录",
+    "dialogDescription": "填写名称以插入一行。",
+    "close": "关闭",
+    "nameLabel": "名称",
+    "submit": "保存",
+    "emptyTitle": "还没有记录",
+    "emptyDescription": "创建第一行以填充此表。",
+    "gridLabel": "记录",
+    "emptyLabel": "暂无数据",
+    "colName": "名称",
+    "colStatus": "状态",
+    "statusActive": "启用",
+    "errorRequired": "名称为必填项。",
+    "itemCount": "{count, plural, =0 {没有记录} other {# 条记录}}"
+  }
+}

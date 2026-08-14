@@ -1,0 +1,108 @@
+{
+  "id": "article-card",
+  "type": "registry:ui",
+  "name": "ArticleCard",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/article-card/ArticleCard.tsx",
+      "content": "import './styles.css'\n\nexport interface ArticleCardProps {\n  title: string\n  excerpt?: string\n  author?: string\n  date?: string\n  coverSrc?: string\n  coverAlt?: string\n  href?: string\n  readLabel?: string\n  className?: string\n}\n\nexport function ArticleCard({\n  title,\n  excerpt,\n  author,\n  date,\n  coverSrc,\n  coverAlt = '',\n  href,\n  readLabel = 'Read article',\n  className,\n}: ArticleCardProps) {\n  const classes = ['cu-article-card', className].filter(Boolean).join(' ')\n  return (\n    <article className={classes} data-ai-role=\"article-card\" data-ai-intent=\"group-content\" data-ai-state=\"default\">\n      {coverSrc ? <img className=\"cu-article-card__cover\" src={coverSrc} alt={coverAlt} loading=\"lazy\" /> : null}\n      <div className=\"cu-article-card__body\">\n        <h3 className=\"cu-article-card__title\">{title}</h3>\n        {excerpt ? <p className=\"cu-article-card__excerpt\">{excerpt}</p> : null}\n        <div className=\"cu-article-card__meta\">\n          {author ? <span className=\"cu-article-card__author\">{author}</span> : null}\n          {date ? <time className=\"cu-article-card__date\">{date}</time> : null}\n        </div>\n        {href ? (\n          <a className=\"cu-article-card__read\" href={href} aria-label={`${readLabel}: ${title}`}>\n            {readLabel}\n          </a>\n        ) : null}\n      </div>\n    </article>\n  )\n}\n"
+    },
+    {
+      "path": "components/article-card/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"article-card\",\n  \"name\": \"ArticleCard\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents an article teaser with cover, title, excerpt, metadata, and read action.\",\n  \"scenarios\": [\n    \"Blog listing grid\",\n    \"Knowledge base results\",\n    \"News feed entry\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Article headline.\"\n    },\n    \"excerpt\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Short summary text.\"\n    },\n    \"author\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Author display name.\"\n    },\n    \"date\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Formatted publication date.\"\n    },\n    \"coverSrc\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Cover image URL.\"\n    },\n    \"coverAlt\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Cover image alt text.\"\n    },\n    \"href\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Target URL for the read action.\"\n    },\n    \"readLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the read action.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Teaser card rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"grid\",\n      \"list\",\n      \"page\",\n      \"carousel\"\n    ],\n    \"allowedChildren\": [\n      \"badge\",\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not link the whole card and a nested read action at once.\",\n    \"Do not clip the excerpt mid-word.\"\n  ],\n  \"a11y\": {\n    \"role\": \"article\",\n    \"keyboard\": [\n      \"Enter activates the read action\"\n    ],\n    \"focus\": \"Read action is the single tab stop.\",\n    \"labeling\": \"Title labels the article; metadata is plain text.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.4.4\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Cover stacks above text on compact; side-by-side on large.\",\n    \"breakpoints\": {\n      \"compact\": \"Stacked layout.\",\n      \"medium\": \"Stacked layout.\",\n      \"large\": \"Optional side-by-side.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"article-card\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"group-content\",\n      \"navigate-detail\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/index.ts",
+      "content": "export { ArticleCard } from './ArticleCard.js'\nexport type { ArticleCardProps } from './ArticleCard.js'\n"
+    },
+    {
+      "path": "components/article-card/locales/am.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ar.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"مقالة\",\n    \"readMore\": \"اقرأ المقال\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/bn.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/de.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Artikelkarte\",\n    \"readMore\": \"Artikel weiterlesen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/en.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/es.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/fa.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/fr.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ha.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/hi.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/id.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ja.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ko.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/pt.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ru.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/sw.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ug.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/ur.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/vi.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/zh-CN.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"文章\",\n    \"readMore\": \"阅读全文\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/locales/zh-HK.json",
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+    },
+    {
+      "path": "components/article-card/styles.css",
+      "content": ".cu-article-card {\n  display: block;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  overflow: hidden;\n}\n\n.cu-article-card__cover {\n  display: block;\n  inline-size: 100%;\n  block-size: auto;\n}\n\n.cu-article-card__body {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n}\n\n.cu-article-card__title {\n  margin: 0;\n  font-size: 1.125em;\n}\n\n.cu-article-card__excerpt {\n  margin: var(--cu-space-1) 0 0;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent);\n}\n\n.cu-article-card__meta {\n  display: flex;\n  gap: var(--cu-space-2);\n  margin-block-start: var(--cu-space-2);\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n\n.cu-article-card__read {\n  display: inline-block;\n  margin-block-start: var(--cu-space-2);\n  color: var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

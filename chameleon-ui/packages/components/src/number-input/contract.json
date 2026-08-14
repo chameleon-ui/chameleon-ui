@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "number-input",
+  "name": "NumberInput",
+  "status": "experimental",
+  "purpose": "Captures a numeric value with increment and decrement controls.",
+  "scenarios": [
+    "Enter a quantity",
+    "Set a price",
+    "Choose an age"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when value changes."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Input label."
+    },
+    "min": {
+      "type": "number",
+      "required": false,
+      "description": "Minimum value."
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum value."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Input rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "page",
+      "dialog"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for arbitrary text.",
+    "Do not omit the label."
+  ],
+  "a11y": {
+    "role": "spinbutton",
+    "keyboard": [
+      "Arrow keys increment/decrement"
+    ],
+    "focus": "Input is focusable.",
+    "labeling": "Label provides the accessible name.",
+    "wcag": [
+      "3.3.2",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Native number input with styled label.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Inline width.",
+      "large": "Inline width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "number-input",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "enter-quantity"
+    ]
+  }
+}

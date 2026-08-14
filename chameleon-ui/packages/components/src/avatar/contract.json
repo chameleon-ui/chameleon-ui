@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "avatar",
+  "name": "Avatar",
+  "status": "experimental",
+  "purpose": "Represents a user or entity with an image or initials fallback.",
+  "scenarios": [
+    "Show a user profile picture",
+    "Display a team member",
+    "Render initials when an image is unavailable"
+  ],
+  "props": {
+    "src": {
+      "type": "string",
+      "required": false,
+      "description": "Image source URL."
+    },
+    "alt": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible description of the image."
+    },
+    "fallback": {
+      "type": "string",
+      "required": false,
+      "description": "Initials or text shown when the image is missing."
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Diameter.",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Diameter."
+    }
+  ],
+  "states": [
+    {
+      "name": "image",
+      "description": "An image is loaded."
+    },
+    {
+      "name": "fallback",
+      "description": "Fallback text is shown."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "button",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use decorative images without alt text.",
+    "Do not display sensitive personal information as fallback."
+  ],
+  "a11y": {
+    "role": "img",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Alt or fallback provides the accessible name.",
+    "wcag": [
+      "1.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Size scales with the chosen size prop.",
+    "breakpoints": {
+      "compact": "Keep the same size.",
+      "medium": "Keep the same size.",
+      "large": "Keep the same size."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "avatar",
+    "states": [
+      "image",
+      "fallback"
+    ],
+    "intents": [
+      "identify-user"
+    ]
+  }
+}

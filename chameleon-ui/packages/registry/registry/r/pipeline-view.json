@@ -1,0 +1,108 @@
+{
+  "id": "pipeline-view",
+  "type": "registry:ui",
+  "name": "PipelineView",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/pipeline-view/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"pipeline-view\",\n  \"name\": \"PipelineView\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Shows CI/CD stages as an ordered flow with per-stage status.\",\n  \"scenarios\": [\n    \"Build pipeline status\",\n    \"Release train stages\",\n    \"ETL job overview\"\n  ],\n  \"props\": {\n    \"stages\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, name, status } stages in order.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the pipeline region.\"\n    },\n    \"statusLabels\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Localized status label map.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Pipeline rendered.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No stages provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"badge\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not reorder stages by status; keep pipeline order.\",\n    \"Do not show duration without a real measurement source.\"\n  ],\n  \"a11y\": {\n    \"role\": \"list\",\n    \"keyboard\": [],\n    \"focus\": \"Stage actions are buttons in order.\",\n    \"labeling\": \"Stage name plus status text labels each stage.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"1.4.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Stages scroll horizontally on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Horizontal scroll.\",\n      \"medium\": \"Inline row.\",\n      \"large\": \"Inline row.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"pipeline-view\",\n    \"states\": [\n      \"default\",\n      \"empty\",\n      \"pending\",\n      \"running\",\n      \"success\",\n      \"failed\"\n    ],\n    \"intents\": [\n      \"show-progress\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/index.ts",
+      "content": "export { PipelineView } from './PipelineView.js'\nexport type { PipelineStage, PipelineViewProps } from './PipelineView.js'\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/am.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ar.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"خط الأنابيب\",\n    \"statusPending\": \"قيد الانتظار\",\n    \"statusRunning\": \"قيد التشغيل\",\n    \"statusSuccess\": \"ناجح\",\n    \"statusFailed\": \"فاشل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/bn.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/de.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline-Ansicht\",\n    \"statusPending\": \"Ausstehend\",\n    \"statusRunning\": \"Wird ausgeführt\",\n    \"statusSuccess\": \"Erfolgreich abgeschlossen\",\n    \"statusFailed\": \"Fehlgeschlagen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/en.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/es.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/fa.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/fr.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ha.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/hi.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/id.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ja.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ko.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/pt.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ru.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/sw.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ug.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/ur.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/vi.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/zh-CN.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"流水线\",\n    \"statusPending\": \"等待中\",\n    \"statusRunning\": \"运行中\",\n    \"statusSuccess\": \"已成功\",\n    \"statusFailed\": \"已失败\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/locales/zh-HK.json",
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/PipelineView.tsx",
+      "content": "import './styles.css'\n\nexport interface PipelineStage {\n  id: string\n  name: string\n  status: 'pending' | 'running' | 'success' | 'failed'\n}\n\nexport interface PipelineViewProps {\n  stages: PipelineStage[]\n  label: string\n  statusLabels?: Partial<Record<PipelineStage['status'], string>>\n  className?: string\n}\n\nconst DEFAULT_STATUS_LABELS: Record<PipelineStage['status'], string> = {\n  pending: 'Pending',\n  running: 'Running',\n  success: 'Succeeded',\n  failed: 'Failed',\n}\n\nexport function PipelineView({ stages, label, statusLabels, className }: PipelineViewProps) {\n  const classes = ['cu-pipeline-view', className].filter(Boolean).join(' ')\n  const labels = { ...DEFAULT_STATUS_LABELS, ...statusLabels }\n\n  return (\n    <section\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"pipeline-view\" data-ai-intent=\"show-progress\"\n      data-ai-state={stages.length === 0 ? 'empty' : 'default'}\n    >\n      <ol className=\"cu-pipeline-view__stages\">\n        {stages.map((stage) => (\n          <li key={stage.id} className={'cu-pipeline-view__stage cu-pipeline-view__stage--' + stage.status}>\n            <span className=\"cu-pipeline-view__name\">{stage.name}</span>\n            <span className=\"cu-pipeline-view__status\">{labels[stage.status]}</span>\n          </li>\n        ))}\n      </ol>\n    </section>\n  )\n}\n"
+    },
+    {
+      "path": "components/pipeline-view/styles.css",
+      "content": ".cu-pipeline-view {\n  display: block;\n  overflow-x: auto;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-pipeline-view__stages {\n  display: flex;\n  align-items: stretch;\n  gap: var(--cu-space-2);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-pipeline-view__stage {\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--cu-space-1) / 2);\n  min-inline-size: calc(var(--cu-space-3) * 12);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n}\n\n.cu-pipeline-view__stage + .cu-pipeline-view__stage::before {\n  content: '';\n  position: absolute;\n  inset-inline-start: calc(-1 * var(--cu-space-2) - 1px);\n  inset-block-start: 50%;\n  inline-size: var(--cu-space-2);\n  border-block-start: 2px solid var(--cu-color-border-default);\n}\n\n.cu-pipeline-view__stage--running {\n  border-color: var(--cu-color-palette-brand);\n}\n\n.cu-pipeline-view__stage--success {\n  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, green);\n}\n\n.cu-pipeline-view__stage--failed {\n  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);\n}\n\n.cu-pipeline-view__name {\n  font-weight: 600;\n}\n\n.cu-pipeline-view__status {\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n"
+    }
+  ]
+}

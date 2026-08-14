@@ -1,0 +1,17 @@
+{
+  "slug": "marketing-site",
+  "type": "registry:block",
+  "name": "Marketing site",
+  "dependencies": ["accordion", "button", "card", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 1280,
+    "title": "Hero, pricing, and FAQ"
+  }
+}

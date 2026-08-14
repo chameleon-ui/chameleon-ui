@@ -1,0 +1,29 @@
+.cu-canvas-toolbar {
+  position: absolute;
+  inset-inline-end: var(--cu-space-2);
+  inset-block-start: var(--cu-space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-1);
+  padding: var(--cu-space-1);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+}
+
+.cu-canvas-toolbar__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--cu-control-size-active);
+  min-block-size: var(--cu-control-size-active);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  cursor: pointer;
+}
+
+.cu-canvas-toolbar__button:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}

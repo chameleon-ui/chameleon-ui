@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "heatmap",
+  "name": "Heatmap",
+  "family": "F",
+  "status": "experimental",
+  "purpose": "Renders a matrix of values as color-intensity cells over a token-derived scale.",
+  "scenarios": [
+    "Commit activity calendar",
+    "Hour-by-day traffic matrix",
+    "Risk severity grid"
+  ],
+  "props": {
+    "rows": {
+      "type": "string",
+      "required": true,
+      "description": "Row labels in order."
+    },
+    "columns": {
+      "type": "string",
+      "required": true,
+      "description": "Column labels in order."
+    },
+    "values": {
+      "type": "string",
+      "required": true,
+      "description": "Row-major matrix of numbers matching rows x columns."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible description of the matrix."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Matrix rendered."
+    },
+    {
+      "name": "empty",
+      "description": "No values provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not rely on color alone; cells expose their numeric value.",
+    "Do not render matrices larger than 60x24 without pagination."
+  ],
+  "a11y": {
+    "role": "grid",
+    "keyboard": [],
+    "focus": "Cells are not focusable; values are available to screen readers via text.",
+    "labeling": "aria-label summarizes the matrix; each cell exposes its value.",
+    "wcag": [
+      "1.1.1",
+      "1.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Cells shrink to a minimum size; container scrolls horizontally beyond that.",
+    "breakpoints": {
+      "compact": "Horizontal scroll.",
+      "medium": "Fit container.",
+      "large": "Fit container."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "heatmap",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "visualize-data"
+    ]
+  }
+}

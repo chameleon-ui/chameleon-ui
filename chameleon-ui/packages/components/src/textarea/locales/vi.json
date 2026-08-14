@@ -1,0 +1,6 @@
+{
+  "textarea": {
+    "label": "Tin nhắn",
+    "invalid": "Nhập ít nhất mười ký tự."
+  }
+}

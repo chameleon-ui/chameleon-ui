@@ -1,0 +1,31 @@
+{
+  "schema": "chameleon-ui/blind-test-result/v1",
+  "status": "not_run",
+  "rate": null,
+  "owner": "待指定",
+  "legacy": "LEGACY-2026-008",
+  "testerId": "",
+  "startedAt": null,
+  "completedAt": null,
+  "passRule": "rate >= 0.8 on aggregated complete human sessions; unknown is incorrect; never type a fake percentage",
+  "harness": "http://127.0.0.1:5175/?view=blind",
+  "protocol": "docs/project/reports/盲测协议.md",
+  "themes": [
+    "line",
+    "silver-arrow",
+    "stuttgart",
+    "corsa",
+    "cupertino",
+    "siren",
+    "wechat",
+    "ant-blue"
+  ],
+  "trials": [],
+  "summary": {
+    "total": 16,
+    "answered": 0,
+    "correct": 0,
+    "unknown": 0
+  },
+  "note": "Human session has not been run. Do not replace rate with a typed percentage. Keep PHASE2/PHASE3/PHASE9 ≥80% unchecked."
+}

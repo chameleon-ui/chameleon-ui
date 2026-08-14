@@ -1,0 +1,30 @@
+.cu-block-login {
+  display: grid;
+  justify-items: center;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-login__card {
+  display: grid;
+  gap: var(--cu-space-3);
+  inline-size: min(100%, 28rem);
+}
+
+.cu-block-login__meta,
+.cu-block-login__error {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-login__error {
+  color: var(--cu-color-palette-brand);
+}
+
+.cu-block-login__register {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cu-space-2);
+}

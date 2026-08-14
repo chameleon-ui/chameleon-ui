@@ -1,0 +1,112 @@
+{
+  "id": "alert",
+  "type": "registry:ui",
+  "name": "Alert",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/alert/Alert.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport type AlertStatus = 'info' | 'success' | 'warning' | 'error'\n\nexport interface AlertProps {\n  status?: AlertStatus\n  title: string\n  description: ReactNode\n  className?: string\n}\n\nexport function Alert({ status = 'info', title, description, className }: AlertProps) {\n  const classes = ['cu-alert', `cu-alert--${status}`, className].filter(Boolean).join(' ')\n\n  return (\n    <div\n      aria-label={title}\n      className={classes}\n      data-ai-role=\"alert\" data-ai-intent=\"notify-status\"\n      data-ai-state={status}\n      role={status === 'error' ? 'alert' : 'status'}\n      aria-live={status === 'error' ? 'assertive' : 'polite'}\n    >\n      <div className=\"cu-alert__title\">{title}</div>\n      <div className=\"cu-alert__description\">{description}</div>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/alert/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"alert\",\n  \"name\": \"Alert\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Communicates a contextual message using semantic color from tokens.\",\n  \"scenarios\": [\n    \"Inform the user about a successful action\",\n    \"Warn that a setting requires attention\",\n    \"Report an error that blocks a task\"\n  ],\n  \"props\": {\n    \"status\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic tone of the alert.\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\"\n    },\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Alert heading and accessible name.\"\n    },\n    \"description\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Supporting content for the alert.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"status\",\n      \"values\": [\n        \"info\",\n        \"success\",\n        \"warning\",\n        \"error\"\n      ],\n      \"default\": \"info\",\n      \"description\": \"Semantic tone that maps to a token-derived accent color.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Alert is visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use an error alert for inline validation; use an invalid field.\",\n    \"Do not use success alerts for every minor action; reserve them for meaningful outcomes.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Alert is not focusable.\",\n    \"labeling\": \"Title labels the alert region; description is associated.\",\n    \"wcag\": [\n      \"1.4.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Alert stretches to the parent inline size and wraps text on compact screens.\",\n    \"breakpoints\": {\n      \"compact\": \"Full inline size of the parent.\",\n      \"medium\": \"Content or parent width.\",\n      \"large\": \"Content or parent width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. The accent border is on the inline-start side.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"alert\",\n    \"states\": [\n      \"info\",\n      \"success\",\n      \"warning\",\n      \"error\"\n    ],\n    \"intents\": [\n      \"notify-status\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/index.ts",
+      "content": "export { Alert } from './Alert.js'\nexport type { AlertProps, AlertStatus } from './Alert.js'\n"
+    },
+    {
+      "path": "components/alert/locales/am.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"ተሳክቷል\",\n    \"error\": \"ስህተት\",\n    \"warning\": \"ማስጠንቀቂያ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ar.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"نجاح\",\n    \"error\": \"خطأ\",\n    \"warning\": \"تحذير\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/bn.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"সফল\",\n    \"error\": \"ত্রুটি\",\n    \"warning\": \"সতর্কতা\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/de.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Erfolgreich abgeschlossen\",\n    \"error\": \"Fehler aufgetreten\",\n    \"warning\": \"Warnhinweis anzeigen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/en.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Success\",\n    \"error\": \"Error\",\n    \"warning\": \"Warning\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/es.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Éxito\",\n    \"error\": \"Error\",\n    \"warning\": \"Advertencia\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/fa.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"موفقیت\",\n    \"error\": \"خطا\",\n    \"warning\": \"هشدار\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/fr.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Succès\",\n    \"error\": \"Erreur\",\n    \"warning\": \"Avertissement\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ha.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Nasara\",\n    \"error\": \"Kuskure\",\n    \"warning\": \"Gargadi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/hi.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"सफलता\",\n    \"error\": \"त्रुटि\",\n    \"warning\": \"चेतावनी\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/id.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Berhasil\",\n    \"error\": \"Kesalahan\",\n    \"warning\": \"Peringatan\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ja.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"成功\",\n    \"error\": \"エラー\",\n    \"warning\": \"警告\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ko.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"성공\",\n    \"error\": \"오류\",\n    \"warning\": \"경고\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/pt.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Sucesso\",\n    \"error\": \"Erro\",\n    \"warning\": \"Aviso\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ru.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Успех\",\n    \"error\": \"Ошибка\",\n    \"warning\": \"Предупреждение\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/sw.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Imefanikiwa\",\n    \"error\": \"Hitilafu\",\n    \"warning\": \"Onyo\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ug.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"مۇۋەپپەقىيەت\",\n    \"error\": \"خاتالىق\",\n    \"warning\": \"ئاگاھلاندۇرۇش\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/ur.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"کامیابی\",\n    \"error\": \"خرابی\",\n    \"warning\": \"انتباہ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/vi.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"Thành công\",\n    \"error\": \"Lỗi\",\n    \"warning\": \"Cảnh báo\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/zh-CN.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"成功\",\n    \"error\": \"错误\",\n    \"warning\": \"警告\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/locales/zh-HK.json",
+      "content": "{\n  \"alert\": {\n    \"success\": \"成功\",\n    \"error\": \"錯誤\",\n    \"warning\": \"警告\"\n  }\n}\n"
+    },
+    {
+      "path": "components/alert/README.md",
+      "content": "# Alert\n\nFrozen Phase 1 stub for `alert`.\n\n- Requirement: Semantic color from tokens\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/alert/styles.css",
+      "content": ".cu-alert {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  border-radius: var(--cu-radius-md);\n  border-inline-start: 4px solid var(--cu-color-palette-brand);\n  color: var(--cu-color-fg-default);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, var(--cu-color-background-default));\n}\n\n.cu-alert--success {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, green);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 80%, green 8%, var(--cu-color-background-default));\n}\n\n.cu-alert--warning {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, orange);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 80%, orange 8%, var(--cu-color-background-default));\n}\n\n.cu-alert--error {\n  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, red);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 80%, red 8%, var(--cu-color-background-default));\n}\n\n.cu-alert__title {\n  font-weight: 700;\n  margin-block-end: var(--cu-space-1);\n}\n\n.cu-alert__description {\n  font-size: 0.9375rem;\n  line-height: 1.5;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "canvas-toolbar",
+  "type": "registry:ui",
+  "name": "CanvasToolbar",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/canvas-toolbar/CanvasToolbar.tsx",
+      "content": "import './styles.css'\n\nexport type CanvasToolbarAction = 'zoom-in' | 'zoom-out' | 'reset' | 'fit'\n\nexport interface CanvasToolbarProps {\n  label: string\n  zoomInLabel: string\n  zoomOutLabel: string\n  resetLabel: string\n  fitLabel: string\n  onAction: (action: CanvasToolbarAction) => void\n  className?: string\n}\n\nexport function CanvasToolbar({\n  label,\n  zoomInLabel,\n  zoomOutLabel,\n  resetLabel,\n  fitLabel,\n  onAction,\n  className,\n}: CanvasToolbarProps) {\n  const classes = ['cu-canvas-toolbar', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} role=\"toolbar\" aria-label={label} data-ai-role=\"canvas-toolbar\" data-ai-intent=\"choose-action\" data-ai-state=\"default\">\n      <button type=\"button\" className=\"cu-canvas-toolbar__button\" aria-label={zoomInLabel} onClick={() => onAction('zoom-in')}>\n        <span aria-hidden=\"true\">+</span>\n      </button>\n      <button type=\"button\" className=\"cu-canvas-toolbar__button\" aria-label={zoomOutLabel} onClick={() => onAction('zoom-out')}>\n        <span aria-hidden=\"true\">−</span>\n      </button>\n      <button type=\"button\" className=\"cu-canvas-toolbar__button\" aria-label={resetLabel} onClick={() => onAction('reset')}>\n        <span aria-hidden=\"true\">⟲</span>\n      </button>\n      <button type=\"button\" className=\"cu-canvas-toolbar__button\" aria-label={fitLabel} onClick={() => onAction('fit')}>\n        <span aria-hidden=\"true\">⛶</span>\n      </button>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"canvas-toolbar\",\n  \"name\": \"CanvasToolbar\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Toolbar with zoom in, zoom out, reset, and fit actions for a canvas.\",\n  \"scenarios\": [\n    \"Flow editor chrome\",\n    \"Diagram navigation controls\",\n    \"Map zoom affordances\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the toolbar.\"\n    },\n    \"zoomInLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for zoom in.\"\n    },\n    \"zoomOutLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for zoom out.\"\n    },\n    \"resetLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for reset.\"\n    },\n    \"fitLabel\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for fit-to-view.\"\n    },\n    \"onAction\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called with zoom-in | zoom-out | reset | fit.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Toolbar rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"canvas\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"button\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not add non-viewport actions to the canvas toolbar.\",\n    \"Do not hide the toolbar behind a hover-only reveal on touch.\"\n  ],\n  \"a11y\": {\n    \"role\": \"toolbar\",\n    \"keyboard\": [\n      \"Tab moves across controls\",\n      \"Enter or Space activates\"\n    ],\n    \"focus\": \"All controls are buttons in tab order.\",\n    \"labeling\": \"role=toolbar with aria-label; each button is named.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Docks to the inline-end corner; enlarges targets on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Large touch targets.\",\n      \"medium\": \"Default size.\",\n      \"large\": \"Default size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"canvas-toolbar\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"choose-action\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/index.ts",
+      "content": "export { CanvasToolbar } from './CanvasToolbar.js'\nexport type { CanvasToolbarAction, CanvasToolbarProps } from './CanvasToolbar.js'\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/am.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ar.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"شريط أدوات اللوحة\",\n    \"zoomIn\": \"تكبير\",\n    \"zoomOut\": \"تصغير\",\n    \"resetView\": \"إعادة ضبط العرض\",\n    \"fitView\": \"ملاءمة للعرض\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/bn.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/de.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Werkzeugleiste der Zeichenfläche\",\n    \"zoomIn\": \"Ansicht vergrößern\",\n    \"zoomOut\": \"Ansicht verkleinern\",\n    \"resetView\": \"Ansicht zurücksetzen\",\n    \"fitView\": \"An die Zeichenfläche anpassen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/en.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/es.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/fa.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/fr.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ha.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/hi.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/id.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ja.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ko.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/pt.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ru.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/sw.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ug.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/ur.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/vi.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/zh-CN.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"画布工具栏\",\n    \"zoomIn\": \"放大\",\n    \"zoomOut\": \"缩小\",\n    \"resetView\": \"重置视图\",\n    \"fitView\": \"适应视图\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/locales/zh-HK.json",
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-toolbar/styles.css",
+      "content": ".cu-canvas-toolbar {\n  position: absolute;\n  inset-inline-end: var(--cu-space-2);\n  inset-block-start: var(--cu-space-2);\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n  padding: var(--cu-space-1);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n}\n\n.cu-canvas-toolbar__button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-inline-size: var(--cu-control-size-active);\n  min-block-size: var(--cu-control-size-active);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  cursor: pointer;\n}\n\n.cu-canvas-toolbar__button:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n"
+    }
+  ]
+}

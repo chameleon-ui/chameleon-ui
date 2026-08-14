@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Zum Prüfen den Dialogfenster öffnen",
+    "title": "Die Grundlage im Dialogfenster prüfen",
+    "description": "Der Tastaturfokus bleibt innerhalb dieses Dialogfensters, bis Sie es wieder schließen.",
+    "close": "Prüfung jetzt abschließen",
+    "body": "Drücken Sie Escape oder die Schaltfläche zum Schließen. Der Fokus soll zum Auslöser-Button zurückkehren."
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "chip",
+  "name": "Chip",
+  "status": "experimental",
+  "purpose": "Compact label or tag that may represent a filter, selection, or attribute.",
+  "scenarios": [
+    "Show a selected filter",
+    "Display a category tag",
+    "Represent a user input token"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Chip content."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Visual emphasis.",
+      "values": [
+        "default",
+        "primary",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "default"
+    },
+    "onRemove": {
+      "type": "event",
+      "required": false,
+      "description": "Optional handler when the chip is removed."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "primary",
+        "success",
+        "warning",
+        "danger"
+      ],
+      "default": "default",
+      "description": "Visual emphasis."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle chip."
+    },
+    {
+      "name": "removable",
+      "description": "A remove button is present."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hide the remove action from keyboard users.",
+    "Do not use a chip for primary navigation."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [
+      "Tab focuses remove button if present"
+    ],
+    "focus": "Remove button is focusable.",
+    "labeling": "Contents provide the label; remove button has an aria-label.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline display.",
+    "breakpoints": {
+      "compact": "Inline.",
+      "medium": "Inline.",
+      "large": "Inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "chip",
+    "states": [
+      "default",
+      "removable"
+    ],
+    "intents": [
+      "filter-selection",
+      "dismiss-tag"
+    ]
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "statistic",
+  "name": "Statistic",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Displays a single prominent metric with label, value, and optional trend indicator.",
+  "scenarios": [
+    "Show revenue on a dashboard",
+    "Display active user count",
+    "Present conversion rate with trend"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Metric label."
+    },
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Formatted metric value."
+    },
+    "trend": {
+      "type": "enum",
+      "required": false,
+      "description": "Trend direction indicator.",
+      "values": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "default": "flat"
+    },
+    "trendLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible description of the trend."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "trend",
+      "values": [
+        "up",
+        "down",
+        "flat"
+      ],
+      "default": "flat",
+      "description": "Trend direction."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Metric rendered with current value."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "kpi-dashboard",
+      "grid",
+      "page"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not truncate the value without an accessible full form.",
+    "Do not use color alone to convey trend direction."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [],
+    "focus": "Not focusable; purely presentational.",
+    "labeling": "Label text precedes the value; trend has a text alternative.",
+    "wcag": [
+      "1.1.1",
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Stacks label above value; scales with type ramp.",
+    "breakpoints": {
+      "compact": "Compact value size.",
+      "medium": "Default value size.",
+      "large": "Default value size."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "statistic",
+    "states": [
+      "default",
+      "up",
+      "down",
+      "flat"
+    ],
+    "intents": [
+      "highlight-count"
+    ]
+  }
+}

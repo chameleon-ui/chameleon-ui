@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "kind": "a2ui",
+  "root": {
+    "id": "signin-form",
+    "type": "form",
+    "props": { "submitLabel": "Sign in" },
+    "children": [
+      {
+        "id": "email",
+        "type": "text-field",
+        "props": { "label": "Email", "name": "email" }
+      },
+      {
+        "id": "submit",
+        "type": "button",
+        "props": { "intent": "submit", "label": "Sign in" }
+      }
+    ]
+  }
+}

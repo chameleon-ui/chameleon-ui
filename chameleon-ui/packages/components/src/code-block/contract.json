@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "code-block",
+  "name": "CodeBlock",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Presents formatted source code with language label and a copy action.",
+  "scenarios": [
+    "API usage snippet in docs",
+    "Error log excerpt",
+    "Configuration example"
+  ],
+  "props": {
+    "code": {
+      "type": "string",
+      "required": true,
+      "description": "Source text to display."
+    },
+    "language": {
+      "type": "string",
+      "required": false,
+      "description": "Language identifier shown as a label."
+    },
+    "copyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the copy button."
+    },
+    "copiedLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Text shown briefly after copying."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Code shown; copy available."
+    },
+    {
+      "name": "copied",
+      "description": "Copy just succeeded; confirmation visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "markdown-renderer",
+      "article-card",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not execute code from the block.",
+    "Do not truncate code without a scroll affordance."
+  ],
+  "a11y": {
+    "role": "figure",
+    "keyboard": [
+      "Tab reaches the copy button"
+    ],
+    "focus": "Copy button is in tab order; code region itself is not focusable.",
+    "labeling": "Language label plus pre semantics describe the block.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Horizontal scroll for long lines at all breakpoints.",
+    "breakpoints": {
+      "compact": "Scrollable region.",
+      "medium": "Scrollable region.",
+      "large": "Scrollable region."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "code-block",
+    "states": [
+      "default",
+      "copied"
+    ],
+    "intents": [
+      "copy-snippet",
+      "style-text"
+    ]
+  }
+}

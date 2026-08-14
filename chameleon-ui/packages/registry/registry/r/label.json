@@ -1,0 +1,108 @@
+{
+  "id": "label",
+  "type": "registry:ui",
+  "name": "Label",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/label/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"label\",\n  \"name\": \"Label\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Labels a form control with semantic association.\",\n  \"scenarios\": [\n    \"Label an input\",\n    \"Label a select\",\n    \"Label a custom control\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Label text.\"\n    },\n    \"htmlFor\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"ID of the associated control.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Label rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"field\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a label without a corresponding control.\",\n    \"Do not nest interactive elements inside a label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"label\",\n    \"keyboard\": [],\n    \"focus\": \"Clicking focuses the associated control.\",\n    \"labeling\": \"Contents label the associated control.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"3.3.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline block.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Inline.\",\n      \"large\": \"Inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"label\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"name-field\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/label/index.ts",
+      "content": "export { Label } from './Label.js'\nexport type { LabelProps } from './Label.js'\n"
+    },
+    {
+      "path": "components/label/Label.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface LabelProps {\n  children: ReactNode\n  htmlFor?: string\n  className?: string\n}\n\nexport function Label({ children, htmlFor, className }: LabelProps) {\n  const classes = ['cu-label', className].filter(Boolean).join(' ')\n  return <label className={classes} data-ai-role=\"label\" data-ai-state=\"default\" data-ai-intent=\"name-field\" htmlFor={htmlFor}>{children}</label>\n}\n"
+    },
+    {
+      "path": "components/label/locales/am.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ar.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"تسمية\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/bn.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/de.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Beschriftung\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/en.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/es.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/fa.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/fr.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ha.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/hi.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/id.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ja.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ko.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/pt.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ru.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/sw.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ug.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/ur.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/vi.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/zh-CN.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"标签\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/locales/zh-HK.json",
+      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+    },
+    {
+      "path": "components/label/styles.css",
+      "content": ".cu-label {\n  display: inline-block;\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--cu-color-fg-default);\n}\n"
+    }
+  ]
+}

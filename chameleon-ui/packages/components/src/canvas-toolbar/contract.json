@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "canvas-toolbar",
+  "name": "CanvasToolbar",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "Toolbar with zoom in, zoom out, reset, and fit actions for a canvas.",
+  "scenarios": [
+    "Flow editor chrome",
+    "Diagram navigation controls",
+    "Map zoom affordances"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the toolbar."
+    },
+    "zoomInLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for zoom in."
+    },
+    "zoomOutLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for zoom out."
+    },
+    "resetLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for reset."
+    },
+    "fitLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for fit-to-view."
+    },
+    "onAction": {
+      "type": "event",
+      "required": true,
+      "description": "Called with zoom-in | zoom-out | reset | fit."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Toolbar rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "canvas",
+      "page"
+    ],
+    "allowedChildren": [
+      "button",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not add non-viewport actions to the canvas toolbar.",
+    "Do not hide the toolbar behind a hover-only reveal on touch."
+  ],
+  "a11y": {
+    "role": "toolbar",
+    "keyboard": [
+      "Tab moves across controls",
+      "Enter or Space activates"
+    ],
+    "focus": "All controls are buttons in tab order.",
+    "labeling": "role=toolbar with aria-label; each button is named.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Docks to the inline-end corner; enlarges targets on compact.",
+    "breakpoints": {
+      "compact": "Large touch targets.",
+      "medium": "Default size.",
+      "large": "Default size."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "canvas-toolbar",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "choose-action"
+    ]
+  }
+}

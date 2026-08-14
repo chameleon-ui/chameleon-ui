@@ -1,0 +1,16 @@
+{
+  "$schema": "https://chameleon-ui.dev/schemas/ui-render/v1.0.json",
+  "version": "1.0",
+  "root": {
+    "component": "stack",
+    "props": { "direction": "column", "gap": "2" },
+    "children": [
+      { "component": "heading", "props": { "level": "level-3" }, "children": ["Search results"] },
+      {
+        "component": "empty-state",
+        "props": { "title": "No matches", "description": "Try a different query or clear the filters." },
+        "children": []
+      }
+    ]
+  }
+}

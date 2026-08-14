@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "safe-area",
+  "name": "SafeArea",
+  "status": "experimental",
+  "purpose": "Applies device safe-area insets (notch, home indicator) as padding on chosen edges.",
+  "scenarios": [
+    "Keep a fixed bottom bar clear of the home indicator",
+    "Pad a full-screen layout so the notch never covers content",
+    "Inset only the block-end edge of a mobile page"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Content to inset."
+    },
+    "top": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply the top safe-area inset (status bar / notch).",
+      "default": false
+    },
+    "bottom": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply the bottom safe-area inset (home indicator / gesture bar).",
+      "default": true
+    },
+    "start": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply the inline-start safe-area inset.",
+      "default": false
+    },
+    "end": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply the inline-end safe-area inset.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Insets are applied according to the chosen edges."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "tab-bar",
+      "action-sheet"
+    ],
+    "allowedChildren": [
+      "text",
+      "button",
+      "tab-bar"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest multiple SafeArea components for the same edge.",
+    "Do not use SafeArea as a generic spacing utility; use Stack or space tokens."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [
+      "No interactive behavior; focus passes to children."
+    ],
+    "focus": "Focus order is unchanged; the wrapper is a non-interactive region.",
+    "labeling": "No accessible name; a presentational layout wrapper.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Insets resolve from env(safe-area-inset-*) with a 0px fallback; identical structure at every breakpoint, the values are device-driven rather than breakpoint-driven.",
+    "breakpoints": {
+      "compact": "env() insets apply on notched / gesture-navigation devices.",
+      "medium": "Same as compact; insets are 0 where the device has no unsafe edges.",
+      "large": "Typically resolves to 0 on desktop browsers (fallback path)."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical padding only; start/end map to inline-start/inline-end and follow document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "safe-area",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "fit-safe-area"
+    ]
+  }
+}

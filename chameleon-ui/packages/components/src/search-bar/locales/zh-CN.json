@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "搜索",
+    "placeholder": "搜索…",
+    "clear": "清除",
+    "submit": "提交搜索"
+  }
+}

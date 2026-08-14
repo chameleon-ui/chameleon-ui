@@ -1,0 +1,26 @@
+{
+  "marketing": {
+    "heroTitle": "Ship interfaces that adapt",
+    "heroBody": "Compose tokens, components, and scenes without a second styling language.",
+    "heroCta": "Start building",
+    "pricingTitle": "Pricing",
+    "planFree": "Starter",
+    "planPro": "Pro",
+    "planTeam": "Team",
+    "priceFree": "$0",
+    "pricePro": "$24",
+    "priceTeam": "$72",
+    "planFreeBody": "Core components for a first product slice.",
+    "planProBody": "Themes, blocks, and extra density rungs.",
+    "planTeamBody": "Shared tokens and review workflows for a product team.",
+    "ctaStart": "Choose plan",
+    "faqTitle": "Frequently asked questions",
+    "faq1Title": "Do blocks install like components?",
+    "faq1Body": "Yes. Block writes go through the same install-core kernel.",
+    "faq2Title": "Are all 21 locales authored?",
+    "faq2Body": "English and Simplified Chinese are authored. Other locales ship ICU skeletons.",
+    "faq3Title": "Can I restyle a block with raw CSS?",
+    "faq3Body": "No. Blocks consume --cu-* tokens and logical properties only.",
+    "planCount": "{count, plural, =0 {No plans} one {# plan} other {# plans}}"
+  }
+}

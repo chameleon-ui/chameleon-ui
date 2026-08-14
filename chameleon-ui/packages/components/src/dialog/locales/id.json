@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Buka dialog tinjauan",
+    "title": "Tinjau fondasi",
+    "description": "Fokus keyboard tetap di dalam dialog ini sampai ditutup.",
+    "close": "Selesai tinjauan",
+    "body": "Tekan Esc atau tombol tutup. Fokus harus kembali ke pemicu."
+  }
+}

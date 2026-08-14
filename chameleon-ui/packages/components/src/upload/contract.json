@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "upload",
+  "name": "Upload",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Complete upload control with drag and drop, paste, multi-file list, and per-file progress.",
+  "scenarios": [
+    "Attach documents to a ticket",
+    "Batch image upload",
+    "Import a CSV file"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the drop zone."
+    },
+    "dropzoneLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Visible hint inside the drop zone."
+    },
+    "browseLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Label for the browse button."
+    },
+    "multiple": {
+      "type": "boolean",
+      "required": false,
+      "description": "Allow more than one file.",
+      "default": true
+    },
+    "files": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled list of { name, size, progress? } entries; progress is measured by the caller, never simulated."
+    },
+    "onFiles": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the File array when files arrive."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Drop zone idle."
+    },
+    {
+      "name": "dragover",
+      "description": "Files dragged over the zone."
+    },
+    {
+      "name": "uploading",
+      "description": "At least one file in flight."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "dialog",
+      "page"
+    ],
+    "allowedChildren": [
+      "progress",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not upload without explicit user consent.",
+    "Do not accept files beyond the declared accept list."
+  ],
+  "a11y": {
+    "role": "button",
+    "keyboard": [
+      "Enter opens the file picker",
+      "Paste adds clipboard files"
+    ],
+    "focus": "Drop zone and browse button are focusable.",
+    "labeling": "Drop zone label plus browse button describe the control.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width drop zone; file list stacks.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "upload",
+    "states": [
+      "default",
+      "dragover",
+      "uploading"
+    ],
+    "intents": [
+      "upload-file"
+    ]
+  }
+}

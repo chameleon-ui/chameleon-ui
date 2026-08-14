@@ -1,0 +1,7 @@
+{
+  "chart": {
+    "label": "Diagrammansicht",
+    "series": "Datenreihe",
+    "empty": "Keine Daten vorhanden"
+  }
+}

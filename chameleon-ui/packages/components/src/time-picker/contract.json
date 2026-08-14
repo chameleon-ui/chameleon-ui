@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "time-picker",
+  "name": "TimePicker",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Picks a wall-clock time via hour and minute controls formatted with Intl.",
+  "scenarios": [
+    "Set a reminder time",
+    "Schedule a publish slot",
+    "Choose a meeting start"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Time string HH:mm or empty."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the HH:mm string on change."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Field label."
+    },
+    "hourLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the hour control."
+    },
+    "minuteLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the minute control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Time controls rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hand-pad time strings; use Intl-aware formatting helpers.",
+    "Do not mix 12h and 24h presentation in one form."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [
+      "Arrow keys step values in the selects"
+    ],
+    "focus": "Hour and minute selects are in tab order.",
+    "labeling": "Group label plus per-select labels describe the time.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline controls wrap on very narrow screens.",
+    "breakpoints": {
+      "compact": "Wrapped controls.",
+      "medium": "Inline controls.",
+      "large": "Inline controls."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "time-picker",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "pick-datetime"
+    ]
+  }
+}

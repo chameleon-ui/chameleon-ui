@@ -1,0 +1,108 @@
+{
+  "id": "separator",
+  "type": "registry:ui",
+  "name": "Separator",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/separator/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"separator\",\n  \"name\": \"Separator\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Visually and semantically separates content.\",\n  \"scenarios\": [\n    \"Separate menu items\",\n    \"Divide toolbar sections\",\n    \"Create visual grouping\"\n  ],\n  \"props\": {\n    \"orientation\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Direction of the separator.\",\n      \"values\": [\n        \"horizontal\",\n        \"vertical\"\n      ],\n      \"default\": \"horizontal\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"orientation\",\n      \"values\": [\n        \"horizontal\",\n        \"vertical\"\n      ],\n      \"default\": \"horizontal\",\n      \"description\": \"Direction of the separator.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Separator rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"menu\",\n      \"toolbar\",\n      \"list\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for layout gaps.\",\n    \"Do not use multiple separators in a row.\"\n  ],\n  \"a11y\": {\n    \"role\": \"separator\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Not labelled.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Adapts to orientation.\",\n    \"breakpoints\": {\n      \"compact\": \"Horizontal or vertical.\",\n      \"medium\": \"Horizontal or vertical.\",\n      \"large\": \"Horizontal or vertical.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"No direction-specific styling.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"separator\",\n    \"states\": [\n      \"horizontal\",\n      \"vertical\"\n    ],\n    \"intents\": [\n      \"separate-items\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/index.ts",
+      "content": "export { Separator } from './Separator.js'\nexport type { SeparatorProps } from './Separator.js'\n"
+    },
+    {
+      "path": "components/separator/locales/am.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ar.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"فاصل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/bn.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/de.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Visuelle Trennlinie\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/en.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/es.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/fa.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/fr.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ha.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/hi.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/id.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ja.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ko.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/pt.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ru.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/sw.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ug.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/ur.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/vi.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/zh-CN.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"分隔符\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/locales/zh-HK.json",
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+    },
+    {
+      "path": "components/separator/Separator.tsx",
+      "content": "import './styles.css'\n\nexport interface SeparatorProps {\n  orientation?: 'horizontal' | 'vertical'\n  className?: string\n}\n\nexport function Separator({ orientation = 'horizontal', className }: SeparatorProps) {\n  const classes = ['cu-separator', 'cu-separator--' + orientation, className].filter(Boolean).join(' ')\n  return <hr className={classes} data-ai-role=\"separator\" data-ai-intent=\"separate-items\" data-ai-state={orientation} aria-orientation={orientation} />\n}\n"
+    },
+    {
+      "path": "components/separator/styles.css",
+      "content": ".cu-separator {\n  margin: 0;\n  border: 0;\n  background: var(--cu-color-border-default);\n}\n\n.cu-separator--horizontal {\n  inline-size: 100%;\n  block-size: 1px;\n}\n\n.cu-separator--vertical {\n  inline-size: 1px;\n  block-size: 1.5em;\n}\n"
+    }
+  ]
+}

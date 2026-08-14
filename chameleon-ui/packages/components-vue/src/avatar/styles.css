@@ -1,0 +1,26 @@
+.cu-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 2.5rem;
+  block-size: 2.5rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--cu-color-background-default);
+  border: 1px solid var(--cu-color-border-default);
+  color: var(--cu-color-fg-default);
+  font-weight: 600;
+  object-fit: cover;
+}
+
+.cu-avatar--sm {
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  font-size: 0.75rem;
+}
+
+.cu-avatar--lg {
+  inline-size: 3.5rem;
+  block-size: 3.5rem;
+  font-size: 1.25rem;
+}

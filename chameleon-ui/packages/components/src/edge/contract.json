@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "edge",
+  "name": "Edge",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "Draws a connection line between two canvas points with an optional label.",
+  "scenarios": [
+    "Link two flow nodes",
+    "Show dependency direction",
+    "Annotate a connection"
+  ],
+  "props": {
+    "x1": {
+      "type": "number",
+      "required": true,
+      "description": "Start x in world px."
+    },
+    "y1": {
+      "type": "number",
+      "required": true,
+      "description": "Start y in world px."
+    },
+    "x2": {
+      "type": "number",
+      "required": true,
+      "description": "End x in world px."
+    },
+    "y2": {
+      "type": "number",
+      "required": true,
+      "description": "End y in world px."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Path shape.",
+      "values": [
+        "bezier",
+        "straight"
+      ],
+      "default": "bezier"
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Text rendered at the path midpoint."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "bezier",
+        "straight"
+      ],
+      "default": "bezier",
+      "description": "Path shape."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Edge rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "canvas",
+      "mind-map",
+      "graph-view",
+      "pipeline-view"
+    ],
+    "allowedChildren": [],
+    "requiredContext": [
+      "canvas"
+    ]
+  },
+  "antiPatterns": [
+    "Do not use edges for decorative dividers.",
+    "Do not draw edges without both endpoints resolved."
+  ],
+  "a11y": {
+    "role": "img",
+    "keyboard": [],
+    "focus": "Not focusable; relationships are described by node labels.",
+    "labeling": "Optional midpoint label is real text.",
+    "wcag": [
+      "1.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Vector path scales with the canvas zoom.",
+    "breakpoints": {
+      "compact": "Scales with zoom.",
+      "medium": "Scales with zoom.",
+      "large": "Scales with zoom."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "edge",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "connect-nodes"
+    ]
+  }
+}

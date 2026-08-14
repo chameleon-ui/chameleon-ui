@@ -1,0 +1,23 @@
+## 示例
+
+```jsx live
+function Example() {
+  const [last, setLast] = useState('');
+  return (
+    <Stack gap="2">
+      <ActionSheet
+        triggerLabel="更多操作"
+        title="选择操作"
+        cancelLabel="取消"
+        actions={[
+          { value: 'share', label: '分享' },
+          { value: 'copy', label: '复制链接' },
+          { value: 'delete', label: '删除' },
+        ]}
+        onAction={setLast}
+      />
+      {last ? <Typography variant="caption">上次选择：{last}</Typography> : null}
+    </Stack>
+  );
+}
+```

@@ -1,0 +1,6 @@
+{
+  "textarea": {
+    "label": "Mensagem",
+    "invalid": "Digite pelo menos dez caracteres."
+  }
+}

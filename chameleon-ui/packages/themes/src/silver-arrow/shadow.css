@@ -1,0 +1,24 @@
+/* Silver Arrow — border over elevation: taut 1–2px shade, never a soft cloud. */
+:root .cu-card--elevated {
+  box-shadow: var(--cu-shadow-sm);
+  border: 1px solid var(--cu-color-border-default);
+}
+
+:root .cu-card--outlined,
+:root .cu-toast,
+:root .cu-popover__content,
+:root .cu-select__content,
+:root .cu-dialog__content,
+:root .cu-action-sheet {
+  box-shadow: var(--cu-shadow-md);
+  border: 1px solid var(--cu-color-border-default);
+}
+
+:root .cu-button--solid {
+  box-shadow: none;
+  border: 1px solid color-mix(in srgb, var(--cu-color-palette-brand) 70%, #0f172a);
+}
+
+:root .cu-button--outline {
+  box-shadow: none;
+}

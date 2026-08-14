@@ -1,0 +1,15 @@
+{
+  "gantt": {
+    "title": "Schedule",
+    "subtitle": "Bars are sized from start and end dates. This is not a drawing engine.",
+    "scaleLabel": "Date scale",
+    "rangeLabel": "Scale {start} to {end}",
+    "emptyTitle": "No tasks",
+    "emptyDescription": "Add a task to plot the schedule.",
+    "emptyTimeline": "No milestones yet",
+    "statusOnTrack": "On track",
+    "statusAtRisk": "At risk",
+    "barLabel": "{name} from {start} to {end}",
+    "taskCount": "{count, plural, =0 {No tasks} one {# task} other {# tasks}}"
+  }
+}

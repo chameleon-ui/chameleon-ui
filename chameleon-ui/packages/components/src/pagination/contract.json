@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "pagination",
+  "name": "Pagination",
+  "status": "experimental",
+  "purpose": "Navigates across a set of pages.",
+  "scenarios": [
+    "Paginate search results",
+    "Paginate a data table",
+    "Navigate a long article"
+  ],
+  "props": {
+    "currentPage": {
+      "type": "number",
+      "required": true,
+      "description": "Active page (1-based)."
+    },
+    "totalPages": {
+      "type": "number",
+      "required": true,
+      "description": "Total number of pages."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when a page is selected."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Pagination rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "table",
+      "card"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for infinite scroll.",
+    "Do not hide focus indicators on page buttons."
+  ],
+  "a11y": {
+    "role": "navigation",
+    "keyboard": [
+      "Tab moves through page buttons",
+      "Enter selects a page"
+    ],
+    "focus": "Page buttons are focusable.",
+    "labeling": "Labelled as Pagination.",
+    "wcag": [
+      "2.1.1",
+      "2.4.8"
+    ]
+  },
+  "responsive": {
+    "strategy": "Horizontal list of buttons.",
+    "breakpoints": {
+      "compact": "Compact spacing.",
+      "medium": "Normal spacing.",
+      "large": "Normal spacing."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; previous/next labels are reversed by content not by code.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "pagination",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "navigate-pages"
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+---
+id: intro
+slug: /
+title: Chameleon UI
+hide_title: true
+description: MIT 许可的 React 组件，底座为 Ark/Zag。通过 chameleon add 安装。文档站不写盘。
+---
+
+import { Button, Stack } from '@chameleon-ui/components'
+import Inventory from '@site/src/components/Inventory'
+import { CopyLine } from '@site/src/components/InstallBlock'
+
+<div className="cu-docs-hero" data-docs="home">
+
+# Chameleon UI
+
+MIT 许可的 React 组件，底座为 Ark/Zag。只从正式包安装。内测 Demo 仍在 5175；本文档站是 [http://127.0.0.1:5176](http://127.0.0.1:5176)。
+
+本站是 **Docusaurus 3 + MDX**。API 表由每个组件的 `contract.json` 生成。文档站**不写盘** — `chameleon add <slug>` 只复制 CLI 命令，由 install-core 写盘。
+
+</div>
+
+## 快速开始
+
+<CopyLine code="chameleon add button" />
+
+```jsx live
+function Example() {
+  return (
+    <Stack direction="row" gap="2" align="center">
+      <Button>保存</Button>
+      <Button variant="outline">取消</Button>
+    </Stack>
+  );
+}
+```
+
+## 主题与语言
+
+<div className="cu-docs-showcase" data-docs="showcase">
+  <div className="cu-docs-showcase-cell">
+    <h3>主题</h3>
+    <p>8 套官方致敬主题（项目所有者 2026-08-13 确认；免费 SKU）。用导航栏切换。禁止宣称未测量的认出率。</p>
+    <Stack direction="row" gap="2">
+      <Button size="sm">Solid</Button>
+      <Button size="sm" variant="outline">Outline</Button>
+    </Stack>
+  </div>
+  <div className="cu-docs-showcase-cell">
+    <h3>语言</h3>
+    <p>文档站三种界面语言：简体中文（默认）· 繁體 · English。产品组件文案仍为 21 个 Locale。</p>
+    <p>中文 · 繁體 · English</p>
+  </div>
+</div>
+
+<Inventory />
+
+<p>本站展示当前 workspace catalog（v2.0）。上面的数字来自 <code>catalog.json</code> 实测，不是目标数。冻结会未签（owner 待指定）。</p>

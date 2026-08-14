@@ -1,0 +1,28 @@
+## 示例
+
+```jsx live
+function Example() {
+  return (
+    <Drawer triggerLabel="打开抽屉" title="详情" closeLabel="关闭">
+      <Typography variant="body">从右侧滑入的次级任务面板。</Typography>
+    </Drawer>
+  );
+}
+```
+
+从起始边滑入：
+
+```jsx live
+function Example() {
+  return (
+    <Drawer
+      position="start"
+      triggerLabel="打开导航"
+      title="导航"
+      closeLabel="关闭"
+    >
+      <Typography variant="body">position="start" 跟随文档方向。</Typography>
+    </Drawer>
+  );
+}
+```

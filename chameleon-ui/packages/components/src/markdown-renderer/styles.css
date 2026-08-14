@@ -1,0 +1,34 @@
+.cu-markdown-renderer {
+  display: block;
+  color: var(--cu-color-fg-default);
+  line-height: 1.6;
+}
+
+.cu-markdown-renderer code {
+  font-family: monospace;
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, var(--cu-color-background-default));
+  border-radius: calc(var(--cu-space-1) / 2);
+  padding-inline: calc(var(--cu-space-1) / 2);
+}
+
+.cu-markdown-renderer__code {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-inverse);
+  color: var(--cu-color-fg-inverse);
+  overflow-x: auto;
+}
+
+.cu-markdown-renderer__code code {
+  background: transparent;
+  padding: 0;
+}
+
+.cu-markdown-renderer__list {
+  padding-inline-start: var(--cu-space-3);
+}
+
+.cu-markdown-renderer a {
+  color: var(--cu-color-palette-brand);
+}

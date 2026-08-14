@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "notification",
+  "name": "Notification",
+  "family": "E",
+  "status": "experimental",
+  "purpose": "Presents a persistent notification card with title, message, and dismiss control.",
+  "scenarios": [
+    "Show a sync completion notice",
+    "Display a permission request",
+    "Present a system warning"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Notification headline."
+    },
+    "message": {
+      "type": "string",
+      "required": true,
+      "description": "Notification body text."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic tone.",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info"
+    },
+    "onDismiss": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the dismiss control is activated."
+    },
+    "dismissLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the dismiss control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info",
+      "description": "Semantic tone."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Visible notification."
+    },
+    {
+      "name": "dismissed",
+      "description": "Dismissed by the user."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card"
+    ],
+    "allowedChildren": [
+      "button",
+      "link"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a persistent notification for transient feedback; use Toast.",
+    "Do not stack more than three notifications at once."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [
+      "Escape dismisses when the notification has focus"
+    ],
+    "focus": "Dismiss control is a button in tab order.",
+    "labeling": "Title labels the notification; icon is decorative with text tone.",
+    "wcag": [
+      "1.3.1",
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width on compact; fixed measure on larger breakpoints.",
+    "breakpoints": {
+      "compact": "Full width card.",
+      "medium": "Constrained width.",
+      "large": "Constrained width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "notification",
+    "states": [
+      "default",
+      "dismissed",
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "intents": [
+      "notify-status"
+    ]
+  }
+}

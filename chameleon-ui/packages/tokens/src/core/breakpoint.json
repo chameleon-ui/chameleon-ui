@@ -1,0 +1,17 @@
+{
+  "breakpoint": {
+    "$type": "dimension",
+    "mobile": {
+      "$value": { "value": 0, "unit": "px" },
+      "$description": "Mobile range start: active below the tablet threshold (<768px, vision §7.1)."
+    },
+    "tablet": {
+      "$value": { "value": 48, "unit": "rem" },
+      "$description": "Tablet range start (=768px at the 16px root). Tablet spans 768–1279px."
+    },
+    "desktop": {
+      "$value": { "value": 80, "unit": "rem" },
+      "$description": "Desktop range start (=1280px at the 16px root). Desktop spans >=1280px."
+    }
+  }
+}

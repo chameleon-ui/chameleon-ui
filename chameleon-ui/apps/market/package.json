@@ -1,0 +1,40 @@
+{
+  "name": "@chameleon-ui/market",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "type": "module",
+  "description": "Phase 4 community theme marketplace UI: browse, detail, install, listing application",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "dev": "vite",
+    "preview": "vite preview --host 127.0.0.1 --port 4178 --strictPort",
+    "lint": "tsc --noEmit && node ../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chameleon-ui/components": "workspace:*",
+    "@chameleon-ui/market-service": "workspace:*",
+    "@chameleon-ui/themes": "workspace:*",
+    "@chameleon-ui/tokens": "workspace:*",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@chameleon-ui/stylelint-config": "workspace:*",
+    "@testing-library/dom": "10.4.1",
+    "@testing-library/jest-dom": "7.0.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.4",
+    "@vitejs/plugin-react": "6.0.5",
+    "jsdom": "30.0.1",
+    "typescript": "5.9.3",
+    "vite": "8.2.1",
+    "vitest": "4.1.10"
+  }
+}

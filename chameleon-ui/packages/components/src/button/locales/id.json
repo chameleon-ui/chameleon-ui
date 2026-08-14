@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Kirim",
+    "cancel": "Batal",
+    "count": "{count, plural, =0 {Tidak ada tindakan yang selesai} other {# tindakan selesai}}"
+  }
+}

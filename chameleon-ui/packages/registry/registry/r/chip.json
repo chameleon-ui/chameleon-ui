@@ -1,0 +1,108 @@
+{
+  "id": "chip",
+  "type": "registry:ui",
+  "name": "Chip",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/chip/Chip.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface ChipProps {\n  children: ReactNode\n  variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger'\n  onRemove?: () => void\n  className?: string\n}\n\nexport function Chip({ children, variant = 'default', onRemove, className }: ChipProps) {\n  const classes = ['cu-chip', 'cu-chip--' + variant, className].filter(Boolean).join(' ')\n  return (\n    <span className={classes} data-ai-role=\"chip\" data-ai-intent=\"filter-selection\" data-ai-state={onRemove ? 'removable' : 'default'}>\n      {children}\n      {onRemove ? (\n        <button className=\"cu-chip__remove\" onClick={onRemove} type=\"button\" aria-label=\"Remove\">×</button>\n      ) : null}\n    </span>\n  )\n}\n"
+    },
+    {
+      "path": "components/chip/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"chip\",\n  \"name\": \"Chip\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Compact label or tag that may represent a filter, selection, or attribute.\",\n  \"scenarios\": [\n    \"Show a selected filter\",\n    \"Display a category tag\",\n    \"Represent a user input token\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Chip content.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Visual emphasis.\",\n      \"values\": [\n        \"default\",\n        \"primary\",\n        \"success\",\n        \"warning\",\n        \"danger\"\n      ],\n      \"default\": \"default\"\n    },\n    \"onRemove\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Optional handler when the chip is removed.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"default\",\n        \"primary\",\n        \"success\",\n        \"warning\",\n        \"danger\"\n      ],\n      \"default\": \"default\",\n      \"description\": \"Visual emphasis.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Idle chip.\"\n    },\n    {\n      \"name\": \"removable\",\n      \"description\": \"A remove button is present.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not hide the remove action from keyboard users.\",\n    \"Do not use a chip for primary navigation.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [\n      \"Tab focuses remove button if present\"\n    ],\n    \"focus\": \"Remove button is focusable.\",\n    \"labeling\": \"Contents provide the label; remove button has an aria-label.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline display.\",\n    \"breakpoints\": {\n      \"compact\": \"Inline.\",\n      \"medium\": \"Inline.\",\n      \"large\": \"Inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"chip\",\n    \"states\": [\n      \"default\",\n      \"removable\"\n    ],\n    \"intents\": [\n      \"filter-selection\",\n      \"dismiss-tag\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/index.ts",
+      "content": "export { Chip } from './Chip.js'\nexport type { ChipProps } from './Chip.js'\n"
+    },
+    {
+      "path": "components/chip/locales/am.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ar.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"شريحة\",\n    \"remove\": \"إزالة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/bn.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/de.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Auswahlchip\",\n    \"remove\": \"Entfernen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/en.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/es.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/fa.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/fr.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ha.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/hi.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/id.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ja.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ko.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/pt.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ru.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/sw.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ug.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/ur.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/vi.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/zh-CN.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"标签\",\n    \"remove\": \"移除\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/locales/zh-HK.json",
+      "content": "{\n  \"chip\": {\n    \"label\": \"Chip\",\n    \"remove\": \"Remove\"\n  }\n}\n"
+    },
+    {
+      "path": "components/chip/styles.css",
+      "content": ".cu-chip {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: var(--cu-space-1);\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  font: inherit;\n  font-size: 0.875rem;\n  color: var(--cu-color-fg-default);\n  background: var(--cu-color-background-default);\n}\n\n.cu-chip--primary {\n  color: var(--cu-color-fg-inverse);\n  background: var(--cu-color-palette-brand);\n  border-color: transparent;\n}\n\n.cu-chip--success {\n  color: var(--cu-color-fg-inverse);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 70%, #16a34a);\n  border-color: transparent;\n}\n\n.cu-chip--warning {\n  color: var(--cu-color-fg-default);\n  background: #f59e0b;\n  border-color: transparent;\n}\n\n.cu-chip--danger {\n  color: var(--cu-color-fg-inverse);\n  background: #dc2626;\n  border-color: transparent;\n}\n\n.cu-chip__remove {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n  padding: 0;\n  border: 0;\n  border-radius: 50%;\n  background: transparent;\n  color: inherit;\n  cursor: pointer;\n  font-weight: 700;\n}\n\n.cu-chip__remove:focus-visible {\n  outline: 2px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n"
+    }
+  ]
+}

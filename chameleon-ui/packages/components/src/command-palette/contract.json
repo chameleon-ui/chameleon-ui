@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "command-palette",
+  "name": "CommandPalette",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Offers a searchable command list (⌘K pattern) with a reproducible default sort.",
+  "scenarios": [
+    "Jump to a command from the keyboard",
+    "Filter actions by name",
+    "Run a palette command and dismiss the overlay"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": true,
+      "description": "Whether the palette overlay is shown."
+    },
+    "onOpenChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the overlay should open or close."
+    },
+    "commands": {
+      "type": "node",
+      "required": true,
+      "description": "Command entries with value, label, optional shortcut and group."
+    },
+    "query": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled filter query."
+    },
+    "onQueryChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the filter query changes."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the command value when a command is run."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the dialog and search field."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Search field placeholder."
+    },
+    "emptyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Copy shown when the filter matches nothing."
+    },
+    "closeLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible name of the dismiss control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "closed",
+      "description": "Palette is hidden."
+    },
+    {
+      "name": "open",
+      "description": "Palette is shown with an empty query."
+    },
+    {
+      "name": "filtered",
+      "description": "Palette is shown with a non-empty query."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["app-shell", "page"],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not randomize command order; default sort must be localeCompare en on label then value.",
+    "Do not trap the user without Escape or a labelled close control."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "ArrowDown and ArrowUp move the active option",
+      "Enter runs the active command",
+      "Escape dismisses the overlay"
+    ],
+    "focus": "The search field is a combobox; options are in a listbox with aria-activedescendant.",
+    "labeling": "Dialog and field share the accessible name; close has an aria-label.",
+    "wcag": ["1.3.1", "2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Positioner is the query container. Compact is a bottom sheet; tablet/desktop center a constrained dialog. No viewport size media.",
+    "breakpoints": {
+      "compact": "Full-width sheet at the block-end.",
+      "medium": "Centered 36rem dialog at 48rem container width.",
+      "large": "Centered 40rem dialog at 80rem container width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "command-palette",
+    "states": ["closed", "open", "filtered"],
+    "intents": ["choose-action", "search-select"]
+  }
+}

@@ -1,0 +1,135 @@
+.cu-action-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 66%, transparent);
+  backdrop-filter: blur(var(--cu-blur-surface, 0px));
+  -webkit-backdrop-filter: blur(var(--cu-blur-surface, 0px));
+}
+
+/*
+ * Phase 5 container-query whitelist member: the positioner is viewport-sized
+ * (fixed inset 0) and acts as the query container; the content morphs from
+ * full-width bottom panel to a bounded centered panel by container size.
+ */
+.cu-action-sheet__positioner {
+  position: fixed;
+  inset: 0;
+  z-index: 31;
+  display: grid;
+  place-items: end center;
+  overflow: auto;
+  container-name: action-sheet;
+  container-type: inline-size;
+}
+
+.cu-action-sheet__content {
+  inline-size: 100%;
+  max-block-size: 75vh;
+  overflow: auto;
+  padding-block-start: var(--cu-space-1);
+  padding-block-end: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border-start-start-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-start-end-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+  color: var(--cu-color-fg-default);
+  background: var(
+    --cu-color-background-translucent-thick,
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1))
+    blur(var(--cu-blur-thick, var(--cu-blur-surface, 0px)));
+  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-thick, var(--cu-blur-surface, 0px)));
+  box-shadow: var(--cu-shadow-lg);
+  transition: transform 140ms ease;
+}
+
+/* Drag-to-dismiss handle: hit area meets the 44px touch target floor. */
+.cu-action-sheet__handle {
+  display: block;
+  min-block-size: var(--cu-touch-target-min);
+  cursor: grab;
+  touch-action: none;
+}
+
+.cu-action-sheet__handle::before {
+  content: '';
+  display: block;
+  margin-block: var(--cu-space-2);
+  margin-inline: auto;
+  inline-size: 2.25rem;
+  block-size: 0.25rem;
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-border-default);
+}
+
+.cu-action-sheet__title {
+  margin-block: 0 var(--cu-space-2);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.cu-action-sheet__actions {
+  display: flex;
+  flex-direction: column;
+}
+
+.cu-action-sheet__action,
+.cu-action-sheet__cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: none;
+  border-block-start: 1px solid var(--cu-color-border-default);
+  background: transparent;
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-action-sheet__cancel {
+  margin-block-start: var(--cu-space-2);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  font-weight: 650;
+}
+
+@media (hover: hover) {
+  .cu-action-sheet__action:hover,
+  .cu-action-sheet__cancel:hover {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+.cu-action-sheet__action:focus-visible,
+.cu-action-sheet__cancel:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+/* 48rem == breakpoint.tablet, see packages/tokens/src/core/breakpoint.json. */
+@container (min-width: 48rem) {
+  .cu-action-sheet__content {
+    align-self: center;
+    inline-size: min(100%, 30rem);
+    margin-block: var(--cu-space-3);
+    border-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  }
+
+  .cu-action-sheet__handle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-action-sheet__backdrop,
+  .cu-action-sheet__content {
+    transition-duration: 0.01ms;
+  }
+}

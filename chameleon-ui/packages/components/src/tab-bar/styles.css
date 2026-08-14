@@ -1,0 +1,79 @@
+/*
+ * Phase 5 container-query whitelist member: the bar is fixed to the block-end
+ * viewport edge and is its own query container; labels shrink only when the
+ * bar itself is narrow, regardless of how the viewport got there.
+ * The block-end padding consumes the device safe-area inset (with a 0px
+ * fallback) so the home indicator never covers tabs.
+ */
+.cu-tab-bar {
+  position: fixed;
+  inset-block-end: 0;
+  inset-inline: 0;
+  z-index: 20;
+  padding-block-end: env(safe-area-inset-bottom, 0px);
+  border-block-start: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(
+    --cu-color-background-translucent,
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  color: var(--cu-color-fg-default);
+  container-name: tab-bar;
+  container-type: inline-size;
+}
+
+.cu-tab-bar__list {
+  display: flex;
+  align-items: stretch;
+}
+
+.cu-tab-bar__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-1);
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border: none;
+  border-block-start: 2px solid transparent;
+  background: transparent;
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.cu-tab-bar__item:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+.cu-tab-bar__item[data-state='active'] {
+  border-block-start-color: var(--cu-color-palette-brand);
+  color: var(--cu-color-palette-brand);
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .cu-tab-bar__item:hover:not([data-state='active']) {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+/* Component-local container threshold: very narrow bars shrink labels (contract responsive). */
+@container (max-width: 20rem) {
+  .cu-tab-bar__item {
+    font-size: 0.75rem;
+    padding-inline: var(--cu-space-1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-tab-bar__item {
+    transition-duration: 0.01ms;
+  }
+}

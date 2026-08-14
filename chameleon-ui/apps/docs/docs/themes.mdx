@@ -1,0 +1,23 @@
+---
+id: themes
+title: 主题
+sidebar_label: 主题
+description: 来自 @chameleon-ui/themes 的 8 套官方致敬主题。
+---
+
+import ThemeList from '@site/src/components/ThemeList'
+
+来自 `@chameleon-ui/themes` 的 overlay（8 套官方致敬主题，免费）。项目所有者已确认可作官方主题出货；禁止宣称可被认出的比例。社区市场上架可以免费或付费。
+
+<ThemeList />
+
+使用导航栏主题切换。overlay 作用在文档根节点的 `data-theme` 上。
+
+应用里加载 overlay CSS 请走包 `exports`，不要猜文件系统路径：
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+```
+
+`import "@chameleon-ui/themes/dist/cupertino/variables.css"` 同样有效（`exports["./dist/*"]`）。
+

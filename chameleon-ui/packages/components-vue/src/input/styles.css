@@ -1,0 +1,41 @@
+.cu-field {
+  display: grid;
+  gap: var(--cu-space-1);
+}
+
+.cu-field__label {
+  color: var(--cu-color-fg-default);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.cu-input {
+  min-inline-size: 0;
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  font: inherit;
+}
+
+.cu-input:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+.cu-input[aria-invalid='true'] {
+  border-color: var(--cu-color-palette-brand);
+}
+
+.cu-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cu-field__error {
+  color: var(--cu-color-palette-brand);
+  font-size: 0.82rem;
+}

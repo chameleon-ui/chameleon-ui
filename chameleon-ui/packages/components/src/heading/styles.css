@@ -1,0 +1,32 @@
+.cu-heading {
+  margin: 0;
+  color: var(--cu-color-fg-default);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cu-heading--level-1 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+.cu-heading--level-2 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.cu-heading--level-3 {
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+.cu-heading--level-4 {
+  font-size: 1.125rem;
+}
+
+.cu-heading--level-5 {
+  font-size: 1rem;
+}
+
+.cu-heading--level-6 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

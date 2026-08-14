@@ -1,0 +1,48 @@
+{
+  "$comment": "Phase 8 A6 frozen generation task set. Metric: 一次生成通过 schema 编译 + 安装成功 + 覆盖期望 slug 的比率. Reproduce: pnpm bench:genui (generator selected via CU_BENCH_GENERATOR).",
+  "taskSetVersion": "1.0.0",
+  "frozenAt": "2026-08-13",
+  "metricDefinition": "Rate of tasks where the generated render-schema compiles cleanly, covers the expected component slugs, and installs through install-core on the first attempt.",
+  "tasks": [
+    {
+      "id": "login-form",
+      "prompt": "collect email and password then submit the form",
+      "expectSlugs": ["input", "button"]
+    },
+    {
+      "id": "empty-results",
+      "prompt": "show an empty state that prompts the first action",
+      "expectSlugs": ["empty-state"]
+    },
+    {
+      "id": "status-card",
+      "prompt": "group content into a card with a badge flagging status",
+      "expectSlugs": ["card", "badge"]
+    },
+    {
+      "id": "page-heading",
+      "prompt": "structure content with a clear heading",
+      "expectSlugs": ["heading"]
+    },
+    {
+      "id": "notify-status",
+      "prompt": "notify status to the user",
+      "expectSlugs": ["alert"]
+    },
+    {
+      "id": "settings-stack",
+      "prompt": "lay out a settings panel as a vertical flow",
+      "expectSlugs": ["stack"]
+    },
+    {
+      "id": "text-block",
+      "prompt": "style text with the typography scale",
+      "expectSlugs": ["typography"]
+    },
+    {
+      "id": "section-divider",
+      "prompt": "separate sections with a divider",
+      "expectSlugs": ["divider"]
+    }
+  ]
+}

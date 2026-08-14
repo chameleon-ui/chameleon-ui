@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "sidebar",
+  "name": "Sidebar",
+  "status": "experimental",
+  "purpose": "Provides the persistent or collapsible side navigation panel; the tablet/desktop member of the Navigation morph pair with TabBar.",
+  "scenarios": [
+    "Show top-level destinations beside the content on desktop",
+    "Collapse navigation to a rail on tablet widths",
+    "Highlight the current destination with aria-current"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the navigation landmark."
+    },
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of destinations with value and label."
+    },
+    "header": {
+      "type": "node",
+      "required": false,
+      "description": "Optional content above the navigation list."
+    },
+    "activeValue": {
+      "type": "string",
+      "required": false,
+      "description": "Value of the current destination; sets aria-current."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the destination value when an item is activated."
+    },
+    "collapsible": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show the collapse toggle (tablet pattern).",
+      "default": false
+    },
+    "collapsed": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled collapsed state."
+    },
+    "defaultCollapsed": {
+      "type": "boolean",
+      "required": false,
+      "description": "Uncontrolled initial collapsed state.",
+      "default": false
+    },
+    "onCollapsedChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the collapsed state changes."
+    },
+    "expandLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Toggle accessible name when collapsed.",
+      "default": "Expand sidebar"
+    },
+    "collapseLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Toggle accessible name when expanded.",
+      "default": "Collapse sidebar"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "expanded",
+      "description": "Full 16rem panel with visible labels."
+    },
+    {
+      "name": "collapsed",
+      "description": "4.5rem rail; labels hidden, items keep accessible names."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not render the sidebar and the tab bar for the same destination set at one breakpoint.",
+    "Do not put the only navigation in the sidebar without a compact alternative (tab-bar)."
+  ],
+  "a11y": {
+    "role": "complementary",
+    "keyboard": [
+      "Tab moves through items and the toggle",
+      "Enter/Space activates the focused item"
+    ],
+    "focus": "Document order is header, items, toggle; the collapse toggle exposes aria-expanded and aria-controls.",
+    "labeling": "The aside and nav landmarks are labelled via the label prop; collapsed items keep aria-label text.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.1",
+      "2.5.5",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Desktop form of the Navigation morph: persistent 16rem panel. Collapses to a 4.5rem rail via the toggle or when its own host slot narrows to 12rem (container query). On compact the shell replaces it with tab-bar.",
+    "breakpoints": {
+      "compact": "Composition contract: app-shell uses tab-bar instead; a directly rendered sidebar still works as an inline panel.",
+      "medium": "Collapsible sidebar; in a 12rem host slot it switches to the label-free rail via container query.",
+      "large": "Persistent 16rem sidebar with labels."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; the border is on the inline-end, items align to inline-start, and the directional collapse chevron mirrors under [dir=rtl].",
+    "mirroredValues": [
+      "collapse-chevron"
+    ]
+  },
+  "dataAi": {
+    "role": "sidebar",
+    "states": [
+      "expanded",
+      "collapsed"
+    ],
+    "intents": [
+      "navigate-sections"
+    ]
+  }
+}

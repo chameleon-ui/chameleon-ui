@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "action-sheet",
+  "name": "ActionSheet",
+  "status": "experimental",
+  "purpose": "Presents a set of contextual actions in a bottom-anchored panel; the compact-screen morph target of Dialog.",
+  "scenarios": [
+    "Offer share, edit, and delete actions for a list item",
+    "Confirm a destructive choice with a visible cancel escape",
+    "Collect one choice on a phone without leaving the current page"
+  ],
+  "props": {
+    "triggerLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Trigger button label."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Action sheet title."
+    },
+    "cancelLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Cancel button label."
+    },
+    "actions": {
+      "type": "string",
+      "required": true,
+      "description": "Array of actions with value and label."
+    },
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state."
+    },
+    "onOpenChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when open state changes (trigger, Escape, backdrop, cancel, or drag dismiss)."
+    },
+    "onAction": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the action value when an action is chosen; the sheet then closes."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Sheet is visible; focus is trapped inside."
+    },
+    {
+      "name": "closed",
+      "description": "Sheet is hidden; only the trigger is in the tab order."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not open multiple action sheets.",
+    "Do not use for long forms; use Dialog or a page instead.",
+    "Do not remove the cancel control; it is the always-visible escape."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Tab cycles inside",
+      "Escape closes",
+      "Enter/Space activates an action"
+    ],
+    "focus": "Focus moves inside on open and returns to the trigger on close; delegated to Ark UI / Zag focus trap.",
+    "labeling": "Title labels the sheet; every action is a real button with its visible label.",
+    "wcag": [
+      "2.1.1",
+      "2.4.3",
+      "2.5.5"
+    ]
+  },
+  "responsive": {
+    "strategy": "Bottom-anchored full-width panel with drag handle on compact; bounded centered panel without the handle on tablet and desktop. The morph is container-driven via the viewport-sized positioner.",
+    "breakpoints": {
+      "compact": "Full-width bottom panel; drag handle visible, swipe down or Escape closes; action and cancel hit areas >= 44px.",
+      "medium": "Centered panel with max inline size 30rem; drag handle hidden; Escape and cancel close.",
+      "large": "Same as medium."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; the panel is block-end anchored and direction-neutral, actions stack in document order.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "action-sheet",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "choose-action"
+    ]
+  }
+}

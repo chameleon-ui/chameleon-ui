@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "count": "{count, plural, =0 {No actions completed} one {# action completed} other {# actions completed}}"
+  }
+}

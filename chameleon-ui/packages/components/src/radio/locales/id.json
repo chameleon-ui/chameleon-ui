@@ -1,0 +1,7 @@
+{
+  "radio": {
+    "payment": "Metode pembayaran",
+    "optionCard": "Kartu kredit",
+    "optionBank": "Transfer bank"
+  }
+}

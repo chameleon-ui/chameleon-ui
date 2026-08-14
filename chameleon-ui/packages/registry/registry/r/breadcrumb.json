@@ -1,0 +1,108 @@
+{
+  "id": "breadcrumb",
+  "type": "registry:ui",
+  "name": "Breadcrumb",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/breadcrumb/Breadcrumb.tsx",
+      "content": "import './styles.css'\n\nexport interface BreadcrumbItem {\n  label: string\n  href?: string\n}\n\nexport interface BreadcrumbProps {\n  items: BreadcrumbItem[]\n  separator?: string\n  className?: string\n}\n\nexport function Breadcrumb({ items, separator = '/', className }: BreadcrumbProps) {\n  const classes = ['cu-breadcrumb', className].filter(Boolean).join(' ')\n  return (\n    <nav aria-label=\"Breadcrumb\" className={classes} data-ai-role=\"breadcrumb\" data-ai-state=\"default\" data-ai-intent=\"navigate-hierarchy\">\n      <ol className=\"cu-breadcrumb__list\">\n        {items.map((item, index) => (\n          <li className=\"cu-breadcrumb__item\" key={index}>\n            {item.href ? (\n              <a className=\"cu-breadcrumb__link\" href={item.href}>{item.label}</a>\n            ) : (\n              <span className=\"cu-breadcrumb__current\" aria-current=\"page\">{item.label}</span>\n            )}\n            {index < items.length - 1 && <span className=\"cu-breadcrumb__separator\" aria-hidden=\"true\">{separator}</span>}\n          </li>\n        ))}\n      </ol>\n    </nav>\n  )\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"breadcrumb\",\n  \"name\": \"Breadcrumb\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Shows the current page location within a hierarchy.\",\n  \"scenarios\": [\n    \"Navigate up a content hierarchy\",\n    \"Show a product category path\",\n    \"Display a document trail\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of items serialized as JSON. Use itemsArray when available.\"\n    },\n    \"separator\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Separator between items.\",\n      \"default\": \"/\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Breadcrumb list rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for linear step-by-step flows; use a stepper.\",\n    \"Do not replace the main page title.\"\n  ],\n  \"a11y\": {\n    \"role\": \"navigation\",\n    \"keyboard\": [\n      \"Tab moves through links\"\n    ],\n    \"focus\": \"Links are focusable.\",\n    \"labeling\": \"Labelled as Breadcrumb.\",\n    \"wcag\": [\n      \"2.4.8\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Wraps on narrow viewports.\",\n    \"breakpoints\": {\n      \"compact\": \"Items may wrap.\",\n      \"medium\": \"Inline list.\",\n      \"large\": \"Inline list.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; separator is preserved visually and mirrored only if it is a directional arrow.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"breadcrumb\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"navigate-hierarchy\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/index.ts",
+      "content": "export { Breadcrumb } from './Breadcrumb.js'\nexport type { BreadcrumbProps } from './Breadcrumb.js'\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/am.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ar.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"مسار التنقل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/bn.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/de.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Brotkrummennavigation\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/en.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/es.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/fa.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/fr.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ha.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/hi.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/id.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ja.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ko.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/pt.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ru.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/sw.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ug.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/ur.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/vi.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/zh-CN.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"面包屑导航\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/locales/zh-HK.json",
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+    },
+    {
+      "path": "components/breadcrumb/styles.css",
+      "content": ".cu-breadcrumb {\n  font-size: 0.875rem;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-breadcrumb__list {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  gap: var(--cu-space-1);\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n\n.cu-breadcrumb__item {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n}\n\n.cu-breadcrumb__link {\n  color: var(--cu-color-palette-brand);\n  text-decoration: none;\n}\n\n/* Hover is gated so touch input never sticks in a hover style. */\n@media (hover: hover) {\n  .cu-breadcrumb__link:hover {\n    text-decoration: underline;\n  }\n}\n\n.cu-breadcrumb__current {\n  color: var(--cu-color-fg-default);\n  font-weight: 600;\n}\n\n.cu-breadcrumb__separator {\n  color: var(--cu-color-border-default);\n}\n"
+    }
+  ]
+}

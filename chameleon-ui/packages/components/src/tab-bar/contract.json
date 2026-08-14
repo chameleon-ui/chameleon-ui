@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "tab-bar",
+  "name": "TabBar",
+  "status": "experimental",
+  "purpose": "Mobile bottom navigation bar; the compact-screen member of the Navigation morph pair with Sidebar.",
+  "scenarios": [
+    "Switch between the three to five top-level destinations on a phone",
+    "Keep primary navigation reachable by the thumb",
+    "Mirror navigation order in RTL locales"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name of the navigation landmark."
+    },
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of destinations with value and label."
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "Uncontrolled initial active value."
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled active value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": false,
+      "description": "Receives the next active value."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "One destination is active; the bar is docked to the block-end edge."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "safe-area"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for content switching inside a page; use tabs.",
+    "Do not exceed five destinations in the bar.",
+    "Do not keep the bar visible at desktop when composed in app-shell — that slot hides at 80rem."
+  ],
+  "a11y": {
+    "role": "tablist",
+    "keyboard": [
+      "Tab moves to the active destination",
+      "Arrow keys move between destinations (roving tabindex via the tabs primitive)",
+      "Enter/Space activates the focused destination"
+    ],
+    "focus": "Roving tabindex and direction-aware arrow keys are delegated to Ark UI / Zag; visible focus ring on items.",
+    "labeling": "The bar is labelled via its label prop; each destination is labelled by its visible text.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.5.5",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Compact navigation form docked to the block-end edge with env(safe-area-inset-bottom) padding. Named container tab-bar shrinks labels at 20rem. Composed in app-shell: visible on compact and tablet, hidden at desktop (80rem).",
+    "breakpoints": {
+      "compact": "Bottom bar; every item hit area >= 44px; safe-area bottom inset applied.",
+      "medium": "Composition contract: app-shell shows collapsible sidebar AND this bar.",
+      "large": "Composition contract: app-shell hides this bar and keeps the persistent sidebar."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; item order follows the document direction and arrow-key roving is direction-aware via the primitive.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "tab-bar",
+    "states": [
+      "active"
+    ],
+    "intents": [
+      "navigate-sections"
+    ]
+  }
+}

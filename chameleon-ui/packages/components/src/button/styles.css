@@ -1,0 +1,67 @@
+.cu-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--cu-touch-target-min);
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: var(--cu-border-width-default, 1px) solid transparent;
+  border-radius: var(--cu-radius-md);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    background-color var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease),
+    border-color var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease);
+}
+
+.cu-button:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+.cu-button--solid {
+  color: var(--cu-color-fg-inverse);
+  background: var(--cu-color-palette-brand);
+}
+
+.cu-button--outline {
+  border-color: var(--cu-color-border-default);
+  color: var(--cu-color-fg-default);
+  background: transparent;
+}
+
+/* Hover states are gated so touch input never sticks in a hover style. */
+@media (hover: hover) {
+  .cu-button--solid:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--cu-color-palette-brand) 80%, var(--cu-color-fg-default));
+  }
+
+  .cu-button--outline:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+/*
+ * Small button height follows the active density rung instead of a hardcoded
+ * viewport query: mobile (comfortable) resolves to 2.75rem (>=44px touch),
+ * desktop (compact) to 2.25rem. See @chameleon-ui/tokens dist/css/density.css.
+ */
+.cu-button--sm {
+  min-block-size: var(--cu-control-size-active);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  font-size: 0.875rem;
+}
+
+.cu-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-button {
+    transition-duration: 0.01ms;
+  }
+}

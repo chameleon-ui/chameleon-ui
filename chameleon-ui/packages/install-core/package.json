@@ -2,9 +2,16 @@
   "name": "@chameleon-ui/install-core",
   "version": "0.0.0",
   "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
-  "description": "Phase 0 type-only extension point for the future shared install kernel",
-  "files": ["dist", "README.md"],
+  "description": "Shared install kernel: dependency graph, conflict detection, idempotent copy, optional telemetry",
+  "files": ["dist", "README.md", "LICENSE"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -15,7 +22,12 @@
     "build": "tsc -p tsconfig.json",
     "dev": "tsc -p tsconfig.json --noEmit",
     "lint": "tsc -p tsconfig.json --noEmit",
-    "test": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
   }
 }

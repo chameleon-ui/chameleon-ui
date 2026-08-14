@@ -1,0 +1,39 @@
+---
+title: Three-end playground
+sidebar_label: Three-end
+description: One page, three visible morphs — phone TabBar, desktop sidebar, container-query proof. Not a token swap.
+---
+
+Three-end is not a palette swap. Vision v3.0 §7.1 asks the same API to morph navigation, overlays, and density across phone / tablet / desktop.
+
+**Open the inner demo. You should see the morphs in 30 seconds:**
+
+[http://127.0.0.1:5175/?view=three-end](http://127.0.0.1:5175/?view=three-end)
+
+Viewport switcher: **手机 390 / 平板 768 / 桌面 1280**. Each frame uses real components, not diagrams.
+
+## What you should see
+
+| End | Navigation | Overlay | Density |
+| :--- | :--- | :--- | :--- |
+| Phone \<768 | Bottom `TabBar`; `AppShell` sidebar hidden | `ActionSheet` from the bottom (same task is `Dialog` on desktop) | comfortable, `--cu-control-size-active` ≥44px |
+| Tablet 768–1279 | Collapsible `Sidebar` + `TabBar` | Centered `Dialog` | standard |
+| Desktop ≥1280 | Persistent `Sidebar`, no `TabBar` | Centered `Dialog` | compact |
+
+Hover is gated to fine pointers: desktop `HoverCard`, phone click `Popover` / `Collapse`. Headings use `clamp` fluid type.
+
+## Container-query proof (A5.3)
+
+Below the three frames, a **1280-wide iframe** embeds a **320px grey box**. If components followed the window, the sidebar would show and the dialog would center. They do not — they follow the **box**.
+
+`/?view=lab` remains the visual-regression lab. Human eyeballing uses `/?view=three-end`.
+
+## App wiring
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+```
+
+Importing only `tokens/css` leaves density at standard. Component CSS must not use viewport width media queries; breakpoints live in tokens, morphs use `@container`.

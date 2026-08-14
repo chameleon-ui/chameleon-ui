@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "separator",
+  "name": "Separator",
+  "status": "experimental",
+  "purpose": "Visually and semantically separates content.",
+  "scenarios": [
+    "Separate menu items",
+    "Divide toolbar sections",
+    "Create visual grouping"
+  ],
+  "props": {
+    "orientation": {
+      "type": "enum",
+      "required": false,
+      "description": "Direction of the separator.",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal",
+      "description": "Direction of the separator."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Separator rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "menu",
+      "toolbar",
+      "list",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for layout gaps.",
+    "Do not use multiple separators in a row."
+  ],
+  "a11y": {
+    "role": "separator",
+    "keyboard": [],
+    "focus": "Not focusable.",
+    "labeling": "Not labelled.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Adapts to orientation.",
+    "breakpoints": {
+      "compact": "Horizontal or vertical.",
+      "medium": "Horizontal or vertical.",
+      "large": "Horizontal or vertical."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "No direction-specific styling.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "separator",
+    "states": [
+      "horizontal",
+      "vertical"
+    ],
+    "intents": [
+      "separate-items"
+    ]
+  }
+}

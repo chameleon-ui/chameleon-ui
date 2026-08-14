@@ -1,0 +1,112 @@
+{
+  "id": "radio",
+  "type": "registry:ui",
+  "name": "Radio",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/radio/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"radio\",\n  \"name\": \"Radio\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Selects exactly one option from a set of mutually exclusive choices.\",\n  \"scenarios\": [\n    \"Choose a payment method\",\n    \"Select a subscription tier\",\n    \"Pick a preferred language in a group\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Controlled selected value.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Receives the next selected value.\"\n    },\n    \"options\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of radio options with value and label.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the radio group.\"\n    },\n    \"name\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Name shared by the native radio inputs.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents selecting any option.\",\n      \"default\": false\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"One option can be selected.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"No option can be selected.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"field-group\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a radio group for boolean choices; use a checkbox or switch.\",\n    \"Do not remove the group label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"radiogroup\",\n    \"keyboard\": [\n      \"Tab focuses the checked radio\",\n      \"Arrow keys move selection within the group\"\n    ],\n    \"focus\": \"Visible focus indicator on the selected radio; roving tabindex is handled by the primitive.\",\n    \"labeling\": \"Group label is associated with the radiogroup; each option is labelled by its text.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Options stack vertically; on wide screens they may be arranged horizontally by a parent layout.\",\n    \"breakpoints\": {\n      \"compact\": \"Touch targets remain at least 44px high; options stack vertically.\",\n      \"medium\": \"Options remain comfortably stacked.\",\n      \"large\": \"Options may be arranged horizontally by a parent layout.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Options follow the document direction; arrow-key order is handled by the primitive.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"radio\",\n    \"states\": [\n      \"default\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"select-single\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/index.ts",
+      "content": "export { Radio } from './Radio.js'\nexport type { RadioProps, RadioOption } from './Radio.js'\n"
+    },
+    {
+      "path": "components/radio/locales/am.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"የክፍያ ዘዴ\",\n    \"optionCard\": \"ክሬዲት ካርድ\",\n    \"optionBank\": \"የባንክ ማስተላለፍ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ar.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"طريقة الدفع\",\n    \"optionCard\": \"بطاقة ائتمان\",\n    \"optionBank\": \"تحويل بنكي\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/bn.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"পেমেন্ট পদ্ধতি\",\n    \"optionCard\": \"ক্রেডিট কার্ড\",\n    \"optionBank\": \"ব্যাংক স্থানান্তর\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/de.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Zahlungsmethode auswählen\",\n    \"optionCard\": \"Kreditkarte verwenden\",\n    \"optionBank\": \"Zahlung per Banküberweisung\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/en.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Payment method\",\n    \"optionCard\": \"Credit card\",\n    \"optionBank\": \"Bank transfer\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/es.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Método de pago\",\n    \"optionCard\": \"Tarjeta de crédito\",\n    \"optionBank\": \"Transferencia bancaria\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/fa.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"روش پرداخت\",\n    \"optionCard\": \"کارت اعتباری\",\n    \"optionBank\": \"انتقال بانکی\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/fr.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Mode de paiement\",\n    \"optionCard\": \"Carte de crédit\",\n    \"optionBank\": \"Virement bancaire\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ha.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Hanyar biya\",\n    \"optionCard\": \"Katin bashi\",\n    \"optionBank\": \"Canja wuri na banki\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/hi.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"भुगतान विधि\",\n    \"optionCard\": \"क्रेडिट कार्ड\",\n    \"optionBank\": \"बैंक हस्तांतरण\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/id.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Metode pembayaran\",\n    \"optionCard\": \"Kartu kredit\",\n    \"optionBank\": \"Transfer bank\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ja.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"支払い方法\",\n    \"optionCard\": \"クレジットカード\",\n    \"optionBank\": \"銀行振込\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ko.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"결제 수단\",\n    \"optionCard\": \"신용카드\",\n    \"optionBank\": \"계좌 이체\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/pt.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Método de pagamento\",\n    \"optionCard\": \"Cartão de crédito\",\n    \"optionBank\": \"Transferência bancária\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ru.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Способ оплаты\",\n    \"optionCard\": \"Банковская карта\",\n    \"optionBank\": \"Банковский перевод\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/sw.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Njia ya malipo\",\n    \"optionCard\": \"Kadi ya mkopo\",\n    \"optionBank\": \"Uhamisho wa benki\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ug.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"تۆلەش ئۇسۇلى\",\n    \"optionCard\": \"ئىناۋەت كارتىسى\",\n    \"optionBank\": \"بانكا ئۆتكۈزۈشى\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/ur.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"ادائیگی کا طریقہ\",\n    \"optionCard\": \"کریڈٹ کارڈ\",\n    \"optionBank\": \"بینک ٹرانسفر\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/vi.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"Phương thức thanh toán\",\n    \"optionCard\": \"Thẻ tín dụng\",\n    \"optionBank\": \"Chuyển khoản ngân hàng\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/zh-CN.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"支付方式\",\n    \"optionCard\": \"信用卡\",\n    \"optionBank\": \"银行转账\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/locales/zh-HK.json",
+      "content": "{\n  \"radio\": {\n    \"payment\": \"付款方式\",\n    \"optionCard\": \"信用卡\",\n    \"optionBank\": \"銀行轉帳\"\n  }\n}\n"
+    },
+    {
+      "path": "components/radio/Radio.tsx",
+      "content": "import { RadioGroupPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface RadioOption {\n  value: string\n  label: string\n}\n\nexport interface RadioProps {\n  value: string\n  onChange: (value: string) => void\n  options: RadioOption[]\n  label: string\n  name?: string\n  disabled?: boolean\n  className?: string\n}\n\nexport function Radio({ value, onChange, options, label, name, disabled = false, className }: RadioProps) {\n  const classes = ['cu-radio', className].filter(Boolean).join(' ')\n\n  return (\n    <RadioGroupPrimitive.Root\n      className={classes}\n      data-ai-role=\"radio\" data-ai-intent=\"select-single\"\n      data-ai-state={disabled ? 'disabled' : 'default'}\n      disabled={disabled}\n      name={name}\n      onValueChange={(details) => onChange(details.value ?? '')}\n      value={value}\n    >\n      <RadioGroupPrimitive.Label className=\"cu-radio__label\">{label}</RadioGroupPrimitive.Label>\n      {options.map((option) => (\n        <RadioGroupPrimitive.Item\n          key={option.value}\n          className=\"cu-radio__item\"\n          value={option.value}\n        >\n          <RadioGroupPrimitive.ItemControl className=\"cu-radio__control\">\n            <RadioGroupPrimitive.Indicator className=\"cu-radio__indicator\">●</RadioGroupPrimitive.Indicator>\n          </RadioGroupPrimitive.ItemControl>\n          <RadioGroupPrimitive.ItemText className=\"cu-radio__text\">{option.label}</RadioGroupPrimitive.ItemText>\n          <RadioGroupPrimitive.ItemHiddenInput />\n        </RadioGroupPrimitive.Item>\n      ))}\n    </RadioGroupPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/radio/README.md",
+      "content": "# Radio\n\nFrozen Phase 1 stub for `radio`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/radio/styles.css",
+      "content": ".cu-radio {\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-2);\n}\n\n.cu-radio__label {\n  color: var(--cu-color-fg-default);\n  font-size: 0.82rem;\n  font-weight: 700;\n}\n\n.cu-radio__item {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  cursor: pointer;\n  min-block-size: 2.25rem;\n}\n\n.cu-radio__control {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: 50%;\n  background: var(--cu-color-background-default);\n  flex: none;\n}\n\n.cu-radio__control:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n\n.cu-radio__indicator {\n  color: var(--cu-color-palette-brand);\n  font-size: 0.75rem;\n  visibility: hidden;\n}\n\n.cu-radio__item[data-state='checked'] .cu-radio__indicator {\n  visibility: visible;\n}\n\n.cu-radio__text {\n  color: var(--cu-color-fg-default);\n  font-size: 0.9375rem;\n  user-select: none;\n}\n\n.cu-radio[data-disabled],\n.cu-radio__item[data-disabled] {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-radio__indicator {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

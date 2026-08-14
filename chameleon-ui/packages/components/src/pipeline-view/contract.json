@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "pipeline-view",
+  "name": "PipelineView",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "Shows CI/CD stages as an ordered flow with per-stage status.",
+  "scenarios": [
+    "Build pipeline status",
+    "Release train stages",
+    "ETL job overview"
+  ],
+  "props": {
+    "stages": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, name, status } stages in order."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the pipeline region."
+    },
+    "statusLabels": {
+      "type": "string",
+      "required": false,
+      "description": "Localized status label map."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Pipeline rendered."
+    },
+    {
+      "name": "empty",
+      "description": "No stages provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card"
+    ],
+    "allowedChildren": [
+      "badge",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not reorder stages by status; keep pipeline order.",
+    "Do not show duration without a real measurement source."
+  ],
+  "a11y": {
+    "role": "list",
+    "keyboard": [],
+    "focus": "Stage actions are buttons in order.",
+    "labeling": "Stage name plus status text labels each stage.",
+    "wcag": [
+      "1.3.1",
+      "1.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Stages scroll horizontally on compact.",
+    "breakpoints": {
+      "compact": "Horizontal scroll.",
+      "medium": "Inline row.",
+      "large": "Inline row."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "pipeline-view",
+    "states": [
+      "default",
+      "empty",
+      "pending",
+      "running",
+      "success",
+      "failed"
+    ],
+    "intents": [
+      "show-progress"
+    ]
+  }
+}

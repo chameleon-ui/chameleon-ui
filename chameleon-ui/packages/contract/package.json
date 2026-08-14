@@ -2,20 +2,28 @@
   "name": "@chameleon-ui/contract",
   "version": "0.0.0",
   "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "description": "JSON Schema and validation entry points for Chameleon UI component contracts",
-  "files": ["dist", "schemas", "samples", "README.md"],
+  "files": ["dist", "schemas", "samples", "README.md", "LICENSE"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
-    "./component-contract.schema.json": "./schemas/component-contract.schema.json"
+    "./component-contract.schema.json": "./schemas/component-contract.schema.json",
+    "./design-rules.schema.json": "./schemas/design-rules.schema.json"
   },
   "scripts": {
     "build": "node ./scripts/validate-schema.mjs && tsc -p tsconfig.json",
     "dev": "node ./scripts/validate-schema.mjs",
-    "lint": "node --check ./scripts/validate-schema.mjs && tsc -p tsconfig.json --noEmit",
+    "lint": "node --check ./scripts/validate-schema.mjs && node --check ./scripts/validate-contracts.mjs && node --check ./scripts/validate-catalog-contracts.mjs && tsc -p tsconfig.json --noEmit",
     "test": "node ./scripts/validate-schema.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

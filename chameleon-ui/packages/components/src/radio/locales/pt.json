@@ -1,0 +1,7 @@
+{
+  "radio": {
+    "payment": "Método de pagamento",
+    "optionCard": "Cartão de crédito",
+    "optionBank": "Transferência bancária"
+  }
+}

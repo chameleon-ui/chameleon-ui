@@ -1,0 +1,36 @@
+.cu-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+  padding-block: calc(var(--cu-space-1) / 2);
+  padding-inline: var(--cu-space-2);
+  border-radius: var(--cu-radius-md);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+  color: var(--cu-color-fg-default);
+  font-size: 0.875em;
+}
+
+.cu-tag--brand {
+  background: var(--cu-color-palette-brand);
+  color: var(--cu-color-fg-inverse);
+}
+
+.cu-tag--outline {
+  background: transparent;
+  border: 1px solid var(--cu-color-border-default);
+}
+
+.cu-tag__remove {
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-tag__remove:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}

@@ -1,0 +1,29 @@
+---
+id: bench
+title: Bench
+sidebar_label: Bench
+description: GenUI-Bench 本地 harness。本頁不編造數字。
+---
+
+GenUI-Bench 是本地 harness。數字來自對當前 registry 跑 install-core。本頁不編造 Lighthouse 或安裝率。北極星頁會讀取同一份 JSON。
+
+```
+corepack pnpm@9.15.0 bench:genui
+```
+
+`phase2:gates` 先跑 harness，再構建文檔站，把產物拷到 `static/bench/`（避免 `/bench` 文檔路由與 `index.html` 衝突，HTML 用 `report.html`）。
+
+## 本機報告
+
+- [latest.json](pathname:///bench/latest.json)
+- [latest.md](pathname:///bench/latest.md)
+- [HTML 報告](pathname:///bench/report.html)
+
+## 指標 id
+
+- `bench.install_success_rate`
+- `bench.bundle_install_success_rate`
+- `bench.idempotent_reinstall_rate`
+- `bench.docs_cta_install_success_rate`
+- `bench.conflict_reject_rate`
+- `bench.generation_quality`（預留；無模型預算時為 null）

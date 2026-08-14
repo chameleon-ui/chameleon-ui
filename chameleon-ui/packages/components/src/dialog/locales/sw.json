@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Fungua kidirisha cha ukaguzi",
+    "title": "Kagua msingi",
+    "description": "Lengo la kibodi hubaki ndani ya kidirisha hiki hadi kifungwe.",
+    "close": "Maliza ukaguzi",
+    "body": "Bonyeza Esc au kitufe cha kufunga. Lengo linapaswa kurudi kwa kichocheo."
+  }
+}

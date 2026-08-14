@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "success": "Berhasil",
+    "error": "Kesalahan",
+    "warning": "Peringatan"
+  }
+}

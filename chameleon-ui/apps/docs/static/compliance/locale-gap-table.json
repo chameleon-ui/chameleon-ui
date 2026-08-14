@@ -1,0 +1,737 @@
+{
+  "generatedAt": "2026-08-14T03:53:03.301Z",
+  "definition": "Docs site UI is 3 locales (zh-CN default, zh-HK, en), all authored chrome. Product ICU remains 21 locales on component pages. Marketing pages are out of scope and never claimed complete.",
+  "docsSiteLocales": [
+    "zh-CN",
+    "zh-HK",
+    "en"
+  ],
+  "docsDefaultLocale": "zh-CN",
+  "authoredChrome": [
+    "zh-CN",
+    "zh-HK",
+    "en"
+  ],
+  "productLocales": [
+    "zh-CN",
+    "zh-HK",
+    "ja",
+    "ko",
+    "ru",
+    "hi",
+    "en",
+    "de",
+    "ar",
+    "ug",
+    "sw",
+    "ha",
+    "am",
+    "es",
+    "fr",
+    "pt",
+    "bn",
+    "id",
+    "ur",
+    "fa",
+    "vi"
+  ],
+  "skeletonLocales": [],
+  "etaForGaps": "2026-09-30",
+  "ownerForGaps": "待指定",
+  "pages": [
+    {
+      "id": "chrome",
+      "label": "Docs chrome (nav/shell)"
+    },
+    {
+      "id": "home",
+      "label": "Home (marketing-adjacent)"
+    },
+    {
+      "id": "components-index",
+      "label": "Components index"
+    },
+    {
+      "id": "component-contract",
+      "label": "Component contract body"
+    },
+    {
+      "id": "themes",
+      "label": "Themes"
+    },
+    {
+      "id": "locales",
+      "label": "Locales"
+    },
+    {
+      "id": "install",
+      "label": "Install"
+    },
+    {
+      "id": "schema",
+      "label": "Schema"
+    },
+    {
+      "id": "bench",
+      "label": "Bench"
+    },
+    {
+      "id": "telemetry",
+      "label": "Telemetry"
+    },
+    {
+      "id": "vpat",
+      "label": "VPAT"
+    },
+    {
+      "id": "dashboard",
+      "label": "North-star dashboard"
+    },
+    {
+      "id": "gaps",
+      "label": "Locale gap table"
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing pages"
+    },
+    {
+      "id": "component-icu",
+      "label": "Component product ICU"
+    }
+  ],
+  "rows": [
+    {
+      "language": "zh-CN",
+      "page": "chrome",
+      "pageLabel": "Docs chrome (nav/shell)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "home",
+      "pageLabel": "Home (marketing-adjacent)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "components-index",
+      "pageLabel": "Components index",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "component-contract",
+      "pageLabel": "Component contract body",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-017",
+      "note": "contract.json body is English-only"
+    },
+    {
+      "language": "zh-CN",
+      "page": "themes",
+      "pageLabel": "Themes",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "locales",
+      "pageLabel": "Locales",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "install",
+      "pageLabel": "Install",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "schema",
+      "pageLabel": "Schema",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "bench",
+      "pageLabel": "Bench",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "telemetry",
+      "pageLabel": "Telemetry",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "vpat",
+      "pageLabel": "VPAT",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "dashboard",
+      "pageLabel": "North-star dashboard",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "gaps",
+      "pageLabel": "Locale gap table",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-CN"
+    },
+    {
+      "language": "zh-CN",
+      "page": "marketing",
+      "pageLabel": "Marketing pages",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-005",
+      "note": "No dedicated marketing site. Do not claim marketing pages complete."
+    },
+    {
+      "language": "zh-HK",
+      "page": "chrome",
+      "pageLabel": "Docs chrome (nav/shell)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "home",
+      "pageLabel": "Home (marketing-adjacent)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "components-index",
+      "pageLabel": "Components index",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "component-contract",
+      "pageLabel": "Component contract body",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-017",
+      "note": "contract.json body is English-only"
+    },
+    {
+      "language": "zh-HK",
+      "page": "themes",
+      "pageLabel": "Themes",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "locales",
+      "pageLabel": "Locales",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "install",
+      "pageLabel": "Install",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "schema",
+      "pageLabel": "Schema",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "bench",
+      "pageLabel": "Bench",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "telemetry",
+      "pageLabel": "Telemetry",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "vpat",
+      "pageLabel": "VPAT",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "dashboard",
+      "pageLabel": "North-star dashboard",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "gaps",
+      "pageLabel": "Locale gap table",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored zh-HK"
+    },
+    {
+      "language": "zh-HK",
+      "page": "marketing",
+      "pageLabel": "Marketing pages",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-005",
+      "note": "No dedicated marketing site. Do not claim marketing pages complete."
+    },
+    {
+      "language": "en",
+      "page": "chrome",
+      "pageLabel": "Docs chrome (nav/shell)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "home",
+      "pageLabel": "Home (marketing-adjacent)",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "components-index",
+      "pageLabel": "Components index",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "component-contract",
+      "pageLabel": "Component contract body",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-017",
+      "note": "contract.json body is English-only"
+    },
+    {
+      "language": "en",
+      "page": "themes",
+      "pageLabel": "Themes",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "locales",
+      "pageLabel": "Locales",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "install",
+      "pageLabel": "Install",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "schema",
+      "pageLabel": "Schema",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "bench",
+      "pageLabel": "Bench",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "telemetry",
+      "pageLabel": "Telemetry",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "vpat",
+      "pageLabel": "VPAT",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "dashboard",
+      "pageLabel": "North-star dashboard",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "gaps",
+      "pageLabel": "Locale gap table",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "authored English"
+    },
+    {
+      "language": "en",
+      "page": "marketing",
+      "pageLabel": "Marketing pages",
+      "status": "gap",
+      "eta": "2026-09-30",
+      "owner": "待指定",
+      "legacy": "LEGACY-2026-005",
+      "note": "No dedicated marketing site. Do not claim marketing pages complete."
+    },
+    {
+      "language": "zh-CN",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "zh-HK",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ja",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ko",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ru",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "hi",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "en",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "de",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ar",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ug",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "sw",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ha",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "am",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "es",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "fr",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "pt",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "bn",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "id",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "ur",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "fa",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    },
+    {
+      "language": "vi",
+      "page": "component-icu",
+      "pageLabel": "Component product ICU",
+      "status": "green",
+      "eta": null,
+      "owner": null,
+      "legacy": null,
+      "note": "101/101 component ICU files"
+    }
+  ],
+  "gapCount": 6,
+  "greenCount": 57
+}

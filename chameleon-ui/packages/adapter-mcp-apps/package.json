@@ -1,0 +1,37 @@
+{
+  "name": "@chameleon-ui/adapter-mcp-apps",
+  "version": "0.0.0",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "type": "module",
+  "description": "MCP Apps (SEP-1865) protocol adapter POC for Chameleon UI. Maps ui:// resources to component slugs and install plans. Not a host certification.",
+  "files": ["dist", "demo", "README.md", "LICENSE", "DECISION.md"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "vitest",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@chameleon-ui/install-core": "workspace:*",
+    "@chameleon-ui/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.19.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

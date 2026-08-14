@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "textarea",
+  "name": "Textarea",
+  "status": "experimental",
+  "purpose": "Collects multi-line text with the same states as Input.",
+  "scenarios": [
+    "Enter a message or description in a form",
+    "Show a validation error beside the field",
+    "Disable the field while a request is in flight"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Controlled text value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Receives the next string value."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Visible accessible name for the text area."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents editing.",
+      "default": false
+    },
+    "invalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Marks the control invalid and shows error text.",
+      "default": false
+    },
+    "errorMessage": {
+      "type": "string",
+      "required": false,
+      "description": "Message shown when invalid is true."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Enabled and valid."
+    },
+    {
+      "name": "disabled",
+      "description": "Not editable."
+    },
+    {
+      "name": "invalid",
+      "description": "Failed validation; error text is shown."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "field-group"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a placeholder as the only label.",
+    "Do not announce errors only by color."
+  ],
+  "a11y": {
+    "role": "textbox",
+    "keyboard": [
+      "Tab focuses",
+      "Printable keys insert text"
+    ],
+    "focus": "Visible focus ring; label remains associated in LTR and RTL.",
+    "labeling": "Visible label is programmatically associated.",
+    "wcag": [
+      "1.3.1",
+      "2.4.6",
+      "3.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "The field stretches to the inline size of its container. Minimum height is preserved across breakpoints.",
+    "breakpoints": {
+      "compact": "Full inline size of the parent.",
+      "medium": "Content or parent width.",
+      "large": "Content or parent width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical padding and borders. Text value direction follows the document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "textarea",
+    "states": [
+      "default",
+      "disabled",
+      "invalid"
+    ],
+    "intents": [
+      "enter-long-text"
+    ]
+  }
+}

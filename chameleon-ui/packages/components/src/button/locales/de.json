@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Jetzt absenden",
+    "cancel": "Vorgang abbrechen",
+    "count": "{count, plural, =0 {Es wurden noch keine Aktionen abgeschlossen} one {# Aktion wurde abgeschlossen} other {# Aktionen wurden abgeschlossen}}"
+  }
+}

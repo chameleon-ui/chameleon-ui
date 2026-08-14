@@ -1,0 +1,17 @@
+{
+  "slug": "ticket-flow",
+  "type": "registry:block",
+  "name": "Ticket flow",
+  "dependencies": ["button", "card", "empty-state", "form", "input", "steps", "timeline", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Ticket stages with notes timeline"
+  }
+}

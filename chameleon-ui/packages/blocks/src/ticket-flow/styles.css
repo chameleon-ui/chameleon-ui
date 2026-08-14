@@ -1,0 +1,25 @@
+.cu-block-ticket-flow {
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-ticket-flow__header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--cu-space-3);
+}
+
+.cu-block-ticket-flow__meta,
+.cu-block-ticket-flow__error {
+  margin-block: var(--cu-space-2) 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-ticket-flow__error {
+  color: var(--cu-color-palette-brand);
+}

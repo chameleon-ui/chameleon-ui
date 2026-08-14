@@ -28,6 +28,8 @@ AI-Native 设计系统（二十一语言 / 致敬主题 / 三端一体）。
 
 ## 起步
 
+需要 **Node ≥ 20.19** 与 **pnpm 9.15**（`packageManager` / `engines` 已声明；Node 18 会编译失败）。
+
 ```bash
 cd chameleon-ui
 corepack pnpm@9.15.0 install --frozen-lockfile

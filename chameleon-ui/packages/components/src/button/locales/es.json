@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "count": "{count, plural, =0 {No se completaron acciones} one {Se completó # acción} other {Se completaron # acciones}}"
+  }
+}

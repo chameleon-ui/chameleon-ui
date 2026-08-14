@@ -2,6 +2,9 @@
   "name": "@chameleon-ui/poc-e2e",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": ">=20.19.0"
+  },
   "type": "module",
   "description": "Real-browser full matrix for Phase 0 Ark and Base POC demos",
   "scripts": {

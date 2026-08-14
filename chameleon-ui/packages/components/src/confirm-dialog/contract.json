@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "confirm-dialog",
+  "name": "ConfirmDialog",
+  "family": "E",
+  "status": "experimental",
+  "purpose": "Interrupts the user with a modal confirmation before a consequential action.",
+  "scenarios": [
+    "Confirm record deletion",
+    "Confirm leaving an unsaved form",
+    "Confirm an irreversible publish"
+  ],
+  "props": {
+    "triggerLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Label of the button that opens the dialog."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Dialog headline."
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "description": "Explanation of the consequence."
+    },
+    "confirmLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Label of the confirm action."
+    },
+    "cancelLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Label of the cancel action."
+    },
+    "onConfirm": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the user confirms."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "closed",
+      "description": "Trigger visible; dialog hidden."
+    },
+    {
+      "name": "open",
+      "description": "Dialog is displayed modally."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card",
+      "form"
+    ],
+    "allowedChildren": [
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a confirm dialog for low-risk reversible actions.",
+    "Do not word the confirm label ambiguously; name the action."
+  ],
+  "a11y": {
+    "role": "alertdialog",
+    "keyboard": [
+      "Escape cancels",
+      "Enter confirms when the confirm button has focus"
+    ],
+    "focus": "Focus moves to the cancel button on open and returns to the trigger on close.",
+    "labeling": "Title and description label the dialog via aria attributes.",
+    "wcag": [
+      "2.4.3",
+      "3.3.4"
+    ]
+  },
+  "responsive": {
+    "strategy": "Centered modal on medium and large; bottom sheet on compact per Dialog convention.",
+    "breakpoints": {
+      "compact": "Bottom sheet layout.",
+      "medium": "Centered modal.",
+      "large": "Centered modal."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "confirm-dialog",
+    "states": [
+      "closed",
+      "open"
+    ],
+    "intents": [
+      "confirm-decision"
+    ]
+  }
+}

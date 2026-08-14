@@ -1,0 +1,17 @@
+{
+  "slug": "crud-page",
+  "type": "registry:block",
+  "name": "CRUD page",
+  "dependencies": ["card", "data-grid", "dialog", "empty-state", "form", "input", "pagination", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Paged records with create dialog"
+  }
+}

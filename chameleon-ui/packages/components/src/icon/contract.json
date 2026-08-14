@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "icon",
+  "name": "Icon",
+  "status": "experimental",
+  "purpose": "Decorative or semantic glyph with explicit RTL behavior.",
+  "scenarios": [
+    "Show a directional glyph that flips in RTL",
+    "Preserve a symmetric icon across reading directions",
+    "Provide a locale-aware icon that the consumer localizes"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible name for the icon."
+    },
+    "mode": {
+      "type": "enum",
+      "required": false,
+      "description": "RTL behavior for the icon.",
+      "values": [
+        "mirror",
+        "preserve",
+        "localized"
+      ],
+      "default": "preserve"
+    },
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Optional SVG or glyph content; a default arrow is used when omitted."
+    }
+  },
+  "variants": [
+    {
+      "name": "mode",
+      "values": [
+        "mirror",
+        "preserve",
+        "localized"
+      ],
+      "default": "preserve",
+      "description": "Controls whether the icon is mirrored, preserved, or localized for RTL."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Icon is rendered with its declared mode."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "button",
+      "alert",
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "svg"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hide the accessible name when the icon conveys meaning.",
+    "Do not mirror symmetric icons; use mode=preserve."
+  ],
+  "a11y": {
+    "role": "img",
+    "keyboard": [],
+    "focus": "Icon is not focusable; it is decorative or labelled by a parent.",
+    "labeling": "A visible or aria-label accessible name is required when the icon conveys meaning.",
+    "wcag": [
+      "1.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Scales with the font size of its parent. No breakpoint-specific behavior.",
+    "breakpoints": {
+      "compact": "Inherits font size.",
+      "medium": "Inherits font size.",
+      "large": "Inherits font size."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. mode=mirror applies a scaleX transform; mode=preserve keeps the glyph; mode=localized defers to the consumer glyph.",
+    "mirroredValues": [
+      "mirror"
+    ]
+  },
+  "dataAi": {
+    "role": "icon",
+    "states": [
+      "mirror",
+      "preserve",
+      "localized"
+    ],
+    "intents": [
+      "signal-meaning"
+    ]
+  }
+}

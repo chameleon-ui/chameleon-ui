@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "خط الأنابيب",
+    "statusPending": "قيد الانتظار",
+    "statusRunning": "قيد التشغيل",
+    "statusSuccess": "ناجح",
+    "statusFailed": "فاشل"
+  }
+}

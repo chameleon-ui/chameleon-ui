@@ -1,0 +1,35 @@
+.cu-popover__trigger {
+  display: inline-flex;
+}
+
+.cu-popover__content {
+  inline-size: min(100%, 18rem);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  box-shadow: var(--cu-shadow-md, 0 8px 24px color-mix(in srgb, var(--cu-color-background-inverse) 16%, transparent));
+}
+
+.cu-popover__title {
+  font-weight: 700;
+  margin-block-end: var(--cu-space-1);
+}
+
+.cu-popover__description,
+.cu-popover__body {
+  color: var(--cu-color-fg-default);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.cu-popover__body {
+  margin-block: var(--cu-space-2);
+}
+
+.cu-popover__close {
+  display: inline-flex;
+  margin-block-start: var(--cu-space-2);
+}

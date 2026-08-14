@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "tag",
+  "name": "Tag",
+  "family": "D",
+  "status": "experimental",
+  "purpose": "Presents a compact, optionally removable label for categorizing content.",
+  "scenarios": [
+    "Show category labels on an article",
+    "Display applied filters with removal",
+    "Mark status on a list row"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Visible tag text."
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Visual style.",
+      "values": [
+        "default",
+        "brand",
+        "outline"
+      ],
+      "default": "default"
+    },
+    "onRemove": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the remove control is activated; presence renders the control."
+    },
+    "removeLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the remove control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "default",
+        "brand",
+        "outline"
+      ],
+      "default": "default",
+      "description": "Visual style."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Static tag."
+    },
+    {
+      "name": "closable",
+      "description": "Tag with a remove control."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "list",
+      "table",
+      "data-grid",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a tag as a primary action button.",
+    "Do not place interactive content other than the remove control inside a tag."
+  ],
+  "a11y": {
+    "role": "listitem",
+    "keyboard": [
+      "Enter or Space activates the remove control"
+    ],
+    "focus": "Remove control is a real button in tab order.",
+    "labeling": "Tag text labels the element; remove control has an aria-label.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline flow; wraps with surrounding content.",
+    "breakpoints": {
+      "compact": "Wraps inline.",
+      "medium": "Wraps inline.",
+      "large": "Wraps inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "tag",
+    "states": [
+      "default",
+      "closable"
+    ],
+    "intents": [
+      "filter-selection",
+      "dismiss-tag"
+    ]
+  }
+}

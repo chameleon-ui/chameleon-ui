@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "trading-terminal",
+  "name": "Trading terminal",
+  "status": "experimental",
+  "purpose": "Watch-only terminal fragment with a ticker, a symbol chart, and a working-order grid.",
+  "scenarios": [
+    "Scan a market ticker",
+    "Select a symbol to update the price chart",
+    "Inspect working orders for the selected symbol"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onSelectSymbol": {
+      "type": "event",
+      "required": false,
+      "description": "Called when a symbol action is activated."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Orders are present." },
+    { "name": "empty", "description": "No orders to show." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["ticker", "data-grid", "chart", "button", "card", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not present this template as a live matching engine or order-entry path.",
+    "Do not size the layout with viewport width media queries."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches ticker, symbol actions, chart, and grid"],
+    "focus": "Symbol actions stay in document order with a visible focus ring.",
+    "labeling": "Ticker, chart, grid, and symbol actions have accessible names.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Chart and grid stack; @container at 48rem places them side by side. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Chart and grid stack.",
+      "medium": "Chart and grid sit in two columns at 48rem container inline-size.",
+      "large": "Chart and grid remain in two columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "trading-terminal",
+    "states": ["default", "empty"],
+    "intents": ["watch-markets"]
+  }
+}

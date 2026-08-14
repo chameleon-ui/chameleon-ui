@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "menu",
+  "name": "Menu",
+  "status": "experimental",
+  "purpose": "Displays a list of actions or choices in a dropdown.",
+  "scenarios": [
+    "Show a user actions menu",
+    "Show a filter menu",
+    "Show a context menu trigger"
+  ],
+  "props": {
+    "triggerLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Button that opens the menu."
+    },
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of {label, onClick} items."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "open",
+      "description": "Menu is visible."
+    },
+    {
+      "name": "closed",
+      "description": "Menu is hidden."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for navigation; use a link list.",
+    "Do not hide disabled items without a reason."
+  ],
+  "a11y": {
+    "role": "menu",
+    "keyboard": [
+      "Enter/Space opens",
+      "Arrow keys navigate",
+      "Esc closes"
+    ],
+    "focus": "Focus moves into the menu on open.",
+    "labeling": "Trigger labels the menu.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Dropdown menu.",
+    "breakpoints": {
+      "compact": "Full width list.",
+      "medium": "Fixed width list.",
+      "large": "Fixed width list."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "menu",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "choose-action"
+    ]
+  }
+}

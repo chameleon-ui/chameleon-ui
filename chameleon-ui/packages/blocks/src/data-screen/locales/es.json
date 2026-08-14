@@ -1,0 +1,22 @@
+{
+  "_cuSkeleton": true,
+  "screen": {
+    "title": "Operations screen",
+    "subtitle": "KPIs and charts on a canvas that scales to the parent.",
+    "kpiLabel": "Key metrics",
+    "kpiSessions": "Sessions",
+    "kpiSessionsValue": "18.4k",
+    "kpiConversion": "Conversion",
+    "kpiConversionValue": "3.2%",
+    "kpiLatency": "Latency",
+    "kpiLatencyValue": "124ms",
+    "kpiErrors": "Errors",
+    "kpiErrorsValue": "0.4%",
+    "trafficLabel": "Traffic",
+    "trafficSeries": "Sessions",
+    "conversionLabel": "Conversion",
+    "conversionSeries": "Sign-ups",
+    "emptyLabel": "No data",
+    "panelCount": "{count, plural, =0 {No panels} one {# panel} other {# panels}}"
+  }
+}

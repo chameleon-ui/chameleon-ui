@@ -4,3 +4,23 @@
   margin-left: var(--cu-space-2);
   padding-right: var(--cu-space-3);
 }
+
+/* Phase 5: viewport breakpoint media queries are rejected in component CSS. */
+@media (max-width: 47.99rem) {
+  .cu-demo {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .cu-demo {
+    display: block;
+  }
+}
+
+/* The frozen breakpoints spelled in px are rejected even inside @container. */
+@container (min-width: 1280px) {
+  .cu-demo {
+    gap: var(--cu-space-3);
+  }
+}

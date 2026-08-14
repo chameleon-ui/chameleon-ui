@@ -1,0 +1,108 @@
+{
+  "id": "tag",
+  "type": "registry:ui",
+  "name": "Tag",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/tag/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"tag\",\n  \"name\": \"Tag\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a compact, optionally removable label for categorizing content.\",\n  \"scenarios\": [\n    \"Show category labels on an article\",\n    \"Display applied filters with removal\",\n    \"Mark status on a list row\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Visible tag text.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Visual style.\",\n      \"values\": [\n        \"default\",\n        \"brand\",\n        \"outline\"\n      ],\n      \"default\": \"default\"\n    },\n    \"onRemove\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when the remove control is activated; presence renders the control.\"\n    },\n    \"removeLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the remove control.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"default\",\n        \"brand\",\n        \"outline\"\n      ],\n      \"default\": \"default\",\n      \"description\": \"Visual style.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Static tag.\"\n    },\n    {\n      \"name\": \"closable\",\n      \"description\": \"Tag with a remove control.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"list\",\n      \"table\",\n      \"data-grid\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a tag as a primary action button.\",\n    \"Do not place interactive content other than the remove control inside a tag.\"\n  ],\n  \"a11y\": {\n    \"role\": \"listitem\",\n    \"keyboard\": [\n      \"Enter or Space activates the remove control\"\n    ],\n    \"focus\": \"Remove control is a real button in tab order.\",\n    \"labeling\": \"Tag text labels the element; remove control has an aria-label.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline flow; wraps with surrounding content.\",\n    \"breakpoints\": {\n      \"compact\": \"Wraps inline.\",\n      \"medium\": \"Wraps inline.\",\n      \"large\": \"Wraps inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"tag\",\n    \"states\": [\n      \"default\",\n      \"closable\"\n    ],\n    \"intents\": [\n      \"filter-selection\",\n      \"dismiss-tag\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/index.ts",
+      "content": "export { Tag } from './Tag.js'\nexport type { TagProps } from './Tag.js'\n"
+    },
+    {
+      "path": "components/tag/locales/am.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ar.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"وسم\",\n    \"remove\": \"إزالة الوسم\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/bn.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/de.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Markierung\",\n    \"remove\": \"Diese Markierung entfernen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/en.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/es.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/fa.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/fr.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ha.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/hi.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/id.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ja.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ko.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/pt.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ru.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/sw.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ug.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/ur.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/vi.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/zh-CN.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"标签\",\n    \"remove\": \"移除标签\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/locales/zh-HK.json",
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tag/styles.css",
+      "content": ".cu-tag {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-2);\n  border-radius: var(--cu-radius-md);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n  color: var(--cu-color-fg-default);\n  font-size: 0.875em;\n}\n\n.cu-tag--brand {\n  background: var(--cu-color-palette-brand);\n  color: var(--cu-color-fg-inverse);\n}\n\n.cu-tag--outline {\n  background: transparent;\n  border: 1px solid var(--cu-color-border-default);\n}\n\n.cu-tag__remove {\n  display: inline-flex;\n  align-items: center;\n  border: 0;\n  padding: 0;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-tag__remove:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n"
+    },
+    {
+      "path": "components/tag/Tag.tsx",
+      "content": "import './styles.css'\n\nexport interface TagProps {\n  label: string\n  variant?: 'default' | 'brand' | 'outline'\n  onRemove?: () => void\n  removeLabel?: string\n  className?: string\n}\n\nexport function Tag({ label, variant = 'default', onRemove, removeLabel = 'Remove tag', className }: TagProps) {\n  const classes = ['cu-tag', 'cu-tag--' + variant, className].filter(Boolean).join(' ')\n  return (\n    <span className={classes} data-ai-role=\"tag\" data-ai-intent=\"filter-selection\" data-ai-state={onRemove ? 'closable' : 'default'}>\n      <span className=\"cu-tag__label\">{label}</span>\n      {onRemove ? (\n        <button type=\"button\" className=\"cu-tag__remove\" aria-label={removeLabel} onClick={onRemove}>\n          ×\n        </button>\n      ) : null}\n    </span>\n  )\n}\n"
+    }
+  ]
+}

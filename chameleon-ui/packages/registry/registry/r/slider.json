@@ -1,0 +1,108 @@
+{
+  "id": "slider",
+  "type": "registry:ui",
+  "name": "Slider",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/slider/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"slider\",\n  \"name\": \"Slider\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Selects a numeric value from a continuous range.\",\n  \"scenarios\": [\n    \"Set a volume level\",\n    \"Choose a price range\",\n    \"Adjust a rating threshold\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Current value.\"\n    },\n    \"min\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Minimum value.\",\n      \"default\": 0\n    },\n    \"max\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Maximum value.\",\n      \"default\": 100\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called when the value changes.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the slider.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Slider rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"page\",\n      \"card\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for precise values without a text input fallback.\",\n    \"Do not omit a label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"slider\",\n    \"keyboard\": [\n      \"Arrow keys change value\"\n    ],\n    \"focus\": \"Slider is focusable.\",\n    \"labeling\": \"Label or aria-label provides the accessible name.\",\n    \"wcag\": [\n      \"4.1.2\",\n      \"2.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width input range.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Native input range inherits direction.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"slider\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"adjust-value\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/index.ts",
+      "content": "export { Slider } from './Slider.js'\nexport type { SliderProps } from './Slider.js'\n"
+    },
+    {
+      "path": "components/slider/locales/am.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ar.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"شريط تمرير\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/bn.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/de.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Schieberegler\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/en.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/es.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/fa.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/fr.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ha.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/hi.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/id.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ja.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ko.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/pt.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ru.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/sw.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ug.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/ur.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/vi.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/zh-CN.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"滑块\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/locales/zh-HK.json",
+      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+    },
+    {
+      "path": "components/slider/Slider.tsx",
+      "content": "import './styles.css'\n\nexport interface SliderProps {\n  value: number\n  min?: number\n  max?: number\n  onChange: (value: number) => void\n  label?: string\n  className?: string\n}\n\nexport function Slider({ value, min = 0, max = 100, onChange, label, className }: SliderProps) {\n  const classes = ['cu-slider', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} data-ai-role=\"slider\" data-ai-state=\"default\" data-ai-intent=\"adjust-value\">\n      {label ? <label className=\"cu-slider__label\">{label}</label> : null}\n      <input\n        aria-label={label}\n        className=\"cu-slider__input\"\n        max={max}\n        min={min}\n        onChange={(event) => onChange(Number(event.currentTarget.value))}\n        type=\"range\"\n        value={value}\n      />\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/slider/styles.css",
+      "content": ".cu-slider {\n  display: grid;\n  gap: var(--cu-space-1);\n}\n\n.cu-slider__label {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-slider__input {\n  inline-size: 100%;\n  accent-color: var(--cu-color-palette-brand);\n  cursor: pointer;\n}\n\n.cu-slider__input:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n  border-radius: var(--cu-radius-sm);\n}\n"
+    }
+  ]
+}

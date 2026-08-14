@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "drawer",
+  "name": "Drawer",
+  "status": "experimental",
+  "purpose": "Presents a sliding panel from an inline edge for secondary tasks.",
+  "scenarios": [
+    "Show a settings panel",
+    "Display a shopping cart",
+    "Reveal a filter sidebar"
+  ],
+  "props": {
+    "triggerLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Trigger button label."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Drawer title."
+    },
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Drawer content."
+    },
+    "closeLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Close button label."
+    },
+    "position": {
+      "type": "enum",
+      "required": false,
+      "description": "Edge from which the drawer slides.",
+      "values": [
+        "start",
+        "end"
+      ],
+      "default": "end"
+    },
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state."
+    },
+    "onOpenChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called when open state changes."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "position",
+      "values": [
+        "start",
+        "end"
+      ],
+      "default": "end",
+      "description": "Edge from which the drawer slides."
+    }
+  ],
+  "states": [
+    {
+      "name": "open",
+      "description": "Drawer is visible."
+    },
+    {
+      "name": "closed",
+      "description": "Drawer is hidden."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "button",
+      "form"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for primary flows.",
+    "Do not open multiple drawers simultaneously."
+  ],
+  "a11y": {
+    "role": "dialog",
+    "keyboard": [
+      "Tab cycles inside",
+      "Escape closes"
+    ],
+    "focus": "Focus moves inside on open and returns on close.",
+    "labeling": "Title labels the drawer.",
+    "wcag": [
+      "2.4.3",
+      "2.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full height panel on large and medium; bottom sheet on compact is not implemented in this component.",
+    "breakpoints": {
+      "compact": "Slides from inline edge.",
+      "medium": "Slides from inline edge.",
+      "large": "Slides from inline edge."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical inset and direction-aware slide edge; position start/end refers to inline-start/end.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "drawer",
+    "states": [
+      "open",
+      "closed"
+    ],
+    "intents": [
+      "reveal-detail",
+      "navigate-overlay"
+    ]
+  }
+}

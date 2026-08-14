@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "gantt",
+  "name": "Gantt",
+  "status": "experimental",
+  "purpose": "Date-scale task bars composed with timeline. Bars use percentage layout, not a drawing primitive.",
+  "scenarios": [
+    "Scan tasks against a shared date scale",
+    "Read milestones on a timeline",
+    "Show an empty state when no tasks exist"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onSelectTask": {
+      "type": "event",
+      "required": false,
+      "description": "Called when a task bar is activated."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "The schedule has one or more tasks." },
+    { "name": "empty", "description": "No tasks to plot." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["timeline", "card", "tag", "empty-state", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not present this CSS percentage layout as a dedicated Gantt drawing engine. Phase 7 records that drawing primitives are insufficient; bars are O(n) inline-size math with no virtualization for large task counts.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches task bars", "Enter or Space selects a task"],
+    "focus": "Task bars stay in document order with a visible focus ring.",
+    "labeling": "Each bar names the task and its start and end dates.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Rows use a two-track grid with logical inline-size. Compact viewports keep 44px bar targets via tokens. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Chart scrolls inline when the scale overflows.",
+      "medium": "Label and track sit side by side.",
+      "large": "Label and track sit side by side."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language. Bars use inset-inline-start.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "gantt",
+    "states": ["default", "empty"],
+    "intents": ["schedule-tasks"]
+  }
+}

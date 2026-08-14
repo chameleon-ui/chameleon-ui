@@ -1,0 +1,112 @@
+{
+  "id": "textarea",
+  "type": "registry:ui",
+  "name": "Textarea",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/textarea/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"textarea\",\n  \"name\": \"Textarea\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Collects multi-line text with the same states as Input.\",\n  \"scenarios\": [\n    \"Enter a message or description in a form\",\n    \"Show a validation error beside the field\",\n    \"Disable the field while a request is in flight\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Controlled text value.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Receives the next string value.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Visible accessible name for the text area.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents editing.\",\n      \"default\": false\n    },\n    \"invalid\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Marks the control invalid and shows error text.\",\n      \"default\": false\n    },\n    \"errorMessage\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Message shown when invalid is true.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Enabled and valid.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Not editable.\"\n    },\n    {\n      \"name\": \"invalid\",\n      \"description\": \"Failed validation; error text is shown.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"field-group\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a placeholder as the only label.\",\n    \"Do not announce errors only by color.\"\n  ],\n  \"a11y\": {\n    \"role\": \"textbox\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Printable keys insert text\"\n    ],\n    \"focus\": \"Visible focus ring; label remains associated in LTR and RTL.\",\n    \"labeling\": \"Visible label is programmatically associated.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.4.6\",\n      \"3.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"The field stretches to the inline size of its container. Minimum height is preserved across breakpoints.\",\n    \"breakpoints\": {\n      \"compact\": \"Full inline size of the parent.\",\n      \"medium\": \"Content or parent width.\",\n      \"large\": \"Content or parent width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical padding and borders. Text value direction follows the document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"textarea\",\n    \"states\": [\n      \"default\",\n      \"disabled\",\n      \"invalid\"\n    ],\n    \"intents\": [\n      \"enter-long-text\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/index.ts",
+      "content": "export { Textarea } from './Textarea.js'\nexport type { TextareaProps } from './Textarea.js'\n"
+    },
+    {
+      "path": "components/textarea/locales/am.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"መልዕክት\",\n    \"invalid\": \"ቢያንስ አስር ቁምፊዎች ያስገቡ።\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ar.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"رسالة\",\n    \"invalid\": \"يُرجى إدخال عشرة أحرف على الأقل.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/bn.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"বার্তা\",\n    \"invalid\": \"কমপক্ষে দশটি অক্ষর লিখুন।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/de.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Ihre Nachricht\",\n    \"invalid\": \"Bitte geben Sie mindestens zehn Zeichen in dieses Feld ein.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/en.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Message\",\n    \"invalid\": \"Please enter at least ten characters.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/es.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Mensaje\",\n    \"invalid\": \"Introduce al menos diez caracteres.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/fa.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"پیام\",\n    \"invalid\": \"حداقل ده نویسه وارد کنید.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/fr.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Message\",\n    \"invalid\": \"Saisissez au moins dix caractères.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ha.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Saƙo\",\n    \"invalid\": \"Shigar da aƙalla haruffa goma.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/hi.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"संदेश\",\n    \"invalid\": \"कम से कम दस अक्षर दर्ज करें।\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/id.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Pesan\",\n    \"invalid\": \"Masukkan minimal sepuluh karakter.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ja.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"メッセージ\",\n    \"invalid\": \"10文字以上入力してください。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ko.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"메시지\",\n    \"invalid\": \"열 글자 이상 입력하세요.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/pt.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Mensagem\",\n    \"invalid\": \"Digite pelo menos dez caracteres.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ru.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Сообщение\",\n    \"invalid\": \"Введите не менее десяти символов.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/sw.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Ujumbe\",\n    \"invalid\": \"Weka angalau herufi kumi.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ug.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"ئۇچۇر\",\n    \"invalid\": \"كەم دېگەندە ئون ھەرپ كىرگۈزۈڭ.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/ur.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"پیغام\",\n    \"invalid\": \"کم از کم دس حروف درج کریں۔\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/vi.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"Tin nhắn\",\n    \"invalid\": \"Nhập ít nhất mười ký tự.\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/zh-CN.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"留言\",\n    \"invalid\": \"请输入至少十个字符。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/locales/zh-HK.json",
+      "content": "{\n  \"textarea\": {\n    \"label\": \"訊息\",\n    \"invalid\": \"請輸入至少十個字元。\"\n  }\n}\n"
+    },
+    {
+      "path": "components/textarea/README.md",
+      "content": "# Textarea\n\nFrozen Phase 1 stub for `textarea`.\n\n- Requirement: Same states as Input\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/textarea/styles.css",
+      "content": ".cu-textarea {\n  min-inline-size: 0;\n  min-block-size: 6rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  color: var(--cu-color-fg-default);\n  background: var(--cu-color-background-default);\n  font: inherit;\n  resize: block;\n}\n\n.cu-textarea:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n.cu-textarea[aria-invalid='true'] {\n  border-color: var(--cu-color-palette-brand);\n}\n\n.cu-textarea:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n"
+    },
+    {
+      "path": "components/textarea/Textarea.tsx",
+      "content": "import { FieldPrimitive } from '@chameleon-ui/primitives'\nimport type { ComponentPropsWithoutRef } from 'react'\nimport './styles.css'\n\nexport interface TextareaProps\n  extends Omit<ComponentPropsWithoutRef<'textarea'>, 'className' | 'onChange' | 'value'> {\n  value: string\n  onChange: (value: string) => void\n  label: string\n  disabled?: boolean\n  invalid?: boolean\n  errorMessage?: string\n  className?: string\n}\n\nexport function Textarea({\n  value,\n  onChange,\n  label,\n  disabled = false,\n  invalid = false,\n  errorMessage = 'Please review this value.',\n  className,\n  id,\n  ...props\n}: TextareaProps) {\n  const classes = ['cu-textarea', className].filter(Boolean).join(' ')\n\n  return (\n    <FieldPrimitive.Root\n      className=\"cu-field\"\n      data-ai-role=\"textarea\" data-ai-intent=\"enter-long-text\"\n      data-ai-state={invalid ? 'invalid' : disabled ? 'disabled' : 'default'}\n      disabled={disabled}\n      id={id}\n      invalid={invalid}\n    >\n      <FieldPrimitive.Label className=\"cu-field__label\">{label}</FieldPrimitive.Label>\n      <FieldPrimitive.Textarea\n        {...props}\n        className={classes}\n        value={value}\n        onChange={(event) => onChange(event.currentTarget.value)}\n      />\n      {invalid ? (\n        <FieldPrimitive.ErrorText className=\"cu-field__error\">{errorMessage}</FieldPrimitive.ErrorText>\n      ) : null}\n    </FieldPrimitive.Root>\n  )\n}\n"
+    }
+  ]
+}

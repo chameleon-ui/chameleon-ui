@@ -1,0 +1,17 @@
+{
+  "slug": "data-screen",
+  "type": "registry:block",
+  "name": "Data screen",
+  "dependencies": ["chart", "grid", "kpi-dashboard", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 1280,
+    "title": "KPI dashboard and charts on a scaling canvas"
+  }
+}

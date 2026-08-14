@@ -1,0 +1,26 @@
+{
+  "slug": "im-chat",
+  "type": "registry:block",
+  "name": "IM chat",
+  "dependencies": [
+    "button",
+    "card",
+    "chat-bubble",
+    "editor",
+    "empty-state",
+    "list",
+    "markdown-renderer",
+    "typography"
+  ],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Rooms, bubbles, markdown, and composer"
+  }
+}

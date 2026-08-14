@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "ticket-flow",
+  "name": "Ticket flow",
+  "status": "experimental",
+  "purpose": "Advance a support request through steps, capture notes in a form, and record events on a timeline.",
+  "scenarios": [
+    "See the current ticket stage",
+    "Add a note from a form",
+    "Advance to the next stage and append a timeline event"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "currentStep": {
+      "type": "string",
+      "required": false,
+      "description": "Current stage: open, triage, progress, or resolved.",
+      "default": "triage"
+    },
+    "onNote": {
+      "type": "event",
+      "required": false,
+      "description": "Called after a note is appended."
+    },
+    "onAdvance": {
+      "type": "event",
+      "required": false,
+      "description": "Called after the ticket moves to the next stage."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "The ticket has notes and is not resolved." },
+    { "name": "empty", "description": "No notes yet." },
+    { "name": "complete", "description": "The ticket is resolved." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["steps", "timeline", "form", "input", "button", "card", "empty-state", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not skip the form when capturing notes; unlabeled free text is not a ticket trail.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches advance, steps, and the note form", "Enter submits the note form"],
+    "focus": "Actions stay in document order with a visible focus ring.",
+    "labeling": "Steps have an accessible name; the note field has a visible label.",
+    "wcag": ["2.1.1", "2.4.7", "3.3.2", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Header wraps with flex; steps use the component's own @container queries. No viewport media queries in this block.",
+    "breakpoints": {
+      "compact": "Header stacks; steps stack inside the steps component.",
+      "medium": "Header sits on one row when space allows.",
+      "large": "Header sits on one row when space allows."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "ticket-flow",
+    "states": ["default", "empty", "complete"],
+    "intents": ["progress-ticket"]
+  }
+}

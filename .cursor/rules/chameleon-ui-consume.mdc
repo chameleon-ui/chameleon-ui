@@ -1,0 +1,14 @@
+---
+description: Consume @chameleon-ui/* from an external app. Follow chameleon-ui/AGENTS.md. Never invent CSS specifiers or workspace:* in consumer package.json.
+alwaysApply: true
+---
+
+# Chameleon UI — AI consumer rules
+
+When generating or editing a **consumer** app (including stock-analyzer) that uses `@chameleon-ui/*`:
+
+1. Obey [`chameleon-ui/AGENTS.md`](chameleon-ui/AGENTS.md). Longer attach notes: [`docs/ai/agent-consume.md`](docs/ai/agent-consume.md).
+2. Call MCP `get_import_specifiers` before writing imports. Preferred CSS is `@chameleon-ui/themes/cupertino/css`, **not** `@chameleon-ui/themes/cupertino/variables.css`.
+3. Never write `workspace:*` into a non-pnpm-workspace `package.json`. Link all five runtime packages (see AGENTS.md).
+4. `get_contract` by slug before emitting a component. `get_design_rules` before theme density/RTL.
+5. SchemaRenderer default map is 10 slugs. `adapter-ag-ui` is POC. Do not invent `generation_quality` scores.

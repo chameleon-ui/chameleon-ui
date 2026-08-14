@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "comment-thread",
+  "name": "CommentThread",
+  "family": "H",
+  "status": "experimental",
+  "purpose": "Displays a nested thread of comments with author, timestamp, and reply affordance.",
+  "scenarios": [
+    "Discussion under a document",
+    "Review comments on a design",
+    "Issue conversation view"
+  ],
+  "props": {
+    "comments": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, author, time, text, replies? } in order."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the thread region."
+    },
+    "replyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for reply buttons."
+    },
+    "onReply": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the comment id when reply is activated."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Thread with comments."
+    },
+    {
+      "name": "empty",
+      "description": "No comments yet."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "card",
+      "article-card"
+    ],
+    "allowedChildren": [
+      "avatar",
+      "button",
+      "editor"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest replies deeper than three levels.",
+    "Do not render comments without an author label."
+  ],
+  "a11y": {
+    "role": "list",
+    "keyboard": [
+      "Tab moves through reply buttons"
+    ],
+    "focus": "Reply buttons are real buttons in tab order.",
+    "labeling": "Nested lists convey reply depth; author and time label each comment.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Reply indentation shrinks on compact.",
+    "breakpoints": {
+      "compact": "Reduced indentation.",
+      "medium": "Default indentation.",
+      "large": "Default indentation."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "comment-thread",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "enumerate-items"
+    ]
+  }
+}

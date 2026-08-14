@@ -1,0 +1,11 @@
+{
+  "id": "stuttgart",
+  "label": "Stuttgart",
+  "preview": {
+    "accent": "#bb0a30",
+    "surface": "#0f0f0f"
+  },
+  "fonts": {
+    "sans": "\"Helvetica Neue\", Helvetica, Arial, system-ui, sans-serif"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "spinner",
+  "type": "registry:ui",
+  "name": "Spinner",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/spinner/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"spinner\",\n  \"name\": \"Spinner\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Communicates that an operation is in progress without blocking the UI.\",\n  \"scenarios\": [\n    \"Show loading feedback while a form is submitted\",\n    \"Indicate that a remote list is refreshing\",\n    \"Reduce motion when the user prefers it\"\n  ],\n  \"props\": {\n    \"size\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Visual size of the spinner.\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label describing the loading state.\",\n      \"default\": \"Loading\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"size\",\n      \"values\": [\n        \"sm\",\n        \"md\",\n        \"lg\"\n      ],\n      \"default\": \"md\",\n      \"description\": \"Visual size of the spinner.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Spinner is animated and announced.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"button\",\n      \"dialog\",\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use as the only loading indicator for long operations without a status message.\",\n    \"Do not disable reduced-motion preferences.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Spinner is not focusable; it is announced via aria-live.\",\n    \"labeling\": \"An aria-label describes the loading state.\",\n    \"wcag\": [\n      \"4.1.3\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Size is token-based; animation respects reduced-motion preferences.\",\n    \"breakpoints\": {\n      \"compact\": \"Hit target remains at least the sm size.\",\n      \"medium\": \"Default md size is used.\",\n      \"large\": \"Default md size is used.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Rotation animation is direction-neutral.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"spinner\",\n    \"states\": [\n      \"sm\",\n      \"md\",\n      \"lg\"\n    ],\n    \"intents\": [\n      \"indicate-busy\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/index.ts",
+      "content": "export { Spinner } from './Spinner.js'\nexport type { SpinnerProps } from './Spinner.js'\n"
+    },
+    {
+      "path": "components/spinner/locales/am.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"በመጫን ላይ\",\n    \"saving\": \"በማስቀመጥ ላይ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ar.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"جارٍ التحميل\",\n    \"saving\": \"جارٍ الحفظ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/bn.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"লোড হচ্ছে\",\n    \"saving\": \"সংরক্ষণ হচ্ছে\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/de.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Wird geladen\",\n    \"saving\": \"Wird gespeichert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/en.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Loading\",\n    \"saving\": \"Saving\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/es.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Cargando\",\n    \"saving\": \"Guardando\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/fa.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"در حال بارگذاری\",\n    \"saving\": \"در حال ذخیره\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/fr.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Chargement\",\n    \"saving\": \"Enregistrement\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ha.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Ana lodawa\",\n    \"saving\": \"Ana adanawa\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/hi.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"लोड हो रहा है\",\n    \"saving\": \"सहेजा जा रहा है\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/id.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Memuat\",\n    \"saving\": \"Menyimpan\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ja.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"読み込み中\",\n    \"saving\": \"保存中\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ko.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"로딩 중\",\n    \"saving\": \"저장 중\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/pt.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Carregando\",\n    \"saving\": \"Salvando\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ru.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Загрузка\",\n    \"saving\": \"Сохранение\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/sw.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Inapakia\",\n    \"saving\": \"Inahifadhi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ug.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"يۈكلىنىۋاتىدۇ\",\n    \"saving\": \"ساقلىنىۋاتىدۇ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/ur.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"لوڈ ہو رہا ہے\",\n    \"saving\": \"محفوظ ہو رہا ہے\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/vi.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"Đang tải\",\n    \"saving\": \"Đang lưu\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/zh-CN.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"加载中\",\n    \"saving\": \"保存中\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/locales/zh-HK.json",
+      "content": "{\n  \"spinner\": {\n    \"loading\": \"載入中\",\n    \"saving\": \"儲存中\"\n  }\n}\n"
+    },
+    {
+      "path": "components/spinner/README.md",
+      "content": "# Spinner\n\nFrozen Phase 1 stub for `spinner`.\n\n- Requirement: Loading feedback (Spinner / Progress)\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/spinner/Spinner.tsx",
+      "content": "import './styles.css'\n\nexport type SpinnerSize = 'sm' | 'md' | 'lg'\n\nexport interface SpinnerProps {\n  size?: SpinnerSize\n  /** Accessible label describing the loading state. */\n  label?: string\n  className?: string\n}\n\nexport function Spinner({ size = 'md', label = 'Loading', className }: SpinnerProps) {\n  const classes = ['cu-spinner', `cu-spinner--${size}`, className].filter(Boolean).join(' ')\n\n  return (\n    <span\n      className={classes}\n      data-ai-role=\"spinner\" data-ai-intent=\"indicate-busy\"\n      data-ai-state=\"loading\"\n      data-size={size}\n      role=\"status\"\n      aria-live=\"polite\"\n      aria-label={label}\n    >\n      <svg aria-hidden=\"true\" className=\"cu-spinner__svg\" viewBox=\"0 0 24 24\">\n        <circle className=\"cu-spinner__track\" cx=\"12\" cy=\"12\" r=\"10\" />\n        <circle className=\"cu-spinner__lead\" cx=\"12\" cy=\"12\" r=\"10\" />\n      </svg>\n    </span>\n  )\n}\n"
+    },
+    {
+      "path": "components/spinner/styles.css",
+      "content": ".cu-spinner {\n  display: inline-flex;\n  inline-size: 1.5rem;\n  block-size: 1.5rem;\n  flex: none;\n  color: var(--cu-color-palette-brand);\n}\n\n.cu-spinner--sm {\n  inline-size: 1rem;\n  block-size: 1rem;\n}\n\n.cu-spinner--lg {\n  inline-size: 2rem;\n  block-size: 2rem;\n}\n\n.cu-spinner__svg {\n  inline-size: 100%;\n  block-size: 100%;\n  animation: cu-spin 1s linear infinite;\n}\n\n.cu-spinner__track,\n.cu-spinner__lead {\n  fill: none;\n  stroke-width: 2.5;\n}\n\n.cu-spinner__track {\n  stroke: color-mix(in srgb, var(--cu-color-palette-brand) 20%, transparent);\n}\n\n.cu-spinner__lead {\n  stroke: currentColor;\n  stroke-dasharray: 40 60;\n  stroke-linecap: round;\n}\n\n@keyframes cu-spin {\n  to {\n    transform: rotate(360deg);\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-spinner__svg {\n    animation-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

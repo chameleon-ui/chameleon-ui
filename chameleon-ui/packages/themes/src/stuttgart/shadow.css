@@ -1,0 +1,27 @@
+/* Stuttgart — elevation over border: short metallic shadows, not soft blobs. */
+:root .cu-card--elevated,
+:root .cu-toast,
+:root .cu-popover__content,
+:root .cu-select__content,
+:root .cu-command-palette {
+  box-shadow: var(--cu-shadow-md);
+}
+
+:root .cu-dialog__content,
+:root .cu-action-sheet {
+  box-shadow: var(--cu-shadow-lg);
+}
+
+:root .cu-card--outlined {
+  box-shadow: var(--cu-shadow-sm);
+}
+
+:root .cu-button--solid {
+  box-shadow:
+    inset 0 1px 0 color-mix(in srgb, #fff 16%, transparent),
+    var(--cu-shadow-sm);
+}
+
+:root .cu-button--solid:active {
+  box-shadow: inset 0 1px 2px color-mix(in srgb, #000 35%, transparent);
+}

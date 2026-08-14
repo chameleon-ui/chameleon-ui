@@ -1,0 +1,15 @@
+## 示例
+
+```jsx live
+function Example() {
+  const [value, setValue] = useState('');
+  return (
+    <Combobox
+      placeholder="搜索或选择城市"
+      options={['北京', '上海', '深圳', '香港']}
+      value={value}
+      onChange={setValue}
+    />
+  );
+}
+```

@@ -1,0 +1,190 @@
+/* Compact chat-canvas homage. Scope every rule to the theme root so demo
+   rewrite (root → [data-theme="wechat"]) cannot leak into other themes. */
+:root {
+  font-family: var(--cu-font-family-sans);
+  line-height: var(--cu-typography-line-height-body);
+  color: var(--cu-color-fg-default);
+  background-color: var(--cu-color-background-default);
+  --cu-blur-surface: 0px;
+  --cu-blur-overlay: 0px;
+}
+
+:root .cu-app-shell,
+:root .cu-app-shell__main {
+  background: var(--cu-color-background-default);
+}
+
+:root .cu-app-shell__header,
+:root .cu-tab-bar,
+:root .cu-sidebar,
+:root .cu-dialog__content,
+:root .cu-action-sheet__content,
+:root .cu-sheet,
+:root .cu-navbar {
+  background: var(--cu-color-background-elevated);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-app-shell__header {
+  padding-block: var(--cu-space-2);
+  border-block-end: 1px solid var(--cu-color-border-default);
+  box-shadow: var(--cu-shadow-sm);
+}
+
+:root .cu-app-shell__main {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+}
+
+:root .cu-tab-bar {
+  border-block-start: 1px solid var(--cu-color-border-default);
+  box-shadow: none;
+}
+
+:root .cu-tab-bar__item {
+  font-size: 0.625rem;
+  font-weight: 400;
+  gap: 0.125rem;
+  border-block-start-width: 0;
+  transition:
+    color var(--cu-motion-duration-fast) var(--cu-motion-easing-standard),
+    background-color var(--cu-motion-duration-fast) var(--cu-motion-easing-standard);
+}
+
+:root .cu-tab-bar__item[data-state="active"] {
+  border-block-start-color: transparent;
+  color: var(--cu-color-palette-brand);
+  font-weight: 500;
+}
+
+:root .cu-button,
+:root .cu-input,
+:root .cu-textarea,
+:root .cu-select,
+:root .cu-search-bar {
+  border-radius: var(--cu-radius-sm);
+  transition-duration: var(--cu-motion-duration-fast);
+  transition-timing-function: var(--cu-motion-easing-standard);
+}
+
+:root .cu-button {
+  font-weight: 500;
+  min-inline-size: 5rem;
+}
+
+:root .cu-button--solid:active:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+:root .cu-input,
+:root .cu-textarea {
+  background: var(--cu-color-background-elevated);
+  border-color: var(--cu-color-border-default);
+}
+
+:root .cu-card {
+  background: var(--cu-color-background-elevated);
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shadow-sm);
+}
+
+:root .cu-card--elevated {
+  box-shadow: var(--cu-shadow-md);
+}
+
+:root .cu-card--outlined {
+  border-color: var(--cu-color-border-default);
+}
+
+:root .cu-list--none {
+  background: var(--cu-color-background-elevated);
+  border-radius: var(--cu-radius-md);
+  overflow: hidden;
+}
+
+:root .cu-list__item {
+  padding-block: 0.75rem;
+  padding-inline: var(--cu-space-3);
+  border-block-end: 1px solid var(--cu-color-border-default);
+}
+
+:root .cu-list__item:last-child {
+  border-block-end: none;
+}
+
+:root .cu-sidebar {
+  background: var(--cu-color-background-elevated);
+  border-inline-end-color: var(--cu-color-border-default);
+}
+
+:root .cu-sidebar__item {
+  border-radius: var(--cu-radius-sm);
+  font-weight: 400;
+}
+
+:root .cu-sidebar__item[aria-current="page"] {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 12%, var(--cu-color-background-elevated));
+  color: var(--cu-color-palette-brand);
+  font-weight: 500;
+}
+
+:root .cu-dialog__content,
+:root .cu-action-sheet__content {
+  background: var(--cu-color-background-elevated);
+  box-shadow: var(--cu-shadow-lg);
+  border-start-start-radius: var(--cu-radius-lg);
+  border-start-end-radius: var(--cu-radius-lg);
+}
+
+:root .cu-dialog__description,
+:root .cu-dialog__body {
+  line-height: var(--cu-typography-line-height-body);
+}
+
+:root .cu-toast {
+  background: var(--cu-color-background-elevated);
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shadow-md);
+  border-inline-start-width: 0;
+}
+
+:root .cu-chat-bubble {
+  max-inline-size: 70%;
+  padding-block: 0.5rem;
+  padding-inline: 0.75rem;
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-color-background-elevated);
+  color: var(--cu-color-fg-default);
+  box-shadow: none;
+}
+
+:root .cu-chat-bubble--user {
+  background: var(--cu-color-palette-bubble);
+  color: var(--cu-color-fg-default);
+  border-end-end-radius: var(--cu-radius-sm);
+}
+
+:root .cu-chat-bubble--system {
+  max-inline-size: 100%;
+  background: transparent;
+  color: var(--cu-color-fg-muted);
+  border: none;
+  font-size: var(--cu-typography-size-caption);
+  text-align: center;
+}
+
+:root .cu-alert,
+:root .cu-badge,
+:root .cu-tag {
+  border-radius: var(--cu-radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .cu-button,
+  :root .cu-tab-bar__item,
+  :root .cu-dialog__content,
+  :root .cu-action-sheet__content {
+    transition-duration: 0.01ms;
+  }
+}

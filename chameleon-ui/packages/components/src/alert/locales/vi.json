@@ -1,0 +1,7 @@
+{
+  "alert": {
+    "success": "Thành công",
+    "error": "Lỗi",
+    "warning": "Cảnh báo"
+  }
+}

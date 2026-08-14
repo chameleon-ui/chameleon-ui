@@ -1,0 +1,21 @@
+{
+  "register": {
+    "title": "Create an account",
+    "subtitle": "Enter your details to join this workspace.",
+    "nameLabel": "Name",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "confirmLabel": "Confirm password",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "termsLabel": "I agree to the terms",
+    "submit": "Create account",
+    "loginPrompt": "Already have an account?",
+    "loginAction": "Sign in",
+    "errorRequired": "Name, email, and password are required.",
+    "errorInvalid": "Enter a valid email address.",
+    "errorMismatch": "Passwords do not match.",
+    "errorTerms": "Agree to the terms to continue.",
+    "accountCount": "{count, plural, =0 {No accounts created} one {# account created} other {# accounts created}}"
+  }
+}

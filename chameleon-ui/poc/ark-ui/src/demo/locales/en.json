@@ -10,6 +10,8 @@
     "locale": "Locale",
     "english": "English (en)",
     "pseudo": "Pseudo (en-XA)",
+    "arabic": "Arabic (ar)",
+    "german": "German (de)",
     "direction": "Reading direction",
     "ltr": "LTR",
     "rtl": "RTL"

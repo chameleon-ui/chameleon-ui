@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "data-screen",
+  "name": "Data screen",
+  "status": "experimental",
+  "purpose": "Operations canvas with KPI tiles and charts that scale to the parent instead of using viewport media queries.",
+  "scenarios": [
+    "Scan four KPI tiles on an operations canvas",
+    "Compare traffic and conversion charts in a two-column grid",
+    "Fit the 1280×720 design canvas to a smaller parent"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "KPI tiles are present." },
+    { "name": "empty", "description": "No KPI tiles to show." }
+  ],
+  "composition": {
+    "allowedParents": ["page"],
+    "allowedChildren": ["chart", "kpi-dashboard", "grid", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not size this canvas with viewport width media queries.",
+    "Do not claim first-paint performance numbers; Block budgets are unapproved."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches KPI tiles and chart figures"],
+    "focus": "Charts expose an accessible name on the SVG.",
+    "labeling": "KPI dashboard and both charts have accessible names.",
+    "wcag": ["1.1.1", "2.1.1", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "A 1280×720 stage scales down with ResizeObserver to fit the parent. Layout is designed at desktop size, then scaled.",
+    "breakpoints": {
+      "compact": "Canvas scales down; layout stays the desktop composition.",
+      "medium": "Canvas scales toward 1.",
+      "large": "Canvas stays at scale 1 when the parent is at least 1280×720."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "data-screen",
+    "states": ["default", "empty"],
+    "intents": ["monitor-metrics"]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "accordion",
+  "type": "registry:ui",
+  "name": "Accordion",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/accordion/Accordion.tsx",
+      "content": "import { useState } from 'react'\nimport './styles.css'\n\nexport interface AccordionItem {\n  title: string\n  content: string\n}\n\nexport interface AccordionProps {\n  items: AccordionItem[]\n  multiple?: boolean\n  className?: string\n}\n\nexport function Accordion({ items, multiple = false, className }: AccordionProps) {\n  const [openIndexes, setOpenIndexes] = useState<Set<number>>(new Set())\n  const classes = ['cu-accordion', className].filter(Boolean).join(' ')\n\n  const toggle = (index: number) => {\n    setOpenIndexes((prev) => {\n      const next = new Set(prev)\n      if (next.has(index)) {\n        next.delete(index)\n      } else {\n        if (!multiple) next.clear()\n        next.add(index)\n      }\n      return next\n    })\n  }\n\n  return (\n    <div className={classes} data-ai-role=\"accordion\" data-ai-intent=\"expand-section\" data-ai-state={openIndexes.size > 0 ? 'open' : 'closed'}>\n      {items.map((item, index) => {\n        const open = openIndexes.has(index)\n        return (\n          <div className=\"cu-accordion__item\" key={index}>\n            <button\n              className=\"cu-accordion__trigger\"\n              onClick={() => toggle(index)}\n              type=\"button\"\n              aria-expanded={open}\n            >\n              {item.title}\n            </button>\n            {open ? <div className=\"cu-accordion__content\">{item.content}</div> : null}\n          </div>\n        )\n      })}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/accordion/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"accordion\",\n  \"name\": \"Accordion\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Stacks multiple collapsible sections where at most one is open at a time.\",\n  \"scenarios\": [\n    \"FAQ list\",\n    \"Settings categories\",\n    \"Form sections\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"JSON array of {title, content} items.\"\n    },\n    \"multiple\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Allow multiple open items.\",\n      \"default\": false\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"open\",\n      \"description\": \"One or more items are expanded.\"\n    },\n    {\n      \"name\": \"closed\",\n      \"description\": \"All items are collapsed.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"card\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for primary navigation.\",\n    \"Do not hide required form fields inside.\"\n  ],\n  \"a11y\": {\n    \"role\": \"region\",\n    \"keyboard\": [\n      \"Tab moves between triggers\",\n      \"Enter/Space toggles\"\n    ],\n    \"focus\": \"Triggers are focusable.\",\n    \"labeling\": \"Each trigger labels its section.\",\n    \"wcag\": [\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Full width list.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"accordion\",\n    \"states\": [\n      \"open\",\n      \"closed\"\n    ],\n    \"intents\": [\n      \"expand-section\",\n      \"collapse-section\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/index.ts",
+      "content": "export { Accordion } from './Accordion.js'\nexport type { AccordionProps } from './Accordion.js'\n"
+    },
+    {
+      "path": "components/accordion/locales/am.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ar.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"أكورديون\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/bn.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/de.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Akkordeon-Element\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/en.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/es.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/fa.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/fr.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ha.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/hi.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/id.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ja.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ko.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/pt.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ru.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/sw.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ug.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/ur.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/vi.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/zh-CN.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"手风琴\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/locales/zh-HK.json",
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+    },
+    {
+      "path": "components/accordion/styles.css",
+      "content": ".cu-accordion {\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  overflow: hidden;\n}\n\n.cu-accordion__item + .cu-accordion__item {\n  border-block-start: 1px solid var(--cu-color-border-default);\n}\n\n.cu-accordion__trigger {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  inline-size: 100%;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 0;\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  font-weight: 600;\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-accordion__trigger:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: -3px;\n}\n\n.cu-accordion__content {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border-block-start: 1px solid var(--cu-color-border-default);\n  color: var(--cu-color-fg-default);\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+.docusaurus
+node_modules
+dist
+build
+.turbo
+.next
+out
+storybook-static
+coverage
+.vite
+*.tsbuildinfo

@@ -1,0 +1,11 @@
+{
+  "id": "wechat",
+  "label": "Wechat",
+  "preview": {
+    "accent": "#07c160",
+    "surface": "#ededed"
+  },
+  "fonts": {
+    "sans": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang SC\", \"Hiragino Sans GB\", \"Microsoft YaHei UI\", \"Microsoft YaHei\", sans-serif"
+  }
+}

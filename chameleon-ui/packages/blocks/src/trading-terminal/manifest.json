@@ -1,0 +1,17 @@
+{
+  "slug": "trading-terminal",
+  "type": "registry:block",
+  "name": "Trading terminal",
+  "dependencies": ["button", "card", "chart", "data-grid", "ticker", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 1280,
+    "title": "Ticker, symbol chart, and working orders"
+  }
+}

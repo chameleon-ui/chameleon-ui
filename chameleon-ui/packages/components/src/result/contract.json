@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "result",
+  "name": "Result",
+  "family": "E",
+  "status": "experimental",
+  "purpose": "Presents the outcome of a process with status icon, title, description, and actions.",
+  "scenarios": [
+    "Show a payment success page",
+    "Display a 404 empty result",
+    "Present a failed import summary"
+  ],
+  "props": {
+    "status": {
+      "type": "enum",
+      "required": false,
+      "description": "Outcome tone.",
+      "values": [
+        "success",
+        "error",
+        "info",
+        "warning"
+      ],
+      "default": "info"
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Result headline."
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "description": "Supporting explanation."
+    },
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Action area below the description."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "status",
+      "values": [
+        "success",
+        "error",
+        "info",
+        "warning"
+      ],
+      "default": "info",
+      "description": "Outcome tone."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Result panel rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "dialog"
+    ],
+    "allowedChildren": [
+      "button",
+      "link",
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a result for inline field errors; use InlineAlert.",
+    "Do not leave the user without a next action on error results."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Actions follow the description in tab order.",
+    "labeling": "Status icon has a text equivalent derived from status.",
+    "wcag": [
+      "1.1.1",
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Centered single column at all breakpoints.",
+    "breakpoints": {
+      "compact": "Full width, stacked.",
+      "medium": "Centered measure.",
+      "large": "Centered measure."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "result",
+    "states": [
+      "default",
+      "success",
+      "error",
+      "info",
+      "warning"
+    ],
+    "intents": [
+      "notify-status"
+    ]
+  }
+}

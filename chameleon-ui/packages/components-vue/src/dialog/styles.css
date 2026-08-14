@@ -1,0 +1,75 @@
+.cu-dialog__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 66%, transparent);
+  backdrop-filter: blur(var(--cu-blur-surface));
+  -webkit-backdrop-filter: blur(var(--cu-blur-surface));
+}
+
+/*
+ * Phase 5 container-query whitelist member: the positioner is viewport-sized
+ * (fixed inset 0) and acts as the query container, so the bottom-sheet ->
+ * centered-modal morph is driven by the container, not a viewport media query.
+ */
+.cu-dialog__positioner {
+  position: fixed;
+  inset: 0;
+  z-index: 31;
+  display: grid;
+  place-items: end center;
+  overflow: auto;
+  container-type: inline-size;
+}
+
+.cu-dialog__content {
+  inline-size: 100%;
+  max-block-size: min(90vh, 36rem);
+  overflow: auto;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border-start-start-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-start-end-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+  color: var(--cu-color-fg-default);
+  background: var(--cu-color-background-default);
+  box-shadow: var(--cu-shadow-lg);
+}
+
+.cu-dialog__title {
+  margin-block: 0 var(--cu-space-2);
+}
+
+.cu-dialog__description,
+.cu-dialog__body {
+  color: var(--cu-color-fg-default);
+  line-height: 1.6;
+}
+
+.cu-dialog__body {
+  margin-block-start: var(--cu-space-3);
+}
+
+.cu-dialog__actions {
+  display: flex;
+  justify-content: end;
+  margin-block-start: var(--cu-space-3);
+}
+
+/* 48rem == breakpoint.tablet, see packages/tokens/src/core/breakpoint.json. */
+@container (min-width: 48rem) {
+  .cu-dialog__content {
+    align-self: center;
+    inline-size: min(100%, 32rem);
+    margin-block: var(--cu-space-3);
+    border-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-dialog__backdrop,
+  .cu-dialog__content {
+    transition-duration: 0.01ms;
+  }
+}

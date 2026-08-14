@@ -1,0 +1,108 @@
+{
+  "id": "heatmap",
+  "type": "registry:ui",
+  "name": "Heatmap",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/heatmap/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"heatmap\",\n  \"name\": \"Heatmap\",\n  \"family\": \"F\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Renders a matrix of values as color-intensity cells over a token-derived scale.\",\n  \"scenarios\": [\n    \"Commit activity calendar\",\n    \"Hour-by-day traffic matrix\",\n    \"Risk severity grid\"\n  ],\n  \"props\": {\n    \"rows\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Row labels in order.\"\n    },\n    \"columns\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Column labels in order.\"\n    },\n    \"values\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Row-major matrix of numbers matching rows x columns.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible description of the matrix.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Matrix rendered.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No values provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not rely on color alone; cells expose their numeric value.\",\n    \"Do not render matrices larger than 60x24 without pagination.\"\n  ],\n  \"a11y\": {\n    \"role\": \"grid\",\n    \"keyboard\": [],\n    \"focus\": \"Cells are not focusable; values are available to screen readers via text.\",\n    \"labeling\": \"aria-label summarizes the matrix; each cell exposes its value.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"1.4.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Cells shrink to a minimum size; container scrolls horizontally beyond that.\",\n    \"breakpoints\": {\n      \"compact\": \"Horizontal scroll.\",\n      \"medium\": \"Fit container.\",\n      \"large\": \"Fit container.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"heatmap\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"visualize-data\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/Heatmap.tsx",
+      "content": "import './styles.css'\n\nexport interface HeatmapProps {\n  rows: string[]\n  columns: string[]\n  values: number[][]\n  label: string\n  className?: string\n}\n\nexport function Heatmap({ rows, columns, values, label, className }: HeatmapProps) {\n  const classes = ['cu-heatmap', className].filter(Boolean).join(' ')\n  const flat = values.flat()\n  const max = flat.length > 0 ? Math.max(...flat) : 0\n  const empty = rows.length === 0 || columns.length === 0 || flat.length === 0\n\n  return (\n    <div className={classes} data-ai-role=\"heatmap\" data-ai-intent=\"visualize-data\" data-ai-state={empty ? 'empty' : 'default'}>\n      <div\n        className=\"cu-heatmap__grid\"\n        role=\"grid\"\n        aria-label={label}\n        style={{ gridTemplateColumns: `auto repeat(${columns.length}, minmax(var(--cu-space-3), 1fr))` }}\n      >\n        <span className=\"cu-heatmap__corner\" />\n        {columns.map((column) => (\n          <span key={column} className=\"cu-heatmap__column\" role=\"columnheader\">\n            {column}\n          </span>\n        ))}\n        {rows.map((row, rowIndex) => (\n          <span key={row} className=\"cu-heatmap__row-wrap\" role=\"row\">\n            <span className=\"cu-heatmap__row\" role=\"rowheader\">\n              {row}\n            </span>\n            {columns.map((column, columnIndex) => {\n              const value = values[rowIndex]?.[columnIndex] ?? 0\n              const intensity = max > 0 ? Math.round((value / max) * 90) : 0\n              return (\n                <span\n                  key={`${row}-${column}`}\n                  className=\"cu-heatmap__cell\"\n                  role=\"gridcell\"\n                  aria-label={`${row} ${column}: ${value}`}\n                  style={{ background: `color-mix(in srgb, var(--cu-color-palette-brand) ${intensity}%, var(--cu-color-background-default))` }}\n                >\n                  <span className=\"cu-heatmap__value\">{value}</span>\n                </span>\n              )\n            })}\n          </span>\n        ))}\n      </div>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/heatmap/index.ts",
+      "content": "export { Heatmap } from './Heatmap.js'\nexport type { HeatmapProps } from './Heatmap.js'\n"
+    },
+    {
+      "path": "components/heatmap/locales/am.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ar.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"خريطة حرارية\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/bn.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/de.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap-Matrix\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/en.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/es.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/fa.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/fr.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ha.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/hi.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/id.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ja.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ko.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/pt.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ru.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/sw.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ug.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/ur.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/vi.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/zh-CN.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"热力图\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/locales/zh-HK.json",
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+    },
+    {
+      "path": "components/heatmap/styles.css",
+      "content": ".cu-heatmap {\n  display: block;\n  overflow-x: auto;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-heatmap__grid {\n  display: grid;\n  gap: calc(var(--cu-space-1) / 2);\n  align-items: center;\n}\n\n.cu-heatmap__row-wrap {\n  display: contents;\n}\n\n.cu-heatmap__row,\n.cu-heatmap__column {\n  font-size: 0.75em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n  padding-inline-end: var(--cu-space-1);\n}\n\n.cu-heatmap__cell {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-block-size: var(--cu-space-3);\n  border-radius: calc(var(--cu-space-1) / 2);\n  font-size: 0.625em;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+---
+id: schema-renderer
+title: SchemaRenderer
+sidebar_label: SchemaRenderer
+description: JSON render-schema → Chameleon UI 组件树。默认 10 个 slug。AG-UI 仍是 POC。
+---
+
+运行时包 `@chameleon-ui/schema-renderer`：把 JSON 编成真实组件树。仓库一页纸：`docs/ai/schema-renderer.md`。
+
+## Agent 应输出的 JSON
+
+```json
+{
+  "$schema": "https://chameleon-ui.dev/schemas/ui-render/v1.0.json",
+  "version": "1.0",
+  "root": {
+    "component": "card",
+    "props": { "variant": "outlined", "padding": "lg" },
+    "children": [
+      { "component": "heading", "props": { "level": "level-2" }, "children": ["Sign in"] },
+      {
+        "component": "button",
+        "props": { "variant": "solid" },
+        "children": ["Continue"]
+      }
+    ]
+  }
+}
+```
+
+入仓示例：`packages/schema-renderer/examples/`（`login-form.json` · `status-card.json` · `empty-results.json`）。复制到应用里再 `<SchemaRenderer schema={schema} />`。
+
+## 默认 map（仅 10 slug）
+
+`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`
+
+`table` / `chart` / `kpi-dashboard` 请从 `@chameleon-ui/components` 直接 import，或自备 `map`。不要宣称全 catalog 可渲染。
+
+`adapter-ag-ui` 是 **POC**，不是 supported。

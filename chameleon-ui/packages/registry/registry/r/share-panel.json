@@ -1,0 +1,108 @@
+{
+  "id": "share-panel",
+  "type": "registry:ui",
+  "name": "SharePanel",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/share-panel/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"share-panel\",\n  \"name\": \"SharePanel\",\n  \"family\": \"H\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Offers share targets and a copyable link for the current content.\",\n  \"scenarios\": [\n    \"Share a dashboard view\",\n    \"Share a market listing\",\n    \"Copy a deep link\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Panel headline.\"\n    },\n    \"url\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Canonical URL to share.\"\n    },\n    \"targets\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Subset of x | linkedin | email | copy targets to show.\"\n    },\n    \"copyLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the copy action.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Panel with targets.\"\n    },\n    {\n      \"name\": \"copied\",\n      \"description\": \"Link copy just succeeded.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"dialog\",\n      \"popover\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not open share targets without user activation.\",\n    \"Do not list targets the current platform cannot open.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [\n      \"Tab moves across target buttons\"\n    ],\n    \"focus\": \"All targets are buttons in tab order.\",\n    \"labeling\": \"Panel title labels the group; each target button is named.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Targets wrap on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Wrapped targets.\",\n      \"medium\": \"Single row.\",\n      \"large\": \"Single row.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"share-panel\",\n    \"states\": [\n      \"default\",\n      \"copied\"\n    ],\n    \"intents\": [\n      \"share-content\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/index.ts",
+      "content": "export { SharePanel } from './SharePanel.js'\nexport type { SharePanelProps, ShareTarget } from './SharePanel.js'\n"
+    },
+    {
+      "path": "components/share-panel/locales/am.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ar.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"مشاركة\",\n    \"copyLink\": \"نسخ الرابط\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/bn.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/de.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Teilen-Panel\",\n    \"copyLink\": \"Link kopieren\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/en.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/es.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/fa.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/fr.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ha.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/hi.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/id.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ja.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ko.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/pt.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ru.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/sw.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ug.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/ur.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/vi.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/zh-CN.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"分享\",\n    \"copyLink\": \"复制链接\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/locales/zh-HK.json",
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/share-panel/SharePanel.tsx",
+      "content": "import { useState } from 'react'\nimport './styles.css'\n\nexport type ShareTarget = 'x' | 'linkedin' | 'email' | 'copy'\n\nexport interface SharePanelProps {\n  title: string\n  url: string\n  targets?: ShareTarget[]\n  copyLabel?: string\n  className?: string\n}\n\nconst TARGET_LABEL: Record<Exclude<ShareTarget, 'copy'>, string> = {\n  x: 'X',\n  linkedin: 'LinkedIn',\n  email: 'Email',\n}\n\nfunction targetHref(target: Exclude<ShareTarget, 'copy'>, url: string, title: string) {\n  const encodedUrl = encodeURIComponent(url)\n  const encodedTitle = encodeURIComponent(title)\n  if (target === 'x') return `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`\n  if (target === 'linkedin') return `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`\n  return `mailto:?subject=${encodedTitle}&body=${encodedUrl}`\n}\n\nexport function SharePanel({ title, url, targets = ['x', 'linkedin', 'email', 'copy'], copyLabel = 'Copy link', className }: SharePanelProps) {\n  const [copied, setCopied] = useState(false)\n  const classes = ['cu-share-panel', className].filter(Boolean).join(' ')\n\n  const copy = async () => {\n    try {\n      await navigator.clipboard?.writeText(url)\n    } catch {\n      // Clipboard unavailable; still surface the confirmation affordance.\n    }\n    setCopied(true)\n  }\n\n  return (\n    <div\n      className={classes}\n      role=\"group\"\n      aria-label={title}\n      data-ai-role=\"share-panel\" data-ai-intent=\"share-content\"\n      data-ai-state={copied ? 'copied' : 'default'}\n    >\n      <p className=\"cu-share-panel__title\">{title}</p>\n      <div className=\"cu-share-panel__targets\">\n        {targets.map((target) =>\n          target === 'copy' ? (\n            <button key=\"copy\" type=\"button\" className=\"cu-share-panel__target\" onClick={copy}>\n              {copied ? '✓ ' : ''}{copyLabel}\n            </button>\n          ) : (\n            <a\n              key={target}\n              className=\"cu-share-panel__target\"\n              href={targetHref(target, url, title)}\n              target=\"_blank\"\n              rel=\"noreferrer\"\n            >\n              {TARGET_LABEL[target]}\n            </a>\n          ),\n        )}\n      </div>\n      <p className=\"cu-share-panel__url\">{url}</p>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/share-panel/styles.css",
+      "content": ".cu-share-panel {\n  display: block;\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-share-panel__title {\n  margin: 0;\n  font-weight: 600;\n}\n\n.cu-share-panel__targets {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--cu-space-2);\n  margin-block-start: var(--cu-space-2);\n}\n\n.cu-share-panel__target {\n  display: inline-flex;\n  align-items: center;\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  text-decoration: none;\n  cursor: pointer;\n}\n\n.cu-share-panel__target:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-share-panel__url {\n  margin: var(--cu-space-2) 0 0;\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n  overflow-wrap: anywhere;\n}\n"
+    }
+  ]
+}

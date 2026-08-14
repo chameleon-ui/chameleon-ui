@@ -1,0 +1,21 @@
+{
+  "screen": {
+    "title": "运营大屏",
+    "subtitle": "KPI 与图表放在按父级缩放的画布上。",
+    "kpiLabel": "关键指标",
+    "kpiSessions": "会话",
+    "kpiSessionsValue": "18.4k",
+    "kpiConversion": "转化",
+    "kpiConversionValue": "3.2%",
+    "kpiLatency": "延迟",
+    "kpiLatencyValue": "124ms",
+    "kpiErrors": "错误",
+    "kpiErrorsValue": "0.4%",
+    "trafficLabel": "流量",
+    "trafficSeries": "会话",
+    "conversionLabel": "转化",
+    "conversionSeries": "注册",
+    "emptyLabel": "暂无数据",
+    "panelCount": "{count, plural, =0 {没有面板} other {# 个面板}}"
+  }
+}

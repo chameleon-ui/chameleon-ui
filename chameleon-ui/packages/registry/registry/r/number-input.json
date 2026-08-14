@@ -1,0 +1,108 @@
+{
+  "id": "number-input",
+  "type": "registry:ui",
+  "name": "NumberInput",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/number-input/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"number-input\",\n  \"name\": \"NumberInput\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Captures a numeric value with increment and decrement controls.\",\n  \"scenarios\": [\n    \"Enter a quantity\",\n    \"Set a price\",\n    \"Choose an age\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Current value.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called when value changes.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Input label.\"\n    },\n    \"min\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Minimum value.\"\n    },\n    \"max\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Maximum value.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Input rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"page\",\n      \"dialog\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for arbitrary text.\",\n    \"Do not omit the label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"spinbutton\",\n    \"keyboard\": [\n      \"Arrow keys increment/decrement\"\n    ],\n    \"focus\": \"Input is focusable.\",\n    \"labeling\": \"Label provides the accessible name.\",\n    \"wcag\": [\n      \"3.3.2\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Native number input with styled label.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Inline width.\",\n      \"large\": \"Inline width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"number-input\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"enter-quantity\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/index.ts",
+      "content": "export { NumberInput } from './NumberInput.js'\nexport type { NumberInputProps } from './NumberInput.js'\n"
+    },
+    {
+      "path": "components/number-input/locales/am.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ar.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"إدخال رقم\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/bn.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/de.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Zahleneingabefeld\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/en.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/es.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/fa.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/fr.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ha.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/hi.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/id.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ja.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ko.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/pt.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ru.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/sw.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ug.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/ur.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/vi.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/zh-CN.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"数字输入\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/locales/zh-HK.json",
+      "content": "{\n  \"number-input\": {\n    \"label\": \"Number input\"\n  }\n}\n"
+    },
+    {
+      "path": "components/number-input/NumberInput.tsx",
+      "content": "import { FieldPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface NumberInputProps {\n  value: number\n  onChange: (value: number) => void\n  label: string\n  min?: number\n  max?: number\n  className?: string\n}\n\nexport function NumberInput({ value, onChange, label, min, max, className }: NumberInputProps) {\n  const classes = ['cu-number-input', className].filter(Boolean).join(' ')\n  return (\n    <FieldPrimitive.Root className={classes} data-ai-role=\"number-input\" data-ai-state=\"default\" data-ai-intent=\"enter-quantity\">\n      <FieldPrimitive.Label className=\"cu-number-input__label\">{label}</FieldPrimitive.Label>\n      <FieldPrimitive.Input\n        className=\"cu-number-input__input\"\n        max={max}\n        min={min}\n        onChange={(event) => onChange(Number(event.currentTarget.value))}\n        type=\"number\"\n        value={value}\n      />\n    </FieldPrimitive.Root>\n  )\n}\n"
+    },
+    {
+      "path": "components/number-input/styles.css",
+      "content": ".cu-number-input {\n  display: grid;\n  gap: var(--cu-space-1);\n}\n\n.cu-number-input__label {\n  font-size: 0.875rem;\n  font-weight: 600;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-number-input__input {\n  min-block-size: 2.75rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  color: var(--cu-color-fg-default);\n  background: var(--cu-color-background-default);\n  font: inherit;\n}\n\n.cu-number-input__input:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n"
+    }
+  ]
+}

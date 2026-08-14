@@ -1,0 +1,64 @@
+/* cu-effects:line — hairline product language: tiny radius, no bounce easing, no glass. */
+:root {
+  --cu-tracking: 0em;
+  --cu-font-weight-heading: 600;
+}
+
+:root .cu-app-shell {
+  background-color: var(--cu-color-background-subtle);
+  letter-spacing: var(--cu-tracking);
+}
+
+:root .cu-app-shell__header {
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+:root .cu-app-shell__main {
+  background-color: var(--cu-color-background-subtle);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cpath d='M16 0H0M0 0V16' fill='none' stroke='%230a0a0a' stroke-opacity='0.045' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: 16px 16px;
+}
+
+:root .cu-app-shell__sidebar,
+:root .cu-sidebar {
+  background: var(--cu-color-background-subtle);
+  border-inline-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+:root .cu-sidebar__item[aria-current='page'] {
+  border-inline-start: 2px solid var(--cu-color-fg-default);
+  border-radius: var(--cu-radius-sm);
+  background: color-mix(in srgb, var(--cu-color-fg-default) 6%, transparent);
+  color: var(--cu-color-fg-default);
+}
+
+:root .cu-button {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+:root .cu-card--elevated {
+  box-shadow: var(--cu-shadow-sm, none);
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+:root .cu-dialog__backdrop {
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 40%, transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-dialog__content,
+:root .cu-tab-bar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-input:focus-visible,
+:root .cu-button:focus-visible {
+  outline: 2px solid var(--cu-color-fg-default);
+  outline-offset: 2px;
+}

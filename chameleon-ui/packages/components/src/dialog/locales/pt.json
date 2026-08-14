@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Abrir diálogo de revisão",
+    "title": "Revisar a base",
+    "description": "O foco do teclado permanece neste diálogo até ele fechar.",
+    "close": "Concluir revisão",
+    "body": "Pressione Esc ou o botão fechar. O foco deve voltar ao gatilho."
+  }
+}

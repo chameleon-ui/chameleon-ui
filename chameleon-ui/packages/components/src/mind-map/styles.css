@@ -1,0 +1,6 @@
+.cu-mind-map {
+  position: relative;
+  display: block;
+  overflow: auto;
+  color: var(--cu-color-fg-default);
+}

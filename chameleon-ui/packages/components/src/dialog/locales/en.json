@@ -1,0 +1,9 @@
+{
+  "dialog": {
+    "trigger": "Open review dialog",
+    "title": "Review the foundation",
+    "description": "Keyboard focus stays inside this dialog until it closes.",
+    "close": "Finish review",
+    "body": "Press Escape or the close button. Focus should return to the trigger."
+  }
+}

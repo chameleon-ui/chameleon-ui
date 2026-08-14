@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "rating",
+  "name": "Rating",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Captures or displays a star rating from one to a configurable maximum.",
+  "scenarios": [
+    "Product review score",
+    "Service feedback widget",
+    "Read-only average rating"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current rating from 0 to max."
+    },
+    "onChange": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the new rating; omit for read-only."
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "description": "Number of stars.",
+      "default": 5
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the rating group."
+    },
+    "starLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label pattern per star."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Interactive rating."
+    },
+    {
+      "name": "readonly",
+      "description": "Display-only rating."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "comment-thread",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use rating for non-ordered scales.",
+    "Do not show fractional stars without a text equivalent."
+  ],
+  "a11y": {
+    "role": "radiogroup",
+    "keyboard": [
+      "Arrow keys change the rating",
+      "Enter confirms"
+    ],
+    "focus": "Star buttons form one radio-style group.",
+    "labeling": "Group label plus per-star labels announce the scale.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Star size stays constant; wraps never.",
+    "breakpoints": {
+      "compact": "Touch-sized stars.",
+      "medium": "Default stars.",
+      "large": "Default stars."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "rating",
+    "states": [
+      "default",
+      "readonly"
+    ],
+    "intents": [
+      "rate-item"
+    ]
+  }
+}

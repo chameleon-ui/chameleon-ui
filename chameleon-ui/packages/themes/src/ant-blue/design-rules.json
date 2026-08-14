@@ -1,0 +1,66 @@
+{
+  "version": "1.0",
+  "typography": {
+    "scale": "major-third",
+    "lineHeightBody": 1.55,
+    "fontFamilyToken": "font.family.sans",
+    "headingWeightToken": "font.weight.semibold",
+    "tracking": "normal"
+  },
+  "spacing": {
+    "rhythm": 8,
+    "density": "comfortable",
+    "scale": {
+      "strategy": "rem-steps",
+      "steps": ["space.0", "space.1", "space.2", "space.3", "space.4"]
+    },
+    "radiusStrategy": {
+      "default": "radius.md",
+      "interactive": "radius.sm",
+      "surface": "radius.lg"
+    }
+  },
+  "colorBoundaries": {
+    "accentUsage": "primary-and-links",
+    "surfaceLayers": [
+      "color.background.default",
+      "color.background.subtle",
+      "color.background.elevated"
+    ],
+    "disabledContrast": {
+      "minimumRatio": 3,
+      "foregroundToken": "color.fg.muted",
+      "backgroundToken": "color.background.default"
+    },
+    "gradientPolicy": "subtle-only"
+  },
+  "forbiddenPatterns": [
+    "casual-illustrations",
+    "neon-accents",
+    "inconsistent-card-radius",
+    "playful-motion",
+    "glass-morphism",
+    "backdrop-blur"
+  ],
+  "composition": {
+    "surfaceHierarchy": "elevation-over-border",
+    "preferredStacks": ["card", "button", "table"],
+    "componentRules": {
+      "Button": { "minWidthPx": 80, "maxWidthPx": 320, "minTouchTargetPx": 44 },
+      "Card": { "minTouchTargetPx": 44 },
+      "Table": { "minTouchTargetPx": 44 }
+    }
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "logical-properties-only; no runtime DOM mirroring",
+    "mirroredIcons": [
+      "arrow-back",
+      "arrow-forward",
+      "chevron-start",
+      "chevron-end",
+      "breadcrumb-separator"
+    ],
+    "bidiIsolation": "required-for-user-content"
+  }
+}

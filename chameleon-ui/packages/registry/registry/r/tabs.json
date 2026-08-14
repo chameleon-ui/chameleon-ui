@@ -1,0 +1,112 @@
+{
+  "id": "tabs",
+  "type": "registry:ui",
+  "name": "Tabs",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/tabs/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"tabs\",\n  \"name\": \"Tabs\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Organizes content into a set of selectable tab panels.\",\n  \"scenarios\": [\n    \"Switch between settings sections\",\n    \"Browse content categories without leaving the page\",\n    \"Use arrow keys to move between tabs in RTL\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of tabs with value, label, and content.\"\n    },\n    \"defaultValue\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Uncontrolled initial tab value.\"\n    },\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Controlled active tab value.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Receives the next active tab value.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"A tab is active and its panel is visible.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"dialog\",\n      \"app-shell\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"input\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest tabs inside tabs.\",\n    \"Do not use tabs when the content should be visible at once.\"\n  ],\n  \"a11y\": {\n    \"role\": \"tablist\",\n    \"keyboard\": [\n      \"Tab moves to the active tab\",\n      \"Arrow keys move between tabs\",\n      \"Tab moves into the tab panel\"\n    ],\n    \"focus\": \"Visible focus indicator on tab triggers; roving tabindex is handled by the primitive.\",\n    \"labeling\": \"Each tab is labelled by its visible text; each panel is associated with its tab.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Tab list scrolls horizontally when it overflows. Active tab stays visible.\",\n    \"breakpoints\": {\n      \"compact\": \"Tab list may overflow horizontally; users can swipe/scroll.\",\n      \"medium\": \"Tab list fits the available width.\",\n      \"large\": \"Tab list fits the available width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Tab order follows the document direction; arrow-key roving is handled by the primitive.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"tabs\",\n    \"states\": [\n      \"active\"\n    ],\n    \"intents\": [\n      \"switch-view\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/index.ts",
+      "content": "export { Tabs } from './Tabs.js'\nexport type { TabsProps, TabItem } from './Tabs.js'\n"
+    },
+    {
+      "path": "components/tabs/locales/am.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"መለያ\",\n    \"security\": \"ደህንነት\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ar.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"الحساب\",\n    \"security\": \"الأمان\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/bn.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"অ্যাকাউন্ট\",\n    \"security\": \"নিরাপত্তা\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/de.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Benutzerkonto\",\n    \"security\": \"Sicherheitseinstellungen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/en.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Account\",\n    \"security\": \"Security\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/es.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Cuenta\",\n    \"security\": \"Seguridad\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/fa.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"حساب\",\n    \"security\": \"امنیت\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/fr.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Compte\",\n    \"security\": \"Sécurité\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ha.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Asusu\",\n    \"security\": \"Tsaro\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/hi.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"खाता\",\n    \"security\": \"सुरक्षा\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/id.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Akun\",\n    \"security\": \"Keamanan\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ja.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"アカウント\",\n    \"security\": \"セキュリティ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ko.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"계정\",\n    \"security\": \"보안\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/pt.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Conta\",\n    \"security\": \"Segurança\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ru.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Аккаунт\",\n    \"security\": \"Безопасность\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/sw.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Akaunti\",\n    \"security\": \"Usalama\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ug.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"ھېسابات\",\n    \"security\": \"بىخەتەرلىك\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/ur.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"اکاؤنٹ\",\n    \"security\": \"سیکیورٹی\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/vi.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"Tài khoản\",\n    \"security\": \"Bảo mật\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/zh-CN.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"账户\",\n    \"security\": \"安全\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/locales/zh-HK.json",
+      "content": "{\n  \"tabs\": {\n    \"account\": \"帳戶\",\n    \"security\": \"安全\"\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/README.md",
+      "content": "# Tabs\n\nFrozen Phase 1 stub for `tabs`.\n\n- Requirement: RTL order\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/tabs/styles.css",
+      "content": ".cu-tabs {\n  display: flex;\n  flex-direction: column;\n}\n\n.cu-tabs__list {\n  display: flex;\n  gap: var(--cu-space-1);\n  border-block-end: 1px solid var(--cu-color-border-default);\n  margin-block-end: var(--cu-space-2);\n}\n\n.cu-tabs__trigger {\n  min-block-size: 2.75rem;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: none;\n  border-block-end: 2px solid transparent;\n  background: transparent;\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-tabs__trigger:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n.cu-tabs__trigger[data-state='active'] {\n  border-block-end-color: var(--cu-color-palette-brand);\n  color: var(--cu-color-palette-brand);\n  font-weight: 700;\n}\n\n.cu-tabs__content {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-1);\n  color: var(--cu-color-fg-default);\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-tabs__trigger {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    },
+    {
+      "path": "components/tabs/Tabs.tsx",
+      "content": "import { TabsPrimitive } from '@chameleon-ui/primitives'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface TabItem {\n  value: string\n  label: string\n  content: ReactNode\n}\n\nexport interface TabsProps {\n  items: TabItem[]\n  defaultValue?: string\n  value?: string\n  onChange?: (value: string) => void\n  className?: string\n}\n\nexport function Tabs({ items, defaultValue, value, onChange, className }: TabsProps) {\n  const classes = ['cu-tabs', className].filter(Boolean).join(' ')\n\n  return (\n    <TabsPrimitive.Root\n      className={classes}\n      data-ai-role=\"tabs\" data-ai-intent=\"switch-view\"\n      data-ai-state={value ?? defaultValue ?? items[0]?.value ?? 'default'}\n      defaultValue={defaultValue}\n      value={value}\n      onValueChange={(details) => onChange?.(details.value)}\n    >\n      <TabsPrimitive.List className=\"cu-tabs__list\">\n        {items.map((item) => (\n          <TabsPrimitive.Trigger\n            key={item.value}\n            className=\"cu-tabs__trigger\"\n            value={item.value}\n          >\n            {item.label}\n          </TabsPrimitive.Trigger>\n        ))}\n      </TabsPrimitive.List>\n      {items.map((item) => (\n        <TabsPrimitive.Content key={item.value} className=\"cu-tabs__content\" value={item.value}>\n          {item.content}\n        </TabsPrimitive.Content>\n      ))}\n    </TabsPrimitive.Root>\n  )\n}\n"
+    }
+  ]
+}

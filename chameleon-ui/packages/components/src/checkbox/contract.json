@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "checkbox",
+  "name": "Checkbox",
+  "status": "experimental",
+  "purpose": "Toggles a single binary option on or off with an accessible label.",
+  "scenarios": [
+    "Subscribe to a newsletter",
+    "Accept terms and conditions",
+    "Enable an optional feature in a form"
+  ],
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "required": true,
+      "description": "Controlled checked state."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Receives the next checked state."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Visible and accessible label for the checkbox."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents toggling the checkbox.",
+      "default": false
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Unchecked and enabled."
+    },
+    {
+      "name": "checked",
+      "description": "Checked and enabled."
+    },
+    {
+      "name": "disabled",
+      "description": "Cannot be toggled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "field-group"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a checkbox when only one of several mutually exclusive options is allowed; use a radio group.",
+    "Do not remove the visible label."
+  ],
+  "a11y": {
+    "role": "checkbox",
+    "keyboard": [
+      "Tab focuses",
+      "Space toggles"
+    ],
+    "focus": "Visible focus indicator on the control.",
+    "labeling": "Visible label is associated with the hidden checkbox.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "The control and label sit on one line; the touch target is at least 44px high.",
+    "breakpoints": {
+      "compact": "Touch target stays at least 44px; label wraps if needed.",
+      "medium": "Inline layout remains comfortable.",
+      "large": "Inline layout remains comfortable."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. The control sits at the inline start of the label.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "checkbox",
+    "states": [
+      "default",
+      "checked",
+      "disabled"
+    ],
+    "intents": [
+      "toggle-option"
+    ]
+  }
+}

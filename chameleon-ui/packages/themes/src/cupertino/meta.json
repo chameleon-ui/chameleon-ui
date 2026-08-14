@@ -1,0 +1,11 @@
+{
+  "id": "cupertino",
+  "label": "Cupertino",
+  "preview": {
+    "accent": "#007aff",
+    "surface": "#f2f2f7"
+  },
+  "fonts": {
+    "sans": "-apple-system, BlinkMacSystemFont, \"SF Pro Text\", \"SF Pro Display\", system-ui, sans-serif"
+  }
+}

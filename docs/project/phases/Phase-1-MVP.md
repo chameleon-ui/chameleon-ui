@@ -3,7 +3,8 @@
 > **日历**：第 2–3 周 · **里程碑**：M1  
 > **前提**：M0 已关闭，选型未回退  
 > **一句话**：可演示「AI 可装组件+主题 + 含 ar 的 RTL + 三端」最小闭环。  
-> **必读**：[工程约定与命名规范](../../engineering/工程约定与命名规范.md) + 本文 §0–§5.7。
+> **必读**：[工程约定与命名规范](../../engineering/工程约定与命名规范.md) + 本文 §0–§5.7。  
+> **工程看板（勾选状态）**：[`../../../chameleon-ui/PHASE1.md`](../../../chameleon-ui/PHASE1.md)。本文是目标卡，不重复看板章节。
 
 ---
 
@@ -15,7 +16,7 @@
 | 0.2 | Headless 已锁定 | `primitives` README 写明 Ark/Base/兜底；禁止再开双轨 poc 扩面 |
 | 0.3 | Token/lint/schema 命令可用 | 按 M0「Phase 1 开工检查」一页纸能复现 |
 | 0.4 | 创建延期包 | `i18n`、`registry`、`cli`、`mcp-server` 已 mkdir + package.json + README，并进 workspace |
-| 0.5 | 20 组件清单冻结会 | §3 清单签字；置换组件须变更单 |
+| 0.5 | 20 组件清单冻结会 | [catalog.json](../../../chameleon-ui/packages/components/catalog.json) 签字；置换组件须变更单 |
 | 0.6 | 已读工程约定 §3–§4、§7 | 契约单源、安装单核、组件目录结构 |
 
 ---
@@ -51,6 +52,14 @@
 ---
 
 ## 3. 怎么做（关键路径）
+
+### 3.0 冻结清单（仓库权威）
+
+20 组件与 S5「常用 10」以仓库文件为准，阶段卡不再另维护第二份名单：
+
+**[`chameleon-ui/packages/components/catalog.json`](../../../chameleon-ui/packages/components/catalog.json)**
+
+置换任一 slug 必须在该文件 `changeLog` 写变更单，并同步更新本页。来源：本卡 §3 + 《详细设计与验收说明书》§3.3。
 
 ### 3.1 建延期包（第 2 周 Day1）
 
@@ -258,7 +267,7 @@ CLI/MCP 只做参数解析与权限提示，不写第二套 fs 逻辑。
 | 20 清单冻结 | 签字表 |
 | MCP 工具面 | 冻结列表 |
 | 回流隐私文案 | 告知 + opt_out |
-| 主题法务表述 | 白名单 |
+| 主题表述 | 所有者确认后的白名单（非律所意见书） |
 | O4（若未裁） | 托管裁定 |
 | Blocks 0/1 | 书面 |
 

@@ -1,0 +1,230 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chameleon-ui.dev/schemas/design-rules/v1.0.json",
+  "title": "Chameleon UI Design Rules v1.0",
+  "description": "Machine-readable design discipline paired with each theme overlay.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "version",
+    "typography",
+    "spacing",
+    "colorBoundaries",
+    "forbiddenPatterns",
+    "composition",
+    "rtl"
+  ],
+  "properties": {
+    "version": {
+      "const": "1.0",
+      "description": "Design rules schema version (Phase 3 full field set)."
+    },
+    "typography": { "$ref": "#/$defs/typography" },
+    "spacing": { "$ref": "#/$defs/spacing" },
+    "colorBoundaries": { "$ref": "#/$defs/colorBoundaries" },
+    "forbiddenPatterns": { "$ref": "#/$defs/forbiddenPatterns" },
+    "composition": { "$ref": "#/$defs/composition" },
+    "rtl": { "$ref": "#/$defs/rtl" }
+  },
+  "$defs": {
+    "tokenRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:\\.[a-z0-9]+)+$",
+      "maxLength": 80
+    },
+    "stringList": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scale", "lineHeightBody", "fontFamilyToken", "headingWeightToken"],
+      "properties": {
+        "scale": {
+          "type": "string",
+          "enum": ["minor-second", "major-second", "minor-third", "major-third", "perfect-fourth"]
+        },
+        "lineHeightBody": {
+          "type": "number",
+          "minimum": 1.2,
+          "maximum": 2
+        },
+        "fontFamilyToken": { "$ref": "#/$defs/tokenRef" },
+        "headingWeightToken": { "$ref": "#/$defs/tokenRef" },
+        "tracking": {
+          "type": "string",
+          "enum": ["tight", "normal", "wide"]
+        }
+      }
+    },
+    "spacing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rhythm", "density", "scale", "radiusStrategy"],
+      "properties": {
+        "rhythm": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 16
+        },
+        "density": {
+          "type": "string",
+          "enum": ["compact", "comfortable", "spacious"]
+        },
+        "scale": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["strategy", "steps"],
+          "properties": {
+            "strategy": {
+              "type": "string",
+              "enum": ["rem-steps"]
+            },
+            "steps": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 8,
+              "uniqueItems": true,
+              "items": { "$ref": "#/$defs/tokenRef" }
+            }
+          }
+        },
+        "radiusStrategy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["default", "interactive", "surface"],
+          "properties": {
+            "default": { "$ref": "#/$defs/tokenRef" },
+            "interactive": { "$ref": "#/$defs/tokenRef" },
+            "surface": { "$ref": "#/$defs/tokenRef" }
+          }
+        }
+      }
+    },
+    "colorBoundaries": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["accentUsage", "surfaceLayers", "disabledContrast"],
+      "properties": {
+        "accentUsage": {
+          "type": "string",
+          "enum": [
+            "primary-actions-only",
+            "primary-and-links",
+            "brand-highlights"
+          ]
+        },
+        "surfaceLayers": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/tokenRef" }
+        },
+        "disabledContrast": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minimumRatio", "foregroundToken", "backgroundToken"],
+          "properties": {
+            "minimumRatio": {
+              "type": "number",
+              "minimum": 3,
+              "maximum": 7
+            },
+            "foregroundToken": { "$ref": "#/$defs/tokenRef" },
+            "backgroundToken": { "$ref": "#/$defs/tokenRef" }
+          }
+        },
+        "gradientPolicy": {
+          "type": "string",
+          "enum": ["forbidden", "subtle-only", "brand-allowed"]
+        }
+      }
+    },
+    "forbiddenPatterns": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$",
+        "maxLength": 64
+      }
+    },
+    "composition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surfaceHierarchy", "preferredStacks", "componentRules"],
+      "properties": {
+        "surfaceHierarchy": {
+          "type": "string",
+          "enum": ["elevation-over-border", "border-over-elevation", "flat"]
+        },
+        "preferredStacks": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/slug" }
+        },
+        "componentRules": {
+          "type": "object",
+          "propertyNames": { "$ref": "#/$defs/componentName" },
+          "additionalProperties": { "$ref": "#/$defs/componentRule" }
+        }
+      }
+    },
+    "rtl": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["supported", "strategy", "mirroredIcons"],
+      "properties": {
+        "supported": { "type": "boolean" },
+        "strategy": {
+          "type": "string",
+          "minLength": 3,
+          "maxLength": 240
+        },
+        "mirroredIcons": { "$ref": "#/$defs/stringList" },
+        "bidiIsolation": {
+          "type": "string",
+          "enum": ["required-for-user-content", "recommended", "optional"]
+        }
+      }
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9]*(?:-[a-z0-9]+)*$",
+      "maxLength": 80
+    },
+    "componentName": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z0-9]*$",
+      "maxLength": 40
+    },
+    "componentRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "minWidthPx": {
+          "type": "integer",
+          "minimum": 40,
+          "maximum": 480
+        },
+        "maxWidthPx": {
+          "type": "integer",
+          "minimum": 80,
+          "maximum": 640
+        },
+        "minTouchTargetPx": {
+          "type": "integer",
+          "minimum": 44,
+          "maximum": 64
+        }
+      }
+    }
+  }
+}

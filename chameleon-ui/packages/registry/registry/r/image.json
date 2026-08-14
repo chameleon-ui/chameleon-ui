@@ -1,0 +1,108 @@
+{
+  "id": "image",
+  "type": "registry:ui",
+  "name": "Image",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/image/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"image\",\n  \"name\": \"Image\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Renders an image with loading state, error fallback, and optional caption.\",\n  \"scenarios\": [\n    \"Show a product photo\",\n    \"Display a user avatar with fallback\",\n    \"Present a figure with caption\"\n  ],\n  \"props\": {\n    \"src\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Image source URL.\"\n    },\n    \"alt\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Alternative text; empty string marks decorative images.\"\n    },\n    \"caption\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Visible caption below the image.\"\n    },\n    \"errorLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Text shown when the image fails to load.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Image loaded.\"\n    },\n    {\n      \"name\": \"error\",\n      \"description\": \"Image failed to load; fallback shown.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"article-card\",\n      \"page\",\n      \"grid\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not omit alt text for informative images.\",\n    \"Do not use an image to present text that could be real text.\"\n  ],\n  \"a11y\": {\n    \"role\": \"img\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"alt attribute carries the text alternative; caption uses figcaption.\",\n    \"wcag\": [\n      \"1.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Scales to container width while preserving aspect ratio.\",\n    \"breakpoints\": {\n      \"compact\": \"Full container width.\",\n      \"medium\": \"Full container width.\",\n      \"large\": \"Full container width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"image\",\n    \"states\": [\n      \"default\",\n      \"error\"\n    ],\n    \"intents\": [\n      \"signal-meaning\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/image/Image.tsx",
+      "content": "import { useState } from 'react'\nimport './styles.css'\n\nexport interface ImageProps {\n  src: string\n  alt: string\n  caption?: string\n  errorLabel?: string\n  className?: string\n}\n\nexport function Image({ src, alt, caption, errorLabel = 'Image failed to load', className }: ImageProps) {\n  const [failed, setFailed] = useState(false)\n  const classes = ['cu-image', className].filter(Boolean).join(' ')\n  return (\n    <figure className={classes} data-ai-role=\"image\" data-ai-intent=\"signal-meaning\" data-ai-state={failed ? 'error' : 'default'}>\n      {failed ? (\n        <div className=\"cu-image__fallback\" role=\"img\" aria-label={alt}>\n          {errorLabel}\n        </div>\n      ) : (\n        <img className=\"cu-image__img\" src={src} alt={alt} loading=\"lazy\" onError={() => setFailed(true)} />\n      )}\n      {caption ? <figcaption className=\"cu-image__caption\">{caption}</figcaption> : null}\n    </figure>\n  )\n}\n"
+    },
+    {
+      "path": "components/image/index.ts",
+      "content": "export { Image } from './Image.js'\nexport type { ImageProps } from './Image.js'\n"
+    },
+    {
+      "path": "components/image/locales/am.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ar.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"صورة\",\n    \"loadError\": \"تعذر تحميل الصورة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/bn.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/de.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Bildanzeige\",\n    \"loadError\": \"Bild konnte nicht geladen werden\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/en.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/es.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/fa.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/fr.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ha.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/hi.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/id.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ja.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ko.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/pt.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ru.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/sw.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ug.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/ur.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/vi.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/zh-CN.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"图片\",\n    \"loadError\": \"图片加载失败\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/locales/zh-HK.json",
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+    },
+    {
+      "path": "components/image/styles.css",
+      "content": ".cu-image {\n  display: block;\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-image__img {\n  display: block;\n  max-inline-size: 100%;\n  block-size: auto;\n  border-radius: var(--cu-radius-md);\n}\n\n.cu-image__fallback {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-block-size: calc(var(--cu-space-3) * 8);\n  border: 1px dashed var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n\n.cu-image__caption {\n  margin-block-start: var(--cu-space-1);\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n"
+    }
+  ]
+}

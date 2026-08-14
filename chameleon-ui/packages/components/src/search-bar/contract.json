@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "search-bar",
+  "name": "SearchBar",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Search input with submit and clear controls inside a search landmark.",
+  "scenarios": [
+    "Filter a component catalog",
+    "Search documentation",
+    "Query a market listing"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Current query."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the query on edit."
+    },
+    "onSubmit": {
+      "type": "event",
+      "required": false,
+      "description": "Called with the query on submit."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the search field."
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Input placeholder."
+    },
+    "clearLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the clear control."
+    },
+    "submitLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the submit control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle search field."
+    },
+    {
+      "name": "filled",
+      "description": "Query present; clear control visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card",
+      "form"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not auto-submit on every keystroke without debounce.",
+    "Do not remove the text label in favor of placeholder-only naming."
+  ],
+  "a11y": {
+    "role": "search",
+    "keyboard": [
+      "Enter submits",
+      "Escape clears when filled"
+    ],
+    "focus": "Input, clear, and submit controls are in tab order.",
+    "labeling": "Search landmark plus field label name the control.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width at all breakpoints.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "search-bar",
+    "states": [
+      "default",
+      "filled"
+    ],
+    "intents": [
+      "search-select"
+    ]
+  }
+}

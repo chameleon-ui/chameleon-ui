@@ -1,0 +1,17 @@
+{
+  "slug": "iot-panel",
+  "type": "registry:block",
+  "name": "IoT panel",
+  "dependencies": ["badge", "button", "card", "chart", "empty-state", "gauge", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Device cards with gauges, charts, and badges"
+  }
+}

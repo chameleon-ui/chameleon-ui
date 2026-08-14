@@ -1,0 +1,24 @@
+{
+  "$schema": "https://chameleon-ui.dev/schemas/ui-render/v1.0.json",
+  "version": "1.0",
+  "root": {
+    "component": "card",
+    "props": { "variant": "default" },
+    "children": [
+      {
+        "component": "stack",
+        "props": { "direction": "row", "gap": "1", "align": "center" },
+        "children": [
+          { "component": "badge", "props": { "variant": "success" }, "children": ["Live"] },
+          { "component": "typography", "props": { "variant": "caption" }, "children": ["US East"] }
+        ]
+      },
+      { "component": "divider", "children": [] },
+      {
+        "component": "alert",
+        "props": { "status": "info", "title": "Deploy complete", "description": "v0.2 rolled out to all regions." },
+        "children": []
+      }
+    ]
+  }
+}

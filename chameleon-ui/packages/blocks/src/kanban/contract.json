@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "kanban",
+  "name": "Kanban",
+  "status": "experimental",
+  "purpose": "Three-column board composed from card, tag, and list. Cards move with labeled buttons.",
+  "scenarios": [
+    "Scan cards grouped into to do, in progress, and done",
+    "Move a card forward or back with the keyboard",
+    "Show an empty state when a column has no cards"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onMove": {
+      "type": "event",
+      "required": false,
+      "description": "Called after a card is moved to another column."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "The board has one or more cards." },
+    { "name": "empty", "description": "No cards on the board." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["card", "tag", "list", "button", "empty-state", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not ship a custom pointer-drag engine in this block. Phase 7 forbids a homegrown kanban drag stack; movement is keyboard-first labeled buttons.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches move actions", "Enter or Space activates a move"],
+    "focus": "Move actions stay in document order with a visible focus ring.",
+    "labeling": "Each move action includes the card title. Columns have headings.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Board uses @container with the tablet rem token; no viewport media queries.",
+    "breakpoints": {
+      "compact": "Columns stack to one column.",
+      "medium": "Columns become three at 48rem container inline-size.",
+      "large": "Columns remain three."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "kanban",
+    "states": ["default", "empty"],
+    "intents": ["organize-cards"]
+  }
+}

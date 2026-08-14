@@ -1,0 +1,28 @@
+## 示例
+
+```jsx live
+function Example() {
+  const columns = [
+    { key: 'id', header: '编号' },
+    { key: 'name', header: '名称' },
+    { key: 'state', header: '状态' },
+  ];
+  const rows = [
+    { id: 'A-1', name: 'Alpha', state: '运行' },
+    { id: 'B-2', name: 'Beta', state: '暂停' },
+    { id: 'C-3', name: 'Gamma', state: '运行' },
+    { id: 'D-4', name: 'Delta', state: '失败' },
+  ];
+  return (
+    <DataGrid
+      label="部署列表"
+      emptyLabel="暂无数据"
+      columns={columns}
+      rows={rows}
+      height={220}
+      width={640}
+      rowHeight={36}
+    />
+  );
+}
+```

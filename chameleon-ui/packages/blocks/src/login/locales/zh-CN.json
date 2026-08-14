@@ -1,0 +1,17 @@
+{
+  "login": {
+    "title": "登录",
+    "subtitle": "欢迎回来。请使用电子邮箱和密码继续。",
+    "emailLabel": "电子邮箱",
+    "passwordLabel": "密码",
+    "showPassword": "显示密码",
+    "hidePassword": "隐藏密码",
+    "submit": "登录",
+    "registerPrompt": "还没有账户？",
+    "registerAction": "创建一个",
+    "errorRequired": "电子邮箱和密码为必填项。",
+    "errorInvalid": "请输入有效的电子邮箱地址。",
+    "rememberLabel": "保持登录状态",
+    "sessionCount": "{count, plural, =0 {没有已保存的会话} other {已保存 # 个会话}}"
+  }
+}

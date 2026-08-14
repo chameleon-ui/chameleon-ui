@@ -1,0 +1,39 @@
+{
+  "name": "@chameleon-ui/registry-private",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "type": "module",
+  "description": "Local/intranet private registry server: same item schema as @chameleon-ui/registry, Bearer token auth, namespaces, and versions",
+  "bin": {
+    "chameleon-registry": "dist/cli.js"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsc -p tsconfig.json --noEmit",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "start": "node dist/cli.js serve",
+    "gate": "node ./scripts/phase3-gate.mjs",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@chameleon-ui/registry": "workspace:*"
+  },
+  "devDependencies": {
+    "@chameleon-ui/install-core": "workspace:*",
+    "@types/node": "20.19.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.10"
+  }
+}

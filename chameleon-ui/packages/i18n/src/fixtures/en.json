@@ -1,0 +1,11 @@
+{
+  "button": {
+    "count": "{count, plural, =0 {No actions completed} one {# action completed} other {# actions completed}}"
+  },
+  "icu": {
+    "direction": "{direction, select, ltr {Left-to-right preview} rtl {Right-to-left preview} other {Preview}}"
+  },
+  "common": {
+    "cancel": "Cancel"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "data-grid",
+  "type": "registry:ui",
+  "name": "DataGrid",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/data-grid/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"data-grid\",\n  \"name\": \"DataGrid\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Virtualized data grid rendering tens of thousands of rows in a windowed viewport with a replaceable virtualization engine.\",\n  \"scenarios\": [\n    \"Browse 10k log entries\",\n    \"Audit a large transaction table\",\n    \"Scroll a telemetry feed\"\n  ],\n  \"props\": {\n    \"columns\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { key, header, width?, render? } column definitions.\"\n    },\n    \"rows\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of row data objects; tested at 10k entries.\"\n    },\n    \"rowHeight\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Fixed row height in px.\",\n      \"default\": 36\n    },\n    \"height\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Viewport height in px.\",\n      \"default\": 420\n    },\n    \"overscan\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Extra rows rendered beyond the viewport.\",\n      \"default\": 6\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the grid.\"\n    },\n    \"getRowId\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Row id accessor for stable keys.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Windowed rows rendered.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No rows provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"tag\",\n      \"badge\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not render all rows at once; keep virtualization on.\",\n    \"Do not use variable row heights with the fixed-height engine.\"\n  ],\n  \"a11y\": {\n    \"role\": \"grid\",\n    \"keyboard\": [\n      \"Page keys move the viewport\",\n      \"Tab moves through cell actions\"\n    ],\n    \"focus\": \"Row cells expose aria-rowindex against the full row count.\",\n    \"labeling\": \"aria-label names the grid; aria-rowcount reflects total rows.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Viewport height stays fixed; columns scroll horizontally on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"Horizontal column scroll.\",\n      \"medium\": \"Fit container.\",\n      \"large\": \"Fit container.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"data-grid\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"inspect-tabular-data\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/DataGrid.tsx",
+      "content": "import { useState } from 'react'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface DataGridColumn<T = unknown> {\n  key: string\n  header: ReactNode\n  width?: number\n  render?: (row: T) => ReactNode\n}\n\nexport interface DataGridProps<T = unknown> {\n  columns: DataGridColumn<T>[]\n  rows: T[]\n  rowHeight?: number\n  height?: number\n  width?: number\n  overscan?: number\n  label: string\n  emptyLabel?: string\n  getRowId?: (row: T, index: number) => string\n  className?: string\n}\n\nexport interface VirtualWindow {\n  start: number\n  end: number\n}\n\n/**\n * @complexity time O(1) | space O(1) — window edges from scroll offset only\n * @guarantees rendered row/column count stays O(viewport) regardless of data size\n */\nexport function computeWindow(offset: number, viewport: number, count: number, size: number, overscan: number): VirtualWindow {\n  const start = Math.max(0, Math.floor(offset / size) - overscan)\n  const end = Math.min(count, Math.ceil((offset + viewport) / size) + overscan)\n  return { start, end }\n}\n\nconst DEFAULT_COLUMN_WIDTH = 160\n\nexport function DataGrid<T>({\n  columns,\n  rows,\n  rowHeight = 36,\n  height = 420,\n  width = 960,\n  overscan = 6,\n  label,\n  emptyLabel = 'No data',\n  getRowId,\n  className,\n}: DataGridProps<T>) {\n  const [scrollTop, setScrollTop] = useState(0)\n  const [scrollLeft, setScrollLeft] = useState(0)\n  const classes = ['cu-data-grid', className].filter(Boolean).join(' ')\n\n  const rowWindow = computeWindow(scrollTop, height, rows.length, rowHeight, overscan)\n  const columnWidths = columns.map((column) => column.width ?? DEFAULT_COLUMN_WIDTH)\n  const columnOffsets: number[] = []\n  let running = 0\n  for (const columnWidth of columnWidths) {\n    columnOffsets.push(running)\n    running += columnWidth\n  }\n  const totalWidth = running\n  const columnWindow = computeWindow(scrollLeft, width, columns.length, DEFAULT_COLUMN_WIDTH, 2)\n\n  return (\n    <div className={classes} data-ai-role=\"data-grid\" data-ai-intent=\"inspect-tabular-data\" data-ai-state={rows.length === 0 ? 'empty' : 'default'}>\n      <div\n        className=\"cu-data-grid__viewport\"\n        role=\"grid\"\n        aria-label={label}\n        aria-rowcount={rows.length + 1}\n        aria-colcount={columns.length}\n        style={{ blockSize: height, inlineSize: '100%', maxInlineSize: width }}\n        onScroll={(event) => {\n          setScrollTop(event.currentTarget.scrollTop)\n          setScrollLeft(event.currentTarget.scrollLeft)\n        }}\n      >\n        {rows.length === 0 ? (\n          <p className=\"cu-data-grid__empty\">{emptyLabel}</p>\n        ) : (\n          <div\n            className=\"cu-data-grid__canvas\"\n            style={{ blockSize: (rows.length + 1) * rowHeight, inlineSize: totalWidth }}\n          >\n            <div\n              className=\"cu-data-grid__row cu-data-grid__row--head\"\n              role=\"row\"\n              aria-rowindex={1}\n              style={{ transform: `translateY(${scrollTop}px)` }}\n            >\n              {columns.slice(columnWindow.start, columnWindow.end).map((column, offsetIndex) => {\n                const columnIndex = columnWindow.start + offsetIndex\n                return (\n                  <div\n                    key={column.key}\n                    className=\"cu-data-grid__cell cu-data-grid__cell--head\"\n                    role=\"columnheader\"\n                    aria-colindex={columnIndex + 1}\n                    style={{ insetInlineStart: columnOffsets[columnIndex], inlineSize: columnWidths[columnIndex] }}\n                  >\n                    {column.header}\n                  </div>\n                )\n              })}\n            </div>\n            {rows.slice(rowWindow.start, rowWindow.end).map((row, offsetIndex) => {\n              const rowIndex = rowWindow.start + offsetIndex\n              return (\n                <div\n                  key={getRowId ? getRowId(row, rowIndex) : rowIndex}\n                  className=\"cu-data-grid__row\"\n                  role=\"row\"\n                  aria-rowindex={rowIndex + 2}\n                  style={{ transform: `translateY(${(rowIndex + 1) * rowHeight}px)`, blockSize: rowHeight }}\n                >\n                  {columns.slice(columnWindow.start, columnWindow.end).map((column, offset) => {\n                    const columnIndex = columnWindow.start + offset\n                    return (\n                      <div\n                        key={column.key}\n                        className=\"cu-data-grid__cell\"\n                        role=\"gridcell\"\n                        aria-colindex={columnIndex + 1}\n                        style={{ insetInlineStart: columnOffsets[columnIndex], inlineSize: columnWidths[columnIndex] }}\n                      >\n                        {column.render ? column.render(row) : String((row as Record<string, unknown>)[column.key] ?? '')}\n                      </div>\n                    )\n                  })}\n                </div>\n              )\n            })}\n          </div>\n        )}\n      </div>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/data-grid/index.ts",
+      "content": "export { DataGrid, computeWindow } from './DataGrid.js'\nexport type { DataGridColumn, DataGridProps, VirtualWindow } from './DataGrid.js'\n"
+    },
+    {
+      "path": "components/data-grid/locales/am.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ar.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"شبكة البيانات\",\n    \"rows\": \"صفوف\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/bn.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/de.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Datenrasteransicht\",\n    \"rows\": \"Zeilen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/en.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/es.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/fa.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/fr.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ha.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/hi.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/id.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ja.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ko.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/pt.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ru.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/sw.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ug.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/ur.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/vi.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/zh-CN.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"数据网格\",\n    \"rows\": \"行\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/locales/zh-HK.json",
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+    },
+    {
+      "path": "components/data-grid/styles.css",
+      "content": ".cu-data-grid {\n  display: block;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  overflow: hidden;\n}\n\n.cu-data-grid__viewport {\n  position: relative;\n  overflow: auto;\n}\n\n.cu-data-grid__canvas {\n  position: relative;\n}\n\n.cu-data-grid__row {\n  position: absolute;\n  inset-inline: 0;\n  display: block;\n}\n\n.cu-data-grid__row--head {\n  z-index: 1;\n  font-weight: 600;\n  border-block-end: 1px solid var(--cu-color-border-default);\n  background: var(--cu-color-background-default);\n}\n\n.cu-data-grid__cell {\n  position: absolute;\n  inset-block: 0;\n  display: flex;\n  align-items: center;\n  padding-inline: var(--cu-space-2);\n  overflow: hidden;\n  white-space: nowrap;\n  border-block-end: 1px solid color-mix(in srgb, var(--cu-color-border-default) 50%, transparent);\n}\n\n.cu-data-grid__empty {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n"
+    }
+  ]
+}

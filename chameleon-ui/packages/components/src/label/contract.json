@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "label",
+  "name": "Label",
+  "status": "experimental",
+  "purpose": "Labels a form control with semantic association.",
+  "scenarios": [
+    "Label an input",
+    "Label a select",
+    "Label a custom control"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Label text."
+    },
+    "htmlFor": {
+      "type": "string",
+      "required": false,
+      "description": "ID of the associated control."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Label rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "field"
+    ],
+    "allowedChildren": [
+      "text"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use a label without a corresponding control.",
+    "Do not nest interactive elements inside a label."
+  ],
+  "a11y": {
+    "role": "label",
+    "keyboard": [],
+    "focus": "Clicking focuses the associated control.",
+    "labeling": "Contents label the associated control.",
+    "wcag": [
+      "1.3.1",
+      "3.3.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline block.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Inline.",
+      "large": "Inline."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "label",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "name-field"
+    ]
+  }
+}

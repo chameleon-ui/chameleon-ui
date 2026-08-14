@@ -1,12 +1,63 @@
 # @chameleon-ui/install-core
 
-未来 CLI 与 MCP 共用的安装内核落点。
+Shared install kernel for the Chameleon UI CLI and MCP server. This is the **only**
+package that writes files to disk when installing components or themes.
 
-## Phase 0 状态：仅预留，未实现
+## Phase 1 status
 
-- 当前唯一公共 API 是类型 `TelemetryHook`。
-- 没有钩子实例、事件分发器、安装解析、Registry 读取、网络请求或磁盘写入。
-- **不会发送任何遥测事件，也不能被对外演示为已有回流能力。**
-- `@phase-1 @telemetry:hook` 只标记未来扩展点；Phase 1 实现仍须满足告知、可关闭、禁止采集源码与密钥等约束。
+Implemented:
 
-安装规划、冲突检测、幂等写入和遥测事件全部延期到 Phase 1；本阶段不得在本包继续增加假实现。
+- Dependency graph resolution with cycle detection (`C6`).
+- Install planning.
+- Conflict detection before writing.
+- Idempotent file writes (identical files are skipped on re-run).
+- Optional `install` telemetry behind a caller-provided `TelemetryHook`.
+- Phase 4 discipline packs: rules merge conflict detection (U9 errors), paid
+  download auth port (status codes only; no payment SDK), official homage ids
+  stay free SKUs (paid community packs allowed).
+- Stable public APIs for CLI and MCP.
+
+Not implemented (install-core still does **not**):
+
+- Network downloads or remote registry fetching (that lives in `@chameleon-ui/registry` HTTP client / `@chameleon-ui/registry-private`).
+- Script execution during install.
+- Rollback of partial writes beyond up-front conflict detection.
+
+## Public API
+
+```ts
+import {
+  install,
+  createInstallKernel,
+  emitOptOut,
+  emitIntentVsAdopt,
+  mergeDesignRules,
+  assertPaidRulesListingAllowed,
+  createStubRulesDownloadAuth,
+  type RegistryItem,
+  type InstallRequest,
+  type InstallResult,
+  type TelemetryHook,
+} from '@chameleon-ui/install-core';
+```
+
+- `install(req: InstallRequest): Promise<InstallResult>` — install a single
+  registry item without dependency resolution. Throws `InstallError` on conflict.
+- `createInstallKernel(registry): InstallKernel` — install an item plus its
+  declared dependencies, in topological order. This is the single kernel that
+  CLI and MCP must use.
+- `emitOptOut(hook?, payload?)` / `emitIntentVsAdopt(hook?, payload)` — helpers
+  to emit telemetry events when a hook is provided.
+
+## Telemetry
+
+Telemetry is **off by default**. install-core never sends data itself. Callers
+may pass a `TelemetryHook` to receive events:
+
+- `install` — emitted after a successful write (`itemId`, `itemType`, `source`, optional `namespace` / `version`).
+- `intent_vs_adopt` — emitted by MCP/CLI after a search recommendation.
+- `opt_out` — emitted when the user disables telemetry.
+
+The hook must **not** collect source code or secrets. The CLI and MCP read the
+`CU_TELEMETRY` environment variable (`CU_TELEMETRY=1` to enable); otherwise no
+hook is passed and no events are recorded.

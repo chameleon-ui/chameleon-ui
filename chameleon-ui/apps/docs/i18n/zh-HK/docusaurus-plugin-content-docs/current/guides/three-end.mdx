@@ -1,0 +1,39 @@
+---
+title: 三端一體
+sidebar_label: 三端一體
+description: 同一頁三種可見形態：手機 TabBar、桌面側欄、容器查詢實證。不是換 Token。
+---
+
+三端一體不是換一套色板。願景 v3.0 §7.1 要求同一 API 在手機 / 平板 / 桌面變成不同的導航、浮層和密度。
+
+**打開內測 Demo，30 秒內應能看見形態差：**
+
+[http://127.0.0.1:5175/?view=three-end](http://127.0.0.1:5175/?view=three-end)
+
+建議加上 `&locale=zh-CN`。視口開關是 **手機 390 / 平板 768 / 桌面 1280**。每個框裡是真實組件，不是示意圖。
+
+## 能看見什麼
+
+| 端 | 導航 | 浮層 | 密度 |
+| :--- | :--- | :--- | :--- |
+| 手機 \<768 | 底部 `TabBar`，`AppShell` 側欄藏起 | `ActionSheet` 貼底（同一任務在桌面是 `Dialog`） | comfortable，`--cu-control-size-active` ≥44px |
+| 平板 768–1279 | 可摺疊 `Sidebar` + `TabBar` | 置中 `Dialog` | standard |
+| 桌面 ≥1280 | 持久 `Sidebar`，無 `TabBar` | 置中 `Dialog` | compact |
+
+懸停只在精細指針上：桌面 `HoverCard`，手機改成點按 `Popover` / `Collapse`。標題用 `clamp` 流變。
+
+## 容器查詢實證（A5.3）
+
+同一頁下方有一個 **1280 寬的 iframe**，裡面嵌了 **320px 灰盒**。如果組件跟視窗，這裡會出現側欄、對話框會置中。實際：側欄藏了、`Dialog` 貼底——跟的是**盒子**，不是視窗。
+
+實驗室頁 `/?view=lab` 仍給視覺回歸用。人眼對照請走 `/?view=three-end`。
+
+## 應用裡怎麼接
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+```
+
+只引 `tokens/css` 時密度停在 standard，不會隨端切換。組件 CSS 禁止寫視口寬度媒體查詢；斷點在 Token，形態走 `@container`。

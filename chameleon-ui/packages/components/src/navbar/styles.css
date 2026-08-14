@@ -1,0 +1,101 @@
+/*
+ * Query container: the nav is the container; the frame consumes it so the
+ * stack -> row morph follows the navbar's own inline size rather than the
+ * viewport. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop
+ * (packages/tokens/src/core/breakpoint.json).
+ */
+.cu-navbar {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(
+    --cu-color-background-translucent,
+    var(--cu-color-background-default)
+  );
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  color: var(--cu-color-fg-default);
+  container-type: inline-size;
+}
+
+.cu-navbar__frame {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2);
+}
+
+.cu-navbar__brand {
+  font-weight: 700;
+  padding-inline: var(--cu-space-2);
+}
+
+.cu-navbar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cu-navbar__item {
+  display: flex;
+  align-items: center;
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: none;
+  border-radius: var(--cu-radius-md);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.cu-navbar__item[aria-current='page'] {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+  color: var(--cu-color-palette-brand);
+  font-weight: 700;
+}
+
+.cu-navbar__item:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .cu-navbar__item:hover:not([aria-current='page']) {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+@container (min-width: 48rem) {
+  .cu-navbar__frame {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .cu-navbar__list {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-navbar__list {
+    gap: var(--cu-space-2);
+  }
+
+  .cu-navbar__brand {
+    padding-inline: var(--cu-space-3);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-navbar__item {
+    transition-duration: 0.01ms;
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "authored": [
+    "en",
+    "zh-CN"
+  ],
+  "skeleton": [
+    "zh-HK",
+    "ja",
+    "ko",
+    "ru",
+    "hi",
+    "de",
+    "ar",
+    "ug",
+    "sw",
+    "ha",
+    "am",
+    "es",
+    "fr",
+    "pt",
+    "bn",
+    "id",
+    "ur",
+    "fa",
+    "vi"
+  ],
+  "eta": "pending",
+  "owner": "pending",
+  "note": "Block copy is authored for en and zh-CN. Other locales ship English ICU skeletons (_cuSkeleton). This is not a completed 21-language Blocks pack."
+}

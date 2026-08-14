@@ -1,6 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import '@chameleon-ui/tokens/css'
+import '@chameleon-ui/tokens/density.css'
 import { App } from './App'
 import './styles.css'
 

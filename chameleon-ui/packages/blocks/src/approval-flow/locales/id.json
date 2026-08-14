@@ -1,0 +1,26 @@
+{
+  "_cuSkeleton": true,
+  "approval": {
+    "title": "Approval request",
+    "subtitle": "Review the request, then approve or reject with a comment.",
+    "subject": "Hardware refresh · Q3",
+    "stepsLabel": "Approval steps",
+    "stepSubmit": "Submitted",
+    "stepSubmitHint": "Request entered the queue.",
+    "stepReview": "Review",
+    "stepReviewHint": "Decide with a written comment.",
+    "stepDone": "Complete",
+    "stepDoneHint": "The decision is recorded.",
+    "decisionLabel": "Decision",
+    "approve": "Approve",
+    "reject": "Reject",
+    "commentLabel": "Comment",
+    "submit": "Submit decision",
+    "errorRequired": "Choose a decision and add a comment.",
+    "successTitle": "Request approved",
+    "successBody": "The requester will be notified.",
+    "rejectedTitle": "Request rejected",
+    "rejectedBody": "The requester will be notified with your comment.",
+    "requestCount": "{count, plural, =0 {No open requests} one {# open request} other {# open requests}}"
+  }
+}

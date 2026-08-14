@@ -1,0 +1,45 @@
+.cu-block-im-chat {
+  container-type: inline-size;
+  container-name: chat;
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-im-chat__header,
+.cu-block-im-chat__rooms,
+.cu-block-im-chat__thread,
+.cu-block-im-chat__messages,
+.cu-block-im-chat__composer {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+.cu-block-im-chat__meta,
+.cu-block-im-chat__error {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-im-chat__error {
+  color: var(--cu-color-palette-brand);
+}
+
+.cu-block-im-chat__layout {
+  display: grid;
+  gap: var(--cu-space-3);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.cu-block-im-chat__messages {
+  min-block-size: calc(var(--cu-space-3) * 10);
+}
+
+@container chat (min-inline-size: 48rem) {
+  .cu-block-im-chat__layout {
+    grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+    align-items: start;
+  }
+}

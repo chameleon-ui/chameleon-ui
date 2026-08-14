@@ -1,0 +1,108 @@
+{
+  "id": "kpi-dashboard",
+  "type": "registry:ui",
+  "name": "KpiDashboard",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/kpi-dashboard/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"kpi-dashboard\",\n  \"name\": \"KpiDashboard\",\n  \"family\": \"F\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Arranges a set of key performance indicators in a responsive metric grid.\",\n  \"scenarios\": [\n    \"Executive overview row\",\n    \"Operations health board\",\n    \"Marketing campaign summary\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { id, label, value, trend? } metrics.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the dashboard region.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Grid populated with metrics.\"\n    },\n    {\n      \"name\": \"empty\",\n      \"description\": \"No metrics provided.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\",\n      \"card\"\n    ],\n    \"allowedChildren\": [\n      \"statistic\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not exceed eight KPI tiles in one dashboard.\",\n    \"Do not mix unrelated units without labeling each tile.\"\n  ],\n  \"a11y\": {\n    \"role\": \"region\",\n    \"keyboard\": [],\n    \"focus\": \"Tiles are not focusable unless they contain actions.\",\n    \"labeling\": \"Region label names the dashboard; each metric is a group.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Root sets container-type: inline-size; the grid is mobile-first compact (one column) and steps up via @container at token-equal rem thresholds. Not viewport @media.\",\n    \"breakpoints\": {\n      \"compact\": \"Single column (default; no query).\",\n      \"medium\": \"Two columns at min-width 48rem (breakpoint.tablet).\",\n      \"large\": \"Four columns at min-width 80rem (breakpoint.desktop).\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"kpi-dashboard\",\n    \"states\": [\n      \"default\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"highlight-count\",\n      \"group-content\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/index.ts",
+      "content": "export { KpiDashboard } from './KpiDashboard.js'\nexport type { KpiDashboardProps, KpiItem } from './KpiDashboard.js'\n"
+    },
+    {
+      "path": "components/kpi-dashboard/KpiDashboard.tsx",
+      "content": "import { Statistic } from '../statistic/index.js'\nimport './styles.css'\n\nexport interface KpiItem {\n  id: string\n  label: string\n  value: string\n  trend?: 'up' | 'down' | 'flat'\n}\n\nexport interface KpiDashboardProps {\n  items: KpiItem[]\n  label?: string\n  className?: string\n}\n\nexport function KpiDashboard({ items, label = 'KPI dashboard', className }: KpiDashboardProps) {\n  const classes = ['cu-kpi-dashboard', className].filter(Boolean).join(' ')\n  return (\n    <section\n      className={classes}\n      aria-label={label}\n      data-ai-role=\"kpi-dashboard\" data-ai-intent=\"highlight-count\"\n      data-ai-state={items.length === 0 ? 'empty' : 'default'}\n    >\n      <div className=\"cu-kpi-dashboard__grid\">\n        {items.map((item) => (\n          <div key={item.id} className=\"cu-kpi-dashboard__tile\">\n            <Statistic label={item.label} value={item.value} trend={item.trend ?? 'flat'} trendLabel={item.trend} />\n          </div>\n        ))}\n      </div>\n    </section>\n  )\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/am.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ar.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"لوحة المؤشرات\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/bn.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/de.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Kennzahlenübersicht\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/en.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/es.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/fa.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/fr.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ha.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/hi.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/id.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ja.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ko.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/pt.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ru.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/sw.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ug.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/ur.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/vi.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/zh-CN.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"指标看板\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/locales/zh-HK.json",
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/kpi-dashboard/styles.css",
+      "content": "/*\n * Query container: the dashboard root is the container; the grid consumes\n * it so columns follow the dashboard's own inline size (sidebar embed,\n * split view) rather than the viewport. Mobile-first compact is one column;\n * @container only enhances. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop\n * (packages/tokens/src/core/breakpoint.json).\n */\n.cu-kpi-dashboard {\n  display: block;\n  color: var(--cu-color-fg-default);\n  container-type: inline-size;\n}\n\n.cu-kpi-dashboard__grid {\n  display: grid;\n  gap: var(--cu-space-3);\n  grid-template-columns: minmax(0, 1fr);\n}\n\n.cu-kpi-dashboard__tile {\n  padding-block: var(--cu-space-3);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n}\n\n@container (min-width: 48rem) {\n  .cu-kpi-dashboard__grid {\n    grid-template-columns: repeat(2, minmax(0, 1fr));\n  }\n}\n\n@container (min-width: 80rem) {\n  .cu-kpi-dashboard__grid {\n    grid-template-columns: repeat(4, minmax(0, 1fr));\n  }\n}\n"
+    }
+  ]
+}

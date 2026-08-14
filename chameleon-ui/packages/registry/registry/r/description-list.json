@@ -1,0 +1,108 @@
+{
+  "id": "description-list",
+  "type": "registry:ui",
+  "name": "DescriptionList",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/description-list/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"description-list\",\n  \"name\": \"DescriptionList\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Presents a list of term-description pairs.\",\n  \"scenarios\": [\n    \"Show product metadata\",\n    \"Display key-value pairs\",\n    \"Render a definition list\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of {term, description} items.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"List rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"page\",\n      \"form\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for layout tables.\",\n    \"Do not use when a regular table is more appropriate.\"\n  ],\n  \"a11y\": {\n    \"role\": \"list\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Terms are labelled by their dt element.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Single column by default; may be styled into columns externally.\",\n    \"breakpoints\": {\n      \"compact\": \"Single column.\",\n      \"medium\": \"Single column.\",\n      \"large\": \"Single column.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"description-list\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"inspect-details\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/DescriptionList.tsx",
+      "content": "import './styles.css'\n\nexport interface DescriptionListItem {\n  term: string\n  description: string\n}\n\nexport interface DescriptionListProps {\n  items: DescriptionListItem[]\n  className?: string\n}\n\nexport function DescriptionList({ items, className }: DescriptionListProps) {\n  const classes = ['cu-description-list', className].filter(Boolean).join(' ')\n  return (\n    <dl className={classes} data-ai-role=\"description-list\" data-ai-state=\"default\" data-ai-intent=\"inspect-details\">\n      {items.map((item, index) => (\n        <div className=\"cu-description-list__group\" key={index}>\n          <dt className=\"cu-description-list__term\">{item.term}</dt>\n          <dd className=\"cu-description-list__detail\">{item.description}</dd>\n        </div>\n      ))}\n    </dl>\n  )\n}\n"
+    },
+    {
+      "path": "components/description-list/index.ts",
+      "content": "export { DescriptionList } from './DescriptionList.js'\nexport type { DescriptionListProps } from './DescriptionList.js'\n"
+    },
+    {
+      "path": "components/description-list/locales/am.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ar.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"قائم الوصف\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/bn.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/de.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Beschreibungsliste (dl)\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/en.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/es.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/fa.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/fr.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ha.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/hi.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/id.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ja.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ko.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/pt.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ru.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/sw.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ug.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/ur.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/vi.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/zh-CN.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"描述列表\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/locales/zh-HK.json",
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+    },
+    {
+      "path": "components/description-list/styles.css",
+      "content": ".cu-description-list {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-description-list__group {\n  display: grid;\n  gap: var(--cu-space-1);\n  padding-block: var(--cu-space-2);\n  border-block-end: 1px solid var(--cu-color-border-default);\n}\n\n.cu-description-list__group:last-child {\n  border-block-end: 0;\n}\n\n.cu-description-list__term {\n  font-weight: 600;\n}\n\n.cu-description-list__detail {\n  margin: 0;\n  color: var(--cu-color-fg-default);\n}\n"
+    }
+  ]
+}

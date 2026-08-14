@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "password-input",
+  "name": "PasswordInput",
+  "family": "C",
+  "status": "experimental",
+  "purpose": "Password field with a visibility toggle and the same states as Input.",
+  "scenarios": [
+    "Login form credential entry",
+    "Account password change",
+    "API secret entry"
+  ],
+  "props": {
+    "value": {
+      "type": "string",
+      "required": true,
+      "description": "Current password value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called with the new value on edit."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Field label."
+    },
+    "showLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for revealing the password."
+    },
+    "hideLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for concealing the password."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Disable the field.",
+      "default": false
+    },
+    "invalid": {
+      "type": "boolean",
+      "required": false,
+      "description": "Mark the field invalid.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Masked input."
+    },
+    {
+      "name": "revealed",
+      "description": "Plain text input."
+    },
+    {
+      "name": "invalid",
+      "description": "Validation failure styling."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "card",
+      "dialog",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not log or mirror the password value.",
+    "Do not reveal the password by default."
+  ],
+  "a11y": {
+    "role": "textbox",
+    "keyboard": [
+      "Tab moves between field and toggle"
+    ],
+    "focus": "Toggle is a button after the input in tab order.",
+    "labeling": "Field label associates via the field primitive; toggle state uses aria-pressed.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width field at all breakpoints.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "password-input",
+    "states": [
+      "default",
+      "revealed",
+      "invalid",
+      "disabled"
+    ],
+    "intents": [
+      "enter-text"
+    ]
+  }
+}

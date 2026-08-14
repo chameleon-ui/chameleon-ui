@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "breadcrumb",
+  "name": "Breadcrumb",
+  "status": "experimental",
+  "purpose": "Shows the current page location within a hierarchy.",
+  "scenarios": [
+    "Navigate up a content hierarchy",
+    "Show a product category path",
+    "Display a document trail"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of items serialized as JSON. Use itemsArray when available."
+    },
+    "separator": {
+      "type": "string",
+      "required": false,
+      "description": "Separator between items.",
+      "default": "/"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Breadcrumb list rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for linear step-by-step flows; use a stepper.",
+    "Do not replace the main page title."
+  ],
+  "a11y": {
+    "role": "navigation",
+    "keyboard": [
+      "Tab moves through links"
+    ],
+    "focus": "Links are focusable.",
+    "labeling": "Labelled as Breadcrumb.",
+    "wcag": [
+      "2.4.8"
+    ]
+  },
+  "responsive": {
+    "strategy": "Wraps on narrow viewports.",
+    "breakpoints": {
+      "compact": "Items may wrap.",
+      "medium": "Inline list.",
+      "large": "Inline list."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only; separator is preserved visually and mirrored only if it is a directional arrow.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "breadcrumb",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "navigate-hierarchy"
+    ]
+  }
+}

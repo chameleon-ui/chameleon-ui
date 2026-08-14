@@ -1,0 +1,112 @@
+{
+  "id": "switch",
+  "type": "registry:ui",
+  "name": "Switch",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/switch/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"switch\",\n  \"name\": \"Switch\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Toggles a setting on or off with a sliding control.\",\n  \"scenarios\": [\n    \"Enable dark mode\",\n    \"Turn notifications on or off\",\n    \"Activate airplane mode\"\n  ],\n  \"props\": {\n    \"checked\": {\n      \"type\": \"boolean\",\n      \"required\": true,\n      \"description\": \"Controlled checked state.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Receives the next checked state.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Visible and accessible label for the switch.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents toggling the switch.\",\n      \"default\": false\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Unchecked and enabled.\"\n    },\n    {\n      \"name\": \"checked\",\n      \"description\": \"Checked and enabled.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Cannot be toggled.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"field-group\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a switch for actions that require a confirmation step; use a button.\",\n    \"Do not remove the visible label.\"\n  ],\n  \"a11y\": {\n    \"role\": \"switch\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Space toggles\"\n    ],\n    \"focus\": \"Visible focus indicator on the control.\",\n    \"labeling\": \"Visible label is associated with the hidden checkbox.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"The control keeps a fixed width; the label wraps on narrow screens.\",\n    \"breakpoints\": {\n      \"compact\": \"Touch target stays at least 44px; label wraps.\",\n      \"medium\": \"Inline layout remains comfortable.\",\n      \"large\": \"Inline layout remains comfortable.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. The thumb uses logical transforms; direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"switch\",\n    \"states\": [\n      \"default\",\n      \"checked\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"toggle-setting\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/index.ts",
+      "content": "export { Switch } from './Switch.js'\nexport type { SwitchProps } from './Switch.js'\n"
+    },
+    {
+      "path": "components/switch/locales/am.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"የአውሮፕላን ሁነታ\",\n    \"notifications\": \"ማሳወቂያዎች\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ar.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"وضع الطيران\",\n    \"notifications\": \"الإشعارات\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/bn.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"বিমান মোড\",\n    \"notifications\": \"বিজ্ঞপ্তি\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/de.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Flugmodus aktivieren\",\n    \"notifications\": \"Benachrichtigungen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/en.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Airplane mode\",\n    \"notifications\": \"Notifications\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/es.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Modo avión\",\n    \"notifications\": \"Notificaciones\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/fa.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"حالت پرواز\",\n    \"notifications\": \"اعلان‌ها\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/fr.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Mode avion\",\n    \"notifications\": \"Notifications\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ha.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Yanayin jirgin sama\",\n    \"notifications\": \"Sanarwa\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/hi.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"विमान मोड\",\n    \"notifications\": \"सूचनाएँ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/id.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Mode pesawat\",\n    \"notifications\": \"Notifikasi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ja.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"機内モード\",\n    \"notifications\": \"通知\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ko.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"비행기 모드\",\n    \"notifications\": \"알림\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/pt.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Modo avião\",\n    \"notifications\": \"Notificações\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ru.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Режим полёта\",\n    \"notifications\": \"Уведомления\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/sw.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Hali ya ndege\",\n    \"notifications\": \"Arifa\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ug.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"ئايروپىلان ھالىتى\",\n    \"notifications\": \"ئۇقتۇرۇشلار\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/ur.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"ہوائی جہاز موڈ\",\n    \"notifications\": \"اطلاعات\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/vi.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"Chế độ máy bay\",\n    \"notifications\": \"Thông báo\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/zh-CN.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"飞行模式\",\n    \"notifications\": \"通知\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/locales/zh-HK.json",
+      "content": "{\n  \"switch\": {\n    \"airplane\": \"飛航模式\",\n    \"notifications\": \"通知\"\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/README.md",
+      "content": "# Switch\n\nFrozen Phase 1 stub for `switch`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+    },
+    {
+      "path": "components/switch/styles.css",
+      "content": ".cu-switch {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  cursor: pointer;\n  min-block-size: 2.25rem;\n}\n\n.cu-switch__control {\n  position: relative;\n  inline-size: 2.75rem;\n  block-size: 1.5rem;\n  border-radius: 9999px;\n  background: var(--cu-color-border-default);\n  flex: none;\n  transition: background-color 140ms ease;\n}\n\n.cu-switch[data-state='checked'] .cu-switch__control {\n  background: var(--cu-color-palette-brand);\n}\n\n.cu-switch__thumb {\n  position: absolute;\n  inset-block: 0.125rem;\n  inset-inline-start: 0.125rem;\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n  border-radius: 50%;\n  background: var(--cu-color-background-default);\n  transition: transform 140ms ease;\n  transform: translateX(0);\n}\n\n.cu-switch[data-state='checked'] .cu-switch__thumb {\n  transform: translateX(1.25rem);\n}\n\n.cu-switch__label {\n  color: var(--cu-color-fg-default);\n  font-size: 0.9375rem;\n  user-select: none;\n}\n\n.cu-switch:disabled,\n.cu-switch[data-disabled] {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n\n.cu-switch__control:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-switch__control,\n  .cu-switch__thumb {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    },
+    {
+      "path": "components/switch/Switch.tsx",
+      "content": "import { SwitchPrimitive } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface SwitchProps {\n  checked: boolean\n  onChange: (checked: boolean) => void\n  label: string\n  disabled?: boolean\n  className?: string\n}\n\nexport function Switch({ checked, onChange, label, disabled = false, className }: SwitchProps) {\n  const classes = ['cu-switch', className].filter(Boolean).join(' ')\n\n  return (\n    <SwitchPrimitive.Root\n      checked={checked}\n      className={classes}\n      data-ai-role=\"switch\" data-ai-intent=\"toggle-setting\"\n      data-ai-state={checked ? 'checked' : disabled ? 'disabled' : 'default'}\n      disabled={disabled}\n      onCheckedChange={(details) => onChange(!!details.checked)}\n    >\n      <SwitchPrimitive.Label className=\"cu-switch__label\">{label}</SwitchPrimitive.Label>\n      <SwitchPrimitive.Control className=\"cu-switch__control\">\n        <SwitchPrimitive.Thumb className=\"cu-switch__thumb\" />\n      </SwitchPrimitive.Control>\n      <SwitchPrimitive.HiddenInput />\n    </SwitchPrimitive.Root>\n  )\n}\n"
+    }
+  ]
+}

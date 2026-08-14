@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "kpi-dashboard",
+  "name": "KpiDashboard",
+  "family": "F",
+  "status": "experimental",
+  "purpose": "Arranges a set of key performance indicators in a responsive metric grid.",
+  "scenarios": [
+    "Executive overview row",
+    "Operations health board",
+    "Marketing campaign summary"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { id, label, value, trend? } metrics."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the dashboard region."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Grid populated with metrics."
+    },
+    {
+      "name": "empty",
+      "description": "No metrics provided."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page",
+      "app-shell",
+      "card"
+    ],
+    "allowedChildren": [
+      "statistic"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not exceed eight KPI tiles in one dashboard.",
+    "Do not mix unrelated units without labeling each tile."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": [],
+    "focus": "Tiles are not focusable unless they contain actions.",
+    "labeling": "Region label names the dashboard; each metric is a group.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Root sets container-type: inline-size; the grid is mobile-first compact (one column) and steps up via @container at token-equal rem thresholds. Not viewport @media.",
+    "breakpoints": {
+      "compact": "Single column (default; no query).",
+      "medium": "Two columns at min-width 48rem (breakpoint.tablet).",
+      "large": "Four columns at min-width 80rem (breakpoint.desktop)."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "kpi-dashboard",
+    "states": [
+      "default",
+      "empty"
+    ],
+    "intents": [
+      "highlight-count",
+      "group-content"
+    ]
+  }
+}

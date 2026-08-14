@@ -1,0 +1,38 @@
+.cu-block-marketing-site {
+  container-type: inline-size;
+  container-name: marketing;
+  display: grid;
+  gap: calc(var(--cu-space-3) * 2);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+}
+
+.cu-block-marketing-site__hero,
+.cu-block-marketing-site__pricing,
+.cu-block-marketing-site__faq {
+  display: grid;
+  gap: var(--cu-space-3);
+}
+
+.cu-block-marketing-site__meta {
+  margin-block: 0;
+  color: var(--cu-color-fg-default);
+  font-size: var(--cu-typography-size-caption);
+}
+
+.cu-block-marketing-site__plans {
+  display: grid;
+  gap: var(--cu-space-3);
+  grid-template-columns: 1fr;
+}
+
+.cu-block-marketing-site__plans > * {
+  display: grid;
+  gap: var(--cu-space-2);
+}
+
+@container marketing (min-inline-size: 48rem) {
+  .cu-block-marketing-site__plans {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

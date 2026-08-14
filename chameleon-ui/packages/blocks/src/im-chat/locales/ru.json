@@ -1,0 +1,27 @@
+{
+  "_cuSkeleton": true,
+  "im": {
+    "title": "Inbox",
+    "subtitle": "Conversations with markdown replies and a rich-text composer.",
+    "roomsLabel": "Rooms",
+    "roomSupport": "Support",
+    "roomDesign": "Design",
+    "roomOps": "Ops",
+    "threadLabel": "Thread",
+    "composerLabel": "Message composer",
+    "placeholder": "Write a reply",
+    "bold": "Bold",
+    "italic": "Italic",
+    "send": "Send",
+    "userLabel": "You",
+    "assistantLabel": "Assistant",
+    "sentLabel": "Sent",
+    "errorRequired": "Write a message before sending.",
+    "emptyTitle": "No messages yet",
+    "emptyDescription": "Send the first reply to start this thread.",
+    "assistantReply": "**Received.** I logged this in the queue.",
+    "seedUser": "Can you summarize the queue?",
+    "seedAssistant": "## Queue\nThe queue is **healthy**.\n- Two open tickets\n- SLA on track",
+    "messageCount": "{count, plural, =0 {No messages} one {# message} other {# messages}}"
+  }
+}

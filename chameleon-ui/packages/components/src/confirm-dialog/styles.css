@@ -1,0 +1,7 @@
+.cu-confirm-dialog__content {
+  max-inline-size: calc(var(--cu-space-3) * 40);
+}
+
+.cu-confirm-dialog__actions {
+  justify-content: flex-end;
+}

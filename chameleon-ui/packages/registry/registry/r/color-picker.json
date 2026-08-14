@@ -1,0 +1,108 @@
+{
+  "id": "color-picker",
+  "type": "registry:ui",
+  "name": "ColorPicker",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/color-picker/ColorPicker.tsx",
+      "content": "import { useState } from 'react'\nimport './styles.css'\n\nexport interface ColorPickerProps {\n  value: string\n  onChange: (value: string) => void\n  swatches?: string[]\n  label: string\n  hexLabel?: string\n  className?: string\n}\n\n/** Default selectable palette (data, not theme styling). */\nconst DEFAULT_SWATCHES = ['#2563eb', '#dc2626', '#16a34a', '#d97706', '#7c3aed', '#0f766e', '#111827']\n\nconst HEX_PATTERN = /^#?[0-9a-fA-F]{6}$/\n\nexport function normalizeHex(input: string): string | null {\n  const trimmed = input.trim()\n  if (!HEX_PATTERN.test(trimmed)) return null\n  return (trimmed.startsWith('#') ? trimmed : `#${trimmed}`).toLowerCase()\n}\n\nexport function ColorPicker({ value, onChange, swatches = DEFAULT_SWATCHES, label, hexLabel = 'Hex value', className }: ColorPickerProps) {\n  const [draft, setDraft] = useState(value)\n  const [invalidHex, setInvalidHex] = useState(false)\n  const classes = ['cu-color-picker', className].filter(Boolean).join(' ')\n\n  const commitHex = () => {\n    const normalized = normalizeHex(draft)\n    if (normalized) {\n      setInvalidHex(false)\n      onChange(normalized)\n    } else {\n      setInvalidHex(true)\n    }\n  }\n\n  return (\n    <div className={classes} data-ai-role=\"color-picker\" data-ai-intent=\"choose-option\" data-ai-state=\"default\">\n      <div className=\"cu-color-picker__swatches\" role=\"listbox\" aria-label={label}>\n        {swatches.map((swatch) => (\n          <button\n            key={swatch}\n            type=\"button\"\n            className={\n              'cu-color-picker__swatch' + (normalizeHex(value) === swatch ? ' cu-color-picker__swatch--selected' : '')\n            }\n            role=\"option\"\n            aria-selected={normalizeHex(value) === swatch}\n            aria-label={swatch}\n            style={{ background: swatch }}\n            onClick={() => {\n              setDraft(swatch)\n              onChange(swatch)\n            }}\n          />\n        ))}\n      </div>\n      <label className=\"cu-color-picker__hex\">\n        <span className=\"cu-color-picker__hex-label\">{hexLabel}</span>\n        <input\n          className=\"cu-color-picker__input\"\n          type=\"text\"\n          value={draft}\n          aria-invalid={invalidHex}\n          onChange={(event) => {\n            setDraft(event.currentTarget.value)\n            setInvalidHex(false)\n          }}\n          onBlur={commitHex}\n          onKeyDown={(event) => {\n            if (event.key === 'Enter') commitHex()\n          }}\n        />\n      </label>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/color-picker/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"color-picker\",\n  \"name\": \"ColorPicker\",\n  \"family\": \"C\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Picks a color from a swatch grid or by entering a hex value.\",\n  \"scenarios\": [\n    \"Choose a theme accent\",\n    \"Tag color assignment\",\n    \"Chart series color override\"\n  ],\n  \"props\": {\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Current hex color like #2563eb.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called with the next hex value.\"\n    },\n    \"swatches\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Hex swatch list; defaults to a token-derived set.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the picker.\"\n    },\n    \"hexLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for the hex input.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Picker rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"popover\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not accept invalid hex without an error state.\",\n    \"Do not rely on swatch color alone; expose the hex text.\"\n  ],\n  \"a11y\": {\n    \"role\": \"listbox\",\n    \"keyboard\": [\n      \"Tab moves across swatches\",\n      \"Enter selects\"\n    ],\n    \"focus\": \"Swatches are buttons; hex input follows in tab order.\",\n    \"labeling\": \"Swatch buttons expose their hex value as the accessible name.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Swatch grid wraps; fixed swatch size.\",\n    \"breakpoints\": {\n      \"compact\": \"Wrapped grid.\",\n      \"medium\": \"Wrapped grid.\",\n      \"large\": \"Wrapped grid.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"color-picker\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"choose-option\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/index.ts",
+      "content": "export { ColorPicker, normalizeHex } from './ColorPicker.js'\nexport type { ColorPickerProps } from './ColorPicker.js'\n"
+    },
+    {
+      "path": "components/color-picker/locales/am.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ar.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"اللون\",\n    \"hexValue\": \"القيمة الست عشرية\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/bn.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/de.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Farbauswahl\",\n    \"hexValue\": \"Hexadezimalwert\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/en.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/es.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/fa.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/fr.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ha.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/hi.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/id.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ja.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ko.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/pt.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ru.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/sw.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ug.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/ur.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/vi.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/zh-CN.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"颜色\",\n    \"hexValue\": \"十六进制值\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/locales/zh-HK.json",
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+    },
+    {
+      "path": "components/color-picker/styles.css",
+      "content": ".cu-color-picker {\n  display: inline-block;\n  color: var(--cu-color-fg-default);\n}\n\n.cu-color-picker__swatches {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--cu-space-1);\n}\n\n.cu-color-picker__swatch {\n  inline-size: var(--cu-space-3);\n  block-size: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  padding: 0;\n  cursor: pointer;\n}\n\n.cu-color-picker__swatch--selected {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 1px;\n}\n\n.cu-color-picker__swatch:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-color-picker__hex {\n  display: flex;\n  flex-direction: column;\n  gap: calc(var(--cu-space-1) / 2);\n  margin-block-start: var(--cu-space-2);\n}\n\n.cu-color-picker__hex-label {\n  font-size: 0.875em;\n}\n\n.cu-color-picker__input {\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: inherit;\n  font: inherit;\n}\n\n.cu-color-picker__input[aria-invalid='true'] {\n  border-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);\n}\n"
+    }
+  ]
+}

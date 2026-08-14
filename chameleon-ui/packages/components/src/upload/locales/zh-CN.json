@@ -1,0 +1,7 @@
+{
+  "upload": {
+    "label": "上传",
+    "dropzone": "拖拽文件到此处",
+    "browse": "浏览文件"
+  }
+}

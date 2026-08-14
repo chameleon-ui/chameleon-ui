@@ -1,0 +1,27 @@
+.cu-otp-input {
+  display: flex;
+  gap: var(--cu-space-2);
+}
+
+.cu-otp-input__cell {
+  inline-size: var(--cu-touch-target-min);
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-1);
+  padding-inline: 0;
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  text-align: center;
+}
+
+.cu-otp-input__cell:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 1px;
+}
+
+.cu-otp-input__cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

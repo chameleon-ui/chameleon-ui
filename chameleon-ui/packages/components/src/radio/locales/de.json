@@ -1,0 +1,7 @@
+{
+  "radio": {
+    "payment": "Zahlungsmethode auswählen",
+    "optionCard": "Kreditkarte verwenden",
+    "optionBank": "Zahlung per Banküberweisung"
+  }
+}

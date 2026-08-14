@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Wasilisha",
+    "cancel": "Ghairi",
+    "count": "{count, plural, =0 {Hakuna vitendo vilivyokamilika} one {Kitendo # kimekamilika} other {Vitendo # vimekamilika}}"
+  }
+}

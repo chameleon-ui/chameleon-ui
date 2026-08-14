@@ -1,0 +1,108 @@
+{
+  "id": "link",
+  "type": "registry:ui",
+  "name": "Link",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/link/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"link\",\n  \"name\": \"Link\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Navigates to another resource or anchor.\",\n  \"scenarios\": [\n    \"Navigate to a page\",\n    \"Open an external reference\",\n    \"Jump to an anchor\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Link text.\"\n    },\n    \"href\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Destination URL.\"\n    },\n    \"external\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Opens in a new tab and sets rel.\",\n      \"default\": false\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Link rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"text\",\n      \"button\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use a link for actions; use Button.\",\n    \"Do not omit href for a clickable link.\"\n  ],\n  \"a11y\": {\n    \"role\": \"link\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Enter activates\"\n    ],\n    \"focus\": \"Focus is visible.\",\n    \"labeling\": \"Contents provide the accessible name.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"2.4.4\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline.\",\n    \"breakpoints\": {\n      \"compact\": \"Inline.\",\n      \"medium\": \"Inline.\",\n      \"large\": \"Inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"link\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"navigate\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/link/index.ts",
+      "content": "export { Link } from './Link.js'\nexport type { LinkProps } from './Link.js'\n"
+    },
+    {
+      "path": "components/link/Link.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface LinkProps {\n  children: ReactNode\n  href: string\n  external?: boolean\n  className?: string\n}\n\nexport function Link({ children, href, external = false, className }: LinkProps) {\n  const classes = ['cu-link', className].filter(Boolean).join(' ')\n  return (\n    <a\n      className={classes}\n      data-ai-role=\"link\" data-ai-state=\"default\" data-ai-intent=\"navigate\"\n      href={href}\n      rel={external ? 'noopener noreferrer' : undefined}\n      target={external ? '_blank' : undefined}\n    >\n      {children}\n    </a>\n  )\n}\n"
+    },
+    {
+      "path": "components/link/locales/am.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ar.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"رابط\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/bn.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/de.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Hyperlink\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/en.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/es.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/fa.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/fr.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ha.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/hi.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/id.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ja.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ko.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/pt.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ru.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/sw.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ug.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/ur.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/vi.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/zh-CN.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"链接\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/locales/zh-HK.json",
+      "content": "{\n  \"link\": {\n    \"label\": \"Link\"\n  }\n}\n"
+    },
+    {
+      "path": "components/link/styles.css",
+      "content": ".cu-link {\n  color: var(--cu-color-palette-brand);\n  text-decoration: underline;\n  text-underline-offset: 0.15em;\n}\n\n/* Hover is gated so touch input never sticks in a hover style. */\n@media (hover: hover) {\n  .cu-link:hover {\n    color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, var(--cu-color-fg-default));\n  }\n}\n\n.cu-link:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n  border-radius: var(--cu-radius-sm);\n}\n"
+    }
+  ]
+}

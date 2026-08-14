@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "toast",
+  "name": "Toast",
+  "status": "experimental",
+  "purpose": "Displays a non-blocking, auto-dismissible notification.",
+  "scenarios": [
+    "Confirm that a document was saved",
+    "Warn that an action failed without blocking the UI",
+    "Notify that a background process completed"
+  ],
+  "props": {
+    "open": {
+      "type": "boolean",
+      "required": true,
+      "description": "Controlled open state."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Toast heading and accessible name."
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "description": "Supporting message for the toast."
+    },
+    "status": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic tone of the toast.",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info"
+    },
+    "closeLabel": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible label for the close action."
+    },
+    "onOpenChange": {
+      "type": "event",
+      "required": false,
+      "description": "Notifies the parent when the toast should close."
+    }
+  },
+  "variants": [
+    {
+      "name": "status",
+      "values": [
+        "info",
+        "success",
+        "warning",
+        "error"
+      ],
+      "default": "info",
+      "description": "Semantic tone that changes the accent color."
+    }
+  ],
+  "states": [
+    {
+      "name": "open",
+      "description": "Toast is visible and announced."
+    },
+    {
+      "name": "closed",
+      "description": "Toast is not visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use toasts for critical errors that require user action; use a dialog or alert.",
+    "Do not auto-dismiss without a way to reopen the message."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [
+      "Tab focuses the close control",
+      "Enter/Space closes"
+    ],
+    "focus": "Focus is not stolen on open; the toast is announced via aria-live.",
+    "labeling": "Title labels the status region; description is associated.",
+    "wcag": [
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Toasts are anchored to the bottom-end of the viewport and shrink to fit on compact screens.",
+    "breakpoints": {
+      "compact": "Toast uses most of the viewport width with safe-area offsets.",
+      "medium": "Toast uses a fixed max width anchored to the corner.",
+      "large": "Toast uses a fixed max width anchored to the corner."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. The accent border is on the inline-start side.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "toast",
+    "states": [
+      "info",
+      "success",
+      "warning",
+      "error"
+    ],
+    "intents": [
+      "notify-transient"
+    ]
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "id": "badge",
+  "type": "registry:ui",
+  "name": "Badge",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/badge/Badge.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface BadgeProps {\n  children: ReactNode\n  variant?: 'default' | 'primary' | 'success' | 'warning' | 'danger'\n  size?: 'sm' | 'md'\n  className?: string\n}\n\nexport function Badge({ children, variant = 'default', size = 'md', className }: BadgeProps) {\n  const classes = ['cu-badge', 'cu-badge--' + variant, 'cu-badge--' + size, className].filter(Boolean).join(' ')\n  return <span className={classes} data-ai-role=\"badge\" data-ai-intent=\"flag-status\" data-ai-state={variant}>{children}</span>\n}\n"
+    },
+    {
+      "path": "components/badge/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"badge\",\n  \"name\": \"Badge\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays a compact status indicator or count.\",\n  \"scenarios\": [\n    \"Show a status label\",\n    \"Indicate a count\",\n    \"Highlight metadata\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Text or number displayed in the badge.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Semantic color emphasis.\",\n      \"values\": [\n        \"default\",\n        \"primary\",\n        \"success\",\n        \"warning\",\n        \"danger\"\n      ],\n      \"default\": \"default\"\n    },\n    \"size\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Density.\",\n      \"values\": [\n        \"sm\",\n        \"md\"\n      ],\n      \"default\": \"md\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"default\",\n        \"primary\",\n        \"success\",\n        \"warning\",\n        \"danger\"\n      ],\n      \"default\": \"default\",\n      \"description\": \"Semantic color emphasis.\"\n    },\n    {\n      \"name\": \"size\",\n      \"values\": [\n        \"sm\",\n        \"md\"\n      ],\n      \"default\": \"md\",\n      \"description\": \"Density.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Idle badge.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"button\",\n      \"card\",\n      \"table\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use as the sole means of conveying critical state.\",\n    \"Do not put long paragraphs inside a badge.\"\n  ],\n  \"a11y\": {\n    \"role\": \"status\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable.\",\n    \"labeling\": \"Contents provide the accessible label.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline display adapts to parent flow.\",\n    \"breakpoints\": {\n      \"compact\": \"Inline.\",\n      \"medium\": \"Inline.\",\n      \"large\": \"Inline.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"badge\",\n    \"states\": [\n      \"default\",\n      \"primary\",\n      \"success\",\n      \"warning\",\n      \"danger\"\n    ],\n    \"intents\": [\n      \"flag-status\",\n      \"highlight-count\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/index.ts",
+      "content": "export { Badge } from './Badge.js'\nexport type { BadgeProps } from './Badge.js'\n"
+    },
+    {
+      "path": "components/badge/locales/am.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ar.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"شارة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/bn.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/de.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Statusabzeichen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/en.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/es.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/fa.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/fr.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ha.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/hi.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/id.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ja.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ko.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/pt.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ru.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/sw.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ug.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/ur.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/vi.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/zh-CN.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"徽章\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/locales/zh-HK.json",
+      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/badge/styles.css",
+      "content": ".cu-badge {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  gap: var(--cu-space-1);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid transparent;\n  border-radius: var(--cu-radius-md);\n  font: inherit;\n  font-size: 0.875rem;\n  font-weight: 600;\n  white-space: nowrap;\n  color: var(--cu-color-fg-default);\n  background: var(--cu-color-background-default);\n}\n\n.cu-badge--primary {\n  color: var(--cu-color-fg-inverse);\n  background: var(--cu-color-palette-brand);\n}\n\n.cu-badge--success {\n  color: var(--cu-color-fg-inverse);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 70%, #16a34a);\n}\n\n.cu-badge--warning {\n  color: var(--cu-color-fg-default);\n  background: #f59e0b;\n}\n\n.cu-badge--danger {\n  color: var(--cu-color-fg-inverse);\n  background: #dc2626;\n}\n\n.cu-badge--sm {\n  font-size: 0.75rem;\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-1);\n}\n"
+    }
+  ]
+}

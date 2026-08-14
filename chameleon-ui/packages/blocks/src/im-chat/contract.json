@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "im-chat",
+  "name": "IM chat",
+  "status": "experimental",
+  "purpose": "Conversation fragment with room list, chat bubbles, markdown replies, and a rich-text composer.",
+  "scenarios": [
+    "Read a seeded support thread with markdown from the assistant",
+    "Compose and send a reply from the editor",
+    "Show an empty state when the thread has no messages"
+  ],
+  "props": {
+    "locale": {
+      "type": "string",
+      "required": false,
+      "description": "BCP 47 locale for bundled block copy.",
+      "default": "en"
+    },
+    "onSend": {
+      "type": "event",
+      "required": false,
+      "description": "Called with plain text after the composer is submitted."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["comfortable", "compact"],
+      "default": "comfortable",
+      "description": "Inherits density from token rungs rather than a local viewport query."
+    }
+  ],
+  "states": [
+    { "name": "default", "description": "Thread has one or more messages." },
+    { "name": "empty", "description": "No messages to show." }
+  ],
+  "composition": {
+    "allowedParents": ["page", "app-shell"],
+    "allowedChildren": ["chat-bubble", "markdown-renderer", "editor", "list", "button", "card", "empty-state", "typography"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not treat the editor HTML as a sanitizer-complete store; user text is stripped to plain copy.",
+    "Do not claim 21 authored languages; 19 locales are ICU skeletons."
+  ],
+  "a11y": {
+    "role": "region",
+    "keyboard": ["Tab reaches rooms, bubbles, editor, toolbar, and send", "Activate send to append the reply"],
+    "focus": "Composer and send stay in document order with a visible focus ring.",
+    "labeling": "Rooms, thread, composer, and send have accessible names.",
+    "wcag": ["2.1.1", "2.4.7", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Rooms stack above the thread; @container at 48rem places rooms in a side column. No viewport media queries.",
+    "breakpoints": {
+      "compact": "Rooms stack above the thread.",
+      "medium": "Rooms sit in a side column at 48rem container inline-size.",
+      "large": "Rooms remain in a side column."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction comes from locale language.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "im-chat",
+    "states": ["default", "empty"],
+    "intents": ["converse"]
+  }
+}

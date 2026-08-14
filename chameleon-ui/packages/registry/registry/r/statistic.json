@@ -1,0 +1,108 @@
+{
+  "id": "statistic",
+  "type": "registry:ui",
+  "name": "Statistic",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/statistic/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"statistic\",\n  \"name\": \"Statistic\",\n  \"family\": \"D\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Displays a single prominent metric with label, value, and optional trend indicator.\",\n  \"scenarios\": [\n    \"Show revenue on a dashboard\",\n    \"Display active user count\",\n    \"Present conversion rate with trend\"\n  ],\n  \"props\": {\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Metric label.\"\n    },\n    \"value\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Formatted metric value.\"\n    },\n    \"trend\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Trend direction indicator.\",\n      \"values\": [\n        \"up\",\n        \"down\",\n        \"flat\"\n      ],\n      \"default\": \"flat\"\n    },\n    \"trendLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible description of the trend.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"trend\",\n      \"values\": [\n        \"up\",\n        \"down\",\n        \"flat\"\n      ],\n      \"default\": \"flat\",\n      \"description\": \"Trend direction.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Metric rendered with current value.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"card\",\n      \"kpi-dashboard\",\n      \"grid\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"text\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not truncate the value without an accessible full form.\",\n    \"Do not use color alone to convey trend direction.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable; purely presentational.\",\n    \"labeling\": \"Label text precedes the value; trend has a text alternative.\",\n    \"wcag\": [\n      \"1.1.1\",\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Stacks label above value; scales with type ramp.\",\n    \"breakpoints\": {\n      \"compact\": \"Compact value size.\",\n      \"medium\": \"Default value size.\",\n      \"large\": \"Default value size.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"statistic\",\n    \"states\": [\n      \"default\",\n      \"up\",\n      \"down\",\n      \"flat\"\n    ],\n    \"intents\": [\n      \"highlight-count\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/index.ts",
+      "content": "export { Statistic } from './Statistic.js'\nexport type { StatisticProps } from './Statistic.js'\n"
+    },
+    {
+      "path": "components/statistic/locales/am.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ar.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"إحصائية\",\n    \"trend\": \"الاتجاه\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/bn.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/de.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistikkennzahl\",\n    \"trend\": \"Trendrichtung\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/en.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/es.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/fa.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/fr.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ha.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/hi.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/id.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ja.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ko.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/pt.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ru.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/sw.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ug.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/ur.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/vi.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/zh-CN.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"统计\",\n    \"trend\": \"趋势\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/locales/zh-HK.json",
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+    },
+    {
+      "path": "components/statistic/Statistic.tsx",
+      "content": "import './styles.css'\n\nexport interface StatisticProps {\n  label: string\n  value: string\n  trend?: 'up' | 'down' | 'flat'\n  trendLabel?: string\n  className?: string\n}\n\nconst TREND_GLYPH = { up: '▲', down: '▼', flat: '→' } as const\n\nexport function Statistic({ label, value, trend = 'flat', trendLabel, className }: StatisticProps) {\n  const classes = ['cu-statistic', className].filter(Boolean).join(' ')\n  return (\n    <div className={classes} data-ai-role=\"statistic\" data-ai-intent=\"highlight-count\" data-ai-state={trend}>\n      <span className=\"cu-statistic__label\">{label}</span>\n      <span className=\"cu-statistic__value\">{value}</span>\n      <span className={'cu-statistic__trend cu-statistic__trend--' + trend} aria-label={trendLabel}>\n        <span aria-hidden=\"true\">{TREND_GLYPH[trend]}</span>\n      </span>\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/statistic/styles.css",
+      "content": ".cu-statistic {\n  display: inline-flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-statistic__label {\n  font-size: 0.875em;\n  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);\n}\n\n.cu-statistic__value {\n  font-size: 1.5em;\n  font-weight: 600;\n}\n\n.cu-statistic__trend--up {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, green);\n}\n\n.cu-statistic__trend--down {\n  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, red);\n}\n\n.cu-statistic__trend--flat {\n  color: var(--cu-color-border-default);\n}\n"
+    }
+  ]
+}

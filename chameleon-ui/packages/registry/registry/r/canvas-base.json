@@ -1,0 +1,108 @@
+{
+  "id": "canvas-base",
+  "type": "registry:ui",
+  "name": "Canvas",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/canvas-base/Canvas.tsx",
+      "content": "import { useEffect, useRef, useState } from 'react'\nimport type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface CanvasViewport {\n  zoom: number\n  offsetX: number\n  offsetY: number\n}\n\nexport interface CanvasProps {\n  children?: ReactNode\n  label: string\n  initialZoom?: number\n  minZoom?: number\n  maxZoom?: number\n  gridSize?: number\n  snapToGrid?: boolean\n  showMinimap?: boolean\n  onViewportChange?: (viewport: CanvasViewport) => void\n  className?: string\n}\n\n/** Snaps a world coordinate to the nearest grid intersection when enabled. */\nexport function snapToGridValue(value: number, gridSize: number, enabled: boolean) {\n  if (!enabled || gridSize <= 0) return value\n  return Math.round(value / gridSize) * gridSize\n}\n\nfunction clamp(value: number, min: number, max: number) {\n  return Math.min(max, Math.max(min, value))\n}\n\nexport function Canvas({\n  children,\n  label,\n  initialZoom = 1,\n  minZoom = 0.25,\n  maxZoom = 2,\n  gridSize = 24,\n  snapToGrid = false,\n  showMinimap = false,\n  onViewportChange,\n  className,\n}: CanvasProps) {\n  const [viewport, setViewport] = useState<CanvasViewport>({ zoom: clamp(initialZoom, minZoom, maxZoom), offsetX: 0, offsetY: 0 })\n  const [panning, setPanning] = useState(false)\n  const gridRef = useRef<HTMLCanvasElement>(null)\n  const minimapRef = useRef<HTMLCanvasElement>(null)\n  const dragOrigin = useRef<{ pointerX: number; pointerY: number; offsetX: number; offsetY: number } | null>(null)\n  const classes = ['cu-canvas', className].filter(Boolean).join(' ')\n\n  const applyViewport = (next: CanvasViewport) => {\n    const clamped = { zoom: clamp(next.zoom, minZoom, maxZoom), offsetX: next.offsetX, offsetY: next.offsetY }\n    setViewport(clamped)\n    onViewportChange?.(clamped)\n  }\n\n  // Canvas 2D grid backend: draws the world grid; degrades to a plain surface when 2D is unavailable (e.g. jsdom).\n  useEffect(() => {\n    const element = gridRef.current\n    if (!element) return\n    let context: CanvasRenderingContext2D | null = null\n    try {\n      context = element.getContext('2d')\n    } catch {\n      context = null\n    }\n    if (!context) return\n    const width = (element.clientWidth || 800)\n    const height = (element.clientHeight || 600)\n    if (element.width !== width) element.width = width\n    if (element.height !== height) element.height = height\n    const styles = getComputedStyle(element)\n    const gridColor = styles.getPropertyValue('--cu-color-border-default').trim() || 'gray'\n    context.clearRect(0, 0, width, height)\n    context.strokeStyle = gridColor\n    context.globalAlpha = 0.4\n    context.lineWidth = 1\n    const step = gridSize * viewport.zoom\n    if (step < 4) return\n    const startX = ((viewport.offsetX % step) + step) % step\n    const startY = ((viewport.offsetY % step) + step) % step\n    context.beginPath()\n    for (let x = startX; x <= width; x += step) {\n      context.moveTo(x, 0)\n      context.lineTo(x, height)\n    }\n    for (let y = startY; y <= height; y += step) {\n      context.moveTo(0, y)\n      context.lineTo(width, y)\n    }\n    context.stroke()\n    context.globalAlpha = 1\n  }, [viewport, gridSize])\n\n  useEffect(() => {\n    const element = minimapRef.current\n    if (!element || !showMinimap) return\n    let context: CanvasRenderingContext2D | null = null\n    try {\n      context = element.getContext('2d')\n    } catch {\n      context = null\n    }\n    if (!context) return\n    const width = element.width\n    const height = element.height\n    const styles = getComputedStyle(element)\n    const frameColor = styles.getPropertyValue('--cu-color-border-default').trim() || 'gray'\n    const viewportColor = styles.getPropertyValue('--cu-color-palette-brand').trim() || frameColor\n    context.clearRect(0, 0, width, height)\n    context.strokeStyle = frameColor\n    context.strokeRect(0, 0, width - 1, height - 1)\n    // Viewport indicator: the visible world window mapped into minimap scale.\n    const scaleX = width / 4000\n    const scaleY = height / 3000\n    context.strokeStyle = viewportColor\n    context.strokeRect(-viewport.offsetX * scaleX, -viewport.offsetY * scaleY, 800 * scaleX * viewport.zoom, 600 * scaleY * viewport.zoom)\n  }, [viewport, showMinimap])\n\n  const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {\n    if ((event.target as HTMLElement).closest('[data-canvas-node]')) return\n    dragOrigin.current = { pointerX: event.clientX, pointerY: event.clientY, offsetX: viewport.offsetX, offsetY: viewport.offsetY }\n    setPanning(true)\n  }\n\n  const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {\n    const origin = dragOrigin.current\n    if (!origin) return\n    const nextX = origin.offsetX + (event.clientX - origin.pointerX)\n    const nextY = origin.offsetY + (event.clientY - origin.pointerY)\n    applyViewport({\n      zoom: viewport.zoom,\n      offsetX: snapToGridValue(nextX, gridSize, snapToGrid),\n      offsetY: snapToGridValue(nextY, gridSize, snapToGrid),\n    })\n  }\n\n  const endPan = () => {\n    dragOrigin.current = null\n    setPanning(false)\n  }\n\n  const onWheel = (event: React.WheelEvent<HTMLDivElement>) => {\n    const factor = event.deltaY < 0 ? 1.1 : 1 / 1.1\n    applyViewport({ ...viewport, zoom: viewport.zoom * factor })\n  }\n\n  const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {\n    const panStep = gridSize * 4\n    if (event.key === 'ArrowLeft') applyViewport({ ...viewport, offsetX: viewport.offsetX + panStep })\n    else if (event.key === 'ArrowRight') applyViewport({ ...viewport, offsetX: viewport.offsetX - panStep })\n    else if (event.key === 'ArrowUp') applyViewport({ ...viewport, offsetY: viewport.offsetY + panStep })\n    else if (event.key === 'ArrowDown') applyViewport({ ...viewport, offsetY: viewport.offsetY - panStep })\n    else if (event.key === '+' || event.key === '=') applyViewport({ ...viewport, zoom: viewport.zoom * 1.1 })\n    else if (event.key === '-') applyViewport({ ...viewport, zoom: viewport.zoom / 1.1 })\n    else return\n    event.preventDefault()\n  }\n\n  return (\n    <div\n      className={classes}\n      role=\"application\"\n      aria-label={label}\n      aria-description={`Zoom ${Math.round(viewport.zoom * 100)}%`}\n      tabIndex={0}\n      data-ai-role=\"canvas-base\" data-ai-intent=\"pan-canvas\"\n      data-ai-state={panning ? 'panning' : 'default'}\n      data-backend=\"canvas-2d\"\n      onPointerDown={onPointerDown}\n      onPointerMove={onPointerMove}\n      onPointerUp={endPan}\n      onPointerLeave={endPan}\n      onWheel={onWheel}\n      onKeyDown={onKeyDown}\n    >\n      <canvas ref={gridRef} className=\"cu-canvas__grid\" width={800} height={600} aria-hidden=\"true\" />\n      <div\n        className=\"cu-canvas__world\"\n        style={{ transform: `translate(${viewport.offsetX}px, ${viewport.offsetY}px) scale(${viewport.zoom})` }}\n      >\n        {children}\n      </div>\n      {showMinimap ? <canvas ref={minimapRef} className=\"cu-canvas__minimap\" width={160} height={120} aria-hidden=\"true\" /> : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/canvas-base/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"canvas-base\",\n  \"name\": \"Canvas\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Zoomable and pannable canvas base with minimap and grid snapping; Canvas 2D grid backend with a DOM node layer.\",\n  \"scenarios\": [\n    \"Host a flow editor\",\n    \"Pan across a large diagram\",\n    \"Zoom into a dense graph with minimap orientation\"\n  ],\n  \"props\": {\n    \"children\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Canvas items rendered inside the transformed world layer.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Accessible label for the canvas region.\"\n    },\n    \"initialZoom\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Initial zoom factor.\",\n      \"default\": 1\n    },\n    \"minZoom\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Smallest zoom factor.\",\n      \"default\": 0.25\n    },\n    \"maxZoom\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Largest zoom factor.\",\n      \"default\": 2\n    },\n    \"gridSize\": {\n      \"type\": \"number\",\n      \"required\": false,\n      \"description\": \"Grid cell size in world px.\",\n      \"default\": 24\n    },\n    \"snapToGrid\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Snap world coordinates to the grid.\",\n      \"default\": false\n    },\n    \"showMinimap\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Render the minimap overview.\",\n      \"default\": false\n    },\n    \"onViewportChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called with { zoom, offsetX, offsetY } on every pan or zoom.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Canvas idle at rest.\"\n    },\n    {\n      \"name\": \"panning\",\n      \"description\": \"User is dragging the viewport.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"app-shell\"\n    ],\n    \"allowedChildren\": [\n      \"flow-node\",\n      \"edge\",\n      \"canvas-toolbar\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest one canvas inside another.\",\n    \"Do not claim WebGL or worker rendering; the backend is Canvas 2D plus DOM.\"\n  ],\n  \"a11y\": {\n    \"role\": \"application\",\n    \"keyboard\": [\n      \"Arrow keys pan the viewport\",\n      \"Plus and minus keys zoom\"\n    ],\n    \"focus\": \"Canvas region is focusable; interactive nodes keep their own tab order.\",\n    \"labeling\": \"aria-label names the canvas; zoom level is announced via aria-description.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fills the parent region; minimap hides on compact.\",\n    \"breakpoints\": {\n      \"compact\": \"No minimap; touch pan only.\",\n      \"medium\": \"Minimap visible.\",\n      \"large\": \"Minimap visible.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"canvas-base\",\n    \"states\": [\n      \"default\",\n      \"panning\"\n    ],\n    \"intents\": [\n      \"pan-canvas\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/index.ts",
+      "content": "export { Canvas, snapToGridValue } from './Canvas.js'\nexport type { CanvasProps, CanvasViewport } from './Canvas.js'\n"
+    },
+    {
+      "path": "components/canvas-base/locales/am.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ar.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"لوحة الرسم\",\n    \"resetView\": \"إعادة ضبط العرض\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/bn.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/de.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Zeichenfläche\",\n    \"resetView\": \"Ansicht zurücksetzen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/en.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/es.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/fa.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/fr.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ha.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/hi.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/id.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ja.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ko.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/pt.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ru.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/sw.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ug.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/ur.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/vi.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/zh-CN.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"画布\",\n    \"resetView\": \"重置视图\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/locales/zh-HK.json",
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+    },
+    {
+      "path": "components/canvas-base/styles.css",
+      "content": ".cu-canvas {\n  position: relative;\n  display: block;\n  inline-size: 100%;\n  min-block-size: calc(var(--cu-space-3) * 24);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  overflow: hidden;\n  touch-action: none;\n}\n\n.cu-canvas:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-canvas__grid {\n  position: absolute;\n  inset: 0;\n  inline-size: 100%;\n  block-size: 100%;\n}\n\n.cu-canvas__world {\n  position: absolute;\n  inset: 0;\n  transform-origin: 0 0;\n}\n\n[dir='rtl'] .cu-canvas__world {\n  transform-origin: 100% 0;\n}\n\n.cu-canvas__minimap {\n  position: absolute;\n  inset-inline-end: var(--cu-space-2);\n  inset-block-end: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n}\n"
+    }
+  ]
+}

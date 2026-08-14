@@ -1,0 +1,108 @@
+{
+  "id": "multi-select",
+  "type": "registry:ui",
+  "name": "MultiSelect",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/multi-select/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"multi-select\",\n  \"name\": \"MultiSelect\",\n  \"family\": \"C\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Selects multiple options from a listbox and shows the selection as removable chips.\",\n  \"scenarios\": [\n    \"Choose tags for an article\",\n    \"Filter by several teams\",\n    \"Assign multiple reviewers\"\n  ],\n  \"props\": {\n    \"options\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of { value, label } options.\"\n    },\n    \"values\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Currently selected option values.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called with the next values array.\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Field label.\"\n    },\n    \"selectedLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible suffix announcing selected options.\"\n    },\n    \"clearLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible label for clearing all selections.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Closed with selection summary.\"\n    },\n    {\n      \"name\": \"open\",\n      \"description\": \"Listbox expanded.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [\n      \"chip\",\n      \"checkbox\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use multi-select for a single choice; use Select or Radio.\",\n    \"Do not hide the current selection when the listbox is closed.\"\n  ],\n  \"a11y\": {\n    \"role\": \"listbox\",\n    \"keyboard\": [\n      \"Enter toggles an option\",\n      \"Escape closes the listbox\"\n    ],\n    \"focus\": \"Trigger is a button; options use aria-selected.\",\n    \"labeling\": \"Field label names the control; chips expose removal.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Chips wrap; listbox matches trigger width.\",\n    \"breakpoints\": {\n      \"compact\": \"Full width.\",\n      \"medium\": \"Full width.\",\n      \"large\": \"Full width.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"multi-select\",\n    \"states\": [\n      \"default\",\n      \"open\",\n      \"empty\"\n    ],\n    \"intents\": [\n      \"toggle-option\",\n      \"search-select\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/index.ts",
+      "content": "export { MultiSelect } from './MultiSelect.js'\nexport type { MultiSelectOption, MultiSelectProps } from './MultiSelect.js'\n"
+    },
+    {
+      "path": "components/multi-select/locales/am.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ar.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"اختيار متعدد\",\n    \"selected\": \"محدد\",\n    \"clear\": \"مسح الكل\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/bn.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/de.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Mehrfachauswahlliste\",\n    \"selected\": \"bereits ausgewählt\",\n    \"clear\": \"Alle entfernen\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/en.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/es.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/fa.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/fr.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ha.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/hi.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/id.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ja.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ko.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/pt.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ru.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/sw.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ug.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/ur.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/vi.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/zh-CN.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"多选\",\n    \"selected\": \"已选\",\n    \"clear\": \"清除全部\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/locales/zh-HK.json",
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+    },
+    {
+      "path": "components/multi-select/MultiSelect.tsx",
+      "content": "import { useId, useState } from 'react'\nimport './styles.css'\n\nexport interface MultiSelectOption {\n  value: string\n  label: string\n}\n\nexport interface MultiSelectProps {\n  options: MultiSelectOption[]\n  values: string[]\n  onChange: (values: string[]) => void\n  label: string\n  selectedLabel?: string\n  clearLabel?: string\n  className?: string\n}\n\nexport function MultiSelect({\n  options,\n  values,\n  onChange,\n  label,\n  selectedLabel = 'selected',\n  clearLabel = 'Clear all',\n  className,\n}: MultiSelectProps) {\n  const [open, setOpen] = useState(false)\n  const listboxId = useId()\n  const classes = ['cu-multi-select', className].filter(Boolean).join(' ')\n\n  const toggle = (value: string) => {\n    onChange(values.includes(value) ? values.filter((entry) => entry !== value) : [...values, value])\n  }\n\n  const labelFor = (value: string) => options.find((option) => option.value === value)?.label ?? value\n\n  return (\n    <div className={classes} data-ai-role=\"multi-select\" data-ai-intent=\"toggle-option\" data-ai-state={open ? 'open' : values.length === 0 ? 'empty' : 'default'}>\n      <span className=\"cu-multi-select__label\" id={`${listboxId}-label`}>\n        {label}\n      </span>\n      {values.length > 0 ? (\n        <ul className=\"cu-multi-select__chips\" aria-label={`${values.length} ${selectedLabel}`}>\n          {values.map((value) => (\n            <li key={value} className=\"cu-multi-select__chip\">\n              <span>{labelFor(value)}</span>\n              <button\n                type=\"button\"\n                className=\"cu-multi-select__chip-remove\"\n                aria-label={`${clearLabel}: ${labelFor(value)}`}\n                onClick={() => toggle(value)}\n              >\n                ×\n              </button>\n            </li>\n          ))}\n        </ul>\n      ) : null}\n      <button\n        type=\"button\"\n        className=\"cu-multi-select__trigger\"\n        aria-haspopup=\"listbox\"\n        aria-expanded={open}\n        aria-labelledby={`${listboxId}-label`}\n        onClick={() => setOpen((current) => !current)}\n      >\n        {values.length > 0 ? `${values.length} ${selectedLabel}` : label}\n        <span aria-hidden=\"true\"> ▾</span>\n      </button>\n      {open ? (\n        <ul\n          className=\"cu-multi-select__listbox\"\n          role=\"listbox\"\n          aria-multiselectable=\"true\"\n          aria-labelledby={`${listboxId}-label`}\n          id={listboxId}\n          onKeyDown={(event) => {\n            if (event.key === 'Escape') setOpen(false)\n          }}\n        >\n          {options.map((option) => {\n            const selected = values.includes(option.value)\n            return (\n              <li\n                key={option.value}\n                className=\"cu-multi-select__option\"\n                role=\"option\"\n                aria-selected={selected}\n                tabIndex={0}\n                onClick={() => toggle(option.value)}\n                onKeyDown={(event) => {\n                  if (event.key === 'Enter' || event.key === ' ') {\n                    event.preventDefault()\n                    toggle(option.value)\n                  }\n                }}\n              >\n                <span className=\"cu-multi-select__check\" aria-hidden=\"true\">\n                  {selected ? '✓' : ''}\n                </span>\n                {option.label}\n              </li>\n            )\n          })}\n        </ul>\n      ) : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/multi-select/styles.css",
+      "content": ".cu-multi-select {\n  position: relative;\n  display: inline-block;\n  min-inline-size: calc(var(--cu-space-3) * 16);\n  color: var(--cu-color-fg-default);\n}\n\n.cu-multi-select__label {\n  display: block;\n  margin-block-end: var(--cu-space-1);\n  font-size: 0.875em;\n}\n\n.cu-multi-select__chips {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--cu-space-1);\n  list-style: none;\n  margin: 0 0 var(--cu-space-1);\n  padding: 0;\n}\n\n.cu-multi-select__chip {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n  padding-block: calc(var(--cu-space-1) / 2);\n  padding-inline: var(--cu-space-2);\n  border-radius: var(--cu-radius-md);\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n}\n\n.cu-multi-select__chip-remove {\n  border: 0;\n  padding: 0;\n  background: transparent;\n  color: inherit;\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-multi-select__trigger {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  inline-size: 100%;\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-multi-select__trigger:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-multi-select__listbox {\n  position: absolute;\n  z-index: 1;\n  inset-inline: 0;\n  margin: var(--cu-space-1) 0 0;\n  padding: var(--cu-space-1);\n  list-style: none;\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-default);\n  max-block-size: calc(var(--cu-space-3) * 16);\n  overflow-y: auto;\n}\n\n.cu-multi-select__option {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border-radius: var(--cu-radius-sm);\n  cursor: pointer;\n}\n\n.cu-multi-select__option[aria-selected='true'] {\n  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));\n}\n\n.cu-multi-select__option:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n}\n\n.cu-multi-select__check {\n  inline-size: var(--cu-space-2);\n}\n"
+    }
+  ]
+}

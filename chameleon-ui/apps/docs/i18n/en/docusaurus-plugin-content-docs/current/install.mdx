@@ -1,0 +1,73 @@
+---
+id: install
+title: Install
+sidebar_label: Install
+description: CLI CTA over install-core. The docs site never writes disk.
+---
+
+import InstallBlock from '@site/src/components/InstallBlock'
+
+Use the CLI or MCP. Both call **install-core**. There is no third installer on this site.
+
+<InstallBlock slug="button" />
+
+Packages are publish-ready (MIT, `publishConfig.access=public`) at version 0.0.0. This repo does not npm publish until maintainers freeze v0.1.0.
+
+```
+chameleon add button
+chameleon add input
+```
+
+The copy button only puts that command on the clipboard. Docs never writes files.
+
+## Theme CSS
+
+Preferred:
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+```
+
+`@chameleon-ui/themes/dist/cupertino/variables.css` and `@chameleon-ui/tokens/dist/css/variables.css` are also in package `exports` (`./dist/*`) and resolve to the same files. Do not use an unexported path.
+
+## Local npm link (before publish)
+
+Packages stay at `0.0.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components`. Linking only `components` fails.
+
+```bash
+cd chameleon-ui
+node ./scripts/link-external.mjs --apply
+# in the external app:
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+```
+
+Publish plan: first git tag `v0.1.0` (owner 待指定). `pnpm publish -r` rewrites `workspace:*` to versions. Until then, do not assume `npm install @chameleon-ui/components` works from the public registry.
+
+## External app (not a pnpm workspace)
+
+Copy this into an **npm / yarn / standalone Vite** app. Never put `"workspace:*"` in the consumer `package.json`. Agents must read `chameleon-ui/AGENTS.md` and call MCP `get_import_specifiers` before writing imports.
+
+```tsx
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+import { Alert, Button, Card } from "@chameleon-ui/components";
+
+export function App() {
+  return (
+    <Card>
+      <Alert status="info" title="Linked" description="Chameleon UI is on the graph." />
+      <Button variant="solid">OK</Button>
+    </Card>
+  );
+}
+```
+
+CSS must be `@chameleon-ui/themes/cupertino/css`. Do not use the unexported `@chameleon-ui/themes/cupertino/variables.css`. The `dist/` alias works; it is not preferred.
+
+## Environment
+
+Node **≥ 20.19**, pnpm **9.15.0**. Publishable packages declare `engines.node`.
+

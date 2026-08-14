@@ -1,0 +1,364 @@
+{
+  "generatedAt": "2026-08-13",
+  "method": "css-token-computation+static-scan",
+  "lighthouse": false,
+  "rootFontPx": 16,
+  "requiredPx": 44,
+  "tokens": {
+    "css": {
+      "--cu-touch-target-min": "2.75rem",
+      "--cu-control-size-comfortable": "2.75rem",
+      "--cu-control-size-active": "2.5rem"
+    },
+    "json": {
+      "touch-target.min": "2.75rem"
+    },
+    "touchTargetMinPx": 44,
+    "controlComfortablePx": 44,
+    "controlActiveDefaultPx": 40,
+    "controlActiveMobilePx": 44,
+    "densityCssMentionsActive": true
+  },
+  "coverage": {
+    "listed": 15,
+    "scanned": 15
+  },
+  "components": [
+    {
+      "slug": "action-sheet",
+      "kind": "new",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": true,
+      "usesControlActive": false,
+      "minPx": 44,
+      "declCount": 2,
+      "decls": [
+        {
+          "file": "packages/components/src/action-sheet/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components/src/action-sheet/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        }
+      ]
+    },
+    {
+      "slug": "tab-bar",
+      "kind": "new",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": true,
+      "usesControlActive": false,
+      "minPx": 44,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/tab-bar/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        }
+      ]
+    },
+    {
+      "slug": "safe-area",
+      "kind": "new",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 0,
+      "decls": []
+    },
+    {
+      "slug": "sidebar",
+      "kind": "new",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": true,
+      "usesControlActive": false,
+      "minPx": 44,
+      "declCount": 3,
+      "decls": [
+        {
+          "file": "packages/components/src/sidebar/styles.css",
+          "property": "min-block-size",
+          "raw": "100%",
+          "px": null,
+          "source": "100%"
+        },
+        {
+          "file": "packages/components/src/sidebar/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components/src/sidebar/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        }
+      ]
+    },
+    {
+      "slug": "checkbox",
+      "kind": "改造",
+      "status": "below-floor",
+      "reason": "min computed tap 36px < 44px (token floor is 44px @ 16px root)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "minPx": 36,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/checkbox/styles.css",
+          "property": "min-block-size",
+          "raw": "2.25rem",
+          "px": 36,
+          "source": "2.25rem"
+        }
+      ]
+    },
+    {
+      "slug": "app-shell",
+      "kind": "改造",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 2,
+      "decls": [
+        {
+          "file": "packages/components/src/app-shell/styles.css",
+          "property": "min-block-size",
+          "raw": "100vh",
+          "px": null,
+          "source": "100vh"
+        },
+        {
+          "file": "packages/components/src/app-shell/styles.css",
+          "property": "min-block-size",
+          "raw": "100vh",
+          "px": null,
+          "source": "100vh"
+        }
+      ]
+    },
+    {
+      "slug": "dialog",
+      "kind": "改造",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 0,
+      "decls": []
+    },
+    {
+      "slug": "select",
+      "kind": "改造",
+      "status": "below-floor",
+      "reason": "min computed tap 36px < 44px (token floor is 44px @ 16px root)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "minPx": 36,
+      "declCount": 3,
+      "decls": [
+        {
+          "file": "packages/components/src/select/styles.css",
+          "property": "min-inline-size",
+          "raw": "10rem",
+          "px": 160,
+          "source": "10rem"
+        },
+        {
+          "file": "packages/components/src/select/styles.css",
+          "property": "min-block-size",
+          "raw": "2.75rem",
+          "px": 44,
+          "source": "2.75rem"
+        },
+        {
+          "file": "packages/components/src/select/styles.css",
+          "property": "min-block-size",
+          "raw": "2.25rem",
+          "px": 36,
+          "source": "2.25rem"
+        }
+      ]
+    },
+    {
+      "slug": "switch",
+      "kind": "改造",
+      "status": "below-floor",
+      "reason": "min computed tap 36px < 44px (token floor is 44px @ 16px root)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "minPx": 36,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/switch/styles.css",
+          "property": "min-block-size",
+          "raw": "2.25rem",
+          "px": 36,
+          "source": "2.25rem"
+        }
+      ]
+    },
+    {
+      "slug": "button",
+      "kind": "改造",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": true,
+      "usesControlActive": true,
+      "minPx": 44,
+      "declCount": 3,
+      "decls": [
+        {
+          "file": "packages/components/src/button/styles.css",
+          "property": "min-inline-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components/src/button/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components/src/button/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-control-size-active)",
+          "px": 44,
+          "source": "var(--cu-control-size-active)"
+        }
+      ]
+    },
+    {
+      "slug": "table",
+      "kind": "改造",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/table/styles.css",
+          "property": "min-inline-size",
+          "raw": "100%",
+          "px": null,
+          "source": "100%"
+        }
+      ]
+    },
+    {
+      "slug": "radio",
+      "kind": "改造",
+      "status": "below-floor",
+      "reason": "min computed tap 36px < 44px (token floor is 44px @ 16px root)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "minPx": 36,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/radio/styles.css",
+          "property": "min-block-size",
+          "raw": "2.25rem",
+          "px": 36,
+          "source": "2.25rem"
+        }
+      ]
+    },
+    {
+      "slug": "spinner",
+      "kind": "改造",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 0,
+      "decls": []
+    },
+    {
+      "slug": "tabs",
+      "kind": "改造",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "minPx": 44,
+      "declCount": 1,
+      "decls": [
+        {
+          "file": "packages/components/src/tabs/styles.css",
+          "property": "min-block-size",
+          "raw": "2.75rem",
+          "px": 44,
+          "source": "2.75rem"
+        }
+      ]
+    },
+    {
+      "slug": "skeleton",
+      "kind": "改造",
+      "status": "n/a",
+      "reason": "no rem/px/token min tap size (layout wrapper or non-interactive)",
+      "usesTouchToken": false,
+      "usesControlActive": false,
+      "declCount": 0,
+      "decls": []
+    },
+    {
+      "slug": "button (vue)",
+      "kind": "改造-vue",
+      "status": "pass",
+      "reason": "min computed tap 44px >= 44px",
+      "usesTouchToken": true,
+      "usesControlActive": true,
+      "minPx": 44,
+      "declCount": 3,
+      "decls": [
+        {
+          "file": "packages/components-vue/src/button/styles.css",
+          "property": "min-inline-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components-vue/src/button/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-touch-target-min)",
+          "px": 44,
+          "source": "var(--cu-touch-target-min)"
+        },
+        {
+          "file": "packages/components-vue/src/button/styles.css",
+          "property": "min-block-size",
+          "raw": "var(--cu-control-size-active)",
+          "px": 44,
+          "source": "var(--cu-control-size-active)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "button": {
+    "submit": "Gửi",
+    "cancel": "Hủy",
+    "count": "{count, plural, =0 {Chưa hoàn thành thao tác nào} other {Đã hoàn thành # thao tác}}"
+  }
+}

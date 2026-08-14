@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://chameleon-ui.dev/schemas/component-contract/v0.1.json",
-  "title": "Chameleon UI Component Contract v0.1",
-  "description": "Machine-readable semantic contract generated from a component source directory.",
+  "$id": "https://chameleon-ui.dev/schemas/component-contract/v0.2.json",
+  "title": "Chameleon UI Component Contract v0.2",
+  "description": "Machine-readable semantic contract generated from a component source directory. v0.2 registers the project key names as canonical (see docs/ai/component-contract-v0.2-mapping.md) and makes dataAi.state/intent vocabulary mandatory.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -20,15 +20,21 @@
     "a11y",
     "responsive",
     "platforms",
-    "rtl"
+    "rtl",
+    "dataAi"
   ],
   "properties": {
     "schemaVersion": {
-      "const": "0.1",
+      "const": "0.2",
       "description": "Schema version, independent from the component package version."
     },
     "slug": { "$ref": "#/$defs/slug" },
     "name": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "family": {
+      "type": "string",
+      "enum": ["A", "B", "C", "D", "E", "F", "G", "H"],
+      "description": "Component family per vision v3.0 section 7.2; required on Phase 6+ additions, optional on earlier contracts."
+    },
     "status": {
       "type": "string",
       "enum": ["draft", "experimental", "stable", "deprecated"]
@@ -226,14 +232,24 @@
       }
     },
     "dataAi": {
-      "description": "Optional static Agent-readable markers; this does not emit telemetry.",
+      "description": "Static Agent-readable markers mirrored to data-ai-* DOM attributes; this does not emit telemetry. v0.2: role/states/intents are all required; intents must be registered in docs/ai/data-ai-vocabulary.md.",
       "type": "object",
       "additionalProperties": false,
-      "required": ["role"],
+      "required": ["role", "states", "intents"],
       "properties": {
         "role": { "$ref": "#/$defs/slug" },
-        "states": { "$ref": "#/$defs/stringList" },
-        "intents": { "$ref": "#/$defs/stringList" }
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+        },
+        "intents": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 120 }
+        }
       }
     },
     "telemetry": {

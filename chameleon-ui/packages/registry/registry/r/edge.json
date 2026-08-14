@@ -1,0 +1,108 @@
+{
+  "id": "edge",
+  "type": "registry:ui",
+  "name": "Edge",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/edge/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"edge\",\n  \"name\": \"Edge\",\n  \"family\": \"G\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Draws a connection line between two canvas points with an optional label.\",\n  \"scenarios\": [\n    \"Link two flow nodes\",\n    \"Show dependency direction\",\n    \"Annotate a connection\"\n  ],\n  \"props\": {\n    \"x1\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Start x in world px.\"\n    },\n    \"y1\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Start y in world px.\"\n    },\n    \"x2\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"End x in world px.\"\n    },\n    \"y2\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"End y in world px.\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Path shape.\",\n      \"values\": [\n        \"bezier\",\n        \"straight\"\n      ],\n      \"default\": \"bezier\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Text rendered at the path midpoint.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"bezier\",\n        \"straight\"\n      ],\n      \"default\": \"bezier\",\n      \"description\": \"Path shape.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Edge rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"canvas\",\n      \"mind-map\",\n      \"graph-view\",\n      \"pipeline-view\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": [\n      \"canvas\"\n    ]\n  },\n  \"antiPatterns\": [\n    \"Do not use edges for decorative dividers.\",\n    \"Do not draw edges without both endpoints resolved.\"\n  ],\n  \"a11y\": {\n    \"role\": \"img\",\n    \"keyboard\": [],\n    \"focus\": \"Not focusable; relationships are described by node labels.\",\n    \"labeling\": \"Optional midpoint label is real text.\",\n    \"wcag\": [\n      \"1.1.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Vector path scales with the canvas zoom.\",\n    \"breakpoints\": {\n      \"compact\": \"Scales with zoom.\",\n      \"medium\": \"Scales with zoom.\",\n      \"large\": \"Scales with zoom.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Direction inherits from document lang/dir.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"edge\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"connect-nodes\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/Edge.tsx",
+      "content": "import './styles.css'\n\nexport interface EdgeProps {\n  x1: number\n  y1: number\n  x2: number\n  y2: number\n  variant?: 'bezier' | 'straight'\n  label?: string\n  className?: string\n}\n\nexport function Edge({ x1, y1, x2, y2, variant = 'bezier', label, className }: EdgeProps) {\n  const classes = ['cu-edge', className].filter(Boolean).join(' ')\n  const left = Math.min(x1, x2)\n  const top = Math.min(y1, y2)\n  const width = Math.max(1, Math.abs(x2 - x1))\n  const height = Math.max(1, Math.abs(y2 - y1))\n  const sx = x1 - left\n  const sy = y1 - top\n  const ex = x2 - left\n  const ey = y2 - top\n  const path =\n    variant === 'straight'\n      ? `M ${sx} ${sy} L ${ex} ${ey}`\n      : `M ${sx} ${sy} C ${sx + (ex - sx) / 2} ${sy}, ${sx + (ex - sx) / 2} ${ey}, ${ex} ${ey}`\n\n  return (\n    <svg\n      className={classes}\n      data-ai-role=\"edge\" data-ai-intent=\"connect-nodes\"\n      data-ai-state=\"default\"\n      style={{ insetInlineStart: left, insetBlockStart: top }}\n      width={width}\n      height={height}\n      viewBox={`0 0 ${width} ${height}`}\n      role=\"img\"\n      aria-label={label}\n      aria-hidden={label ? undefined : true}\n    >\n      <path className=\"cu-edge__path\" d={path} />\n      {label ? (\n        <text className=\"cu-edge__label\" x={width / 2} y={height / 2} textAnchor=\"middle\">\n          {label}\n        </text>\n      ) : null}\n    </svg>\n  )\n}\n"
+    },
+    {
+      "path": "components/edge/index.ts",
+      "content": "export { Edge } from './Edge.js'\nexport type { EdgeProps } from './Edge.js'\n"
+    },
+    {
+      "path": "components/edge/locales/am.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ar.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"حافة\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/bn.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/de.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Verbindungskante\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/en.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/es.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/fa.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/fr.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ha.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/hi.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/id.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ja.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ko.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/pt.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ru.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/sw.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ug.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/ur.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/vi.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/zh-CN.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"连线\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/locales/zh-HK.json",
+      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+    },
+    {
+      "path": "components/edge/styles.css",
+      "content": ".cu-edge {\n  position: absolute;\n  overflow: visible;\n  pointer-events: none;\n}\n\n.cu-edge__path {\n  fill: none;\n  stroke: var(--cu-color-border-default);\n  stroke-width: 2;\n}\n\n.cu-edge__label {\n  fill: var(--cu-color-fg-default);\n  font-size: 0.75rem;\n}\n"
+    }
+  ]
+}

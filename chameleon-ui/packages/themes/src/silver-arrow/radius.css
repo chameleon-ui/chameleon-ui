@@ -1,0 +1,40 @@
+/* Silver Arrow — taut 0/2/4px. Interactive = 0 (sharp), surfaces = lg. No pills. */
+:root .cu-button,
+:root .cu-badge,
+:root .cu-input,
+:root .cu-textarea,
+:root .cu-select__trigger,
+:root .cu-navbar__item,
+:root .cu-tag,
+:root .cu-search-bar__clear,
+:root .cu-search-bar__submit,
+:root .cu-checkbox,
+:root .cu-switch__control,
+:root .cu-switch__thumb {
+  border-radius: var(--cu-radius-interactive);
+}
+
+:root .cu-card,
+:root .cu-alert,
+:root .cu-toast,
+:root .cu-popover__content,
+:root .cu-notification,
+:root .cu-code-block,
+:root .cu-data-grid,
+:root .cu-table {
+  border-radius: var(--cu-radius-surface);
+}
+
+:root .cu-dialog__content {
+  border-radius: var(--cu-radius-md);
+  border-start-start-radius: var(--cu-radius-md);
+  border-start-end-radius: var(--cu-radius-md);
+  border-end-start-radius: var(--cu-radius-md);
+  border-end-end-radius: var(--cu-radius-md);
+}
+
+:root .cu-button,
+:root .cu-badge,
+:root .cu-tag {
+  border-radius: var(--cu-radius-sm);
+}

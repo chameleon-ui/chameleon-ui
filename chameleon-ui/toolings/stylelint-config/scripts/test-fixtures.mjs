@@ -27,4 +27,13 @@ for (const expected of [
 }
 assert.match(bad.diagnostics.join("\n"), /bad\.css:\d+:\d+/);
 
+// Phase 5: breakpoint literals in component CSS are rejected with guidance.
+const badText = bad.diagnostics.join("\n");
+assert.ok(
+  (badText.match(/no-breakpoint-literal/g) ?? []).length === 3,
+  `bad.css must produce exactly 3 breakpoint-literal diagnostics, got:\n${badText}`,
+);
+assert.match(badText, /@container/);
+assert.match(badText, /breakpoint\.tablet/);
+
 console.log("[@chameleon-ui/stylelint-config] good fixture passed and bad fixture failed");

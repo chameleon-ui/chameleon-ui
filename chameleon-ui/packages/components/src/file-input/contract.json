@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "file-input",
+  "name": "FileInput",
+  "status": "experimental",
+  "purpose": "Allows a user to select a file from their device.",
+  "scenarios": [
+    "Upload a profile picture",
+    "Attach a document",
+    "Import a CSV file"
+  ],
+  "props": {
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Input label."
+    },
+    "accept": {
+      "type": "string",
+      "required": false,
+      "description": "Accepted MIME types or extensions."
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when files are selected."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "empty",
+      "description": "No file selected."
+    },
+    {
+      "name": "selected",
+      "description": "One or more files selected."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for drag-and-drop-only upload.",
+    "Do not read file contents without consent."
+  ],
+  "a11y": {
+    "role": "button",
+    "keyboard": [
+      "Tab focuses",
+      "Enter/Space opens file picker"
+    ],
+    "focus": "Input is focusable.",
+    "labeling": "Label identifies the input purpose.",
+    "wcag": [
+      "2.1.1",
+      "3.3.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Native input with styled label.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Inline or block.",
+      "large": "Inline or block."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "file-input",
+    "states": [
+      "empty",
+      "selected"
+    ],
+    "intents": [
+      "upload-file"
+    ]
+  }
+}

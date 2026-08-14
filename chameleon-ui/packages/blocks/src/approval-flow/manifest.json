@@ -1,0 +1,17 @@
+{
+  "slug": "approval-flow",
+  "type": "registry:block",
+  "name": "Approval flow",
+  "dependencies": ["card", "form", "radio", "result", "steps", "textarea", "typography"],
+  "theme": { "constraints": [] },
+  "rtl": true,
+  "platforms": {
+    "compact": true,
+    "medium": true,
+    "large": true
+  },
+  "preview": {
+    "width": 768,
+    "title": "Review, approve, or reject a request"
+  }
+}

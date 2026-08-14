@@ -1,0 +1,47 @@
+{
+  "version": "1.0",
+  "typography": {
+    "scale": "major-second",
+    "lineHeightBody": 1.5,
+    "fontFamilyToken": "font.family.sans",
+    "headingWeightToken": "font.weight.bold",
+    "tracking": "normal"
+  },
+  "spacing": {
+    "rhythm": 4,
+    "density": "compact",
+    "scale": {
+      "strategy": "rem-steps",
+      "steps": ["space.0", "space.1", "space.2"]
+    },
+    "radiusStrategy": {
+      "default": "radius.sm",
+      "interactive": "radius.sm",
+      "surface": "radius.md"
+    }
+  },
+  "colorBoundaries": {
+    "accentUsage": "primary-actions-only",
+    "surfaceLayers": ["color.background.default", "color.background.subtle"],
+    "disabledContrast": {
+      "minimumRatio": 4.5,
+      "foregroundToken": "color.fg.muted",
+      "backgroundToken": "color.background.default"
+    },
+    "gradientPolicy": "forbidden"
+  },
+  "forbiddenPatterns": ["color-only-state"],
+  "composition": {
+    "surfaceHierarchy": "border-over-elevation",
+    "preferredStacks": ["button", "input"],
+    "componentRules": {
+      "Button": { "minWidthPx": 88, "maxWidthPx": 320, "minTouchTargetPx": 44 }
+    }
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "logical-properties-only",
+    "mirroredIcons": ["arrow-back"],
+    "bidiIsolation": "required-for-user-content"
+  }
+}

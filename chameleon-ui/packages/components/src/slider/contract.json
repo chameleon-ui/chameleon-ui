@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "slider",
+  "name": "Slider",
+  "status": "experimental",
+  "purpose": "Selects a numeric value from a continuous range.",
+  "scenarios": [
+    "Set a volume level",
+    "Choose a price range",
+    "Adjust a rating threshold"
+  ],
+  "props": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "description": "Current value."
+    },
+    "min": {
+      "type": "number",
+      "required": false,
+      "description": "Minimum value.",
+      "default": 0
+    },
+    "max": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum value.",
+      "default": 100
+    },
+    "onChange": {
+      "type": "event",
+      "required": true,
+      "description": "Called when the value changes."
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the slider."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Slider rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "page",
+      "card"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for precise values without a text input fallback.",
+    "Do not omit a label."
+  ],
+  "a11y": {
+    "role": "slider",
+    "keyboard": [
+      "Arrow keys change value"
+    ],
+    "focus": "Slider is focusable.",
+    "labeling": "Label or aria-label provides the accessible name.",
+    "wcag": [
+      "4.1.2",
+      "2.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Full width input range.",
+    "breakpoints": {
+      "compact": "Full width.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Native input range inherits direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "slider",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "adjust-value"
+    ]
+  }
+}

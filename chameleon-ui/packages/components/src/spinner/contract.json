@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "spinner",
+  "name": "Spinner",
+  "status": "experimental",
+  "purpose": "Communicates that an operation is in progress without blocking the UI.",
+  "scenarios": [
+    "Show loading feedback while a form is submitted",
+    "Indicate that a remote list is refreshing",
+    "Reduce motion when the user prefers it"
+  ],
+  "props": {
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Visual size of the spinner.",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md"
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label describing the loading state.",
+      "default": "Loading"
+    }
+  },
+  "variants": [
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
+      "default": "md",
+      "description": "Visual size of the spinner."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Spinner is animated and announced."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "button",
+      "dialog",
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use as the only loading indicator for long operations without a status message.",
+    "Do not disable reduced-motion preferences."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Spinner is not focusable; it is announced via aria-live.",
+    "labeling": "An aria-label describes the loading state.",
+    "wcag": [
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Size is token-based; animation respects reduced-motion preferences.",
+    "breakpoints": {
+      "compact": "Hit target remains at least the sm size.",
+      "medium": "Default md size is used.",
+      "large": "Default md size is used."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Rotation animation is direction-neutral.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "spinner",
+    "states": [
+      "sm",
+      "md",
+      "lg"
+    ],
+    "intents": [
+      "indicate-busy"
+    ]
+  }
+}

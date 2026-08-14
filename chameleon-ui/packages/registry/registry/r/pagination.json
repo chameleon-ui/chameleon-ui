@@ -1,0 +1,108 @@
+{
+  "id": "pagination",
+  "type": "registry:ui",
+  "name": "Pagination",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/pagination/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"pagination\",\n  \"name\": \"Pagination\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Navigates across a set of pages.\",\n  \"scenarios\": [\n    \"Paginate search results\",\n    \"Paginate a data table\",\n    \"Navigate a long article\"\n  ],\n  \"props\": {\n    \"currentPage\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Active page (1-based).\"\n    },\n    \"totalPages\": {\n      \"type\": \"number\",\n      \"required\": true,\n      \"description\": \"Total number of pages.\"\n    },\n    \"onChange\": {\n      \"type\": \"event\",\n      \"required\": true,\n      \"description\": \"Called when a page is selected.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Pagination rendered.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"page\",\n      \"table\",\n      \"card\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for infinite scroll.\",\n    \"Do not hide focus indicators on page buttons.\"\n  ],\n  \"a11y\": {\n    \"role\": \"navigation\",\n    \"keyboard\": [\n      \"Tab moves through page buttons\",\n      \"Enter selects a page\"\n    ],\n    \"focus\": \"Page buttons are focusable.\",\n    \"labeling\": \"Labelled as Pagination.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"2.4.8\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Horizontal list of buttons.\",\n    \"breakpoints\": {\n      \"compact\": \"Compact spacing.\",\n      \"medium\": \"Normal spacing.\",\n      \"large\": \"Normal spacing.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only; previous/next labels are reversed by content not by code.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"pagination\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"navigate-pages\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/index.ts",
+      "content": "export { Pagination } from './Pagination.js'\nexport type { PaginationProps } from './Pagination.js'\n"
+    },
+    {
+      "path": "components/pagination/locales/am.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ar.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"ترقيم الصفحات\",\n    \"previous\": \"السابق\",\n    \"next\": \"التالي\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/bn.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/de.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Seitennummerierung\",\n    \"previous\": \"Vorherige Seite\",\n    \"next\": \"Weiter\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/en.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/es.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/fa.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/fr.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ha.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/hi.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/id.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ja.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ko.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/pt.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ru.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/sw.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ug.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/ur.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/vi.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/zh-CN.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"分页\",\n    \"previous\": \"上一页\",\n    \"next\": \"下一页\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/locales/zh-HK.json",
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+    },
+    {
+      "path": "components/pagination/Pagination.tsx",
+      "content": "import './styles.css'\n\nexport interface PaginationProps {\n  currentPage: number\n  totalPages: number\n  onChange: (page: number) => void\n  className?: string\n}\n\nexport function Pagination({ currentPage, totalPages, onChange, className }: PaginationProps) {\n  const classes = ['cu-pagination', className].filter(Boolean).join(' ')\n  const pages = Array.from({ length: totalPages }, (_, i) => i + 1)\n  return (\n    <nav aria-label=\"Pagination\" className={classes} data-ai-role=\"pagination\" data-ai-state=\"default\" data-ai-intent=\"navigate-pages\">\n      <div className=\"cu-pagination__list\">\n        <button\n          className=\"cu-pagination__button\"\n          disabled={currentPage <= 1}\n          onClick={() => onChange(currentPage - 1)}\n          type=\"button\"\n        >\n          Previous\n        </button>\n        {pages.map((page) => (\n          <button\n            aria-current={page === currentPage ? 'page' : undefined}\n            className={'cu-pagination__button' + (page === currentPage ? ' cu-pagination__button--current' : '')}\n            key={page}\n            onClick={() => onChange(page)}\n            type=\"button\"\n          >\n            {page}\n          </button>\n        ))}\n        <button\n          className=\"cu-pagination__button\"\n          disabled={currentPage >= totalPages}\n          onClick={() => onChange(currentPage + 1)}\n          type=\"button\"\n        >\n          Next\n        </button>\n      </div>\n    </nav>\n  )\n}\n"
+    },
+    {
+      "path": "components/pagination/styles.css",
+      "content": ".cu-pagination {\n  font-size: 0.875rem;\n}\n\n.cu-pagination__list {\n  display: flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n}\n\n.cu-pagination__button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-inline-size: 2.25rem;\n  min-block-size: 2.25rem;\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  border: 1px solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-sm);\n  background: var(--cu-color-background-default);\n  color: var(--cu-color-fg-default);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-pagination__button:disabled {\n  cursor: not-allowed;\n  opacity: 0.5;\n}\n\n.cu-pagination__button--current {\n  border-color: var(--cu-color-palette-brand);\n  color: var(--cu-color-palette-brand);\n  font-weight: 700;\n}\n\n.cu-pagination__button:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+.cu-code-block {
+  display: block;
+  margin: 0;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-inverse);
+  color: var(--cu-color-fg-inverse);
+  overflow: hidden;
+}
+
+.cu-code-block__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-3);
+  border-block-end: 1px solid color-mix(in srgb, var(--cu-color-fg-inverse) 18%, transparent);
+  font-size: 0.75em;
+}
+
+.cu-code-block__copy {
+  border: 1px solid color-mix(in srgb, var(--cu-color-fg-inverse) 32%, transparent);
+  border-radius: var(--cu-radius-sm);
+  padding-block: calc(var(--cu-space-1) / 2);
+  padding-inline: var(--cu-space-2);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-code-block__copy:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-code-block__pre {
+  margin: 0;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  overflow-x: auto;
+  font-family: monospace;
+  font-size: 0.875em;
+}
+
+.cu-code-block__token--keyword {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 75%, var(--cu-color-fg-inverse));
+}
+
+.cu-code-block__token--string {
+  color: var(--cu-color-fg-inverse);
+}
+
+.cu-code-block__token--number {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 45%, var(--cu-color-fg-inverse));
+}
+
+.cu-code-block__token--comment {
+  color: color-mix(in srgb, var(--cu-color-fg-inverse) 56%, transparent);
+  font-style: italic;
+}

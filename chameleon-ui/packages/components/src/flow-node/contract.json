@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "flow-node",
+  "name": "FlowNode",
+  "family": "G",
+  "status": "experimental",
+  "purpose": "A positioned node card for flow diagrams with input and output ports.",
+  "scenarios": [
+    "Step in a workflow canvas",
+    "Task in an automation graph",
+    "State in a state machine view"
+  ],
+  "props": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "description": "Stable node id."
+    },
+    "x": {
+      "type": "number",
+      "required": true,
+      "description": "World x position in px."
+    },
+    "y": {
+      "type": "number",
+      "required": true,
+      "description": "World y position in px."
+    },
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Node headline."
+    },
+    "status": {
+      "type": "enum",
+      "required": false,
+      "description": "Node status tone.",
+      "values": [
+        "default",
+        "active",
+        "success",
+        "failed"
+      ],
+      "default": "default"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "status",
+      "values": [
+        "default",
+        "active",
+        "success",
+        "failed"
+      ],
+      "default": "default",
+      "description": "Node status tone."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Node rendered at its position."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "canvas",
+      "mind-map",
+      "pipeline-view"
+    ],
+    "allowedChildren": [
+      "text",
+      "badge",
+      "icon"
+    ],
+    "requiredContext": [
+      "canvas"
+    ]
+  },
+  "antiPatterns": [
+    "Do not position flow nodes with physical left/right CSS.",
+    "Do not render a flow node outside a canvas context."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [],
+    "focus": "Node is focusable when it carries actions.",
+    "labeling": "Title labels the node; status has a text equivalent.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fixed world size; scales with the canvas zoom.",
+    "breakpoints": {
+      "compact": "Scales with zoom.",
+      "medium": "Scales with zoom.",
+      "large": "Scales with zoom."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "planned"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "flow-node",
+    "states": [
+      "default",
+      "active",
+      "success",
+      "failed"
+    ],
+    "intents": [
+      "group-content"
+    ]
+  }
+}

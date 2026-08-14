@@ -1,0 +1,7 @@
+{
+  "upload": {
+    "label": "Hochladen",
+    "dropzone": "Dateien hierher ziehen",
+    "browse": "Dateien durchsuchen"
+  }
+}

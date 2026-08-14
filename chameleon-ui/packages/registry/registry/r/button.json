@@ -1,0 +1,108 @@
+{
+  "id": "button",
+  "type": "registry:ui",
+  "name": "Button",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/button/Button.tsx",
+      "content": "import { ButtonPrimitive } from '@chameleon-ui/primitives'\nimport type { ButtonPrimitiveProps } from '@chameleon-ui/primitives'\nimport './styles.css'\n\nexport interface ButtonProps extends Omit<ButtonPrimitiveProps, 'className'> {\n  variant?: 'solid' | 'outline'\n  size?: 'sm' | 'md'\n  className?: string\n}\n\nexport function Button({\n  variant = 'solid',\n  size = 'md',\n  className,\n  type = 'button',\n  disabled,\n  ...props\n}: ButtonProps) {\n  const classes = ['cu-button', `cu-button--${variant}`, `cu-button--${size}`, className]\n    .filter(Boolean)\n    .join(' ')\n\n  return (\n    <ButtonPrimitive\n      className={classes}\n      data-ai-role=\"button\" data-ai-intent=\"submit\"\n      data-ai-state={disabled ? 'disabled' : 'default'}\n      data-size={size}\n      data-variant={variant}\n      disabled={disabled}\n      type={type}\n      {...props}\n    />\n  )\n}\n"
+    },
+    {
+      "path": "components/button/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"button\",\n  \"name\": \"Button\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Triggers a user-initiated action with a clear accessible name.\",\n  \"scenarios\": [\n    \"Submit a form\",\n    \"Open a dialog\",\n    \"Confirm or cancel a reversible action\"\n  ],\n  \"props\": {\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Prevents interaction while preserving semantic disabled state.\",\n      \"default\": false\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Visual emphasis without changing button semantics.\",\n      \"values\": [\n        \"solid\",\n        \"outline\"\n      ],\n      \"default\": \"solid\"\n    },\n    \"size\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Density control. Compact viewports keep a 44px target.\",\n      \"values\": [\n        \"sm\",\n        \"md\"\n      ],\n      \"default\": \"md\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"solid\",\n        \"outline\"\n      ],\n      \"default\": \"solid\",\n      \"description\": \"Controls visual emphasis without changing semantics.\"\n    },\n    {\n      \"name\": \"size\",\n      \"values\": [\n        \"sm\",\n        \"md\"\n      ],\n      \"default\": \"md\",\n      \"description\": \"Controls density while retaining the target-size requirement.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Enabled and idle.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Unavailable for interaction.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"form\",\n      \"dialog\",\n      \"toolbar\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"icon\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not use for navigation when a semantic link is appropriate.\",\n    \"Do not hide the accessible name behind an unlabeled icon.\"\n  ],\n  \"a11y\": {\n    \"role\": \"button\",\n    \"keyboard\": [\n      \"Tab focuses\",\n      \"Enter activates\",\n      \"Space activates\"\n    ],\n    \"focus\": \"Shows a visible focus indicator and remains in document order.\",\n    \"labeling\": \"Has visible text or an explicit accessible name.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"2.4.7\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Keep behavior stable. Compact viewports enforce a 44px minimum target even for size=sm.\",\n    \"breakpoints\": {\n      \"compact\": \"Minimum target 44px in both axes.\",\n      \"medium\": \"Uses content width; sm may be denser.\",\n      \"large\": \"Uses content width; sm may be denser.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"planned\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS only. Do not mirror label text or symmetric icons.\",\n    \"mirroredValues\": [\n      \"directional-icon\"\n    ]\n  },\n  \"dataAi\": {\n    \"role\": \"button\",\n    \"states\": [\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"submit\",\n      \"confirm\",\n      \"cancel\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/button/index.ts",
+      "content": "export { Button } from './Button.js'\nexport type { ButtonProps } from './Button.js'\n"
+    },
+    {
+      "path": "components/button/locales/am.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"አስገባ\",\n    \"cancel\": \"ሰርዝ\",\n    \"count\": \"{count, plural, =0 {ምንም እርምጃ አልተጠናቀቀም} one {# እርምጃ ተጠናቋል} other {# እርምጃዎች ተጠናቀዋል}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ar.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"إرسال\",\n    \"cancel\": \"إلغاء\",\n    \"count\": \"{count, plural, =0 {لم تكتمل أي إجراءات} one {اكتمل إجراء واحد} two {اكتمل إجراءان} few {اكتملت # إجراءات} many {اكتمل # إجراءً} other {اكتملت # إجراء}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/bn.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"জমা দিন\",\n    \"cancel\": \"বাতিল\",\n    \"count\": \"{count, plural, =0 {কোনো কাজ সম্পন্ন হয়নি} one {#টি কাজ সম্পন্ন হয়েছে} other {#টি কাজ সম্পন্ন হয়েছে}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/de.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Jetzt absenden\",\n    \"cancel\": \"Vorgang abbrechen\",\n    \"count\": \"{count, plural, =0 {Es wurden noch keine Aktionen abgeschlossen} one {# Aktion wurde abgeschlossen} other {# Aktionen wurden abgeschlossen}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/en.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Submit\",\n    \"cancel\": \"Cancel\",\n    \"count\": \"{count, plural, =0 {No actions completed} one {# action completed} other {# actions completed}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/es.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Enviar\",\n    \"cancel\": \"Cancelar\",\n    \"count\": \"{count, plural, =0 {No se completaron acciones} one {Se completó # acción} other {Se completaron # acciones}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/fa.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"ارسال\",\n    \"cancel\": \"لغو\",\n    \"count\": \"{count, plural, =0 {هیچ اقدامی تکمیل نشد} one {# اقدام تکمیل شد} other {# اقدام تکمیل شد}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/fr.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Envoyer\",\n    \"cancel\": \"Annuler\",\n    \"count\": \"{count, plural, =0 {Aucune action terminée} one {# action terminée} other {# actions terminées}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ha.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Aika\",\n    \"cancel\": \"Soke\",\n    \"count\": \"{count, plural, =0 {Babu ayyukan da aka kammala} one {An kammala aiki #} other {An kammala ayyuka #}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/hi.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"जमा करें\",\n    \"cancel\": \"रद्द करें\",\n    \"count\": \"{count, plural, =0 {कोई कार्रवाई पूरी नहीं हुई} one {# कार्रवाई पूरी हुई} other {# कार्रवाइयाँ पूरी हुईं}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/id.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Kirim\",\n    \"cancel\": \"Batal\",\n    \"count\": \"{count, plural, =0 {Tidak ada tindakan yang selesai} other {# tindakan selesai}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ja.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"送信\",\n    \"cancel\": \"キャンセル\",\n    \"count\": \"{count, plural, =0 {操作は完了していません} other {# 件の操作が完了しました}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ko.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"제출\",\n    \"cancel\": \"취소\",\n    \"count\": \"{count, plural, =0 {완료된 작업이 없습니다} other {#개의 작업이 완료되었습니다}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/pt.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Enviar\",\n    \"cancel\": \"Cancelar\",\n    \"count\": \"{count, plural, =0 {Nenhuma ação concluída} one {# ação concluída} other {# ações concluídas}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ru.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Отправить\",\n    \"cancel\": \"Отмена\",\n    \"count\": \"{count, plural, =0 {Действия не выполнены} one {Выполнено # действие} few {Выполнено # действия} many {Выполнено # действий} other {Выполнено # действия}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/sw.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Wasilisha\",\n    \"cancel\": \"Ghairi\",\n    \"count\": \"{count, plural, =0 {Hakuna vitendo vilivyokamilika} one {Kitendo # kimekamilika} other {Vitendo # vimekamilika}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ug.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"يوللاش\",\n    \"cancel\": \"بىكار قىلىش\",\n    \"count\": \"{count, plural, =0 {ھېچقانداق مەشغۇلات تاماملانمىدى} one {# مەشغۇلات تاماملاندى} other {# مەشغۇلات تاماملاندى}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/ur.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"جمع کرائیں\",\n    \"cancel\": \"منسوخ\",\n    \"count\": \"{count, plural, =0 {کوئی کارروائی مکمل نہیں ہوئی} one {# کارروائی مکمل ہوئی} other {# کارروائیاں مکمل ہوئیں}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/vi.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"Gửi\",\n    \"cancel\": \"Hủy\",\n    \"count\": \"{count, plural, =0 {Chưa hoàn thành thao tác nào} other {Đã hoàn thành # thao tác}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/zh-CN.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"提交\",\n    \"cancel\": \"取消\",\n    \"count\": \"{count, plural, =0 {尚未完成任何操作} other {已完成 # 个操作}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/locales/zh-HK.json",
+      "content": "{\n  \"button\": {\n    \"submit\": \"提交\",\n    \"cancel\": \"取消\",\n    \"count\": \"{count, plural, =0 {尚未完成任何操作} other {已完成 # 個操作}}\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button/styles.css",
+      "content": ".cu-button {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  min-inline-size: var(--cu-touch-target-min);\n  min-block-size: var(--cu-touch-target-min);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: var(--cu-border-width-default, 1px) solid transparent;\n  border-radius: var(--cu-radius-md);\n  font: inherit;\n  font-weight: 650;\n  cursor: pointer;\n  transition:\n    background-color var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease),\n    border-color var(--cu-motion-duration-fast, 140ms) var(--cu-motion-easing-standard, ease);\n}\n\n.cu-button:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 3px;\n}\n\n.cu-button--solid {\n  color: var(--cu-color-fg-inverse);\n  background: var(--cu-color-palette-brand);\n}\n\n.cu-button--outline {\n  border-color: var(--cu-color-border-default);\n  color: var(--cu-color-fg-default);\n  background: transparent;\n}\n\n/* Hover states are gated so touch input never sticks in a hover style. */\n@media (hover: hover) {\n  .cu-button--solid:hover:not(:disabled) {\n    background: color-mix(in srgb, var(--cu-color-palette-brand) 80%, var(--cu-color-fg-default));\n  }\n\n  .cu-button--outline:hover:not(:disabled) {\n    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));\n  }\n}\n\n/*\n * Small button height follows the active density rung instead of a hardcoded\n * viewport query: mobile (comfortable) resolves to 2.75rem (>=44px touch),\n * desktop (compact) to 2.25rem. See @chameleon-ui/tokens dist/css/density.css.\n */\n.cu-button--sm {\n  min-block-size: var(--cu-control-size-active);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  font-size: 0.875rem;\n}\n\n.cu-button:disabled {\n  cursor: not-allowed;\n  opacity: 0.55;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-button {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

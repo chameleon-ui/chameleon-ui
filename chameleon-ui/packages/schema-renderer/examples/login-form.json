@@ -1,0 +1,30 @@
+{
+  "$schema": "https://chameleon-ui.dev/schemas/ui-render/v1.0.json",
+  "version": "1.0",
+  "root": {
+    "component": "card",
+    "props": { "variant": "outlined", "padding": "lg" },
+    "children": [
+      { "component": "heading", "props": { "level": "level-2" }, "children": ["Sign in"] },
+      {
+        "component": "stack",
+        "props": { "direction": "column", "gap": "2" },
+        "children": [
+          {
+            "component": "input",
+            "props": { "label": "Email", "value": "", "type": "email" }
+          },
+          {
+            "component": "input",
+            "props": { "label": "Password", "value": "", "type": "password" }
+          },
+          {
+            "component": "button",
+            "props": { "variant": "solid" },
+            "children": ["Continue"]
+          }
+        ]
+      }
+    ]
+  }
+}
