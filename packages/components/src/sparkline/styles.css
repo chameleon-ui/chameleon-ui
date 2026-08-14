@@ -1,6 +1,7 @@
 .cu-sparkline {
   display: inline-block;
   vertical-align: middle;
+  contain: strict;
 }
 
 .cu-sparkline__line {

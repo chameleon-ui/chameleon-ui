@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 import { createCatalog, directionForLocale, requireMessage } from '@chameleon-ui/i18n'
 import { DataGrid, computeWindow } from './DataGrid.js'
@@ -12,28 +12,62 @@ const columns = [
 
 const rows = Array.from({ length: 10_000 }, (_, index) => ({ id: index, name: `Row ${index}` }))
 
+async function flushFrame() {
+  await act(async () => {
+    await new Promise<void>((resolve) => {
+      requestAnimationFrame(() => resolve())
+    })
+  })
+}
+
 describe('DataGrid', () => {
   it('renders only a window of 10k rows', () => {
     render(<DataGrid columns={columns} rows={rows} label="Logs" height={360} rowHeight={36} />)
     const grid = screen.getByRole('grid', { name: 'Logs' })
     expect(grid).toHaveAttribute('aria-rowcount', '10001')
     expect(grid.closest('.cu-data-grid')).toHaveAttribute('data-ai-role', 'data-grid')
-    // ~10 viewport rows + overscan + header, never 10k DOM rows.
     const rendered = screen.getAllByRole('row').length
     expect(rendered).toBeLessThan(40)
     expect(screen.getByText('Row 0')).toBeInTheDocument()
     expect(screen.queryByText('Row 5000')).toBeNull()
   })
 
-  it('scrolls the window to later rows', () => {
+  it('scrolls the window to later rows', async () => {
     render(<DataGrid columns={columns} rows={rows} label="Logs" height={360} rowHeight={36} />)
     const viewport = document.querySelector('.cu-data-grid__viewport') as HTMLElement
     viewport.scrollTop = 36 * 500
     fireEvent.scroll(viewport)
+    await flushFrame()
     expect(screen.getByText('Row 500')).toBeInTheDocument()
     expect(screen.queryByText('Row 0')).toBeNull()
     const row = screen.getByText('Row 500').closest('[role="row"]')
     expect(row).toHaveAttribute('aria-rowindex', '502')
+  })
+
+  it('does not rebuild the row window for sub-row scroll deltas', async () => {
+    render(<DataGrid columns={columns} rows={rows} label="Logs" height={360} rowHeight={36} />)
+    const viewport = document.querySelector('.cu-data-grid__viewport') as HTMLElement
+    viewport.scrollTop = 1
+    fireEvent.scroll(viewport)
+    await flushFrame()
+    const afterSettle = screen.getAllByRole('row').length
+    viewport.scrollTop = 2
+    fireEvent.scroll(viewport)
+    await flushFrame()
+    expect(screen.getAllByRole('row').length).toBe(afterSettle)
+    expect(screen.getByText('Row 0')).toBeInTheDocument()
+  })
+
+  it('windows wide columns by measured width', () => {
+    const wide = Array.from({ length: 50 }, (_, index) => ({
+      key: `c${index}`,
+      header: `H${index}`,
+      width: 400,
+    }))
+    const one = [Object.fromEntries(wide.map((column) => [column.key, column.key.toUpperCase()]))]
+    render(<DataGrid columns={wide} rows={one} label="Wide" height={120} rowHeight={36} overscan={0} />)
+    expect(screen.getByText('C0')).toBeInTheDocument()
+    expect(screen.queryByText('C49')).toBeNull()
   })
 
   it('computes clamped windows', () => {

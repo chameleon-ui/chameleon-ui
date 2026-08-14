@@ -30,7 +30,7 @@ const FALLBACK_SLUGS: Record<string, string[]> = {
     'button', 'icon', 'typography', 'heading', 'divider', 'separator',
     'stack', 'grid', 'app-shell', 'label', 'kbd', 'link', 'safe-area',
   ],
-  B: ['drawer', 'breadcrumb', 'tabs', 'pagination', 'menu', 'tab-bar', 'sidebar'],
+  B: ['drawer', 'breadcrumb', 'tabs', 'pagination', 'menu', 'tab-bar', 'sidebar', 'navigation', 'navigation-bar', 'navbar'],
   C: [
     'input', 'textarea', 'number-input', 'select', 'combobox', 'checkbox',
     'radio', 'radio-card', 'switch', 'slider', 'file-input', 'form',

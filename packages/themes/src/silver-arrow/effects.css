@@ -22,7 +22,8 @@
 
 :root .cu-navbar,
 :root .cu-app-shell__header,
-:root .cu-tab-bar {
+:root .cu-tab-bar,
+:root .cu-navigation {
   background-color: var(--cu-color-background-subtle);
   background-image: linear-gradient(180deg, var(--cu-color-background-default) 0%, var(--cu-color-background-subtle) 100%);
   border-block-end: 2px solid var(--cu-color-palette-brand);

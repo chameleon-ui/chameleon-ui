@@ -1,0 +1,80 @@
+---
+id: consume
+title: External consume
+sidebar_label: External consume
+description: Positioning, dual-track install, Windows Vite template, version matrix, height chain, runtime theme. Not an Ant Design replacement.
+---
+
+Chameleon UI is a **three-end app shell + token/theme overlay + contract/MCP** system. It is not “`npm install` today and replace Ant Design / MUI”. Packages are `0.1.0`; this repo does not npm publish.
+
+Use it for product chrome, brand skins, and agent-generated UI. Do not expect enterprise Form/Table/Upload depth out of the box, and do not treat a theme swap as a finished product look. The visual flagship is `line`. The inner demo defaults to the product studio (`?view=street`), not the component gallery.
+
+Official template: `templates/external-vite-react` (Vite 6 + React 19, including Windows).
+
+## Dual track (pick one)
+
+| Track | How | When |
+| :--- | :--- | :--- |
+| **Package** | Depend on `@chameleon-ui/components` plus tokens / i18n / primitives / themes | The app imports components |
+| **Copy source** | `chameleon add <slug>` or MCP `install_*` → install-core | You want a slug copied into your tree (shadcn-like) |
+
+Never write `"workspace:*"` in a non-pnpm-workspace `package.json`. Never link only `components`.
+
+## Install before publish
+
+```bash
+cd chameleon-ui
+corepack pnpm@9.15.0 --filter @chameleon-ui/tokens --filter @chameleon-ui/i18n --filter @chameleon-ui/primitives --filter @chameleon-ui/themes --filter @chameleon-ui/components build
+node ./scripts/link-external.mjs --apply
+# consumer:
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+```
+
+Alternative: `node ./scripts/pack-external.mjs` writes five `0.1.0` tarballs. That is still not a registry publish.
+
+## Windows + Vite (already in the template)
+
+1. `resolve.preserveSymlinks: true`
+2. `resolve.dedupe` for `react` · `react-dom` · `@ark-ui/react` · `intl-messageformat`
+3. `optimizeDeps.include` for Ark + FormatJS
+4. `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO`)
+5. **Do not** alias `@ark-ui/react` to a directory
+6. CSS: `themes/<id>/css`, `tokens/css`, `tokens/density.css`. Emergency aliases: `node ./scripts/link-external.mjs --print-vite`
+
+Rebuild the library packages after source edits. Consumers read `dist`.
+
+## Version matrix (pin at the app root)
+
+| Package | Pin |
+| :--- | :--- |
+| Node | ≥ 20.19 |
+| `react` / `react-dom` | `^19` (React 18 is out of range) |
+| `@ark-ui/react` | `5.38.0` (peer of primitives; install at the app root) |
+| `intl-messageformat` | `11.2.13` |
+| `@formatjs/icu-messageformat-parser` | `3.5.14` |
+
+Optional per-slug import: `import { Button } from "@chameleon-ui/components/button"`. CSS packages declare `sideEffects: ["**/*.css"]`.
+
+## Runtime theme
+
+```tsx
+import { ThemeProvider } from "@chameleon-ui/components";
+
+<ThemeProvider theme="cupertino" density="comfortable" locale="en">
+  {app}
+</ThemeProvider>
+```
+
+Single skin: also static-import one `themes/<id>/css`. Multi-skin: pass raw CSS as `overlays` and switch `data-theme`. Do not stack eight `:root` sheets.
+
+## AppShell height checklist
+
+1. `html, body, #root { block-size: 100%; }`
+2. The shell fills its **parent**. Do not set `min-block-size: 100dvh` on the shell.
+3. Nested previews must override `block-size` / `max-block-size`.
+4. Do not freeze a desktop CSS Grid that fights `Navigation` morph.
+5. One `Navigation` `items` list in `AppShell.navigation`. Do not compose `Sidebar` + `TabBar`. `Navbar` is not the AppShell header.
+
+## SchemaRenderer boundary
+
+Default map is **10 slugs**: `alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`. Import the rest from `@chameleon-ui/components`. Visual playground: docs site + `internal-demo`. Storybook is not the SSOT.

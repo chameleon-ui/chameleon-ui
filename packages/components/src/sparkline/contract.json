@@ -100,5 +100,10 @@
     "intents": [
       "visualize-data"
     ]
-  }
+  },
+  "mechanics": "Sparkline is a compact SVG polyline. Samples are downsampled to at most the pixel width so a 4k feed does not emit 4k SVG points.",
+  "usage": [
+    "Import Sparkline from @chameleon-ui/components. Pass data and an accessible label.",
+    "Place beside a metric. Use Chart when axes and a legend are required."
+  ]
 }

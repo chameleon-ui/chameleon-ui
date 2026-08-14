@@ -95,7 +95,7 @@ async function checkMcpAndAgents() {
   const themeIds = extractQuotedArray(constants, 'THEME_IDS')
   const locales = extractQuotedArray(constants, 'PHASE_2_LOCALES')
 
-  const themesSrc = await readUtf8('packages/themes/src/index.ts')
+  const themesSrc = await readUtf8('packages/themes/src/ids.ts')
   const i18nSrc = await readUtf8('packages/i18n/src/locales.ts')
   const officialThemes = extractQuotedArray(themesSrc, 'themeIds')
   const officialLocales = extractQuotedArray(i18nSrc, 'PHASE_2_LOCALES')
@@ -117,6 +117,7 @@ async function checkMcpAndAgents() {
   const consume = await readWorkspace('docs/ai/agent-consume.md')
   const mcpReadme = await readUtf8('packages/mcp-server/README.md')
   const schemaDoc = await readWorkspace('docs/ai/schema-renderer.md')
+  const forAgents = await readUtf8('apps/docs/docs/guides/for-agents.mdx')
 
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_THEME_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_TOKENS_CSS)
@@ -128,10 +129,15 @@ async function checkMcpAndAgents() {
   mustContain('packages/mcp-server/README.md', mcpReadme, 'mcpServers')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, '"version": "1.0"')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, 'SchemaRenderer')
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, CANONICAL_THEME_CSS)
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, COMPONENTS_IMPORT)
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'mcpServers')
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'NavigationBar')
 
   for (const name of REQUIRED_MCP_TOOLS) {
     if (!agents.includes(name)) fail(`AGENTS.md missing MCP tool ${name}`)
     if (!mcpReadme.includes(name)) fail(`mcp-server README missing tool ${name}`)
+    if (!forAgents.includes(name)) fail(`for-agents.mdx missing MCP tool ${name}`)
   }
   for (const id of officialThemes) {
     if (!agents.includes(id)) fail(`AGENTS.md missing theme id ${id}`)

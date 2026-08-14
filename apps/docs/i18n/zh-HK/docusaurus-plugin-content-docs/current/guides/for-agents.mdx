@@ -1,0 +1,188 @@
+---
+id: for-agents
+title: 編碼 Agent 整合
+sidebar_label: 編碼 Agent
+description: 在消費方應用裡用 MCP、契約與合法 import 生成 Chameleon UI。不是內測 Demo 說明。
+---
+
+本文是 **編碼 Agent 的產品規範**。倉庫短清單是 `chameleon-ui/AGENTS.md`。接入筆記：倉庫 `docs/ai/agent-consume.md`。
+
+面向：在 **非本 pnpm workspace** 的 React 應用裡生成或修改 UI 的 Agent。不面向內測 Demo 操作員。
+
+套件版本 `0.1.0`，**尚未 npm publish**。在 registry 發布之前不要假定 `npm install @chameleon-ui/components` 可用。
+
+## 1. 必須按這次序
+
+| 步驟 | 動作 | 工具 / 來源 |
+| :--- | :--- | :--- |
+| 1 | 取合法 CSS / JS specifier | MCP `get_import_specifiers` |
+| 2 | 按意圖找組件 | MCP `search_components`，參數 `intent` |
+| 3 | 發出該 slug 的 JSX 之前讀契約 | MCP `get_contract` |
+| 4 | 選密度、圓角、RTL 之前讀紀律 | MCP `get_design_rules` |
+| 5 | 寫盤只走 install-core | CLI `chameleon add` 或 MCP `install_*` |
+
+不要從記憶裡編 import 路徑。不要把 `workspace:*` 寫進消費方 `package.json`。
+
+## 2. 接入 MCP
+
+先建置伺服器，再在 **消費方倉庫**（不是本 monorepo）設定：
+
+```bash
+corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
+```
+
+Cursor `.cursor/mcp.json` 或 Claude Code `.mcp.json`：
+
+```json
+{
+  "mcpServers": {
+    "chameleon-ui": {
+      "command": "node",
+      "args": ["D:/ChameleonUI/chameleon-ui/packages/mcp-server/dist/index.js"],
+      "env": {
+        "CU_TARGET_DIR": "D:/path/to/consumer-app"
+      }
+    }
+  }
+}
+```
+
+把兩條路徑換成本機路徑。`CU_TARGET_DIR` 是 `install_*` 的寫盤根。唯讀工具不依賴目標目錄裡已有檔案。`npx @chameleon-ui/mcp-server` 在 publish 之前 **不可用**。
+
+## 3. 工具參考
+
+| 工具 | 何時呼叫 | 參數 | 寫盤 |
+| :--- | :--- | :--- | :--- |
+| `get_import_specifiers` | 寫任何 `import` 之前 | `theme_id?` `slug?` | 否 |
+| `search_components` | 「我需要提交控制項 / 表格資料」 | `intent` 或 `query` | 否 |
+| `get_contract` | 發出該 slug 的 JSX 之前 | `slug`（或 `id`） | 否 |
+| `get_design_rules` | 選間距、圓角、RTL 之前 | `theme_id` | 否 |
+| `get_component` | 需要 registry 檔案清單時 | `id` | 否 |
+| `list_themes` | 列出 8 套官方主題 | — | 否 |
+| `install_with_theme` | 組件 + Token + 字型 + design-rules 一次到位 | `component_id` `theme_id` | 是 |
+| `install_component` | 只裝一個組件 | `id` | 是 |
+| `install_theme` | 只裝一套主題 | `id` | 是 |
+| `install_bundle` | 組件與主題分兩次跑。優先 `install_with_theme` | `component_id` `theme_id` | 是 |
+| `telemetry_opt_out` | 關閉遙測 | — | 否 |
+| `record_intent` | 意圖 vs 採用。預設空操作 | `intent` `adopted` | 否 |
+
+`search_components` 的 `intent` 必須來自契約詞表（見 `docs/ai/data-ai-vocabulary.md`）。不要發明未登記的 intent 字串。
+
+## 4. 合法 import
+
+首選（`get_import_specifiers` 的 `preferred`）：
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+import { Button, Card, Table } from "@chameleon-ui/components";
+```
+
+把 `cupertino` 換成 `list_themes` 回傳的 id：`line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`。
+
+也合法（同一檔案）：`@chameleon-ui/themes/dist/cupertino/variables.css`、`@chameleon-ui/tokens/dist/css/variables.css`。
+
+**禁止：** `@chameleon-ui/themes/cupertino/variables.css`（未匯出）。只引 `tokens/css` 不引 `density.css` 時，密度停在 standard。
+
+發佈前外部工程必須 **五包全 link**：
+
+```bash
+cd chameleon-ui
+node ./scripts/link-external.mjs --apply
+# 消費方：
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+```
+
+只 link `components` 會失敗。
+
+Windows + Vite 用倉庫 `templates/external-vite-react`，或 `node ./scripts/link-external.mjs --print-vite`。版本矩陣、高度鏈、ThemeProvider、雙軌說明：[外部接入](./consume.mdx)。
+
+按需子路徑（可選）：`import { Button } from "@chameleon-ui/components/button"`。
+
+## 5. 契約與 data-ai
+
+每個 catalog slug 有一份 v0.2 `contract.json`。
+
+| 讀取方式 | 路徑 |
+| :--- | :--- |
+| MCP | `get_contract` `{ "slug": "button" }` |
+| 套件匯出 | `@chameleon-ui/components/contracts/<slug>` |
+| 磁碟 | `packages/components/src/<slug>/contract.json` |
+| Schema | `https://chameleon-ui.dev/schemas/component-contract/v0.2.json`（本站鏡像 `/schemas/component-contract/v0.2.json`） |
+
+發出 JSX 時遵守：`props`、`antiPatterns`、`composition.allowedParents` / `allowedChildren`、`responsive`、`rtl`、`a11y`。
+
+執行期 DOM 標註來自 `dataAi`（靜態語意，**不含 PII**）：
+
+| 屬性 | 來源 |
+| :--- | :--- |
+| `data-ai-role` | `dataAi.role`（= slug） |
+| `data-ai-state` | `dataAi.states` 的目前值 |
+| `data-ai-intent` | `dataAi.intents[0]` |
+
+組件文件頁從同一份契約渲染這些欄位。不要手抄第二套 props 表。
+
+## 6. 應用鉻件（雙控制器）
+
+原生心智模型：**一個 Tab 控制器 + 每個 Tab 自己的導航堆疊**。不是網站頂欄。
+
+| 角色 | 原生 | Chameleon | AppShell 槽 |
+| :--- | :--- | :--- | :--- |
+| 根目的地 | `UITabBarController` / BottomNavigation | **Navigation** | `navigation` |
+| 堆疊鉻件 | `UINavigationBar` / Toolbar | **NavigationBar** | `header` |
+| 站點行銷連結 | — | **Navbar** | **禁止**作為 AppShell 鉻件 |
+
+```tsx
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+
+<AppShell
+  header={
+    <NavigationBar
+      title={current.title}
+      backLabel={previous?.title}
+      onBack={canPop ? pop : undefined}
+    />
+  }
+  navigation={
+    <Navigation label="Main" items={tabs} activeValue={tab} onSelect={selectTab} />
+  }
+>
+  {current.screen}
+</AppShell>
+```
+
+規則：
+
+1. **同一個** `items` 列表。CSS 把它從底部欄變成 48rem 軌道、80rem 側欄。不要為三端再掛 `Sidebar` + `TabBar`。
+2. 切 Tab **不 push**。每個 Tab 自己的堆疊。返回是 **pop**。鉤子：`useTabStacks`。
+3. 窄屏溢位：前 4 釘 + **更多**；其餘仍在同一棵樹，寬屏全部列出。
+4. `Navbar` 只用於站點/行銷連結。堆疊標題與返回在 `NavigationBar`。
+5. 形態跟 **容器**（命名容器 `app-shell`），不跟 `matchMedia`，不用裝置點選。
+
+`Dialog` 在窄容器貼底、寬容器置中——仍是同一個 Dialog。`ActionSheet` 是獨立的動作列表，不是 Dialog 的變形。
+
+## 7. SchemaRenderer
+
+套件 `@chameleon-ui/schema-renderer`。預設 map **只有 10 個 slug**：`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`。
+
+`table` / `chart` / `kpi-dashboard` 以及其餘 catalog 從 `@chameleon-ui/components` import，或傳入自訂 `map`。不要宣稱 SchemaRenderer 覆蓋全庫。
+
+`adapter-ag-ui` 是 **POC**，不是 supported。不要發明 `generation_quality` 分數；未設定生成器時誠實值是 `null`。
+
+## 8. Locale 與 RTL
+
+產品文案 21 語：`zh-CN` `zh-HK` `ja` `ko` `ru` `hi` `en` `de` `ar` `ug` `sw` `ha` `am` `es` `fr` `pt` `bn` `id` `ur` `fa` `vi`。
+
+RTL：`ar` `ug` `ur` `fa`。用 `@chameleon-ui/i18n` 的 `directionForLocale`。不要猜 `dir`。
+
+## 9. 禁止
+
+- 編造未匯出的 CSS specifier。
+- 把 `workspace:*` 寫進非 pnpm-workspace 的 `package.json`。
+- 第二套安裝器。寫盤只經 `chameleon add` / MCP `install_*` → install-core。
+- 把 AG-UI 當成 supported。
+- 用 `Sidebar` + `TabBar` 冒充三端 Navigation。
+- 把 `Navbar` 當 AppShell 的堆疊鉻件。
+- 切 Tab 時 push 堆疊。
+- 用 `matchMedia` 或裝置點選換導航樹。

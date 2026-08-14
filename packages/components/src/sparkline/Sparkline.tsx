@@ -1,4 +1,5 @@
 import './styles.css'
+import { downsample } from '../virtual/downsample.js'
 
 export interface SparklineProps {
   data: number[]
@@ -10,18 +11,19 @@ export interface SparklineProps {
 
 export function Sparkline({ data, label, width = 96, height = 28, className }: SparklineProps) {
   const classes = ['cu-sparkline', className].filter(Boolean).join(' ')
+  const samples = downsample(data, Math.max(2, Math.floor(width)))
 
-  if (data.length < 2) {
+  if (samples.length < 2) {
     return (
       <span className={classes} data-ai-role="sparkline" data-ai-intent="visualize-data" data-ai-state="empty" aria-label={label} role="img" />
     )
   }
 
-  const min = Math.min(...data)
-  const max = Math.max(...data)
+  const min = Math.min(...samples)
+  const max = Math.max(...samples)
   const span = max - min || 1
-  const step = width / (data.length - 1)
-  const points = data
+  const step = width / (samples.length - 1)
+  const points = samples
     .map((value, index) => `${index * step},${height - ((value - min) / span) * height}`)
     .join(' ')
 

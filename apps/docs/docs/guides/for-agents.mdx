@@ -1,0 +1,188 @@
+---
+id: for-agents
+title: 编码 Agent 集成
+sidebar_label: 编码 Agent
+description: 在消费方应用里用 MCP、契约与合法 import 生成 Chameleon UI。不是内测 Demo 说明。
+---
+
+本文是 **编码 Agent 的产品规范**。仓库短清单是 `chameleon-ui/AGENTS.md`。接入笔记：仓库 `docs/ai/agent-consume.md`。
+
+面向：在 **非本 pnpm workspace** 的 React 应用里生成或修改 UI 的 Agent。不面向内测 Demo 操作员。
+
+包版本 `0.1.0`，**尚未 npm publish**。在 registry 发布之前不要假定 `npm install @chameleon-ui/components` 可用。
+
+## 1. 必须按这次序
+
+| 步骤 | 动作 | 工具 / 来源 |
+| :--- | :--- | :--- |
+| 1 | 取合法 CSS / JS specifier | MCP `get_import_specifiers` |
+| 2 | 按意图找组件 | MCP `search_components`，参数 `intent` |
+| 3 | 发出该 slug 的 JSX 之前读契约 | MCP `get_contract` |
+| 4 | 选密度、圆角、RTL 之前读纪律 | MCP `get_design_rules` |
+| 5 | 写盘只走 install-core | CLI `chameleon add` 或 MCP `install_*` |
+
+不要从记忆里编 import 路径。不要把 `workspace:*` 写进消费方 `package.json`。
+
+## 2. 接入 MCP
+
+先构建服务器，再在 **消费方仓库**（不是本 monorepo）配置：
+
+```bash
+corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
+```
+
+Cursor `.cursor/mcp.json` 或 Claude Code `.mcp.json`：
+
+```json
+{
+  "mcpServers": {
+    "chameleon-ui": {
+      "command": "node",
+      "args": ["D:/ChameleonUI/chameleon-ui/packages/mcp-server/dist/index.js"],
+      "env": {
+        "CU_TARGET_DIR": "D:/path/to/consumer-app"
+      }
+    }
+  }
+}
+```
+
+把两条路径换成本机路径。`CU_TARGET_DIR` 是 `install_*` 的写盘根。只读工具（契约、import、主题列表）不依赖目标目录里已有文件。`npx @chameleon-ui/mcp-server` 在 publish 之前 **不可用**。
+
+## 3. 工具参考
+
+| 工具 | 何时调用 | 参数 | 写盘 |
+| :--- | :--- | :--- | :--- |
+| `get_import_specifiers` | 写任何 `import` 之前 | `theme_id?` `slug?` | 否 |
+| `search_components` | 「我需要提交控件 / 表格数据」 | `intent` 或 `query` | 否 |
+| `get_contract` | 发出该 slug 的 JSX 之前 | `slug`（或 `id`） | 否 |
+| `get_design_rules` | 选间距、圆角、RTL 之前 | `theme_id` | 否 |
+| `get_component` | 需要 registry 文件清单时 | `id` | 否 |
+| `list_themes` | 列出 8 套官方主题 | — | 否 |
+| `install_with_theme` | 组件 + Token + 字体 + design-rules 一次到位 | `component_id` `theme_id` | 是 |
+| `install_component` | 只装一个组件 | `id` | 是 |
+| `install_theme` | 只装一套主题 | `id` | 是 |
+| `install_bundle` | 组件与主题分两次跑。优先 `install_with_theme` | `component_id` `theme_id` | 是 |
+| `telemetry_opt_out` | 关闭遥测 | — | 否 |
+| `record_intent` | 意图 vs 采用。默认空操作 | `intent` `adopted` | 否 |
+
+`search_components` 的 `intent` 必须来自契约词表（见 `docs/ai/data-ai-vocabulary.md`）。不要发明未登记的 intent 字符串。
+
+## 4. 合法 import
+
+首选（`get_import_specifiers` 的 `preferred`）：
+
+```ts
+import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/tokens/css";
+import "@chameleon-ui/tokens/density.css";
+import { Button, Card, Table } from "@chameleon-ui/components";
+```
+
+把 `cupertino` 换成 `list_themes` 返回的 id：`line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`。
+
+也合法（同一文件）：`@chameleon-ui/themes/dist/cupertino/variables.css`、`@chameleon-ui/tokens/dist/css/variables.css`。
+
+**禁止：** `@chameleon-ui/themes/cupertino/variables.css`（未导出）。只引 `tokens/css` 不引 `density.css` 时，密度停在 standard，不会随端切换。
+
+发布前外部工程必须 **五包全 link**：
+
+```bash
+cd chameleon-ui
+node ./scripts/link-external.mjs --apply
+# 消费方：
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+```
+
+只 link `components` 会失败。
+
+Windows + Vite 不要手写半页猜测配置。用仓库 `templates/external-vite-react`，或 `node ./scripts/link-external.mjs --print-vite`。版本矩阵、高度链、ThemeProvider、双轨说明：[外部接入](./consume.mdx)。
+
+按需子路径（可选）：`import { Button } from "@chameleon-ui/components/button"`。
+
+## 5. 契约与 data-ai
+
+每个 catalog slug 有一份 v0.2 `contract.json`。
+
+| 读取方式 | 路径 |
+| :--- | :--- |
+| MCP | `get_contract` `{ "slug": "button" }` |
+| 包导出 | `@chameleon-ui/components/contracts/<slug>` |
+| 磁盘 | `packages/components/src/<slug>/contract.json` |
+| Schema | `https://chameleon-ui.dev/schemas/component-contract/v0.2.json`（本站镜像 `/schemas/component-contract/v0.2.json`） |
+
+发出 JSX 时遵守：`props`、`antiPatterns`、`composition.allowedParents` / `allowedChildren`、`responsive`、`rtl`、`a11y`。
+
+运行时 DOM 标注来自 `dataAi`（静态语义，**不含 PII**）：
+
+| 属性 | 来源 |
+| :--- | :--- |
+| `data-ai-role` | `dataAi.role`（= slug） |
+| `data-ai-state` | `dataAi.states` 的当前值 |
+| `data-ai-intent` | `dataAi.intents[0]` |
+
+组件文档页从同一份契约渲染这些字段。不要手抄一份第二套 props 表。
+
+## 6. 应用铬件（双控制器）
+
+原生心智模型：**一个 Tab 控制器 + 一个每 Tab 的导航栈**。不是网站顶栏。
+
+| 角色 | 原生 | Chameleon | AppShell 槽 |
+| :--- | :--- | :--- | :--- |
+| 根目的地 | `UITabBarController` / BottomNavigation | **Navigation** | `navigation` |
+| 栈铬件 | `UINavigationBar` / Toolbar | **NavigationBar** | `header` |
+| 站点营销链接 | — | **Navbar** | **禁止**作为 AppShell 铬件 |
+
+```tsx
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+
+<AppShell
+  header={
+    <NavigationBar
+      title={current.title}
+      backLabel={previous?.title}
+      onBack={canPop ? pop : undefined}
+    />
+  }
+  navigation={
+    <Navigation label="Main" items={tabs} activeValue={tab} onSelect={selectTab} />
+  }
+>
+  {current.screen}
+</AppShell>
+```
+
+规则：
+
+1. **同一个** `items` 列表。CSS 把它从底部栏变成 48rem 轨道、80rem 侧栏。不要为三端再挂 `Sidebar` + `TabBar`。
+2. 切 Tab **不 push**。每个 Tab 自己的栈。返回是 **pop**。钩子：`useTabStacks`。
+3. 窄屏溢出：前 4 钉 + **更多**；其余仍在同一棵树，宽屏全部列出。
+4. `Navbar` 只用于站点/营销链接。栈标题与返回在 `NavigationBar`。
+5. 形态跟 **容器**（命名容器 `app-shell`），不跟 `matchMedia`，不用设备点选。
+
+`Dialog` 在窄容器贴底、宽容器居中——仍是同一个 Dialog。`ActionSheet` 是独立的动作列表，不是 Dialog 的变形。
+
+## 7. SchemaRenderer
+
+包 `@chameleon-ui/schema-renderer`。默认 map **只有 10 个 slug**：`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`。
+
+`table` / `chart` / `kpi-dashboard` 以及其余 catalog 从 `@chameleon-ui/components` import，或传入自定义 `map`。不要宣称 SchemaRenderer 覆盖全库。
+
+`adapter-ag-ui` 是 **POC**，不是 supported。不要发明 `generation_quality` 分数；未配置生成器时诚实值是 `null`。
+
+## 8. Locale 与 RTL
+
+产品文案 21 语：`zh-CN` `zh-HK` `ja` `ko` `ru` `hi` `en` `de` `ar` `ug` `sw` `ha` `am` `es` `fr` `pt` `bn` `id` `ur` `fa` `vi`。
+
+RTL：`ar` `ug` `ur` `fa`。用 `@chameleon-ui/i18n` 的 `directionForLocale`。不要猜 `dir`。
+
+## 9. 禁止
+
+- 编造未导出的 CSS specifier。
+- 把 `workspace:*` 写进非 pnpm-workspace 的 `package.json`。
+- 第二套安装器。写盘只经 `chameleon add` / MCP `install_*` → install-core。
+- 把 AG-UI 当成 supported。
+- 用 `Sidebar` + `TabBar` 冒充三端 Navigation。
+- 把 `Navbar` 当 AppShell 的栈铬件。
+- 切 Tab 时 push 栈。
+- 用 `matchMedia` 或设备点选换导航树。

@@ -77,7 +77,7 @@ async function main() {
     `diff must be exactly the delta variables: ${expectedOverrides.join(", ")}`,
   );
   assert.equal(derivedVars.get("--cu-radius-md"), "2px", "derived radius delta applied");
-  assert.equal(parentVars.get("--cu-radius-md"), "4px", "parent stays untouched");
+  assert.equal(parentVars.get("--cu-radius-md"), "8px", "parent stays untouched");
 
   assert.ok(!derived.css.includes("$extends"), "compiled CSS is static (零运行时不破)");
 

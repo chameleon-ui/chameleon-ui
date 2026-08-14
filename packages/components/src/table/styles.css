@@ -6,6 +6,8 @@
   inline-size: 100%;
   overflow: auto;
   container-type: inline-size;
+  contain: layout style;
+  overscroll-behavior: contain;
 }
 
 .cu-table__table {
@@ -33,6 +35,15 @@
   font-weight: 700;
   color: var(--cu-color-fg-default);
   background: color-mix(in srgb, var(--cu-color-background-inverse) 4%, var(--cu-color-background-default));
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+}
+
+.cu-table__row {
+  content-visibility: auto;
+  contain-intrinsic-block-size: auto 2.75rem;
+  contain: content;
 }
 
 /* Hover is gated so touch input never sticks in a hover style. */

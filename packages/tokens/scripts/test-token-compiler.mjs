@@ -24,8 +24,8 @@ async function testDeterministicSnapshot() {
   assert.equal(second.css, first.css, "same input must produce byte-identical CSS");
   assert.equal(
     first.tokens.length,
-    40,
-    "core should compile 40 tokens (12 Phase 0 + 12 Phase 5 breakpoint/density + 8 typography + 8 radius/shadow/blur)",
+    54,
+    "core should compile 54 tokens (40 kernel + 3 space + 3 color + 5 type weight/tracking + 3 motion)",
   );
 }
 
@@ -100,6 +100,19 @@ async function testPhase5TypographyTokens() {
   assert.equal(cssValues.get("typography.line-height.tight"), 1.15);
   assert.equal(cssValues.get("typography.line-height.snug"), 1.25);
   assert.equal(cssValues.get("typography.line-height.body"), 1.6);
+  assert.equal(cssValues.get("typography.weight.medium"), 500);
+  assert.equal(cssValues.get("typography.weight.semibold"), 600);
+  assert.equal(cssValues.get("typography.weight.bold"), 700);
+  assert.equal(cssValues.get("typography.tracking.tight"), "-0.022em");
+  assert.equal(cssValues.get("typography.tracking.body"), "0em");
+  assert.equal(cssValues.get("motion.duration.fast"), "140ms");
+  assert.equal(cssValues.get("motion.duration.base"), "200ms");
+  assert.equal(cssValues.get("motion.easing.standard"), "cubic-bezier(0.25, 0.1, 0.25, 1)");
+  assert.deepEqual(cssValues.get("space.4"), { value: 1, unit: "rem" });
+  assert.deepEqual(cssValues.get("space.5"), { value: 1.5, unit: "rem" });
+  assert.deepEqual(cssValues.get("space.6"), { value: 2.5, unit: "rem" });
+  assert.equal(cssValues.get("color.background.subtle"), "#f6f6f4");
+  assert.equal(cssValues.get("color.fg.muted"), "#6b7280");
 
   for (const variable of [
     "--cu-typography-size-caption",
@@ -110,6 +123,12 @@ async function testPhase5TypographyTokens() {
     "--cu-typography-line-height-tight",
     "--cu-typography-line-height-snug",
     "--cu-typography-line-height-body",
+    "--cu-typography-weight-semibold",
+    "--cu-typography-tracking-tight",
+    "--cu-motion-duration-fast",
+    "--cu-space-4",
+    "--cu-color-background-subtle",
+    "--cu-color-fg-muted",
   ]) {
     assert.ok(compiled.css.includes(variable), `variables.css must emit ${variable}`);
   }
@@ -133,9 +152,9 @@ async function testRadiusShadowBlurFallbacks() {
   assert.equal(cssValues.get("radius.xl"), undefined);
   assert.deepEqual(cssValues.get("blur.surface"), { value: 0, unit: "px" });
   assert.deepEqual(cssValues.get("blur.thick"), { value: 0, unit: "px" });
-  assert.match(String(cssValues.get("shadow.sm")), /color-mix\(in srgb, #111827 12%/);
-  assert.match(String(cssValues.get("shadow.md")), /color-mix\(in srgb, #111827 16%/);
-  assert.match(String(cssValues.get("shadow.lg")), /color-mix\(in srgb, #111827 32%/);
+  assert.match(String(cssValues.get("shadow.sm")), /color-mix\(in srgb, #111827 8%/);
+  assert.match(String(cssValues.get("shadow.md")), /color-mix\(in srgb, #111827 10%/);
+  assert.match(String(cssValues.get("shadow.lg")), /color-mix\(in srgb, #111827 16%/);
 
   for (const variable of [
     "--cu-radius-sm",
@@ -313,8 +332,16 @@ await testExtendsCompilesToSameEngine();
 
 async function testCssPackageExports() {
   const pkg = JSON.parse(await readFile(path.join(packageRoot, "package.json"), "utf8"));
-  assert.equal(pkg.exports["./css"], "./dist/css/variables.css");
-  assert.equal(pkg.exports["./density.css"], "./dist/css/density.css");
+  assert.deepEqual(pkg.exports["./css"], {
+    style: "./dist/css/variables.css",
+    import: "./dist/css/variables.css",
+    default: "./dist/css/variables.css",
+  });
+  assert.deepEqual(pkg.exports["./density.css"], {
+    style: "./dist/css/density.css",
+    import: "./dist/css/density.css",
+    default: "./dist/css/density.css",
+  });
   assert.equal(pkg.exports["./dist/*"], "./dist/*");
 }
 

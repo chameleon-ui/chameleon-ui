@@ -436,7 +436,7 @@ export async function handleMessage(
         result: {
           protocolVersion: '2024-11-05',
           capabilities: { tools: {} },
-          serverInfo: { name: 'chameleon-ui-mcp', version: '0.0.0' },
+          serverInfo: { name: 'chameleon-ui-mcp', version: '0.1.0' },
         },
       }
     }

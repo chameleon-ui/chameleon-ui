@@ -1,10 +1,11 @@
-import { AppShell, Button, Sidebar, Stack, TabBar, Typography } from '@chameleon-ui/components'
+import { AppShell, Button, Navigation, NavigationBar, Stack, Typography } from '@chameleon-ui/components'
 import { PHASE_2_LOCALES, type Phase2Locale } from '@chameleon-ui/i18n'
 import { themeIds, type ThemeId } from '@chameleon-ui/themes'
 import { useEffect, useMemo, useState } from 'react'
 import { BlindTestView } from './BlindTestView'
 import { ComponentGallery } from './ComponentGallery'
 import { LabPreview } from './LabPreview'
+import { ProductStudio } from './ProductStudio'
 import { SuitePreview } from './SuitePreview'
 import { ThreeEndPlayground, ThreeEndStage, readEndParam, type ThreeEndKind } from './ThreeEndView'
 import {
@@ -35,7 +36,7 @@ function writeQuery(next: {
     locale: next.locale,
     theme: next.theme,
   })
-  if (next.view !== 'live') params.set('view', next.view)
+  if (next.view !== 'street') params.set('view', next.view)
   if (next.view === 'lab') {
     params.set('lab', next.lab)
     const overlay = new URLSearchParams(window.location.search).get('overlay')
@@ -63,7 +64,7 @@ export function App() {
   document.documentElement.classList.toggle('cu-demo-blind', view === 'blind')
   document.documentElement.classList.toggle('cu-demo-three-end', view === 'three-end')
   document.documentElement.classList.toggle('cu-demo-three-end-stage', view === 'three-end-stage')
-  document.documentElement.classList.toggle('cu-demo-adaptive', view === 'gallery' || view === 'live')
+  document.documentElement.classList.toggle('cu-demo-adaptive', view === 'gallery' || view === 'live' || view === 'street')
   if (view !== 'blind') document.documentElement.dataset.theme = theme
   if (view === 'lab') document.documentElement.dataset.labCase = labCase
   else delete document.documentElement.dataset.labCase
@@ -75,13 +76,16 @@ export function App() {
   }, [locale, theme, view, labCase, end])
 
   const galleryNav = [
+    { value: 'street', label: t('demo.streetNav') },
     { value: 'live', label: t('demo.threeEndNav') },
     { value: 'gallery', label: t('demo.overview') },
     { value: 'suite', label: t('demo.suiteNav') },
   ]
 
   function goNav(value: string) {
-    if (value === 'live' || value === 'three-end' || value === 'suite' || value === 'gallery') setView(value)
+    if (value === 'street' || value === 'live' || value === 'three-end' || value === 'suite' || value === 'gallery') {
+      setView(value)
+    }
   }
 
   const header = (
@@ -119,13 +123,16 @@ export function App() {
             ))}
           </select>
         </label>
-        <Button size="sm" variant="outline" onClick={() => setView(view === 'live' ? 'gallery' : 'live')}>
-          {view === 'live' ? t('demo.overview') : t('demo.threeEndNav')}
+        <Button size="sm" variant="outline" onClick={() => setView(view === 'street' ? 'gallery' : 'street')}>
+          {view === 'street' ? t('demo.overview') : t('demo.streetNav')}
+        </Button>
+        <Button size="sm" variant="ghost" onClick={() => setView(view === 'live' ? 'street' : 'live')}>
+          {view === 'live' ? t('demo.streetNav') : t('demo.threeEndNav')}
         </Button>
         <Button
           size="sm"
           variant="outline"
-          onClick={() => setView((current) => (current === 'suite' ? 'live' : 'suite'))}
+          onClick={() => setView((current) => (current === 'suite' ? 'street' : 'suite'))}
         >
           {view === 'suite' ? t('demo.overview') : t('demo.suiteNav')}
         </Button>
@@ -153,7 +160,7 @@ export function App() {
         theme={theme}
         onLocale={setLocale}
         onTheme={setTheme}
-        onBack={() => setView('live')}
+        onBack={() => setView('street')}
       />
     )
   }
@@ -165,21 +172,20 @@ export function App() {
   if (view === 'gallery') {
     return (
       <div className="cu-demo-adaptive" data-demo="adaptive">
+        <div className="cu-demo-inspector">{header}</div>
         <AppShell
-          header={header}
-          sidebar={
-            <Sidebar
-              label={t('appShell.sidebar')}
+          header={<NavigationBar title={t('demo.overview')} />}
+          navigation={
+            <Navigation
+              label={t('navigation.label')}
               items={galleryNav}
-              collapsible
-              collapseLabel={t('sidebar.collapse')}
-              expandLabel={t('sidebar.expand')}
+              collapseLabel={t('navigation.collapse')}
+              expandLabel={t('navigation.expand')}
+              moreLabel={t('navigation.more')}
               activeValue="gallery"
               onSelect={goNav}
             />
           }
-          sidebarLabel={t('appShell.sidebar')}
-          tabBar={<TabBar label={t('tabBar.label')} items={galleryNav} value="gallery" onChange={goNav} />}
         >
           <div id="gallery">
             <p className="cu-demo-adaptive-hint">{t('demo.adaptiveHint')}</p>
@@ -190,9 +196,19 @@ export function App() {
     )
   }
 
+  if (view === 'live') {
+    return (
+      <div className="cu-demo-adaptive" data-demo="adaptive" data-cu-shell>
+        <div className="cu-demo-inspector">{header}</div>
+        <ThreeEndStage t={t} end="phone" />
+      </div>
+    )
+  }
+
   return (
     <div className="cu-demo-adaptive" data-demo="adaptive" data-cu-shell>
-      <ThreeEndStage t={t} end="phone" toolbar={header} />
+      <div className="cu-demo-inspector">{header}</div>
+      <ProductStudio t={t} />
     </div>
   )
 }

@@ -3,7 +3,7 @@
   "slug": "toast",
   "name": "Toast",
   "status": "experimental",
-  "purpose": "Displays a non-blocking, auto-dismissible notification.",
+  "purpose": "Displays a non-blocking notification. Use Toast for one controlled message; ToastProvider + useToast for a queued portal toaster.",
   "scenarios": [
     "Confirm that a document was saved",
     "Warn that an action failed without blocking the UI",
@@ -41,6 +41,12 @@
       "type": "string",
       "required": true,
       "description": "Accessible label for the close action."
+    },
+    "duration": {
+      "type": "number",
+      "required": false,
+      "description": "Auto-close delay in milliseconds. 0 keeps the toast until the parent closes it.",
+      "default": 0
     },
     "onOpenChange": {
       "type": "event",
@@ -124,5 +130,31 @@
     "intents": [
       "notify-transient"
     ]
-  }
+  },
+  "mechanics": "Toast is a presentational status region. duration 0 (default) stays until onOpenChange(false). ToastProvider mounts an Ark Toaster portal with a queue; useToast().push enqueues items that auto-dismiss. Do not use toasts for errors that require a decision.",
+  "usage": [
+    "For one message, render Toast with open, title, description, closeLabel, and onOpenChange.",
+    "For app-wide notifications, wrap the tree in ToastProvider and call useToast().push({ title, description, status }).",
+    "Pass duration greater than 0 to auto-dismiss. Keep a close control so the message is not lost."
+  ],
+  "exports": [
+    {
+      "name": "Toast",
+      "kind": "component",
+      "signature": "function Toast(props: ToastProps): JSX.Element | null",
+      "description": "Controlled single toast. Stays in document flow."
+    },
+    {
+      "name": "ToastProvider",
+      "kind": "component",
+      "signature": "function ToastProvider(props: ToastProviderProps): JSX.Element",
+      "description": "Creates a toaster store, portals the queue, and provides useToast."
+    },
+    {
+      "name": "useToast",
+      "kind": "hook",
+      "signature": "function useToast(): { push: Function; dismiss: Function }",
+      "description": "Enqueue or dismiss toasts. Requires ToastProvider."
+    }
+  ]
 }

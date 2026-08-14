@@ -13,7 +13,8 @@
     "onSubmit": {
       "type": "event",
       "required": true,
-      "description": "Receives the native submit event."
+      "description": "Receives the native submit event.",
+      "payload": "(event: React.FormEvent<HTMLFormElement>) => void"
     },
     "submitLabel": {
       "type": "string",
@@ -94,5 +95,25 @@
     "intents": [
       "submit-data"
     ]
-  }
+  },
+  "mechanics": "Form groups fields and a submit action. onSubmit receives the native submit event; preventDefault in SPA handlers. submitLabel names the submit button. Children are the fields. The action area stacks on compact and aligns to inline-start on wider containers.",
+  "usage": [
+    "Import Form and field components from @chameleon-ui/components.",
+    "Pass submitLabel and onSubmit. Put Input, Select, and similar controls in children.",
+    "Let the Form submit button remain; do not hide it without another submit control."
+  ],
+  "exports": [
+    {
+      "name": "Form",
+      "kind": "component",
+      "signature": "function Form(props: FormProps): JSX.Element",
+      "description": "Field group with onSubmit and a labelled submit action."
+    },
+    {
+      "name": "FormProps",
+      "kind": "type",
+      "signature": "interface FormProps",
+      "description": "onSubmit, submitLabel, and children."
+    }
+  ]
 }

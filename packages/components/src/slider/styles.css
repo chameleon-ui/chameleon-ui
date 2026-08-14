@@ -9,6 +9,11 @@
   color: var(--cu-color-fg-default);
 }
 
+.cu-slider__inputs {
+  display: grid;
+  gap: var(--cu-space-1);
+}
+
 .cu-slider__input {
   inline-size: 100%;
   accent-color: var(--cu-color-palette-brand);
@@ -19,4 +24,25 @@
   outline: 3px solid var(--cu-color-palette-brand);
   outline-offset: 3px;
   border-radius: var(--cu-radius-sm);
+}
+
+.cu-slider__input:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.cu-slider__marks {
+  position: relative;
+  min-block-size: 1.25rem;
+}
+
+.cu-slider__mark {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+}
+
+[dir='rtl'] .cu-slider__mark {
+  transform: translateX(50%);
 }

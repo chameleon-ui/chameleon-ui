@@ -3,22 +3,27 @@
   "slug": "app-shell",
   "name": "AppShell",
   "status": "experimental",
-  "purpose": "Provides the three-breakpoint application chrome: header, sidebar, and main area.",
+  "purpose": "Application chrome: NavigationBar is the stack (UINavigationBar); Navigation is the tab controller (UITabBarController) that morphs TabBar ↔ sidebar.",
   "scenarios": [
-    "Frame a dashboard with a fixed header and sidebar",
-    "Hide the sidebar on compact screens to prioritize content",
-    "Adapt the sidebar width on medium screens"
+    "Host a NavigationBar and one Navigation landmark so stack and tabs stay distinct",
+    "Morph that Navigation from a block-end tab bar to a side column as the shell widens",
+    "Keep specialized Sidebar or TabBar slots only when the chrome is intentionally single-form"
   ],
   "props": {
     "header": {
       "type": "node",
       "required": true,
-      "description": "Content for the top header region."
+      "description": "Stack chrome. Pass NavigationBar (title, back, bar items). Not a site link row."
+    },
+    "navigation": {
+      "type": "node",
+      "required": false,
+      "description": "Tab controller. One node; compact is a UITabBar, 48rem/80rem move the same cell to the side column."
     },
     "sidebar": {
       "type": "node",
-      "required": true,
-      "description": "Content for the side navigation region."
+      "required": false,
+      "description": "Specialized side chrome that does not morph. Prefer navigation."
     },
     "children": {
       "type": "node",
@@ -28,7 +33,12 @@
     "tabBar": {
       "type": "node",
       "required": false,
-      "description": "Optional compact/tablet Navigation morph (TabBar). Hidden by the named app-shell container at desktop (80rem)."
+      "description": "Specialized compact chrome that does not morph. Prefer navigation. Hidden at desktop (80rem) when used as a legacy slot."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes on the named app-shell container."
     },
     "sidebarLabel": {
       "type": "string",
@@ -49,6 +59,7 @@
       "page"
     ],
     "allowedChildren": [
+      "navigation-bar",
       "header",
       "aside",
       "main",
@@ -57,8 +68,9 @@
     "requiredContext": []
   },
   "antiPatterns": [
-    "Do not put the only navigation in the sidebar without a compact alternative.",
-    "Do not make the sidebar overlap the main content without an explicit dismiss action."
+    "Do not compose Sidebar and TabBar for three-end chrome — pass Navigation once.",
+    "Do not put root destinations in the header; header is NavigationBar (stack), Navigation is the tab controller.",
+    "Do not make the side column overlap the main content without an explicit dismiss action."
   ],
   "a11y": {
     "role": "generic",
@@ -73,11 +85,11 @@
     ]
   },
   "responsive": {
-    "strategy": "Named container app-shell drives chrome: compact TabBar, tablet sidebar+TabBar, desktop sidebar without TabBar. Morph is @container 48rem/80rem == tablet/desktop.",
+    "strategy": "Named container app-shell drives chrome. Compact pins Navigation at the block-end. From 48rem the same cell is a full-height start-edge sidebar; NavigationBar sits over main.",
     "breakpoints": {
-      "compact": "Header + main + TabBar when provided; sidebar is hidden.",
-      "medium": "Header + 12rem sidebar + main + TabBar.",
-      "large": "Header + 16rem sidebar + main; TabBar slot is hidden."
+      "compact": "Header + main scrollport + Navigation pinned to the block-end (or hidden legacy sidebar).",
+      "medium": "12rem start-edge sidebar spanning the shell height; NavigationBar + main in the content column.",
+      "large": "16rem start-edge sidebar, same pin; legacy TabBar slot is hidden."
     }
   },
   "platforms": {
@@ -101,5 +113,26 @@
       "layout-shell",
       "navigate-sections"
     ]
-  }
+  },
+  "mechanics": "AppShell is the named container app-shell. header is stack chrome (pass NavigationBar). navigation is the tab controller (pass Navigation once): CSS moves that cell from the block-end tab bar on compact to a start-edge column from 48rem (12rem) and 80rem (16rem). The shell fills its parent as a flex column with overflow hidden; it does not use min-block-size: 100dvh. sidebar and tabBar are single-form legacy slots. Layout morph is CSS; do not swap trees with matchMedia. Pair header NavigationBar with useTabStacks.",
+  "usage": [
+    "Import AppShell, Navigation, NavigationBar, and useTabStacks from @chameleon-ui/components.",
+    "Pass NavigationBar as header and one Navigation as navigation. Children are the main landmark.",
+    "Drive Navigation with stacks.tab / stacks.selectTab. Drive NavigationBar with stacks.current, previous, canPop, and pop.",
+    "Do not compose Sidebar plus TabBar for three-end chrome. Do not put Navbar (site links) in header."
+  ],
+  "exports": [
+    {
+      "name": "AppShell",
+      "kind": "component",
+      "signature": "function AppShell(props: AppShellProps): JSX.Element",
+      "description": "Named container for stack chrome and the tab controller."
+    },
+    {
+      "name": "AppShellProps",
+      "kind": "type",
+      "signature": "interface AppShellProps",
+      "description": "header, children, navigation, plus legacy sidebar and tabBar slots."
+    }
+  ]
 }

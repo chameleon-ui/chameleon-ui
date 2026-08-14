@@ -3,6 +3,16 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import { useState, type ReactNode } from 'react'
 import type { ContractDoc } from '../contracts'
 import { getContract } from '../contracts'
+import {
+  agentRecipe,
+  componentName,
+  inferEventPayload,
+  listedExports,
+  mechanicsParagraphs,
+  splitProps,
+  usageSnippet,
+  usageSteps,
+} from '../contract-docs'
 import { installCommand } from '../install'
 import { getTranslator } from '../messages'
 import { getExample } from '../playgrounds'
@@ -10,10 +20,9 @@ import { getExample } from '../playgrounds'
 type T = (key: string, values?: Record<string, string | number>) => string
 
 /**
- * Per-component doc renderer. Implements the 9-section template defined in
- * `docs/project/docs-standard.md`. Sections marked SSOT are rendered entirely
- * from `contract.json` — never hand-duplicated — so docs and contract stay in
- * sync by construction.
+ * Per-component doc renderer. Implements the template in
+ * `docs/project/docs-standard.md`. API / events / agent / mechanics / usage
+ * come from `contract.json` (or are synthesized from it). Never hand-copy props.
  */
 export default function ComponentPage({
   slug,
@@ -34,6 +43,9 @@ export default function ComponentPage({
     return <p>{t('docs.notFound')}</p>
   }
 
+  const snippets = example?.snippets ?? []
+  const generatedUsage = usageSnippet(contract)
+
   return (
     <Stack gap="3">
       {locale === 'zh-CN' || locale === 'zh-HK' ? (
@@ -46,37 +58,8 @@ export default function ComponentPage({
         <Typography variant="body">{contract.purpose}</Typography>
       ) : null}
 
-      {contract.scenarios?.length || contract.antiPatterns?.length ? (
-        <section data-docs="usage">
-          <Typography variant="heading-2">{t('docs.usageHeading')}</Typography>
-          <div className="cu-docs-two-col">
-            {contract.scenarios?.length ? (
-              <div>
-                <Typography variant="heading-2" as="h3">
-                  {t('docs.whenToUse')}
-                </Typography>
-                <ul className="cu-docs-list">
-                  {contract.scenarios.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-            {contract.antiPatterns?.length ? (
-              <div>
-                <Typography variant="heading-2" as="h3">
-                  {t('docs.whenNotToUse')}
-                </Typography>
-                <ul className="cu-docs-list">
-                  {contract.antiPatterns.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </section>
-      ) : null}
+      <MechanicsSection contract={contract} t={t} />
+      <UsageSection contract={contract} t={t} generatedUsage={generatedUsage} />
 
       {includePlayground ? (
         <section data-docs="examples">
@@ -91,24 +74,35 @@ export default function ComponentPage({
         </section>
       ) : null}
 
-      {includePlayground && example?.snippets.length ? (
+      {includePlayground ? (
         <section data-docs="code">
           <Typography variant="heading-2">{t('docs.codeHeading')}</Typography>
           <Stack gap="3">
-            {example.snippets.map((snippet) => (
+            {snippets.length ? (
+              snippets.map((snippet) => (
+                <CodeBlock
+                  key={snippet.id}
+                  title={t(snippet.labelKey)}
+                  code={snippet.code}
+                  copyLabel={t('docs.copy')}
+                  copiedLabel={t('docs.copied')}
+                />
+              ))
+            ) : (
               <CodeBlock
-                key={snippet.id}
-                title={t(snippet.labelKey)}
-                code={snippet.code}
+                title={t('docs.exMinimal')}
+                code={generatedUsage}
                 copyLabel={t('docs.copy')}
                 copiedLabel={t('docs.copied')}
               />
-            ))}
+            )}
           </Stack>
         </section>
       ) : null}
 
       <ApiTables contract={contract} t={t} />
+      <CompositionSection contract={contract} t={t} />
+      <AgentSection contract={contract} t={t} />
 
       {contract.a11y ? (
         <section data-docs="a11y">
@@ -182,6 +176,34 @@ export default function ComponentPage({
         </section>
       ) : null}
 
+      {contract.platforms ? (
+        <section data-docs="platforms">
+          <Typography variant="heading-2">{t('docs.platformsHeading')}</Typography>
+          <table className="cu-docs-table">
+            <thead>
+              <tr>
+                <th>web</th>
+                <th>React</th>
+                <th>Vue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>{contract.platforms.web ?? '—'}</code>
+                </td>
+                <td>
+                  <code>{contract.platforms.react ?? '—'}</code>
+                </td>
+                <td>
+                  <code>{contract.platforms.vue ?? '—'}</code>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      ) : null}
+
       <section data-docs="tokens">
         <Typography variant="heading-2">{t('docs.tokensHeading')}</Typography>
         <Typography variant="body">{t('docs.tokensLead')}</Typography>
@@ -201,12 +223,100 @@ export default function ComponentPage({
   )
 }
 
+function MechanicsSection({ contract, t }: { contract: ContractDoc; t: T }) {
+  const paragraphs = mechanicsParagraphs(contract)
+  if (!paragraphs.length) return null
+  return (
+    <section data-docs="mechanics">
+      <Typography variant="heading-2">{t('docs.mechanicsHeading')}</Typography>
+      {paragraphs.map((paragraph) => (
+        <Typography key={paragraph.slice(0, 48)} variant="body">
+          {paragraph}
+        </Typography>
+      ))}
+    </section>
+  )
+}
+
+function UsageSection({
+  contract,
+  t,
+  generatedUsage,
+}: {
+  contract: ContractDoc
+  t: T
+  generatedUsage: string
+}) {
+  const name = componentName(contract)
+  const steps = usageSteps(contract)
+  return (
+    <section data-docs="usage">
+      <Typography variant="heading-2">{t('docs.usageHeading')}</Typography>
+      <Typography variant="heading-2" as="h3">
+        {t('docs.importHeading')}
+      </Typography>
+      <CodeLine
+        code={`import { ${name} } from '@chameleon-ui/components'`}
+        copyLabel={t('docs.copy')}
+        copiedLabel={t('docs.copied')}
+      />
+      <CodeBlock
+        title={t('docs.exMinimal')}
+        code={generatedUsage}
+        copyLabel={t('docs.copy')}
+        copiedLabel={t('docs.copied')}
+      />
+      {steps.length ? (
+        <>
+          <Typography variant="heading-2" as="h3">
+            {t('docs.usageStepsHeading')}
+          </Typography>
+          <ol className="cu-docs-steps">
+            {steps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </>
+      ) : null}
+      {contract.scenarios?.length || contract.antiPatterns?.length ? (
+        <div className="cu-docs-two-col">
+          {contract.scenarios?.length ? (
+            <div>
+              <Typography variant="heading-2" as="h3">
+                {t('docs.whenToUse')}
+              </Typography>
+              <ul className="cu-docs-list">
+                {contract.scenarios.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+          {contract.antiPatterns?.length ? (
+            <div>
+              <Typography variant="heading-2" as="h3">
+                {t('docs.whenNotToUse')}
+              </Typography>
+              <ul className="cu-docs-list">
+                {contract.antiPatterns.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </div>
+      ) : null}
+    </section>
+  )
+}
+
 export function ApiTables({ contract, t }: { contract: ContractDoc; t: T }) {
-  const props = Object.entries(contract.props ?? {})
+  const { attrs, events } = splitProps(contract)
+  const exported = listedExports(contract)
   return (
     <section data-docs="api">
       <Typography variant="heading-2">{t('docs.apiHeading')}</Typography>
-      {props.length ? (
+      {attrs.length ? (
         <>
           <Typography variant="heading-2" as="h3">
             {t('docs.props')}
@@ -221,7 +331,7 @@ export function ApiTables({ contract, t }: { contract: ContractDoc; t: T }) {
               </tr>
             </thead>
             <tbody>
-              {props.map(([name, spec]) => (
+              {attrs.map(([name, spec]) => (
                 <tr key={name}>
                   <td>
                     <code>{name}</code>
@@ -242,6 +352,73 @@ export function ApiTables({ contract, t }: { contract: ContractDoc; t: T }) {
           </table>
         </>
       ) : null}
+
+      <Typography variant="heading-2" as="h3">
+        {t('docs.eventsHeading')}
+      </Typography>
+      {events.length ? (
+        <table className="cu-docs-table" data-docs="events">
+          <thead>
+            <tr>
+              <th>{t('docs.eventName')}</th>
+              <th>{t('docs.eventPayload')}</th>
+              <th>{t('docs.eventDescription')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {events.map(([name, spec]) => (
+              <tr key={name}>
+                <td>
+                  <code>{name}</code>
+                  {spec.required ? (
+                    <span className="cu-docs-required" title={t('docs.required')}>
+                      *
+                    </span>
+                  ) : null}
+                </td>
+                <td>
+                  <code>{inferEventPayload(name, spec)}</code>
+                </td>
+                <td>{spec.description ?? ''}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="cu-docs-note" data-docs="events">
+          {t('docs.noEvents')}
+        </p>
+      )}
+
+      <Typography variant="heading-2" as="h3">
+        {t('docs.exportsHeading')}
+      </Typography>
+      <table className="cu-docs-table" data-docs="exports">
+        <thead>
+          <tr>
+            <th>{t('docs.exportName')}</th>
+            <th>{t('docs.exportKind')}</th>
+            <th>{t('docs.exportSignature')}</th>
+            <th>{t('docs.exportDescription')}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {exported.map((item) => (
+            <tr key={`${item.kind}-${item.name}`}>
+              <td>
+                <code>{item.name}</code>
+              </td>
+              <td>
+                <code>{item.kind}</code>
+              </td>
+              <td>
+                <code>{item.signature}</code>
+              </td>
+              <td>{item.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {contract.variants?.length ? (
         <>
@@ -285,6 +462,105 @@ export function ApiTables({ contract, t }: { contract: ContractDoc; t: T }) {
             ))}
           </ul>
         </>
+      ) : null}
+    </section>
+  )
+}
+
+function CompositionSection({ contract, t }: { contract: ContractDoc; t: T }) {
+  if (
+    !contract.composition ||
+    !(
+      contract.composition.allowedParents?.length ||
+      contract.composition.allowedChildren?.length ||
+      contract.composition.requiredContext?.length
+    )
+  ) {
+    return null
+  }
+  return (
+    <section data-docs="composition">
+      <Typography variant="heading-2">{t('docs.compositionHeading')}</Typography>
+      <dl className="cu-docs-defs">
+        {contract.composition.allowedParents?.length ? (
+          <Def
+            term={t('docs.allowedParents')}
+            value={contract.composition.allowedParents.map((item) => (
+              <code key={item} className="cu-docs-chip">
+                {item}
+              </code>
+            ))}
+          />
+        ) : null}
+        {contract.composition.allowedChildren?.length ? (
+          <Def
+            term={t('docs.allowedChildren')}
+            value={contract.composition.allowedChildren.map((item) => (
+              <code key={item} className="cu-docs-chip">
+                {item}
+              </code>
+            ))}
+          />
+        ) : null}
+        {contract.composition.requiredContext?.length ? (
+          <Def
+            term={t('docs.requiredContext')}
+            value={contract.composition.requiredContext.map((item) => (
+              <code key={item} className="cu-docs-chip">
+                {item}
+              </code>
+            ))}
+          />
+        ) : null}
+      </dl>
+    </section>
+  )
+}
+
+function AgentSection({ contract, t }: { contract: ContractDoc; t: T }) {
+  return (
+    <section data-docs="agent">
+      <Typography variant="heading-2">{t('docs.agentHeading')}</Typography>
+      <Typography variant="body">{t('docs.agentLead')}</Typography>
+      <Typography variant="heading-2" as="h3">
+        {t('docs.agentMcp')}
+      </Typography>
+      <CodeBlock
+        title={t('docs.agentEmit')}
+        code={agentRecipe(contract)}
+        copyLabel={t('docs.copy')}
+        copiedLabel={t('docs.copied')}
+      />
+      {contract.dataAi?.role ? (
+        <div data-docs="data-ai">
+          <Typography variant="heading-2" as="h3">
+            {t('docs.dataAiHeading')}
+          </Typography>
+          <Typography variant="body">{t('docs.dataAiLead')}</Typography>
+          <dl className="cu-docs-defs">
+            <Def term="data-ai-role" value={<code>{contract.dataAi.role}</code>} />
+            {contract.dataAi.states?.length ? (
+              <Def
+                term="data-ai-state"
+                value={contract.dataAi.states.map((item) => (
+                  <code key={item} className="cu-docs-chip">
+                    {item}
+                  </code>
+                ))}
+              />
+            ) : null}
+            {contract.dataAi.intents?.length ? (
+              <Def
+                term="data-ai-intent"
+                value={contract.dataAi.intents.map((item) => (
+                  <code key={item} className="cu-docs-chip">
+                    {item}
+                  </code>
+                ))}
+              />
+            ) : null}
+          </dl>
+        </div>
       ) : null}
     </section>
   )

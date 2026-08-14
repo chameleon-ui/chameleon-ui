@@ -111,7 +111,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: 'MIT · Chameleon UI 0.0.0 · owner 待指定',
+      copyright: 'MIT · Chameleon UI 0.1.0 · owner 待指定',
     },
     prism: {
       theme: prismThemes.github,

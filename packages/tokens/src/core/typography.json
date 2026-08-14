@@ -37,6 +37,22 @@
         "$value": 1.6,
         "$description": "Readable line-height for body copy."
       }
+    },
+    "weight": {
+      "$type": "number",
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    },
+    "tracking": {
+      "tight": {
+        "$value": "-0.022em",
+        "$description": "Display / heading tracking."
+      },
+      "body": {
+        "$value": "0em",
+        "$description": "Body tracking. Themes overlay (line is slightly tight)."
+      }
     }
   }
 }

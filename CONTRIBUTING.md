@@ -23,12 +23,12 @@ Do not add a second copy/install path. Protocol mapping belongs in `packages/ada
 
 ## Version and publish
 
-- First public tag: `v0.1.0` (packages currently stay at `0.0.0` until that tag).
+- First public tag: `v0.1.0` (packages are `0.1.0`; this repo still does not npm publish).
 - Manual git tag, not Changesets. `pnpm publish -r` is for non-private packages only.
 - Do **not** run `npm publish` / `pnpm publish` from this machine until maintainers
   freeze the version. Use `pnpm publish:check` for the local plan.
 - `workspace:*` dependencies are rewritten to concrete versions by pnpm at publish time.
-  Until v0.1.0, an external npm app must `npm link` **all** runtime packages
+  Until a registry publish, an external npm app must `npm link` **all** runtime packages
   (`tokens`, `i18n`, `primitives`, `themes`, `components`). Linking only
   `@chameleon-ui/components` fails because npm cannot resolve `workspace:*`.
   From `chameleon-ui/`: `node ./scripts/link-external.mjs`.

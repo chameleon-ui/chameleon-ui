@@ -47,6 +47,32 @@ export const typographyLineHeightTokens = {
   body: "--cu-typography-line-height-body",
 } as const;
 
+export const typographyWeightTokens = {
+  medium: "--cu-typography-weight-medium",
+  semibold: "--cu-typography-weight-semibold",
+  bold: "--cu-typography-weight-bold",
+} as const;
+
+export const typographyTrackingTokens = {
+  tight: "--cu-typography-tracking-tight",
+  body: "--cu-typography-tracking-body",
+} as const;
+
+export const motionDurationTokens = {
+  fast: "--cu-motion-duration-fast",
+  base: "--cu-motion-duration-base",
+} as const;
+
+export const spaceTokens = {
+  0: "--cu-space-0",
+  1: "--cu-space-1",
+  2: "--cu-space-2",
+  3: "--cu-space-3",
+  4: "--cu-space-4",
+  5: "--cu-space-5",
+  6: "--cu-space-6",
+} as const;
+
 export const radiusTokens = {
   sm: "--cu-radius-sm",
   md: "--cu-radius-md",

@@ -4,6 +4,14 @@
 > 第二期总览：[`../docs/project/phases/Phase-2-Overview.md`](../docs/project/phases/Phase-2-Overview.md)。  
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。
 
+## 同步说明 2026-08-14（双控制器：NavigationBar 栈 + Navigation Tab）
+
+按 UIKit：顶栏是 `UINavigationBar`（栈：title / back=pop / bar items），底栏是 `UITabBarController`（根级 Tab，切换不 push）。Android Toolbar + BottomNavigation 同一原理。新增 `navigation-bar` slug；AppShell `header` 槽位就是栈铬件，不再塞网站工具条。`Navbar` 仍是营销链接行。演示把 theme/locale 放到壳外的 inspector。Owner 待指定。未 git commit。
+
+## 同步说明 2026-08-14（三端一体：同一 Navigation，不再拼装）
+
+附录 C 的 Navigation 不再是 `sidebar` + `tab-bar` 两套组件由消费方组合。新增 `navigation` slug：一份 `items`、一棵 DOM，AppShell 具名容器把同一节点从底部栏移到侧栏。Compact 最多钉 4 项，其余同一棵树上的 overflow 走 More；侧栏列出全部。`Sidebar` / `TabBar` 降为单形态专用。Dialog 本来就是同一组件变形；演示页不再用 ActionSheet 冒充 Dialog 的手机端。Playwright morph PNG 需 `--update-snapshots` 重拍。Owner 待指定。未 git commit。
+
 ## 同步说明 2026-08-13（A5.4 / SAFE-AREA VR + S1）
 
 本切片关闭 A5.4 剩余项：safe-area 进入既有 VR morph 矩阵，并补独立 Playwright 快照；四 P5 slug 走 `perf:size` 实测 gzip。PNG 由 Playwright `--update-snapshots=changed` 实拍入库，无假 hash。Chromium 桌面无刘海，`env(safe-area-inset-*, 0px)` 计算值为 **0px**（契约 fallback / large 路径），快照拍的是这条路径，不是模拟 notch。Owner 一律 **待指定**。未 git commit。未改 catalog.json。未发明 Lighthouse。
@@ -17,7 +25,7 @@ P5  [x] T5.1 断点 Token（mobile <768 / tablet 768–1279 / desktop ≥1280）
     [x] T5.2 密度阶梯 compact/standard/comfortable — density.json + density.css 已接入 docs/internal-demo/theme-studio/market + poc + components test setup + adapter-a2ui demo；`--cu-density-active` / `--cu-control-size-active` 随断点与 [data-density] 切换。design-rules v1.1 迁移单未签字（owner 待指定；themes 仍 spacious vs standard）→ 合入检查仍开
     [x] T5.3 流体排版（clamp）Token — tokens/src/core/typography.json；variables.css 发 --cu-typography-size-* clamp() 与 line-height；compiler 单测绿
     [x] T5.4 容器查询基础设施 + 11 个硬编码媒体查询组件改造 — 规范 + @container 白名单 + stylelint；A5.3 成对测试已补
-    [x] T5.5 变形规则矩阵写入 contract.responsive（附录 C 四行起）— dialog / sidebar+tab-bar / table 已写；DatePicker 行为 P6 组件在，契约未对齐附录 C「底部弹出」
+    [x] T5.5 变形规则矩阵写入 contract.responsive — Dialog 同行已是单组件变形；Navigation 现为同一 DOM/同一 items（不再 sidebar+tab-bar 拼装）；table 已写；DatePicker 附录 C 底部弹出仍待对齐
     [x] T5.6 新组件 ×4：action-sheet / tab-bar / safe-area / sidebar — tsx + contract + 21 语 + 单测 + VR；safe-area 无断点变形，独立 VR 拍 wrapper + 0px fallback + ar RTL 文案
     [x] T5.7 输入模态：hover 门控在；`--cu-touch-target-min`=2.75rem→44px@16px 测量记录入库（清单 15/15）。新组件 tap 面过线。改造清单 checkbox/select/switch/radio 仍硬编码 2.25rem=36px，未改 P6，不宣称 100% ≥44px。虚拟键盘演示页保持。无 Lighthouse
     [x] T5.8 VR 矩阵扩展 — P5 白名单 app-shell/dialog/table/action-sheet/sidebar/tab-bar/safe-area × {390/768/1280} × {en ltr, ar rtl} 已进 visual-regression（p5-whitelist-morph.spec.ts + safe-area.spec.ts + 实拍 PNG）。POC Ark 对照仍保留

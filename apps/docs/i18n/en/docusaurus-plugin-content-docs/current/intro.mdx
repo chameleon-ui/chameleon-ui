@@ -14,6 +14,10 @@ import { CopyLine } from '@site/src/components/InstallBlock'
 
 # Chameleon UI
 
+Chameleon UI is a **three-end app shell + tokens/themes + contract/MCP** system, not an Ant Design / MUI admin kit. Packages are `0.1.0` and unpublished.
+
+Use `AppShell` / `Navigation` / `NavigationBar` and theme overlays freely. Shortest external path: repo `templates/external-vite-react` — see [External consume](./guides/consume.mdx).
+
 MIT-licensed React components on Ark/Zag primitives. Install from the official packages. The inner demo stays at port 5175; this docs site is [http://127.0.0.1:5176](http://127.0.0.1:5176).
 
 This site is **Docusaurus 3 + MDX**. API tables are generated from each component's `contract.json`. The docs app does **not** write files — `chameleon add <slug>` copies a CLI command that calls install-core.
@@ -23,6 +27,8 @@ This site is **Docusaurus 3 + MDX**. API tables are generated from each componen
 ## Quick start
 
 <CopyLine code="chameleon add button" />
+
+Do not guess import paths from this page. Follow [Agent integration](./guides/for-agents.mdx): MCP `get_import_specifiers` → `get_contract` → then JSX.
 
 ```jsx live
 function Example() {

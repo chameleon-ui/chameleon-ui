@@ -32,15 +32,32 @@
       "description": "Allow more than one file.",
       "default": true
     },
+    "accept": {
+      "type": "string",
+      "required": false,
+      "description": "Native accept list (MIME types and extensions). Files outside it are rejected."
+    },
+    "maxSize": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum bytes per file. Larger files are rejected, not truncated."
+    },
     "files": {
       "type": "string",
       "required": false,
-      "description": "Controlled list of { name, size, progress? } entries; progress is measured by the caller, never simulated."
+      "description": "Controlled list of { name, size, progress?, status?, error? }. Progress is caller-measured."
     },
     "onFiles": {
       "type": "event",
       "required": false,
-      "description": "Called with the File array when files arrive."
+      "description": "Called with accepted File objects when files arrive.",
+      "payload": "(files: File[]) => void"
+    },
+    "onReject": {
+      "type": "event",
+      "required": false,
+      "description": "Called with { file, reason: type|size } for files that fail accept or maxSize.",
+      "payload": "(rejections: UploadReject[]) => void"
     },
     "className": {
       "type": "string",

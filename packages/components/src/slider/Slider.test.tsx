@@ -1,5 +1,5 @@
-import { render, screen } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { describe, expect, it, vi } from 'vitest'
 import { createCatalog, directionForLocale, requireMessage } from '@chameleon-ui/i18n'
 import { Slider } from './Slider.js'
 import ar from './locales/ar.json'
@@ -13,6 +13,30 @@ describe('Slider', () => {
     const element = document.querySelector('.cu-slider')
     expect(element).toHaveClass('cu-slider')
     expect(element).toHaveAttribute('data-ai-role', 'slider')
+  })
+
+  it('honours step and reports the snapped value', () => {
+    const onChange = vi.fn()
+    render(<Slider max={100} min={0} onChange={onChange} step={10} value={20} />)
+    fireEvent.change(screen.getByRole('slider'), { target: { value: '40' } })
+    expect(onChange).toHaveBeenCalledWith(40)
+  })
+
+  it('renders a dual-thumb range pair', () => {
+    const onChange = vi.fn()
+    render(<Slider label="Price" onChange={onChange} value={[20, 80]} />)
+    const sliders = screen.getAllByRole('slider')
+    expect(sliders).toHaveLength(2)
+    expect(document.querySelector('.cu-slider')).toHaveAttribute('data-ai-state', 'range')
+    fireEvent.change(sliders[0], { target: { value: '30' } })
+    expect(onChange).toHaveBeenCalledWith([30, 80])
+  })
+
+  it('renders mark labels', () => {
+    render(<Slider marks={[0, 50, 100]} onChange={() => {}} value={50} />)
+    expect(screen.getByText('0')).toBeInTheDocument()
+    expect(screen.getByText('50')).toBeInTheDocument()
+    expect(screen.getByText('100')).toBeInTheDocument()
   })
 
   it('reads bundled locale messages', () => {

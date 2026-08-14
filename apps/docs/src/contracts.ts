@@ -15,6 +15,14 @@ export interface ContractProp {
   description?: string
   default?: unknown
   values?: string[]
+  payload?: string
+}
+
+export interface ContractExport {
+  name: string
+  kind: 'component' | 'hook' | 'function' | 'type'
+  signature: string
+  description: string
 }
 
 export interface ContractVariant {
@@ -63,6 +71,9 @@ export interface ContractDoc {
     mirroredValues?: string[]
   }
   dataAi?: { role?: string; states?: string[]; intents?: string[] }
+  mechanics?: string
+  usage?: string[]
+  exports?: ContractExport[]
 }
 
 export function getContract(slug: string): ContractDoc | null {

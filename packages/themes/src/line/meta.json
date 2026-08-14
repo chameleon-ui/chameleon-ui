@@ -2,8 +2,8 @@
   "id": "line",
   "label": "Line",
   "preview": {
-    "accent": "#111827",
-    "surface": "#f4f5f6"
+    "accent": "#171717",
+    "surface": "#f4f3ef"
   },
   "fonts": {
     "sans": "system-ui, sans-serif"

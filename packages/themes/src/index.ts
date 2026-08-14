@@ -1,22 +1,18 @@
-﻿/** Phase 2 theme ids — SSOT: 综合可行性研究报告 v3.0 §6.2 (folder names without theme- prefix). */
+﻿import type { ThemeId } from './ids.js'
 
-export const themeIds = [
-  "line",
-  "silver-arrow",
-  "stuttgart",
-  "corsa",
-  "cupertino",
-  "siren",
-  "wechat",
-  "ant-blue",
-] as const;
-
-/** Community discipline packs (Phase 4) — not homage theme ids. */
-export const communityRulesPackIds = ["community-focus-first"] as const;
-
-export type CommunityRulesPackId = (typeof communityRulesPackIds)[number];
-
-export type ThemeId = (typeof themeIds)[number];
+export {
+  communityRulesPackIds,
+  isThemeId,
+  themeIds,
+} from './ids.js'
+export type { CommunityRulesPackId, ThemeId } from './ids.js'
+export {
+  applyDocumentTheme,
+  installThemeOverlays,
+  scopeThemeCss,
+  THEME_OVERLAY_STYLE_ID,
+} from './document-theme.js'
+export type { ApplyDocumentThemeOptions, ThemeDensity } from './document-theme.js'
 
 
 
@@ -152,11 +148,6 @@ export interface DesignRules {
 
 
 
-export function isThemeId(value: string): value is ThemeId {
-
-  return (themeIds as readonly string[]).includes(value);
-
-}
 
 /**
  * Canonical CSS specifier for a tribute theme overlay.

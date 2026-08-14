@@ -312,7 +312,28 @@
 
 .cu-docs-mini-shell {
   min-block-size: 10rem;
+  block-size: 12rem;
   border: 1px solid var(--cu-color-border-default, #ccc);
   border-radius: var(--cu-radius-md, var(--cu-space-1, 0.25rem));
   overflow: hidden;
+}
+
+.cu-docs-mini-shell .cu-app-shell,
+.cu-docs-mini-shell .cu-app-shell__frame {
+  min-block-size: 100%;
+  max-block-size: 100%;
+  block-size: 100%;
+}
+
+.cu-docs-mini-shell--tall {
+  min-block-size: 18rem;
+  block-size: 20rem;
+}
+
+.cu-docs-steps {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2, 0.5rem);
 }

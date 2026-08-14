@@ -60,7 +60,8 @@
   },
   "antiPatterns": [
     "Do not put the only navigation in a navbar that disappears on compact without an alternative.",
-    "Do not use a navbar for sequential wizard progress; use Steps."
+    "Do not use a navbar for sequential wizard progress; use Steps.",
+    "Do not use Navbar as AppShell three-end chrome; root tabs are Navigation, stack chrome is NavigationBar."
   ],
   "a11y": {
     "role": "navigation",

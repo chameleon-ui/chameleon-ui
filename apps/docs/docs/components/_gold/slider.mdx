@@ -4,7 +4,7 @@
 function Example() {
   const [value, setValue] = useState(40);
   return (
-    <Slider label="音量" min={0} max={100} value={value} onChange={setValue} />
+    <Slider label="音量" marks={[0, 50, 100]} min={0} max={100} step={5} value={value} onChange={setValue} />
   );
 }
 ```

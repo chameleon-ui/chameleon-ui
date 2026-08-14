@@ -11,7 +11,7 @@ Use the CLI or MCP. Both call **install-core**. There is no third installer on t
 
 <InstallBlock slug="button" />
 
-Packages are publish-ready (MIT, `publishConfig.access=public`) at version 0.0.0. This repo does not npm publish until maintainers freeze v0.1.0.
+Packages are publish-ready (MIT, `publishConfig.access=public`) at version 0.1.0. This repo does not npm publish.
 
 ```
 chameleon add button
@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## Local npm link (before publish)
 
-Packages stay at `0.0.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components`. Linking only `components` fails.
+Packages are `0.1.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components`. Linking only `components` fails.
 
 ```bash
 cd chameleon-ui
@@ -47,7 +47,7 @@ Publish plan: first git tag `v0.1.0` (owner 待指定). `pnpm publish -r` rewrit
 
 ## External app (not a pnpm workspace)
 
-Copy this into an **npm / yarn / standalone Vite** app. Never put `"workspace:*"` in the consumer `package.json`. Agents must read `chameleon-ui/AGENTS.md` and call MCP `get_import_specifiers` before writing imports.
+Copy this into an **npm / yarn / standalone Vite** app. Never put `"workspace:*"` in the consumer `package.json`. Agents must follow [Agent integration](./guides/for-agents.mdx) and `chameleon-ui/AGENTS.md`, and call MCP `get_import_specifiers` before writing imports.
 
 ```tsx
 import "@chameleon-ui/themes/cupertino/css";
@@ -70,4 +70,16 @@ CSS must be `@chameleon-ui/themes/cupertino/css`. Do not use the unexported `@ch
 ## Environment
 
 Node **≥ 20.19**, pnpm **9.15.0**. Publishable packages declare `engines.node`.
+
+## Dual track and external Vite
+
+Pick package-five or `chameleon add` — not both half-done. Windows Vite (`preserveSymlinks`, `dedupe`, `fs.allow`) lives in `templates/external-vite-react`. Full checklist: [External consume](./guides/consume.mdx).
+
+```bash
+node ./scripts/link-external.mjs --print-vite
+node ./scripts/pack-external.mjs
+```
+
+Pin at the app root: `react@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range.
+
 

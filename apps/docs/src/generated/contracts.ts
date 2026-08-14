@@ -101,6 +101,8 @@ import c_masonry from '@chameleon-ui/components/contracts/masonry'
 import c_navbar from '@chameleon-ui/components/contracts/navbar'
 import c_space from '@chameleon-ui/components/contracts/space'
 import c_steps from '@chameleon-ui/components/contracts/steps'
+import c_navigation from '@chameleon-ui/components/contracts/navigation'
+import c_navigation_bar from '@chameleon-ui/components/contracts/navigation-bar'
 
 export const CONTRACTS: Record<string, ContractDoc> = {
   'button': c_button,
@@ -204,4 +206,6 @@ export const CONTRACTS: Record<string, ContractDoc> = {
   'navbar': c_navbar,
   'space': c_space,
   'steps': c_steps,
+  'navigation': c_navigation,
+  'navigation-bar': c_navigation_bar,
 }

@@ -16,6 +16,14 @@ const cupertinoDistCss = readFileSync(
 )
 
 describe('Phase 2 inner demo', () => {
+  it('renders the street product studio by default', () => {
+    window.history.replaceState(null, '', '/?locale=en&theme=line')
+    render(<App />)
+    expect(document.querySelector('[data-demo="street"]')).not.toBeNull()
+    expect(document.querySelector('[data-ai-role="app-shell"]')).not.toBeNull()
+    expect(document.querySelector('[data-ai-role="empty-state"]')).toBeNull()
+  })
+
   it('exposes 21 product locales and 8 themes in chrome selectors', () => {
     window.history.replaceState(null, '', '/?view=gallery&locale=en&theme=line')
     render(<App />)
@@ -73,6 +81,7 @@ describe('Phase 2 inner demo', () => {
     expect(lab).toHaveAttribute('data-lab-case', 'narrow')
     expect(document.documentElement.classList.contains('cu-demo-lab')).toBe(true)
     expect(lab?.querySelector('[data-ai-role="app-shell"]')).not.toBeNull()
+    expect(lab?.querySelector('[data-ai-role="navigation"]')).not.toBeNull()
     expect(lab?.querySelector('[data-ai-role="table"]')).not.toBeNull()
     expect(lab?.querySelector('[data-ai-role="sidebar"]')).not.toBeNull()
     expect(lab?.querySelector('[data-ai-role="tab-bar"]')).not.toBeNull()
@@ -143,17 +152,19 @@ describe('Phase 2 inner demo', () => {
     await waitFor(() => expect(writeText).toHaveBeenCalled())
   })
 
-  it('renders adaptive chrome on the default live shell without a device picker', () => {
+  it('renders adaptive chrome on the default street studio without a device picker', () => {
     window.history.replaceState(null, '', '/?locale=zh-CN&theme=line')
     render(<App />)
 
     expect(document.querySelector('[data-demo="adaptive"]')).not.toBeNull()
+    expect(document.querySelector('[data-demo="street"]')).not.toBeNull()
     expect(document.querySelector('[data-cu-shell]')).not.toBeNull()
     expect(document.querySelector('[data-ai-role="app-shell"]')).not.toBeNull()
-    expect(document.querySelector('.cu-app-shell__tab-bar [data-ai-role="tab-bar"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="sidebar"]')).not.toBeNull()
+    expect(document.querySelector('.cu-app-shell__nav [data-ai-role="navigation"]')).not.toBeNull()
+    expect(document.querySelector('.cu-app-shell__tab-bar')).toBeNull()
+    expect(document.querySelector('.cu-app-shell__sidebar')).toBeNull()
     expect(document.querySelector('[data-three-end-pick]')).toBeNull()
-    expect(document.body.textContent).toMatch(/拖动窗口宽度/)
+    expect(document.body.textContent).toMatch(/三件需要拍板的事/)
   })
 
   it('renders a live three-end shell and keeps freeze frames behind a closed lab', () => {
@@ -165,9 +176,10 @@ describe('Phase 2 inner demo', () => {
     expect(document.querySelector('[data-three-end="live"]')).not.toBeNull()
     expect(document.querySelector('[data-three-end="stage"]')).not.toBeNull()
     expect(document.querySelector('[data-three-end-pick]')).toBeNull()
-    expect(document.querySelector('[data-ai-role="tab-bar"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="sidebar"]')).not.toBeNull()
-    expect(document.querySelector('[data-three-end-container="narrow"] [data-ai-role="app-shell"]')).not.toBeNull()
+    expect(document.querySelector('[data-ai-role="navigation"]')).not.toBeNull()
+    expect(document.querySelector('.cu-app-shell__tab-bar')).toBeNull()
+    expect(document.querySelector('.cu-app-shell__sidebar')).toBeNull()
+    expect(document.querySelector('[data-three-end-container]')).toBeNull()
 
     const freeze = document.querySelector('[data-three-end="freeze-lab"]')
     expect(freeze).not.toBeNull()
@@ -175,14 +187,12 @@ describe('Phase 2 inner demo', () => {
     expect((freeze as HTMLDetailsElement).open).toBe(false)
 
     const frames = [...(freeze?.querySelectorAll<HTMLIFrameElement>('iframe') ?? [])]
-    expect(frames).toHaveLength(4)
+    expect(frames).toHaveLength(3)
     expect(frames[0]?.getAttribute('src')).toContain('view=three-end-stage')
     expect(frames[0]?.getAttribute('src')).toContain('end=phone')
     expect(frames[0]?.getAttribute('width')).toBe('390')
     expect(frames[1]?.getAttribute('width')).toBe('768')
     expect(frames[2]?.getAttribute('width')).toBe('1280')
-    expect(frames[3]?.getAttribute('src')).toContain('end=proof')
-    expect(frames[3]?.getAttribute('width')).toBe('1280')
   })
 
   it('notes cupertino frosted chrome on the three-end playground', () => {
@@ -191,33 +201,37 @@ describe('Phase 2 inner demo', () => {
     expect(document.querySelector('[data-three-end="cupertino-frost"]')?.textContent).toMatch(/frosted glass/i)
   })
 
-  it('keeps TabBar and Sidebar in the stage DOM so CSS can morph them with container width', () => {
+  it('keeps one Navigation in the stage DOM so CSS can morph it with container width', () => {
     window.history.replaceState(null, '', '/?view=three-end-stage&end=phone&locale=zh-CN&theme=line')
     const phone = render(<App />)
     expect(document.documentElement.dataset.end).toBe('phone')
     expect(document.querySelector('[data-three-end="stage"]')).not.toBeNull()
     expect(document.querySelector('[data-ai-role="app-shell"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="tab-bar"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="sidebar"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="action-sheet"]')).not.toBeNull()
+    expect(document.querySelectorAll('[data-ai-role="navigation"]').length).toBeGreaterThanOrEqual(1)
+    expect(document.querySelector('.cu-app-shell__tab-bar')).toBeNull()
+    expect(document.querySelector('.cu-app-shell__sidebar')).toBeNull()
     expect(document.querySelector('.cu-dialog__trigger')).not.toBeNull()
     expect(document.querySelector('[data-three-end="density"]')).not.toBeNull()
+    expect(document.querySelector('[data-ai-role="navigation-bar"]')).not.toBeNull()
+    expect(phone.getByRole('heading', { name: '首页' })).toBeInTheDocument()
+    fireEvent.click(phone.getAllByRole('button', { name: '发现' })[0])
+    expect(phone.getByRole('button', { name: '发现' })).toHaveAttribute('aria-current', 'page')
+    expect(phone.getByRole('heading', { name: '发现' })).toBeInTheDocument()
+    expect(phone.queryByText('三端一体：同一页，三种形态')).toBeNull()
+    fireEvent.click(phone.getByRole('button', { name: '打开详情' }))
+    expect(phone.getByRole('heading', { name: '发现 · 详情' })).toBeInTheDocument()
+    fireEvent.click(document.querySelector('.cu-navigation-bar__back') as HTMLButtonElement)
+    expect(phone.getByRole('heading', { name: '发现' })).toBeInTheDocument()
+    fireEvent.click(phone.getByRole('button', { name: '更多' }))
+    fireEvent.click(phone.getByRole('button', { name: '我的' }))
+    expect(phone.getByRole('button', { name: '我的' })).toHaveAttribute('aria-current', 'page')
+    expect(phone.getByRole('heading', { name: '我的' })).toBeInTheDocument()
     phone.unmount()
 
     window.history.replaceState(null, '', '/?view=three-end-stage&end=desktop&locale=zh-CN&theme=line')
     render(<App />)
     expect(document.documentElement.dataset.end).toBe('desktop')
-    expect(document.querySelector('[data-ai-role="sidebar"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="tab-bar"]')).not.toBeNull()
+    expect(document.querySelector('[data-ai-role="navigation"]')).not.toBeNull()
     expect(document.querySelector('.cu-dialog__trigger')).not.toBeNull()
-  })
-
-  it('proves A5.3 with a 320px container inside a 1280 proof stage', () => {
-    window.history.replaceState(null, '', '/?view=three-end-stage&end=proof&locale=zh-CN&theme=line')
-    render(<App />)
-    expect(document.querySelector('[data-three-end="proof"]')).not.toBeNull()
-    expect(document.querySelector('[data-three-end-container="wide"] [data-ai-role="app-shell"]')).not.toBeNull()
-    expect(document.querySelector('[data-three-end-container="narrow"] [data-ai-role="app-shell"]')).not.toBeNull()
-    expect(document.querySelector('[data-ai-role="dialog"]')).not.toBeNull()
   })
 })

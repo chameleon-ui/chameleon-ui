@@ -28,7 +28,8 @@
     "onChange": {
       "type": "event",
       "required": false,
-      "description": "Receives the next active tab value."
+      "description": "Receives the next active tab value.",
+      "payload": "(value: string) => void"
     }
   },
   "variants": [],
@@ -96,5 +97,25 @@
     "intents": [
       "switch-view"
     ]
-  }
+  },
+  "mechanics": "Tabs organizes in-page panels. items is Array<{ value, label, content }>. value/onChange are controlled; defaultValue is uncontrolled. This is not the AppShell tab controller — root destinations use Navigation. Arrow keys move between tabs; order follows document direction.",
+  "usage": [
+    "Import Tabs from @chameleon-ui/components.",
+    "Pass items with value, label, and content. Use defaultValue or bind value and onChange.",
+    "Do not use Tabs as AppShell chrome. Root destinations belong on Navigation."
+  ],
+  "exports": [
+    {
+      "name": "Tabs",
+      "kind": "component",
+      "signature": "function Tabs(props: TabsProps): JSX.Element",
+      "description": "In-page tablist and panels. Not the AppShell tab controller."
+    },
+    {
+      "name": "TabsProps",
+      "kind": "type",
+      "signature": "interface TabsProps",
+      "description": "items, value, defaultValue, and onChange."
+    }
+  ]
 }

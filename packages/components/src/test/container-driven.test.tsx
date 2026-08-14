@@ -6,6 +6,7 @@ import { describe, expect, it } from 'vitest'
 import { ActionSheet } from '../action-sheet/ActionSheet.js'
 import { AppShell } from '../app-shell/AppShell.js'
 import { Dialog } from '../dialog/Dialog.js'
+import { Navigation } from '../navigation/Navigation.js'
 import { Sidebar } from '../sidebar/Sidebar.js'
 import { TabBar } from '../tab-bar/TabBar.js'
 import { Table } from '../table/Table.js'
@@ -24,8 +25,30 @@ const whitelist = [
     file: 'app-shell/styles.css',
     container: '.cu-app-shell',
     containerName: 'app-shell',
-    descendants: ['.cu-app-shell__frame', '.cu-app-shell__sidebar', '.cu-app-shell__tab-bar'],
-    queries: ['48rem', '80rem'],
+    descendants: ['.cu-app-shell__frame', '.cu-app-shell__nav', '.cu-app-shell__sidebar', '.cu-app-shell__tab-bar'],
+    queries: ['48rem', '80rem', ':has(.cu-app-shell__nav)'],
+  },
+  {
+    slug: 'navigation',
+    file: 'navigation/styles.css',
+    container: '.cu-navigation',
+    containerName: 'navigation',
+    descendants: [
+      '.cu-navigation__frame',
+      '.cu-navigation__list',
+      '.cu-navigation__toggle',
+      '.cu-navigation__overflow',
+      '.cu-navigation__entry--more',
+    ],
+    queries: ['48rem', '80rem', 'app-shell'],
+  },
+  {
+    slug: 'navigation-bar',
+    file: 'navigation-bar/styles.css',
+    container: '.cu-navigation-bar',
+    containerName: 'navigation-bar',
+    descendants: ['.cu-navigation-bar__frame', '.cu-navigation-bar__title'],
+    queries: ['48rem'],
   },
   {
     slug: 'dialog',
@@ -219,31 +242,35 @@ describe('narrow container + wide viewport vs wide container + narrow viewport',
 })
 
 describe('Phase 5 navigation chrome follows container size (not a device picker)', () => {
-  it('app-shell sidebar morph is @container 48rem / 80rem with compact display:none — no viewport width @media', () => {
+  it('app-shell moves one __nav cell at 48rem / 80rem — not a sidebar plus tab-bar pair', () => {
     const css = stripComments(readCss('app-shell/styles.css'))
     expect(hasViewportSizeMedia(css)).toBe(false)
-    expect(css).toMatch(/\.cu-app-shell__sidebar\s*\{[^}]*display:\s*none/)
+    expect(css).toContain('.cu-app-shell__nav')
     const queried = containerQuerySection(css)
     expect(queried).toContain('48rem')
     expect(queried).toContain('80rem')
-    expect(queried).toMatch(/\.cu-app-shell__sidebar\s*\{[^}]*display:\s*block/)
+    expect(queried).toContain(':has(.cu-app-shell__nav)')
+    expect(queried).toMatch(/grid-template-columns:\s*12rem/)
     expect(queried).toMatch(/grid-template-columns:\s*16rem/)
+    expect(queried).toMatch(/"nav header"/)
+    expect(queried).toMatch(/minmax\(0,\s*1fr\)/)
     expect(queried).toMatch(/\.cu-app-shell__tab-bar\s*\{[^}]*display:\s*none/)
   })
 
-  it('tab-bar does not switch visibility with viewport width @media (A5.3: container must win)', () => {
-    expect(hasViewportSizeMedia(stripComments(readCss('tab-bar/styles.css')))).toBe(false)
+  it('Navigation CSS morphs the same list via named containers, with no viewport width @media', () => {
+    const css = stripComments(readCss('navigation/styles.css'))
+    expect(hasViewportSizeMedia(css)).toBe(false)
+    expect(css).toMatch(/@container navigation \(min-width: 48rem\)/)
+    expect(css).toMatch(/@container app-shell \(min-width: 48rem\)/)
+    expect(css).not.toContain('cu-sidebar')
+    expect(css).not.toContain('cu-tab-bar')
   })
 
-  it('A5.3 host: 20rem shell inside a 1280 viewport still mounts TabBar + sidebar members', () => {
+  it('A5.3 host: 20rem shell inside a 1280 viewport still mounts one Navigation', () => {
     setViewportWidth(1280)
     render(
       <div data-three-end-size="narrow-in-wide" style={{ width: '20rem', maxWidth: '20rem' }}>
-        <AppShell
-          header={<span>H</span>}
-          sidebar={<Sidebar label="Main" items={navItems} />}
-          tabBar={<TabBar label="Main navigation" items={navItems} />}
-        >
+        <AppShell header={<span>H</span>} navigation={<Navigation label="Main" items={navItems} />}>
           <span>Main</span>
         </AppShell>
       </div>,
@@ -252,7 +279,8 @@ describe('Phase 5 navigation chrome follows container size (not a device picker)
     expect(window.innerWidth).toBe(1280)
     const host = document.querySelector('[data-three-end-size="narrow-in-wide"]') as HTMLElement
     expect(host.style.width).toBe('20rem')
-    expect(host.querySelector('.cu-app-shell__sidebar')).not.toBeNull()
-    expect(host.querySelector('.cu-app-shell__tab-bar [data-ai-role="tab-bar"]')).not.toBeNull()
+    expect(host.querySelectorAll('[data-ai-role="navigation"]')).toHaveLength(1)
+    expect(host.querySelector('.cu-app-shell__sidebar')).toBeNull()
+    expect(host.querySelector('.cu-app-shell__tab-bar')).toBeNull()
   })
 })

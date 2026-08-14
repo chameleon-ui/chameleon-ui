@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/themes",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -12,20 +12,53 @@
   "type": "module",
   "description": "Phase 2 tribute themes (8) overlaying @chameleon-ui/tokens core with design-rules authority",
   "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     },
     "./dist/*": "./dist/*",
-    "./line/css": "./dist/line/variables.css",
-    "./silver-arrow/css": "./dist/silver-arrow/variables.css",
-    "./stuttgart/css": "./dist/stuttgart/variables.css",
-    "./corsa/css": "./dist/corsa/variables.css",
-    "./cupertino/css": "./dist/cupertino/variables.css",
-    "./siren/css": "./dist/siren/variables.css",
-    "./wechat/css": "./dist/wechat/variables.css",
-    "./ant-blue/css": "./dist/ant-blue/variables.css",
+    "./line/css": {
+      "style": "./dist/line/variables.css",
+      "import": "./dist/line/variables.css",
+      "default": "./dist/line/variables.css"
+    },
+    "./silver-arrow/css": {
+      "style": "./dist/silver-arrow/variables.css",
+      "import": "./dist/silver-arrow/variables.css",
+      "default": "./dist/silver-arrow/variables.css"
+    },
+    "./stuttgart/css": {
+      "style": "./dist/stuttgart/variables.css",
+      "import": "./dist/stuttgart/variables.css",
+      "default": "./dist/stuttgart/variables.css"
+    },
+    "./corsa/css": {
+      "style": "./dist/corsa/variables.css",
+      "import": "./dist/corsa/variables.css",
+      "default": "./dist/corsa/variables.css"
+    },
+    "./cupertino/css": {
+      "style": "./dist/cupertino/variables.css",
+      "import": "./dist/cupertino/variables.css",
+      "default": "./dist/cupertino/variables.css"
+    },
+    "./siren/css": {
+      "style": "./dist/siren/variables.css",
+      "import": "./dist/siren/variables.css",
+      "default": "./dist/siren/variables.css"
+    },
+    "./wechat/css": {
+      "style": "./dist/wechat/variables.css",
+      "import": "./dist/wechat/variables.css",
+      "default": "./dist/wechat/variables.css"
+    },
+    "./ant-blue/css": {
+      "style": "./dist/ant-blue/variables.css",
+      "import": "./dist/ant-blue/variables.css",
+      "default": "./dist/ant-blue/variables.css"
+    },
     "./line/meta": "./dist/line/meta.json",
     "./line/design-rules": "./src/line/design-rules.json",
     "./line/tokens": "./src/line/tokens.json",

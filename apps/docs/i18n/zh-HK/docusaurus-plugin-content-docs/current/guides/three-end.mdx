@@ -1,39 +1,42 @@
 ---
 title: 三端一體
 sidebar_label: 三端一體
-description: 同一頁三種可見形態：手機 TabBar、桌面側欄、容器查詢實證。不是換 Token。
+description: 同一 API，容器寬度驅動形態。Navigation 是 Tab 控制器；NavigationBar 是堆疊鉻件。不是換 Token，不是 Sidebar+TabBar。
 ---
 
-三端一體不是換一套色板。願景 v3.0 §7.1 要求同一 API 在手機 / 平板 / 桌面變成不同的導航、浮層和密度。
+三端一體是 **同一棵組件樹** 隨容器 inline-size 變形，不是換色板，也不是 `matchMedia` 換兩套導航。
 
-**打開內測 Demo，30 秒內應能看見形態差：**
+斷點是 Token（`48rem` / `80rem`），不是組件 CSS 裡的 `768px` 字面量。規範：倉庫 `docs/engineering/容器查询与三端规范.md`。
 
-[http://127.0.0.1:5175/?view=three-end](http://127.0.0.1:5175/?view=three-end)
+## 雙控制器
 
-建議加上 `&locale=zh-CN`。視口開關是 **手機 390 / 平板 768 / 桌面 1280**。每個框裡是真實組件，不是示意圖。
+| 角色 | 組件 | 窄容器 | ≥48rem | ≥80rem |
+| :--- | :--- | :--- | :--- | :--- |
+| 根目的地 | `Navigation`（`AppShell.navigation`） | 底部欄形態（最多 4 釘 + 更多） | 12rem 可摺疊側欄 | 16rem 持久側欄 |
+| 堆疊 | `NavigationBar`（`AppShell.header`） | 標題置中，返回在前 | 標題靠前 | 同左 |
+| 浮層 | 同一個 `Dialog` | 貼底 | 置中 | 置中 |
+| 密度 | `tokens/density.css` | comfortable，觸控 ≥44px | standard | compact |
 
-## 能看見什麼
+`ActionSheet` 是獨立動作列表。不要把它當成 Dialog 的桌面形態。`Sidebar` 與 `TabBar` 仍存在，只用於 **故意單形態** 的鉻件；三端路徑必須用 `Navigation`。`Navbar` 是站點連結，不是 AppShell 堆疊。
 
-| 端 | 導航 | 浮層 | 密度 |
-| :--- | :--- | :--- | :--- |
-| 手機 \<768 | 底部 `TabBar`，`AppShell` 側欄藏起 | `ActionSheet` 貼底（同一任務在桌面是 `Dialog`） | comfortable，`--cu-control-size-active` ≥44px |
-| 平板 768–1279 | 可摺疊 `Sidebar` + `TabBar` | 置中 `Dialog` | standard |
-| 桌面 ≥1280 | 持久 `Sidebar`，無 `TabBar` | 置中 `Dialog` | compact |
+## 應用接線
 
-懸停只在精細指針上：桌面 `HoverCard`，手機改成點按 `Popover` / `Collapse`。標題用 `clamp` 流變。
-
-## 容器查詢實證（A5.3）
-
-同一頁下方有一個 **1280 寬的 iframe**，裡面嵌了 **320px 灰盒**。如果組件跟視窗，這裡會出現側欄、對話框會置中。實際：側欄藏了、`Dialog` 貼底——跟的是**盒子**，不是視窗。
-
-實驗室頁 `/?view=lab` 仍給視覺回歸用。人眼對照請走 `/?view=three-end`。
-
-## 應用裡怎麼接
-
-```ts
+```tsx
 import "@chameleon-ui/themes/cupertino/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+
+<AppShell
+  header={<NavigationBar title={title} onBack={canPop ? pop : undefined} />}
+  navigation={<Navigation label="Main" items={tabs} activeValue={tab} onSelect={onSelect} />}
+>
+  {screen}
+</AppShell>
 ```
 
-只引 `tokens/css` 時密度停在 standard，不會隨端切換。組件 CSS 禁止寫視口寬度媒體查詢；斷點在 Token，形態走 `@container`。
+只引 `tokens/css` 時密度停在 standard。組件 CSS 禁止視口寬度媒體查詢；形態走命名容器 `app-shell` 上的 `@container`。
+
+切 Tab 不 push。返回是 pop。鉤子：`useTabStacks`。
+
+編碼 Agent 的完整規則見 [編碼 Agent 整合](./for-agents.mdx)。

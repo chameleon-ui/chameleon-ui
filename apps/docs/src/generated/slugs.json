@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-08-14T03:53:05.287Z",
-  "count": 101,
+  "generatedAt": "2026-08-14T12:28:04.744Z",
+  "count": 103,
   "gold": [
     "button",
     "input",
@@ -124,6 +124,8 @@
     "masonry",
     "navbar",
     "space",
-    "steps"
+    "steps",
+    "navigation",
+    "navigation-bar"
   ]
 }

@@ -1,4 +1,5 @@
 import './styles.css'
+import { downsample, downsampleLabels } from '../virtual/downsample.js'
 
 export interface ChartSeries {
   name: string
@@ -17,6 +18,7 @@ export interface ChartProps {
 const WIDTH = 320
 const HEIGHT = 160
 const PADDING = 8
+const MAX_POINTS = 96
 const SERIES_CLASSES = ['cu-chart__series--0', 'cu-chart__series--1', 'cu-chart__series--2', 'cu-chart__series--3']
 
 function extent(series: ChartSeries[]) {
@@ -57,9 +59,14 @@ export function Chart({ type = 'line', series, labels, label, emptyLabel = 'No d
     )
   }
 
-  const { min, max } = extent(series)
-  const slotCount = Math.max(...series.map((entry) => entry.data.length))
+  const painted = series.map((entry) => ({
+    ...entry,
+    data: downsample(entry.data, MAX_POINTS),
+  }))
+  const { min, max } = extent(painted)
+  const slotCount = Math.max(...painted.map((entry) => entry.data.length))
   const slotWidth = (WIDTH - PADDING * 2) / Math.max(1, slotCount)
+  const paintedLabels = downsampleLabels(labels, labels?.length ?? slotCount, MAX_POINTS)
 
   return (
     <figure className={classes} data-ai-role="chart" data-ai-intent="visualize-data" data-ai-state={type}>
@@ -70,7 +77,7 @@ export function Chart({ type = 'line', series, labels, label, emptyLabel = 'No d
         aria-label={label}
         preserveAspectRatio="xMidYMid meet"
       >
-        {series.map((entry, seriesIndex) => {
+        {painted.map((entry, seriesIndex) => {
           const seriesClass = SERIES_CLASSES[seriesIndex % SERIES_CLASSES.length]
           if (type === 'bar') {
             const barWidth = (slotWidth * 0.7) / series.length
@@ -97,10 +104,10 @@ export function Chart({ type = 'line', series, labels, label, emptyLabel = 'No d
           )
         })}
       </svg>
-      {labels && labels.length > 0 ? (
+      {paintedLabels && paintedLabels.length > 0 ? (
         <figcaption className="cu-chart__labels">
-          {labels.map((item) => (
-            <span key={item} className="cu-chart__label">
+          {paintedLabels.map((item, index) => (
+            <span key={`${item}-${index}`} className="cu-chart__label">
               {item}
             </span>
           ))}

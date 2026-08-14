@@ -12,6 +12,7 @@ export function EmptyState({ title, description, action, className }: EmptyState
   const classes = ['cu-empty-state', className].filter(Boolean).join(' ')
   return (
     <div className={classes} data-ai-role="empty-state" data-ai-state="default" data-ai-intent="prompt-first-action" role="status">
+      <div className="cu-empty-state__mark" aria-hidden="true" />
       <div className="cu-empty-state__title">{title}</div>
       {description ? <div className="cu-empty-state__description">{description}</div> : null}
       {action ? <div className="cu-empty-state__action">{action}</div> : null}

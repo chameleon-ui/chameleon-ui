@@ -11,6 +11,14 @@
     },
     "background": {
       "default": { "$value": "{color.palette.paper}" },
+      "subtle": {
+        "$value": "#f6f6f4",
+        "$description": "Canvas behind elevated chrome. Themes overlay this; line uses a warmer paper."
+      },
+      "elevated": {
+        "$value": "{color.palette.paper}",
+        "$description": "Raised surfaces: nav rail, cards, dialogs."
+      },
       "inverse": { "$value": "{color.palette.ink}" }
     },
     "border": {
@@ -18,8 +26,11 @@
     },
     "fg": {
       "default": { "$value": "{color.palette.ink}" },
+      "muted": {
+        "$value": "#6b7280",
+        "$description": "Secondary copy, captions, empty-state body."
+      },
       "inverse": { "$value": "{color.palette.paper}" }
     }
   }
 }
-

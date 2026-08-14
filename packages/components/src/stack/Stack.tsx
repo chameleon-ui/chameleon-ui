@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import './styles.css'
 
 export type StackDirection = 'row' | 'column'
-export type StackGap = '0' | '1' | '2' | '3'
+export type StackGap = '0' | '1' | '2' | '3' | '4' | '5' | '6'
 export type StackAlignment = 'start' | 'center' | 'end' | 'stretch'
 export type StackJustify = 'start' | 'center' | 'end' | 'between'
 

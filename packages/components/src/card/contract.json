@@ -127,5 +127,25 @@
       "group-content",
       "navigate-detail"
     ]
-  }
+  },
+  "mechanics": "Card is a surface for related content and actions. variant changes elevation/outline only. padding is internal spacing. Children are the body; put headings and actions inside, not around unlabeled icons.",
+  "usage": [
+    "Import Card from @chameleon-ui/components.",
+    "Pass children. Optionally set variant and padding.",
+    "Do not nest cards. Do not wrap a single button in a card."
+  ],
+  "exports": [
+    {
+      "name": "Card",
+      "kind": "component",
+      "signature": "function Card(props: CardProps): JSX.Element",
+      "description": "Contained surface with variant, padding, and children."
+    },
+    {
+      "name": "CardProps",
+      "kind": "type",
+      "signature": "interface CardProps",
+      "description": "children, variant, padding, and className."
+    }
+  ]
 }
