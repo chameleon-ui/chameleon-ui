@@ -1,7 +1,7 @@
 # Phase 9 · Lighthouse R1–R3（生成物）
 
 > **禁止手写分数。** 本文件由 `corepack pnpm@9.15.0 perf:lhci` 从 `benchmarks/reports/lhci-latest.json` 写出。
-> 日期：2026-08-14T01:22:22.863Z
+> 日期：2026-08-15T16:01:44.315Z
 > 口径：simulated Fast 4G + 4x CPU (mid-tier Android lab stand-in)
 
 ## 状态
@@ -20,13 +20,13 @@
 
 | ID | 预算 | 本次 | LEGACY |
 | :--- | :--- | :--- | :--- |
-| R1 LCP | ≤ 2500 ms | 609 ms (0.6 s) ≤ budget | measured-local-lab |
+| R1 LCP | ≤ 2500 ms | 663 ms (0.7 s) ≤ budget | measured-local-lab |
 | R2 INP P75 | ≤ 200 ms | **未测** | open-unmeasured |
 | R3 CLS | ≤ 0.1 | 0 (0) ≤ budget | measured-local-lab |
 
 R2 说明：Navigation-mode Lighthouse often has no INP numericValue (no lab interaction). TBT is recorded as extra only — not used as INP.
 
-TBT（非 R2）：52 ms。TBT is not R2. Do not treat TBT as INP.
+TBT（非 R2）：9 ms。TBT is not R2. Do not treat TBT as INP.
 
 ## 类别分（非 R* 预算）
 
