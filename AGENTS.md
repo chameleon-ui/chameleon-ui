@@ -262,7 +262,7 @@ Default map **10 slugs only**: `alert` `badge` `button` `card` `divider` `empty-
 
 For people building **this** checkout — not the default path for consumer AIs.
 
-This directory is the **library unit** (intended to stand alone when split). Size/lint gates live in sibling **`../toolings/`** and **`../benchmarks/`** when this tree is still inside the full monorepo; those neighbors are optional and may be absent from a `chameleon-ui/`-only publish. They are maintainer transparency, not consumer dependencies.
+This repository is the **library unit**. Maintainer lint/typecheck configs and size budgets are **not tracked in this repository** (they live outside it) and are irrelevant to consumers.
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/react... build

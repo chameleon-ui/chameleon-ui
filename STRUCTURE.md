@@ -1,8 +1,8 @@
 # Structure — library map
 
-Paths relative to `chameleon-ui/`.
+Paths relative to the repository root.
 
-**Ownership:** this directory is the **library unit** intended to stand alone when split. It ships `@chameleon-ui/*` packages plus consume docs (`AGENTS.md`, `docs/ai/`), `templates/`, and `brand/`. Inner apps (docs site, demo, studio, market) are **not** in this tree.
+**Ownership:** this repository is the **library unit**. It ships `@chameleon-ui/*` packages plus consume docs (`AGENTS.md`, `docs/ai/`), `templates/`, and `brand/`. Inner apps (docs site, demo, studio, market) are **not** tracked in this repository.
 
 ## Root
 
@@ -13,7 +13,7 @@ Paths relative to `chameleon-ui/`.
 | `docs/ai/` | Agent attach notes (consume, SchemaRenderer, vocabulary, …) |
 | `STRUCTURE.md` | This map |
 | `package.json` | `check` / `publish:check` / `ai:check` / pack+link+verify |
-| `pnpm-workspace.yaml` | `packages/*`; may also list `../toolings/*` when this tree sits in the full monorepo |
+| `pnpm-workspace.yaml` | `packages/*` |
 | `turbo.json` | build / lint / typecheck / test |
 | `LICENSE` · `CONTRIBUTING.md` · `SECURITY.md` | MIT + contrib + telemetry |
 
@@ -44,14 +44,9 @@ Paths relative to `chameleon-ui/`.
 
 Library brand assets (e.g. `chameleon-logo.png`).
 
-## Optional monorepo neighbors
+## Maintainer-quality facilities (not tracked here)
 
-When this tree still lives inside the full ChameleonUI monorepo, sibling **`../toolings/`** (eslint / stylelint / tsconfig) and **`../benchmarks/`** (size budgets) sit beside it. They are **maintainer transparency** — present in the full checkout, **may be absent** when only `chameleon-ui/` is published or cloned. Consumers do **not** need them; do not add them to an app `package.json`.
-
-| Data | Authority (when neighbors exist) |
-| :--- | :--- |
-| Size budgets (maintainer) | `../benchmarks/budgets.json` |
-| Lint configs (maintainer) | `../toolings/*` |
+Maintainer eslint / stylelint / tsconfig and size budgets are **not part of this repository** — they live outside the repo and are unrelated to consumers. Consumers do **not** need them; do not add them to an app `package.json`.
 
 ## Authority
 

@@ -1,11 +1,11 @@
 # Contributing to Chameleon UI
 
-Library checkout. Installable code lives in `chameleon-ui/packages/*`.
-Do not run `pnpm install` at the workspace root.
+Library repository. Installable code lives in `packages/*`.
+Do not run `pnpm install` at an inner app root.
 
 ## Commands
 
-From `chameleon-ui/`, with Corepack pnpm 9.15.0 on `PATH`:
+From the repo root, with Corepack pnpm 9.15.0 on `PATH`:
 
 ```
 corepack pnpm@9.15.0 install --frozen-lockfile

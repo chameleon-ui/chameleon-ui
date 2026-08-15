@@ -25,7 +25,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && node ./scripts/copy-assets.mjs",
     "dev": "vitest",
-    "lint": "tsc -p tsconfig.json --noEmit && node ../../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
+    "lint": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "locales:write": "node ./scripts/write-locales.mjs"
