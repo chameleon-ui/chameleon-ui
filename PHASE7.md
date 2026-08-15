@@ -5,6 +5,10 @@
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。  
 > 验收报告：[`../docs/project/reports/M7-场景Blocks验收.md`](../docs/project/reports/M7-场景Blocks验收.md)。
 
+## 同步说明 2026-08-15（kanban/gantt 最小原语 + zh-HK 撰稿）
+
+kanban：键盘 + **原生 HTML5 DnD**（非自研拖拽引擎）。gantt：日期刻度 + 可选今日标记。Blocks 撰稿语扩到 **en / zh-CN / zh-HK**（zh-HK=SC→TC 映射）；其余 18 语仍骨架。见 `GAPS.md` + `locale-gap-table.json`。
+
 ## 同步说明 2026-08-15
 
 本切片关闭 **code-closable** P7 余项：`packages/blocks` ×12 已在树；Registry `registry/b` 生成管线；install-core Block→组件图；CLI `add-block` / MCP `install_block`；§7.4 矩阵 17/17（LEGACY-2026-018/019）；`bench.block_install_success_rate`；`ci:phase7` / `phase7:gates`；demo `view=blocks` + VR spec；骨架进 `locale-gap-table.json` + `GAPS.md`。未 npm publish。未签冻结/预算会。未宣称 21 语 Blocks / 设备框 / 3D 孪生。
@@ -46,12 +50,12 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/visual-regression exec playwright te
 
 - Block 安装写盘仅经 `install-core`；禁止第二套 fs 逻辑。
 - Block 体积预算未进 `budgets.json` 前只测不门禁，且禁止性能宣称。
-- 19 语 Block 文案为骨架（`_cuSkeleton` + 缺口表），禁止宣称「21 语 Blocks」。
+- 19 语 Block 文案为骨架（`_cuSkeleton` + 缺口表），禁止宣称「21 语 Blocks」。撰稿为 en/zh-CN/zh-HK。
 
 ## 明确未做（禁止伪造）
 
 - Blocks 市场交易（运营期）
-- 看板拖拽引擎自研 / 甘特绘制基元不足部分（缺口书面化 → `packages/blocks/GAPS.md`）
+- 自研看板拖拽引擎 / 甘特画布虚拟化（原生 HTML5 DnD + 刻度/今日标记已落地；缺口见 `GAPS.md`）
 - 「集成层」场景行：数字孪生 3D（LEGACY-2026-018）；产品原型设备框 Block（LEGACY-2026-019）
 - npm publish（用户：npm 先不上架）
 - 冻结会 / 预算会签字（owner 待指定）

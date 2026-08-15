@@ -48,16 +48,43 @@
   outline-offset: 1px;
 }
 
-.cu-date-picker__popover {
+/*
+ * Appendix C morph: compact = bottom sheet; medium/large = floating panel.
+ * Viewport-sized positioner is the @container (same pattern as Dialog).
+ */
+.cu-date-picker__positioner {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: end center;
+  container-type: inline-size;
+}
+
+.cu-date-picker__backdrop {
   position: absolute;
-  inset-block-start: 100%;
-  inset-inline-start: 0;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 44%, transparent);
+  cursor: pointer;
+}
+
+.cu-date-picker__popover {
+  position: relative;
   z-index: 1;
-  margin-block-start: var(--cu-space-1);
+  inline-size: 100%;
+  max-block-size: min(90vh, 28rem);
+  overflow: auto;
+  margin-block-start: 0;
   padding-block: var(--cu-space-2);
   padding-inline: var(--cu-space-2);
   border: 1px solid var(--cu-color-border-default);
-  border-radius: var(--cu-radius-md);
+  border-start-start-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-start-end-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
   background: var(--cu-color-background-default);
   box-shadow: 0 var(--cu-space-1) var(--cu-space-3) color-mix(in srgb, var(--cu-color-fg-default) 18%, transparent);
 }
@@ -92,6 +119,10 @@
   outline: 3px solid var(--cu-color-palette-brand);
 }
 
+.cu-date-picker__grid {
+  inline-size: 100%;
+}
+
 .cu-date-picker__weekdays,
 .cu-date-picker__week {
   display: grid;
@@ -124,8 +155,10 @@
   cursor: pointer;
 }
 
-.cu-date-picker__day:hover {
-  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+@media (hover: hover) {
+  .cu-date-picker__day:hover {
+    background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+  }
 }
 
 .cu-date-picker__cell[aria-selected='true'] .cu-date-picker__day {
@@ -135,4 +168,16 @@
 
 .cu-date-picker__day:focus-visible {
   outline: 3px solid var(--cu-color-palette-brand);
+}
+
+/* 48rem == breakpoint.tablet */
+@container (min-width: 48rem) {
+  .cu-date-picker__positioner {
+    place-items: center;
+  }
+
+  .cu-date-picker__popover {
+    inline-size: min(100%, 22rem);
+    border-radius: var(--cu-radius-xl, var(--cu-radius-lg));
+  }
 }

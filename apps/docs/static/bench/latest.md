@@ -1,6 +1,6 @@
 # GenUI-Bench report
 
-Generated: 2026-08-15T13:30:56.958Z
+Generated: 2026-08-15T14:32:44.892Z
 
 Registry: 103 components, 8 themes, 12 blocks.
 
@@ -19,7 +19,7 @@ Telemetry default off: true
 ## Generation quality detail (Phase 8 A6)
 
 Generator: none configured (honest null)
-Task set: v1.0.0 · Measured at: 2026-08-15T13:30:56.958Z
+Task set: v1.0.0 · Measured at: 2026-08-15T14:32:44.892Z
 
 No outcomes: generator not configured. Set CU_BENCH_GENERATOR to measure.
 

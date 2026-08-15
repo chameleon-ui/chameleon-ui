@@ -19,10 +19,28 @@
   grid-template-columns: 1fr;
 }
 
+.cu-block-kanban__column-shell {
+  min-block-size: 100%;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-block-kanban__column-shell--drop {
+  outline: 2px dashed var(--cu-color-palette-brand);
+  outline-offset: 2px;
+}
+
 .cu-block-kanban__column {
   display: grid;
   gap: var(--cu-space-2);
   align-content: start;
+}
+
+.cu-block-kanban__card-shell {
+  cursor: grab;
+}
+
+.cu-block-kanban__card-shell:active {
+  cursor: grabbing;
 }
 
 .cu-block-kanban__column-header {

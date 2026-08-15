@@ -2,7 +2,7 @@
  * phase6:gates — 组件广度工程门禁（轨道卡 A6.7）。
  *
  * Fails when:
- * - catalog is not schemaVersion 2.0 with 101 unique slugs
+ * - catalog is not schemaVersion 2.0 with 103 unique slugs
  * - a catalog slug is missing family A–H, contract v0.2, 21 locale files, src dir, or index export path
  * - named F/G/H / A补 / B补 slugs are absent
  * - Vue subset is below 20 SFC components, or a second token authority appears
@@ -21,7 +21,7 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const repoRoot = join(root, '..')
-const EXPECTED_SLUGS = 101
+const EXPECTED_SLUGS = 103
 const FAMILIES = new Set(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'])
 const REQUIRED_F = ['chart', 'kpi-dashboard', 'ticker', 'sparkline', 'heatmap', 'gauge']
 const REQUIRED_G = [
@@ -250,11 +250,25 @@ async function checkVueSubset() {
 }
 
 async function checkSampleSpecs() {
-  const required = ['toolings/visual-regression/tests/p6-family-sample.spec.ts']
+  const required = [
+    'toolings/visual-regression/tests/p6-family-sample.spec.ts',
+    'toolings/visual-regression/tests/p6-a62-fgh.spec.ts',
+    'toolings/visual-regression/tests/p6-a62-cdeab.spec.ts',
+  ]
   for (const rel of required) {
     if (!(await exists(join(root, rel)))) fail(`missing ${rel}`)
   }
-  ok('F/G/H sample VR spec file present (Playwright executes it in phase1:gates)')
+
+  const fghDir = join(root, 'toolings/visual-regression/tests/p6-a62-fgh.spec.ts-snapshots')
+  const cdeabDir = join(root, 'toolings/visual-regression/tests/p6-a62-cdeab.spec.ts-snapshots')
+  const fghPng = (await exists(fghDir)) ? (await readdir(fghDir)).filter((name) => name.endsWith('.png')).length : 0
+  const cdeabPng = (await exists(cdeabDir)) ? (await readdir(cdeabDir)).filter((name) => name.endsWith('.png')).length : 0
+  // 20 F/G/H + 27 C/D/E/A/B = 47 slugs × 3 widths × 2 locales = 282
+  const expected = 47 * 3 * 2
+  if (fghPng + cdeabPng < expected) {
+    fail(`A6.2 PNG inventory ${fghPng + cdeabPng} < ${expected} (fgh=${fghPng}, cdeab=${cdeabPng}). Re-run Playwright --update-snapshots.`)
+  }
+  ok(`A6.2 VR specs + ${fghPng + cdeabPng} PNGs (≥${expected}); Playwright executes them in phase1:gates`)
 }
 
 async function main() {
@@ -297,7 +311,7 @@ async function main() {
   })
   if (process.exitCode) return
 
-  await step('F/G/H sample VR spec file', checkSampleSpecs)
+  await step('A6.2 VR specs + PNG inventory (47×3×2)', checkSampleSpecs)
   if (process.exitCode) return
 
   console.log(
@@ -305,7 +319,7 @@ async function main() {
       {
         ok: true,
         gates: [
-          'catalog-v2.0-101-slugs',
+          'catalog-v2.0-103-slugs',
           'family-map-A-H',
           'contract-v0.2',
           'locales-21-present',
@@ -317,16 +331,17 @@ async function main() {
           'vue-s1-gzip',
           'lint-components-and-vue',
           'p6-family-sample-spec-file',
+          'p6-a62-full-47-slug-vr-specs-and-pngs',
         ],
         skipped: [
-          'catalog-v2.0-freeze-meeting (owner 待指定)',
+          'catalog-v2.0-freeze-meeting (owner 待指定; engineering pack: docs/project/reports/Phase-6-catalog-v2.0-freeze-pack.md)',
           'budget-revision-meeting (owner 待指定)',
           'vue-scope-memo (owner 待指定)',
           'locale-translation-quality (skeletons reported, not claimed)',
           'R1-R3',
           'G-WebGL-Worker-LOD',
         ],
-        note: 'ci:phase6 = ci:phase5 + phase6:gates. Unsigned meetings stay unsigned.',
+        note: 'ci:phase6 = ci:phase5 + phase6:gates. Unsigned meetings stay unsigned. A6.2 engineering MET when PNG inventory ≥282.',
       },
       null,
       2,

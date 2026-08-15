@@ -118,3 +118,24 @@
 .cu-market-check-fail {
   color: var(--cu-color-fg-danger, #dc2626);
 }
+
+.cu-market-import {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2, 0.5rem);
+  max-inline-size: 480px;
+  padding: var(--cu-space-3, 0.75rem);
+  border: 1px dashed var(--cu-color-border-default, #d1d5db);
+  border-radius: var(--cu-radius-lg, 0.5rem);
+}
+
+.cu-market-import-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.cu-market-hint {
+  margin: 0;
+  color: var(--cu-color-fg-muted, #6b7280);
+  font-size: var(--cu-font-size-sm, 0.875rem);
+}

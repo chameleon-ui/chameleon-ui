@@ -173,10 +173,9 @@ tokens / themes / i18n / contract / primitives-vue
 | **Phase 4（今）** | `adapter-mcp-apps` POC；docs 21 语骨架 + VPAT draft + 北极星看板 + 移交 + `ci:phase4`；纪律包 `registry:rules`（`community-focus-first` 经市场列出/安装）；主题市场 `apps/market` + `market-service` |
 | Phase 5（规划） | 断点/密度/排版 Token；容器查询基础设施；变形矩阵；`action-sheet` / `tab-bar` / `safe-area` / `sidebar` |
 | Phase 6（规划） | F/G/H 族 + 缺口名单（catalog v2.0，约 101 slug 冻结会定准）；Vue 子集 ≥20 |
-| Phase 7（据树） | `packages/blocks` ×12；§7.4 矩阵 17/17；`ci:phase7` / `phase7:gates`；见 `PHASE7.md` |
-
-| Phase 8（规划） | `adapter-ag-ui`（或观察报告）；`schema-renderer`；data-ai 全量；`bench.generation_quality`；DTCG `$extends` |
-| Phase 9（规划） | R1–R3 实测；VPAT published；npm 首发；文档 21 语去骨架 |
+| Phase 7（据树） | `packages/blocks` ×12；§7.4 矩阵 17/17；撰稿 en/zh-CN/zh-HK；`ci:phase7` / `phase7:gates`；见 `PHASE7.md` |
+| Phase 8（据树） | `adapter-ag-ui` POC；`schema-renderer`；data-ai 全量；`generation_quality` null/template-baseline；DTCG `$extends` |
+| Phase 9（据树） | R1–R3 本地 lab；VPAT published-internal；npm deferred；21 语去骨架 deferred；见 `PHASE9.md` |
 
 ### 纪律包清单（`registry:rules`）
 

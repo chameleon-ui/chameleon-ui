@@ -126,6 +126,10 @@ export function ExportPage({ themeId, rulesOverride, onNavigateEditor }: ExportP
             Download export JSON
           </Button>
         </Stack>
+        <p className="cu-studio-hint">
+          Local market loop: open Marketplace Apply → Import Theme Studio export → Submit → Install.
+          Does not call the market API from this app.
+        </p>
         {!canExport ? (
           <p className="cu-studio-status cu-studio-status--error" data-studio="export-validation">
             {parseError ?? formatValidationIssues(issues)}

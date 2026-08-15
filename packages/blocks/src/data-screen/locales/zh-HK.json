@@ -1,22 +1,21 @@
 {
-  "_cuSkeleton": true,
   "screen": {
-    "title": "Operations screen",
-    "subtitle": "KPIs and charts on a canvas that scales to the parent.",
-    "kpiLabel": "Key metrics",
-    "kpiSessions": "Sessions",
+    "title": "運營大屏",
+    "subtitle": "KPI 與圖表放在按父級縮放的畫布上。",
+    "kpiLabel": "關鍵指標",
+    "kpiSessions": "会話",
     "kpiSessionsValue": "18.4k",
-    "kpiConversion": "Conversion",
+    "kpiConversion": "轉化",
     "kpiConversionValue": "3.2%",
-    "kpiLatency": "Latency",
+    "kpiLatency": "延遲",
     "kpiLatencyValue": "124ms",
-    "kpiErrors": "Errors",
+    "kpiErrors": "錯誤",
     "kpiErrorsValue": "0.4%",
-    "trafficLabel": "Traffic",
-    "trafficSeries": "Sessions",
-    "conversionLabel": "Conversion",
-    "conversionSeries": "Sign-ups",
-    "emptyLabel": "No data",
-    "panelCount": "{count, plural, =0 {No panels} one {# panel} other {# panels}}"
+    "trafficLabel": "流量",
+    "trafficSeries": "会話",
+    "conversionLabel": "轉化",
+    "conversionSeries": "注冊",
+    "emptyLabel": "暫無數據",
+    "panelCount": "{count, plural, =0 {沒有面板} other {# 個面板}}"
   }
 }

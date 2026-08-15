@@ -18,6 +18,8 @@ export interface GanttProps {
   locale?: string
   tasks?: GanttTask[]
   onSelectTask?: (task: GanttTask) => void
+  /** ISO date for the today marker; defaults to UTC today. Pass null to hide. */
+  today?: string | null
   className?: string
 }
 
@@ -35,6 +37,11 @@ function utcDay(iso: string) {
   return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))
 }
 
+function toISODate(ms: number) {
+  const date = new Date(ms)
+  return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, '0')}-${String(date.getUTCDate()).padStart(2, '0')}`
+}
+
 function barStyle(task: GanttTask, rangeStart: number, rangeEnd: number) {
   const start = utcDay(task.start)
   const end = utcDay(task.end)
@@ -47,7 +54,28 @@ function barStyle(task: GanttTask, rangeStart: number, rangeEnd: number) {
   }
 }
 
-export function Gantt({ locale = 'en', tasks = DEFAULT_TASKS, onSelectTask, className }: GanttProps) {
+function buildTicks(rangeStart: number, rangeEnd: number, maxTicks = 8) {
+  const spanDays = Math.max(1, Math.round((rangeEnd - rangeStart) / DAY_MS))
+  const step = Math.max(1, Math.ceil(spanDays / maxTicks))
+  const ticks: { iso: string; pct: number }[] = []
+  for (let day = 0; day <= spanDays; day += step) {
+    const ms = rangeStart + day * DAY_MS
+    const pct = ((ms - rangeStart) / Math.max(rangeEnd - rangeStart, DAY_MS)) * 100
+    ticks.push({ iso: toISODate(ms), pct: Math.min(100, pct) })
+  }
+  if (ticks[ticks.length - 1]?.iso !== toISODate(rangeEnd)) {
+    ticks.push({ iso: toISODate(rangeEnd), pct: 100 })
+  }
+  return ticks
+}
+
+export function Gantt({
+  locale = 'en',
+  tasks = DEFAULT_TASKS,
+  onSelectTask,
+  today,
+  className,
+}: GanttProps) {
   const { t } = createBlockCopy(ganttLocaleTrees, locale)
   const classes = ['cu-block-gantt', className].filter(Boolean).join(' ')
   const timestamps = tasks.flatMap((task) => [utcDay(task.start), utcDay(task.end)]).filter((value) => Number.isFinite(value))
@@ -55,6 +83,20 @@ export function Gantt({ locale = 'en', tasks = DEFAULT_TASKS, onSelectTask, clas
   const rangeEnd = timestamps.length > 0 ? Math.max(...timestamps) : DAY_MS
   const startLabel = tasks.length > 0 ? tasks.reduce((min, task) => (task.start < min ? task.start : min), tasks[0]!.start) : ''
   const endLabel = tasks.length > 0 ? tasks.reduce((max, task) => (task.end > max ? task.end : max), tasks[0]!.end) : ''
+  const ticks = tasks.length > 0 ? buildTicks(rangeStart, rangeEnd) : []
+  const todayIso =
+    today === null
+      ? null
+      : today ??
+        (() => {
+          const now = new Date()
+          return `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, '0')}-${String(now.getUTCDate()).padStart(2, '0')}`
+        })()
+  const todayMs = todayIso ? utcDay(todayIso) : Number.NaN
+  const todayPct =
+    Number.isFinite(todayMs) && todayMs >= rangeStart && todayMs <= rangeEnd
+      ? ((todayMs - rangeStart) / Math.max(rangeEnd - rangeStart, DAY_MS)) * 100
+      : null
 
   const milestones: TimelineItem[] = tasks.map((task) => ({
     id: task.id,
@@ -83,6 +125,16 @@ export function Gantt({ locale = 'en', tasks = DEFAULT_TASKS, onSelectTask, clas
           <EmptyState description={t('gantt.emptyDescription')} title={t('gantt.emptyTitle')} />
         ) : (
           <div aria-label={t('gantt.scaleLabel')} className="cu-block-gantt__chart" role="list">
+            <div aria-hidden="true" className="cu-block-gantt__scale">
+              <span className="cu-block-gantt__scale-spacer" />
+              <div className="cu-block-gantt__scale-track">
+                {ticks.map((tick) => (
+                  <span className="cu-block-gantt__tick" key={tick.iso} style={{ insetInlineStart: `${tick.pct}%` }}>
+                    {tick.iso.slice(5)}
+                  </span>
+                ))}
+              </div>
+            </div>
             {tasks.map((task) => (
               <div className="cu-block-gantt__row" key={task.id} role="listitem">
                 <div className="cu-block-gantt__label">
@@ -93,6 +145,14 @@ export function Gantt({ locale = 'en', tasks = DEFAULT_TASKS, onSelectTask, clas
                   />
                 </div>
                 <div className="cu-block-gantt__track">
+                  {todayPct !== null ? (
+                    <span
+                      aria-hidden="true"
+                      className="cu-block-gantt__today"
+                      style={{ insetInlineStart: `${todayPct}%` }}
+                      title={todayIso ?? undefined}
+                    />
+                  ) : null}
                   <button
                     aria-label={t('gantt.barLabel', { name: task.title, start: task.start, end: task.end })}
                     className="cu-block-gantt__bar"

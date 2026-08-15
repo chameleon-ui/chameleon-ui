@@ -2,7 +2,7 @@
   "_cuSkeleton": true,
   "gantt": {
     "title": "Schedule",
-    "subtitle": "Bars are sized from start and end dates. This is not a drawing engine.",
+    "subtitle": "Bars use start/end dates plus day ticks and an optional today marker. Not a full drawing engine or virtualized schedule.",
     "scaleLabel": "Date scale",
     "rangeLabel": "Scale {start} to {end}",
     "emptyTitle": "No tasks",

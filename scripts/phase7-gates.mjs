@@ -143,11 +143,11 @@ async function checkGapTable() {
   const gapPath = join(root, 'packages/blocks/locale-gap-table.json')
   if (!(await exists(gapPath))) return fail('missing packages/blocks/locale-gap-table.json')
   const gap = JSON.parse(await readFile(gapPath, 'utf8'))
-  if (!Array.isArray(gap.authored) || gap.authored.join() !== 'en,zh-CN') {
-    return fail('locale-gap-table.authored must be [en, zh-CN]')
+  if (!Array.isArray(gap.authored) || gap.authored.join() !== 'en,zh-CN,zh-HK') {
+    return fail('locale-gap-table.authored must be [en, zh-CN, zh-HK]')
   }
-  if (!Array.isArray(gap.skeleton) || gap.skeleton.length !== 19) {
-    return fail('locale-gap-table.skeleton must list 19 locales')
+  if (!Array.isArray(gap.skeleton) || gap.skeleton.length !== 18) {
+    return fail('locale-gap-table.skeleton must list 18 locales')
   }
   if (!(await exists(join(root, 'packages/blocks/GAPS.md')))) {
     return fail('missing packages/blocks/GAPS.md (kanban/gantt honesty notes)')
@@ -269,8 +269,8 @@ async function main() {
         skipped: [
           'npm-publish (user: npm 先不上架)',
           'blocks-market-trading (ops era)',
-          'kanban-pointer-drag-engine (GAPS.md)',
-          'gantt-drawing-primitive (GAPS.md)',
+          'kanban-custom-drag-engine (native HTML5 DnD only; GAPS.md)',
+          'gantt-canvas-virtualization (ticks+today marker; GAPS.md)',
           'device-frame-block (LEGACY-2026-019)',
           'digital-twin-3d (LEGACY-2026-018)',
           '21-language-blocks-claim (skeletons only)',

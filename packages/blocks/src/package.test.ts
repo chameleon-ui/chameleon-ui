@@ -30,9 +30,9 @@ function importedComponents(source: string) {
 }
 
 describe('block locales', () => {
-  it('ships 21 locales with authored en/zh-CN and skeleton copies elsewhere', () => {
-    expect(gapTable.authored).toEqual(['en', 'zh-CN'])
-    expect(gapTable.skeleton).toHaveLength(19)
+  it('ships 21 locales with authored en/zh-CN/zh-HK and skeleton copies elsewhere', () => {
+    expect(gapTable.authored).toEqual(['en', 'zh-CN', 'zh-HK'])
+    expect(gapTable.skeleton).toHaveLength(18)
     expect(gapTable.eta).toBe('pending')
     expect(gapTable.owner).toBe('pending')
 
@@ -43,7 +43,7 @@ describe('block locales', () => {
 
       for (const locale of PHASE_2_LOCALES) {
         const tree = JSON.parse(readFileSync(join(localeDir, `${locale}.json`), 'utf8')) as unknown
-        if (locale === 'en' || locale === 'zh-CN') {
+        if (locale === 'en' || locale === 'zh-CN' || locale === 'zh-HK') {
           expect(isSkeletonTree(tree)).toBe(false)
         } else {
           expect(isSkeletonTree(tree)).toBe(true)

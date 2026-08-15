@@ -8,6 +8,7 @@ Phase 4 marketplace UI for community themes and rules packs. Private app — not
 - **Detail** page with validation report.
 - **Install** a listing into a target directory via `@chameleon-ui/market-service` (which delegates to `@chameleon-ui/install-core`).
 - **Apply** for a new listing (theme or rules pack); the application is validated by the service pipeline.
+- **Import Theme Studio export** on Apply: upload `*-export.json` (`generator=theme-studio`) → community theme listing → Browse / Detail / Install.
 
 ## Commands
 

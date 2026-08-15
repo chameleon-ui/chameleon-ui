@@ -2,7 +2,7 @@
   "_cuSkeleton": true,
   "kanban": {
     "title": "Board",
-    "subtitle": "Move work across columns with the keyboard. Pointer drag is not included.",
+    "subtitle": "Move cards with the keyboard or native HTML5 drag-and-drop. This is not a custom drag engine.",
     "colTodo": "To do",
     "colDoing": "In progress",
     "colDone": "Done",

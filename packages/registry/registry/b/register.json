@@ -106,7 +106,7 @@
     },
     {
       "path": "blocks/register/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"register\": {\n    \"title\": \"Create an account\",\n    \"subtitle\": \"Enter your details to join this workspace.\",\n    \"nameLabel\": \"Name\",\n    \"emailLabel\": \"Email\",\n    \"passwordLabel\": \"Password\",\n    \"confirmLabel\": \"Confirm password\",\n    \"showPassword\": \"Show password\",\n    \"hidePassword\": \"Hide password\",\n    \"termsLabel\": \"I agree to the terms\",\n    \"submit\": \"Create account\",\n    \"loginPrompt\": \"Already have an account?\",\n    \"loginAction\": \"Sign in\",\n    \"errorRequired\": \"Name, email, and password are required.\",\n    \"errorInvalid\": \"Enter a valid email address.\",\n    \"errorMismatch\": \"Passwords do not match.\",\n    \"errorTerms\": \"Agree to the terms to continue.\",\n    \"accountCount\": \"{count, plural, =0 {No accounts created} one {# account created} other {# accounts created}}\"\n  }\n}\n"
+      "content": "{\n  \"register\": {\n    \"title\": \"創建賬戶\",\n    \"subtitle\": \"填寫信息以加入此工作區。\",\n    \"nameLabel\": \"姓名\",\n    \"emailLabel\": \"電子郵箱\",\n    \"passwordLabel\": \"密碼\",\n    \"confirmLabel\": \"確認密碼\",\n    \"showPassword\": \"顯示密碼\",\n    \"hidePassword\": \"隱藏密碼\",\n    \"termsLabel\": \"我同意條款\",\n    \"submit\": \"創建賬戶\",\n    \"loginPrompt\": \"已有賬戶？\",\n    \"loginAction\": \"登錄\",\n    \"errorRequired\": \"姓名、電子郵箱和密碼為必填項。\",\n    \"errorInvalid\": \"請輸入有效的電子郵箱地址。\",\n    \"errorMismatch\": \"两次輸入的密碼不一致。\",\n    \"errorTerms\": \"請同意條款後再繼續。\",\n    \"accountCount\": \"{count, plural, =0 {尚未創建賬戶} other {已創建 # 個賬戶}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/register/manifest.json",

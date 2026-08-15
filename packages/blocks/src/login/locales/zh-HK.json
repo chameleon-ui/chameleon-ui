@@ -1,18 +1,17 @@
 {
-  "_cuSkeleton": true,
   "login": {
-    "title": "Sign in",
-    "subtitle": "Welcome back. Continue with your email and password.",
-    "emailLabel": "Email",
-    "passwordLabel": "Password",
-    "showPassword": "Show password",
-    "hidePassword": "Hide password",
-    "submit": "Sign in",
-    "registerPrompt": "Need an account?",
-    "registerAction": "Create one",
-    "errorRequired": "Email and password are required.",
-    "errorInvalid": "Enter a valid email address.",
-    "rememberLabel": "Keep me signed in",
-    "sessionCount": "{count, plural, =0 {No saved sessions} one {# saved session} other {# saved sessions}}"
+    "title": "登錄",
+    "subtitle": "歡迎回來。請使用電子郵箱和密碼繼續。",
+    "emailLabel": "電子郵箱",
+    "passwordLabel": "密碼",
+    "showPassword": "顯示密碼",
+    "hidePassword": "隱藏密碼",
+    "submit": "登錄",
+    "registerPrompt": "還沒有賬戶？",
+    "registerAction": "創建一個",
+    "errorRequired": "電子郵箱和密碼為必填項。",
+    "errorInvalid": "請輸入有效的電子郵箱地址。",
+    "rememberLabel": "保持登錄狀態",
+    "sessionCount": "{count, plural, =0 {沒有已保存的会話} other {已保存 # 個会話}}"
   }
 }

@@ -1,21 +1,20 @@
 {
-  "_cuSkeleton": true,
   "ticket": {
-    "title": "Ticket",
-    "subtitle": "Advance a request through triage and keep notes on the timeline.",
-    "stepsLabel": "Ticket stages",
-    "stepOpen": "Open",
-    "stepTriage": "Triage",
-    "stepProgress": "In progress",
-    "stepResolved": "Resolved",
-    "noteLabel": "Add a note",
-    "submit": "Add note",
-    "advance": "Advance stage",
-    "emptyTitle": "No notes yet",
-    "emptyDescription": "Add the first note to start this request.",
-    "emptyTimeline": "No events yet",
-    "errorRequired": "A note is required.",
-    "eventAdvanced": "Moved to {stage}",
-    "noteCount": "{count, plural, =0 {No notes} one {# note} other {# notes}}"
+    "title": "工單",
+    "subtitle": "按分診步驟推進請求，並在時間線上記錄備注。",
+    "stepsLabel": "工單階段",
+    "stepOpen": "待處理",
+    "stepTriage": "分診",
+    "stepProgress": "進行中",
+    "stepResolved": "已解決",
+    "noteLabel": "添加備注",
+    "submit": "添加備注",
+    "advance": "推進一步",
+    "emptyTitle": "還沒有備注",
+    "emptyDescription": "添加第一條備注以開始此請求。",
+    "emptyTimeline": "還沒有事件",
+    "errorRequired": "備注為必填項。",
+    "eventAdvanced": "已移至 {stage}",
+    "noteCount": "{count, plural, =0 {沒有備注} other {# 條備注}}"
   }
 }

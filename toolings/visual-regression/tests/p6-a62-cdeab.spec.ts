@@ -1,7 +1,7 @@
 import { expect, test, type Page, type TestInfo } from '@playwright/test'
 import { expectScreenshotOrSkip } from './screenshot-policy'
 
-test.use({ baseURL: process.env.CU_VR_BASE_URL ?? 'http://127.0.0.1:5175' })
+test.use({ baseURL: process.env.CU_VR_BASE_URL ?? 'http://127.0.0.1:4175' })
 
 const widths = [390, 768, 1280] as const
 const locales = [

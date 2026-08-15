@@ -4,7 +4,7 @@ Phase 2 **inner** demo (T1.10, inventory expanded). It is not `apps/docs` and no
 
 Renders the official stack only:
 
-- `@chameleon-ui/components` (frozen 50; gallery still dogfoods the Phase 1 set plus AppShell)
+- `@chameleon-ui/components` (full catalog gallery; street studio + blocks + three-end)
 - `@chameleon-ui/primitives` (via those components; Ark is not imported here)
 - `@chameleon-ui/themes` (all 8: `line` / `silver-arrow` / `stuttgart` / `corsa` / `cupertino` / `siren` / `wechat` / `ant-blue`)
 - `@chameleon-ui/i18n` (`PHASE_2_LOCALES` × 21; chrome translated for `zh-CN` / `en` / `de` / `ar`, others fall back to English chrome; `dir` from language)
@@ -41,12 +41,15 @@ Operator kit (repo root): `docs/project/reports/2026-08-15-blind-test-operator-k
 
 | Path | What |
 | :--- | :--- |
-| `/` | Full-window live shell. Resize the browser: one Navigation morphs phone tab-bar / tablet rail / desktop sidebar. No device clicker. |
+| `/` | Product studio (street). Inspector **Map** jumps to catalog / blocks / three-end / suite / blind. |
 | `/?locale=ar&theme=line` | Arabic + RTL (`dir` comes from language) |
-| `/?view=suite&locale=ar&theme=line` | AppShell + catalog `common10` (official visual-regression target) |
-| `/?view=lab&lab=narrow\|wide\|native` | Phase 5 container-driven lab (A5.3 pairing + P5 morph matrix) |
-| `/?view=three-end` | One live filling three-end shell. Drag ~390 → 768 → 1280. Optional `<details>` 演示冻结 (closed) keeps 390/768/1280 iframes for VR. |
-| `/?view=blind` | Human theme-recognition blind test (8 homage themes × 2). No theme name in chrome; URL has no `theme=`. Export JSON locally. Does **not** by itself satisfy 「一眼认出 ≥80%」. |
+| `/?view=gallery` | Full catalog by family |
+| `/?view=blocks` | Phase 7 twelve scenario blocks |
+| `/?view=three-end` | Full three-end playground (resize morph). Legacy `?view=live` redirects here. |
+| `/?view=suite&locale=ar&theme=line` | AppShell + catalog `common10` (official visual-regression target; no inspector chrome) |
+| `/?view=lab&lab=narrow\|wide\|native` | Phase 5 container-driven lab (VR; URL-only) |
+| `/?view=blind` | Human theme-recognition blind test. Escape via **Back to studio**. |
+| `/?view=three-end-stage&end=phone\|tablet\|desktop` | Iframe/VR stage only |
 
 ## Visual regression
 

@@ -28,7 +28,41 @@ const LOCALES = [
   'vi',
 ]
 
-const AUTHORED = new Set(['en', 'zh-CN'])
+const AUTHORED = new Set(['en', 'zh-CN', 'zh-HK'])
+
+/** Minimal SC→TC map covering Block zh-CN copy (HK Traditional). Not a full OpenCC. */
+const S2T = {
+  专: '專', 业: '業', 个: '個', 为: '為', 书: '書', 买: '買', 产: '產', 从: '從', 仪: '儀', 价: '價',
+  传: '傳', 体: '體', 余: '餘', 关: '關', 册: '冊', 写: '寫', 决: '決', 准: '準', 划: '劃', 创: '創',
+  办: '辦', 务: '務', 动: '動', 势: '勢', 区: '區', 单: '單', 卖: '賣', 发: '發', 后: '後', 启: '啟',
+  团: '團', 图: '圖', 场: '場', 处: '處', 备: '備', 复: '復', 审: '審', 宽: '寬', 将: '將', 属: '屬',
+  带: '帶', 并: '並', 应: '應', 开: '開', 张: '張', 录: '錄', 态: '態', 总: '總', 户: '戶', 择: '擇',
+  据: '據', 数: '數', 无: '無', 时: '時', 显: '顯', 暂: '暫', 机: '機', 条: '條', 来: '來', 构: '構',
+  标: '標', 样: '樣', 档: '檔', 检: '檢', 欢: '歡', 没: '沒', 状: '狀', 电: '電', 画: '畫', 盖: '蓋',
+  盘: '盤', 码: '碼', 确: '確', 离: '離', 种: '種', 称: '稱', 笔: '筆', 简: '簡', 级: '級', 线: '線',
+  组: '組', 终: '終', 结: '結', 绘: '繪', 继: '繼', 续: '續', 维: '維', 编: '編', 缩: '縮', 营: '營',
+  装: '裝', 见: '見', 计: '計', 订: '訂', 认: '認', 记: '記', 设: '設', 评: '評', 诊: '診', 话: '話',
+  语: '語', 误: '誤', 请: '請', 负: '負', 账: '賬', 费: '費', 趋: '趨', 转: '轉', 载: '載', 辑: '輯',
+  输: '輸', 运: '運', 还: '還', 这: '這', 进: '進', 连: '連', 迟: '遲', 适: '適', 选: '選', 逻: '邏',
+  邮: '郵', 里: '裡', 针: '針', 错: '錯', 键: '鍵', 门: '門', 闭: '閉', 问: '問', 间: '間', 阅: '閱',
+  队: '隊', 阶: '階', 险: '險', 隐: '隱', 项: '項', 题: '題', 额: '額', 风: '風', 驳: '駁', 骤: '驟',
+  与: '與', 页: '頁', 过: '過', 观: '觀', 览: '覽', 议: '議', 论: '論', 证: '證', 试: '試', 验: '驗',
+  报: '報', 扩: '擴', 扫: '掃', 描: '描', 损: '損', 换: '換', 拟: '擬', 签: '簽', 钮: '鈕', 预: '預',
+  设: '設',
+}
+
+function toZhHk(value) {
+  if (typeof value === 'string') {
+    return [...value].map((ch) => S2T[ch] ?? ch).join('')
+  }
+  if (Array.isArray(value)) return value.map(toZhHk)
+  if (value && typeof value === 'object') {
+    const out = {}
+    for (const [key, child] of Object.entries(value)) out[key] = toZhHk(child)
+    return out
+  }
+  return value
+}
 
 const authored = {
   login: {
@@ -215,7 +249,7 @@ const authored = {
     en: {
       kanban: {
         title: 'Board',
-        subtitle: 'Move work across columns with the keyboard. Pointer drag is not included.',
+        subtitle: 'Move cards with the keyboard or native HTML5 drag-and-drop. This is not a custom drag engine.',
         colTodo: 'To do',
         colDoing: 'In progress',
         colDone: 'Done',
@@ -232,7 +266,7 @@ const authored = {
     'zh-CN': {
       kanban: {
         title: '看板',
-        subtitle: '用键盘在列之间移动工作项。本 Block 不提供指针拖拽。',
+        subtitle: '用键盘或原生 HTML5 拖放在列之间移动工作项。本 Block 不提供自研拖拽引擎。',
         colTodo: '待办',
         colDoing: '进行中',
         colDone: '已完成',
@@ -251,7 +285,7 @@ const authored = {
     en: {
       gantt: {
         title: 'Schedule',
-        subtitle: 'Bars are sized from start and end dates. This is not a drawing engine.',
+        subtitle: 'Bars use start/end dates plus day ticks and an optional today marker. Not a full drawing engine or virtualized schedule.',
         scaleLabel: 'Date scale',
         rangeLabel: 'Scale {start} to {end}',
         emptyTitle: 'No tasks',
@@ -266,7 +300,7 @@ const authored = {
     'zh-CN': {
       gantt: {
         title: '进度计划',
-        subtitle: '条形按起止日期计算宽度。这不是绘制引擎。',
+        subtitle: '条形按起止日期计算宽度，并带日期刻度与可选今日标记。不是完整绘制引擎，也不做任务虚拟化。',
         scaleLabel: '日期刻度',
         rangeLabel: '刻度从 {start} 到 {end}',
         emptyTitle: '没有任务',
@@ -567,11 +601,11 @@ const skeletonLocales = LOCALES.filter((locale) => !AUTHORED.has(locale))
 await writeFile(
   path.join(root, 'locale-gap-table.json'),
   stringify({
-    authored: ['en', 'zh-CN'],
+    authored: ['en', 'zh-CN', 'zh-HK'],
     skeleton: skeletonLocales,
     eta: 'pending',
     owner: 'pending',
-    note: 'Block copy is authored for en and zh-CN. Other locales ship English ICU skeletons (_cuSkeleton). This is not a completed 21-language Blocks pack.',
+    note: 'Block copy is authored for en / zh-CN / zh-HK (zh-HK via SC→TC map over zh-CN). Other locales ship English ICU skeletons (_cuSkeleton). This is not a completed 21-language Blocks pack.',
   }),
 )
 
@@ -586,9 +620,15 @@ for (const [slug, copies] of Object.entries(authored)) {
   const localeDir = path.join(root, 'src', slug, 'locales')
   await mkdir(localeDir, { recursive: true })
   const english = copies.en
+  const zhCn = copies['zh-CN']
+  const zhHk = copies['zh-HK'] ?? toZhHk(zhCn)
 
   for (const locale of LOCALES) {
-    const body = AUTHORED.has(locale) ? copies[locale] : { _cuSkeleton: true, ...english }
+    let body
+    if (locale === 'en') body = english
+    else if (locale === 'zh-CN') body = zhCn
+    else if (locale === 'zh-HK') body = zhHk
+    else body = { _cuSkeleton: true, ...english }
     await writeFile(path.join(localeDir, `${locale}.json`), stringify(body))
   }
 

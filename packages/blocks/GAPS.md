@@ -2,21 +2,24 @@
 
 ## Locale skeletons
 
-Authored copy: `en`, `zh-CN`. The other 19 locales ship English ICU skeletons
+Authored copy: `en`, `zh-CN`, `zh-HK` (zh-HK derived from zh-CN via an in-repo SC→TC map —
+not a full OpenCC pipeline). The other 18 locales ship English ICU skeletons
 (`_cuSkeleton: true`) tracked in `locale-gap-table.json`. Do **not** claim a
 completed 21-language Blocks pack.
 
-## Kanban drag engine
+## Kanban drag
 
-`kanban` moves cards with labeled keyboard-first buttons. There is **no**
-pointer-drag engine in this package. A self-built drag engine is out of Phase 7
-scope (→ later / ops if ever).
+`kanban` moves cards with labeled keyboard buttons **and** native HTML5
+drag-and-drop (`draggable` + `dataTransfer`). There is **no** custom pointer-drag
+engine, sorting library, or multi-board sync. Treat advanced DnD UX as out of
+Phase 7 scope.
 
 ## Gantt drawing primitives
 
-`gantt` lays out bars as percentage positions on a date scale and pairs them
-with `Timeline`. It is **not** a dedicated drawing primitive, and large task
-lists are not virtualized. Treat heavy schedules as a degradation case.
+`gantt` lays out bars as percentage positions on a date scale, draws **day tick
+labels** and an optional **today** marker, and pairs the chart with `Timeline`.
+It is **not** a dedicated canvas drawing primitive, and large task lists are not
+virtualized. Treat heavy schedules as a degradation case.
 
 ## Scenario matrix LEGACY rows
 
