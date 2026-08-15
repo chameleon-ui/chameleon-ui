@@ -1,0 +1,37 @@
+.cu-heading {
+  margin: 0;
+  color: var(--cu-color-fg-default);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
+  line-height: var(--cu-typography-line-height-snug, 1.25);
+}
+
+.cu-heading--level-1 {
+  font-size: var(--cu-typography-size-heading-1);
+  line-height: var(--cu-typography-line-height-tight);
+}
+
+.cu-heading--level-2 {
+  font-size: var(--cu-typography-size-heading-2);
+}
+
+.cu-heading--level-3 {
+  font-size: var(--cu-typography-size-heading-3);
+}
+
+.cu-heading--level-4 {
+  font-size: var(--cu-typography-size-body, 1.125rem);
+}
+
+.cu-heading--level-5 {
+  font-size: var(--cu-typography-size-body, 1rem);
+  font-weight: var(--cu-typography-weight-medium, 500);
+}
+
+.cu-heading--level-6 {
+  font-size: var(--cu-typography-size-caption, 0.875rem);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
+}

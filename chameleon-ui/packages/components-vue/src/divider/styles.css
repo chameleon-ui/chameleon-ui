@@ -1,0 +1,6 @@
+.cu-divider {
+  margin: 0;
+  border: 0;
+  border-block-start: 1px solid var(--cu-color-border-default);
+  inline-size: 100%;
+}

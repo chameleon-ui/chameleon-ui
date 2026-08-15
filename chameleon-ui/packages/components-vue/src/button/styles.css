@@ -7,7 +7,7 @@
   min-block-size: var(--cu-touch-target-min);
   padding-block: var(--cu-space-2);
   padding-inline: var(--cu-space-3);
-  border: 1px solid transparent;
+  border: var(--cu-border-width-default, 1px) solid transparent;
   border-radius: var(--cu-radius-md);
   font: inherit;
   font-weight: var(--cu-typography-weight-semibold, 600);

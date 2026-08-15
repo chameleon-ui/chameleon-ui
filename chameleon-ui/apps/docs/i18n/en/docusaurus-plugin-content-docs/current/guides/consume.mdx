@@ -9,7 +9,9 @@ Chameleon UI is a **three-end app shell + token/theme overlay + contract/MCP** s
 
 Use it for product chrome, brand skins, and agent-generated UI. Do not expect enterprise Form/Table/Upload depth out of the box, and do not treat a theme swap as a finished product look. The visual flagship is `line`. The inner demo defaults to the product studio (`?view=street`), not the component gallery.
 
-Official template: `templates/external-vite-react` (Vite 6 + React 19, including Windows).
+Official template: `templates/external-vite-react` (Vite 6 + React 19) and `templates/external-vite-vue` (Vite 6 + Vue 3), including Windows.
+
+React is the primary implementation. Vue is not “unsupported”: a Vue app can consume `@chameleon-ui/components-vue` with ThemeProvider + AppShell + Navigation + Button and the `line` theme. Catalog Vue coverage is **103/103** (plus ThemeProvider). `platforms.vue: supported` means the slug exists in the Vue package.
 
 ## Dual track (pick one)
 

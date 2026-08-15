@@ -1,0 +1,39 @@
+.cu-tree {
+  display: block;
+  color: var(--cu-color-fg-default);
+  overflow-x: auto;
+}
+
+.cu-tree__level {
+  list-style: none;
+  margin: 0;
+  padding-inline-start: var(--cu-space-3);
+}
+
+.cu-tree__row {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+  padding-block: calc(var(--cu-space-1) / 2);
+}
+
+.cu-tree__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--cu-space-3);
+  block-size: var(--cu-space-3);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.cu-tree__toggle:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-tree__spacer {
+  inline-size: var(--cu-space-3);
+}

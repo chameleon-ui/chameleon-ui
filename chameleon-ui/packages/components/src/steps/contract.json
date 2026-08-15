@@ -53,8 +53,16 @@
     }
   ],
   "composition": {
-    "allowedParents": ["container", "card", "dialog", "page"],
-    "allowedChildren": ["text", "button"],
+    "allowedParents": [
+      "container",
+      "card",
+      "dialog",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
     "requiredContext": []
   },
   "antiPatterns": [
@@ -69,7 +77,11 @@
     ],
     "focus": "Interactive steps are buttons in document order with a visible focus ring.",
     "labeling": "The landmark has an accessible name; the current step uses aria-current=step.",
-    "wcag": ["1.3.1", "2.4.7", "4.1.2"]
+    "wcag": [
+      "1.3.1",
+      "2.4.7",
+      "4.1.2"
+    ]
   },
   "responsive": {
     "strategy": "Root is a query container. Compact stacks steps; tablet/desktop place them in a row. No viewport size media.",
@@ -82,7 +94,7 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,
@@ -91,7 +103,13 @@
   },
   "dataAi": {
     "role": "steps",
-    "states": ["start", "in-progress", "complete"],
-    "intents": ["enumerate-items"]
+    "states": [
+      "start",
+      "in-progress",
+      "complete"
+    ],
+    "intents": [
+      "enumerate-items"
+    ]
   }
 }

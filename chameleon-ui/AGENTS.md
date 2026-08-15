@@ -32,17 +32,25 @@ Before writing imports, call MCP `get_import_specifiers`.
 
 ## JS
 
+React (primary):
+
 ```ts
 import { Button, Card, Table } from "@chameleon-ui/components";
 ```
 
+Vue catalog (`@chameleon-ui/components-vue` — 103/103 catalog slugs + ThemeProvider):
+
+```ts
+import { AppShell, Button, Navigation, NavigationBar, ThemeProvider } from "@chameleon-ui/components-vue";
+```
+
 Named exports are PascalCase. Slugs are kebab-case (`data-grid` → `DataGrid`).
 
-Optional per-slug (tree-shake friendlier): `import { Button } from "@chameleon-ui/components/button"`.
+Optional per-slug (React only): `import { Button } from "@chameleon-ui/components/button"`. Vue is a barrel plus `@chameleon-ui/components-vue/css`.
 
 ## App chrome
 
-Tab controller + per-tab stack. Not a marketing navbar.
+Tab controller + per-tab stack. Not a marketing navbar. Same slots in Vue (`#header` / `#navigation`).
 
 ```tsx
 import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
@@ -58,7 +66,7 @@ import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 - One `items` list. CSS morphs TabBar ↔ rail ↔ sidebar. Do **not** compose `Sidebar` + `TabBar`.
 - Switching tabs does not push. Back pops (`useTabStacks`).
 - Compact overflow: four pins + More. `Navbar` is site links only — never AppShell header.
-- Height chain: `html, body, #root { block-size: 100% }`. AppShell fills its parent. Do not set `min-block-size: 100dvh` on the shell. Do not freeze a desktop CSS Grid that fights Navigation morph.
+- Height chain: `html, body, #root { block-size: 100% }` (Vue template: `#app`). AppShell fills its parent. Do not set `min-block-size: 100dvh` on the shell. Do not freeze a desktop CSS Grid that fights Navigation morph.
 
 ## External app (not this pnpm workspace)
 
@@ -71,11 +79,18 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-Link **all five**. Linking only `components` fails. After npm publish (not done): `npm install` those names instead.
+Vue graph:
 
-Official Vite + Windows template: `templates/external-vite-react`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite`. Tarballs (still unpublished): `node ./scripts/pack-external.mjs`. Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+```bash
+node ./scripts/link-external.mjs --vue --apply
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @chameleon-ui/themes @chameleon-ui/components-vue
+```
 
-Pin at the consumer root: `react@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
+Link **all five** of the chosen graph. Linking only `components` / `components-vue` fails. After npm publish (not done): `npm install` those names instead.
+
+Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Tarballs: `node ./scripts/pack-external.mjs` (`--vue` for the Vue graph). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+
+Pin at the consumer root. React: `react@^19` · `@ark-ui/react@5.38.0`. Vue: `vue@^3.5` · `@ark-ui/vue@5.38.1`. Both: `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
 
 ```tsx
 import { ThemeProvider, ToastProvider } from "@chameleon-ui/components";
@@ -84,6 +99,8 @@ import { ThemeProvider, ToastProvider } from "@chameleon-ui/components";
   <ToastProvider>{app}</ToastProvider>
 </ThemeProvider>
 ```
+
+Vue: same names from `@chameleon-ui/components-vue`. Product chrome prefers `theme="line"`.
 
 Single theme: also import `@chameleon-ui/themes/<id>/css`. Multi-theme: pass `overlays` (raw CSS) so only `[data-theme]` paints.
 

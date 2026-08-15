@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "Befehlspalette durchsuchen",
+    "placeholder": "Befehl hier eingeben…",
+    "empty": "Keine Befehle gefunden",
+    "close": "Schließen"
+  }
+}

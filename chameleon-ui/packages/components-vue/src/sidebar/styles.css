@@ -1,0 +1,144 @@
+/*
+ * Phase 5 container-query whitelist member: the sidebar is its own query
+ * container, so a narrow host slot (e.g. the 12rem tablet column in
+ * app-shell) collapses it to a rail without any viewport media query.
+ */
+.cu-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-2);
+  inline-size: 16rem;
+  min-block-size: 100%;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-2);
+  border-inline-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+  color: var(--cu-color-fg-default);
+  container-name: sidebar;
+  container-type: inline-size;
+}
+
+.cu-sidebar--collapsed {
+  inline-size: 4.5rem;
+}
+
+.cu-sidebar__header {
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  font-weight: 700;
+}
+
+.cu-sidebar__nav {
+  flex: 1;
+  overflow: auto;
+}
+
+.cu-sidebar__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cu-sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  inline-size: 100%;
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: none;
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.cu-sidebar__item[aria-current='page'] {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+  color: var(--cu-color-palette-brand);
+  font-weight: 700;
+}
+
+.cu-sidebar__item:focus-visible,
+.cu-sidebar__toggle:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 3px;
+}
+
+@media (hover: hover) {
+  .cu-sidebar__item:hover:not([aria-current='page']),
+  .cu-sidebar__toggle:hover {
+    background: color-mix(in srgb, var(--cu-color-background-default) 92%, var(--cu-color-palette-brand));
+  }
+}
+
+.cu-sidebar__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  min-block-size: var(--cu-touch-target-min);
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  background: transparent;
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-sidebar__toggle-icon {
+  display: inline-flex;
+  inline-size: 1em;
+  block-size: 1em;
+  flex: none;
+}
+
+.cu-sidebar__toggle-svg {
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+/* Directional affordance: the chevron mirrors under RTL (U6). */
+[dir='rtl'] .cu-sidebar__toggle-icon {
+  transform: scaleX(-1);
+}
+
+/*
+ * Explicit collapsed state and container-driven rail (host slot <= 12rem,
+ * e.g. the app-shell tablet column) both hide labels; items keep their
+ * aria-label and stay keyboard/touch reachable at >= 44px.
+ */
+.cu-sidebar--collapsed .cu-sidebar__label {
+  display: none;
+}
+
+.cu-sidebar--collapsed .cu-sidebar__item,
+.cu-sidebar--collapsed .cu-sidebar__toggle {
+  justify-content: center;
+}
+
+@container (max-width: 12rem) {
+  .cu-sidebar__label {
+    display: none;
+  }
+
+  .cu-sidebar__item,
+  .cu-sidebar__toggle {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-sidebar,
+  .cu-sidebar__item,
+  .cu-sidebar__toggle {
+    transition-duration: 0.01ms;
+  }
+}

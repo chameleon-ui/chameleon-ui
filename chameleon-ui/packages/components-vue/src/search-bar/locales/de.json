@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "Suchleiste",
+    "placeholder": "Suchbegriff eingeben",
+    "clear": "Eingabe löschen",
+    "submit": "Suche jetzt ausführen"
+  }
+}

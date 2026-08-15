@@ -1,0 +1,14 @@
+.cu-list {
+  margin: 0;
+  padding-inline-start: var(--cu-space-3);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-list--none {
+  list-style: none;
+  padding-inline-start: 0;
+}
+
+.cu-list__item {
+  padding-block: calc(var(--cu-space-1) / 2);
+}

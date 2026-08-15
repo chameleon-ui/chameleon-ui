@@ -56,8 +56,14 @@
     }
   ],
   "composition": {
-    "allowedParents": ["app-shell", "header"],
-    "allowedChildren": ["text", "button"],
+    "allowedParents": [
+      "app-shell",
+      "header"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
     "requiredContext": []
   },
   "antiPatterns": [
@@ -73,7 +79,13 @@
     ],
     "focus": "Back is a real button; the title is a heading.",
     "labeling": "The title is an h1 of the current screen; back uses the previous title as its label.",
-    "wcag": ["1.3.1", "2.1.1", "2.4.1", "2.4.6", "2.5.5"]
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.1",
+      "2.4.6",
+      "2.5.5"
+    ]
   },
   "responsive": {
     "strategy": "One bar. Compact centers the title. At 48rem the title leads. Safe-area top inset on the bar. No viewport size @media.",
@@ -86,17 +98,24 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,
     "strategy": "Logical CSS; the back chevron mirrors under [dir=rtl].",
-    "mirroredValues": ["back-chevron"]
+    "mirroredValues": [
+      "back-chevron"
+    ]
   },
   "dataAi": {
     "role": "navigation-bar",
-    "states": ["root", "nested"],
-    "intents": ["navigate-stack"]
+    "states": [
+      "root",
+      "nested"
+    ],
+    "intents": [
+      "navigate-stack"
+    ]
   },
   "mechanics": "NavigationBar is stack chrome (UINavigationBar / Toolbar) for the current view controller, not a site link row and not the tab controller. Title is an h1. When onBack is set, the leading edge is a back button labeled with the previous controller title; otherwise leading renders. trailing is bar-button items. Compact centers the title; from 48rem the title leads. Pair with useTabStacks: selectTab switches the visible stack and does not push; push/pop move only the active tab stack; onBack should call pop.",
   "usage": [

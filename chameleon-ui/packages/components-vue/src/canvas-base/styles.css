@@ -1,0 +1,42 @@
+.cu-canvas {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  min-block-size: calc(var(--cu-space-3) * 24);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  overflow: hidden;
+  touch-action: none;
+}
+
+.cu-canvas:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-canvas__grid {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.cu-canvas__world {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+}
+
+[dir='rtl'] .cu-canvas__world {
+  transform-origin: 100% 0;
+}
+
+.cu-canvas__minimap {
+  position: absolute;
+  inset-inline-end: var(--cu-space-2);
+  inset-block-end: var(--cu-space-2);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-background-default);
+}

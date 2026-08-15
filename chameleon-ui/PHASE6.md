@@ -22,7 +22,7 @@ P6  [x] F 可视化 ×6：chart / kpi-dashboard / ticker / sparkline / heatmap /
     [x] D 补 ×7：data-grid / tag / statistic / timeline / tree / image / carousel — S2 含 data-grid；gallery 万行演示
     [x] E 补 ×4：notification / confirm-dialog / result / loading-bar
     [x] catalog v2.0 写入 — schemaVersion 2.0，101 unique slug（50+P5×4+P6×47）；冻结会未签（owner 待指定）
-    [x] Vue 子集 ≥20 — 22 SFC（alert/avatar/badge/button/card/checkbox/dialog/form/grid/input/popover/progress/radio/select/spinner/stack/switch/table/tabs/textarea/toast/tooltip）；非 101 Vue 端口
+    [x] Vue 子集 ≥20 — 产品壳 + 常见消费路径（ThemeProvider / AppShell / Navigation / …）；非 103 Vue 端口
     [x] ci:phase6 = ci:phase5 + phase6:gates — 脚本已落地；本机 `phase6:gates` 绿
 ```
 
@@ -61,7 +61,7 @@ node ./benchmarks/scripts/check-vue-size.mjs
 - catalog v2.0 / 预算修订 / Vue 范围 / 砍单顺序 / Chart·Editor 选型 **冻结会签字**（owner 待指定）
 - 47 新组件全量 390/768/1280 快照（仅 chart、canvas-base、editor 样本 18 张 PNG）
 - 19 语翻译质量（phase6:gates 计 1309 个文件与 en 字节相同；zh-HK/ja/ko 等各 77）
-- Vue 101 端口（目标卡只要 ≥20）
+- Vue catalog 端口当时目标卡只要 ≥20；后续已补到 catalog **103/103**（另加 ThemeProvider）
 - Blocks（→ P7）；G 族 WebGL / Worker / LOD（本期 Canvas 2D）
 - R1–R3 实测（→ P9）
 - `docs/project/reports/M6-组件广度验收.md` 作为里程碑关闭函（未写、未签）

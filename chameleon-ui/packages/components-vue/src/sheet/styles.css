@@ -1,0 +1,66 @@
+.cu-sheet {
+  display: flex;
+  flex-direction: column;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-sheet--start {
+  margin-inline-end: auto;
+  max-inline-size: 24rem;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.cu-sheet--end {
+  margin-inline-start: auto;
+  max-inline-size: 24rem;
+  block-size: 100%;
+  inline-size: 100%;
+}
+
+.cu-sheet--bottom {
+  margin-block-start: auto;
+  max-block-size: 50vh;
+  inline-size: 100%;
+  border-start-start-radius: var(--cu-radius-lg);
+  border-start-end-radius: var(--cu-radius-lg);
+  box-shadow: var(--cu-shadow-lg);
+}
+
+.cu-sheet__backdrop {
+  position: fixed;
+  inset: 0;
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 40%, transparent);
+  backdrop-filter: blur(var(--cu-blur-surface));
+  -webkit-backdrop-filter: blur(var(--cu-blur-surface));
+}
+
+.cu-sheet__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cu-sheet__body {
+  flex: 1;
+  overflow: auto;
+  margin-block: var(--cu-space-3);
+}
+
+.cu-sheet__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}

@@ -10,10 +10,10 @@ Do not invent CSS specifiers. Do not copy `workspace:*` into a consumer `package
 
 1. Call MCP `get_import_specifiers` before any import.
 2. CSS: `import "@chameleon-ui/themes/line/css"` for product chrome (visual flagship), or another homage id from `list_themes`. Never `.../cupertino/variables.css`.
-3. Components: `import { Button, Card, Table } from "@chameleon-ui/components"`.
+3. Components: `import { Button, Card, Table } from "@chameleon-ui/components"`. Vue: `import { AppShell, Button, Navigation, ThemeProvider } from "@chameleon-ui/components-vue"` (catalog 103/103 + ThemeProvider).
 4. Before emitting a component, call `get_contract` with that slug (v0.2 + `dataAi` triple).
 5. Before choosing density / radius / RTL, call `get_design_rules` for the theme id.
-6. The consumer app is **not** a pnpm workspace. **NEVER** write `workspace:*`. Link all five runtime packages (see AGENTS.md).
+6. The consumer app is **not** a pnpm workspace. **NEVER** write `workspace:*`. Link all five runtime packages of the chosen graph (React or Vue; see AGENTS.md).
 7. Disk writes only via `chameleon add` / MCP `install_*` (install-core).
 8. SchemaRenderer default map is 10 slugs. For Table / Chart / KpiDashboard import `@chameleon-ui/components`.
 9. `adapter-ag-ui` is POC. Do not treat it as supported.
@@ -36,6 +36,8 @@ import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 ```
+
+Vue: same CSS specifiers; JS from `@chameleon-ui/components-vue`. Slots `#header` / `#navigation`. Template: `templates/external-vite-vue`.
 
 ## MCP attach (Cursor)
 
@@ -85,7 +87,14 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-Official Vite + Windows template: `chameleon-ui/templates/external-vite-react`. Pin `react@^19`, `@ark-ui/react@5.38.0`, FormatJS as in AGENTS.md. Height chain: `html, body, #root { block-size: 100% }`. Dual-track: package five vs `chameleon add` — docs `guides/consume.mdx`.
+Official Vite + Windows templates: `chameleon-ui/templates/external-vite-react` and `chameleon-ui/templates/external-vite-vue`. Pin React `react@^19` / `@ark-ui/react@5.38.0`, or Vue `vue@^3.5` / `@ark-ui/vue@5.38.1`, plus FormatJS as in AGENTS.md. Height chain: `html, body, #root` (React) or `#app` (Vue) `{ block-size: 100% }`. Dual-track: package five vs `chameleon add` — docs `guides/consume.mdx`.
+
+Vue graph:
+
+```bash
+node ./scripts/link-external.mjs --vue --apply
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @chameleon-ui/themes @chameleon-ui/components-vue
+```
 
 Copy-pasteable `App.tsx` that compiles outside this workspace:
 

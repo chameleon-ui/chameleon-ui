@@ -1,0 +1,7 @@
+{
+  "multi-select": {
+    "label": "Mehrfachauswahlliste",
+    "selected": "bereits ausgewählt",
+    "clear": "Alle entfernen"
+  }
+}

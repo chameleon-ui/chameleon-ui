@@ -12,7 +12,10 @@ import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const outDir = join(root, 'dist-tarballs')
-const runtimePackages = ['tokens', 'i18n', 'primitives', 'themes', 'components']
+const vue = process.argv.includes('--vue')
+const runtimePackages = vue
+  ? ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue']
+  : ['tokens', 'i18n', 'primitives', 'themes', 'components']
 
 function npmCommand() {
   return process.platform === 'win32' ? 'npm.cmd' : 'npm'
@@ -43,4 +46,8 @@ console.log(`pack-external: wrote ${files.length} tarballs to ${outDir}`)
 for (const file of files) console.log(`- ${file}`)
 console.log('This is not npm publish. Versions are 0.1.0. In the consumer:')
 console.log('  npm install <path-to-each>.tgz')
-console.log('Link all five. Prefer templates/external-vite-react for Vite + Windows.')
+console.log(
+  vue
+    ? 'Link tokens + i18n + primitives-vue + themes + components-vue. Prefer templates/external-vite-vue.'
+    : 'Link all five. Prefer templates/external-vite-react for Vite + Windows. Pass --vue to pack the Vue graph.',
+)

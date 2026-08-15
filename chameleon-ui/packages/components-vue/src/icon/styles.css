@@ -1,0 +1,17 @@
+.cu-icon {
+  display: inline-flex;
+  inline-size: 1em;
+  block-size: 1em;
+  flex: none;
+  color: currentColor;
+  vertical-align: middle;
+}
+
+.cu-icon--mirror {
+  transform: scaleX(-1);
+}
+
+.cu-icon__svg {
+  inline-size: 100%;
+  block-size: 100%;
+}

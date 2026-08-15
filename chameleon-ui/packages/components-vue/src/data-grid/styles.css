@@ -1,0 +1,55 @@
+.cu-data-grid {
+  display: block;
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  overflow: hidden;
+  contain: layout style;
+}
+
+.cu-data-grid__viewport {
+  position: relative;
+  overflow: auto;
+  contain: layout style;
+  overscroll-behavior: contain;
+  overflow-anchor: none;
+}
+
+.cu-data-grid__canvas {
+  position: relative;
+  contain: layout style;
+}
+
+.cu-data-grid__row {
+  position: absolute;
+  inset-inline: 0;
+  contain: layout style paint;
+}
+
+.cu-data-grid__row--head {
+  position: sticky;
+  inset-block-start: 0;
+  z-index: 1;
+  font-weight: 600;
+  border-block-end: 1px solid var(--cu-color-border-default);
+  background: var(--cu-color-background-default);
+}
+
+.cu-data-grid__cell {
+  position: absolute;
+  inset-block: 0;
+  display: flex;
+  align-items: center;
+  padding-inline: var(--cu-space-2);
+  overflow: hidden;
+  white-space: nowrap;
+  border-block-end: 1px solid color-mix(in srgb, var(--cu-color-border-default) 50%, transparent);
+  contain: content;
+}
+
+.cu-data-grid__empty {
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+}

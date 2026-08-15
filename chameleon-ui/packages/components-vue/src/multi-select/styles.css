@@ -1,0 +1,95 @@
+.cu-multi-select {
+  position: relative;
+  display: inline-block;
+  min-inline-size: calc(var(--cu-space-3) * 16);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-multi-select__label {
+  display: block;
+  margin-block-end: var(--cu-space-1);
+  font-size: 0.875em;
+}
+
+.cu-multi-select__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cu-space-1);
+  list-style: none;
+  margin: 0 0 var(--cu-space-1);
+  padding: 0;
+}
+
+.cu-multi-select__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+  padding-block: calc(var(--cu-space-1) / 2);
+  padding-inline: var(--cu-space-2);
+  border-radius: var(--cu-radius-md);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+}
+
+.cu-multi-select__chip-remove {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-multi-select__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  inline-size: 100%;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-multi-select__trigger:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-multi-select__listbox {
+  position: absolute;
+  z-index: 1;
+  inset-inline: 0;
+  margin: var(--cu-space-1) 0 0;
+  padding: var(--cu-space-1);
+  list-style: none;
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  max-block-size: calc(var(--cu-space-3) * 16);
+  overflow-y: auto;
+}
+
+.cu-multi-select__option {
+  display: flex;
+  align-items: center;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border-radius: var(--cu-radius-sm);
+  cursor: pointer;
+}
+
+.cu-multi-select__option[aria-selected='true'] {
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+}
+
+.cu-multi-select__option:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-multi-select__check {
+  inline-size: var(--cu-space-2);
+}

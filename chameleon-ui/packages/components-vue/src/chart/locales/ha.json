@@ -1,0 +1,7 @@
+{
+  "chart": {
+    "label": "Chart",
+    "series": "Series",
+    "empty": "No data"
+  }
+}
