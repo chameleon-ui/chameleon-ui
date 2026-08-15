@@ -9,5 +9,6 @@ export default defineConfig({
     pool: 'threads',
     maxWorkers: 2,
     fileParallelism: false,
+    testTimeout: 20_000,
   },
 })

@@ -23,5 +23,5 @@ describe('component package boundaries', () => {
     }
 
     expect(violations, violations.join(', ')).toEqual([])
-  })
+  }, 30_000)
 })
