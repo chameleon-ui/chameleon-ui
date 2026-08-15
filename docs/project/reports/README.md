@@ -12,6 +12,7 @@
 
 当前已落档：
 
+- [`2026-08-15-release-0.1.9.md`](./2026-08-15-release-0.1.9.md)（**0.1.9 发布说明**；源码 zip / npm 未上架说明；Changelog：[`chameleon-ui/CHANGELOG.md`](../../../chameleon-ui/CHANGELOG.md)）
 - [`M0-基元POC与地基验收.md`](./M0-基元POC与地基验收.md)
 - [`Phase-1-开工检查.md`](./Phase-1-开工检查.md)
 - [`Phase-1-主题法务走查.md`](./Phase-1-主题法务走查.md)

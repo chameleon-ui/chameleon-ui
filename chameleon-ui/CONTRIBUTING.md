@@ -24,6 +24,8 @@ Do not add a second copy/install path. Protocol mapping belongs in `packages/ada
 ## Version and publish
 
 - First public tag: `v0.1.9` (packages are `0.1.9`; this repo still does not npm publish).
+- Release notes: [`CHANGELOG.md`](./CHANGELOG.md) · [`docs/project/reports/2026-08-15-release-0.1.9.md`](../docs/project/reports/2026-08-15-release-0.1.9.md).
+- Monorepo source zip (after commit): `pnpm pack:source` → `dist-release/chameleon-ui-0.1.9-source.zip`.
 - Manual git tag, not Changesets. `pnpm publish -r` is for non-private packages only.
 - Do **not** run `npm publish` / `pnpm publish` from this machine until maintainers
   freeze the version. Use `pnpm publish:check` for the local plan.

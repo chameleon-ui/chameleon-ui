@@ -20,3 +20,4 @@ blob-report/
 chameleon-ui/benchmarks/reports/.lhci-tmp/
 chameleon-ui/benchmarks/reports/.chrome-user-data/
 chameleon-ui/dist-tarballs/
+chameleon-ui/dist-release/
