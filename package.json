@@ -44,6 +44,8 @@
     "ai:check": "node ./scripts/ai-check.mjs",
     "link:external": "node ./scripts/link-external.mjs",
     "pack:external": "node ./scripts/pack-external.mjs",
+    "verify:external": "node ./scripts/verify-external-templates.mjs",
+    "verify:external:build": "node ./scripts/verify-external-templates.mjs --build",
     "perf:size": "node ./benchmarks/scripts/check-size.mjs",
     "perf:lhci": "node ./scripts/perf-lhci.mjs"
   },

@@ -14,7 +14,7 @@
 import { spawn } from 'node:child_process'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { access } from 'node:fs/promises'
+import { access, readFile } from 'node:fs/promises'
 import {
   VERSION_MATRIX,
   VITE_CONSUMER_SNIPPET,
@@ -31,13 +31,22 @@ const runtimePackages = vue
   ? ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue']
   : ['tokens', 'i18n', 'primitives', 'themes', 'components']
 
+const packageVersion = JSON.parse(
+  await readFile(join(root, 'packages', runtimePackages.at(-1), 'package.json'), 'utf8'),
+).version
+
+
 function npmCommand() {
   return process.platform === 'win32' ? 'npm.cmd' : 'npm'
 }
 
 function run(command, args, cwd) {
   return new Promise((resolve, reject) => {
-    const child = spawn(command, args, { cwd, stdio: 'inherit', shell: false })
+    const child = spawn(command, args, {
+      cwd,
+      stdio: 'inherit',
+      shell: process.platform === 'win32',
+    })
     child.on('error', reject)
     child.on('exit', (code) => {
       if (code === 0) resolve()
@@ -102,13 +111,15 @@ if (vue) {
 console.log(`  intl-messageformat ${VERSION_MATRIX.intlMessageformat}`)
 console.log(`  @formatjs/icu-messageformat-parser ${VERSION_MATRIX.icuParser}`)
 console.log('')
+console.log(`Package version on disk: ${packageVersion} (unpublished; prefer file: / npm link / pack-external tarballs)`)
 console.log('Official Vite consumer templates:')
 console.log('  React: templates/external-vite-react')
 console.log('  Vue:   templates/external-vite-vue')
 console.log('Print a Windows-ready vite.config.ts:')
 console.log('  node ./scripts/link-external.mjs --print-vite')
 console.log('  node ./scripts/link-external.mjs --print-vite-vue')
-console.log('Tarball path (no npm publish): node ./scripts/pack-external.mjs   # add --vue for Vue graph')
+console.log('Tarball path (first-class pre-registry): node ./scripts/pack-external.mjs   # add --vue for Vue graph')
+console.log('Verify templates: node ./scripts/verify-external-templates.mjs   # add --build for vite build')
 if (!apply) {
   console.log('Dry run finished. Re-run with --apply to register the global links.')
 }

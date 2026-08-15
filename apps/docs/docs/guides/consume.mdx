@@ -5,7 +5,7 @@ sidebar_label: 外部接入
 description: 产品定位、双轨安装、Windows Vite 模板、版本矩阵、高度链与运行时换肤。不是 Ant Design 替代说明。
 ---
 
-Chameleon UI 的一等公民是 **三端 App 壳 + Token/主题 overlay + 契约/MCP**。它还不是「今天 `npm install` 就能当 Ant Design / MUI 用」的中后台全家桶。包版本是 `0.1.0`，本仓不执行 npm publish。
+Chameleon UI 的一等公民是 **三端 App 壳 + Token/主题 overlay + 契约/MCP**。它还不是「今天 `npm install` 就能当 Ant Design / MUI 用」的中后台全家桶。包版本以 `packages/*/package.json` 为准（今日 `0.1.9`），本仓不执行 npm publish。registry 之前，**tarball / `pack-external` 是一等分发路径**（另有 `file:` 模板与全量 npm link）。
 
 适合：多端产品壳、品牌主题、Agent 可生成 UI。  
 不适合的期望：企业级 Form / Table / Upload 开箱上线到 Ant Design 深度；也不要把换肤当成一线产品视觉方案。默认视觉旗舰是 `line`，内部演示默认页是产品台（`?view=street`），不是组件画廊。
@@ -33,7 +33,7 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-备选：`node ./scripts/pack-external.mjs` 打出五个 `0.1.0` tarball，仍不是 registry 发布。
+备选（**pre-registry 一等路径**）：`node ./scripts/pack-external.mjs` 打出五个与 `package.json` 同版本的 tarball 到 `dist-tarballs/`，再 `npm install` 各 `.tgz`。仍不是 registry 发布。模板自检：`pnpm verify:external`（或 `pnpm verify:external:build` 跑 vite build）。
 
 克隆模板：
 
@@ -80,12 +80,12 @@ CSS 包声明了 `sideEffects: ["**/*.css"]`，打包器不要把组件 CSS 摇�
 ```tsx
 import { ThemeProvider } from "@chameleon-ui/components";
 
-<ThemeProvider theme="cupertino" density="comfortable" locale="zh-CN">
+<ThemeProvider theme="line" density="comfortable" locale="zh-CN">
   {app}
 </ThemeProvider>
 ```
 
-单主题：再静态 `import "@chameleon-ui/themes/cupertino/css"`。  
+单主题：再静态 `import "@chameleon-ui/themes/line/css"`。  
 多主题：把各主题 raw CSS 传给 `overlays`，运行时只改 `data-theme`，不要叠八份 `:root`。
 
 Vue：`ThemeProvider` / `ToastProvider` 从 `@chameleon-ui/components-vue` 引入，产品壳默认 `theme="line"`。
