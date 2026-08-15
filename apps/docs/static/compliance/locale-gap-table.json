@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-14T03:53:03.301Z",
+  "generatedAt": "2026-08-15T05:20:41.230Z",
   "definition": "Docs site UI is 3 locales (zh-CN default, zh-HK, en), all authored chrome. Product ICU remains 21 locales on component pages. Marketing pages are out of scope and never claimed complete.",
   "docsSiteLocales": [
     "zh-CN",
@@ -529,7 +529,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "zh-HK",
@@ -539,7 +539,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ja",
@@ -549,7 +549,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ko",
@@ -559,7 +559,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ru",
@@ -569,7 +569,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "hi",
@@ -579,7 +579,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "en",
@@ -589,7 +589,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "de",
@@ -599,7 +599,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ar",
@@ -609,7 +609,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ug",
@@ -619,7 +619,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "sw",
@@ -629,7 +629,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ha",
@@ -639,7 +639,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "am",
@@ -649,7 +649,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "es",
@@ -659,7 +659,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "fr",
@@ -669,7 +669,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "pt",
@@ -679,7 +679,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "bn",
@@ -689,7 +689,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "id",
@@ -699,7 +699,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "ur",
@@ -709,7 +709,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "fa",
@@ -719,7 +719,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     },
     {
       "language": "vi",
@@ -729,7 +729,7 @@
       "eta": null,
       "owner": null,
       "legacy": null,
-      "note": "101/101 component ICU files"
+      "note": "103/103 component ICU files"
     }
   ],
   "gapCount": 6,
