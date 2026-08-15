@@ -17,32 +17,11 @@ blob-report
 .DS_Store
 .env
 .env.*
-toolings/artifacts
-toolings/visual-regression/artifacts
-.tmp-size
-benchmarks/.tmp-size
-benchmarks/reports/.lhci-tmp
-benchmarks/reports/.chrome-user-data
-apps/docs/public/schemas/
-apps/docs/public/contracts/
-apps/docs/public/catalog.json
-apps/docs/public/inventory.json
-apps/docs/static/schemas/
-apps/docs/static/contracts/
-apps/docs/static/catalog.json
-apps/docs/static/inventory.json
-benchmarks/genui-bench/reports/latest.json
-benchmarks/genui-bench/reports/latest.md
-benchmarks/genui-bench/reports/index.html
 
-# Local audit / pack artifacts
+# Local pack / release artifacts (generated under chameleon-ui when packing)
 .tmp-chrome-audit/
 .tmp-chrome-*/
 dist-release/
 dist-tarballs/
-
-# Local CI helper artifacts (not for commit)
 .pnpm-shim/
-.ci-phase9-run.log
 .ci-*-run.log
-

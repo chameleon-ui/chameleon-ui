@@ -12,7 +12,7 @@ Paths relative to `chameleon-ui/`.
 | `AGENTS.md` | AI consumer SSOT |
 | `STRUCTURE.md` | This map |
 | `package.json` | `check` / `publish:check` / `ai:check` / pack+link+verify |
-| `pnpm-workspace.yaml` | `packages/*` · `toolings/*` |
+| `pnpm-workspace.yaml` | `packages/*` · `../toolings/*` (toolings live at repo root) |
 | `turbo.json` | build / lint / typecheck / test |
 | `LICENSE` · `CONTRIBUTING.md` · `SECURITY.md` | MIT + contrib + telemetry |
 
@@ -35,17 +35,11 @@ Paths relative to `chameleon-ui/`.
 | `cli` / `mcp-server` | `@chameleon-ui/cli` / `@chameleon-ui/mcp-server` | thin shells → install-core |
 | `market-service` | `@chameleon-ui/market-service` | market API (no UI app here) |
 
-## `toolings/`
-
-`eslint-config` · `stylelint-config` · `tsconfig` — shared library tooling.
-
 ## `templates/`
 
 `external-vite-react` · `external-vite-vue` — official external consume templates (one umbrella each).
 
-## `benchmarks/`
-
-`budgets.json` + `scripts/check-size.mjs` for S1/S3/S4/S5. No demo LHCI harness in this tree.
+Maintainer eslint / stylelint / tsconfig and size budgets live at the **repo root** (`../toolings/`, `../benchmarks/`), not in this library tree.
 
 ## Authority
 
@@ -55,4 +49,5 @@ Paths relative to `chameleon-ui/`.
 | Contracts | `components/src/<slug>/contract.json` |
 | Design rules | `themes/<id>/design-rules.json` |
 | Disk writes | **only** `install-core` |
-| Size budgets | `benchmarks/budgets.json` |
+| Size budgets (maintainer) | `../benchmarks/budgets.json` |
+| Lint configs (maintainer) | `../toolings/*` |

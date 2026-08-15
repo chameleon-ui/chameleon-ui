@@ -27,7 +27,7 @@
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist && node ./scripts/emit-slug-exports.mjs",
     "dev": "vitest",
-    "lint": "vue-tsc --noEmit && node ../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
+    "lint": "vue-tsc --noEmit && node ../../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
     "test": "vitest run",
     "typecheck": "vue-tsc --noEmit"
   },

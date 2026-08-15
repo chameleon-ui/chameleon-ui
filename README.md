@@ -18,12 +18,12 @@ Catalog: [`packages/components/catalog.json`](./packages/components/catalog.json
 ```
 chameleon-ui/
 ├── packages/            # @chameleon-ui/*
-├── toolings/            # eslint / stylelint / tsconfig
 ├── templates/           # external-vite-react · external-vite-vue
-├── benchmarks/          # budgets.json + size check (no demo harness)
 ├── scripts/             # pack/link/publish:check/ai:check
 └── LICENSE
 ```
+
+Maintainer configs: repo-root `toolings/` · `benchmarks/`.
 
 ## Layer rules
 
@@ -45,7 +45,6 @@ corepack pnpm@9.15.0 ai:check
 corepack pnpm@9.15.0 link:external
 corepack pnpm@9.15.0 pack:external
 corepack pnpm@9.15.0 verify:external
-corepack pnpm@9.15.0 perf:size
 ```
 
 Node `>=20.19.0`, pnpm `9.15.0`.

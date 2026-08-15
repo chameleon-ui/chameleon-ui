@@ -28,7 +28,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json && node ./scripts/copy-css.mjs",
     "dev": "vitest",
-    "lint": "tsc -p tsconfig.json --noEmit && node ../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
+    "lint": "tsc -p tsconfig.json --noEmit && node ../../../toolings/stylelint-config/scripts/lint-css.mjs \"./src/**/*.css\"",
     "test": "vitest run && node ../contract/scripts/validate-catalog-contracts.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },

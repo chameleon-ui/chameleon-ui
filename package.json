@@ -21,8 +21,7 @@
     "pack:external": "node ./scripts/pack-external.mjs",
     "pack:source": "node ./scripts/pack-source.mjs",
     "verify:external": "node ./scripts/verify-external-templates.mjs",
-    "verify:external:build": "node ./scripts/verify-external-templates.mjs --build",
-    "perf:size": "node ./benchmarks/scripts/check-size.mjs"
+    "verify:external:build": "node ./scripts/verify-external-templates.mjs --build"
   },
   "devDependencies": {
     "@chameleon-ui/i18n": "workspace:*",

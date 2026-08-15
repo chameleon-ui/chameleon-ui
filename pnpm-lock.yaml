@@ -21,6 +21,16 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
 
+  ../toolings/eslint-config: {}
+
+  ../toolings/stylelint-config:
+    devDependencies:
+      stylelint:
+        specifier: 16.14.1
+        version: 16.14.1(typescript@5.9.3)
+
+  ../toolings/tsconfig: {}
+
   packages/adapter-a2ui:
     dependencies:
       '@chameleon-ui/install-core':
@@ -98,7 +108,7 @@ importers:
         version: link:../contract
       '@chameleon-ui/stylelint-config':
         specifier: workspace:*
-        version: link:../../toolings/stylelint-config
+        version: link:../../../toolings/stylelint-config
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -175,7 +185,7 @@ importers:
         version: link:../contract
       '@chameleon-ui/stylelint-config':
         specifier: workspace:*
-        version: link:../../toolings/stylelint-config
+        version: link:../../../toolings/stylelint-config
       '@testing-library/dom':
         specifier: 10.4.1
         version: 10.4.1
@@ -233,7 +243,7 @@ importers:
         version: link:../contract
       '@chameleon-ui/stylelint-config':
         specifier: workspace:*
-        version: link:../../toolings/stylelint-config
+        version: link:../../../toolings/stylelint-config
       '@types/node':
         specifier: 20.19.0
         version: 20.19.0
@@ -587,16 +597,6 @@ importers:
       vue:
         specifier: 3.5.13
         version: 3.5.13(typescript@5.9.3)
-
-  toolings/eslint-config: {}
-
-  toolings/stylelint-config:
-    devDependencies:
-      stylelint:
-        specifier: 16.14.1
-        version: 16.14.1(typescript@5.9.3)
-
-  toolings/tsconfig: {}
 
 packages:
 
