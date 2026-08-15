@@ -9,30 +9,29 @@ Chameleon UI is a **three-end app shell + token/theme overlay + contract/MCP** s
 
 Use it for product chrome, brand skins, and agent-generated UI. Do not expect enterprise Form/Table/Upload depth out of the box, and do not treat a theme swap as a finished product look. The visual flagship is `line`. The inner demo defaults to the product studio (`?view=street`), not the component gallery.
 
-Official template: `templates/external-vite-react` (Vite 6 + React 19) and `templates/external-vite-vue` (Vite 6 + Vue 3), including Windows.
+Official template: `templates/external-vite-react` (Vite 6 + React 19) and `templates/external-vite-vue` (Vite 6 + Vue 3), including Windows — each depends on **one** umbrella.
 
-React is the primary implementation. Vue is not “unsupported”: a Vue app can consume `@chameleon-ui/components-vue` with ThemeProvider + AppShell + Navigation + Button and the `line` theme. Catalog Vue coverage is **103/103** (plus ThemeProvider). `platforms.vue: supported` means the slug exists in the Vue package.
+React is the primary implementation. Vue is not “unsupported”: a Vue app can consume `@chameleon-ui/vue` with ThemeProvider + AppShell + Navigation + Button and the `line` theme. Catalog Vue coverage is **103/103** (plus ThemeProvider). `platforms.vue: supported` means the slug exists in the Vue package.
 
 ## Dual track (pick one)
 
 | Track | How | When |
 | :--- | :--- | :--- |
-| **Package** | Depend on `@chameleon-ui/components` plus tokens / i18n / primitives / themes | The app imports components |
+| **Package** | Depend on `@chameleon-ui/react` (or Vue `@chameleon-ui/vue`) | The app imports components |
 | **Copy source** | `chameleon add <slug>` or MCP `install_*` → install-core | You want a slug copied into your tree (shadcn-like) |
 
-Never write `"workspace:*"` in a non-pnpm-workspace `package.json`. Never link only `components`.
+Never write `"workspace:*"` in a non-pnpm-workspace `package.json`. Prefer one umbrella; legacy five-pack remains via `--legacy-five`.
 
 ## Install before publish
 
 ```bash
 cd chameleon-ui
-corepack pnpm@9.15.0 --filter @chameleon-ui/tokens --filter @chameleon-ui/i18n --filter @chameleon-ui/primitives --filter @chameleon-ui/themes --filter @chameleon-ui/components build
-node ./scripts/link-external.mjs --apply
+node ./scripts/pack-external.mjs
 # consumer:
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
 ```
 
-Alternative: `node ./scripts/pack-external.mjs` writes five `0.1.9` tarballs. That is still not a registry publish.
+Or link: `node ./scripts/link-external.mjs --apply` then `npm link @chameleon-ui/react`. That is still not a registry publish.
 
 ## Windows + Vite (already in the template)
 
@@ -41,7 +40,7 @@ Alternative: `node ./scripts/pack-external.mjs` writes five `0.1.9` tarballs. Th
 3. `optimizeDeps.include` for Ark + FormatJS
 4. `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO`)
 5. **Do not** alias `@ark-ui/react` to a directory
-6. CSS: `themes/<id>/css`, `tokens/css`, `tokens/density.css`. Emergency aliases: `node ./scripts/link-external.mjs --print-vite`
+6. CSS: `@chameleon-ui/react/css` (or `@chameleon-ui/vue/css`). Split files still OK: `themes/<id>/css`, `tokens/css`, `tokens/density.css`. Emergency aliases: `node ./scripts/link-external.mjs --print-vite`
 
 Rebuild the library packages after source edits. Consumers read `dist`.
 
@@ -60,7 +59,7 @@ Optional per-slug import: `import { Button } from "@chameleon-ui/components/butt
 ## Runtime theme
 
 ```tsx
-import { ThemeProvider } from "@chameleon-ui/components";
+import { ThemeProvider } from "@chameleon-ui/react";
 
 <ThemeProvider theme="cupertino" density="comfortable" locale="en">
   {app}

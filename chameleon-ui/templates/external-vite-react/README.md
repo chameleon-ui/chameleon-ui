@@ -4,14 +4,14 @@ Official template for an app **outside** the Chameleon pnpm workspace (EraseLab 
 
 Packages are **0.1.9** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-Default product chrome: **`line`** (`@chameleon-ui/themes/line/css` + `ThemeProvider theme="line"`). SchemaRenderer default map is still **10 slugs**; use `@chameleon-ui/components` for the rest of the catalog.
+This template depends on **one** package: `@chameleon-ui/react` (`file:../../packages/react`). Default product chrome: **`line`** via `import "@chameleon-ui/react/css"` + `ThemeProvider theme="line"`. SchemaRenderer default map is still **10 slugs**; import the rest from `@chameleon-ui/react`.
 
 ## Before `npm install`
 
 From `chameleon-ui/`:
 
 ```bash
-corepack pnpm@9.15.0 --filter @chameleon-ui/tokens --filter @chameleon-ui/i18n --filter @chameleon-ui/primitives --filter @chameleon-ui/themes --filter @chameleon-ui/components build
+corepack pnpm@9.15.0 --filter @chameleon-ui/react... build
 ```
 
 Then in this folder:
@@ -22,7 +22,7 @@ npm run typecheck
 npm run dev
 ```
 
-`file:` points at `packages/*`. After a library change, rebuild those packages; this app consumes `dist`.
+`file:` points at the umbrella package (which pulls the five runtime packages via `workspace:*` inside the monorepo). After a library change, rebuild; this app consumes `dist`.
 
 Monorepo gate (from `chameleon-ui/`):
 
@@ -33,9 +33,9 @@ pnpm verify:external:build    # typecheck + vite build
 
 ## Three consume paths (pick one)
 
-1. **This template** (`file:` siblings) -- best while iterating next to the monorepo.
-2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then link **all five** packages in the app.
-3. **Tarballs (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install` each `.tgz` from `dist-tarballs/`. Still not a registry publish.
+1. **This template** (`file:` umbrella) -- best while iterating next to the monorepo.
+2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then `npm link @chameleon-ui/react` in the app.
+3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
@@ -48,39 +48,17 @@ pnpm verify:external:build    # typecheck + vite build
 CSS specifiers (do not guess):
 
 ```ts
+import "@chameleon-ui/react/css";
+// or theme-specific:
 import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
 
-If a `file:` install still misses CSS exports, print a last-resort alias block:
+Never `@chameleon-ui/themes/*/variables.css` (unexported).
 
-```bash
-node ../../scripts/link-external.mjs --print-vite
-```
+## Peers at the app root
 
-## Dual track
+`react@^19` · `react-dom@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. Node ≥ 20.19. React 18 is out of range.
 
-| Track | When |
-| :--- | :--- |
-| Depend on `@chameleon-ui/components` (this template) | App consumes the React package |
-| `chameleon add <slug>` | Copy one component's source via install-core |
-
-Do not mix "I linked five packages" with "I also copied `workspace:*`".
-
-## Height chain
-
-`html, body, #root { block-size: 100% }` is required. AppShell fills its parent. Do not lock the page to a desktop CSS Grid that fights the three-end `Navigation` morph.
-
-## Version matrix
-
-| Package | Pin |
-| :--- | :--- |
-| Node | >= 20.19 |
-| `@chameleon-ui/*` | `0.1.9` via pack / link / file: (not npm registry) |
-| `react` / `react-dom` | `^19` |
-| `@ark-ui/react` | `5.38.0` (peer of primitives; install at the app root) |
-| `intl-messageformat` | `11.2.13` |
-| `@formatjs/icu-messageformat-parser` | `3.5.14` |
-
-React 18 is not in the peer range. npm registry publish is not done -- use file:, link, or tarballs.
+See `chameleon-ui/AGENTS.md` and docs **外部接入**.

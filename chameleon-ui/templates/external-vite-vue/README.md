@@ -2,18 +2,18 @@
 
 Official template for an app **outside** the Chameleon pnpm workspace (Vite 6 + Vue 3, Windows included).
 
-React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`line`** theme.
+React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`line`** theme via `@chameleon-ui/vue`.
 
 Packages are **0.1.9** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`. See `packages/components-vue/README.md`.
+This template depends on **one** package: `@chameleon-ui/vue` (`file:../../packages/vue`). Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`.
 
 ## Before `npm install`
 
 From `chameleon-ui/`:
 
 ```bash
-corepack pnpm@9.15.0 --filter @chameleon-ui/tokens --filter @chameleon-ui/i18n --filter @chameleon-ui/primitives-vue --filter @chameleon-ui/themes --filter @chameleon-ui/components-vue build
+corepack pnpm@9.15.0 --filter @chameleon-ui/vue... build
 ```
 
 Then in this folder:
@@ -24,7 +24,7 @@ npm run typecheck
 npm run dev
 ```
 
-`file:` points at `packages/*`. After a library change, rebuild those packages; this app consumes `dist`.
+`file:` points at the umbrella package. After a library change, rebuild; this app consumes `dist`.
 
 Monorepo gate (from `chameleon-ui/`):
 
@@ -35,51 +35,27 @@ pnpm verify:external:build    # typecheck + vite build
 
 ## Three consume paths (pick one)
 
-1. **This template** (`file:` siblings) -- best while iterating next to the monorepo.
-2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --vue --apply`, then link **all five** Vue-graph packages in the app.
-3. **Tarballs (first-class pre-registry)** -- `node ./scripts/pack-external.mjs --vue`, then `npm install` each `.tgz` from `dist-tarballs/`. Still not a registry publish.
+1. **This template** (`file:` umbrella) -- best while iterating next to the monorepo.
+2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --vue --apply`, then `npm link @chameleon-ui/vue` in the app.
+3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs --vue`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.1.9.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
 - `resolve.preserveSymlinks: true`
 - `resolve.dedupe` for `vue`, `@ark-ui/vue`, `intl-messageformat`
-- `optimizeDeps.include` for Vue + Ark + FormatJS
+- `optimizeDeps.include` for Ark + FormatJS
 - `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO` override)
-- **Do not** alias `@ark-ui/vue` to a folder; subpaths break
 
-CSS specifiers (do not guess):
-
-```ts
-import "@chameleon-ui/themes/line/css";
-import "@chameleon-ui/tokens/css";
-import "@chameleon-ui/tokens/density.css";
-```
-
-Component CSS is emitted by `@chameleon-ui/components-vue` (JS side-effect import plus `./css`). Preferred JS:
+CSS:
 
 ```ts
-import { AppShell, Button, Navigation, NavigationBar, ThemeProvider } from "@chameleon-ui/components-vue";
+import "@chameleon-ui/vue/css";
 ```
 
-Print a last-resort Vite snippet:
+Never `@chameleon-ui/themes/*/variables.css` (unexported).
 
-```bash
-node ../../scripts/link-external.mjs --print-vite-vue
-```
+## Peers at the app root
 
-## Height chain
+`vue@^3.5` · `@ark-ui/vue@5.38.1` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. Node ≥ 20.19.
 
-`html, body, #app { block-size: 100% }` is required. AppShell fills its parent. Do not lock the page to a desktop CSS Grid that fights the three-end `Navigation` morph.
-
-## Version matrix
-
-| Package | Pin |
-| :--- | :--- |
-| Node | >= 20.19 |
-| `@chameleon-ui/*` | `0.1.9` via pack / link / file: (not npm registry) |
-| `vue` | `^3.5` |
-| `@ark-ui/vue` | `5.38.1` (dependency of primitives-vue; install at the app root) |
-| `intl-messageformat` | `11.2.13` |
-| `@formatjs/icu-messageformat-parser` | `3.5.14` |
-
-npm registry publish is not done -- use file:, link, or tarballs.
+See `chameleon-ui/AGENTS.md` and docs **外部接入**.

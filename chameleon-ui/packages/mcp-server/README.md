@@ -53,7 +53,7 @@ is **not** available until a registry publish.
 | `get_component` | Full registry item (files + deps). Prefer `get_contract` for the v0.2 JSON |
 | `get_contract` | v0.2 `contract.json` by slug |
 | `get_design_rules` | `design-rules.json` by theme id (or community rules pack id) |
-| `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Call before writing imports. Includes React + Vue package names, version matrix, Vite template paths, dual-track note. |
+| `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Call before writing imports. Prefers `@chameleon-ui/react` / `@chameleon-ui/vue` umbrellas; includes version matrix, Vite templates, dual-track note. |
 | `list_themes` | The 8 official tribute themes |
 | `install_component` | Install one component via install-core |
 | `install_theme` | Install one theme via install-core |

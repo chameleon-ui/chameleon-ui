@@ -1,7 +1,7 @@
 /**
  * Typecheck (and optionally Vite-build) the official external consumer templates
- * against workspace packages via file: deps. Run from chameleon-ui/ after a
- * library build of the React and/or Vue graphs.
+ * against workspace packages via file: deps (one umbrella package). Run from
+ * chameleon-ui/ after a library build of the React and/or Vue graphs.
  *
  * Usage:
  *   node ./scripts/verify-external-templates.mjs
@@ -22,7 +22,7 @@ const reactOnly = process.argv.includes('--react-only')
 const vueOnly = process.argv.includes('--vue-only')
 
 const version = JSON.parse(
-  await readFile(join(root, 'packages/components/package.json'), 'utf8'),
+  await readFile(join(root, 'packages/react/package.json'), 'utf8'),
 ).version
 
 function npmCommand() {
@@ -34,7 +34,6 @@ function run(command, args, cwd) {
     const child = spawn(command, args, {
       cwd,
       stdio: 'inherit',
-      // Node on Windows rejects spawning *.cmd with shell:false (EINVAL).
       shell: process.platform === 'win32',
     })
     child.on('error', reject)
@@ -61,7 +60,7 @@ if (!vueOnly) {
   templates.push({
     id: 'react',
     dir: join(root, 'templates/external-vite-react'),
-    packages: ['tokens', 'i18n', 'primitives', 'themes', 'components'],
+    packages: ['tokens', 'i18n', 'primitives', 'themes', 'components', 'react'],
     typecheck: ['run', 'typecheck'],
     build: ['run', 'build'],
   })
@@ -70,13 +69,13 @@ if (!reactOnly) {
   templates.push({
     id: 'vue',
     dir: join(root, 'templates/external-vite-vue'),
-    packages: ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue'],
+    packages: ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue', 'vue'],
     typecheck: ['run', 'typecheck'],
     build: ['run', 'build'],
   })
 }
 
-console.log(`verify-external-templates: package version ${version} (unpublished; tarball/pack is first-class)`)
+console.log(`verify-external-templates: package version ${version} (unpublished; umbrella file: / pack-external)`)
 console.log(doBuild ? 'mode: typecheck + vite build' : 'mode: typecheck only (pass --build for vite build)')
 
 for (const template of templates) {
@@ -92,6 +91,8 @@ for (const template of templates) {
 }
 
 console.log('\nverify-external-templates: ok')
-console.log(`Documented pin for consumers: @chameleon-ui/*@${version} via file: / npm link / pack-external tarballs — not npm registry.`)
+console.log(
+  `Documented pin for consumers: @chameleon-ui/react|vue@${version} via file: / npm link / pack-external umbrella tarball — not npm registry.`,
+)
 console.log('Print Vite snippets: node ./scripts/link-external.mjs --print-vite | --print-vite-vue')
-console.log('Tarballs: node ./scripts/pack-external.mjs   # add --vue for Vue graph')
+console.log('Tarballs: node ./scripts/pack-external.mjs   # add --vue; --legacy-five for five-pack')

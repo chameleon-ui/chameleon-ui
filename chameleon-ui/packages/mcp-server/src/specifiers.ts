@@ -14,8 +14,9 @@ export function isThemeId(value: string): value is (typeof THEME_IDS)[number] {
 
 /**
  * Legal import specifiers for an external (non-pnpm-workspace) consumer app.
- * Preferred CSS is the `exports` alias, not a guessed `dist/` path.
- * React is the primary implementation. Vue catalog is `@chameleon-ui/components-vue` (103/103 + ThemeProvider).
+ * Preferred path is the umbrella (`@chameleon-ui/react` / `@chameleon-ui/vue`).
+ * Underlying package names remain valid. Preferred CSS is the umbrella `./css`
+ * entry (tokens + density + line) or the `exports` theme alias.
  */
 export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'button') {
   const theme = isThemeId(themeId) ? themeId : DEFAULT_THEME_ID
@@ -23,12 +24,16 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
     themeId: theme,
     slug,
     preferred: {
+      umbrellaReact: '@chameleon-ui/react',
+      umbrellaVue: '@chameleon-ui/vue',
+      umbrellaReactCss: '@chameleon-ui/react/css',
+      umbrellaVueCss: '@chameleon-ui/vue/css',
       themeCss: `@chameleon-ui/themes/${theme}/css`,
       tokensCss: '@chameleon-ui/tokens/css',
       tokensDensityCss: '@chameleon-ui/tokens/density.css',
-      components: '@chameleon-ui/components',
+      components: '@chameleon-ui/react',
       componentSlug: `@chameleon-ui/components/${slug}`,
-      componentsVue: '@chameleon-ui/components-vue',
+      componentsVue: '@chameleon-ui/vue',
       componentVueSlug: `@chameleon-ui/components-vue/${slug}`,
       componentsVueCss: '@chameleon-ui/components-vue/css',
       contract: `@chameleon-ui/components/contracts/${slug}`,
@@ -37,6 +42,8 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       schemaRendererVue: '@chameleon-ui/schema-renderer/vue',
     },
     alsoValid: {
+      componentsPackage: '@chameleon-ui/components',
+      componentsVuePackage: '@chameleon-ui/components-vue',
       themeCssDist: `@chameleon-ui/themes/dist/${theme}/variables.css`,
       tokensCssDist: '@chameleon-ui/tokens/dist/css/variables.css',
     },
@@ -49,16 +56,20 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
     rtlLocales: [...RTL_LOCALES],
     unpublishedLink: {
       fromMonorepo: 'node ./scripts/link-external.mjs --apply',
-      inExternalApp: `npm link ${LINK_RUNTIME_PACKAGES.join(' ')}`,
-      fromMonorepoVue: 'node ./scripts/link-external.mjs --apply --vue',
-      inExternalAppVue: `npm link ${LINK_RUNTIME_PACKAGES_VUE.join(' ')}`,
+      inExternalApp: 'npm link @chameleon-ui/react',
+      fromMonorepoVue: 'node ./scripts/link-external.mjs --vue --apply',
+      inExternalAppVue: 'npm link @chameleon-ui/vue',
+      legacyFiveFromMonorepo: 'node ./scripts/link-external.mjs --legacy-five --apply',
+      legacyFiveInExternalApp: `npm link ${LINK_RUNTIME_PACKAGES.join(' ')}`,
+      legacyFiveInExternalAppVue: `npm link ${LINK_RUNTIME_PACKAGES_VUE.join(' ')}`,
       viteTemplate: 'templates/external-vite-react',
       viteTemplateVue: 'templates/external-vite-vue',
       printVite: 'node ./scripts/link-external.mjs --print-vite',
       printViteVue: 'node ./scripts/link-external.mjs --print-vite-vue',
       packTarballs: 'node ./scripts/pack-external.mjs',
       packTarballsVue: 'node ./scripts/pack-external.mjs --vue',
-      note: 'Packages are 0.1.9 and unpublished. workspace:* only works inside this pnpm workspace. React: link all five runtime packages (do not link only @chameleon-ui/components). Vue: link tokens, i18n, primitives-vue, themes, components-vue.',
+      packLegacyFive: 'node ./scripts/pack-external.mjs --legacy-five',
+      note: 'Packages are 0.1.9 and unpublished. Prefer one umbrella: @chameleon-ui/react or @chameleon-ui/vue (pack-external default bundles the five). workspace:* only works inside this pnpm workspace. Legacy five-pack: --legacy-five.',
     },
     versionMatrix: {
       node: '>=20.19.0',
@@ -70,8 +81,10 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       icuParser: '3.5.14',
     },
     dualTrack: {
-      package: 'React: five runtime packages + @chameleon-ui/components. Vue: tokens, i18n, primitives-vue, themes, @chameleon-ui/components-vue.',
-      copySource: 'chameleon add <slug> / MCP install_* via install-core. Do not mix with workspace:*. Copy-source is React-oriented.',
+      package:
+        'React: one @chameleon-ui/react (or legacy five). Vue: one @chameleon-ui/vue (or legacy five including components-vue).',
+      copySource:
+        'chameleon add <slug> / MCP install_* via install-core. Do not mix with workspace:*. Copy-source is React-oriented.',
     },
   }
 }

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.9",
   "type": "module",
-  "description": "Official Vite 6 + Vue 3 consumer template for unpublished @chameleon-ui/* (Windows included).",
+  "description": "Official Vite 6 + Vue 3 consumer template for unpublished @chameleon-ui/vue (Windows included).",
   "engines": {
     "node": ">=20.19.0"
   },
@@ -15,11 +15,7 @@
   },
   "dependencies": {
     "@ark-ui/vue": "5.38.1",
-    "@chameleon-ui/components-vue": "file:../../packages/components-vue",
-    "@chameleon-ui/i18n": "file:../../packages/i18n",
-    "@chameleon-ui/primitives-vue": "file:../../packages/primitives-vue",
-    "@chameleon-ui/themes": "file:../../packages/themes",
-    "@chameleon-ui/tokens": "file:../../packages/tokens",
+    "@chameleon-ui/vue": "file:../../packages/vue",
     "@formatjs/icu-messageformat-parser": "3.5.14",
     "intl-messageformat": "11.2.13",
     "vue": "3.5.13"
