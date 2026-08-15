@@ -41,7 +41,6 @@
   },
   "devDependencies": {
     "@chameleon-ui/contract": "workspace:*",
-    "@chameleon-ui/stylelint-config": "workspace:*",
     "@vitejs/plugin-vue": "6.0.8",
     "@types/node": "20.19.0",
     "@vue/test-utils": "2.4.6",
