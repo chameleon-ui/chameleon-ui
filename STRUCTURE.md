@@ -23,7 +23,7 @@
 | `PHASE7.md` | Phase 7 看板（`packages/blocks` + §7.3 十二场景 + §7.4 矩阵） |
 | `PHASE8.md` | Phase 8 看板（AG-UI / SchemaRenderer / data-ai 全量 / generation_quality / DTCG `$extends`） |
 | `PHASE9.md` | Phase 9 看板（R1–R3 实测 / VPAT 正式 / npm 首发 / 文档 21 语去骨架） |
-| `package.json` | 根脚本：`build` / `ci:phase1` … `ci:phase4` / `ci:phase8` / `ci:phase9` / `docs` / `studio` / `market` / `bench:genui` / `publish:check` / `link:external` / `perf:lhci` |
+| `package.json` | 根脚本：`build` / `ci:phase1` … `ci:phase4` / `ci:phase8` / `ci:phase9` / `docs` / `studio` / `market` / `bench:genui` / `publish:check` / `link:external` / `pack:external` / `verify:external` / `perf:lhci` |
 | `LICENSE` | MIT（可发包另有副本） |
 | `CONTRIBUTING.md` / `SECURITY.md` | 贡献与安全；遥测告知 |
 | `pnpm-workspace.yaml` | 成员：`packages/*` · `toolings/*` · `poc/*` · `apps/*` · `benchmarks/genui-bench` |
@@ -38,10 +38,12 @@
 | `scripts/phase5-gates.mjs` | `phase5:gates`：三端内核门禁 |
 | `scripts/phase8-gates.mjs` | `phase8:gates`：A1–A6 AI 阶梯门禁 |
 | `scripts/ai-check.mjs` | `ai:check`：契约 + MCP 工具名 + AGENTS.md + 安装文档 import 示例防漂移 |
-| `scripts/phase9-gates.mjs` | `phase9:gates`：lhci 生成物（实测或显式未测）· VPAT 文件存在 · 缺口表存在 · `publish:check` 干跑（不 npm publish） |
+| `scripts/phase9-gates.mjs` | `phase9:gates`：lhci 生成物 · VPAT 文件 · VPAT published-internal 状态页 · 盲测 A9.5 PROTOCOL-READY（rate=null）· 缺口表存在 · `publish:check` 干跑 |
 | `scripts/perf-lhci.mjs` | `perf:lhci`：本地 Lighthouse 测 demo `:4175/?view=suite`；失败则写 unmeasured 生成物，禁止手写分数 |
 | `scripts/check-publish-ready.mjs` | `publish:check` 干跑：可发包 MIT/`engines.node`/`exports` CSS 别名；不 npm publish |
-| `scripts/link-external.mjs` | 外部 npm 工程须全量 `npm link`（`workspace:*` 不能只 link `components`） |
+| `scripts/link-external.mjs` | 外部 npm 工程须全量 `npm link`（`workspace:*` 不能只 link `components`）；`--print-vite` / `--print-vite-vue`；`--vue` |
+| `scripts/pack-external.mjs` | 打五包 tarball 到 `dist-tarballs/`（pre-registry 一等路径）；`--vue` |
+| `scripts/verify-external-templates.mjs` | 官方 `templates/external-vite-*` 对 workspace `file:` 做 typecheck（`--build` 含 vite build） |
 | `../.github/workflows/phase0-ci.yml` | PR/推送门禁：冻结安装后执行 `ci:phase4`（含 `ci:phase3`） |
 | `../docs/project/phases/Phase-4-v2.0.md` | Phase 4 目标卡 |
 | `../docs/project/phases/Phase-2-Overview.md` | 第二期（Phase 5–9）总览与缺口追溯；Phase-5…9 目标卡索引 |
@@ -113,7 +115,7 @@ tokens / themes / i18n / contract / primitives-vue
 | 路径 | npm 名 | 注解 |
 | :--- | :--- | :--- |
 | `apps/internal-demo` | `@chameleon-ui/internal-demo` | T1.10 内测 Demo。**不是**公开文档站。选择器：21 Locale + 8 主题。三端一体：`/?view=three-end`（390/768/1280 iframe）。盲测：`/?view=blind`（协议在 `docs/project/reports/盲测协议.md`；结果 pending，禁止手写认出率） |
-| `apps/docs` | `@chameleon-ui/docs` | 公开文档站（Docusaurus 3 + MDX）：**3 语界面**（`zh-CN` 默认无前缀 / `zh-HK` / `en`）；产品 ICU 仍为 21 Locale；8 主题、contract 驱动 API 表、北极星看板、VPAT 草稿。端口 5176 / 4176 |
+| `apps/docs` | `@chameleon-ui/docs` | 公开文档站（Docusaurus 3 + MDX）：**3 语界面**（`zh-CN` 默认无前缀 / `zh-HK` / `en`）；产品 ICU 仍为 21 Locale；8 主题、contract 驱动 API 表、北极星看板、VPAT **draft / published-internal**（`/compliance/VPAT-status.md`；禁止商用认证宣称）。端口 5176 / 4176 |
 | `apps/theme-studio` | `@chameleon-ui/theme-studio` | Phase 3 主题工作台 Beta：`/editor` · `/export`；端口 5177 / 4177；导出物 `generator=theme-studio` |
 | `apps/market` | `@chameleon-ui/market` | Phase 4 市场 UI：浏览/详情/安装/上架（主题与纪律包）；端口 5178 / 4178；安装经 `market-service` → `install-core` |
 
