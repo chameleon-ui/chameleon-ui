@@ -1,7 +1,5 @@
 # Toast
 
-Frozen Phase 1 stub for `toast`.
+Shipped. Queued feedback via ToastProvider + useToast. Also Toast, Toaster, and createToaster.
 
-- Requirement: Non-blocking feedback
-- Implementation: **stub** (README + `contract.json` only)
-- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.
+Do not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.

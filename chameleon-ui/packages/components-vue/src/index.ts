@@ -15,7 +15,7 @@ export type { BadgeProps } from './badge/index.js'
 export { Breadcrumb } from './breadcrumb/index.js'
 export type { BreadcrumbProps, BreadcrumbItem } from './breadcrumb/index.js'
 export { Button } from './button/index.js'
-export type { ButtonProps } from './button/index.js'
+export type { ButtonProps, ButtonSize, ButtonTone, ButtonVariant } from './button/index.js'
 export { Calendar } from './calendar/index.js'
 export type { CalendarProps } from './calendar/index.js'
 export { Canvas, snapToGridValue } from './canvas-base/index.js'
@@ -196,13 +196,15 @@ export { TimePicker } from './time-picker/index.js'
 export type { TimePickerProps } from './time-picker/index.js'
 export { Timeline } from './timeline/index.js'
 export type { TimelineProps, TimelineItem } from './timeline/index.js'
-export { Toast, ToastProvider, useToast } from './toast/index.js'
+export { Toast, Toaster, ToastProvider, createToaster, useToast } from './toast/index.js'
 export type {
   ToastPlacement,
   ToastProps,
   ToastProviderProps,
   ToastPushInput,
   ToastStatus,
+  ToasterProps,
+  ToasterStore,
 } from './toast/index.js'
 export { Tooltip } from './tooltip/index.js'
 export type { TooltipProps } from './tooltip/index.js'

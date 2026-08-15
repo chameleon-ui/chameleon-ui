@@ -10,12 +10,16 @@
     "access": "public"
   },
   "type": "module",
-  "description": "Runtime JSON Schema → Chameleon UI component-tree renderer (React first). Protocol-agnostic sibling of the L3/L4 adapters.",
+  "description": "Runtime JSON Schema → Chameleon UI component-tree renderer. Default export is React; Vue is `@chameleon-ui/schema-renderer/vue`. Protocol-agnostic sibling of the L3/L4 adapters.",
   "files": ["dist", "examples", "README.md", "LICENSE"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
+    },
+    "./vue": {
+      "types": "./dist/vue.d.ts",
+      "import": "./dist/vue.js"
     }
   },
   "scripts": {
@@ -27,10 +31,17 @@
   },
   "peerDependencies": {
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "vue": "^3.5.0"
+  },
+  "peerDependenciesMeta": {
+    "react": { "optional": true },
+    "react-dom": { "optional": true },
+    "vue": { "optional": true }
   },
   "dependencies": {
-    "@chameleon-ui/components": "workspace:*"
+    "@chameleon-ui/components": "workspace:*",
+    "@chameleon-ui/components-vue": "workspace:*"
   },
   "devDependencies": {
     "@testing-library/dom": "10.4.1",
@@ -40,9 +51,12 @@
     "@types/react": "19.2.18",
     "@types/react-dom": "19.2.4",
     "@vitejs/plugin-react": "6.0.5",
+    "@vitejs/plugin-vue": "6.0.8",
+    "@vue/test-utils": "2.4.6",
     "jsdom": "30.0.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "vue": "3.5.13",
     "typescript": "5.9.3",
     "vite": "8.2.1",
     "vitest": "4.1.10"

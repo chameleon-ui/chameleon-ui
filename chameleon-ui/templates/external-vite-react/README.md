@@ -38,7 +38,7 @@ npm run dev
 CSS specifiers (do not guess):
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```

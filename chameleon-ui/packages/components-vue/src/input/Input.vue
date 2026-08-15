@@ -6,18 +6,22 @@ export interface InputProps {
   errorMessage?: string
   id?: string
   placeholder?: string
+  type?: string
   class?: string
 }
 </script>
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { InputPrimitive } from '@chameleon-ui/primitives-vue'
+import { FieldPrimitive } from '@chameleon-ui/primitives-vue'
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(defineProps<InputProps>(), {
   disabled: false,
   invalid: false,
   errorMessage: 'Please review this value.',
+  type: 'text',
 })
 
 const model = defineModel<string>('modelValue', { default: '' })
@@ -33,19 +37,27 @@ function updateValue(event: Event) {
 </script>
 
 <template>
-  <div class="cu-field" data-ai-role="input" data-ai-intent="enter-text" :data-ai-state="dataAiState">
-    <label :for="id" class="cu-field__label">{{ label }}</label>
-    <InputPrimitive
-      :id="id"
-      :value="model"
+  <FieldPrimitive.Root
+    class="cu-field"
+    data-ai-role="input"
+    data-ai-intent="enter-text"
+    :data-ai-state="dataAiState"
+    :disabled="disabled"
+    :id="id"
+    :invalid="invalid"
+  >
+    <FieldPrimitive.Label class="cu-field__label">{{ label }}</FieldPrimitive.Label>
+    <FieldPrimitive.Input
       :class="inputClasses"
-      :disabled="disabled"
-      :aria-invalid="invalid || undefined"
+      :value="model"
       :placeholder="placeholder"
+      :type="type"
+      :aria-invalid="invalid || undefined"
+      v-bind="$attrs"
       @input="updateValue"
     />
-    <span v-if="invalid" class="cu-field__error" aria-live="polite">{{ errorMessage }}</span>
-  </div>
+    <FieldPrimitive.ErrorText v-if="invalid" class="cu-field__error">{{ errorMessage }}</FieldPrimitive.ErrorText>
+  </FieldPrimitive.Root>
 </template>
 
 <style scoped src="./styles.css"></style>

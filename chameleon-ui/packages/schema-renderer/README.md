@@ -1,6 +1,6 @@
 # @chameleon-ui/schema-renderer
 
-运行时 SchemaRenderer：**JSON render-schema → Chameleon UI 组件树**（React 先行）。L3/L4 旁路包，不进 L1/L2。
+运行时 SchemaRenderer：**JSON render-schema → Chameleon UI 组件树**。默认入口是 React；Vue 走 `@chameleon-ui/schema-renderer/vue`。L3/L4 旁路包，不进 L1/L2。
 
 ## 支持级别
 

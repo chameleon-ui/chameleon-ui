@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { ThemeProvider } from '@chameleon-ui/components'
-import '@chameleon-ui/themes/cupertino/css'
+import '@chameleon-ui/themes/line/css'
 import '@chameleon-ui/tokens/css'
 import '@chameleon-ui/tokens/density.css'
 import { App } from './App'
@@ -9,7 +9,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider locale="zh-CN" theme="cupertino">
+    <ThemeProvider locale="zh-CN" theme="line">
       <App />
     </ThemeProvider>
   </StrictMode>,

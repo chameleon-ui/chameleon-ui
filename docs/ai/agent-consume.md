@@ -15,7 +15,7 @@ Do not invent CSS specifiers. Do not copy `workspace:*` into a consumer `package
 5. Before choosing density / radius / RTL, call `get_design_rules` for the theme id.
 6. The consumer app is **not** a pnpm workspace. **NEVER** write `workspace:*`. Link all five runtime packages of the chosen graph (React or Vue; see AGENTS.md).
 7. Disk writes only via `chameleon add` / MCP `install_*` (install-core).
-8. SchemaRenderer default map is 10 slugs. For Table / Chart / KpiDashboard import `@chameleon-ui/components`.
+8. SchemaRenderer default map is 10 slugs. React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. For Table / Chart / KpiDashboard import `@chameleon-ui/components` or `@chameleon-ui/components-vue`.
 9. `adapter-ag-ui` is POC. Do not treat it as supported.
 
 ## App chrome

@@ -46,7 +46,7 @@ import { AppShell, Button, Navigation, NavigationBar, ThemeProvider } from "@cha
 
 Named exports are PascalCase. Slugs are kebab-case (`data-grid` → `DataGrid`).
 
-Optional per-slug (React only): `import { Button } from "@chameleon-ui/components/button"`. Vue is a barrel plus `@chameleon-ui/components-vue/css`.
+Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also ships `@chameleon-ui/components-vue/css`.
 
 ## App chrome
 
@@ -142,4 +142,4 @@ Attach snippet: `packages/mcp-server/README.md`.
 
 ## SchemaRenderer
 
-Emit `{ "version": "1.0", "root": { "component": "<slug>", "props": {}, "children": [] } }`. Default map is **10 slugs only** (`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`). For `table` / `chart` / `kpi-dashboard`, import from `@chameleon-ui/components` — do not pretend SchemaRenderer covers the full catalog.
+Emit `{ "version": "1.0", "root": { "component": "<slug>", "props": {}, "children": [] } }`. Default map is **10 slugs only** (`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`). React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. For `table` / `chart` / `kpi-dashboard`, import from `@chameleon-ui/components` or `@chameleon-ui/components-vue` — do not pretend SchemaRenderer covers the full catalog.

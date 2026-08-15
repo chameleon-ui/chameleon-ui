@@ -8,7 +8,7 @@ Vue implementations for Chameleon UI. React (`@chameleon-ui/components`) remains
 
 ## Coverage
 
-Catalog Vue is **103/103**. ThemeProvider is extra (not a catalog slug). SchemaRenderer’s default map still lives on the React package.
+Catalog Vue is **103/103**. ThemeProvider is extra (not a catalog slug). Per-slug: `import { Button } from '@chameleon-ui/components-vue/button'`. SchemaRenderer default map is 10 slugs: `@chameleon-ui/schema-renderer/vue`.
 
 ## Usage
 

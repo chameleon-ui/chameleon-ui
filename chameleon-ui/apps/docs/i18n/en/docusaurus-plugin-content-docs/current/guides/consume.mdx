@@ -55,7 +55,7 @@ Rebuild the library packages after source edits. Consumers read `dist`.
 | `intl-messageformat` | `11.2.13` |
 | `@formatjs/icu-messageformat-parser` | `3.5.14` |
 
-Optional per-slug import: `import { Button } from "@chameleon-ui/components/button"`. CSS packages declare `sideEffects: ["**/*.css"]`.
+Optional per-slug import: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also: `import "@chameleon-ui/components-vue/css"`. CSS packages declare `sideEffects: ["**/*.css"]`.
 
 ## Runtime theme
 
@@ -71,7 +71,7 @@ Single skin: also static-import one `themes/<id>/css`. Multi-skin: pass raw CSS 
 
 ## AppShell height checklist
 
-1. `html, body, #root { block-size: 100%; }`
+1. `html, body, #root { block-size: 100%; }` (Vue template: `#app`)
 2. The shell fills its **parent**. Do not set `min-block-size: 100dvh` on the shell.
 3. Nested previews must override `block-size` / `max-block-size`.
 4. Do not freeze a desktop CSS Grid that fights `Navigation` morph.
@@ -79,4 +79,6 @@ Single skin: also static-import one `themes/<id>/css`. Multi-skin: pass raw CSS 
 
 ## SchemaRenderer boundary
 
-Default map is **10 slugs**: `alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`. Import the rest from `@chameleon-ui/components`. Visual playground: docs site + `internal-demo`. Storybook is not the SSOT.
+Default map is **10 slugs**: `alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`. React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. Import the rest from `@chameleon-ui/components` or `@chameleon-ui/components-vue`. Visual playground: docs site + `internal-demo`. Storybook is not the SSOT.
+
+Catalog Vue is **103/103** (plus ThemeProvider). Do not say Vue is a 30-slug subset. Honest leftover: SchemaRenderer default map is 10 slugs, not the full catalog; `chameleon add` copy-source is still React-oriented.

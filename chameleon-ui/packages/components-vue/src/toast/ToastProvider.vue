@@ -9,18 +9,9 @@ export interface ToastProviderProps {
 </script>
 
 <script setup lang="ts">
-import { provide, ref } from 'vue'
-import Toast from './Toast.vue'
-import { toastStoreKey, type ToastPlacement, type ToastPushInput, type ToastStatus } from './store'
-
-interface QueuedToast {
-  id: string
-  title: string
-  description: string
-  status: ToastStatus
-  duration: number
-  open: boolean
-}
+import { provide } from 'vue'
+import Toaster from './Toaster.vue'
+import { createToaster, toastStoreKey, type ToastPlacement, type ToastPushInput } from './store'
 
 const props = withDefaults(defineProps<ToastProviderProps>(), {
   duration: 4000,
@@ -28,57 +19,28 @@ const props = withDefaults(defineProps<ToastProviderProps>(), {
   closeLabel: 'Close',
 })
 
-const items = ref<QueuedToast[]>([])
+const toaster = createToaster({
+  duration: props.duration,
+  placement: props.placement,
+  overlap: true,
+})
 
-function nextId() {
-  return `cu-toast-${Date.now()}-${Math.random().toString(16).slice(2)}`
-}
-
-function push(input: ToastPushInput) {
-  const id = nextId()
-  items.value = [
-    ...items.value,
-    {
-      id,
+provide(toastStoreKey, {
+  push(input: ToastPushInput) {
+    return toaster.create({
       title: input.title,
-      description: input.description ?? '',
-      status: input.status ?? 'info',
-      duration: input.duration ?? props.duration,
-      open: true,
-    },
-  ]
-  return id
-}
-
-function dismiss(id?: string) {
-  if (!id) {
-    items.value = []
-    return
-  }
-  items.value = items.value.filter((item) => item.id !== id)
-}
-
-provide(toastStoreKey, { push, dismiss })
-
-function onOpenChange(id: string, open: boolean) {
-  if (open) return
-  dismiss(id)
-}
+      description: input.description,
+      type: input.status ?? 'info',
+      duration: input.duration,
+    })
+  },
+  dismiss(id?: string) {
+    toaster.remove(id)
+  },
+})
 </script>
 
 <template>
   <slot />
-  <div class="cu-toaster" :data-placement="placement">
-    <Toast
-      v-for="item in items"
-      :key="item.id"
-      :open="item.open"
-      :title="item.title"
-      :description="item.description"
-      :status="item.status"
-      :close-label="closeLabel"
-      :duration="item.duration"
-      @update:open="(open) => onOpenChange(item.id, open)"
-    />
-  </div>
+  <Toaster :toaster="toaster" :close-label="closeLabel" />
 </template>

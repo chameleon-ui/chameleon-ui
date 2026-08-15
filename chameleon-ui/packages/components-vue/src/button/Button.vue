@@ -1,8 +1,12 @@
 <script lang="ts">
+export type ButtonVariant = 'solid' | 'outline' | 'ghost'
+export type ButtonSize = 'sm' | 'md'
+export type ButtonTone = 'brand' | 'danger'
+
 export interface ButtonProps {
-  variant?: 'solid' | 'outline' | 'ghost'
-  size?: 'sm' | 'md'
-  tone?: 'brand' | 'danger'
+  variant?: ButtonVariant
+  size?: ButtonSize
+  tone?: ButtonTone
   disabled?: boolean
   loading?: boolean
   type?: 'button' | 'submit' | 'reset'
@@ -21,6 +25,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   tone: 'brand',
   type: 'button',
   loading: false,
+  intent: 'submit',
 })
 
 const classes = computed(() =>

@@ -41,13 +41,15 @@ export function Page() {
 }
 ```
 
+Vue: `import { SchemaRenderer } from "@chameleon-ui/schema-renderer/vue"`. Same 10-slug default map.
+
 ## Default map (10 slugs only)
 
 `alert` · `badge` · `button` · `card` · `divider` · `empty-state` · `heading` · `input` · `stack` · `typography`
 
 Unknown slugs become a `data-schema-error` placeholder (no white screen). Depth ≤ 32, nodes ≤ 500.
 
-`table`, `chart`, `kpi-dashboard`, `tabs`, `grid` and the rest of the catalog are **not** in the default map. Import them from `@chameleon-ui/components`, or pass a custom `map` prop. Do not claim full-catalog SchemaRenderer coverage.
+`table`, `chart`, `kpi-dashboard`, `tabs`, `grid` and the rest of the catalog are **not** in the default map. Import them from `@chameleon-ui/components` or `@chameleon-ui/components-vue`, or pass a custom `map` prop. Do not claim full-catalog SchemaRenderer coverage.
 
 ## Not this package
 

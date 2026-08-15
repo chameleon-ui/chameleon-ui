@@ -106,7 +106,7 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @c
 
 Windows + Vite 不要手写半页猜测配置。用仓库 `templates/external-vite-react` 或 `templates/external-vite-vue`，或 `node ./scripts/link-external.mjs --print-vite` / `--print-vite-vue`。版本矩阵、高度链、ThemeProvider、双轨说明：[外部接入](./consume.mdx)。
 
-按需子路径（可选，**仅 React**）：`import { Button } from "@chameleon-ui/components/button"`。Vue：`import { Button } from "@chameleon-ui/components-vue"`，另可 `import "@chameleon-ui/components-vue/css"`。
+按需子路径（可选）：`import { Button } from "@chameleon-ui/components/button"` 或 `import { Button } from "@chameleon-ui/components-vue/button"`。Vue 另可 `import "@chameleon-ui/components-vue/css"`。
 
 ## 5. 契约与 data-ai
 
@@ -174,7 +174,7 @@ import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 
 包 `@chameleon-ui/schema-renderer`。默认 map **只有 10 个 slug**：`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`。
 
-`table` / `chart` / `kpi-dashboard` 以及其余 catalog 从 `@chameleon-ui/components` import，或传入自定义 `map`。不要宣称 SchemaRenderer 覆盖全库。
+React：`@chameleon-ui/schema-renderer`。Vue：`@chameleon-ui/schema-renderer/vue`。`table` / `chart` / `kpi-dashboard` 以及其余 catalog 从 `@chameleon-ui/components` 或 `@chameleon-ui/components-vue` import，或传入自定义 `map`。不要宣称 SchemaRenderer 覆盖全库。
 
 `adapter-ag-ui` 是 **POC**，不是 supported。不要发明 `generation_quality` 分数；未配置生成器时诚实值是 `null`。
 

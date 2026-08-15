@@ -71,7 +71,7 @@ Vue 五包：`node ./scripts/link-external.mjs --vue --apply`，然后 `npm link
 | `intl-messageformat` | `11.2.13` |
 | `@formatjs/icu-messageformat-parser` | `3.5.14` |
 
-按需 import：`import { Button } from "@chameleon-ui/components/button"`（`exports["./*"]`）。Barrel `@chameleon-ui/components` 仍是默认。
+按需 import：`import { Button } from "@chameleon-ui/components/button"` 或 `import { Button } from "@chameleon-ui/components-vue/button"`（`exports["./*"]`）。Barrel 仍是默认。 Vue 另可 `import "@chameleon-ui/components-vue/css"`。
 
 CSS 包声明了 `sideEffects: ["**/*.css"]`，打包器不要把组件 CSS 摇掉。
 
@@ -92,21 +92,22 @@ Vue：`ThemeProvider` / `ToastProvider` 从 `@chameleon-ui/components-vue` 引�
 
 ## Vue 覆盖（诚实）
 
-Catalog Vue 覆盖 **103/103**（另加 ThemeProvider）。契约 `platforms.vue`：`supported` = `@chameleon-ui/components-vue` 有实现。SchemaRenderer 默认 map 仍挂在 React 包。
+Catalog Vue 覆盖 **103/103**（另加 ThemeProvider）。契约 `platforms.vue`：`supported` = `@chameleon-ui/components-vue` 有实现。
 
 | 消费面 | Vue | React |
 | :--- | :--- | :--- |
 | ThemeProvider（theme / density / locale / overlays） | 有 | 有 |
 | AppShell + Navigation + NavigationBar + `useTabStacks` | 有 | 有 |
 | Catalog 103 slugs（含 DataGrid / Chart / Editor / CommandPalette / Canvas） | 有 | 有 |
-| SchemaRenderer 默认 map | React 包 | React 包 |
+| 按需子路径 `exports["./*"]` | `@chameleon-ui/components-vue/<slug>` | `@chameleon-ui/components/<slug>` |
+| SchemaRenderer 默认 map（10 slug） | `@chameleon-ui/schema-renderer/vue` | `@chameleon-ui/schema-renderer` |
 | 官方 Vite 模板 | `templates/external-vite-vue` | `templates/external-vite-react` |
 
-不要在文档或口头说「Vue 还没完全支持」。也不要说 Vue 已 103/103。
+不要在文档或口头说「Vue 还没完全支持」或「Vue 只是三十个子集」。Catalog 是 103/103。诚实边界：SchemaRenderer 默认 map 仍是 10 slug，不是全 catalog；`chameleon add` 拷源码仍偏 React。
 
 ## AppShell 高度链（消费方 checklist）
 
-1. `html, body, #root { block-size: 100%; }`（见模板 `src/index.css`）。
+1. `html, body, #root { block-size: 100%; }`（Vue 模板：`#app`。见模板 `src/index.css`）。
 2. AppShell **填满父级**，不要给壳写 `min-block-size: 100dvh`。
 3. 嵌套预览要覆盖 `block-size` / `max-block-size`。
 4. 业务页不要写死桌面双栏 Grid 去对抗 `Navigation` 的容器查询变形。
@@ -116,6 +117,6 @@ Catalog Vue 覆盖 **103/103**（另加 ThemeProvider）。契约 `platforms.vue
 
 ## SchemaRenderer 边界
 
-默认 map **只有 10 个 slug**：`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`。catalog 百级组件请从 `@chameleon-ui/components` import。不要宣称 SchemaRenderer 覆盖全库。
+默认 map **只有 10 个 slug**：`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`。React：`@chameleon-ui/schema-renderer`。Vue：`@chameleon-ui/schema-renderer/vue`。catalog 百级组件请从 `@chameleon-ui/components` 或 `@chameleon-ui/components-vue` import。不要宣称 SchemaRenderer 覆盖全库。
 
 视觉回归与逐 props 试交互：文档站 playground + `internal-demo`（5175）。本仓不以 Storybook 为 SSOT。

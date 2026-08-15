@@ -18,6 +18,12 @@ describe('Button', () => {
     expect(wrapper.text()).toBe('Submit')
   })
 
+  it('defaults data-ai-intent to submit like React', () => {
+    const wrapper = mount(Button, { slots: { default: 'OK' } })
+    expect(wrapper.attributes('data-ai-intent')).toBe('submit')
+    expect(wrapper.text()).toBe('OK')
+  })
+
   it('reflects disabled state in data-ai-state', () => {
     const wrapper = mount(Button, { props: { disabled: true } })
 
