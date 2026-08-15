@@ -40,6 +40,10 @@ Replace `line` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` �
 
 **`line` is the visual flagship.** The other seven are quantified tribute overlays (design-rules + tokens/effects/meta + S3 gzip). `recognition_rate` stays `null` until a blind test — do not invent rates or claim Linear parity. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
 
+## MCP session bootstrap
+
+When the Chameleon MCP server is attached: call **`get_started` first** (catalog summary, CSS + `ThemeProvider theme="line"` recipe, tool order). Then call **`get_import_specifiers`** before writing any import. Browse with `list_components`; prefer `search_components` with `intent` for needs.
+
 Before writing imports, call MCP `get_import_specifiers`.
 
 ## JS
@@ -163,9 +167,9 @@ RTL: `ar` `ug` `ur` `fa`. Use `directionForLocale` from `@chameleon-ui/i18n`. Do
 
 ## MCP tools
 
-`search_components` (pass `intent` or `query`) · `get_component` · `get_contract` · `get_design_rules` · `get_import_specifiers` · `list_themes` · `install_component` · `install_block` · `install_theme` · `install_bundle` · `install_with_theme` · `telemetry_opt_out` · `record_intent`
+`get_started` · `list_components` · `search_components` (pass `intent` or `query`) · `get_component` · `get_contract` · `get_design_rules` · `get_import_specifiers` · `list_themes` · `install_component` · `install_block` · `install_theme` · `install_bundle` · `install_with_theme` · `telemetry_opt_out` · `record_intent`
 
-Attach snippet: `packages/mcp-server/README.md`.
+Attach snippet: `packages/mcp-server/README.md`. Consumer paste rule: [`docs/ai/consumer-agent-bootstrap.md`](../docs/ai/consumer-agent-bootstrap.md).
 
 ## SchemaRenderer
 

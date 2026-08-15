@@ -58,6 +58,8 @@ export const LINK_RUNTIME_PACKAGES_VUE = [
  * stay in lockstep with this list.
  */
 export const MCP_TOOL_NAMES = [
+  'get_started',
+  'list_components',
   'search_components',
   'get_component',
   'get_contract',

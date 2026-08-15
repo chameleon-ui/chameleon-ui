@@ -327,6 +327,9 @@ importers:
 
   packages/mcp-server:
     dependencies:
+      '@chameleon-ui/components':
+        specifier: workspace:*
+        version: link:../components
       '@chameleon-ui/install-core':
         specifier: workspace:*
         version: link:../install-core

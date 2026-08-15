@@ -12,11 +12,14 @@ import {
   type RegistryClient,
 } from '@chameleon-ui/registry'
 import { resolve } from 'node:path'
+import { listComponentsByFamily } from './catalog-summary.js'
 import { MCP_TOOL_NAMES } from './constants.js'
 import { extractContract, extractDesignRules } from './extract.js'
+import { getStartedPayload, MCP_INSTRUCTIONS } from './get-started.js'
 import { consumerImportSpecifiers } from './specifiers.js'
 
 export { MCP_TOOL_NAMES } from './constants.js'
+export { MCP_INSTRUCTIONS } from './get-started.js'
 
 export interface JsonRpcRequest {
   jsonrpc: '2.0'
@@ -70,9 +73,29 @@ function stringArg(args: Record<string, unknown>, ...keys: string[]): string {
 
 export const TOOL_DEFINITIONS = [
   {
+    name: 'get_started',
+    description:
+      'Call first in a Chameleon UI consumer session. Returns catalog summary, flagship theme line, CSS + ThemeProvider recipe, tool order, templates, and never-do rules.',
+    inputSchema: { type: 'object', properties: {} },
+  },
+  {
+    name: 'list_components',
+    description:
+      'List catalog slugs grouped by family (from packages/components/catalog.json). Use for browsing; prefer search_components with intent when the user describes a need.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        family: {
+          type: 'string',
+          description: 'Optional family filter, e.g. A, B, C. Omit to return all families.',
+        },
+      },
+    },
+  },
+  {
     name: 'search_components',
     description:
-      'Search UI components by id/name (query) or by intent (intent). Prefer intent for "I need a submit control" style requests. Results include explainable matched contract fields.',
+      'Search UI components by id/name (query) or by intent (intent). Prefer intent for "I need a submit control" style requests. Results include explainable matched contract fields. If this is your first Chameleon call, call get_started first.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -112,7 +135,7 @@ export const TOOL_DEFINITIONS = [
     inputSchema: {
       type: 'object',
       properties: {
-        theme_id: { type: 'string', description: 'Theme id, e.g. cupertino' },
+        theme_id: { type: 'string', description: 'Theme id, e.g. line' },
         id: { type: 'string', description: 'Alias of theme_id' },
       },
     },
@@ -120,7 +143,7 @@ export const TOOL_DEFINITIONS = [
   {
     name: 'get_import_specifiers',
     description:
-      'Return the only legal CSS/JS import specifiers for an external (non-pnpm-workspace) app. Call this BEFORE writing any import. Do not guess dist/ paths or write workspace:*.',
+      'Return the only legal CSS/JS import specifiers for an external (non-pnpm-workspace) app. Call this BEFORE writing any import. Default theme is line. Do not guess dist/ paths or write workspace:*.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -156,7 +179,7 @@ export const TOOL_DEFINITIONS = [
   },
   {
     name: 'list_themes',
-    description: 'List the 8 official tribute themes.',
+    description: 'List the 8 official tribute themes. Flagship product chrome is line.',
     inputSchema: { type: 'object', properties: {} },
   },
   {
@@ -239,6 +262,31 @@ export async function handleToolCall(request: JsonRpcRequest): Promise<JsonRpcRe
   const client = createClient()
 
   switch (name) {
+    case 'get_started': {
+      return { jsonrpc: '2.0', id: request.id, result: getStartedPayload() }
+    }
+    case 'list_components': {
+      const family = stringArg(args, 'family')
+      const listed = listComponentsByFamily()
+      if (family) {
+        const match = listed.families.find(
+          (entry) => entry.family.toLowerCase() === family.toLowerCase(),
+        )
+        if (!match) {
+          return jsonRpcError(request.id, -32602, `Unknown family: ${family}`)
+        }
+        return {
+          jsonrpc: '2.0',
+          id: request.id,
+          result: {
+            total: match.slugs.length,
+            families: [match],
+            components: listed.components.filter((entry) => entry.family === match.family),
+          },
+        }
+      }
+      return { jsonrpc: '2.0', id: request.id, result: listed }
+    }
     case 'search_components': {
       const query = (args.query as string) ?? ''
       const intent = typeof args.intent === 'string' ? args.intent : ''
@@ -461,6 +509,7 @@ export async function handleMessage(
           protocolVersion: '2024-11-05',
           capabilities: { tools: {} },
           serverInfo: { name: 'chameleon-ui-mcp', version: '0.2.0' },
+          instructions: MCP_INSTRUCTIONS,
         },
       }
     }

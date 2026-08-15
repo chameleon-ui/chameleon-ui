@@ -23,6 +23,50 @@ describe('MCP tool surface', () => {
     expect(TOOL_DEFINITIONS.map((tool) => tool.name)).toEqual([...MCP_TOOL_NAMES])
   })
 
+  it('initialize returns consumer instructions', async () => {
+    const response = await handleMessage({ jsonrpc: '2.0', id: 1, method: 'initialize' })
+    const result = response?.result as { instructions?: string }
+    expect(result.instructions).toContain('get_started')
+    expect(result.instructions).toContain('@chameleon-ui/react/css')
+    expect(result.instructions).toContain('theme="line"')
+  })
+
+  it('get_started returns catalog, line flagship, and CSS recipe', async () => {
+    const response = await call('get_started')
+    expect(response?.error).toBeUndefined()
+    const result = response?.result as {
+      must: { css: { react: string }; themeProvider: { theme: string } }
+      catalogSummary: { total: number; common10: string[] }
+      themes: { flagship: string }
+      toolOrder: string[]
+    }
+    expect(result.must.css.react).toBe('@chameleon-ui/react/css')
+    expect(result.must.themeProvider.theme).toBe('line')
+    expect(result.themes.flagship).toBe('line')
+    expect(result.catalogSummary.total).toBeGreaterThan(50)
+    expect(result.catalogSummary.common10).toContain('button')
+    expect(result.toolOrder[0]).toBe('get_started')
+  })
+
+  it('list_components groups by family and filters', async () => {
+    const all = await call('list_components')
+    const listed = all?.result as {
+      total: number
+      families: Array<{ family: string; slugs: string[] }>
+    }
+    expect(listed.total).toBeGreaterThan(50)
+    expect(listed.families.some((entry) => entry.family === 'C')).toBe(true)
+
+    const filtered = await call('list_components', { family: 'C' })
+    const one = filtered?.result as {
+      total: number
+      families: Array<{ family: string; slugs: string[] }>
+    }
+    expect(one.families).toHaveLength(1)
+    expect(one.families[0]?.family).toBe('C')
+    expect(one.families[0]?.slugs).toContain('button')
+  })
+
   it('search_components by intent returns button for submit', async () => {
     const response = await call('search_components', { intent: 'submit' })
     const items = (response?.result as { items: Array<{ id: string }> }).items
@@ -88,7 +132,13 @@ describe('MCP tool surface', () => {
     )
   })
 
-  it('get_import_specifiers prefers the exports alias, not a guessed dist path', async () => {
+  it('get_import_specifiers defaults to line and still accepts cupertino', async () => {
+    const defaulted = await call('get_import_specifiers')
+    const defaultResult = defaulted?.result as ReturnType<typeof consumerImportSpecifiers>
+    expect(defaultResult.themeId).toBe('line')
+    expect(defaultResult.preferred.themeCss).toBe('@chameleon-ui/themes/line/css')
+    expect(defaultResult.preferred.umbrellaReactCss).toBe('@chameleon-ui/react/css')
+
     const response = await call('get_import_specifiers', { theme_id: 'cupertino' })
     const result = response?.result as ReturnType<typeof consumerImportSpecifiers>
     expect(result.preferred.themeCss).toBe('@chameleon-ui/themes/cupertino/css')

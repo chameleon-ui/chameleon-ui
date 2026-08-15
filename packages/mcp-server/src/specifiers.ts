@@ -6,7 +6,7 @@ import {
   THEME_IDS,
 } from './constants.js'
 
-export const DEFAULT_THEME_ID = 'cupertino'
+export const DEFAULT_THEME_ID = 'line'
 
 export function isThemeId(value: string): value is (typeof THEME_IDS)[number] {
   return (THEME_IDS as readonly string[]).includes(value)

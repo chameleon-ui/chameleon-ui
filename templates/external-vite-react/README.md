@@ -1,5 +1,7 @@
 # External Vite + React consumer
 
+**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/react/css` + `ThemeProvider theme="line"`. See [`AGENTS.md`](./AGENTS.md).
+
 Official template for an app **outside** the Chameleon pnpm workspace (EraseLab shape: Vite 6 + React 19 + Windows).
 
 Packages are **0.2.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.

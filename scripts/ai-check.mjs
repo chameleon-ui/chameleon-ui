@@ -16,6 +16,8 @@ const workspace = join(root, '..')
 const skipContracts = process.argv.includes('--drift-only')
 
 const REQUIRED_MCP_TOOLS = [
+  'get_started',
+  'list_components',
   'search_components',
   'get_contract',
   'get_design_rules',
@@ -127,12 +129,23 @@ async function checkMcpAndAgents() {
   mustContain('chameleon-ui/AGENTS.md', agents, COMPONENTS_IMPORT)
   mustContain('chameleon-ui/AGENTS.md', agents, 'workspace:*')
   mustContain('chameleon-ui/AGENTS.md', agents, 'NEVER')
+  mustContain('chameleon-ui/AGENTS.md', agents, 'get_started')
+  mustContain('docs/ai/agent-consume.md', consume, 'get_started')
   mustContain('docs/ai/agent-consume.md', consume, UMBRELLA_REACT_CSS)
   mustContain('docs/ai/agent-consume.md', consume, 'mcpServers')
   mustContain('packages/mcp-server/README.md', mcpReadme, 'mcpServers')
+  mustContain('packages/mcp-server/README.md', mcpReadme, 'get_started')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, '"version": "1.0"')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, 'SchemaRenderer')
 
+  try {
+    const bootstrap = await readWorkspace('docs/ai/consumer-agent-bootstrap.md')
+    mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, 'get_started')
+    mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, UMBRELLA_REACT_CSS)
+    mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, 'ThemeProvider')
+  } catch {
+    fail('docs/ai/consumer-agent-bootstrap.md is missing')
+  }
   for (const name of REQUIRED_MCP_TOOLS) {
     if (!agents.includes(name)) fail(`AGENTS.md missing MCP tool ${name}`)
     if (!mcpReadme.includes(name)) fail(`mcp-server README missing tool ${name}`)

@@ -29,6 +29,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
+    "@chameleon-ui/components": "workspace:*",
     "@chameleon-ui/install-core": "workspace:*",
     "@chameleon-ui/registry": "workspace:*"
   },

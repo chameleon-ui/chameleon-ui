@@ -39,6 +39,10 @@ Paths relative to `chameleon-ui/`.
 
 `external-vite-react` · `external-vite-vue` — official external consume templates (one umbrella each).
 
+## `brand/`
+
+Library brand assets (e.g. `chameleon-logo.png`).
+
 Maintainer eslint / stylelint / tsconfig and size budgets live at the **repo root** (`../toolings/`, `../benchmarks/`), not in this library tree.
 
 ## Authority

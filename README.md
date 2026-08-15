@@ -19,6 +19,7 @@ Catalog: [`packages/components/catalog.json`](./packages/components/catalog.json
 chameleon-ui/
 ├── packages/            # @chameleon-ui/*
 ├── templates/           # external-vite-react · external-vite-vue
+├── brand/               # logo / brand assets
 ├── scripts/             # pack/link/publish:check/ai:check
 └── LICENSE
 ```

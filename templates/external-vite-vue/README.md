@@ -1,5 +1,7 @@
 # External Vite + Vue consumer
 
+**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/vue/css` + `ThemeProvider theme="line"`. See [`AGENTS.md`](./AGENTS.md).
+
 Official template for an app **outside** the Chameleon pnpm workspace (Vite 6 + Vue 3, Windows included).
 
 React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`line`** theme via `@chameleon-ui/vue`.
