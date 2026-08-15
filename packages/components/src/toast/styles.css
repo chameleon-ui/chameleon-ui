@@ -8,6 +8,18 @@
   pointer-events: none;
 }
 
+.cu-toaster[data-placement='top-end'],
+.cu-toaster[data-placement='top-start'] {
+  inset-block-end: auto;
+  inset-block-start: var(--cu-space-4, var(--cu-space-3));
+}
+
+.cu-toaster[data-placement='bottom-start'],
+.cu-toaster[data-placement='top-start'] {
+  inset-inline-end: auto;
+  inset-inline-start: var(--cu-space-4, var(--cu-space-3));
+}
+
 .cu-toaster .cu-toast {
   pointer-events: auto;
 }

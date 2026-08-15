@@ -22,7 +22,7 @@ P6  [x] F 可视化 ×6：chart / kpi-dashboard / ticker / sparkline / heatmap /
     [x] D 补 ×7：data-grid / tag / statistic / timeline / tree / image / carousel — S2 含 data-grid；gallery 万行演示
     [x] E 补 ×4：notification / confirm-dialog / result / loading-bar
     [x] catalog v2.0 写入 — schemaVersion 2.0，101 unique slug（50+P5×4+P6×47）；冻结会未签（owner 待指定）
-    [x] Vue 子集 ≥20 — 产品壳 + 常见消费路径（ThemeProvider / AppShell / Navigation / …）；非 103 Vue 端口
+    [x] Vue 子集 ≥20 — 当时目标卡只要 ≥20；现已 catalog **103/103** + ThemeProvider（见文末）
     [x] ci:phase6 = ci:phase5 + phase6:gates — 脚本已落地；本机 `phase6:gates` 绿
 ```
 

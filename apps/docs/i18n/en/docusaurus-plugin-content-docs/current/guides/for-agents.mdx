@@ -98,7 +98,7 @@ Linking only `components` fails.
 
 For Windows + Vite use `templates/external-vite-react` or `node ./scripts/link-external.mjs --print-vite`. Version matrix, height chain, ThemeProvider, dual-track: [External consume](./consume.mdx).
 
-Optional per-slug: `import { Button } from "@chameleon-ui/components/button"`.
+Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also: `import "@chameleon-ui/components-vue/css"`.
 
 ## 5. Contracts and data-ai
 
@@ -166,7 +166,7 @@ Rules:
 
 Package `@chameleon-ui/schema-renderer`. Default map is **10 slugs only**: `alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`.
 
-`table` / `chart` / `kpi-dashboard` and the rest of the catalog import from `@chameleon-ui/components`, or pass a custom `map`. Do not claim full-catalog SchemaRenderer coverage.
+React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. `table` / `chart` / `kpi-dashboard` and the rest of the catalog import from `@chameleon-ui/components` or `@chameleon-ui/components-vue`, or pass a custom `map`. Do not claim full-catalog SchemaRenderer coverage.
 
 `adapter-ag-ui` is **POC**, not supported. Do not invent `generation_quality` scores; the honest value is `null` without a configured generator.
 

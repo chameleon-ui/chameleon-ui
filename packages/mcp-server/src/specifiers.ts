@@ -15,7 +15,7 @@ export function isThemeId(value: string): value is (typeof THEME_IDS)[number] {
 /**
  * Legal import specifiers for an external (non-pnpm-workspace) consumer app.
  * Preferred CSS is the `exports` alias, not a guessed `dist/` path.
- * React is the primary implementation. Vue product chrome is `@chameleon-ui/components-vue`.
+ * React is the primary implementation. Vue catalog is `@chameleon-ui/components-vue` (103/103 + ThemeProvider).
  */
 export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'button') {
   const theme = isThemeId(themeId) ? themeId : DEFAULT_THEME_ID
@@ -29,10 +29,12 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       components: '@chameleon-ui/components',
       componentSlug: `@chameleon-ui/components/${slug}`,
       componentsVue: '@chameleon-ui/components-vue',
+      componentVueSlug: `@chameleon-ui/components-vue/${slug}`,
       componentsVueCss: '@chameleon-ui/components-vue/css',
       contract: `@chameleon-ui/components/contracts/${slug}`,
       designRules: `@chameleon-ui/themes/${theme}/design-rules`,
       schemaRenderer: '@chameleon-ui/schema-renderer',
+      schemaRendererVue: '@chameleon-ui/schema-renderer/vue',
     },
     alsoValid: {
       themeCssDist: `@chameleon-ui/themes/dist/${theme}/variables.css`,

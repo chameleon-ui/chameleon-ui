@@ -3,7 +3,8 @@ import { flushPromises, mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import Toast from './Toast.vue'
 import ToastProvider from './ToastProvider.vue'
-import { useToast } from './store'
+import Toaster from './Toaster.vue'
+import { createToaster, useToast } from './store'
 
 describe('Toast', () => {
   it('displays a toast when open with data-ai attributes', () => {
@@ -73,5 +74,18 @@ describe('ToastProvider', () => {
     await wrapper.get('button').trigger('click')
     expect(wrapper.get('[role="status"]').text()).toContain('Queued')
     expect(wrapper.get('[role="status"]').classes()).toContain('cu-toast--success')
+  })
+})
+
+describe('createToaster', () => {
+  it('queues and dismisses like the React public API', async () => {
+    const toaster = createToaster({ placement: 'top-end', duration: 4000 })
+    const id = toaster.create({ title: 'Queued', type: 'success' })
+    const wrapper = mount(Toaster, { props: { toaster, closeLabel: 'Close' } })
+    expect(wrapper.get('[role="status"]').text()).toContain('Queued')
+    expect(wrapper.get('.cu-toaster').attributes('data-placement')).toBe('top-end')
+    toaster.remove(id)
+    await wrapper.vm.$nextTick()
+    expect(wrapper.find('[role="status"]').exists()).toBe(false)
   })
 })

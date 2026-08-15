@@ -31,6 +31,10 @@ exports[`schema-renderer examples (snapshot-green) > renders empty-results.json 
         role="status"
       >
         <div
+          aria-hidden="true"
+          class="cu-empty-state__mark"
+        />
+        <div
           class="cu-empty-state__title"
         >
           No matches
@@ -132,11 +136,12 @@ exports[`schema-renderer examples (snapshot-green) > renders login-form.json wit
           />
         </div>
         <button
-          class="cu-button cu-button--solid cu-button--md"
+          class="cu-button cu-button--solid cu-button--md cu-button--tone-brand"
           data-ai-intent="submit"
           data-ai-role="button"
           data-ai-state="default"
           data-size="md"
+          data-tone="brand"
           data-variant="solid"
           type="button"
         >

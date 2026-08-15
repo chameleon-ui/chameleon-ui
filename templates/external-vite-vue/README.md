@@ -6,7 +6,7 @@ React is the primary implementation. This template is the Vue consume path: Them
 
 Packages are `0.1.0` and **not on npm**. Do not write `workspace:*` here.
 
-Vue does **not** ship all 100+ React slugs. Product chrome and the common consume path are here. Catalog gaps stay React-only until ported — see `packages/components-vue/README.md`.
+Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer’s default map is still 10 slugs; Vue import is `@chameleon-ui/schema-renderer/vue`. See `packages/components-vue/README.md`.
 
 ## Before `npm install`
 
