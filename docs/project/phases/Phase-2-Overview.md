@@ -53,11 +53,11 @@
 
 | 阶段 | 里程碑 | 一句话 | 状态 | 文档 |
 | :--- | :--- | :--- | :--- | :--- |
-| Phase 5 · 三端内核 | M5 | 断点/密度 Token + 容器查询 + 变形矩阵 + ActionSheet/TabBar/SafeArea/Sidebar | 未开工 | [Phase-5-三端内核.md](./Phase-5-三端内核.md) |
-| Phase 6 · 组件广度 | M6 | F/G/H 三族从 0 建齐 + 缺口名单清零 + Vue 扩面（约 100 slug，冻结会定准数） | 未开工 | [Phase-6-组件广度.md](./Phase-6-组件广度.md) |
-| Phase 7 · 场景 Blocks | M7 | `packages/blocks` + §7.3 十二场景 + §7.4 矩阵 17/17 | 未开工 | [Phase-7-场景Blocks.md](./Phase-7-场景Blocks.md) |
-| Phase 8 · AI 阶梯收口 | M8 | A1–A6 全收口（AG-UI / SchemaRenderer / data-ai 三件套 / generation_quality）+ `$extends` | 未开工 | [Phase-8-AI阶梯收口.md](./Phase-8-AI阶梯收口.md)（AI 条目验收口径以 [AI能力体系-A1-A6-收口轨道.md](./AI能力体系-A1-A6-收口轨道.md) 为唯一权威） |
-| Phase 9 · 硬化与发布 | M9 | R1–R3 实测、VPAT 正式、npm 发包路径、21 语真内容 | 未开工 | [Phase-9-硬化与发布.md](./Phase-9-硬化与发布.md) |
+| Phase 5 · 三端内核 | M5 | 断点/密度 Token + 容器查询 + 变形矩阵 + ActionSheet/TabBar/SafeArea/Sidebar | 工程本地收口（密度签字仍开） | [Phase-5-三端内核.md](./Phase-5-三端内核.md) |
+| Phase 6 · 组件广度 | M6 | F/G/H 三族从 0 建齐 + 缺口名单清零 + Vue 扩面（约 100 slug，冻结会定准数） | 工程本地收口（冻结会/全量 VR 仍开） | [Phase-6-组件广度.md](./Phase-6-组件广度.md) |
+| Phase 7 · 场景 Blocks | M7 | `packages/blocks` + §7.3 十二场景 + §7.4 矩阵 17/17 | 工程本地收口（见 PHASE7 / M7） | [Phase-7-场景Blocks.md](./Phase-7-场景Blocks.md) |
+| Phase 8 · AI 阶梯收口 | M8 | A1–A6 全收口（AG-UI / SchemaRenderer / data-ai 三件套 / generation_quality）+ `$extends` | 工程本地收口（LLM generation_quality 仍 null） | [Phase-8-AI阶梯收口.md](./Phase-8-AI阶梯收口.md)（AI 条目验收口径以 [AI能力体系-A1-A6-收口轨道.md](./AI能力体系-A1-A6-收口轨道.md) 为唯一权威） |
+| Phase 9 · 硬化与发布 | M9 | R1–R3 实测、VPAT 正式、npm 发包路径、21 语真内容 | 诚实收口 / 多项 deferred | [Phase-9-硬化与发布.md](./Phase-9-硬化与发布.md) |
 
 依赖序：P5 → P6 → P7（Blocks 消费 P6 组件）；P8 与 P6/P7 可并行启动，但其全量门禁依赖 P6 组件面；P9 最后（收口其余全部）。
 

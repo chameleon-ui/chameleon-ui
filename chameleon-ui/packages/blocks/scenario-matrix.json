@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "1.0",
+  "source": "vision-v3.0 §7.4",
+  "rows": [
+    {
+      "id": "big-data",
+      "scene": "大数据",
+      "coverage": "Blocks + 核心组件",
+      "slugs": ["data-screen", "crud-page", "data-grid", "chart", "kpi-dashboard"],
+      "legacy": null
+    },
+    {
+      "id": "marketing-site",
+      "scene": "企业官网",
+      "coverage": "Blocks",
+      "slugs": ["marketing-site", "app-shell", "typography"],
+      "legacy": null
+    },
+    {
+      "id": "admin",
+      "scene": "Admin 后台",
+      "coverage": "核心组件 + Blocks",
+      "slugs": ["crud-page", "data-grid", "form"],
+      "legacy": null
+    },
+    {
+      "id": "mobile-web",
+      "scene": "APP（移动 Web/H5）",
+      "coverage": "核心组件",
+      "slugs": ["tab-bar", "action-sheet", "list", "safe-area"],
+      "legacy": null
+    },
+    {
+      "id": "quant-finance",
+      "scene": "量化金融",
+      "coverage": "Blocks + 核心组件",
+      "slugs": ["trading-terminal", "ticker", "data-grid", "chart"],
+      "legacy": null
+    },
+    {
+      "id": "iot",
+      "scene": "物联网",
+      "coverage": "Blocks",
+      "slugs": ["iot-panel", "card", "gauge", "chart", "badge"],
+      "legacy": null
+    },
+    {
+      "id": "low-code",
+      "scene": "低代码",
+      "coverage": "集成层 + 核心组件",
+      "slugs": ["schema-renderer", "canvas-base"],
+      "legacy": null,
+      "note": "SchemaRenderer default map is 10 slugs (P8). Not a full low-code IDE."
+    },
+    {
+      "id": "digital-twin",
+      "scene": "数字孪生",
+      "coverage": "集成层",
+      "slugs": ["canvas-base"],
+      "legacy": "LEGACY-2026-018",
+      "note": "2D canvas-base only; no 3D scene embedding layer in this phase."
+    },
+    {
+      "id": "data-screen",
+      "scene": "数据大屏",
+      "coverage": "Blocks",
+      "slugs": ["data-screen", "chart", "kpi-dashboard", "grid"],
+      "legacy": null
+    },
+    {
+      "id": "infinite-canvas",
+      "scene": "无限画布 / 思维导图 / 关系图",
+      "coverage": "核心组件",
+      "slugs": ["canvas-base", "mind-map", "graph-view"],
+      "legacy": null
+    },
+    {
+      "id": "product-prototype",
+      "scene": "产品原型设计",
+      "coverage": "Blocks",
+      "slugs": [],
+      "legacy": "LEGACY-2026-019",
+      "note": "Vision cites a device-frame Block; not in the §7.3 twelve. Do not forge coverage."
+    },
+    {
+      "id": "cicd-pipeline",
+      "scene": "流水线（CI/CD）",
+      "coverage": "核心组件",
+      "slugs": ["pipeline-view", "steps", "timeline"],
+      "legacy": null
+    },
+    {
+      "id": "erp-oa",
+      "scene": "ERP/OA",
+      "coverage": "Blocks + 核心组件",
+      "slugs": ["approval-flow", "form", "data-grid"],
+      "legacy": null
+    },
+    {
+      "id": "project-mgmt",
+      "scene": "项目管理",
+      "coverage": "Blocks",
+      "slugs": ["kanban", "gantt", "tree"],
+      "legacy": null
+    },
+    {
+      "id": "ai-chat",
+      "scene": "问答系统（AI 对话）",
+      "coverage": "核心组件 + Blocks",
+      "slugs": ["im-chat", "chat-bubble", "markdown-renderer"],
+      "legacy": null
+    },
+    {
+      "id": "oss-blog",
+      "scene": "开源社区 / 博客",
+      "coverage": "核心组件 + Blocks",
+      "slugs": ["article-card", "code-block", "typography", "marketing-site"],
+      "legacy": null
+    },
+    {
+      "id": "forum",
+      "scene": "讨论/论坛",
+      "coverage": "核心组件",
+      "slugs": ["comment-thread", "editor"],
+      "legacy": null,
+      "note": "Vote control is not a catalog slug; CommentThread + Editor cover the thread surface."
+    }
+  ]
+}

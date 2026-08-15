@@ -142,6 +142,19 @@ export const TOOL_DEFINITIONS = [
     },
   },
   {
+    name: 'install_block',
+    description:
+      'Install a scenario block (registry:block) and its component dependencies into CU_TARGET_DIR via install-core.',
+    inputSchema: {
+      type: 'object',
+      properties: {
+        id: { type: 'string' },
+        version: { type: 'string' },
+      },
+      required: ['id'],
+    },
+  },
+  {
     name: 'list_themes',
     description: 'List the 8 official tribute themes.',
     inputSchema: { type: 'object', properties: {} },
@@ -340,6 +353,17 @@ export async function handleToolCall(request: JsonRpcRequest): Promise<JsonRpcRe
       const prepared = await prepareInstall(client, id, { version })
       if (!prepared || prepared.item.type !== 'registry:ui') {
         return jsonRpcError(request.id, -32602, `Unknown component: ${id}`)
+      }
+      const kernel = createInstallKernel(prepared.registry)
+      const result = await kernel.install(prepared.item, dir, { telemetry, source: 'mcp' })
+      return { jsonrpc: '2.0', id: request.id, result }
+    }
+    case 'install_block': {
+      const id = (args.id as string) ?? ''
+      const version = typeof args.version === 'string' ? args.version : undefined
+      const prepared = await prepareInstall(client, id, { version })
+      if (!prepared || prepared.item.type !== 'registry:block') {
+        return jsonRpcError(request.id, -32602, `Unknown block: ${id}`)
       }
       const kernel = createInstallKernel(prepared.registry)
       const result = await kernel.install(prepared.item, dir, { telemetry, source: 'mcp' })

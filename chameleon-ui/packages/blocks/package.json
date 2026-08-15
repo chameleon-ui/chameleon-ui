@@ -11,7 +11,7 @@
   },
   "type": "module",
   "description": "Composable scenario blocks built from @chameleon-ui/components. Source-copy distribution; install writes go through install-core.",
-  "files": ["dist", "src", "locale-gap-table.json", "README.md", "LICENSE"],
+  "files": ["dist", "src", "locale-gap-table.json", "scenario-matrix.json", "GAPS.md", "README.md", "LICENSE"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -19,7 +19,8 @@
     },
     "./contracts/*": "./src/*/contract.json",
     "./manifests/*": "./src/*/manifest.json",
-    "./locale-gap-table.json": "./locale-gap-table.json"
+    "./locale-gap-table.json": "./locale-gap-table.json",
+    "./scenario-matrix.json": "./scenario-matrix.json"
   },
   "scripts": {
     "build": "tsc -p tsconfig.json && node ./scripts/copy-assets.mjs",

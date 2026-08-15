@@ -1,0 +1,38 @@
+---
+sidebar_position: 18
+title: 场景覆盖矩阵
+description: 愿景 §7.4 十七行场景 → Blocks / 核心组件 / 集成层映射。未交付行标 LEGACY-*。
+---
+
+# 场景覆盖矩阵（愿景 §7.4）
+
+机器可读源：[`packages/blocks/scenario-matrix.json`](https://github.com/search?q=scenario-matrix.json)。缺口说明见 `packages/blocks/GAPS.md`。
+
+| 场景 | 覆盖方式 | 映射 slug | LEGACY |
+| :--- | :--- | :--- | :--- |
+| 大数据 | Blocks + 核心组件 | `data-screen` `crud-page` `data-grid` `chart` `kpi-dashboard` | — |
+| 企业官网 | Blocks | `marketing-site` `app-shell` `typography` | — |
+| Admin 后台 | 核心组件 + Blocks | `crud-page` `data-grid` `form` | — |
+| APP（移动 Web/H5） | 核心组件 | `tab-bar` `action-sheet` `list` `safe-area` | — |
+| 量化金融 | Blocks + 核心组件 | `trading-terminal` `ticker` `data-grid` `chart` | — |
+| 物联网 | Blocks | `iot-panel` | — |
+| 低代码 | 集成层 + 核心组件 | `schema-renderer` `canvas-base` | —（SchemaRenderer 默认 map 10 slug，非全 IDE） |
+| 数字孪生 | 集成层 | `canvas-base` | **LEGACY-2026-018**（无 3D 嵌入层） |
+| 数据大屏 | Blocks | `data-screen` | — |
+| 无限画布 / 思维导图 / 关系图 | 核心组件 | `canvas-base` `mind-map` `graph-view` | — |
+| 产品原型设计 | Blocks | — | **LEGACY-2026-019**（设备框 Block 不在 §7.3 十二场景） |
+| 流水线（CI/CD） | 核心组件 | `pipeline-view` `steps` `timeline` | — |
+| ERP/OA | Blocks + 核心组件 | `approval-flow` `form` `data-grid` | — |
+| 项目管理 | Blocks | `kanban` `gantt` `tree` | — |
+| 问答系统（AI 对话） | 核心组件 + Blocks | `im-chat` `chat-bubble` `markdown-renderer` | — |
+| 开源社区 / 博客 | 核心组件 + Blocks | `article-card` `code-block` `typography` `marketing-site` | — |
+| 讨论/论坛 | 核心组件 | `comment-thread` `editor` | — |
+
+安装：
+
+```bash
+chameleon add-block login
+# MCP: install_block { "id": "login" }
+```
+
+写盘仅经 `install-core`。禁止宣称 21 语 Blocks（19 语为骨架）。

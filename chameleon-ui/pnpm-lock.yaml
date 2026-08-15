@@ -123,6 +123,9 @@ importers:
 
   apps/internal-demo:
     dependencies:
+      '@chameleon-ui/blocks':
+        specifier: workspace:*
+        version: link:../../packages/blocks
       '@chameleon-ui/components':
         specifier: workspace:*
         version: link:../../packages/components

@@ -56,6 +56,7 @@ is **not** available until a registry publish.
 | `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Call before writing imports. Prefers `@chameleon-ui/react` / `@chameleon-ui/vue` umbrellas; includes version matrix, Vite templates, dual-track note. |
 | `list_themes` | The 8 official tribute themes |
 | `install_component` | Install one component via install-core |
+| `install_block` | Install one scenario block (`registry:block`) + component deps via install-core |
 | `install_theme` | Install one theme via install-core |
 | `install_bundle` | Component + theme (two runs). Prefer `install_with_theme` |
 | `install_with_theme` | Component + tokens + fonts + design-rules in one idempotent run |

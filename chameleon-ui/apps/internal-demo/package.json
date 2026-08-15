@@ -16,6 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
+    "@chameleon-ui/blocks": "workspace:*",
     "@chameleon-ui/components": "workspace:*",
     "@chameleon-ui/i18n": "workspace:*",
     "@chameleon-ui/primitives": "workspace:*",

@@ -61,6 +61,7 @@ Cursor `.cursor/mcp.json` 或 Claude Code `.mcp.json`：
 | `list_themes` | 列出 8 套官方主题 | — | 否 |
 | `install_with_theme` | 组件 + Token + 字体 + design-rules 一次到位 | `component_id` `theme_id` | 是 |
 | `install_component` | 只装一个组件 | `id` | 是 |
+| `install_block` | 装场景 Block（`registry:block`）及其组件依赖 | `id` | 是 |
 | `install_theme` | 只装一套主题 | `id` | 是 |
 | `install_bundle` | 组件与主题分两次跑。优先 `install_with_theme` | `component_id` `theme_id` | 是 |
 | `telemetry_opt_out` | 关闭遥测 | — | 否 |

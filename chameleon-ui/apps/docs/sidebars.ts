@@ -28,6 +28,7 @@ const sidebars: SidebarsConfig = {
         'schema',
         'schema-renderer',
         'guides/three-end',
+        'guides/scenario-matrix',
         'bench',
         {
           type: 'link',

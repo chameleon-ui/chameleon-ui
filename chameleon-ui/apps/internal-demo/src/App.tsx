@@ -3,6 +3,7 @@ import { PHASE_2_LOCALES, type Phase2Locale } from '@chameleon-ui/i18n'
 import { themeIds, type ThemeId } from '@chameleon-ui/themes'
 import { useEffect, useMemo, useState } from 'react'
 import { BlindTestView } from './BlindTestView'
+import { BlocksGallery } from './BlocksGallery'
 import { ComponentGallery } from './ComponentGallery'
 import { LabPreview } from './LabPreview'
 import { ProductStudio } from './ProductStudio'
@@ -64,7 +65,7 @@ export function App() {
   document.documentElement.classList.toggle('cu-demo-blind', view === 'blind')
   document.documentElement.classList.toggle('cu-demo-three-end', view === 'three-end')
   document.documentElement.classList.toggle('cu-demo-three-end-stage', view === 'three-end-stage')
-  document.documentElement.classList.toggle('cu-demo-adaptive', view === 'gallery' || view === 'live' || view === 'street')
+  document.documentElement.classList.toggle('cu-demo-adaptive', view === 'gallery' || view === 'blocks' || view === 'live' || view === 'street')
   if (view !== 'blind') document.documentElement.dataset.theme = theme
   if (view === 'lab') document.documentElement.dataset.labCase = labCase
   else delete document.documentElement.dataset.labCase
@@ -83,7 +84,14 @@ export function App() {
   ]
 
   function goNav(value: string) {
-    if (value === 'street' || value === 'live' || value === 'three-end' || value === 'suite' || value === 'gallery') {
+    if (
+      value === 'street' ||
+      value === 'live' ||
+      value === 'three-end' ||
+      value === 'suite' ||
+      value === 'gallery' ||
+      value === 'blocks'
+    ) {
       setView(value)
     }
   }
@@ -194,6 +202,17 @@ export function App() {
             <ComponentGallery t={t} />
           </div>
         </AppShell>
+      </div>
+    )
+  }
+
+  if (view === 'blocks') {
+    return (
+      <div className="cu-demo-adaptive" data-demo="blocks">
+        <div className="cu-demo-inspector" role="region" aria-label="Phase 7 Blocks">
+          {header}
+        </div>
+        <BlocksGallery locale={locale} />
       </div>
     )
   }
