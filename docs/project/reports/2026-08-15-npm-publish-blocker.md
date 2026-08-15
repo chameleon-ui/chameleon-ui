@@ -1,19 +1,31 @@
 ﻿# npm publish blocker — 2026-08-15
 
-Status: **blocked on auth / scope ownership**. In-repo packages are ready at **0.1.9**; no registry publish occurred.
+Status: **blocked on npm publish auth policy (2FA / granular token)**. In-repo packages remain ready at **0.1.9**; **no** package was published to the registry.
 
-## What was verified today
+## Retry session (after `npm login`)
 
 | Check | Result |
 | --- | --- |
-| `node ./scripts/check-publish-ready.mjs` | Pass (`wouldPublish` 17 packages, `firstTag` `v0.1.9`, `npmPublish: false` dry plan) |
-| Build of public graph | Pass (`pnpm` filter build for all 17) |
-| `npm whoami` | **ENEEDAUTH** — not logged in |
-| User `~/.npmrc` | No `//registry.npmjs.org/:_authToken` |
-| `NPM_TOKEN` / `NODE_AUTH_TOKEN` | Unset |
-| `npm view @chameleon-ui/tokens` | **404** (scope/package not on registry yet) |
-| Real publish attempt | `pnpm --filter @chameleon-ui/tokens publish --access public --no-git-checks` → **ENEEDAUTH** |
-| Dry-run `pnpm publish -r --access public --no-git-checks --dry-run` | All 17 tarballs pack cleanly; each warns login required |
+| `npm whoami` | **`vjsplus-j`** (logged in; email verified) |
+| `npm profile get` | `tfa: false` |
+| `node ./scripts/check-publish-ready.mjs` | Pass (`wouldPublish` 17 packages, `firstTag` `v0.1.9`) |
+| Build of public graph (17 packages) | Pass |
+| `npm view @chameleon-ui/tokens version` | **404** (still unpublished) |
+| `npm access list packages vjsplus-j` | Only `@vjsplus-j/*` packages (read-write); no `@chameleon-ui/*` yet |
+| `npm org ls chameleon-ui` | `{}` |
+| Real publish attempt | `pnpm --filter @chameleon-ui/tokens publish --access public --no-git-checks` → **E403** (see below) |
+
+## Exact failure (this retry)
+
+```text
+npm notice package: @chameleon-ui/tokens@0.1.9
+npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+npm error code E403
+npm error 403 403 Forbidden - PUT https://registry.npmjs.org/@chameleon-ui%2ftokens - Two-factor authentication or granular access token with bypass 2fa enabled is required to publish packages.
+npm error 403 In most cases, you or one of your dependencies are requesting a package version that is forbidden by your security policy, or on a server you do not have access to.
+```
+
+Previous blocker was **ENEEDAUTH** (not logged in). Login is fixed; publish still did not succeed. No packages were uploaded.
 
 ## Publish set (ready at 0.1.9, not published)
 
@@ -35,67 +47,39 @@ Status: **blocked on auth / scope ownership**. In-repo packages are ready at **0
 - `@chameleon-ui/adapter-mcp-apps@0.1.9`
 - `@chameleon-ui/blocks@0.1.9`
 
-All have `private: false`, `publishConfig.access: public`, `LICENSE`, and `files` allowlists. Root `chameleon-ui` and apps remain `private: true` (not published).
+Root `chameleon-ui` and apps remain `private: true` (not published).
 
-## Exact blocker
+## What the owner must do next
 
-```text
-npm error code ENEEDAUTH
-npm error need auth This command requires you to be logged in to https://registry.npmjs.org/
-npm error need auth You need to authorize this machine using `npm login`
-```
+npm now requires one of:
 
-Secondary expected gate after login: the npm org/scope **`@chameleon-ui`** must exist and the logged-in user must have publish rights. Packages are currently 404 on the public registry.
+1. **Enable 2FA** on the npm account, then publish with an OTP, e.g.  
+   `pnpm --filter @chameleon-ui/tokens publish --access public --otp <code>`  
+   (or set OTP for the recursive publish), **or**
+2. Create a **granular access token** with publish permission and **“Bypass two-factor authentication”** enabled, put it in user/`~/.npmrc` as  
+   `//registry.npmjs.org/:_authToken=…`, then retry.
 
-## Owner commands (after interactive login)
+Also confirm org/scope ownership for **`chameleon-ui` / `@chameleon-ui`** (create at https://www.npmjs.com/org/create if needed; add `vjsplus-j` as Owner). Scope emptiness and ownership were not fully proven in this session because publish stopped at the 2FA gate first.
 
-Run from `d:\ChameleonUI\chameleon-ui` (or repo path to the library).
+### Retry commands (from `d:\ChameleonUI\chameleon-ui`)
 
 ```powershell
-# 1) Auth
-npm login
 npm whoami
+node ./scripts/check-publish-ready.mjs
+npx --yes pnpm@9.15.0 publish -r --access public --no-git-checks
+# or with OTP after enabling 2FA:
+# npx --yes pnpm@9.15.0 publish -r --access public --no-git-checks --otp <code>
 
-# 2) Create / claim scope (one-time; use npm website if CLI org create differs)
-#    https://www.npmjs.com/org/create  → org name: chameleon-ui
-#    Add this npm user as Owner.
-
-# 3) Confirm scope empty / first publish
-npm view @chameleon-ui/tokens version
-# expect 404 until first publish
-
-# 4) Rebuild + publish all non-private workspace packages
-corepack enable
-corepack pnpm@9.15.0 install
-corepack pnpm@9.15.0 --filter @chameleon-ui/tokens --filter @chameleon-ui/i18n --filter @chameleon-ui/primitives --filter @chameleon-ui/primitives-vue --filter @chameleon-ui/themes --filter @chameleon-ui/components --filter @chameleon-ui/components-vue --filter @chameleon-ui/contract --filter @chameleon-ui/schema-renderer --filter @chameleon-ui/cli --filter @chameleon-ui/mcp-server --filter @chameleon-ui/registry --filter @chameleon-ui/install-core --filter @chameleon-ui/adapter-a2ui --filter @chameleon-ui/adapter-ag-ui --filter @chameleon-ui/adapter-mcp-apps --filter @chameleon-ui/blocks build
-corepack pnpm@9.15.0 publish:check
-corepack pnpm@9.15.0 publish -r --access public
-
-# 5) Verify
 npm view @chameleon-ui/tokens version
 npm view @chameleon-ui/components version
 npm view @chameleon-ui/components-vue version
 ```
 
-Optional CI provenance (preferred for signed publishes; requires GitHub Actions OIDC + `id-token: write`):
+Do **not** invent registry success. Do **not** update CONTRIBUTING/AGENTS consume docs to claim npm publish until `npm view` returns `0.1.9`. Do **not** use `--no-verify` on git hooks.
 
-```bash
-pnpm publish -r --access public --provenance
-```
+## Local prep already done
 
-Do **not** publish from a machine without login. Do **not** use `--no-verify` on git hooks for the follow-up doc commit.
-
-## Local prep already done (this machine)
-
-- Versions bumped to `0.1.9` in workspace `package.json` files
+- Versions at `0.1.9`
 - Publish-ready gate green
-- Public graph built successfully
-- Local git tag `v0.1.9` created when this report was committed (tag is local only; **not** force-pushed)
+- Public graph built successfully (this retry)
 - Docs that say “this repo still does not npm publish” left unchanged (honest until registry success)
-
-## After a successful publish
-
-1. Confirm all 17 `npm view … version` return `0.1.9`
-2. Update `CONTRIBUTING.md` (root + `chameleon-ui/`) to remove “still does not npm publish”
-3. Update Phase 9 / T9.3 notes to record real publish evidence (no invented download stats)
-4. `git push origin v0.1.9` only when the owner explicitly wants the tag remote (not done in this session)
