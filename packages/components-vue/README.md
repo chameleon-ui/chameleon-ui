@@ -1,16 +1,22 @@
 # @chameleon-ui/components-vue
 
-Vue implementations for Chameleon UI. React (`@chameleon-ui/components`) remains the primary SSOT. This package ports the **catalog 103 slugs** plus ThemeProvider.
+**L2 · Vue 组件实现（catalog 103/103 + ThemeProvider）。**
 
-- **Rule**: import **only** `@chameleon-ui/primitives-vue`, `@chameleon-ui/tokens`, and `@chameleon-ui/i18n`. Never `@ark-ui/*`.
-- **CSS**: consumer theme is `@chameleon-ui/themes/<id>/css` (prefer `line`). Package CSS is a side-effect of the barrel and `@chameleon-ui/components-vue/css`.
-- **data-ai-***: roots set `data-ai-role` / `data-ai-state`; interactive components set `data-ai-intent`.
+Vue 侧的完整组件实现，与 React 主包（@chameleon-ui/components）**catalog 对齐 103/103**。React 包仍是契约 SSOT；本包按同契约移植。
 
-## Coverage
+## 覆盖
 
-Catalog Vue is **103/103**. ThemeProvider is extra (not a catalog slug). Per-slug: `import { Button } from '@chameleon-ui/components-vue/button'`. SchemaRenderer default map is 10 slugs: `@chameleon-ui/schema-renderer/vue`.
+- Catalog Vue 覆盖 **103/103**；`ThemeProvider` 是额外出口（非 catalog slug）。
+- Per-slug 引入：`import { Button } from '@chameleon-ui/components-vue/button'`
+- SchemaRenderer 默认 map 为 10 slugs：`@chameleon-ui/schema-renderer/vue`
 
-## Usage
+## 规则
+
+- **只 import** `@chameleon-ui/primitives-vue`、`@chameleon-ui/tokens`、`@chameleon-ui/i18n`；**永不** `@ark-ui/*`。
+- **CSS**：消费者主题用 `@chameleon-ui/themes/<id>/css`（默认 `line`）。包 CSS 是 barrel 与 `@chameleon-ui/components-vue/css` 的副作用。
+- **data-ai-***：根元素设 `data-ai-role` / `data-ai-state`；交互组件设 `data-ai-intent`。
+
+## 用法
 
 ```vue
 <script setup lang="ts">
@@ -21,4 +27,6 @@ import '@chameleon-ui/tokens/density.css'
 </script>
 ```
 
-External app: `templates/external-vite-vue`. Link with `node ./scripts/link-external.mjs --vue --apply`. Never `workspace:*` outside this pnpm workspace.
+## 外部接入
+
+官方模板：`templates/external-vite-vue`。本地链接（仓库根）：`node ../scripts/link-external.mjs --vue --apply`。**不要**在工作区外写 `workspace:*`。

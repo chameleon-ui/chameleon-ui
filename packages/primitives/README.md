@@ -1,16 +1,14 @@
 # @chameleon-ui/primitives
 
-L1 · Headless / a11y 基元封装。
+**L1 · Headless / a11y 基元封装（React）。基于 Ark UI / Zag。**
 
-**O1 已裁定：正式路线只使用 Ark UI / Zag。** Base UI 仅保留在 `poc/base-ui` 作为 M0 对比证据，不得进入本包或 `@chameleon-ui/components`。
+`primitives` 是 React 侧的 **headless 内核**层：它把 Ark UI / Zag 的"无头逻辑"薄封装成语义化的 Primitive 组件。`@chameleon-ui/components` 只依赖本包，**禁止**直接 `import "@ark-ui/*"`。
 
-- Phase 0 空壳标记 `status: pending-M0` 已移除；本包给出正式 API。
-- 只封装 `@ark-ui/*` / Zag 行为。禁止混入 `@base-ui/react`。禁止自研焦点陷阱或选择算法。
-- `@chameleon-ui/components` 只依赖本包，**禁止**直接 `import` `@ark-ui/*`。
+> **路线说明（O1 已裁定）**：正式路线只使用 **Ark UI / Zag**。Base UI 仅保留在 `poc/base-ui` 作 M0 对比证据，不得进入本包或 `components`。
 
 ## Public API
 
-| Export | Ark / Zag source |
+| Export | Ark / Zag 来源 |
 | :--- | :--- |
 | `ButtonPrimitive` | `ark.button` |
 | `FieldPrimitive` / `InputPrimitive` | `@ark-ui/react/field` |
@@ -24,9 +22,12 @@ L1 · Headless / a11y 基元封装。
 | `TooltipPrimitive` | `@ark-ui/react/tooltip` |
 | `ToastPrimitive` | `@ark-ui/react/toast` |
 
-Focus trapping, Escape dismissal, and trigger restoration are delegated to Zag via Ark UI. Do not reimplement them in components.
+## 职责边界
 
-## Commands
+- **只封装** Ark UI / Zag 行为；**禁止**混入 `@base-ui/react`；**禁止**自研焦点陷阱或选择算法。
+- **焦点陷阱、Escape 关闭、触发还原**都由 Zag 经 Ark UI 委托完成——在 `components` 里不要重写它们。
+
+## 测试
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/primitives test

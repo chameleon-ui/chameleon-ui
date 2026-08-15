@@ -1,34 +1,25 @@
 # @chameleon-ui/mcp-server
 
-A stdio Model Context Protocol server for Chameleon UI. All file writes go
-through `@chameleon-ui/install-core`. Read-only tools (`get_started`,
-`list_components`, `get_contract`, `get_design_rules`, `get_import_specifiers`)
-do not write disk.
+**L3 · 面向 Chameleon UI 的 stdio Model Context Protocol server。**
 
-Consumer agents: follow `chameleon-ui/AGENTS.md` and
-[`docs/ai/agent-consume.md`](../../docs/ai/agent-consume.md). On attach,
-`initialize` returns `instructions`. Call **`get_started` first**, then
-`get_import_specifiers` before writing any CSS/JS import.
+让 AI 代理（agent）能查询组件契约、获得合法 import specifier，并**经 `@chameleon-ui/install-core`** 安装组件/主题/Blocks。只读工具（`get_started`、`list_components`、`get_contract`、`get_design_rules`、`get_import_specifiers`）**不写盘**；写盘只经 install-core。
 
-## Run
+> AI 代理请先读 [`AGENTS.md`](../../AGENTS.md) 与 [`docs/ai/agent-consume.md`](../../docs/ai/agent-consume.md)。挂载时 `initialize` 返回 `instructions`；**先调 `get_started`**，任何 CSS/JS import 前先 `get_import_specifiers`。
 
-Build once, then:
+## 运行
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
 node ./packages/mcp-server/dist/index.js
 ```
 
-The server reads JSON-RPC messages on stdin and writes responses on stdout.
-Logs and telemetry are sent to stderr.
+server 从 stdin 读 JSON-RPC，往 stdout 写响应；日志与遥测发到 stderr。
 
-## Attach in Cursor
+## 挂载到 Cursor / Claude Code
 
-After `pnpm --filter @chameleon-ui/mcp-server build`, put this in
-`.cursor/mcp.json` (Cursor) or `.mcp.json` (Claude Code) of the **consumer
-app**. Do **not** hardcode machine roots (`D:/…`, `/Users/…`).
+在**消费者工程**的 `.cursor/mcp.json`（Cursor）或 `.mcp.json`（Claude Code）里配置。**不要**硬编码机器根路径（`D:/…`、`/Users/…`）。
 
-Consumer workspace as cwd; point at the library with a **relative** path (sibling checkout example):
+消费者工作区为 cwd，用**相对**路径指向库（兄弟 checkout 示例）：
 
 ```json
 {
@@ -44,51 +35,47 @@ Consumer workspace as cwd; point at the library with a **relative** path (siblin
 }
 ```
 
-- `args[0]` — relative path from the consumer app to `packages/mcp-server/dist/index.js` inside the `chameleon-ui/` checkout. Adjust `../chameleon-ui/...` if your layout differs.
-- `CU_TARGET_DIR` — `.` writes `install_*` into the consumer (resolved from the MCP process cwd, usually the consumer workspace).
-- Prefer package bin when `cwd` is the library: `"command": "pnpm"`, `"args": ["--filter", "@chameleon-ui/mcp-server", "exec", "chameleon-mcp"]`, `"cwd": "../chameleon-ui"`, and set `CU_TARGET_DIR` to a path **relative to that library cwd** (e.g. `../my-app`) — not `.`.
+- `args[0]` — 从消费者工程到 `chameleon-ui/packages/mcp-server/dist/index.js` 的相对路径。布局不同则调整 `../chameleon-ui/...`。
+- `CU_TARGET_DIR` — `.` 把 `install_*` 写进消费者（相对 MCP 进程 cwd，通常是消费者工作区）。
+- 若 library 即 cwd：`"command": "pnpm"`、`"args": ["--filter", "@chameleon-ui/mcp-server", "exec", "chameleon-mcp"]`、`"cwd": "../chameleon-ui"`，并把 `CU_TARGET_DIR` 设为**相对该 library cwd** 的路径（如 `../my-app`）——不是 `.`。
 
-Read-only tools work with the bundled catalog even when the target dir is
-empty. Packages are unpublished (`0.2.0`); `npx @chameleon-ui/mcp-server`
-is **not** available until a registry publish.
+只读工具在目标目录为空时也用捆绑目录工作。包当前 `0.2.0` 未发布；`npx @chameleon-ui/mcp-server` 在 npm 发布前**不可用**。
 
-Copy-paste consumer rule: [`docs/ai/consumer-agent-bootstrap.md`](../../docs/ai/consumer-agent-bootstrap.md).
+可直接复制的消费者规则：[`docs/ai/consumer-agent-bootstrap.md`](../../docs/ai/consumer-agent-bootstrap.md)。
 
-## Tools
+## 工具
 
-| Tool | Description |
+| 工具 | 说明 |
 | :--- | :--- |
-| `get_started` | **Call first.** Catalog summary, CSS + `ThemeProvider theme="line"`, tool order, templates, never-do. |
-| `list_components` | Catalog slugs by family (browse). Prefer `search_components` + `intent` for needs. |
-| `search_components` | Search by `query` (id/name) or `intent` (contract-driven, explainable) |
-| `get_component` | Full registry item (files + deps). Prefer `get_contract` for the v0.2 JSON |
-| `get_contract` | v0.2 `contract.json` by slug |
-| `get_design_rules` | `design-rules.json` by theme id (or community rules pack id) |
-| `get_import_specifiers` | Legal CSS/JS specifiers for an external app. Default theme `line`. Call before writing imports. |
-| `list_themes` | The 8 official tribute themes (flagship: `line`) |
-| `install_component` | Install one component via install-core |
-| `install_block` | Install one scenario block (`registry:block`) + component deps via install-core |
-| `install_theme` | Install one theme via install-core |
-| `install_bundle` | Component + theme (two runs). Prefer `install_with_theme` |
-| `install_with_theme` | Component + tokens + fonts + design-rules in one idempotent run |
-| `telemetry_opt_out` | Disable telemetry and emit opt-out |
-| `record_intent` | Intent-vs-adopt telemetry (no-op unless `CU_TELEMETRY=1`) |
+| `get_started` | **先调用**。目录摘要、CSS + `ThemeProvider theme="line"`、工具顺序、模板、禁止项 |
+| `list_components` | 按 family 浏览 catalog（偏好 `search_components` + `intent`） |
+| `search_components` | 按 `query`（id/name）或 `intent`（契约驱动、可解释）搜索 |
+| `get_component` | 完整 registry 项（文件+依赖）；取 v0.2 JSON 用 `get_contract` |
+| `get_contract` | 按 slug 取 v0.2 `contract.json` |
+| `get_design_rules` | 按 theme id（或社区 rules pack id）取 `design-rules.json` |
+| `get_import_specifiers` | 外部工程合法 CSS/JS specifier；默认主题 `line`。写 import 前调用 |
+| `list_themes` | 8 套官方致敬主题（旗舰：`line`） |
+| `install_component` | 经 install-core 装一个组件 |
+| `install_block` | 经 install-core 装一个场景块（`registry:block`）+ 组件依赖 |
+| `install_theme` | 经 install-core 装一个主题 |
+| `install_bundle` | 组件+主题（两次运行）；优先 `install_with_theme` |
+| `install_with_theme` | 组件+tokens+字体+design-rules 一次幂等完成 |
+| `telemetry_opt_out` | 关闭遥测并发出 opt-out |
+| `record_intent` | intent-vs-adopt 遥测（除非 `CU_TELEMETRY=1`，否则空操作） |
 
-## Environment
+## 环境变量
 
-- `CU_TARGET_DIR` — install target directory (default: `./chameleon-ui`)
-- `CU_TELEMETRY=1` — enable telemetry (off by default)
-- `CU_REGISTRY_URL` — optional private registry base URL (bundled catalog if unset)
-- `CU_REGISTRY_TOKEN` — bearer token; required when `CU_REGISTRY_URL` is set
-- `CU_REGISTRY_NAMESPACE` — namespace (default: `public`)
+- `CU_TARGET_DIR` — 安装目标目录（默认 `./chameleon-ui`）
+- `CU_TELEMETRY=1` — 启用遥测（默认关闭）
+- `CU_REGISTRY_URL` — 可选私有 registry base URL（不设则用捆绑目录）
+- `CU_REGISTRY_TOKEN` — bearer token；`CU_REGISTRY_URL` 设置时必须
+- `CU_REGISTRY_NAMESPACE` — 命名空间（默认 `public`）
 
 ## Telemetry
 
-Telemetry is **off by default**. When enabled, install and opt-out events are
-logged to stderr as JSON. No source code or secrets are collected, and no
-network analytics SDK is used.
+默认**关闭**。启用时安装与 opt-out 事件以 JSON 打到 stderr。不采集源码或密钥，不用网络分析 SDK。
 
-## Tests
+## 测试
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server test

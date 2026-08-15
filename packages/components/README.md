@@ -1,28 +1,44 @@
 # @chameleon-ui/components
 
-L2 · React 组件主包。
+**L2 · React 组件主包（Headless head + Chameleon 样式）。**
 
-- 依赖：`primitives` · `tokens` · `i18n`（运行时文案工具）· `contract`（校验，非正式契约正文）
-- **禁止**依赖 `@ark-ui/*` 或 `@base-ui/react`
-- 单组件 DoD：实现 + 样式 + contract + locales + 测试
-- 目录：`src/<kebab-name>/`，导出 PascalCase
-- 冻结清单：[`catalog.json`](./catalog.json)（20 组件 + S5 常用 10）。置换须变更单。
+`@chameleon-ui/components` 是 React 16/17/18/19 的完整组件实现。每个组件 = **headless 逻辑（来自 `primitives`）+ Chameleon token 样式 + 契约 + 21 语言 + 测试**。完整清单的单一权威来源是 [`catalog.json`](./catalog.json)（当前 **103 个 slug**）。
 
-Phase 1：20 个 slug 均为 `implementation: complete`（含 `AppShell`）。
+## 依赖与规则
 
-## 外部工程本地链接（npm link / pack）
+- 依赖：`primitives` · `tokens` · `i18n`（运行时文案）· `contract`（校验，非契约正文）
+- **禁止**依赖 `@ark-ui/*` 或 `@base-ui/react`（headless 只在 `primitives`）
+- 目录约定：`src/<kebab-name>/`，导出 **PascalCase**
+- 单组件 DoD：实现 + 样式 + `contract.json` + `locales/` + 测试
 
-`dependencies` 使用 pnpm 的 `workspace:*`。**尚未 npm 发布**（版本 `0.2.0`）。外部工程优先装 umbrella `@chameleon-ui/react`（本包是其依赖图的一部分）：
+## 用法
 
-```bash
-cd chameleon-ui
-node ./scripts/pack-external.mjs
-# 外部工程：
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz
-# 或：
-node ./scripts/link-external.mjs --apply
-npm link @chameleon-ui/react
+```tsx
+import "@chameleon-ui/components/style.css";          // 全量样式
+import { Button, DataGrid, ThemeProvider } from "@chameleon-ui/components";
 ```
 
-旧五包：`--legacy-five`。发布后由 pnpm 把 `workspace:*` 改写成具体版本。本仓不执行 npm publish。
+按需引入（per-slug）：
 
+```tsx
+import "@chameleon-ui/components/button/styles.css";
+import { Button } from "@chameleon-ui/components/button";
+```
+
+> 绝大多数消费者更推荐直接装伞包 [`@chameleon-ui/react`](../react/README.md)（本包是其依赖图一部分），以获得统一入口与 `./css` 别名。
+
+## 契约
+
+每个组件目录内的 `contract.json` 是机器可读契约（含 `dataAi.role` / `states` / `intents`），由 `@chameleon-ui/contract` 强制全量校验——catalog 里每个 slug 都必须有合法 v0.2 契约。
+
+## 构建 / 测试
+
+```bash
+corepack pnpm@9.15.0 --filter @chameleon-ui/components test
+corepack pnpm@9.15.0 --filter @chameleon-ui/components build
+```
+
+## 说明
+
+- 冻结清单与组件置换受 `catalog.json` 变更单约束；不随意替换 slug。
+- 本包使用 `workspace:*` 依赖；在 npm 发布前，外部工程请通过伞包 tarball / link 接入（见根 `README.md` 快速开始）。

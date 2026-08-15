@@ -1,22 +1,26 @@
 # @chameleon-ui/adapter-mcp-apps
 
-MCP Apps (SEP-1865, Final 2026-01-26) adapter for Chameleon UI.
+**L3 协议适配 —— 把 MCP Apps（SEP-1865）的 `ui://` 资源与 HTML 模板映射为 Chameleon UI 组件 slug 与安装计划。** L1/L2 保持协议无关。
 
-- **Support level**: **supported**（Phase 8 起，POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档 / 非 `ui://` URI）抛出定位到字段的 `McpAppsAdapterError`；测试在 CI 运行（`phase4:gates` + `phase8:gates`），非手工。版本承诺：`0.x` 内 `adapt` / `toUiResource` / `toolUiMeta` 签名不破坏。
-- **Decision**: adapt (small independent package), not observe-only. See [`DECISION.md`](./DECISION.md).
-- **Scope**: map MCP Apps documents (`ui://` + HTML template) into Chameleon UI component slugs and install plans.
-- **Rule**: protocol-specific mapping lives **only** in this adapter (L3/L4); L1/L2 remain protocol-free.
-- **Install write rule**: this adapter returns an `InstallPlanEntry[]`; it never writes to disk itself. Callers must pass the plan to `@chameleon-ui/install-core`.
-- **Exports**: `SchemaRenderer`, `adapt`, `toUiResource`, `toolUiMeta`, `DEFAULT_MCP_APPS_COMPONENT_MAP`, `McpAppsAdapterError`.
-- **Runtime rendering**: for JSON Schema → live component tree, use `@chameleon-ui/schema-renderer`.
+## 支持级别
 
-## What this is not
+**supported**（Phase 8 起，由 POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档 / 非 `ui://` URI）抛定位到字段的 `McpAppsAdapterError`；测试在 CI（`phase4:gates` + `phase8:gates`）运行，非手工。**版本统一到 0.2.0**：`adapt` / `toUiResource` / `toolUiMeta` 签名在 0.2.0 内不破坏。
 
-- Not a host certification (Claude / ChatGPT / VS Code / Goose). **supported** 指本仓适配层的工程质量级别，**不是**任何宿主认证。
-- Not a claim that bidirectional JSON-RPC with a real host is wired.
-- Not an L1 package. Do not import this from `tokens` / `themes` / `i18n` / `contract` / `primitives`.
+## 决策
 
-## Usage
+**适配（adapt）而不是只观察（observe-only）**，独立小包。见 [DECISION.md](./DECISION.md)。
+
+## 它不是什么
+
+- **不是宿主认证**（Claude / ChatGPT / VS Code / Goose）。"supported" 指本仓适配层的工程质量级别，**不是**任何宿主认证。
+- 不宣称已与真实宿主的双向 JSON-RPC 打通。
+- **不是 L1 包**：不要从 `tokens` / `themes` / `i18n` / `contract` / `primitives` import 它。
+
+## 导出
+
+`SchemaRenderer` · `adapt` · `toUiResource` · `toolUiMeta` · `DEFAULT_MCP_APPS_COMPONENT_MAP` · `McpAppsAdapterError`
+
+## 用法
 
 ```ts
 import { SchemaRenderer, adapt, toUiResource, toolUiMeta } from '@chameleon-ui/adapter-mcp-apps'
@@ -31,6 +35,8 @@ const meta = toolUiMeta(mcpAppsDoc.uri)
 // plan is ready for install-core
 ```
 
-See `demo/` for a minimal form + submit example.
+`demo/` 有一个最小 form + submit 示例。
 
-Telemetry: if a caller installs from this plan, use the existing `install` event via install-core (`source` stays `cli` | `mcp` | `docs`). This adapter does not invent event names.
+## 遥测
+
+若调用方从此 plan 安装，复用 install-core 的既有 `install` 事件（`source` 保持 `cli` | `mcp` | `docs` 之一）。**本适配器不发明新事件名。**

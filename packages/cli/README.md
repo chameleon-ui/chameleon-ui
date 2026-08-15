@@ -1,9 +1,10 @@
 # @chameleon-ui/cli
 
-Thin command-line shell over `@chameleon-ui/install-core`. All file writes go
-through the shared install kernel.
+**L3 · 薄命令行外壳，指向 `@chameleon-ui/install-core`。所有文件写盘都走共享安装内核。**
 
-## Usage
+CLI 负责给用户一个符合直觉的命令入口，但**不**自己写盘——安装逻辑在 `install-core`。
+
+## 用法
 
 ```bash
 chameleon add button
@@ -13,25 +14,29 @@ chameleon search
 chameleon telemetry-off
 ```
 
-## Telemetry
+按版本 / 命名空间安装：
 
-Telemetry is **off by default**. Enable with `CU_TELEMETRY=1`. When enabled,
-install events are logged to stderr as JSON; no network analytics SDK is used.
-
-## Private registry
-
-Leave `CU_REGISTRY_URL` unset to install from the bundled catalog. To talk to a
-private server:
-
-```
-CU_REGISTRY_URL=http://127.0.0.1:8787
-CU_REGISTRY_TOKEN=<token>
-CU_REGISTRY_NAMESPACE=public
-chameleon add button
+```bash
 chameleon add button@1.0.0
 ```
 
-## Dependencies
+## Telemetry
 
-- `@chameleon-ui/install-core` (workspace)
-- `@chameleon-ui/registry` (workspace)
+默认**关闭**。用 `CU_TELEMETRY=1` 启用；启用时安装事件以 JSON 打到 stderr，不用任何网络分析 SDK。
+
+## 私有 registry
+
+- 不设 `CU_REGISTRY_URL` → 用捆绑目录安装。
+- 需要连私有 server：
+
+```bash
+export CU_REGISTRY_URL=http://127.0.0.1:8787
+export CU_REGISTRY_TOKEN=<token>
+export CU_REGISTRY_NAMESPACE=public
+chameleon add button
+```
+
+## 依赖
+
+- `@chameleon-ui/install-core`（workspace）
+- `@chameleon-ui/registry`（workspace）
