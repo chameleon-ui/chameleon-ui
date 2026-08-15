@@ -1,0 +1,179 @@
+{
+  "schema": "chameleon-ui/theme-quantification/v1",
+  "date": "2026-08-15",
+  "worker": "B",
+  "train": "0.1.9-commercial-essentials",
+  "claim": "七套致敬主题已有工程可测量工件（design-rules 校验 + tokens/effects/meta 完整 + S3 gzip）；recognition_rate 仍为 null，待 Worker C 盲测",
+  "measurement": {
+    "S3": {
+      "tool": "chameleon-ui/benchmarks/scripts/check-size.mjs --only=S3",
+      "unit": "kb_gzip",
+      "method": "concatenate theme dist artifacts then gzip once",
+      "limitKbGzip": 20,
+      "source": "packages/themes/dist/<id>"
+    },
+    "design_rules": {
+      "tool": "packages/themes/scripts/validate-rules.mjs",
+      "schema": "packages/contract/schemas/design-rules.schema.json",
+      "result": "9/9 documents passed schema v1.0"
+    },
+    "regression_baseline": {
+      "path": "chameleon-ui/packages/themes/scripts/theme-artifacts-baseline.json",
+      "action": "rewritten after intentional tribute token completeness fills (--write-baseline)"
+    }
+  },
+  "gaps_fixed": [
+    {
+      "themes": ["silver-arrow", "corsa", "siren"],
+      "gap": "overlay tokens omitted explicit color.background.default|inverse and color.fg.default|inverse (relied on core alias only); design-rules surfaceLayers expect the three surface layers",
+      "fix": "declared default/subtle/elevated/inverse + fg.default/muted/inverse; added border-width + complete blur/motion leaves"
+    },
+    {
+      "themes": ["cupertino"],
+      "gap": "missing color.background.inverse, color.fg.inverse, motion group, typography.line-height",
+      "fix": "added inverse surfaces, motion, typography body line-height"
+    },
+    {
+      "themes": ["wechat"],
+      "gap": "missing color.fg.inverse; blur.thick; border-width",
+      "fix": "added fg.inverse, blur.thick, border-width"
+    },
+    {
+      "themes": ["stuttgart"],
+      "gap": "incomplete blur/motion/border-width vs consume completeness bar",
+      "fix": "added blur.overlay/thick, motion.slow/enter/exit, border-width"
+    },
+    {
+      "themes": ["ant-blue"],
+      "gap": "typography.tracking absent vs line baseline",
+      "fix": "added typography.tracking.tight/body"
+    }
+  ],
+  "not_claimed": [
+    "recognition rates / blind-test pass percentage",
+    "Linear / Stripe / mature Ant site parity",
+    "npm publish or package version bump (Worker A owns 0.1.9)"
+  ],
+  "themes": [
+    {
+      "id": "line",
+      "role": "flagship",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 7,
+      "token_groups": ["blur", "border-width", "color", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 2454,
+      "meta_preview": { "accent": "#171717", "surface": "#f4f3ef" },
+      "s3_kb_gzip": 2.788,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "silver-arrow",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 7,
+      "token_groups": ["blur", "border-width", "color", "font", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 1720,
+      "meta_preview": { "accent": "#5c6b7a", "surface": "#f8fafc" },
+      "s3_kb_gzip": 3.314,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "stuttgart",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 7,
+      "token_groups": ["blur", "border-width", "color", "font", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 1814,
+      "meta_preview": { "accent": "#bb0a30", "surface": "#0f0f0f" },
+      "s3_kb_gzip": 3.332,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "corsa",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 7,
+      "token_groups": ["blur", "border-width", "color", "font", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 3362,
+      "meta_preview": { "accent": "#d40000", "surface": "#ffffff" },
+      "s3_kb_gzip": 2.879,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "cupertino",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 5,
+      "token_groups": ["blur", "border", "color", "effect", "font", "motion", "radius", "saturate", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle", "translucent", "translucent-thick"],
+      "has_effects_css": true,
+      "effects_bytes": 4346,
+      "meta_preview": { "accent": "#007aff", "surface": "#f2f2f7" },
+      "s3_kb_gzip": 3.339,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "siren",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 7,
+      "token_groups": ["blur", "border-width", "color", "font", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 3894,
+      "meta_preview": { "accent": "#f5c400", "surface": "#fff6c2" },
+      "s3_kb_gzip": 3.025,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "wechat",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 6,
+      "token_groups": ["blur", "border-width", "color", "density", "font", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 4682,
+      "meta_preview": { "accent": "#07c160", "surface": "#ededed" },
+      "s3_kb_gzip": 3.227,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    },
+    {
+      "id": "ant-blue",
+      "role": "tribute",
+      "design_rules_version": "1.0",
+      "design_rules_valid": true,
+      "forbiddenPatterns_count": 6,
+      "token_groups": ["blur", "border-width", "color", "motion", "radius", "shadow", "typography"],
+      "surface_layers": ["brand-subtle", "default", "elevated", "inverse", "subtle"],
+      "has_effects_css": true,
+      "effects_bytes": 2467,
+      "meta_preview": { "accent": "#1677ff", "surface": "#f5f5f5" },
+      "s3_kb_gzip": 2.798,
+      "s3_limit_kb_gzip": 20,
+      "recognition_rate": null
+    }
+  ]
+}

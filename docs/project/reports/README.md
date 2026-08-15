@@ -24,7 +24,10 @@
 - [`Phase-4-文档21语缺口表.md`](./Phase-4-文档21语缺口表.md)（由 docs 骨架脚本生成）
 - [`Phase-5-触控目标测量.md`](./Phase-5-触控目标测量.md)（Token 计算 + 本期清单扫描；无 Lighthouse）
 - [`盲测协议.md`](./盲测协议.md)（T9.5 方法；harness `/?view=blind`）
-- [`盲测结果.pending.json`](./盲测结果.pending.json)（`status=not_run`，`rate=null`；禁止手写 %）
+- [`盲测结果.pending.json`](./盲测结果.pending.json)（`status=not_run`，`rate=null`，`a95Decision=PROTOCOL-READY`；禁止手写 %）
+- [`A9.5-盲测决策-PROTOCOL-READY.md`](./A9.5-盲测决策-PROTOCOL-READY.md) / [`A9.5-decision.json`](./A9.5-decision.json)（0.1.9：非 waive）
+- [`Phase-9-VPAT-status.md`](./Phase-9-VPAT-status.md)（published-internal；commercialClaimsAllowed=false；Not a third-party CAB）
+- [`2026-08-15-theme-quantification.md`](./2026-08-15-theme-quantification.md) / [`.json`](./2026-08-15-theme-quantification.json)（8 主题工程量化：design-rules + S3 gzip；`recognition_rate=null`；≠ 认出率）
 
 移交：[`../handover/建设期移交说明书.md`](../handover/建设期移交说明书.md)。
 
