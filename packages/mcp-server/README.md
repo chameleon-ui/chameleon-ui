@@ -42,7 +42,7 @@ app** (for example stock-analyzer), not as a second write path:
 
 Replace the two paths. `CU_TARGET_DIR` is where `install_*` tools write.
 Read-only tools work with the bundled catalog even when the target dir is
-empty. Packages are unpublished (`0.1.9`); `npx @chameleon-ui/mcp-server`
+empty. Packages are unpublished (`0.2.0`); `npx @chameleon-ui/mcp-server`
 is **not** available until a registry publish.
 
 ## Tools

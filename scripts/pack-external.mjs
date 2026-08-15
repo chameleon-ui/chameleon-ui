@@ -113,7 +113,7 @@ async function packStaged(staging) {
 }
 
 function tarballName(npmName) {
-  // @chameleon-ui/react → chameleon-ui-react-0.1.9.tgz
+  // @chameleon-ui/react → chameleon-ui-react-0.2.0.tgz
   return `${npmName.replace(/^@/, '').replace('/', '-')}-${version}.tgz`
 }
 

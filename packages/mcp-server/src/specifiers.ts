@@ -69,7 +69,7 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       packTarballs: 'node ./scripts/pack-external.mjs',
       packTarballsVue: 'node ./scripts/pack-external.mjs --vue',
       packLegacyFive: 'node ./scripts/pack-external.mjs --legacy-five',
-      note: 'Packages are 0.1.9 and unpublished. Prefer one umbrella: @chameleon-ui/react or @chameleon-ui/vue (pack-external default bundles the five). workspace:* only works inside this pnpm workspace. Legacy five-pack: --legacy-five.',
+      note: 'Packages are 0.2.0 and unpublished. Prefer one umbrella: @chameleon-ui/react or @chameleon-ui/vue (pack-external default bundles the five). workspace:* only works inside this pnpm workspace. Legacy five-pack: --legacy-five.',
     },
     versionMatrix: {
       node: '>=20.19.0',

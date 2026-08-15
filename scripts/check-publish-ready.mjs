@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const repoRoot = join(root, '..')
 const packagesRoot = join(root, 'packages')
+const PRODUCT_VERSION = '0.2.0'
 
 async function exists(path) {
   try {
@@ -50,8 +51,10 @@ for (const name of packageDirs) {
   if (pkg.license !== 'MIT') fail(`${pkg.name} license must be MIT`)
   if (pkg.publishConfig?.access !== 'public') fail(`${pkg.name} needs publishConfig.access=public`)
   if (!(await exists(join(packagesRoot, name, 'LICENSE')))) fail(`${pkg.name} missing LICENSE file`)
-  if (pkg.version !== '0.1.9') {
-    fail(`${pkg.name} is ${pkg.version}; product version is 0.1.9. This repo still does not npm publish.`)
+  if (pkg.version !== PRODUCT_VERSION) {
+    fail(
+      `${pkg.name} is ${pkg.version}; product version is ${PRODUCT_VERSION}. This repo still does not npm publish.`,
+    )
   }
   if (pkg.engines?.node !== '>=20.19.0') {
     fail(`${pkg.name} engines.node must be >=20.19.0 (Node 18 is unsupported)`)
@@ -113,12 +116,8 @@ if (primitivesPkg.peerDependencies?.['@ark-ui/react'] !== '5.38.0') {
   fail('@chameleon-ui/primitives must peer @ark-ui/react@5.38.0')
 }
 
-const appsRoot = join(root, 'apps')
-for (const name of (await readdir(appsRoot, { withFileTypes: true }))
-  .filter((entry) => entry.isDirectory())
-  .map((entry) => entry.name)) {
-  const pkg = JSON.parse(await readFile(join(appsRoot, name, 'package.json'), 'utf8'))
-  if (pkg.private !== true) fail(`${pkg.name} must stay private`)
+if (await exists(join(root, 'apps'))) {
+  fail('library-only checkout must not contain chameleon-ui/apps')
 }
 
 console.log(
@@ -126,9 +125,9 @@ console.log(
     {
       plan: 'local-only',
       wouldPublish: publishable.sort(),
-      firstTag: 'v0.1.9',
+      firstTag: `v${PRODUCT_VERSION}`,
       npmPublish: false,
-      note: 'pnpm publish -r is not run. workspace:* is rewritten to versions at publish. Pre-publish npm link of a single package fails; from chameleon-ui run node ./scripts/link-external.mjs (link all runtime packages).',
+      note: 'pnpm publish -r is not run. workspace:* is rewritten to versions at publish. Pre-publish: node ./scripts/link-external.mjs or pack-external.mjs (umbrella).',
     },
     null,
     2,

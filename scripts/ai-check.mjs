@@ -1,8 +1,8 @@
 /**
  * pnpm ai:check — AI-consumer drift gate.
  *
- * Fails if catalog contracts, MCP tool names, AGENTS.md, or docs import
- * examples disagree. Does not invent generation_quality scores.
+ * Fails if catalog contracts, MCP tool names, AGENTS.md, or docs/ai
+ * consume notes disagree. Does not invent generation_quality scores.
  *
  * Run from chameleon-ui/: node ./scripts/ai-check.mjs
  */
@@ -69,7 +69,7 @@ function mustContain(label, text, needle) {
 
 function unexportedCssIsWarned(text) {
   if (!text.includes(UNEXPORTED_THEME_CSS)) return true
-  return /not exported|not exported|不要使用|不要猜|NEVER|Do not use|禁止/i.test(text)
+  return /not exported|不要使用|不要猜|NEVER|Do not use|禁止/i.test(text)
 }
 
 async function checkContracts() {
@@ -119,7 +119,6 @@ async function checkMcpAndAgents() {
   const consume = await readWorkspace('docs/ai/agent-consume.md')
   const mcpReadme = await readUtf8('packages/mcp-server/README.md')
   const schemaDoc = await readWorkspace('docs/ai/schema-renderer.md')
-  const forAgents = await readUtf8('apps/docs/docs/guides/for-agents.mdx')
 
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_THEME_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_TOKENS_CSS)
@@ -133,15 +132,10 @@ async function checkMcpAndAgents() {
   mustContain('packages/mcp-server/README.md', mcpReadme, 'mcpServers')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, '"version": "1.0"')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, 'SchemaRenderer')
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, UMBRELLA_REACT_CSS)
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, UMBRELLA_REACT_IMPORT)
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'mcpServers')
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'NavigationBar')
 
   for (const name of REQUIRED_MCP_TOOLS) {
     if (!agents.includes(name)) fail(`AGENTS.md missing MCP tool ${name}`)
     if (!mcpReadme.includes(name)) fail(`mcp-server README missing tool ${name}`)
-    if (!forAgents.includes(name)) fail(`for-agents.mdx missing MCP tool ${name}`)
   }
   for (const id of officialThemes) {
     if (!agents.includes(id)) fail(`AGENTS.md missing theme id ${id}`)
@@ -154,42 +148,9 @@ async function checkMcpAndAgents() {
   }
 }
 
-async function checkInstallDocs() {
-  const files = [
-    ['apps/docs/docs/install.mdx', /外部工程/],
-    [
-      'apps/docs/i18n/en/docusaurus-plugin-content-docs/current/install.mdx',
-      /External app/,
-    ],
-    [
-      'apps/docs/i18n/zh-HK/docusaurus-plugin-content-docs/current/install.mdx',
-      /外部工程/,
-    ],
-  ]
-
-  for (const [relative, heading] of files) {
-    const text = await readUtf8(relative)
-    mustContain(relative, text, CANONICAL_THEME_CSS)
-    mustContain(relative, text, CANONICAL_TOKENS_CSS)
-    mustContain(relative, text, UMBRELLA_REACT_IMPORT)
-    mustContain(relative, text, 'npm link @chameleon-ui/react')
-    if (!heading.test(text)) fail(`${relative} must have an external-app section (${heading})`)
-    if (!unexportedCssIsWarned(text) && text.includes(UNEXPORTED_THEME_CSS)) {
-      fail(`${relative} shows unexported CSS without a warning`)
-    }
-    const consumerJson = text.match(/```json[\s\S]*?```/g) ?? []
-    for (const block of consumerJson) {
-      if (block.includes('workspace:*') && !/never|do not|不要|禁止/i.test(text)) {
-        fail(`${relative} shows workspace:* in a JSON snippet without a warning in the page`)
-      }
-    }
-  }
-}
-
 async function main() {
   if (!skipContracts) await checkContracts()
   await checkMcpAndAgents()
-  await checkInstallDocs()
 
   if (problems.length > 0) {
     console.error('ai:check failed:')
@@ -197,7 +158,7 @@ async function main() {
     process.exitCode = 1
     return
   }
-  console.log('[ai:check] contracts + MCP tools + AGENTS.md + install MDX import examples are in lockstep')
+  console.log('[ai:check] contracts + MCP tools + AGENTS.md + docs/ai consume notes are in lockstep')
 }
 
 main().catch((error) => {

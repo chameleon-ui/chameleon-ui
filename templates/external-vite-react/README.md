@@ -2,7 +2,7 @@
 
 Official template for an app **outside** the Chameleon pnpm workspace (EraseLab shape: Vite 6 + React 19 + Windows).
 
-Packages are **0.1.9** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
+Packages are **0.2.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
 This template depends on **one** package: `@chameleon-ui/react` (`file:../../packages/react`). Default product chrome: **`line`** via `import "@chameleon-ui/react/css"` + `ThemeProvider theme="line"`. SchemaRenderer default map is still **10 slugs**; import the rest from `@chameleon-ui/react`.
 
@@ -35,7 +35,7 @@ pnpm verify:external:build    # typecheck + vite build
 
 1. **This template** (`file:` umbrella) -- best while iterating next to the monorepo.
 2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then `npm link @chameleon-ui/react` in the app.
-3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
+3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
 
 ## Windows + Vite (already in `vite.config.ts`)
 

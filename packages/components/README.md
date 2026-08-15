@@ -12,13 +12,13 @@ Phase 1：20 个 slug 均为 `implementation: complete`（含 `AppShell`）。
 
 ## 外部工程本地链接（npm link / pack）
 
-`dependencies` 使用 pnpm 的 `workspace:*`。**尚未 npm 发布**（版本 `0.1.9`）。外部工程优先装 umbrella `@chameleon-ui/react`（本包是其依赖图的一部分）：
+`dependencies` 使用 pnpm 的 `workspace:*`。**尚未 npm 发布**（版本 `0.2.0`）。外部工程优先装 umbrella `@chameleon-ui/react`（本包是其依赖图的一部分）：
 
 ```bash
 cd chameleon-ui
 node ./scripts/pack-external.mjs
 # 外部工程：
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz
 # 或：
 node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/react

@@ -1,7 +1,7 @@
 {
   "name": "chameleon-external-vite-vue",
   "private": true,
-  "version": "0.1.9",
+  "version": "0.2.0",
   "type": "module",
   "description": "Official Vite 6 + Vue 3 consumer template for unpublished @chameleon-ui/vue (Windows included).",
   "engines": {

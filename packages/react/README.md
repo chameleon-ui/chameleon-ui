@@ -1,12 +1,12 @@
 # @chameleon-ui/react
 
-One install for React consumers. Pulls `@chameleon-ui/tokens`, `i18n`, `primitives`, `themes`, and `components` (workspace `0.1.9` graph). **Not on npm yet** — use `pack-external` / `link-external` / `file:`.
+One install for React consumers. Pulls `@chameleon-ui/tokens`, `i18n`, `primitives`, `themes`, and `components` (workspace `0.2.0` graph). **Not on npm yet** — use `pack-external` / `link-external` / `file:`.
 
 ```bash
 cd chameleon-ui
 node ./scripts/pack-external.mjs
 # consumer:
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz
 ```
 
 ```ts

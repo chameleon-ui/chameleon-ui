@@ -2,7 +2,7 @@
 
 You are generating or editing an app that **consumes** Chameleon UI. Follow this file. Do not invent import paths. Do not copy `workspace:*` into the consumer `package.json`.
 
-SSOT for agents: this file. Product spec: docs site **编码 Agent 集成** (`apps/docs/docs/guides/for-agents.mdx`). Attach notes: [`docs/ai/agent-consume.md`](../docs/ai/agent-consume.md). SchemaRenderer: [`docs/ai/schema-renderer.md`](../docs/ai/schema-renderer.md).
+SSOT for agents: this file. Attach notes: [`docs/ai/agent-consume.md`](../docs/ai/agent-consume.md). SchemaRenderer: [`docs/ai/schema-renderer.md`](../docs/ai/schema-renderer.md).
 
 ## NEVER
 
@@ -11,7 +11,7 @@ SSOT for agents: this file. Product spec: docs site **编码 Agent 集成** (`ap
 - A second installer. Disk writes only via `chameleon add` / MCP `install_*` → `install-core`.
 - Treat AG-UI as supported. `@chameleon-ui/adapter-ag-ui` is **POC**.
 - Invent `bench.generation_quality` numbers. Honest value is `null` without a configured generator.
-- Claim theme recognition rates (「一眼认出 ≥80%」 or any %). Blind test is **PROTOCOL-READY / not_run**; `rate` is `null` until real human trials aggregate. See `docs/project/reports/A9.5-decision.json`.
+- Claim theme recognition rates (「一眼认出 ≥80%」 or any %). Blind test is **PROTOCOL-READY / not_run**; `rate` is `null` until real human trials aggregate.
 - Claim accessibility certification (VPAT certified, WCAG AA certified, Section 508, third-party CAB). Docs VPAT is **status=draft**, **published-internal**, **commercialClaimsAllowed=false**.
 
 ## CSS (copy exactly)
@@ -38,7 +38,7 @@ Also valid (same files): `@chameleon-ui/themes/dist/line/variables.css`, `@chame
 
 Replace `line` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
 
-**`line` is the visual flagship.** The other seven are quantified tribute overlays (design-rules + tokens/effects/meta + S3 gzip; report: `docs/project/reports/2026-08-15-theme-quantification.md`). `recognition_rate` stays `null` until a blind test — do not invent rates or claim Linear parity. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
+**`line` is the visual flagship.** The other seven are quantified tribute overlays (design-rules + tokens/effects/meta + S3 gzip). `recognition_rate` stays `null` until a blind test — do not invent rates or claim Linear parity. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
 
 Before writing imports, call MCP `get_import_specifiers`.
 
@@ -86,13 +86,13 @@ import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/react";
 
 ## External app (not this pnpm workspace)
 
-Packages are `0.1.9` and **not on npm**. Node ≥ 20.19. Until registry publish, distribution is **file: / npm link / pack-external tarballs** (umbrella tarball is first-class).
+Packages are `0.2.0` and **not on npm**. Node ≥ 20.19. Until registry publish, distribution is **file: / npm link / pack-external tarballs** (umbrella tarball is first-class).
 
 ```bash
 cd chameleon-ui
 node ./scripts/pack-external.mjs
 # in the consumer app:
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz
 ```
 
 Or link the umbrella:
@@ -107,7 +107,7 @@ Vue:
 
 ```bash
 node ./scripts/pack-external.mjs --vue
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.1.9.tgz
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.2.0.tgz
 # or:
 node ./scripts/link-external.mjs --vue --apply
 npm link @chameleon-ui/vue
@@ -115,7 +115,7 @@ npm link @chameleon-ui/vue
 
 Legacy five-pack (compatibility): `node ./scripts/pack-external.mjs --legacy-five` / `link-external.mjs --legacy-five`. Do **not** copy `workspace:*` into the consumer.
 
-Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue` (one umbrella `file:` dep). Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Verify: `node ./scripts/verify-external-templates.mjs` (`--build` for vite build). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue` (one umbrella `file:` dep). Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Verify: `node ./scripts/verify-external-templates.mjs` (`--build` for vite build). Dual-track notes: [`docs/ai/agent-consume.md`](../docs/ai/agent-consume.md).
 
 Pin at the consumer root. React: `react@^19` · `@ark-ui/react@5.38.0`. Vue: `vue@^3.5` · `@ark-ui/vue@5.38.1`. Both: `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
 

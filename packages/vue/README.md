@@ -1,12 +1,12 @@
 # @chameleon-ui/vue
 
-One install for Vue consumers. Pulls `@chameleon-ui/tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (workspace `0.1.9` graph). **Not on npm yet** — use `pack-external` / `link-external` / `file:`.
+One install for Vue consumers. Pulls `@chameleon-ui/tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (workspace `0.2.0` graph). **Not on npm yet** — use `pack-external` / `link-external` / `file:`.
 
 ```bash
 cd chameleon-ui
 node ./scripts/pack-external.mjs --vue
 # consumer:
-npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.1.9.tgz
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.2.0.tgz
 ```
 
 ```ts
