@@ -9,7 +9,7 @@ import zhCN from './locales/zh-CN.json'
 
 describe('Combobox', () => {
   it('renders with cu-* classes and data-ai-role', () => {
-    render(<Combobox options={["A", "B"]} onChange={() => {}} />)
+    render(<Combobox label="Fruit" options={["A", "B"]} onChange={() => {}} />)
     const element = document.querySelector('.cu-combobox')
     expect(element).toHaveClass('cu-combobox')
     expect(element).toHaveAttribute('data-ai-role', 'combobox')
@@ -23,7 +23,7 @@ describe('Combobox', () => {
   it('inherits RTL from document lang without hardcoding ltr', () => {
     document.documentElement.lang = 'ar'
     document.documentElement.dir = directionForLocale('ar')
-    render(<Combobox options={["A", "B"]} onChange={() => {}} />)
+    render(<Combobox label="Fruit" options={["A", "B"]} onChange={() => {}} />)
     expect(document.documentElement.dir).toBe('rtl')
   })
 })

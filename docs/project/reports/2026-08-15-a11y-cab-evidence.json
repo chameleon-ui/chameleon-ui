@@ -1,0 +1,259 @@
+{
+  "schemaVersion": 1,
+  "kind": "automated-a11y-evidence",
+  "generatedAt": "2026-08-15T05:32:26.079Z",
+  "commercialClaimsAllowed": false,
+  "thirdPartyCab": false,
+  "certificationClaim": false,
+  "theme": "line",
+  "scope": {
+    "components": [
+      "AppShell",
+      "Navigation",
+      "NavigationBar",
+      "Button",
+      "Form",
+      "Input",
+      "Checkbox",
+      "Select"
+    ],
+    "demoOrigin": "http://127.0.0.1:4175",
+    "pages": [
+      {
+        "id": "suite-appshell-common10",
+        "url": "http://127.0.0.1:4175/?view=suite&locale=en&theme=line",
+        "covers": [
+          "AppShell",
+          "Button",
+          "Input",
+          "Checkbox",
+          "Select",
+          "Dialog",
+          "Tabs"
+        ]
+      },
+      {
+        "id": "gallery-appshell-navigation-form",
+        "url": "http://127.0.0.1:4175/?view=gallery&locale=en&theme=line",
+        "covers": [
+          "AppShell",
+          "Navigation",
+          "NavigationBar",
+          "Form",
+          "Button",
+          "gallery form controls"
+        ]
+      },
+      {
+        "id": "three-end-navigation",
+        "url": "http://127.0.0.1:4175/?view=three-end&locale=en&theme=line",
+        "covers": [
+          "AppShell",
+          "Navigation",
+          "NavigationBar",
+          "Button"
+        ]
+      }
+    ]
+  },
+  "tools": {
+    "axeCore": "4.13.0",
+    "axeSource": "D:\\ChameleonUI\\chameleon-ui\\node_modules\\.pnpm\\axe-core@4.13.0\\node_modules\\axe-core\\axe.min.js",
+    "playwright": "@playwright/test (visual-regression pin)",
+    "lighthouseArtifact": {
+      "source": "chameleon-ui/benchmarks/reports/lhci-latest.json",
+      "status": "measured",
+      "generatedAt": "2026-08-14T01:22:22.863Z",
+      "url": "http://127.0.0.1:4175/?view=suite&locale=ar&theme=line",
+      "accessibilityScore": 100,
+      "lighthouseVersion": "13.4.1",
+      "note": "Lighthouse accessibility category embeds axe; single lab URL; not a CAB result."
+    }
+  },
+  "summary": {
+    "totalPages": 3,
+    "totalViolationRules": 1,
+    "totalViolationInstances": 1,
+    "byRule": [
+      {
+        "id": "aria-valid-attr-value",
+        "impact": "critical",
+        "pages": [
+          "gallery-appshell-navigation-form"
+        ],
+        "help": "ARIA attributes must conform to valid values"
+      }
+    ],
+    "clean": false
+  },
+  "pages": [
+    {
+      "id": "suite-appshell-common10",
+      "url": "http://127.0.0.1:4175/?view=suite&locale=en&theme=line",
+      "covers": [
+        "AppShell",
+        "Button",
+        "Input",
+        "Checkbox",
+        "Select",
+        "Dialog",
+        "Tabs"
+      ],
+      "axe": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-valid-attr-value",
+            "impact": "critical",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodeCount": 1
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodeCount": 2
+          }
+        ],
+        "passes": 39,
+        "inapplicable": 50,
+        "timestamp": "2026-08-15T05:32:24.587Z",
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.13.0"
+        },
+        "url": "http://127.0.0.1:4175/?locale=en&theme=line&view=suite"
+      }
+    },
+    {
+      "id": "gallery-appshell-navigation-form",
+      "url": "http://127.0.0.1:4175/?view=gallery&locale=en&theme=line",
+      "covers": [
+        "AppShell",
+        "Navigation",
+        "NavigationBar",
+        "Form",
+        "Button",
+        "gallery form controls"
+      ],
+      "axe": {
+        "violations": [
+          {
+            "id": "aria-valid-attr-value",
+            "impact": "critical",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "helpUrl": "https://dequeuniversity.com/rules/axe/4.13/aria-valid-attr-value?application=axeAPI",
+            "tags": [
+              "cat.aria",
+              "wcag2a",
+              "wcag412",
+              "EN-301-549",
+              "EN-9.4.1.2",
+              "RGAAv4",
+              "RGAA-7.1.1"
+            ],
+            "nodes": [
+              {
+                "summary": "Fix all of the following:\n  Invalid ARIA attribute value: aria-controls=\"tabs:_r_6_:content-account\"",
+                "target": [
+                  "#tabs\\:_r_6_\\:trigger-account"
+                ],
+                "html": "<button data-scope=\"tabs\" data-part=\"trigger\" role=\"tab\" type=\"button\" dir=\"ltr\" data-orientation=\"horizontal\" data-value=\"account\" aria-selected=\"true\" data-selected=\"\" data-focus=\"\" aria-controls=\"tabs:_r_6_:content-a...\" data-ownedby=\"ta"
+              }
+            ]
+          }
+        ],
+        "incomplete": [
+          {
+            "id": "aria-prohibited-attr",
+            "impact": "serious",
+            "description": "Ensure ARIA attributes are not prohibited for an element's role",
+            "help": "Elements must only use permitted ARIA attributes",
+            "nodeCount": 2
+          },
+          {
+            "id": "aria-valid-attr-value",
+            "impact": "critical",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodeCount": 11
+          },
+          {
+            "id": "color-contrast",
+            "impact": "serious",
+            "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+            "help": "Elements must meet minimum color contrast ratio thresholds",
+            "nodeCount": 5
+          }
+        ],
+        "passes": 60,
+        "inapplicable": 29,
+        "timestamp": "2026-08-15T05:32:25.378Z",
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.13.0"
+        },
+        "url": "http://127.0.0.1:4175/?locale=en&theme=line&view=gallery"
+      }
+    },
+    {
+      "id": "three-end-navigation",
+      "url": "http://127.0.0.1:4175/?view=three-end&locale=en&theme=line",
+      "covers": [
+        "AppShell",
+        "Navigation",
+        "NavigationBar",
+        "Button"
+      ],
+      "axe": {
+        "violations": [],
+        "incomplete": [
+          {
+            "id": "aria-valid-attr-value",
+            "impact": "critical",
+            "description": "Ensure all ARIA attributes have valid values",
+            "help": "ARIA attributes must conform to valid values",
+            "nodeCount": 1
+          }
+        ],
+        "passes": 37,
+        "inapplicable": 52,
+        "timestamp": "2026-08-15T05:32:26.075Z",
+        "testEngine": {
+          "name": "axe-core",
+          "version": "4.13.0"
+        },
+        "url": "http://127.0.0.1:4175/?locale=en&theme=line&view=three-end"
+      }
+    }
+  ],
+  "notEvaluated": [
+    "Full WCAG 2.1 AA criterion set (manual)",
+    "Assistive technology lab (NVDA/JAWS/VoiceOver)",
+    "Theme contrast lab sign-off across 8 themes",
+    "Revised Section 508 / EN 301 549 tables",
+    "Focus-visible lab measurement",
+    "Text spacing / reflow AT verification"
+  ],
+  "reproduce": [
+    "cd chameleon-ui",
+    "corepack pnpm@9.15.0 a11y:axe",
+    "Optional prior: corepack pnpm@9.15.0 perf:lhci  # refreshes lhci-latest accessibility category"
+  ],
+  "submissionPackReady": true,
+  "residualAutomated": [
+    {
+      "id": "aria-valid-attr-value",
+      "page": "gallery-appshell-navigation-form",
+      "component": "Tabs (Ark/Zag)",
+      "note": "aria-controls IDREF still flagged by axe after lazyMount=false/unmountOnExit=false; suite and three-end clean"
+    }
+  ],
+  "pack": [
+    "docs/project/reports/2026-08-15-a11y-cab-submission-pack.md",
+    "docs/project/reports/2026-08-15-a11y-cab-blocker.md"
+  ]
+}

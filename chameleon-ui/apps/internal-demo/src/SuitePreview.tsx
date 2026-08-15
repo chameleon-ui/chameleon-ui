@@ -36,7 +36,9 @@ export function SuitePreview({ t }: SuitePreviewProps) {
         className="cu-demo-suite"
         header={
           <Stack align="center" direction="row" gap="2" justify="between">
-            <Typography variant="heading-2">{t('demo.suiteHeading')}</Typography>
+            <Typography as="h1" variant="heading-2">
+              {t('demo.suiteHeading')}
+            </Typography>
             <Typography variant="caption">{t('demo.kicker')}</Typography>
           </Stack>
         }

@@ -172,7 +172,9 @@ export function App() {
   if (view === 'gallery') {
     return (
       <div className="cu-demo-adaptive" data-demo="adaptive">
-        <div className="cu-demo-inspector">{header}</div>
+        <div className="cu-demo-inspector" role="region" aria-label={t('demo.overview')}>
+          {header}
+        </div>
         <AppShell
           header={<NavigationBar title={t('demo.overview')} />}
           navigation={
@@ -199,7 +201,9 @@ export function App() {
   if (view === 'live') {
     return (
       <div className="cu-demo-adaptive" data-demo="adaptive" data-cu-shell>
-        <div className="cu-demo-inspector">{header}</div>
+        <div className="cu-demo-inspector" role="region" aria-label={t('demo.overview')}>
+          {header}
+        </div>
         <ThreeEndStage t={t} end="phone" />
       </div>
     )
@@ -207,7 +211,9 @@ export function App() {
 
   return (
     <div className="cu-demo-adaptive" data-demo="adaptive" data-cu-shell>
-      <div className="cu-demo-inspector">{header}</div>
+      <div className="cu-demo-inspector" role="region" aria-label={t('demo.overview')}>
+        {header}
+      </div>
       <ProductStudio t={t} />
     </div>
   )

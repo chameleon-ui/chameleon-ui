@@ -250,6 +250,7 @@ function ComboboxPreview({ t }: { t: DemoT }) {
   const [value, setValue] = useState('')
   return (
     <Combobox
+      label={t('combobox.label')}
       options={[t('demo.selectOptionA'), t('demo.selectOptionB')]}
       placeholder={t('combobox.placeholder')}
       value={value}
@@ -520,10 +521,11 @@ const PREVIEWS: Record<string, Preview> = {
   ),
   'app-shell': (t) => (
     <AppShell
+      landmarks={false}
       header={<Typography variant="heading-2">{t('demo.title')}</Typography>}
       navigation={
         <Navigation
-          label={t('navigation.label')}
+          label={`${t('navigation.label')} · AppShell`}
           items={[
             { value: 'account', label: t('tabs.account') },
             { value: 'security', label: t('tabs.security') },
@@ -857,7 +859,7 @@ const PREVIEWS: Record<string, Preview> = {
         { value: 'account', label: t('tabs.account') },
         { value: 'security', label: t('tabs.security') },
       ]}
-      label={t('navigation.label')}
+      label={`${t('navigation.label')} · preview`}
     />
   ),
   'navigation-bar': (t) => (

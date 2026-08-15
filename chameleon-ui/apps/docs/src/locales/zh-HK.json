@@ -50,7 +50,7 @@
     "npmNote": "包已具備發布配置（MIT、publishConfig.access=public），版本是 0.1.9。本倉不執行 npm publish。",
     "skeletonNotice": "當前語言的文檔介面是英文 ICU 骨架，不是譯文。見語言缺口表（LEGACY-2026-004）。",
     "vpatLead": "VPAT 草稿。status=draft。published-internal。未認證。Not a third-party CAB。禁止商用無障礙/認證宣稱。認出率未測。",
-    "vpatStatus": "status=draft · published-internal · commercialClaimsAllowed=false",
+    "vpatStatus": "status=draft · published-internal · commercialClaimsAllowed=false · submissionPackReady=true",
     "vpatFile": "狀態：/compliance/VPAT-status.md。產物：/compliance/VPAT-ChameleonUI-v0.0.0.md（PDF 佔位：/compliance/VPAT-ChameleonUI-v0.0.0.pdf.md）。",
     "dashboardLead": "唯讀北極星看板。消費本地 GenUI-Bench 的 bench.* 與字典中的 telemetry.*。空態合法。不新造事件名。",
     "dashboardEmpty": "沒有即時遙測流。CU_TELEMETRY 預設關閉。在報告出現之前下列指標保持空態。",

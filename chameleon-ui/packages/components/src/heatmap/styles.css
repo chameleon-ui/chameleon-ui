@@ -5,13 +5,33 @@
 }
 
 .cu-heatmap__grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: calc(var(--cu-space-1) / 2);
-  align-items: center;
 }
 
+.cu-heatmap__header-row,
 .cu-heatmap__row-wrap {
-  display: contents;
+  display: grid;
+  grid-template-columns: var(--cu-heatmap-cols);
+  align-items: center;
+  gap: calc(var(--cu-space-1) / 2);
+}
+
+.cu-heatmap__corner-sr {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.cu-heatmap__corner {
+  position: relative;
 }
 
 .cu-heatmap__row,

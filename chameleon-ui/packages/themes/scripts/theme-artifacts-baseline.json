@@ -2,8 +2,8 @@
   "generatedFrom": "packages/themes/dist (pre-$extends pipeline)",
   "themes": {
     "line": {
-      "variables.css": "7bcfc8d79a36704ea8efc8970ebdc0b7e782cf14216b1eac83bef8394105d38b",
-      "tokens.resolved.json": "c1fc56241daae11d0137a312bec826cdd2bb9d9b0424b6160240c2f9f4a1b621"
+      "variables.css": "0df013cbd55fda7806548a20d08b0c11c6a97298713c4236951dad3d7ceabc67",
+      "tokens.resolved.json": "93f393e0107ea5d6fd6889bcbc41c3c4f271a302b11751990ec12e92344d97b5"
     },
     "silver-arrow": {
       "variables.css": "48ef030314a694c659271ccb3f820507093a911c535b21b23aa80aa305121830",

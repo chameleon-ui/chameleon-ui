@@ -108,11 +108,16 @@ export function Calendar({
               day === null ? (
                 <span key={`blank-${weekIndex}-${dayIndex}`} className="cu-calendar__blank" role="gridcell" aria-hidden="true" />
               ) : (
-                <span key={day} className="cu-calendar__cell" role="gridcell">
+                <span
+                  key={day}
+                  className="cu-calendar__cell"
+                  role="gridcell"
+                  aria-selected={value === toISODate(view.year, view.month, day)}
+                >
                   <button
                     type="button"
                     className="cu-calendar__day"
-                    aria-selected={value === toISODate(view.year, view.month, day)}
+                    aria-label={toISODate(view.year, view.month, day)}
                     onClick={() => onSelect?.(toISODate(view.year, view.month, day))}
                   >
                     {dayFormat.format(day)}

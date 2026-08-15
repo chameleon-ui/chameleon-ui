@@ -45,6 +45,12 @@
       "required": false,
       "description": "Accessible label for the sidebar region.",
       "default": "Sidebar"
+    },
+    "landmarks": {
+      "type": "boolean",
+      "required": false,
+      "description": "When false, header/main are plain divs for nested demos. Default true.",
+      "default": true
     }
   },
   "variants": [],

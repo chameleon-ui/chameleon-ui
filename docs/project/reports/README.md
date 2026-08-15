@@ -28,7 +28,8 @@
 - [`盲测结果.pending.json`](./盲测结果.pending.json)（`status=not_run`，`rate=null`，`pipelineStatus=ready_for_humans`；禁止手写 %）
 - [`schemas/blind-test-result.schema.json`](./schemas/blind-test-result.schema.json)
 - [`A9.5-盲测决策-PROTOCOL-READY.md`](./A9.5-盲测决策-PROTOCOL-READY.md) / [`A9.5-decision.json`](./A9.5-decision.json)（0.1.9：非 waive）
-- [`Phase-9-VPAT-status.md`](./Phase-9-VPAT-status.md)（published-internal；commercialClaimsAllowed=false；Not a third-party CAB）
+- [`Phase-9-VPAT-status.md`](./Phase-9-VPAT-status.md)（published-internal；commercialClaimsAllowed=false；submissionPackReady=true；Not a third-party CAB）
+- [`2026-08-15-a11y-cab-submission-pack.md`](./2026-08-15-a11y-cab-submission-pack.md) / [`2026-08-15-a11y-cab-evidence.json`](./2026-08-15-a11y-cab-evidence.json) / [`2026-08-15-a11y-cab-blocker.md`](./2026-08-15-a11y-cab-blocker.md)（CAB 提交包；无假证书）
 - [`2026-08-15-theme-quantification.md`](./2026-08-15-theme-quantification.md) / [`.json`](./2026-08-15-theme-quantification.json)（8 主题工程量化：design-rules + S3 gzip；`recognition_rate=null`；≠ 认出率）
 
 移交：[`../handover/建设期移交说明书.md`](../handover/建设期移交说明书.md)。

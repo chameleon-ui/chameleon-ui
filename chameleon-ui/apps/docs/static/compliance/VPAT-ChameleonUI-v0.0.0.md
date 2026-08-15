@@ -8,7 +8,8 @@
 **Not certified.** **Not legally signed.** **Not a third-party CAB.**  
 **commercialClaimsAllowed=false** — do not use this file for procurement “certified accessible” storytelling.
 
-Status page (evaluated vs Not Evaluated, claim rules): `docs/project/reports/Phase-9-VPAT-status.md` and `/compliance/VPAT-status.md`.
+Status page (evaluated vs Not Evaluated, claim rules): `docs/project/reports/Phase-9-VPAT-status.md` and `/compliance/VPAT-status.md`.  
+CAB submission pack (evidence only; not a certificate): `docs/project/reports/2026-08-15-a11y-cab-submission-pack.md` (`submissionPackReady=true`, `commercialClaimsAllowed=false`).
 
 This is an engineering draft. It is not an ITI-signed VPAT, not a third-party lab report, and not a Section 508 determination.
 

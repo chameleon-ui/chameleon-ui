@@ -316,7 +316,7 @@ interface PlaygroundProps {
 export function ThreeEndPlayground({ t, locale, theme, onLocale, onTheme, onBack }: PlaygroundProps) {
   return (
     <div className="cu-three-end-playground" data-three-end="playground">
-      <header className="cu-three-end-chrome">
+      <div className="cu-three-end-chrome" role="region" aria-label={t('demo.threeEndTitle')}>
         <Stack gap="2">
           <Stack align="center" direction="row" gap="2" justify="between">
             <div>
@@ -364,7 +364,7 @@ export function ThreeEndPlayground({ t, locale, theme, onLocale, onTheme, onBack
             </Typography>
           ) : null}
         </Stack>
-      </header>
+      </div>
 
       <div className="cu-three-end-live" data-three-end="live">
         <ThreeEndStage t={t} end="phone" />

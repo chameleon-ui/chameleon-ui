@@ -14,9 +14,9 @@ describe('Statistic', () => {
     expect(element).toHaveAttribute('data-ai-state', 'up')
   })
 
-  it('exposes the trend as an accessible label, not color alone', () => {
+  it('exposes the trend as accessible text, not color alone', () => {
     render(<Statistic label="Revenue" value="$12k" trend="down" trendLabel="Trending down" />)
-    expect(screen.getByLabelText('Trending down')).toBeInTheDocument()
+    expect(screen.getByText('Trending down')).toBeInTheDocument()
   })
 
   it('reads bundled locale messages', () => {

@@ -22,10 +22,13 @@ export function Tabs({ items, defaultValue, value, onChange, className }: TabsPr
   return (
     <TabsPrimitive.Root
       className={classes}
-      data-ai-role="tabs" data-ai-intent="switch-view"
+      data-ai-role="tabs"
+      data-ai-intent="switch-view"
       data-ai-state={value ?? defaultValue ?? items[0]?.value ?? 'default'}
       defaultValue={defaultValue}
       value={value}
+      lazyMount={false}
+      unmountOnExit={false}
       onValueChange={(details) => onChange?.(details.value)}
     >
       <TabsPrimitive.List className="cu-tabs__list">

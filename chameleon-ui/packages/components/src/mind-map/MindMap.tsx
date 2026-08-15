@@ -77,7 +77,7 @@ export function MindMap({ root, label, className }: MindMapProps) {
         />
       ))}
       {positioned.map(({ node, x, y }) => (
-        <FlowNode key={node.id} id={node.id} x={x} y={y} title={node.label} />
+        <FlowNode key={node.id} id={node.id} x={x} y={y} title={node.label} role="treeitem" />
       ))}
     </div>
   )
