@@ -210,6 +210,7 @@ import { ThemeProvider } from '@chameleon-ui/vue'
 
 ## 参考
 
+- Token 工作原理（编译 / 引用 / overlay / `$extends`）：[`token-system.md`](./token-system.md)
 - 官方主题示例：`packages/themes/src/line/`（最小）、`packages/themes/src/cupertino/`（含 `effects.css`）
 - core token 权威源：`packages/tokens/src/core/*.json`
 - 主题包文档：[`packages/themes/README.md`](../../packages/themes/README.md)

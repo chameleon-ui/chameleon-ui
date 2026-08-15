@@ -62,3 +62,8 @@ pnpm --filter @chameleon-ui/tokens test
 ## 权威来源
 
 设计师的 token 权威源在 `src/core/*`；主题只能以 **overlay** 消费或覆盖，不能复制一份 core 权威源。
+
+## 原理文档
+
+Token 系统如何编译、解析引用、检测环、以及 overlay / `$extends` 如何继承，见 [**docs/theming/token-system.md**](../../docs/theming/token-system.md)。
+
