@@ -25,10 +25,10 @@ P3  [x] T3.1 design-rules v1.0 + validate-rules（8/8 schema）
     [x] T3.6 Vue 子集：primitives-vue + components-vue（Button / Input）
     [x] ci:phase3 = ci:phase2 + phase3:gates（本机绿 2026-08-13）
     [x] M3 living 报告（工程本地）
-    [ ] T3.3 生手 10 分钟计时脚本（流程可走；未做真人计时，不宣称达标）— 仍开；无后续阶段 DoD 承接，禁止宣称 A3.3 时间条
+    [ ] T3.3 生手 10 分钟计时 — 秒表脚本已落地 `scripts/novice-timing.mjs`（写 `Phase-3-novice-timing.pending.json`）；**真人未跑**，禁止宣称 ≤10 分钟
     [ ] T3.7 盲测 / 「一眼认出 ≥80%」（禁止宣称）— moved to PHASE9 T9.5；harness 已落地 `/?view=blind`；真人未跑，`盲测结果.pending.json` `rate=null`，保持 `[ ]`
     [x] T3.8 VPAT 草稿 — P4 landed `apps/docs/static/compliance/VPAT-ChameleonUI-v0.0.0.md` status=draft；正式 published → PHASE9 T9.2
-    [ ] T3.10 接口说明书全量（Registry HTTP 见 registry-private README）— 仍仅私有 Registry HTTP；全量未补
+    [x] T3.10 接口说明书 — [`Phase-3-接口说明书.md`](../docs/project/reports/Phase-3-接口说明书.md) 覆盖 CLI / MCP / install-core / 私有 Registry HTTP；公网 API 仍未做
     [ ] R1–R3 Lighthouse（禁止伪造）— moved to PHASE9 T9.1（LEGACY-2026-001…003）
     [x] 官方 8 套致敬主题：所有者已确认（2026-08-13）；免费出货
 ```
@@ -67,9 +67,9 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/registry-private test
 
 ## 明确未做（禁止伪造）
 
-- T3.3 生手 10 分钟计时（流程可走；无真人计时录像）
+- T3.3 真人生手计时录像（秒表脚本 ≠ 达标）
 - T3.7 盲测 / 「一眼认出 ≥80%」（→ P9 T9.5；harness 已落地，真人结果 pending，禁止手写 %）
-- T3.10 接口说明书全量（仅私有 Registry HTTP README）
+- 公网 OpenAPI / IdP SSO / mTLS（T3.10 工程说明书已覆盖本地 CLI/MCP/私有 Registry）
 - R1–R3 Lighthouse（→ P9 T9.1，LEGACY-2026-001…003）
 - Vue 扩面 2→≥20（仍 Button + Input → P6 A6.6）
 - AG-UI 协议认证（P3 以 A2UI 满足「至少一方」；P8 POC ≠ 认证）
@@ -84,8 +84,8 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/registry-private test
 - [x] 企业演示可演示「关闭遥测」— 默认关；`CU_TELEMETRY=1` 才挂钩
 - [x] 无市场假页面 — P3 未做假市场；真市场在 P4 `apps/market`
 - [x] Vue S1 按子集合计过门禁
-- [ ] T3.3 生手计时 — 不挡工程本地 M3，禁止宣传达标
-- [ ] T3.10 接口说明书全量 — 不挡工程本地 M3
+- [ ] T3.3 真人生手计时 — 不挡工程本地 M3，禁止宣传达标（脚本已有）
+- [x] T3.10 接口说明书（工程本地表面）— [`Phase-3-接口说明书.md`](../docs/project/reports/Phase-3-接口说明书.md)
 
 ## 其它阶段
 
