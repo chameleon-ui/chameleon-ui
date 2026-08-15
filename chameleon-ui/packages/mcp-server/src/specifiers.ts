@@ -58,7 +58,7 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       printViteVue: 'node ./scripts/link-external.mjs --print-vite-vue',
       packTarballs: 'node ./scripts/pack-external.mjs',
       packTarballsVue: 'node ./scripts/pack-external.mjs --vue',
-      note: 'Packages are 0.1.0 and unpublished. workspace:* only works inside this pnpm workspace. React: link all five runtime packages (do not link only @chameleon-ui/components). Vue: link tokens, i18n, primitives-vue, themes, components-vue.',
+      note: 'Packages are 0.1.9 and unpublished. workspace:* only works inside this pnpm workspace. React: link all five runtime packages (do not link only @chameleon-ui/components). Vue: link tokens, i18n, primitives-vue, themes, components-vue.',
     },
     versionMatrix: {
       node: '>=20.19.0',

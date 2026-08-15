@@ -23,7 +23,7 @@ Do not add a second copy/install path.
 
 ## Version and publish
 
-- First public tag: `v0.1.0` (packages are `0.1.0`; this repo still does not npm publish).
+- First public tag: `v0.1.9` (packages are `0.1.9`; this repo still does not npm publish).
 - Manual git tag, not Changesets. `pnpm publish -r` is for non-private packages only.
 - Do **not** run `npm publish` / `pnpm publish` from this machine until maintainers
   freeze the version. Use `pnpm publish:check` for the local plan.
