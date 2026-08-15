@@ -1,5 +1,7 @@
 # Chameleon UI
 
+> **简体中文 · [English](README.en.md) · [繁體中文（香港）](README.zh-HK.md) · [العربية](README.ar.md)**
+
 **AI-native, headless-first, three-end（390/768/1280）, cross-framework design system for React and Vue.**
 
 Chameleon UI 是一套面向 AI 时代的设计系统。它以 **headless（无头）原语**为基础，在同一套 token、契约与架构之上，为 **React 19** 与 **Vue 3.5** 提供完整一致的组件库，并实现**三端一体**（手机 / 平板 / 桌面自适应）。同时通过契约驱动、MCP 与协议适配器，让 **AI 代理（agent）可以"理解"并可靠地组装或安装组件**。
@@ -113,6 +115,7 @@ node ./scripts/link-external.mjs --vue --apply
 | `@chameleon-ui/adapter-ag-ui` | AG-UI 协议适配（**POC**，非正式支持） |
 | `@chameleon-ui/adapter-mcp-apps` | MCP Apps（SEP-1865）协议适配（**POC**） |
 | `@chameleon-ui/market-service` | 主题市场 / 社区纪律包服务 |
+| `@chameleon-ui/utils` | 通用工具（PNG/图像基本操作，纯 JS 零原生依赖） |
 
 ---
 
@@ -156,6 +159,8 @@ Chameleon UI 的核心体验是**一套组件自动适配三种视口**——390
 | `line` | **视觉旗舰**（产品默认外观） |
 | `silver-arrow` `stuttgart` `corsa` `cupertino` `siren` `wechat` `ant-blue` | 致敬覆盖层 |
 | `community-focus-first` | 社区纪律包（`registry:rules`）种子 |
+
+> **状态说明**：`line` 是**唯一经过完整验证的视觉旗舰**（默认外观、作为产品标准）。其余 8 套致敬覆盖层仍在打磨中，可作为灵感与探索使用；如需一个可靠的默认主题，请用 `line`。
 
 - **Token 系统是如何工作**：从 DTCG 权威源到 `--cu-*` 编译、引用解析、环检测与 overlay/`$extends` 继承机制，见 [**Token 工作原理**](./docs/theming/token-system.md)。
 - 想添加自己的主题？主题是 **overlay**（只覆盖 core token 子集）。分步教程：[**创建自定义主题**](./docs/theming/creating-a-theme.md)。
