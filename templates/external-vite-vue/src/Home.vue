@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Button, Card, Stack, useToast } from '@chameleon-ui/components-vue'
+import { Button, Card, Stack, useToast } from '@chameleon-ui/vue'
 
 const emit = defineEmits<{
   open: []

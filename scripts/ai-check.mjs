@@ -28,6 +28,8 @@ const CANONICAL_THEME_CSS = '@chameleon-ui/themes/cupertino/css'
 const CANONICAL_TOKENS_CSS = '@chameleon-ui/tokens/css'
 const UNEXPORTED_THEME_CSS = '@chameleon-ui/themes/cupertino/variables.css'
 const COMPONENTS_IMPORT = 'from "@chameleon-ui/components"'
+const UMBRELLA_REACT_IMPORT = 'from "@chameleon-ui/react"'
+const UMBRELLA_REACT_CSS = '@chameleon-ui/react/css'
 
 const problems = []
 
@@ -121,16 +123,18 @@ async function checkMcpAndAgents() {
 
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_THEME_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_TOKENS_CSS)
+  mustContain('chameleon-ui/AGENTS.md', agents, UMBRELLA_REACT_IMPORT)
+  mustContain('chameleon-ui/AGENTS.md', agents, UMBRELLA_REACT_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, COMPONENTS_IMPORT)
   mustContain('chameleon-ui/AGENTS.md', agents, 'workspace:*')
   mustContain('chameleon-ui/AGENTS.md', agents, 'NEVER')
-  mustContain('docs/ai/agent-consume.md', consume, CANONICAL_THEME_CSS)
+  mustContain('docs/ai/agent-consume.md', consume, UMBRELLA_REACT_CSS)
   mustContain('docs/ai/agent-consume.md', consume, 'mcpServers')
   mustContain('packages/mcp-server/README.md', mcpReadme, 'mcpServers')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, '"version": "1.0"')
   mustContain('docs/ai/schema-renderer.md', schemaDoc, 'SchemaRenderer')
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, CANONICAL_THEME_CSS)
-  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, COMPONENTS_IMPORT)
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, UMBRELLA_REACT_CSS)
+  mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, UMBRELLA_REACT_IMPORT)
   mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'mcpServers')
   mustContain('apps/docs/docs/guides/for-agents.mdx', forAgents, 'NavigationBar')
 
@@ -167,8 +171,8 @@ async function checkInstallDocs() {
     const text = await readUtf8(relative)
     mustContain(relative, text, CANONICAL_THEME_CSS)
     mustContain(relative, text, CANONICAL_TOKENS_CSS)
-    mustContain(relative, text, COMPONENTS_IMPORT)
-    mustContain(relative, text, 'npm link @chameleon-ui/tokens')
+    mustContain(relative, text, UMBRELLA_REACT_IMPORT)
+    mustContain(relative, text, 'npm link @chameleon-ui/react')
     if (!heading.test(text)) fail(`${relative} must have an external-app section (${heading})`)
     if (!unexportedCssIsWarned(text) && text.includes(UNEXPORTED_THEME_CSS)) {
       fail(`${relative} shows unexported CSS without a warning`)

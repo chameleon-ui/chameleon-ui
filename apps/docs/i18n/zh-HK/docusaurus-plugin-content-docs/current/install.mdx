@@ -22,38 +22,48 @@ chameleon add input
 
 ## 主題 CSS
 
-推薦：
+推薦（umbrella，含 tokens + density + `line`）：
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/react/css";
+// Vue: import "@chameleon-ui/vue/css";
+```
+
+也合法（分檔）：
+
+```ts
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
 
-`@chameleon-ui/themes/dist/cupertino/variables.css` 與 `@chameleon-ui/tokens/dist/css/variables.css` 也已列入包 `exports`（`./dist/*`），與上面指向同一檔。不要使用未匯出的路徑。
+其它致敬主題可換成 `@chameleon-ui/themes/cupertino/css` 等。`@chameleon-ui/themes/dist/line/variables.css` 與 `@chameleon-ui/tokens/dist/css/variables.css` 也已列入包 `exports`（`./dist/*`），與上面指向同一檔。不要使用未匯出的路徑。
 
-## 本地 npm link（發布前）
+## 本地安裝（發布前）
 
-包版本是 `0.1.9`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：React 為 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 為 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 會失敗。
+包版本是 `0.1.9`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程優先裝 **一個 umbrella**：
 
 ```bash
 cd chameleon-ui
-node ./scripts/link-external.mjs --apply
+node ./scripts/pack-external.mjs
 # 外部工程：
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+# 或：
+node ./scripts/link-external.mjs --apply
+npm link @chameleon-ui/react
 ```
 
-發布預案：首發 git tag `v0.1.9`（owner **待指定**）；`pnpm publish -r` 時 pnpm 把 `workspace:*` 改成版本號。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
+Vue：`pack-external.mjs --vue` / `npm link @chameleon-ui/vue`。舊五包：`--legacy-five`。模板自檢：`pnpm verify:external`。
+
+發布預案：首發 git tag `v0.1.9`（owner **待指定**）；`pnpm publish -r` 時 pnpm 把 `workspace:*` 改成版本號。在此之前不要假定 registry 上能 `npm install @chameleon-ui/react`。
 
 ## 外部工程（非 pnpm workspace）
 
 給 **npm / yarn / 獨立 Vite 應用** 複製。不要把 `"workspace:*"` 寫進外部 `package.json`。編碼 Agent 讀 [編碼 Agent 整合](./guides/for-agents.mdx) 與 `chameleon-ui/AGENTS.md`，寫 import 前調用 MCP `get_import_specifiers`。
 
 ```tsx
-import "@chameleon-ui/themes/cupertino/css";
-import "@chameleon-ui/tokens/css";
-import "@chameleon-ui/tokens/density.css";
-import { Alert, Button, Card } from "@chameleon-ui/components";
+import "@chameleon-ui/react/css";
+import { Alert, Button, Card } from "@chameleon-ui/react";
 
 export function App() {
   return (
@@ -65,7 +75,7 @@ export function App() {
 }
 ```
 
-CSS 用 `@chameleon-ui/themes/cupertino/css`。不要使用未匯出的 `@chameleon-ui/themes/cupertino/variables.css`。`dist/` 別名可以，但不是首選。
+CSS 優先 `@chameleon-ui/react/css`。分檔可用 `@chameleon-ui/themes/line/css`（或 `@chameleon-ui/themes/cupertino/css` 等）。不要使用未匯出的 `@chameleon-ui/themes/*/variables.css`。`dist/` 別名可以，但不是首選。
 
 ## 環境
 

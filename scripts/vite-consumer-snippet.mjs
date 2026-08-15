@@ -29,16 +29,12 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
     dedupe: ['react', 'react-dom', '@ark-ui/react', 'intl-messageformat'],
-    // Last-resort aliases if a file: install fails CSS exports. Prefer the
-    // official specifiers first:
+    // Prefer the umbrella CSS entry:
+    //   import "@chameleon-ui/react/css"
+    // Theme-specific CSS remains valid:
     //   @chameleon-ui/themes/<id>/css
     //   @chameleon-ui/tokens/css
     //   @chameleon-ui/tokens/density.css
-    // alias: {
-    //   '@chameleon-ui/themes/cupertino/css': path.join(chameleonRoot, 'packages/themes/dist/cupertino/variables.css'),
-    //   '@chameleon-ui/tokens/css': path.join(chameleonRoot, 'packages/tokens/dist/css/variables.css'),
-    //   '@chameleon-ui/tokens/density.css': path.join(chameleonRoot, 'packages/tokens/dist/css/density.css'),
-    // },
   },
 })
 `
@@ -79,11 +75,12 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
     dedupe: ['vue', '@ark-ui/vue', 'intl-messageformat'],
-    // Last-resort aliases if a file: install fails CSS exports. Prefer:
+    // Prefer the umbrella CSS entry:
+    //   import "@chameleon-ui/vue/css"
+    // Theme-specific CSS remains valid:
     //   @chameleon-ui/themes/<id>/css
     //   @chameleon-ui/tokens/css
     //   @chameleon-ui/tokens/density.css
-    //   @chameleon-ui/components-vue/css
   },
 })
 `

@@ -22,38 +22,48 @@ The copy button only puts that command on the clipboard. Docs never writes files
 
 ## Theme CSS
 
-Preferred:
+Preferred (umbrella — tokens + density + `line`):
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/react/css";
+// Vue: import "@chameleon-ui/vue/css";
+```
+
+Also valid (split files):
+
+```ts
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
 
-`@chameleon-ui/themes/dist/cupertino/variables.css` and `@chameleon-ui/tokens/dist/css/variables.css` are also in package `exports` (`./dist/*`) and resolve to the same files. Do not use an unexported path.
+Other homage ids work as `@chameleon-ui/themes/cupertino/css`, etc. `@chameleon-ui/themes/dist/line/variables.css` and `@chameleon-ui/tokens/dist/css/variables.css` are also in package `exports` (`./dist/*`) and resolve to the same files. Do not use an unexported path.
 
-## Local npm link (before publish)
+## Local install (before publish)
 
-Packages are `0.1.9`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components` (React) or `tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (Vue). Linking only `components` / `components-vue` fails.
+Packages are `0.1.9`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. Prefer **one umbrella** for external npm apps:
 
 ```bash
 cd chameleon-ui
-node ./scripts/link-external.mjs --apply
+node ./scripts/pack-external.mjs
 # in the external app:
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+# or:
+node ./scripts/link-external.mjs --apply
+npm link @chameleon-ui/react
 ```
 
-Publish plan: first git tag `v0.1.9` (owner 待指定). `pnpm publish -r` rewrites `workspace:*` to versions. Until then, do not assume `npm install @chameleon-ui/components` works from the public registry.
+Vue: `pack-external.mjs --vue` / `npm link @chameleon-ui/vue`. Legacy five-pack: `--legacy-five`. Template check: `pnpm verify:external`.
+
+Publish plan: first git tag `v0.1.9` (owner 待指定). `pnpm publish -r` rewrites `workspace:*` to versions. Until then, do not assume `npm install @chameleon-ui/react` works from the public registry.
 
 ## External app (not a pnpm workspace)
 
 Copy this into an **npm / yarn / standalone Vite** app. Never put `"workspace:*"` in the consumer `package.json`. Agents must follow [Agent integration](./guides/for-agents.mdx) and `chameleon-ui/AGENTS.md`, and call MCP `get_import_specifiers` before writing imports.
 
 ```tsx
-import "@chameleon-ui/themes/cupertino/css";
-import "@chameleon-ui/tokens/css";
-import "@chameleon-ui/tokens/density.css";
-import { Alert, Button, Card } from "@chameleon-ui/components";
+import "@chameleon-ui/react/css";
+import { Alert, Button, Card } from "@chameleon-ui/react";
 
 export function App() {
   return (
@@ -65,7 +75,7 @@ export function App() {
 }
 ```
 
-CSS must be `@chameleon-ui/themes/cupertino/css`. Do not use the unexported `@chameleon-ui/themes/cupertino/variables.css`. The `dist/` alias works; it is not preferred.
+Prefer `@chameleon-ui/react/css`. Split files may use `@chameleon-ui/themes/line/css` (or `@chameleon-ui/themes/cupertino/css`, etc.). Do not use the unexported `@chameleon-ui/themes/*/variables.css`. The `dist/` alias works; it is not preferred.
 
 ## Environment
 
@@ -73,7 +83,7 @@ Node **≥ 20.19**, pnpm **9.15.0**. Publishable packages declare `engines.node`
 
 ## Dual track and external Vite
 
-Pick package-five or `chameleon add` — not both half-done. Windows Vite (`preserveSymlinks`, `dedupe`, `fs.allow`) lives in `templates/external-vite-react` and `templates/external-vite-vue`. Full checklist: [External consume](./guides/consume.mdx).
+Pick the umbrella package (or legacy five) or `chameleon add` — not both half-done. Windows Vite (`preserveSymlinks`, `dedupe`, `fs.allow`) lives in `templates/external-vite-react` and `templates/external-vite-vue`. Full checklist: [External consume](./guides/consume.mdx).
 
 ```bash
 node ./scripts/link-external.mjs --print-vite

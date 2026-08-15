@@ -9,7 +9,7 @@ import {
   ToastProvider,
   useTabStacks,
   useToast,
-} from '@chameleon-ui/components'
+} from '@chameleon-ui/react'
 
 const tabs = [
   { value: 'home', title: 'Home' },

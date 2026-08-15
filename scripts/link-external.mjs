@@ -1,13 +1,16 @@
 /**
  * Print (default) or apply `npm link` for runtime packages an external
- * non-pnpm app needs. `workspace:*` is a pnpm protocol: linking only
- * `@chameleon-ui/components` (or `components-vue`) fails because npm cannot
- * fetch `workspace:*`.
+ * non-pnpm app needs. Default path is the **umbrella** package
+ * (`@chameleon-ui/react` / `--vue` → `@chameleon-ui/vue`). Underlying five
+ * packages are still linked so `workspace:*` inside the monorepo resolves.
+ *
+ * Legacy five-only consumer link: `--legacy-five`.
  *
  * Usage (from chameleon-ui/):
  *   node ./scripts/link-external.mjs
  *   node ./scripts/link-external.mjs --apply
  *   node ./scripts/link-external.mjs --vue --apply
+ *   node ./scripts/link-external.mjs --legacy-five --apply
  *   node ./scripts/link-external.mjs --print-vite
  *   node ./scripts/link-external.mjs --print-vite-vue
  */
@@ -26,15 +29,17 @@ const apply = process.argv.includes('--apply')
 const printVite = process.argv.includes('--print-vite')
 const printViteVue = process.argv.includes('--print-vite-vue')
 const vue = process.argv.includes('--vue')
+const legacyFive = process.argv.includes('--legacy-five')
 
 const runtimePackages = vue
   ? ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue']
   : ['tokens', 'i18n', 'primitives', 'themes', 'components']
+const umbrellaName = vue ? 'vue' : 'react'
+const umbrellaSpec = `@chameleon-ui/${umbrellaName}`
 
 const packageVersion = JSON.parse(
-  await readFile(join(root, 'packages', runtimePackages.at(-1), 'package.json'), 'utf8'),
+  await readFile(join(root, 'packages', umbrellaName, 'package.json'), 'utf8'),
 ).version
-
 
 function npmCommand() {
   return process.platform === 'win32' ? 'npm.cmd' : 'npm'
@@ -65,20 +70,25 @@ if (printVite) {
   process.exit(0)
 }
 
-const dirs = runtimePackages.map((name) => ({
+const linkNames = legacyFive ? [...runtimePackages] : [...runtimePackages, umbrellaName]
+const dirs = linkNames.map((name) => ({
   name,
   dir: join(root, 'packages', name),
   spec: `@chameleon-ui/${name}`,
 }))
 
-const order = vue
-  ? 'tokens → i18n → primitives-vue → themes → components-vue'
-  : 'tokens → i18n → primitives → themes → components'
+const order = legacyFive
+  ? vue
+    ? 'tokens → i18n → primitives-vue → themes → components-vue'
+    : 'tokens → i18n → primitives → themes → components'
+  : vue
+    ? 'tokens → i18n → primitives-vue → themes → components-vue → vue'
+    : 'tokens → i18n → primitives → themes → components → react'
 
 console.log(
   apply
     ? `link-external: npm link in dependency order (${order})`
-    : 'link-external: print only. Pass --apply to run npm link in each package. Pass --vue for the Vue graph.',
+    : 'link-external: print only. Pass --apply to run npm link in each package. Pass --vue for the Vue graph. Pass --legacy-five for five-only (no umbrella).',
 )
 
 for (const item of dirs) {
@@ -91,12 +101,20 @@ for (const item of dirs) {
 }
 
 console.log('')
-console.log('In the external app (npm, not a pnpm workspace), link every package:')
-console.log(`  npm link ${dirs.map((item) => item.spec).join(' ')}`)
-if (vue) {
-  console.log('Do not link only @chameleon-ui/components-vue. After npm publish, install from npm instead.')
+if (legacyFive) {
+  console.log('In the external app (npm, not a pnpm workspace), link every package:')
+  console.log(`  npm link ${dirs.map((item) => item.spec).join(' ')}`)
+  if (vue) {
+    console.log('Do not link only @chameleon-ui/components-vue. After npm publish, install from npm instead.')
+  } else {
+    console.log('Do not link only @chameleon-ui/components. After npm publish, install from npm instead.')
+  }
 } else {
-  console.log('Do not link only @chameleon-ui/components. After npm publish, install from npm instead.')
+  console.log('In the external app (npm, not a pnpm workspace), link the umbrella only:')
+  console.log(`  npm link ${umbrellaSpec}`)
+  console.log(
+    `(Underlying five packages were still registered globally so monorepo workspace:* resolves.)`,
+  )
 }
 console.log('')
 console.log('Pin these versions at the app root (peer matrix):')
@@ -118,7 +136,9 @@ console.log('  Vue:   templates/external-vite-vue')
 console.log('Print a Windows-ready vite.config.ts:')
 console.log('  node ./scripts/link-external.mjs --print-vite')
 console.log('  node ./scripts/link-external.mjs --print-vite-vue')
-console.log('Tarball path (first-class pre-registry): node ./scripts/pack-external.mjs   # add --vue for Vue graph')
+console.log(
+  'Tarballs (one umbrella by default): node ./scripts/pack-external.mjs   # add --vue; --legacy-five for five-pack',
+)
 console.log('Verify templates: node ./scripts/verify-external-templates.mjs   # add --build for vite build')
 if (!apply) {
   console.log('Dry run finished. Re-run with --apply to register the global links.')

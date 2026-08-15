@@ -41,8 +41,8 @@
 | `scripts/phase9-gates.mjs` | `phase9:gates`：lhci 生成物 · VPAT 文件 · VPAT published-internal 状态页 · 盲测 A9.5 PROTOCOL-READY（rate=null）· 缺口表存在 · `publish:check` 干跑 |
 | `scripts/perf-lhci.mjs` | `perf:lhci`：本地 Lighthouse 测 demo `:4175/?view=suite`；失败则写 unmeasured 生成物，禁止手写分数 |
 | `scripts/check-publish-ready.mjs` | `publish:check` 干跑：可发包 MIT/`engines.node`/`exports` CSS 别名；不 npm publish |
-| `scripts/link-external.mjs` | 外部 npm 工程须全量 `npm link`（`workspace:*` 不能只 link `components`）；`--print-vite` / `--print-vite-vue`；`--vue` |
-| `scripts/pack-external.mjs` | 打五包 tarball 到 `dist-tarballs/`（pre-registry 一等路径）；`--vue` |
+| `scripts/link-external.mjs` | 默认注册 umbrella（仍先 link 底层五包）；`--legacy-five` 仅五包；`--print-vite` / `--print-vite-vue`；`--vue` |
+| `scripts/pack-external.mjs` | 默认打 umbrella fat tarball（`@chameleon-ui/react` / `--vue` → `@chameleon-ui/vue`）到 `dist-tarballs/`；`--legacy-five` 旧五包 |
 | `scripts/verify-external-templates.mjs` | 官方 `templates/external-vite-*` 对 workspace `file:` 做 typecheck（`--build` 含 vite build） |
 | `../.github/workflows/phase0-ci.yml` | PR/推送门禁：冻结安装后执行 `ci:phase4`（含 `ci:phase3`） |
 | `../docs/project/phases/Phase-4-v2.0.md` | Phase 4 目标卡 |
@@ -66,6 +66,8 @@
 | `primitives-vue` | `@chameleon-ui/primitives-vue` | Vue Ark/Zag 薄封装；`components-vue` 禁止直接依赖 `@ark-ui/*` |
 | `components` | `@chameleon-ui/components` | React 主包；权威契约在 `src/<kebab>/contract.json`；冻结清单 `catalog.json` |
 | `components-vue` | `@chameleon-ui/components-vue` | Vue catalog 103/103 + ThemeProvider；包装 `primitives-vue`、`tokens`、`i18n` |
+| `react` | `@chameleon-ui/react` | **消费方 umbrella**：一包依赖 tokens/i18n/primitives/themes/components；再导出 components + `./css` |
+| `vue` | `@chameleon-ui/vue` | **消费方 umbrella**：一包依赖 tokens/i18n/primitives-vue/themes/components-vue；再导出 + `./css` |
 | `install-core` | `@chameleon-ui/install-core` | **唯一写盘内核**：C6 依赖图 / 冲突检测 / 幂等写入；遥测默认关；`source` = `cli` \| `mcp` \| `docs` \| `market` |
 | `registry` | `@chameleon-ui/registry` | 目录；CLI/MCP/Bench 只读；不写盘。无 `CU_REGISTRY_URL` 时用 bundled；有 URL 则 HTTP 客户端 |
 | `registry-private` | `@chameleon-ui/registry-private` | 私有 Registry **服务**（`private: true`）：同 `RegistryItem` schema；Bearer Token；namespace + semver。默认 `127.0.0.1`。不写盘 |

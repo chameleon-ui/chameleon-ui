@@ -16,13 +16,23 @@ SSOT for agents: this file. Product spec: docs site **编码 Agent 集成** (`ap
 
 ## CSS (copy exactly)
 
-Preferred:
+Preferred (umbrella — tokens + density + flagship `line`):
+
+```ts
+import "@chameleon-ui/react/css";
+// Vue:
+import "@chameleon-ui/vue/css";
+```
+
+Also valid (same files, theme-specific):
 
 ```ts
 import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
+
+Homage example (same pattern): `@chameleon-ui/themes/cupertino/css`.
 
 Also valid (same files): `@chameleon-ui/themes/dist/line/variables.css`, `@chameleon-ui/tokens/dist/css/variables.css`.
 
@@ -34,28 +44,32 @@ Before writing imports, call MCP `get_import_specifiers`.
 
 ## JS
 
-React (primary):
+React (preferred — one package):
 
 ```ts
-import { Button, Card, Table } from "@chameleon-ui/components";
+import { Button, Card, Table, ThemeProvider } from "@chameleon-ui/react";
 ```
 
-Vue catalog (`@chameleon-ui/components-vue` — 103/103 catalog slugs + ThemeProvider):
+Also valid (underlying package): `from "@chameleon-ui/components"`.
+
+Vue catalog (preferred — one package; 103/103 + ThemeProvider):
 
 ```ts
-import { AppShell, Button, Navigation, NavigationBar, ThemeProvider } from "@chameleon-ui/components-vue";
+import { AppShell, Button, Navigation, NavigationBar, ThemeProvider } from "@chameleon-ui/vue";
 ```
+
+Also valid: `from "@chameleon-ui/components-vue"`.
 
 Named exports are PascalCase. Slugs are kebab-case (`data-grid` → `DataGrid`).
 
-Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also ships `@chameleon-ui/components-vue/css`.
+Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also ships `@chameleon-ui/components-vue/css` (already included in `@chameleon-ui/vue/css`).
 
 ## App chrome
 
 Tab controller + per-tab stack. Not a marketing navbar. Same slots in Vue (`#header` / `#navigation`).
 
 ```tsx
-import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/react";
 
 <AppShell
   header={<NavigationBar title={title} backLabel={back} onBack={canPop ? pop : undefined} />}
@@ -72,39 +86,50 @@ import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 
 ## External app (not this pnpm workspace)
 
-Packages are `0.1.9` and **not on npm**. Node ≥ 20.19. Until registry publish, distribution is **file: / npm link / pack-external tarballs** (tarball is first-class).
+Packages are `0.1.9` and **not on npm**. Node ≥ 20.19. Until registry publish, distribution is **file: / npm link / pack-external tarballs** (umbrella tarball is first-class).
 
 ```bash
 cd chameleon-ui
-node ./scripts/link-external.mjs --apply
+node ./scripts/pack-external.mjs
 # in the consumer app:
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
 ```
 
-Vue graph:
+Or link the umbrella:
 
 ```bash
-node ./scripts/link-external.mjs --vue --apply
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @chameleon-ui/themes @chameleon-ui/components-vue
+node ./scripts/link-external.mjs --apply
+# in the consumer app:
+npm link @chameleon-ui/react
 ```
 
-Link **all five** of the chosen graph. Linking only `components` / `components-vue` fails. After npm publish (not done): `npm install` those names instead.
+Vue:
 
-Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Tarballs: `node ./scripts/pack-external.mjs` (`--vue` for the Vue graph). Verify: `node ./scripts/verify-external-templates.mjs` (`--build` for vite build). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+```bash
+node ./scripts/pack-external.mjs --vue
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.1.9.tgz
+# or:
+node ./scripts/link-external.mjs --vue --apply
+npm link @chameleon-ui/vue
+```
+
+Legacy five-pack (compatibility): `node ./scripts/pack-external.mjs --legacy-five` / `link-external.mjs --legacy-five`. Do **not** copy `workspace:*` into the consumer.
+
+Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue` (one umbrella `file:` dep). Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Verify: `node ./scripts/verify-external-templates.mjs` (`--build` for vite build). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
 
 Pin at the consumer root. React: `react@^19` · `@ark-ui/react@5.38.0`. Vue: `vue@^3.5` · `@ark-ui/vue@5.38.1`. Both: `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
 
 ```tsx
-import { ThemeProvider, ToastProvider } from "@chameleon-ui/components";
+import { ThemeProvider, ToastProvider } from "@chameleon-ui/react";
 
 <ThemeProvider theme="line" locale="zh-CN">
   <ToastProvider>{app}</ToastProvider>
 </ThemeProvider>
 ```
 
-Vue: same names from `@chameleon-ui/components-vue`. Product chrome prefers `theme="line"`.
+Vue: same names from `@chameleon-ui/vue`. Product chrome prefers `theme="line"`.
 
-Single theme: also import `@chameleon-ui/themes/<id>/css`. Multi-theme: pass `overlays` (raw CSS) so only `[data-theme]` paints.
+Single theme via umbrella CSS is enough for `line`. Other themes: also import `@chameleon-ui/themes/<id>/css`. Multi-theme: pass `overlays` (raw CSS) so only `[data-theme]` paints.
 
 ## CLI / writes
 
@@ -144,4 +169,4 @@ Attach snippet: `packages/mcp-server/README.md`.
 
 ## SchemaRenderer
 
-Emit `{ "version": "1.0", "root": { "component": "<slug>", "props": {}, "children": [] } }`. Default map is **10 slugs only** (`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`). React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. For `table` / `chart` / `kpi-dashboard`, import from `@chameleon-ui/components` or `@chameleon-ui/components-vue` — do not pretend SchemaRenderer covers the full catalog.
+Emit `{ "version": "1.0", "root": { "component": "<slug>", "props": {}, "children": [] } }`. Default map is **10 slugs only** (`alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`). React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. For `table` / `chart` / `kpi-dashboard`, import from `@chameleon-ui/react` or `@chameleon-ui/vue` — do not pretend SchemaRenderer covers the full catalog.

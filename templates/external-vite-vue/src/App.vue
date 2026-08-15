@@ -7,7 +7,7 @@ import {
   ThemeProvider,
   ToastProvider,
   useTabStacks,
-} from '@chameleon-ui/components-vue'
+} from '@chameleon-ui/vue'
 import Home from './Home.vue'
 
 const tabs = [

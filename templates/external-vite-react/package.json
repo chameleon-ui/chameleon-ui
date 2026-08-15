@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.9",
   "type": "module",
-  "description": "Official Vite 6 + React 19 consumer template for unpublished @chameleon-ui/* (Windows included).",
+  "description": "Official Vite 6 + React 19 consumer template for unpublished @chameleon-ui/react (Windows included).",
   "engines": {
     "node": ">=20.19.0"
   },
@@ -15,11 +15,7 @@
   },
   "dependencies": {
     "@ark-ui/react": "5.38.0",
-    "@chameleon-ui/components": "file:../../packages/components",
-    "@chameleon-ui/i18n": "file:../../packages/i18n",
-    "@chameleon-ui/primitives": "file:../../packages/primitives",
-    "@chameleon-ui/themes": "file:../../packages/themes",
-    "@chameleon-ui/tokens": "file:../../packages/tokens",
+    "@chameleon-ui/react": "file:../../packages/react",
     "@formatjs/icu-messageformat-parser": "3.5.14",
     "intl-messageformat": "11.2.13",
     "react": "19.2.4",

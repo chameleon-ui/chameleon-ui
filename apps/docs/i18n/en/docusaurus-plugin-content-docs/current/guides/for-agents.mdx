@@ -73,32 +73,35 @@ Replace both paths. `CU_TARGET_DIR` is where `install_*` writes. Read-only tools
 Preferred (`preferred` from `get_import_specifiers`):
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
-import "@chameleon-ui/tokens/css";
-import "@chameleon-ui/tokens/density.css";
-import { Button, Card, Table } from "@chameleon-ui/components";
+import "@chameleon-ui/react/css";
+import { Button, Card, Table } from "@chameleon-ui/react";
 ```
 
-Replace `cupertino` with an id from `list_themes`: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
+Also valid (split files / other skins): `@chameleon-ui/themes/line/css`, `@chameleon-ui/tokens/css`, `@chameleon-ui/tokens/density.css`, and the underlying package `from "@chameleon-ui/components"`.
 
-Also valid (same files): `@chameleon-ui/themes/dist/cupertino/variables.css`, `@chameleon-ui/tokens/dist/css/variables.css`.
+Replace the theme id with one from `list_themes`: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
+
+Also valid (same files): `@chameleon-ui/themes/dist/line/variables.css`, `@chameleon-ui/tokens/dist/css/variables.css`.
 
 **Never:** `@chameleon-ui/themes/cupertino/variables.css` (not exported). Importing `tokens/css` without `density.css` leaves density at standard.
 
-Before publish, an external app must **link all five**:
+Before publish, prefer **one umbrella**:
 
 ```bash
 cd chameleon-ui
-node ./scripts/link-external.mjs --apply
+node ./scripts/pack-external.mjs
 # consumer:
-npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
+npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.1.9.tgz
+# or:
+node ./scripts/link-external.mjs --apply
+npm link @chameleon-ui/react
 ```
 
-Linking only `components` fails.
+Vue: `pack-external.mjs --vue` / `npm link @chameleon-ui/vue`. Legacy five-pack: `--legacy-five`.
 
-For Windows + Vite use `templates/external-vite-react` or `node ./scripts/link-external.mjs --print-vite`. Version matrix, height chain, ThemeProvider, dual-track: [External consume](./consume.mdx).
+For Windows + Vite use `templates/external-vite-react` or `templates/external-vite-vue`, or `node ./scripts/link-external.mjs --print-vite` / `--print-vite-vue`. Version matrix, height chain, ThemeProvider, dual-track: [External consume](./consume.mdx).
 
-Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also: `import "@chameleon-ui/components-vue/css"`.
+Optional per-slug: `import { Button } from "@chameleon-ui/components/button"` or `import { Button } from "@chameleon-ui/components-vue/button"`. Vue also: `import "@chameleon-ui/vue/css"`.
 
 ## 5. Contracts and data-ai
 
@@ -134,7 +137,7 @@ Native model: **one tab controller + one navigation stack per tab**. Not website
 | Site / marketing links | — | **Navbar** | **Forbidden** as AppShell chrome |
 
 ```tsx
-import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
+import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/react";
 
 <AppShell
   header={
@@ -166,7 +169,7 @@ Rules:
 
 Package `@chameleon-ui/schema-renderer`. Default map is **10 slugs only**: `alert` `badge` `button` `card` `divider` `empty-state` `heading` `input` `stack` `typography`.
 
-React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. `table` / `chart` / `kpi-dashboard` and the rest of the catalog import from `@chameleon-ui/components` or `@chameleon-ui/components-vue`, or pass a custom `map`. Do not claim full-catalog SchemaRenderer coverage.
+React: `@chameleon-ui/schema-renderer`. Vue: `@chameleon-ui/schema-renderer/vue`. `table` / `chart` / `kpi-dashboard` and the rest of the catalog import from `@chameleon-ui/react` or `@chameleon-ui/vue`, or pass a custom `map`. Do not claim full-catalog SchemaRenderer coverage.
 
 `adapter-ag-ui` is **POC**, not supported. Do not invent `generation_quality` scores; the honest value is `null` without a configured generator.
 
