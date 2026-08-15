@@ -6,7 +6,11 @@
 
 ## 同步说明 2026-08-15（合入检查 ci:phase2 工程链）
 
-本切片复跑 `phase2:gates`（bench + docs:build + publish:check）。完整 `ci:phase2`=ci:phase1+gates 仍依赖本机 VR/perf 全链窗口；合入检查 `完整 ci:phase2` 以 gates 绿 + 脚本可跑为准时勾选。公网 npm / 盲测 / 真机 LHCI 仍 blocked。
+本切片复跑 `phase2:gates`（bench + docs:build + publish:check）绿。完整 `ci:phase2`(=ci:phase1+gates) **未整链绿**：`phase1:gates` 卡在官方 VR Playwright（截图/超时）；`phase2:gates` 本身可独立绿。本地 Lighthouse lab 已复跑入库（R1/R3 measured-local-lab；R2 INP 仍 unmeasured）— **不是**真机/云 LHCI。公网 npm / 盲测 / 真机 LHCI 仍 blocked。
+
+## 同步说明 2026-08-15b（工程 CI 稳定化）
+
+Windows 长链补了 CRLF 归一、docs ContractDoc cast、German expansion、stylelint 排除 `apps/docs/dist`、turbo test concurrency=1 等；`phase2:gates` + `phase9:gates` + `perf:lhci` lab 绿。完整 `ci:phase1`/`ci:phase9` 仍被 VR 全量窗口挡住。
 
 ## 同步说明 2026-08-14
 
@@ -26,9 +30,9 @@ P2  [x] apps/docs（Docusaurus 3 + MDX；文档站 UI = zh-CN / zh-HK / en，有
     [x] LICENSE MIT + CONTRIBUTING + SECURITY
     [x] publishConfig / publish:check（不执行 npm publish）
     [x] 公开 schema 本地路径 /schemas/component-contract/v0.1.json（v0.2 亦拷贝；公网未部署）
-    [x] phase2:gates 本切片绿（2026-08-14：bench 101×8 + docs 3 语 build + publish:check）；完整 ci:phase2=ci:phase1+gates，本切片未重跑 ci:phase1
+    [x] phase2:gates 本切片绿（2026-08-15 复跑：bench + docs 3 语 build + publish:check）；完整 ci:phase2=ci:phase1+gates 仍 **blocked by** phase1 VR Playwright 全量窗口
     [ ] 公网 npm / chameleon-ui.dev 托管 — **blocked by** owner「先不上架」+ npm E403 2FA；见 A9.3-npm-deferred.md（本仓只 publish:check）
-    [ ] R1–R3 Lighthouse 分数（禁止伪造；云 VR 仍待 2026-08-28）— **blocked by** 真机/云 LHCI + INP navigation 口径；本地 lab 生成物在 P9 T9.1
+    [ ] R1–R3 Lighthouse（禁止伪造）— **partial**：本地 lab 已入库（→ P9 T9.1；R1/R3 measured-local-lab；R2 INP open）；**blocked by** 真机/云 LHCI + INP navigation 口径（禁止宣称真机）
     [x] 主题致敬：项目所有者 2026-08-13 确认无法律问题（免费官方主题；非律所意见书）
     [ ] 盲测 / 「一眼认出 ≥80%」（禁止宣称）— **blocked by** ≥5 真人盲测聚合；harness `/?view=blind` + pending `rate=null`；禁止手写 %。Owner 待指定。
 ```
@@ -77,8 +81,8 @@ corepack pnpm@9.15.0 publish:check    # 只打印计划，不执行 npm publish
 - [x] Bench 数字可复现、由 harness 生成（`generation_quality` 诚实 `null`）；文档站链接 `pathname:///bench/latest.json` · `latest.md` · `report.html`（侧栏同 JSON）
 - [x] 公开文档未宣称未做的回流/市场能力；未宣称 21 语文档站
 - [ ] 公网 npm / chameleon-ui.dev — **blocked by** 先不上架 / E403；不挡工程本地 M2
-- [ ] R1–R3 真采样 — **blocked by** 真机/云 LHCI；不挡工程本地 M2
-- [x] 完整 `phase2:gates`（bench + docs:build + publish:check）— 本切片 2026-08-15 复跑绿；完整 `ci:phase2`(=ci:phase1+gates) 仍 **blocked by** 本机长链 VR/perf 全量窗口（脚本已齐）
+- [ ] R1–R3 真采样 — **blocked by** 真机/云 LHCI；本地 lab ≠ 真机；不挡工程本地 M2
+- [x] 完整 `phase2:gates`（bench + docs:build + publish:check）— 2026-08-15 复跑绿；完整 `ci:phase2`(=ci:phase1+gates) 仍 **blocked by** phase1 VR Playwright（非脚本缺失）
 
 ## 其它阶段
 

@@ -5,18 +5,21 @@
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。  
 > M9 验收：[`../docs/project/reports/M9-硬化与发布验收.md`](../docs/project/reports/M9-硬化与发布验收.md)。
 
-## 看板（据树同步 2026-08-15 · 0.1.9 honesty + M9 诚实收口）
+## 看板（据树同步 2026-08-15 · lab LHCI 复跑 + M9 honesty）
 
 ```
-P9  [ ] T9.1 R1–R3 实测 — **partial / blocked by** 真机+云 LHCI + INP numericValue。本地 Lighthouse lab 已入库（R1/R3 measured-local-lab；R2 INP open → LEGACY-2026-002）。禁止手写分数。owner 待指定。A9.1 = 部分。
+P9  [ ] T9.1 R1–R3 实测 — **partial / blocked by** 真机+云 LHCI + INP numericValue。
+        2026-08-15 本地 lab 复跑入库（R1 LCP 663ms / R3 CLS 0 = measured-local-lab；R2 INP open → LEGACY-2026-002）。
+        **禁止**写成真机/云。禁止手写分数。owner 待指定。A9.1 = 部分。
     [ ] T9.2 VPAT 正式 A9.2 — **blocked by** 付费 CAB 签署 ACR；artifact draft / published-internal；commercialClaimsAllowed=false。PDF LEGACY-2026-006。
     [ ] T9.3 npm 首发 A9.3 — **blocked by** owner「先不上架」+ E403 2FA。仅 publish:check；见 A9.3-npm-deferred.md。
     [ ] T9.4 文档 21 语去骨架 — **blocked by** 译员/owner ETA 2026-09-30（LEGACY-004/005/017）；docs UI 有意三语；Blocks 已扩 zh-HK 撰稿。A9.4 deferred
     [ ] T9.5 主题盲测真人聚合 — **blocked by** ≥5 真人盲测；PROTOCOL-READY；pending rate=null；禁止 ≥80%（LEGACY-2026-008）
     [x] T9.6 口号核对表 + M9 收口报告 — Phase-9-口号核对表.md + M9-硬化与发布验收.md（A9.6 关闭）
-    [x] phase9:gates — lhci / VPAT status / 盲测 PROTOCOL-READY / 缺口表 / publish:check 干跑
-        + A9.3 deferred 声明 + 口号核对表 + M9 报告存在性
-    [ ] ci:phase9 完整本机绿（= ci:phase8 + phase9:gates）— **blocked by** 全链时长/本机复跑窗口；脚本已加；硬门禁 phase9:gates；本切片尽量复跑
+    [x] phase9:gates — 2026-08-15 复跑绿（lhci / VPAT status / 盲测 PROTOCOL-READY / 缺口表 / publish:check 干跑
+        + A9.3 deferred 声明 + 口号核对表 + M9 报告存在性）
+    [ ] ci:phase9 完整本机绿（= ci:phase8 + phase9:gates）— **blocked by** 上游 ci:phase1 VR Playwright 全量窗口；
+        硬门禁 `phase9:gates` 本机绿；完整链脚本已齐
 ```
 
 ## 命令
