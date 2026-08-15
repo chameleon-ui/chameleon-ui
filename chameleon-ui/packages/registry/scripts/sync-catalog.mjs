@@ -73,6 +73,11 @@ async function pathExists(target) {
   }
 }
 
+/** Read text with LF endings so Windows CRLF checkouts don't drift registry JSON. */
+async function readTextLf(filePath) {
+  return (await readFile(filePath, 'utf8')).replace(/\r\n/g, '\n')
+}
+
 async function writeItem(kind, item) {
   const directory = path.join(registryRoot, kind)
   await mkdir(directory, { recursive: true })
@@ -82,7 +87,8 @@ async function writeItem(kind, item) {
     if (!(await pathExists(filePath))) {
       throw new Error(`missing registry entry ${kind}/${item.id}.json`)
     }
-    const existing = await readFile(filePath, 'utf8')
+    // Windows checkouts may store CRLF; sync always serializes LF.
+    const existing = await readTextLf(filePath)
     if (existing !== serialized) {
       throw new Error(`registry entry ${kind}/${item.id}.json is stale; run scripts/sync-catalog.mjs`)
     }
@@ -115,7 +121,7 @@ async function buildBlockItem(slug) {
     files: await Promise.all(
       files.map(async (file) => ({
         path: `blocks/${slug}/${file.relativePath}`,
-        content: await readFile(file.fullPath, 'utf8'),
+        content: await readTextLf(file.fullPath),
       })),
     ),
   }
@@ -138,7 +144,7 @@ async function buildComponentItem(component) {
     files: await Promise.all(
       files.map(async (file) => ({
         path: `components/${component.slug}/${file.relativePath}`,
-        content: await readFile(file.fullPath, 'utf8'),
+        content: await readTextLf(file.fullPath),
       })),
     ),
   }
@@ -159,7 +165,7 @@ async function buildThemeItem(themeId) {
     files: await Promise.all(
       files.map(async (file) => ({
         path: `themes/${themeId}/${file.relativePath}`,
-        content: await readFile(file.fullPath, 'utf8'),
+        content: await readTextLf(file.fullPath),
       })),
     ),
   }
@@ -180,7 +186,7 @@ async function buildRulesPackItem(packId) {
     files: await Promise.all(
       files.map(async (file) => ({
         path: `rules/${packId}/${file.relativePath}`,
-        content: await readFile(file.fullPath, 'utf8'),
+        content: await readTextLf(file.fullPath),
       })),
     ),
   }
