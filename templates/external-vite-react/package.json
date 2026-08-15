@@ -9,7 +9,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "build": "tsc --noEmit -p tsconfig.json && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
