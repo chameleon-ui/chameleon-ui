@@ -58,9 +58,13 @@ corepack pnpm@9.15.0 market        # http://127.0.0.1:5178 UI · :8788 API
 corepack pnpm@9.15.0 bench:genui
 corepack pnpm@9.15.0 publish:check
 corepack pnpm@9.15.0 link:external   # 打印外部工程 npm link 全量命令（workspace:* 不能只 link 一个包）
+corepack pnpm@9.15.0 pack:external   # 打运行时 tarball 到 dist-tarballs/（非 npm publish）
+corepack pnpm@9.15.0 pack:source     # 打 monorepo 源码 zip 到 dist-release/（需已 commit）
 corepack pnpm@9.15.0 ai:check        # 契约 + MCP 工具名 + AGENTS.md + 安装文档 import 防漂移
 corepack pnpm@9.15.0 perf:size
 ```
+
+版本与发布说明：[`CHANGELOG.md`](./CHANGELOG.md) · [`docs/project/reports/2026-08-15-release-0.1.9.md`](../docs/project/reports/2026-08-15-release-0.1.9.md)。本仓仍 **未** npm publish（auth/2FA 阻断另见 reports）。
 
 Node `>=20.19.0`，pnpm `9.15.0`。各 `@chameleon-ui/*` 可发包的 `engines.node` 同此下限（Node 18 会编译失败）。本机若 `turbo` 找不到 `pnpm`，把 corepack shims 放进 `PATH`。
 
