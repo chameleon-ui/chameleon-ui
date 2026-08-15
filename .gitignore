@@ -41,3 +41,8 @@ benchmarks/genui-bench/reports/index.html
 dist-release/
 dist-tarballs/
 
+# Local CI helper artifacts (not for commit)
+.pnpm-shim/
+.ci-phase9-run.log
+.ci-*-run.log
+

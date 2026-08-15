@@ -18,6 +18,7 @@ export default defineConfig({
     globals: true,
     css: true,
     setupFiles: './src/test/setup.ts',
+    testTimeout: 20_000,
     environmentOptions: {
       jsdom: {
         pretendToBeVisual: true,

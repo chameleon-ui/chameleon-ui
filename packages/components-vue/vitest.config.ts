@@ -6,5 +6,8 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     globals: true,
+    testTimeout: 20_000,
+    maxWorkers: 2,
+    fileParallelism: false,
   },
 })

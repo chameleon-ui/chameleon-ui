@@ -1,8 +1,8 @@
 {
   "navigation": {
-    "label": "Navigation",
-    "expand": "Navigation ausklappen",
-    "collapse": "Navigation einklappen",
-    "more": "Mehr"
+    "label": "Hauptnavigation",
+    "expand": "Navigationsmenü ausklappen",
+    "collapse": "Navigationsmenü einklappen",
+    "more": "Weitere"
   }
 }

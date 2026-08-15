@@ -52,7 +52,9 @@ for (const item of catalog.components) {
   const name = ident(item.slug)
   const rel = `@chameleon-ui/components/contracts/${item.slug}`
   importLines.push(`import ${name} from '${rel}'`)
-  mapLines.push(`  '${item.slug}': ${name},`)
+  // JSON module imports widen literal unions (e.g. exports.kind) to string;
+  // assert ContractDoc so tsc --noEmit accepts the generated map.
+  mapLines.push(`  '${item.slug}': ${name} as ContractDoc,`)
 }
 
 mapLines.push('}')

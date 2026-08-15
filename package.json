@@ -25,7 +25,7 @@
     "studio": "turbo run dev --filter=@chameleon-ui/theme-studio",
     "market": "node ./scripts/market-dev.mjs",
     "bench:genui": "node ./scripts/run-genui-bench.mjs",
-    "ci:phase0": "turbo run lint --concurrency=4 && turbo run typecheck --concurrency=4 && turbo run test --concurrency=4 && turbo run build --concurrency=4",
+    "ci:phase0": "turbo run lint --concurrency=4 && turbo run typecheck --concurrency=4 && turbo run test --concurrency=1 && turbo run build --concurrency=4",
     "ci:phase1": "pnpm ci:phase0 && pnpm phase1:gates",
     "ci:phase2": "pnpm ci:phase1 && pnpm phase2:gates",
     "ci:phase3": "pnpm ci:phase2 && pnpm phase3:gates",
