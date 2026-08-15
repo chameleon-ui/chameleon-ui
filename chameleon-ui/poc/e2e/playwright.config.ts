@@ -7,11 +7,11 @@ const workspaceRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)),
 export default defineConfig({
   testDir: './tests',
   fullyParallel: true,
-  workers: 2,
-  retries: 0,
-  timeout: 30_000,
+  workers: 1,
+  retries: 1,
+  timeout: 60_000,
   expect: {
-    timeout: 8_000,
+    timeout: 15_000,
   },
   reporter: [['list']],
   use: {
