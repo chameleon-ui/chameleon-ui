@@ -98,7 +98,7 @@
     },
     {
       "path": "components/typography/README.md",
-      "content": "# Typography\n\nFrozen Phase 1 stub for `typography`.\n\n- Requirement: Type scale follows breakpoints\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Typography\n\nShipped. Text styles from tokens.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/typography/styles.css",

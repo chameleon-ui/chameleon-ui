@@ -102,7 +102,7 @@
     },
     {
       "path": "components/checkbox/README.md",
-      "content": "# Checkbox\n\nFrozen Phase 1 stub for `checkbox`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Checkbox\n\nShipped. Boolean choice.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/checkbox/styles.css",

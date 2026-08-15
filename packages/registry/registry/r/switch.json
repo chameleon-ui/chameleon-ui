@@ -98,7 +98,7 @@
     },
     {
       "path": "components/switch/README.md",
-      "content": "# Switch\n\nFrozen Phase 1 stub for `switch`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Switch\n\nShipped. On/off control.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/switch/styles.css",

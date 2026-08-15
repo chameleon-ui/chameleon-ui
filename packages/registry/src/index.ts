@@ -4,6 +4,7 @@ export type {
 } from './catalog.js';
 export {
   getRegistryItem,
+  listBlocks,
   listComponents,
   listRulesPacks,
   listThemes,

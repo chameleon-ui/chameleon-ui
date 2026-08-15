@@ -11,5 +11,6 @@ describe('GenUI-Bench metric dictionary', () => {
     expect(BENCH_METRIC_IDS).toContain('bench.install_success_rate')
     expect(BENCH_METRIC_IDS).toContain('bench.bundle_install_success_rate')
     expect(BENCH_METRIC_IDS).toContain('bench.idempotent_reinstall_rate')
+    expect(BENCH_METRIC_IDS).toContain('bench.block_install_success_rate')
   })
 })

@@ -9,7 +9,7 @@ export interface RegistryFile {
 
 export interface RegistryItem {
   id: string;
-  type: 'registry:ui' | 'registry:theme' | 'registry:rules' | (string & {});
+  type: 'registry:ui' | 'registry:theme' | 'registry:rules' | 'registry:block' | (string & {});
   name: string;
   files: RegistryFile[];
   dependencies?: string[];
@@ -21,7 +21,7 @@ export interface RegistryItem {
 
 const registryRoot = join(dirname(fileURLToPath(import.meta.url)), '..', 'registry');
 
-function loadItems(kind: 'r' | 't' | 'rules'): RegistryItem[] {
+function loadItems(kind: 'r' | 'b' | 't' | 'rules'): RegistryItem[] {
   const directory = join(registryRoot, kind);
   return readdirSync(directory)
     .filter((name) => name.endsWith('.json'))
@@ -38,6 +38,7 @@ function loadItems(kind: 'r' | 't' | 'rules'): RegistryItem[] {
 
 export const registry: RegistryItem[] = [
   ...loadItems('r'),
+  ...loadItems('b'),
   ...loadItems('t'),
   ...loadItems('rules'),
 ];
@@ -67,6 +68,10 @@ export function listThemes(): RegistryItem[] {
 
 export function listComponents(): RegistryItem[] {
   return registry.filter((item) => item.type === 'registry:ui');
+}
+
+export function listBlocks(): RegistryItem[] {
+  return registry.filter((item) => item.type === 'registry:block');
 }
 
 export function listRulesPacks(): RegistryItem[] {

@@ -10,7 +10,7 @@
     "access": "public"
   },
   "type": "module",
-  "description": "Registry catalog generated from packages/components + official themes (8). Do not hand-edit published copies.",
+  "description": "Registry catalog generated from packages/components + packages/blocks + official themes (8). Do not hand-edit published copies.",
   "files": ["dist", "registry", "README.md", "LICENSE"],
   "exports": {
     ".": {

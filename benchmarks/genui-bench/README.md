@@ -13,6 +13,7 @@ It does not talk to npm, Lighthouse, or a public leaderboard.
 | `bench.idempotent_reinstall_rate` | Second install skips identical files |
 | `bench.docs_cta_install_success_rate` | Same kernel, `source=docs` (docs CTA path; the docs app does not write) |
 | `bench.conflict_reject_rate` | Different on-disk content is rejected |
+| `bench.block_install_success_rate` | Phase 7: each `registry:block` installs via the kernel and reinstalls idempotently |
 | `bench.generation_quality` | Phase 8: measured when a generator is configured (`CU_BENCH_GENERATOR`); **null** by default because no model budget/endpoint exists in this environment. Null is honest; fabrication is not. Task set: `tasks/generation-tasks.json`. |
 
 ## Reproduce

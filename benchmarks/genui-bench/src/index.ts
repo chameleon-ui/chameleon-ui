@@ -42,7 +42,7 @@ ${outcomeRows}`
 
 Generated: ${report.generatedAt}
 
-Registry: ${report.registry.components} components, ${report.registry.themes} themes.
+Registry: ${report.registry.components} components, ${report.registry.themes} themes, ${report.registry.blocks} blocks.
 
 Telemetry default off: ${report.telemetryDefaultOff}
 
@@ -70,6 +70,13 @@ function toHtml(report: BenchReport): string {
       return `<tr><td><code>${metric.id}</code></td><td>${value}</td><td>${metric.successes}/${metric.attempts}</td><td>${metric.note}</td></tr>`
     })
     .join('')
+  const generation = report.generation
+  const generationBlock = generation
+    ? `<h2>Generation quality (A6)</h2>
+    <p>Generator: <code>${generation.generator ?? 'none configured (honest null)'}</code></p>
+    <p>Task set: v${generation.taskSetVersion} · Measured at: <time>${generation.measuredAt}</time></p>
+    <p>${generation.note}</p>`
+    : ''
   return `<!doctype html>
 <html lang="en">
   <head>
@@ -78,12 +85,17 @@ function toHtml(report: BenchReport): string {
   </head>
   <body>
     <h1>GenUI-Bench</h1>
-    <p>Generated ${report.generatedAt}. Registry ${report.registry.components} components / ${report.registry.themes} themes.</p>
+    <p>Generated ${report.generatedAt}. Registry ${report.registry.components} components / ${report.registry.themes} themes / ${report.registry.blocks} blocks.</p>
     <table>
       <thead><tr><th>Metric</th><th>Value</th><th>n</th><th>Note</th></tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <p>Reproduce: <code>corepack pnpm@9.15.0 bench:genui</code></p>
+    ${generationBlock}
+    <h2>Reproduce</h2>
+    <pre>cd chameleon-ui
+corepack pnpm@9.15.0 bench:genui
+# optional measured generation_quality:
+#   CU_BENCH_GENERATOR=template-baseline corepack pnpm@9.15.0 bench:genui</pre>
   </body>
 </html>
 `

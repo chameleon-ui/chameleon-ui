@@ -98,7 +98,7 @@
     },
     {
       "path": "components/select/README.md",
-      "content": "# Select\n\nFrozen Phase 1 stub for `select`.\n\n- Requirement: Keyboard accessible\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Select\n\nShipped. Choose from a list.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/select/Select.tsx",

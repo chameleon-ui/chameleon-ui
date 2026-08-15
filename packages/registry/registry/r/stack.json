@@ -98,7 +98,7 @@
     },
     {
       "path": "components/stack/README.md",
-      "content": "# Stack\n\nFrozen Phase 1 stub for `stack`.\n\n- Requirement: Layout primitive (Stack / Space / Box)\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Stack\n\nShipped. Flex layout with token gaps.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/stack/Stack.tsx",

@@ -102,7 +102,7 @@
     },
     {
       "path": "components/radio/README.md",
-      "content": "# Radio\n\nFrozen Phase 1 stub for `radio`.\n\n- Requirement: a11y\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Radio\n\nShipped. Single choice in a group.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/radio/styles.css",
