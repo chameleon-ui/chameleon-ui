@@ -1,5 +1,9 @@
 # Chameleon UI
 
+<p align="center">
+  <img src="./brand/chameleon-logo.png" alt="Chameleon UI logo" width="120" />
+</p>
+
 > **العربية · [简体中文](README.md) · [English](README.en.md) · [繁體中文（香港）](README.zh-HK.md)**
 
 **نظام تصميم موجَّه للذكاء الاصطناعي، قائم على الرؤوس عديمة الشكل (headless)، ثلاثي الأطراف (390/768/1280)، وعبور الأطر (cross-framework) لـ React و Vue.**

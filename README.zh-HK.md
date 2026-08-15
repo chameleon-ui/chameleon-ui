@@ -1,5 +1,9 @@
 # Chameleon UI
 
+<p align="center">
+  <img src="./brand/chameleon-logo.png" alt="Chameleon UI logo" width="120" />
+</p>
+
 > **繁體中文（香港）· [简体中文](README.md) · [English](README.en.md) · [العربية](README.ar.md)**
 
 **AI-native · headless-first · 三端一體（390/768/1280）· 跨框架設計系統（React 同 Vue）。**

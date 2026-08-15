@@ -1,5 +1,9 @@
 # Chameleon UI
 
+<p align="center">
+  <img src="./brand/chameleon-logo.png" alt="Chameleon UI logo" width="120" />
+</p>
+
 > **English · [简体中文](README.md) · [繁體中文（香港）](README.zh-HK.md) · [العربية](README.ar.md)**
 
 **AI-native, headless-first, three-end (390/768/1280), cross-framework design system for React and Vue.**
