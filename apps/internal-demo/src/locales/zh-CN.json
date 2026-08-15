@@ -91,7 +91,14 @@
     "blindTitle": "主题认出盲测",
     "blindKicker": "界面不展示主题名。禁止打开开发者工具。",
     "blindLead": "共 16 屏（官方 8 套致敬主题各 2 次，洗牌）。从 8 个 id 或 unknown 中选择。对错在全部结束后才显示。单次会话计数不是已公布的认出率。",
-    "blindTesterId": "测试者编号（可选）",
+    "blindClosedSet": "闭集选项（8 + unknown）",
+    "blindStep1": "填写测试者编号（例如 operator-local）。",
+    "blindStep2": "观看每屏 AppShell + common-10。禁止打开开发者工具或查看 data-theme。",
+    "blindStep3": "从主题 id 或 unknown 中选一个，点锁定选择。结束前不揭晓对错。",
+    "blindStep4": "16 题结束后复制/下载 JSON，交给 owner 入库。",
+    "blindTesterId": "测试者编号（建议填写）",
+    "blindTesterChip": "测试者",
+    "blindAck": "本会话中我不会使用开发者工具、查看源码或偷看 data-theme。",
     "blindBegin": "开始会话",
     "blindProgress": "第 {current} / {total} 题",
     "blindGuessLabel": "这是哪套主题？",
@@ -99,10 +106,11 @@
     "blindSubmit": "锁定选择",
     "blindDoneTitle": "本会话结束",
     "blindDoneLead": "本会话答对 {correct} / {total}。该数字不是已公布的认出率。禁止在看板里手写百分比。",
+    "blindHonesty": "导出物仅为单人会话。须经 operator kit 汇总 ≥5 名独立被试后，才可谈 A9.5 / ≥80% 产品宣称。",
     "blindCopy": "复制 JSON",
     "blindCopied": "已复制",
     "blindDownload": "下载 JSON",
     "blindRestart": "新会话",
-    "blindExportHint": "真人跑完后保存为 docs/project/reports/盲测结果.json。Owner：待指定。禁止编造百分比。"
+    "blindExportHint": "把本文件交给 owner，用 pnpm blind:ingest 入库。禁止编造百分比。"
   }
 }

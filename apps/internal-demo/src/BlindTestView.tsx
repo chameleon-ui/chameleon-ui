@@ -2,13 +2,14 @@ import { AppShell, Stack, Typography } from '@chameleon-ui/components'
 import { themeIds, type ThemeId } from '@chameleon-ui/themes'
 import { useEffect, useMemo, useState } from 'react'
 import {
-  BLIND_RESULT_FILENAME,
+  BLIND_HARNESS_URL,
   BLIND_TRIAL_COUNT,
   UNKNOWN_GUESS,
   buildBlindDeck,
   buildBlindTestResult,
   copyText,
   downloadJson,
+  exportFilenameForTester,
   recordTrial,
   serializeBlindTestResult,
   type BlindGuess,
@@ -34,6 +35,7 @@ function applyStimulusTheme(themeId: ThemeId | null) {
 export function BlindTestView({ t }: BlindTestViewProps) {
   const [phase, setPhase] = useState<BlindPhase>('intro')
   const [testerId, setTesterId] = useState('')
+  const [ackNoCheat, setAckNoCheat] = useState(false)
   const [deck, setDeck] = useState<ThemeId[]>([])
   const [index, setIndex] = useState(0)
   const [guess, setGuess] = useState<BlindGuess | ''>('')
@@ -51,21 +53,32 @@ export function BlindTestView({ t }: BlindTestViewProps) {
     }
   }, [])
 
+  const trimmedTesterId = testerId.trim()
+  const exportName = exportFilenameForTester(trimmedTesterId)
+
   const result: BlindTestResult = useMemo(
     () =>
       buildBlindTestResult({
+        kind: 'session',
         status: phase === 'done' ? 'complete' : trials.length > 0 ? 'in_progress' : 'not_run',
-        testerId: testerId.trim(),
+        testerId: trimmedTesterId,
         startedAt,
         completedAt,
         trials,
+        harness: BLIND_HARNESS_URL,
+        captureSource: 'human',
+        note:
+          phase === 'done'
+            ? 'Single human session export. Session rate is not a published recognition rate. Aggregate ≥5 humans via operator kit before A9.5 / ≥80% claims.'
+            : undefined,
       }),
-    [phase, testerId, startedAt, completedAt, trials],
+    [phase, trimmedTesterId, startedAt, completedAt, trials],
   )
 
   const payload = useMemo(() => serializeBlindTestResult(result), [result])
 
   function startSession() {
+    if (!ackNoCheat) return
     setDeck(buildBlindDeck())
     setIndex(0)
     setGuess('')
@@ -80,7 +93,12 @@ export function BlindTestView({ t }: BlindTestViewProps) {
     if (!guess || currentTheme === null) return
     const nextTrials = [
       ...trials,
-      recordTrial({ index, themeId: currentTheme, guess }),
+      recordTrial({
+        index,
+        themeId: currentTheme,
+        guess,
+        testerId: trimmedTesterId || undefined,
+      }),
     ]
     setTrials(nextTrials)
     setGuess('')
@@ -101,7 +119,14 @@ export function BlindTestView({ t }: BlindTestViewProps) {
   }
 
   function onDownload() {
-    downloadJson(BLIND_RESULT_FILENAME, payload)
+    downloadJson(exportName, payload)
+  }
+
+  function restart() {
+    setPhase('intro')
+    setGuess('')
+    setCopied(false)
+    setAckNoCheat(false)
   }
 
   const exportActions = (
@@ -127,6 +152,7 @@ export function BlindTestView({ t }: BlindTestViewProps) {
           }
           sidebar={
             <nav aria-label={t('demo.blindGuessLabel')}>
+              <p className="cu-demo-kicker">{t('demo.blindClosedSet')}</p>
               <ul className="cu-demo-nav">
                 {themeIds.map((id) => (
                   <li key={id}>{id}</li>
@@ -139,15 +165,37 @@ export function BlindTestView({ t }: BlindTestViewProps) {
         >
           <Stack gap="3">
             <Typography variant="body">{t('demo.blindLead')}</Typography>
+            <ol className="cu-demo-blind-steps">
+              <li>{t('demo.blindStep1')}</li>
+              <li>{t('demo.blindStep2')}</li>
+              <li>{t('demo.blindStep3')}</li>
+              <li>{t('demo.blindStep4')}</li>
+            </ol>
             <label className="cu-demo-field">
               {t('demo.blindTesterId')}
               <input
                 data-blind="tester-id"
                 value={testerId}
+                placeholder="operator-local"
                 onChange={(event) => setTesterId(event.currentTarget.value)}
               />
             </label>
-            <button type="button" className="cu-demo-blind-action" data-blind-action="begin" onClick={startSession}>
+            <label className="cu-demo-blind-ack">
+              <input
+                type="checkbox"
+                data-blind="ack-no-cheat"
+                checked={ackNoCheat}
+                onChange={(event) => setAckNoCheat(event.currentTarget.checked)}
+              />
+              <span>{t('demo.blindAck')}</span>
+            </label>
+            <button
+              type="button"
+              className="cu-demo-blind-action"
+              data-blind-action="begin"
+              disabled={!ackNoCheat}
+              onClick={startSession}
+            >
               {t('demo.blindBegin')}
             </button>
           </Stack>
@@ -169,6 +217,7 @@ export function BlindTestView({ t }: BlindTestViewProps) {
           sidebar={
             <nav aria-label={t('demo.blindGuessLabel')}>
               <p className="cu-demo-kicker">{t('demo.blindExportHint')}</p>
+              <p className="cu-demo-blind-filename">{exportName}</p>
             </nav>
           }
           sidebarLabel={t('demo.blindGuessLabel')}
@@ -180,6 +229,7 @@ export function BlindTestView({ t }: BlindTestViewProps) {
                 total: result.summary.answered,
               })}
             </Typography>
+            <p className="cu-demo-blind-honesty">{t('demo.blindHonesty')}</p>
             {exportActions}
             <textarea
               readOnly
@@ -188,7 +238,7 @@ export function BlindTestView({ t }: BlindTestViewProps) {
               aria-label={t('demo.blindCopy')}
               value={payload}
             />
-            <button type="button" className="cu-demo-blind-action" data-blind-action="restart" onClick={() => setPhase('intro')}>
+            <button type="button" className="cu-demo-blind-action" data-blind-action="restart" onClick={restart}>
               {t('demo.blindRestart')}
             </button>
           </Stack>
@@ -207,6 +257,11 @@ export function BlindTestView({ t }: BlindTestViewProps) {
           <Typography variant="caption">
             {t('demo.blindProgress', { current: index + 1, total: BLIND_TRIAL_COUNT })}
           </Typography>
+          {trimmedTesterId ? (
+            <p className="cu-demo-kicker">
+              {t('demo.blindTesterChip')}: {trimmedTesterId}
+            </p>
+          ) : null}
           <p className="cu-demo-kicker">{t('demo.blindGuessLabel')}</p>
           <div className="cu-demo-blind-guesses" role="group" aria-label={t('demo.blindGuessLabel')}>
             {themeIds.map((id) => (

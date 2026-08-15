@@ -91,7 +91,14 @@
     "blindTitle": "Themen-Erkennung (Blindtest)",
     "blindKicker": "Kein Themenname in der Oberfläche. Entwicklerwerkzeuge nicht verwenden.",
     "blindLead": "Sie sehen 16 Bildschirme (8 offizielle Hommage-Themen × 2, gemischt). Wählen Sie das Thema oder unknown. Die Auswertung erscheint erst am Ende. Eine Sitzungszahl ist keine veröffentlichte Erkennungsrate.",
-    "blindTesterId": "Testerkennung (optional)",
+    "blindClosedSet": "Geschlossene Menge (8 + unknown)",
+    "blindStep1": "Tester-ID eingeben (z. B. operator-local).",
+    "blindStep2": "Jeden AppShell + common-10-Bildschirm ansehen. Keine Entwicklerwerkzeuge, kein data-theme.",
+    "blindStep3": "Thema oder unknown wählen, dann festschreiben. Keine Auflösung bis zum Ende.",
+    "blindStep4": "Nach 16 Durchgängen JSON kopieren/herunterladen und an den Owner geben.",
+    "blindTesterId": "Testerkennung (empfohlen)",
+    "blindTesterChip": "Tester",
+    "blindAck": "Ich nutze in dieser Sitzung keine Entwicklerwerkzeuge und peeke nicht in data-theme.",
     "blindBegin": "Sitzung starten",
     "blindProgress": "Durchgang {current} von {total}",
     "blindGuessLabel": "Welches Thema ist das?",
@@ -99,10 +106,11 @@
     "blindSubmit": "Auswahl festschreiben",
     "blindDoneTitle": "Sitzung abgeschlossen",
     "blindDoneLead": "In dieser Sitzung waren {correct} von {total} richtig. Das ist keine veröffentlichte Erkennungsrate. Keinen erfundenen Prozentsatz in das Kanban schreiben.",
+    "blindHonesty": "Export ist nur eine Mensch-Sitzung. Aggregation ≥5 unabhängige Tester über das Operator-Kit vor jeder ≥80%-Produktaussage.",
     "blindCopy": "JSON kopieren",
     "blindCopied": "Kopiert",
     "blindDownload": "JSON herunterladen",
     "blindRestart": "Neue Sitzung",
-    "blindExportHint": "Nach einem echten Lauf als docs/project/reports/盲测结果.json speichern. Owner: 待指定. Keinen Prozentsatz erfinden."
+    "blindExportHint": "Datei an den Owner. Einspielen mit pnpm blind:ingest. Keinen Prozentsatz erfinden."
   }
 }

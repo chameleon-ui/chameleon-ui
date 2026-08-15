@@ -91,7 +91,14 @@
     "blindTitle": "التعرّف على السمة (اختبار أعمى)",
     "blindKicker": "لا يظهر اسم السمة في الواجهة. لا تستخدم أدوات المطوّر.",
     "blindLead": "ستظهر 16 شاشة (8 سمات تكريم رسمية × 2 بترتيب مخلوط). اختر السمة أو unknown. لا تُعرض الصحة إلا في النهاية. عدد الجلسة ليس معدّل تعرّف منشورًا.",
-    "blindTesterId": "معرّف المختبِر (اختياري)",
+    "blindClosedSet": "مجموعة مغلقة (8 + unknown)",
+    "blindStep1": "أدخل معرّف المختبِر (مثل operator-local).",
+    "blindStep2": "شاهد كل شاشة AppShell + common-10. لا تستخدم أدوات المطوّر ولا data-theme.",
+    "blindStep3": "اختر سمة أو unknown ثم ثبّت. لا كشف قبل النهاية.",
+    "blindStep4": "بعد 16 محاولة انسخ/نزّل JSON وسلّمه للمالك.",
+    "blindTesterId": "معرّف المختبِر (مستحسن)",
+    "blindTesterChip": "المختبِر",
+    "blindAck": "لن أستخدم أدوات المطوّر أو أطلع على data-theme خلال هذه الجلسة.",
     "blindBegin": "بدء الجلسة",
     "blindProgress": "المحاولة {current} من {total}",
     "blindGuessLabel": "ما هي هذه السمة؟",
@@ -99,10 +106,11 @@
     "blindSubmit": "تثبيت الاختيار",
     "blindDoneTitle": "انتهت الجلسة",
     "blindDoneLead": "في هذه الجلسة كان {correct} من {total} صحيحًا. هذا الرقم ليس معدّل تعرّف منشورًا. لا تكتب نسبة مئوية ملفّقة في اللوحة.",
+    "blindHonesty": "التصدير جلسة بشرية واحدة فقط. اجمع ≥5 مختبرين مستقلين عبر عدة المُشغّل قبل أي ادّعاء ≥80%.",
     "blindCopy": "نسخ JSON",
     "blindCopied": "تم النسخ",
     "blindDownload": "تنزيل JSON",
     "blindRestart": "جلسة جديدة",
-    "blindExportHint": "بعد تشغيل بشري حقيقي احفظ الملف باسم docs/project/reports/盲测结果.json. المالك: 待指定. لا تختلق نسبة مئوية."
+    "blindExportHint": "سلّم الملف للمالك واستورده بـ pnpm blind:ingest. لا تختلق نسبة مئوية."
   }
 }

@@ -6,6 +6,7 @@ import {
   UNKNOWN_GUESS,
   buildBlindDeck,
   buildBlindTestResult,
+  exportFilenameForTester,
   recordTrial,
   scoreTrial,
   serializeBlindTestResult,
@@ -27,16 +28,24 @@ describe('blind-test protocol helpers', () => {
     expect(scoreTrial('cupertino', UNKNOWN_GUESS)).toBe(false)
   })
 
+  it('names exports from tester id without inventing scores', () => {
+    expect(exportFilenameForTester('operator-local')).toBe('盲测结果.operator-local.json')
+    expect(exportFilenameForTester('')).toBe('盲测结果.json')
+  })
+
   it('keeps rate null until a complete session has trials', () => {
     const empty = buildBlindTestResult({ status: 'not_run' })
     expect(empty.schema).toBe(BLIND_RESULT_SCHEMA)
+    expect(empty.kind).toBe('pending')
     expect(empty.status).toBe('not_run')
     expect(empty.rate).toBeNull()
     expect(empty.owner).toBe('待指定')
+    expect(empty.captureSource).toBe('human')
     expect(empty.trials).toEqual([])
 
     const partial = buildBlindTestResult({
       status: 'in_progress',
+      kind: 'session',
       trials: [recordTrial({ index: 0, themeId: 'line', guess: 'line', timestamp: '2026-08-14T00:00:00.000Z' })],
     })
     expect(partial.rate).toBeNull()
@@ -44,6 +53,8 @@ describe('blind-test protocol helpers', () => {
 
     const complete = buildBlindTestResult({
       status: 'complete',
+      kind: 'session',
+      testerId: 'operator-local',
       trials: [
         recordTrial({ index: 0, themeId: 'line', guess: 'line', timestamp: '2026-08-14T00:00:00.000Z' }),
         recordTrial({ index: 1, themeId: 'wechat', guess: UNKNOWN_GUESS, timestamp: '2026-08-14T00:00:01.000Z' }),
@@ -52,5 +63,6 @@ describe('blind-test protocol helpers', () => {
     expect(complete.rate).toBe(0.5)
     expect(complete.summary.unknown).toBe(1)
     expect(serializeBlindTestResult(complete)).toContain('"rate": 0.5')
+    expect(serializeBlindTestResult(complete)).toContain('"kind": "session"')
   })
 })

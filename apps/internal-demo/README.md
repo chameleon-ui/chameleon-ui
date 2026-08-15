@@ -24,6 +24,19 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/internal-demo preview
 
 Root alias: `corepack pnpm@9.15.0 demo`
 
+Blind harness (8 themes × 2, local JSON export):
+
+```bash
+corepack pnpm@9.15.0 demo          # terminal A
+corepack pnpm@9.15.0 demo:blind    # terminal B — opens /?view=blind
+# or: corepack pnpm@9.15.0 demo:blind -- --with-demo
+
+corepack pnpm@9.15.0 blind:validate -- --dry-run-format
+corepack pnpm@9.15.0 blind:ingest -- path/to/盲测结果.<testerId>.json
+```
+
+Operator kit (repo root): `docs/project/reports/2026-08-15-blind-test-operator-kit.md`. Session scores are **not** published recognition rates.
+
 ## URLs
 
 | Path | What |

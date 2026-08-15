@@ -8,9 +8,13 @@ export const BLIND_RESULT_FILENAME = '盲测结果.json'
 export const BLIND_RESULT_SCHEMA = 'chameleon-ui/blind-test-result/v1' as const
 export const BLIND_PASS_RULE =
   'rate >= 0.8 on aggregated complete human sessions; unknown is incorrect; never type a fake percentage'
+export const BLIND_HARNESS_URL = 'http://127.0.0.1:5175/?view=blind'
+export const BLIND_PROTOCOL_PATH = 'docs/project/reports/盲测协议.md'
 
 export type BlindGuess = ThemeId | typeof UNKNOWN_GUESS
 export type BlindSessionStatus = 'not_run' | 'in_progress' | 'complete'
+export type BlindResultKind = 'pending' | 'session' | 'aggregate' | 'dry-run-fixture'
+export type BlindCaptureSource = 'human' | 'dry-run-fixture' | 'unknown'
 
 export interface BlindTrial {
   index: number
@@ -18,13 +22,15 @@ export interface BlindTrial {
   guess: BlindGuess
   correct: boolean
   timestamp: string
+  testerId?: string
 }
 
 export interface BlindTestResult {
   schema: typeof BLIND_RESULT_SCHEMA
+  kind: BlindResultKind
   status: BlindSessionStatus
   rate: number | null
-  owner: '待指定'
+  owner: string
   legacy: 'LEGACY-2026-008'
   testerId: string
   startedAt: string | null
@@ -32,6 +38,7 @@ export interface BlindTestResult {
   passRule: typeof BLIND_PASS_RULE
   harness: string
   protocol: string
+  captureSource: BlindCaptureSource
   themes: readonly ThemeId[]
   trials: BlindTrial[]
   summary: {
@@ -40,6 +47,7 @@ export interface BlindTestResult {
     correct: number
     unknown: number
   }
+  note?: string
 }
 
 export function isBlindGuess(value: string): value is BlindGuess {
@@ -76,42 +84,60 @@ export function recordTrial(input: {
   themeId: ThemeId
   guess: BlindGuess
   timestamp?: string
+  testerId?: string
 }): BlindTrial {
-  return {
+  const trial: BlindTrial = {
     index: input.index,
     themeId: input.themeId,
     guess: input.guess,
     correct: scoreTrial(input.themeId, input.guess),
     timestamp: input.timestamp ?? new Date().toISOString(),
   }
+  if (input.testerId) trial.testerId = input.testerId
+  return trial
+}
+
+export function exportFilenameForTester(testerId: string): string {
+  const safe = testerId
+    .trim()
+    .replace(/[^\w.-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+  return safe ? `盲测结果.${safe}.json` : BLIND_RESULT_FILENAME
 }
 
 export function buildBlindTestResult(input: {
   status: BlindSessionStatus
+  kind?: BlindResultKind
   testerId?: string
   startedAt?: string | null
   completedAt?: string | null
   trials?: BlindTrial[]
   harness?: string
+  captureSource?: BlindCaptureSource
+  owner?: string
+  note?: string
 }): BlindTestResult {
   const trials = input.trials ?? []
   const answered = trials.length
   const correct = trials.filter((trial) => trial.correct).length
   const unknown = trials.filter((trial) => trial.guess === UNKNOWN_GUESS).length
   const complete = input.status === 'complete' && answered > 0
+  const kind = input.kind ?? (input.status === 'not_run' && answered === 0 ? 'pending' : 'session')
 
-  return {
+  const result: BlindTestResult = {
     schema: BLIND_RESULT_SCHEMA,
+    kind,
     status: input.status,
     rate: complete ? correct / answered : null,
-    owner: '待指定',
+    owner: input.owner ?? '待指定',
     legacy: 'LEGACY-2026-008',
     testerId: input.testerId ?? '',
     startedAt: input.startedAt ?? null,
     completedAt: input.completedAt ?? null,
     passRule: BLIND_PASS_RULE,
-    harness: input.harness ?? 'http://127.0.0.1:5175/?view=blind',
-    protocol: 'docs/project/reports/盲测协议.md',
+    harness: input.harness ?? BLIND_HARNESS_URL,
+    protocol: BLIND_PROTOCOL_PATH,
+    captureSource: input.captureSource ?? 'human',
     themes: themeIds,
     trials,
     summary: {
@@ -121,6 +147,9 @@ export function buildBlindTestResult(input: {
       unknown,
     },
   }
+
+  if (input.note) result.note = input.note
+  return result
 }
 
 export function serializeBlindTestResult(result: BlindTestResult): string {

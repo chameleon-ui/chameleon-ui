@@ -91,7 +91,14 @@
     "blindTitle": "Theme recognition (blind)",
     "blindKicker": "No theme name in chrome. Do not use DevTools.",
     "blindLead": "You will see 16 screens (8 official homage themes × 2, shuffled). Pick which theme it is, or unknown. Correctness is not shown until the end. A session count is not a published recognition rate.",
-    "blindTesterId": "Tester id (optional)",
+    "blindClosedSet": "Closed set (8 + unknown)",
+    "blindStep1": "Enter a tester id (e.g. operator-local).",
+    "blindStep2": "Watch each AppShell + common-10 screen. Do not open DevTools or inspect data-theme.",
+    "blindStep3": "Pick one theme id or unknown, then Lock in guess. No reveal until the end.",
+    "blindStep4": "After 16 trials, Copy/Download JSON and hand it to the owner for ingest.",
+    "blindTesterId": "Tester id (recommended)",
+    "blindTesterChip": "Tester",
+    "blindAck": "I will not use DevTools, view source, or peek data-theme during this session.",
     "blindBegin": "Start session",
     "blindProgress": "Trial {current} of {total}",
     "blindGuessLabel": "Which theme is this?",
@@ -99,10 +106,11 @@
     "blindSubmit": "Lock in guess",
     "blindDoneTitle": "Session complete",
     "blindDoneLead": "This session counted {correct} of {total} correct. That number is not a published recognition rate. Do not type a fake percent into the kanban.",
+    "blindHonesty": "Export is a human session file only. Aggregate ≥5 independent humans via the operator kit before any ≥80% product claim.",
     "blindCopy": "Copy JSON",
     "blindCopied": "Copied",
     "blindDownload": "Download JSON",
     "blindRestart": "New session",
-    "blindExportHint": "Save as docs/project/reports/盲测结果.json after a real human run. Owner: 待指定. Never invent a percentage."
+    "blindExportHint": "Give this file to the owner. Ingest with pnpm blind:ingest. Never invent a percentage."
   }
 }
