@@ -1,8 +1,10 @@
 {
   "schema": "chameleon-ui/blind-test-result/v1",
+  "kind": "pending",
   "status": "not_run",
   "rate": null,
   "a95Decision": "PROTOCOL-READY",
+  "pipelineStatus": "ready_for_humans",
   "waive": false,
   "commercialClaimAllowed": false,
   "slogan80Allowed": false,
@@ -14,8 +16,10 @@
   "passRule": "rate >= 0.8 on aggregated complete human sessions; unknown is incorrect; never type a fake percentage",
   "harness": "http://127.0.0.1:5175/?view=blind",
   "protocol": "docs/project/reports/盲测协议.md",
+  "operatorKit": "docs/project/reports/2026-08-15-blind-test-operator-kit.md",
   "decisionDoc": "docs/project/reports/A9.5-盲测决策-PROTOCOL-READY.md",
   "decisionJson": "docs/project/reports/A9.5-decision.json",
+  "captureSource": "unknown",
   "themes": [
     "line",
     "silver-arrow",
@@ -27,11 +31,12 @@
     "ant-blue"
   ],
   "trials": [],
+  "sessionIds": [],
   "summary": {
     "total": 16,
     "answered": 0,
     "correct": 0,
     "unknown": 0
   },
-  "note": "0.1.9 A9.5 = PROTOCOL-READY (not waive; human session not_run). rate must remain null. Do not invent ≥80%. Keep PHASE2/PHASE3/PHASE9 ≥80% unchecked."
+  "note": "Pipeline ready_for_humans: harness + validate/ingest scripts + operator kit landed. status=not_run, rate=null until ≥5 real human sessions are ingested and promoted. Do not invent ≥80%."
 }

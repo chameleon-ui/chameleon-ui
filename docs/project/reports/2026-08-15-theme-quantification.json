@@ -3,7 +3,13 @@
   "date": "2026-08-15",
   "worker": "B",
   "train": "0.1.9-commercial-essentials",
-  "claim": "七套致敬主题已有工程可测量工件（design-rules 校验 + tokens/effects/meta 完整 + S3 gzip）；recognition_rate 仍为 null，待 Worker C 盲测",
+  "claim": "七套致敬主题已有工程可测量工件（design-rules 校验 + tokens/effects/meta 完整 + S3 gzip）；recognition_rate 仍为 null，待真人盲测聚合（见 2026-08-15-blind-test-operator-kit.md）",
+  "blind_test": {
+    "pending": "docs/project/reports/盲测结果.pending.json",
+    "operatorKit": "docs/project/reports/2026-08-15-blind-test-operator-kit.md",
+    "aggregate": null,
+    "recognition_rate": null
+  },
   "measurement": {
     "S3": {
       "tool": "chameleon-ui/benchmarks/scripts/check-size.mjs --only=S3",

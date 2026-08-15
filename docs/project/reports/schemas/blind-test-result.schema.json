@@ -1,0 +1,135 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://chameleon-ui.dev/schemas/blind-test-result/v1.json",
+  "title": "Chameleon UI blind-test result v1",
+  "description": "Human theme-recognition session or aggregate. rate must be null until computed from trials; never hand-type a percentage.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "schema",
+    "status",
+    "rate",
+    "owner",
+    "legacy",
+    "testerId",
+    "startedAt",
+    "completedAt",
+    "passRule",
+    "harness",
+    "protocol",
+    "themes",
+    "trials",
+    "summary"
+  ],
+  "properties": {
+    "schema": {
+      "const": "chameleon-ui/blind-test-result/v1"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["pending", "session", "aggregate", "dry-run-fixture"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["not_run", "in_progress", "complete"]
+    },
+    "rate": {
+      "description": "correct/answered when status=complete and answered>0; otherwise null. Never invent.",
+      "anyOf": [{ "type": "null" }, { "type": "number", "minimum": 0, "maximum": 1 }]
+    },
+    "owner": { "type": "string", "minLength": 1 },
+    "legacy": { "const": "LEGACY-2026-008" },
+    "testerId": { "type": "string" },
+    "startedAt": { "anyOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] },
+    "completedAt": { "anyOf": [{ "type": "null" }, { "type": "string", "minLength": 1 }] },
+    "passRule": { "type": "string", "minLength": 1 },
+    "harness": { "type": "string", "minLength": 1 },
+    "protocol": { "type": "string", "minLength": 1 },
+    "themes": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "string",
+        "enum": [
+          "line",
+          "silver-arrow",
+          "stuttgart",
+          "corsa",
+          "cupertino",
+          "siren",
+          "wechat",
+          "ant-blue"
+        ]
+      }
+    },
+    "trials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["index", "themeId", "guess", "correct", "timestamp"],
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "themeId": {
+            "type": "string",
+            "enum": [
+              "line",
+              "silver-arrow",
+              "stuttgart",
+              "corsa",
+              "cupertino",
+              "siren",
+              "wechat",
+              "ant-blue"
+            ]
+          },
+          "guess": {
+            "type": "string",
+            "enum": [
+              "line",
+              "silver-arrow",
+              "stuttgart",
+              "corsa",
+              "cupertino",
+              "siren",
+              "wechat",
+              "ant-blue",
+              "unknown"
+            ]
+          },
+          "correct": { "type": "boolean" },
+          "timestamp": { "type": "string", "minLength": 1 },
+          "testerId": { "type": "string" }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["total", "answered", "correct", "unknown"],
+      "properties": {
+        "total": { "type": "integer", "const": 16 },
+        "answered": { "type": "integer", "minimum": 0 },
+        "correct": { "type": "integer", "minimum": 0 },
+        "unknown": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "a95Decision": { "type": "string" },
+    "pipelineStatus": {
+      "type": "string",
+      "enum": ["ready_for_humans", "sessions_partial", "aggregate_complete"]
+    },
+    "captureSource": {
+      "type": "string",
+      "enum": ["human", "dry-run-fixture", "unknown"]
+    },
+    "sessionIds": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "waive": { "type": "boolean" },
+    "commercialClaimAllowed": { "type": "boolean" },
+    "slogan80Allowed": { "type": "boolean" },
+    "note": { "type": "string" }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "schema": "chameleon-ui/blind-test-result/v1",
+  "kind": "dry-run-fixture",
+  "status": "complete",
+  "rate": 0.625,
+  "owner": "待指定",
+  "legacy": "LEGACY-2026-008",
+  "testerId": "dry-run-format-check",
+  "startedAt": "2026-08-15T00:00:00.000Z",
+  "completedAt": "2026-08-15T00:05:00.000Z",
+  "passRule": "rate >= 0.8 on aggregated complete human sessions; unknown is incorrect; never type a fake percentage",
+  "harness": "http://127.0.0.1:5175/?view=blind",
+  "protocol": "docs/project/reports/盲测协议.md",
+  "captureSource": "dry-run-fixture",
+  "themes": [
+    "line",
+    "silver-arrow",
+    "stuttgart",
+    "corsa",
+    "cupertino",
+    "siren",
+    "wechat",
+    "ant-blue"
+  ],
+  "trials": [
+    {
+      "index": 0,
+      "themeId": "line",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:00.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 1,
+      "themeId": "line",
+      "guess": "line",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:01.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 2,
+      "themeId": "silver-arrow",
+      "guess": "silver-arrow",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:02.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 3,
+      "themeId": "silver-arrow",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:03.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 4,
+      "themeId": "stuttgart",
+      "guess": "stuttgart",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:04.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 5,
+      "themeId": "stuttgart",
+      "guess": "stuttgart",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:05.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 6,
+      "themeId": "corsa",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:06.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 7,
+      "themeId": "corsa",
+      "guess": "corsa",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:07.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 8,
+      "themeId": "cupertino",
+      "guess": "cupertino",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:08.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 9,
+      "themeId": "cupertino",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:09.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 10,
+      "themeId": "siren",
+      "guess": "siren",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:10.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 11,
+      "themeId": "siren",
+      "guess": "siren",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:11.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 12,
+      "themeId": "wechat",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:12.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 13,
+      "themeId": "wechat",
+      "guess": "wechat",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:13.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 14,
+      "themeId": "ant-blue",
+      "guess": "ant-blue",
+      "correct": true,
+      "timestamp": "2026-08-15T00:00:14.000Z",
+      "testerId": "dry-run-format-check"
+    },
+    {
+      "index": 15,
+      "themeId": "ant-blue",
+      "guess": "unknown",
+      "correct": false,
+      "timestamp": "2026-08-15T00:00:15.000Z",
+      "testerId": "dry-run-format-check"
+    }
+  ],
+  "summary": {
+    "total": 16,
+    "answered": 16,
+    "correct": 10,
+    "unknown": 6
+  },
+  "note": "FORMAT CHECK ONLY. Not a human session. Do not promote to 盲测结果.json or claim recognition rates."
+}

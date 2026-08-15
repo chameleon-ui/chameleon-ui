@@ -10,9 +10,10 @@
   "legacy": "LEGACY-2026-008",
   "protocol": "docs/project/reports/盲测协议.md",
   "pendingResult": "docs/project/reports/盲测结果.pending.json",
+  "operatorKit": "docs/project/reports/2026-08-15-blind-test-operator-kit.md",
   "harness": "http://127.0.0.1:5175/?view=blind",
-  "themeQuantificationReport": "docs/project/reports/2026-08-15-theme-quantification.md (engineering measurables; recognition_rate=null — not a substitute for ≥80%)",
+  "themeQuantificationReport": "docs/project/reports/2026-08-15-theme-quantification.md (engineering measurables; recognition_rate=null — not a substitute for ≥80%; after real aggregate, link 盲测结果.json)",
   "decidedAt": "2026-08-15",
   "owner": "待指定",
-  "note": "0.1.9 commercial-essentials honesty gate: no human aggregate blind session has been run; no owner-signed waive letter exists in-repo. A9.5 lands as PROTOCOL-READY with rate=null. Do not claim 一眼认出 ≥80%. Harness existence ≠ measured recognition."
+  "note": "0.1.9 commercial-essentials honesty gate: capture/merge pipeline ready_for_humans; no human aggregate yet. A9.5 stays PROTOCOL-READY with rate=null. Do not claim 一眼认出 ≥80%. Harness + scripts ≠ measured recognition."
 }

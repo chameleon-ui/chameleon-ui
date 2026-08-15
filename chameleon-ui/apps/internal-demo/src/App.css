@@ -428,6 +428,35 @@ html[data-lab-case='wide'] .cu-tab-bar {
   font-size: 0.75rem;
 }
 
+.cu-demo-blind-steps {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-demo-blind-steps li {
+  margin-block: var(--cu-space-1);
+}
+
+.cu-demo-blind-ack {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--cu-space-2);
+  color: var(--cu-color-fg-default);
+  font-size: 0.9rem;
+}
+
+.cu-demo-blind-honesty,
+.cu-demo-blind-filename {
+  margin: 0;
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
+  font-size: 0.875rem;
+}
+
+.cu-demo-blind-filename {
+  font-family: ui-monospace, monospace;
+}
+
 html.cu-demo-three-end,
 html.cu-demo-three-end body,
 html.cu-demo-three-end-stage,

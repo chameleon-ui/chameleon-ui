@@ -5,7 +5,8 @@
 > 禁止：手写识别率、宣称 Linear 对等、npm publish、改 package 版本（版本属 Worker A）。
 
 机器可读清单：[`2026-08-15-theme-quantification.json`](./2026-08-15-theme-quantification.json)。  
-盲测槽位：[`盲测结果.pending.json`](./盲测结果.pending.json)（Worker C；本报告 `recognition_rate` 一律 `null`）。
+盲测槽位：[`盲测结果.pending.json`](./盲测结果.pending.json)（`status=not_run`，`rate=null`，`pipelineStatus=ready_for_humans`）。  
+真人跑法 / 入库：[`2026-08-15-blind-test-operator-kit.md`](./2026-08-15-blind-test-operator-kit.md)。本报告 `recognition_rate` 一律 **`null`**，直至 `盲测结果.json` 由 ≥5 名真人会话 promote 生成后再回链。
 
 ## 1. 测量口径
 
@@ -45,4 +46,4 @@ Token groups / surface layers / effects 字节见 JSON。每套均有非空 `tok
 ## 4. 工程结论
 
 「主题还有 7 个没有量化」→ **对工程可测量项为 false**：七套致敬主题已落盘校验规则、完整 overlay 工件、S3 实测与 checklist。  
-识别率仍为 **`null`**，直至 Worker C 完成盲测会话。
+识别率仍为 **`null`**，直至 owner 按 [operator kit](./2026-08-15-blind-test-operator-kit.md) 完成 ≥5 名真人会话并写入 [`盲测结果.json`](./盲测结果.json)（当前文件尚不存在 / 未 promote）。

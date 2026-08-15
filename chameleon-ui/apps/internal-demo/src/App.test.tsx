@@ -120,6 +120,7 @@ describe('Phase 2 inner demo', () => {
     expect(document.querySelector('[data-demo="theme"]')).toBeNull()
     expect(document.querySelector('[data-blind-phase="intro"]')).not.toBeNull()
 
+    fireEvent.click(document.querySelector('[data-blind="ack-no-cheat"]') as HTMLInputElement)
     fireEvent.click(document.querySelector('[data-blind-action="begin"]') as HTMLButtonElement)
 
     expect(document.querySelector('[data-blind-phase="trial"]')).not.toBeNull()
