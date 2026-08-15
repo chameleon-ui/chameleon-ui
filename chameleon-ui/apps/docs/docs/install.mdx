@@ -11,7 +11,7 @@ import InstallBlock from '@site/src/components/InstallBlock'
 
 <InstallBlock slug="button" />
 
-包已具备发布配置（MIT、`publishConfig.access=public`），版本是 0.1.0。本仓不执行 npm publish。
+包已具备发布配置（MIT、`publishConfig.access=public`），版本以 `packages/*/package.json` 为准（今日 0.1.9）。本仓不执行 npm publish。registry 之前用 **tarball / link / 官方模板 `file:`**。
 
 ```
 chameleon add button
@@ -25,16 +25,16 @@ chameleon add input
 推荐：
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
 
-`@chameleon-ui/themes/dist/cupertino/variables.css` 与 `@chameleon-ui/tokens/dist/css/variables.css` 也已列入包 `exports`（`./dist/*`），与上面指向同一文件。不要使用未导出的路径。
+`@chameleon-ui/themes/dist/line/variables.css` 与 `@chameleon-ui/tokens/dist/css/variables.css` 也已列入包 `exports`（`./dist/*`），与上面指向同一文件。不要使用未导出的路径。
 
 ## 本地 npm link（发布前）
 
-包版本是 `0.1.0`，本仓不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必须 **全量** link：React 为 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 为 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 会失败。
+包版本见 `packages/*/package.json`，本仓不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必须 **全量** link：React 为 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 为 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 会失败。
 
 ```bash
 cd chameleon-ui
@@ -43,14 +43,16 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-发布预案：首发 git tag `v0.1.0`（owner **待指定**）；`pnpm publish -r` 时 pnpm 把 `workspace:*` 改成版本号。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
+一等备选：`node ./scripts/pack-external.mjs`（Vue 加 `--vue`）→ `dist-tarballs/*.tgz`。模板自检：`pnpm verify:external`。
+
+发布预案：首发 git tag 与包版本对齐（今日 `v0.1.9`；owner **待指定**）；`pnpm publish -r` 时 pnpm 把 `workspace:*` 改成版本号。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
 
 ## 外部工程（非 pnpm workspace）
 
 给 **npm / yarn / 独立 Vite 应用** 复制。不要把 `"workspace:*"` 写进外部 `package.json`。编码 Agent 读 [编码 Agent 集成](./guides/for-agents.mdx) 与 `chameleon-ui/AGENTS.md`，写 import 前调用 MCP `get_import_specifiers`。
 
 ```tsx
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 import { Alert, Button, Card } from "@chameleon-ui/components";
@@ -65,7 +67,7 @@ export function App() {
 }
 ```
 
-CSS 用 `@chameleon-ui/themes/cupertino/css`。不要使用未导出的 `@chameleon-ui/themes/cupertino/variables.css`。`dist/` 别名可以，但不是首选。
+CSS 用 `@chameleon-ui/themes/line/css`。不要使用未导出的 `@chameleon-ui/themes/*/variables.css`（无 `/css` 后缀的那条）。`dist/` 别名可以，但不是首选。
 
 ## 环境
 

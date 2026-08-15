@@ -33,6 +33,8 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Run the Phase 4 gate (includes ci:phase3)
         run: pnpm ci:phase4
+      - name: Verify official external Vite templates (typecheck)
+        run: pnpm verify:external
       - name: Upload visual regression artifacts
         if: failure()
         uses: actions/upload-artifact@v4

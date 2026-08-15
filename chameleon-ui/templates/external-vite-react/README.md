@@ -2,7 +2,9 @@
 
 Official template for an app **outside** the Chameleon pnpm workspace (EraseLab shape: Vite 6 + React 19 + Windows).
 
-Packages are `0.1.0` and **not on npm**. Do not write `workspace:*` here.
+Packages are **0.1.9** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
+
+Default product chrome: **`line`** (`@chameleon-ui/themes/line/css` + `ThemeProvider theme="line"`). SchemaRenderer default map is still **10 slugs**; use `@chameleon-ui/components` for the rest of the catalog.
 
 ## Before `npm install`
 
@@ -16,20 +18,28 @@ Then in this folder:
 
 ```bash
 npm install
+npm run typecheck
 npm run dev
 ```
 
-`file:` points at `packages/*`. After a library change, rebuild those packages — this app consumes `dist`.
+`file:` points at `packages/*`. After a library change, rebuild those packages; this app consumes `dist`.
+
+Monorepo gate (from `chameleon-ui/`):
+
+```bash
+pnpm verify:external          # typecheck both templates
+pnpm verify:external:build    # typecheck + vite build
+```
 
 ## Three consume paths (pick one)
 
-1. **This template** (`file:` siblings) — best while iterating next to the monorepo.
-2. **npm link** — from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then link **all five** packages in the app.
-3. **Tarballs** — `node ./scripts/pack-external.mjs`, then `npm install` each `.tgz`. Still not a registry publish.
+1. **This template** (`file:` siblings) -- best while iterating next to the monorepo.
+2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then link **all five** packages in the app.
+3. **Tarballs (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install` each `.tgz` from `dist-tarballs/`. Still not a registry publish.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
-- `resolve.preserveSymlinks: true` — do not walk into the library's pnpm store.
+- `resolve.preserveSymlinks: true` -- do not walk into the library's pnpm store.
 - `resolve.dedupe` for `react`, `react-dom`, `@ark-ui/react`, `intl-messageformat`.
 - `optimizeDeps.include` for Ark + FormatJS.
 - `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO` override).
@@ -66,10 +76,11 @@ Do not mix "I linked five packages" with "I also copied `workspace:*`".
 
 | Package | Pin |
 | :--- | :--- |
-| Node | ≥ 20.19 |
+| Node | >= 20.19 |
+| `@chameleon-ui/*` | `0.1.9` via pack / link / file: (not npm registry) |
 | `react` / `react-dom` | `^19` |
 | `@ark-ui/react` | `5.38.0` (peer of primitives; install at the app root) |
 | `intl-messageformat` | `11.2.13` |
 | `@formatjs/icu-messageformat-parser` | `3.5.14` |
 
-React 18 is not in the peer range. npm publish (`v0.1.0`) is not done.
+React 18 is not in the peer range. npm registry publish is not done -- use file:, link, or tarballs.

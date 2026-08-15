@@ -2,11 +2,11 @@
 
 Official template for an app **outside** the Chameleon pnpm workspace (Vite 6 + Vue 3, Windows included).
 
-React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, `line` theme.
+React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`line`** theme.
 
-Packages are `0.1.0` and **not on npm**. Do not write `workspace:*` here.
+Packages are **0.1.9** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer’s default map is still 10 slugs; Vue import is `@chameleon-ui/schema-renderer/vue`. See `packages/components-vue/README.md`.
+Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`. See `packages/components-vue/README.md`.
 
 ## Before `npm install`
 
@@ -20,16 +20,24 @@ Then in this folder:
 
 ```bash
 npm install
+npm run typecheck
 npm run dev
 ```
 
-`file:` points at `packages/*`. After a library change, rebuild those packages — this app consumes `dist`.
+`file:` points at `packages/*`. After a library change, rebuild those packages; this app consumes `dist`.
+
+Monorepo gate (from `chameleon-ui/`):
+
+```bash
+pnpm verify:external          # typecheck both templates
+pnpm verify:external:build    # typecheck + vite build
+```
 
 ## Three consume paths (pick one)
 
-1. **This template** (`file:` siblings) — best while iterating next to the monorepo.
-2. **npm link** — from `chameleon-ui/` run `node ./scripts/link-external.mjs --vue --apply`, then link **all five** Vue-graph packages in the app.
-3. **Tarballs** — `node ./scripts/pack-external.mjs --vue`, then `npm install` each `.tgz`. Still not a registry publish.
+1. **This template** (`file:` siblings) -- best while iterating next to the monorepo.
+2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --vue --apply`, then link **all five** Vue-graph packages in the app.
+3. **Tarballs (first-class pre-registry)** -- `node ./scripts/pack-external.mjs --vue`, then `npm install` each `.tgz` from `dist-tarballs/`. Still not a registry publish.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
@@ -67,10 +75,11 @@ node ../../scripts/link-external.mjs --print-vite-vue
 
 | Package | Pin |
 | :--- | :--- |
-| Node | ≥ 20.19 |
+| Node | >= 20.19 |
+| `@chameleon-ui/*` | `0.1.9` via pack / link / file: (not npm registry) |
 | `vue` | `^3.5` |
 | `@ark-ui/vue` | `5.38.1` (dependency of primitives-vue; install at the app root) |
 | `intl-messageformat` | `11.2.13` |
 | `@formatjs/icu-messageformat-parser` | `3.5.14` |
 
-npm publish (`v0.1.0`) is not done.
+npm registry publish is not done -- use file:, link, or tarballs.
