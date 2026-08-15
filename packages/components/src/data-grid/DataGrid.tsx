@@ -111,6 +111,7 @@ export function DataGrid<T>({
         ref={viewportRef}
         className="cu-data-grid__viewport"
         role="grid"
+        tabIndex={0}
         aria-label={label}
         aria-rowcount={rows.length + 1}
         aria-colcount={columns.length}

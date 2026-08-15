@@ -128,7 +128,7 @@
   background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
 }
 
-.cu-date-picker__day[aria-selected='true'] {
+.cu-date-picker__cell[aria-selected='true'] .cu-date-picker__day {
   background: var(--cu-color-palette-brand);
   color: var(--cu-color-fg-inverse);
 }

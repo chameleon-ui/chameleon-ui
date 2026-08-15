@@ -20,16 +20,23 @@ export function Heatmap({ rows, columns, values, label, className }: HeatmapProp
         className="cu-heatmap__grid"
         role="grid"
         aria-label={label}
-        style={{ gridTemplateColumns: `auto repeat(${columns.length}, minmax(var(--cu-space-3), 1fr))` }}
+        style={{
+          // Cascades to header/body rows via grid-template-columns: var(--cu-heatmap-cols)
+          ['--cu-heatmap-cols' as string]: `auto repeat(${Math.max(columns.length, 1)}, minmax(var(--cu-space-3), 1fr))`,
+        }}
       >
-        <span className="cu-heatmap__corner" />
-        {columns.map((column) => (
-          <span key={column} className="cu-heatmap__column" role="columnheader">
-            {column}
+        <div className="cu-heatmap__header-row" role="row">
+          <span className="cu-heatmap__corner" role="columnheader">
+            <span className="cu-heatmap__corner-sr">{label}</span>
           </span>
-        ))}
+          {columns.map((column) => (
+            <span key={column} className="cu-heatmap__column" role="columnheader">
+              {column}
+            </span>
+          ))}
+        </div>
         {rows.map((row, rowIndex) => (
-          <span key={row} className="cu-heatmap__row-wrap" role="row">
+          <div key={row} className="cu-heatmap__row-wrap" role="row">
             <span className="cu-heatmap__row" role="rowheader">
               {row}
             </span>
@@ -42,13 +49,15 @@ export function Heatmap({ rows, columns, values, label, className }: HeatmapProp
                   className="cu-heatmap__cell"
                   role="gridcell"
                   aria-label={`${row} ${column}: ${value}`}
-                  style={{ background: `color-mix(in srgb, var(--cu-color-palette-brand) ${intensity}%, var(--cu-color-background-default))` }}
+                  style={{
+                    background: `color-mix(in srgb, var(--cu-color-palette-brand) ${intensity}%, var(--cu-color-background-default))`,
+                  }}
                 >
                   <span className="cu-heatmap__value">{value}</span>
                 </span>
               )
             })}
-          </span>
+          </div>
         ))}
       </div>
     </div>

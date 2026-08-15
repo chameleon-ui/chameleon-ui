@@ -9,13 +9,22 @@ export interface ComboboxOption {
 
 export interface ComboboxProps {
   options: string[]
+  /** Accessible name for the combobox control. */
+  label: string
   value?: string
   onChange: (value: string) => void
   placeholder?: string
   className?: string
 }
 
-export function Combobox({ options, value = '', onChange, placeholder = 'Search or select', className }: ComboboxProps) {
+export function Combobox({
+  options,
+  label,
+  value = '',
+  onChange,
+  placeholder = 'Search or select',
+  className,
+}: ComboboxProps) {
   const items = useMemo(
     () => options.map((option) => ({ value: option, label: option })),
     [options],
@@ -30,14 +39,16 @@ export function Combobox({ options, value = '', onChange, placeholder = 'Search 
     <SelectPrimitive.Root
       className={classes}
       collection={collection}
-      data-ai-role="combobox" data-ai-intent="search-select"
+      data-ai-role="combobox"
+      data-ai-intent="search-select"
       data-ai-state={value ? 'closed' : 'open'}
       value={options.includes(value) ? [value] : []}
       onValueChange={(details) => onChange(details.value[0] ?? '')}
     >
+      <SelectPrimitive.Label className="cu-combobox__label">{label}</SelectPrimitive.Label>
       <SelectPrimitive.Control className="cu-combobox__control">
         <SelectPrimitive.Trigger className="cu-combobox__trigger">
-          {value || placeholder}
+          <SelectPrimitive.ValueText placeholder={placeholder} />
         </SelectPrimitive.Trigger>
       </SelectPrimitive.Control>
       <SelectPrimitive.Positioner>

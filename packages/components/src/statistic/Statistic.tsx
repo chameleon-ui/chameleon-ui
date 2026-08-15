@@ -16,8 +16,9 @@ export function Statistic({ label, value, trend = 'flat', trendLabel, className 
     <div className={classes} data-ai-role="statistic" data-ai-intent="highlight-count" data-ai-state={trend}>
       <span className="cu-statistic__label">{label}</span>
       <span className="cu-statistic__value">{value}</span>
-      <span className={'cu-statistic__trend cu-statistic__trend--' + trend} aria-label={trendLabel}>
+      <span className={'cu-statistic__trend cu-statistic__trend--' + trend}>
         <span aria-hidden="true">{TREND_GLYPH[trend]}</span>
+        {trendLabel ? <span className="cu-statistic__trend-sr">{trendLabel}</span> : null}
       </span>
     </div>
   )

@@ -50,7 +50,8 @@
     "verify:external": "node ./scripts/verify-external-templates.mjs",
     "verify:external:build": "node ./scripts/verify-external-templates.mjs --build",
     "perf:size": "node ./benchmarks/scripts/check-size.mjs",
-    "perf:lhci": "node ./scripts/perf-lhci.mjs"
+    "perf:lhci": "node ./scripts/perf-lhci.mjs",
+    "a11y:axe": "node ./scripts/a11y-axe-scan.mjs"
   },
   "devDependencies": {
     "@chameleon-ui/i18n": "workspace:*",

@@ -22,7 +22,7 @@ describe('Calendar', () => {
   it('selects a day and reports the ISO date', () => {
     let picked = ''
     render(<Calendar label="Schedule" value="2026-08-15" onSelect={(iso) => { picked = iso }} />)
-    fireEvent.click(screen.getByRole('button', { name: '20' }))
+    fireEvent.click(screen.getByRole('button', { name: '2026-08-20' }))
     expect(picked).toBe('2026-08-20')
   })
 

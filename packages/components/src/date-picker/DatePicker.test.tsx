@@ -12,7 +12,7 @@ const expectedDisplay = new Intl.DateTimeFormat('en', { dateStyle: 'medium', tim
 describe('DatePicker', () => {
   it('renders closed with cu-* classes, data-ai attributes and an Intl-formatted value', () => {
     render(<DatePicker label="Delivery date" value="2026-08-15" onChange={() => {}} />)
-    const input = screen.getByRole('textbox', { name: 'Delivery date' })
+    const input = screen.getByRole('combobox', { name: 'Delivery date' })
     const element = input.closest('.cu-date-picker')
     expect(element).toHaveClass('cu-date-picker')
     expect(element).toHaveAttribute('data-ai-role', 'date-picker')
@@ -25,14 +25,14 @@ describe('DatePicker', () => {
     render(<DatePicker label="Delivery date" value="2026-08-15" onChange={(iso) => { picked = iso }} />)
     fireEvent.click(screen.getByRole('button', { name: 'Delivery date' }))
     expect(screen.getByRole('dialog')).toBeInTheDocument()
-    expect(screen.getByRole('textbox', { name: 'Delivery date' }).closest('.cu-date-picker')).toHaveAttribute(
+    expect(screen.getByRole('combobox', { name: 'Delivery date' }).closest('.cu-date-picker')).toHaveAttribute(
       'data-ai-state',
       'open',
     )
-    fireEvent.click(screen.getByRole('button', { name: '20' }))
+    fireEvent.click(screen.getByRole('button', { name: '2026-08-20' }))
     expect(picked).toBe('2026-08-20')
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
-    expect(screen.getByRole('textbox', { name: 'Delivery date' })).toHaveFocus()
+    expect(screen.getByRole('combobox', { name: 'Delivery date' })).toHaveFocus()
   })
 
   it('closes on Escape without changing the value', () => {

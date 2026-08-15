@@ -109,6 +109,7 @@ export function DatePicker({
           id={inputId}
           className="cu-date-picker__input"
           type="text"
+          role="combobox"
           readOnly
           value={display}
           aria-expanded={open}
@@ -175,11 +176,16 @@ export function DatePicker({
                       aria-hidden="true"
                     />
                   ) : (
-                    <span key={day} className="cu-date-picker__cell" role="gridcell">
+                    <span
+                      key={day}
+                      className="cu-date-picker__cell"
+                      role="gridcell"
+                      aria-selected={value === toISODate(view.year, view.month, day)}
+                    >
                       <button
                         type="button"
                         className="cu-date-picker__day"
-                        aria-selected={value === toISODate(view.year, view.month, day)}
+                        aria-label={toISODate(view.year, view.month, day)}
                         onClick={() => pick(day)}
                       >
                         {dayFormat.format(day)}

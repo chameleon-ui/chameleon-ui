@@ -50,7 +50,7 @@
     "npmNote": "Packages are publish-ready (MIT, publishConfig.access=public) at version 0.1.9. This repo does not npm publish.",
     "skeletonNotice": "Docs chrome for this locale is an English ICU skeleton, not a translation. See the locale gap table (LEGACY-2026-004).",
     "vpatLead": "Draft VPAT. status=draft. published-internal. Not certified. Not a third-party CAB. Commercial a11y/certification claims not allowed. Recognition rate not measured.",
-    "vpatStatus": "status=draft · published-internal · commercialClaimsAllowed=false",
+    "vpatStatus": "status=draft · published-internal · commercialClaimsAllowed=false · submissionPackReady=true",
     "vpatFile": "Status: /compliance/VPAT-status.md. Artifact: /compliance/VPAT-ChameleonUI-v0.0.0.md (PDF stand-in: /compliance/VPAT-ChameleonUI-v0.0.0.pdf.md).",
     "dashboardLead": "Read-only north-star board. Consumes bench.* from the local GenUI-Bench report and telemetry.* dictionary names. Empty state is valid. No new event names.",
     "dashboardEmpty": "No live telemetry stream. CU_TELEMETRY defaults to off. Metrics below stay empty until a report is present.",

@@ -3,6 +3,14 @@
   position: relative;
 }
 
+.cu-combobox__label {
+  display: block;
+  color: var(--cu-color-fg-default);
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-block-end: var(--cu-space-1);
+}
+
 .cu-combobox__control {
   display: inline-flex;
 }

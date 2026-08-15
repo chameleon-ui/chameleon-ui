@@ -6,16 +6,21 @@ export interface FlowNodeProps {
   y: number
   title: string
   status?: 'default' | 'active' | 'success' | 'failed'
+  /** Optional ARIA role (e.g. treeitem inside MindMap). */
+  role?: 'treeitem'
   className?: string
 }
 
-export function FlowNode({ id, x, y, title, status = 'default', className }: FlowNodeProps) {
+export function FlowNode({ id, x, y, title, status = 'default', role, className }: FlowNodeProps) {
   const classes = ['cu-flow-node', 'cu-flow-node--' + status, className].filter(Boolean).join(' ')
   return (
     <div
       id={id}
       className={classes}
-      data-ai-role="flow-node" data-ai-intent="group-content"
+      role={role}
+      aria-label={role ? title : undefined}
+      data-ai-role="flow-node"
+      data-ai-intent="group-content"
       data-ai-state={status}
       data-canvas-node
       style={{ transform: `translate(${x}px, ${y}px)` }}

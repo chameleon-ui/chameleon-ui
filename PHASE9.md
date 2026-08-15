@@ -12,7 +12,8 @@ P9  [ ] T9.1 R1–R3 实测 — 本地 Lighthouse 13.4.1 已跑（demo :4175/?vi
         001/003 = measured-local-lab。禁止手写分数。owner 待指定。
     [ ] T9.2 VPAT：artifact 仍 status=draft；publicationScope=published-internal；
         状态页 docs/project/reports/Phase-9-VPAT-status.md + /compliance/VPAT-status.md；
-        Not a third-party CAB；commercialClaimsAllowed=false；PDF 二进制仍 LEGACY-2026-006；
+        Not a third-party CAB；commercialClaimsAllowed=false；submissionPackReady=true
+        （2026-08-15 CAB pack + axe 证据；无签署 ACR）；PDF 二进制仍 LEGACY-2026-006；
         非 A9.2 正式 status=published。owner 待指定
     [ ] T9.3 npm 首发：未执行 npm publish；仅 publish:check 干跑
     [ ] T9.4 文档 21 语去骨架：未做（LEGACY-2026-004/005/017）

@@ -74,7 +74,7 @@
   background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
 }
 
-.cu-calendar__day[aria-selected='true'] {
+.cu-calendar__cell[aria-selected='true'] .cu-calendar__day {
   background: var(--cu-color-palette-brand);
   color: var(--cu-color-fg-inverse);
 }
