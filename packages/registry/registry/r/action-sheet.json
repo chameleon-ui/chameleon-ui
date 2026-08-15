@@ -30,7 +30,7 @@
     },
     {
       "path": "components/action-sheet/locales/de.json",
-      "content": "{\n  \"actionSheet\": {\n    \"label\": \"Aktionsblatt\",\n    \"cancel\": \"Abbrechen\"\n  }\n}\n"
+      "content": "{\n  \"actionSheet\": {\n    \"label\": \"Aktionsblatt-Bereich\",\n    \"cancel\": \"Abbrechen\"\n  }\n}\n"
     },
     {
       "path": "components/action-sheet/locales/en.json",

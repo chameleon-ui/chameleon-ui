@@ -26,7 +26,7 @@
     },
     {
       "path": "components/navigation/locales/de.json",
-      "content": "{\n  \"navigation\": {\n    \"label\": \"Navigation\",\n    \"expand\": \"Navigation ausklappen\",\n    \"collapse\": \"Navigation einklappen\",\n    \"more\": \"Mehr\"\n  }\n}\n"
+      "content": "{\n  \"navigation\": {\n    \"label\": \"Hauptnavigation\",\n    \"expand\": \"Navigationsmenü ausklappen\",\n    \"collapse\": \"Navigationsmenü einklappen\",\n    \"more\": \"Weitere\"\n  }\n}\n"
     },
     {
       "path": "components/navigation/locales/en.json",
