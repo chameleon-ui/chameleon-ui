@@ -146,6 +146,8 @@ describe('MCP tool surface', () => {
     expect(result.preferred.umbrellaReact).toBe('@chameleon-ui/react')
     expect(result.preferred.umbrellaVue).toBe('@chameleon-ui/vue')
     expect(result.preferred.umbrellaReactCss).toBe('@chameleon-ui/react/css')
+    expect(result.preferred.umbrellaVueCss).toBe('@chameleon-ui/vue/css')
+    expect(result.preferred.umbrellaVueThemeCss).toBe('@chameleon-ui/vue/themes/cupertino/css')
     expect(result.preferred.components).toBe('@chameleon-ui/react')
     expect(result.alsoValid.themeCssDist).toBe(
       '@chameleon-ui/themes/dist/cupertino/variables.css',

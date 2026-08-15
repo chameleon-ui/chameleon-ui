@@ -111,6 +111,17 @@ if (!componentsPkg.exports?.['./*']) {
   fail('@chameleon-ui/components must export ./* for per-slug imports')
 }
 
+const vuePkg = JSON.parse(await readFile(join(packagesRoot, 'vue', 'package.json'), 'utf8'))
+if (cssExportTarget(vuePkg.exports?.['./css']) !== './dist/css.css') {
+  fail('@chameleon-ui/vue ./css must export ./dist/css.css (real CSS, not a JS re-export)')
+}
+if (!vuePkg.exports?.['./themes/*/css']) {
+  fail('@chameleon-ui/vue must export ./themes/*/css for configurable theme overlays')
+}
+if (!(await exists(join(packagesRoot, 'vue', 'dist', 'css.css')))) {
+  fail('@chameleon-ui/vue missing dist/css.css — run build before publish:check')
+}
+
 const primitivesPkg = JSON.parse(await readFile(join(packagesRoot, 'primitives', 'package.json'), 'utf8'))
 if (primitivesPkg.peerDependencies?.['@ark-ui/react'] !== '5.38.0') {
   fail('@chameleon-ui/primitives must peer @ark-ui/react@5.38.0')

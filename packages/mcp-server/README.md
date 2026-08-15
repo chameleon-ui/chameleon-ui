@@ -6,7 +6,7 @@ through `@chameleon-ui/install-core`. Read-only tools (`get_started`,
 do not write disk.
 
 Consumer agents: follow `chameleon-ui/AGENTS.md` and
-[`docs/ai/agent-consume.md`](../../../docs/ai/agent-consume.md). On attach,
+[`docs/ai/agent-consume.md`](../../docs/ai/agent-consume.md). On attach,
 `initialize` returns `instructions`. Call **`get_started` first**, then
 `get_import_specifiers` before writing any CSS/JS import.
 
@@ -52,7 +52,7 @@ Read-only tools work with the bundled catalog even when the target dir is
 empty. Packages are unpublished (`0.2.0`); `npx @chameleon-ui/mcp-server`
 is **not** available until a registry publish.
 
-Copy-paste consumer rule: [`docs/ai/consumer-agent-bootstrap.md`](../../../docs/ai/consumer-agent-bootstrap.md).
+Copy-paste consumer rule: [`docs/ai/consumer-agent-bootstrap.md`](../../docs/ai/consumer-agent-bootstrap.md).
 
 ## Tools
 

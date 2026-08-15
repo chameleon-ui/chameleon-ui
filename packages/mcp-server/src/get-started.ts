@@ -22,7 +22,7 @@ export function getStartedPayload() {
       css: {
         react: '@chameleon-ui/react/css',
         vue: '@chameleon-ui/vue/css',
-        note: 'Import once in the app entry. Prefer umbrella CSS (tokens + density + line).',
+        note: 'Import once in the app entry. Vue: @chameleon-ui/vue/css is a real dist/css.css (tokens + density + line + components). React umbrella CSS is tokens + density + line. Other themes: @chameleon-ui/vue/themes/<id>/css or @chameleon-ui/themes/<id>/css.',
       },
       themeProvider: {
         theme: DEFAULT_THEME_ID,

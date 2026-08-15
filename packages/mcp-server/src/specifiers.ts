@@ -28,6 +28,7 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       umbrellaVue: '@chameleon-ui/vue',
       umbrellaReactCss: '@chameleon-ui/react/css',
       umbrellaVueCss: '@chameleon-ui/vue/css',
+      umbrellaVueThemeCss: `@chameleon-ui/vue/themes/${theme}/css`,
       themeCss: `@chameleon-ui/themes/${theme}/css`,
       tokensCss: '@chameleon-ui/tokens/css',
       tokensDensityCss: '@chameleon-ui/tokens/density.css',

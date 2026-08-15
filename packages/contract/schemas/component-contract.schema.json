@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://chameleon-ui.dev/schemas/component-contract/v0.2.json",
   "title": "Chameleon UI Component Contract v0.2",
-  "description": "Machine-readable semantic contract generated from a component source directory. v0.2 registers the project key names as canonical (see docs/ai/component-contract-v0.2-mapping.md) and makes dataAi.state/intent vocabulary mandatory.",
+  "description": "Machine-readable semantic contract generated from a component source directory. v0.2 registers the project key names as canonical (see chameleon-ui/docs/ai/component-contract-v0.2-mapping.md) and makes dataAi.state/intent vocabulary mandatory.",
   "type": "object",
   "additionalProperties": false,
   "required": [
@@ -275,7 +275,7 @@
       }
     },
     "dataAi": {
-      "description": "Static Agent-readable markers mirrored to data-ai-* DOM attributes; this does not emit telemetry. v0.2: role/states/intents are all required; intents must be registered in docs/ai/data-ai-vocabulary.md.",
+      "description": "Static Agent-readable markers mirrored to data-ai-* DOM attributes; this does not emit telemetry. v0.2: role/states/intents are all required; intents must be registered in chameleon-ui/docs/ai/data-ai-vocabulary.md.",
       "type": "object",
       "additionalProperties": false,
       "required": ["role", "states", "intents"],

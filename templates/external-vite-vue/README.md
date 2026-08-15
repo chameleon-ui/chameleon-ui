@@ -48,13 +48,15 @@ pnpm verify:external:build    # typecheck + vite build
 - `optimizeDeps.include` for Ark + FormatJS
 - `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO` override)
 
-CSS:
+CSS (one import — real `dist/css.css`: tokens + density + `line` + components):
 
 ```ts
 import "@chameleon-ui/vue/css";
 ```
 
-Never `@chameleon-ui/themes/*/variables.css` (unexported).
+Other themes: `import "@chameleon-ui/vue/themes/<id>/css"` (or `@chameleon-ui/themes/<id>/css`). Never `@chameleon-ui/themes/*/variables.css` (unexported). No Vite `resolve.alias` for Chameleon CSS.
+
+Acceptance from `chameleon-ui/`: `pnpm verify:vue-css` (or `node ./scripts/verify-vue-css-consume.mjs`).
 
 ## Peers at the app root
 

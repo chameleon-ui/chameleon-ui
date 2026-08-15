@@ -10,7 +10,7 @@ L1/L3 · 组件契约的 schema 与生成/校验入口。
 - `$id` 是稳定 URL 标识：当前 `https://chameleon-ui.dev/schemas/component-contract/v0.2.json`（历史 `…/v0.1.json`）。
 - Phase 2 文档站把 schema 拷到本地可 GET 路径 `/schemas/component-contract/v0.2.json`（v0.1 同步保留）。
 - 本机 R&D 仓 **没有** 部署 `chameleon-ui.dev`；公网 GET 仍 pending（B1 验收以此为准，不宣称已公网可 GET）。
-- v0.1 → v0.2 的键位决议与逐项映射表见 [`../../../docs/ai/component-contract-v0.2-mapping.md`](../../../docs/ai/component-contract-v0.2-mapping.md)。
+- v0.1 → v0.2 的键位决议与逐项映射表见 [`../../docs/ai/component-contract-v0.2-mapping.md`](../../docs/ai/component-contract-v0.2-mapping.md)。
 
 ## 版本策略（破坏性变更）
 

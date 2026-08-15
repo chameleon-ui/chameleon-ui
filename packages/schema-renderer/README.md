@@ -39,7 +39,7 @@
 
 `examples/`：`login-form.json`、`status-card.json`、`empty-results.json`。快照测试逐字节锁定渲染产物（`src/schema-renderer.test.tsx`），示例增删必须过快照评审。
 
-Agent 一页纸（JSON 形态、默认 10 slug、禁止把 AG-UI POC 当成 supported）：仓库 [`docs/ai/schema-renderer.md`](../../../docs/ai/schema-renderer.md)。
+Agent 一页纸（JSON 形态、默认 10 slug、禁止把 AG-UI POC 当成 supported）：[`docs/ai/schema-renderer.md`](../../docs/ai/schema-renderer.md)。
 
 低代码场景演示（愿景 §7.4）：把 `examples/login-form.json` 喂给 `<SchemaRenderer>` 即得真实组件树；本仓以快照归档渲染证据（录像归档待 docs 站演示页落地，**未做不宣称**）。默认 map **不是**全 catalog。
 

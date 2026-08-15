@@ -1,6 +1,6 @@
 /**
- * Generates docs/ai/data-ai-vocabulary.json + .md from the Phase 8 codemod
- * vocabulary and cross-checks that every catalog contract intent is covered.
+ * Generates chameleon-ui/docs/ai/data-ai-vocabulary.json + .md from the Phase 8
+ * codemod vocabulary and cross-checks that every catalog contract intent is covered.
  * Run: node scripts/generate-data-ai-vocabulary.mjs [--check]
  */
 import { readFile, writeFile } from 'node:fs/promises'
@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url'
 import { INTENT_VOCABULARY, COMPONENT_INTENTS } from './codemod-phase8-contracts.mjs'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const docsDir = join(root, '..', 'docs', 'ai')
+const docsDir = join(root, 'docs', 'ai')
 const checkOnly = process.argv.includes('--check')
 
 async function main() {
@@ -46,7 +46,7 @@ async function main() {
   const json = `${JSON.stringify(
     {
       $comment:
-        'Phase 8 A5 frozen data-ai-intent lexicon. Gate: catalog-data-ai.test.ts + this script --check.',
+        'Frozen data-ai-intent lexicon. Gate: catalog-data-ai.test.ts + this script --check.',
       version: '1.0',
       frozenAt: '2026-08-13',
       intents: Object.fromEntries(sorted),
@@ -56,22 +56,23 @@ async function main() {
   )}\n`
 
   const rows = sorted.map(([id, description]) => `| \`${id}\` | ${description} |`).join('\n')
-  const markdown = `# data-ai 值域文档（Phase 8 A5 冻结）
+  const markdown = `# data-ai vocabulary
 
-> 机读版：\`data-ai-vocabulary.json\`（同目录）。契约侧字段：\`dataAi.role/states/intents\`（[v0.2 映射表](./component-contract-v0.2-mapping.md)）。  
-> 纪律：新增 intent 必须先登记本表再入契约；\`catalog-data-ai.test.ts\` 与本脚本 \`--check\` 双向防止漂移。DOM 标注只含静态语义，**不含 PII**。
+Machine copy: [\`data-ai-vocabulary.json\`](./data-ai-vocabulary.json) (same directory). Contract fields: \`dataAi.role\` / \`states\` / \`intents\` — see [v0.2 mapping](./component-contract-v0.2-mapping.md).
 
-## 三件套
+**Discipline:** register a new intent here before adding it to any contract. \`catalog-data-ai.test.ts\` and \`node ./scripts/generate-data-ai-vocabulary.mjs --check\` gate drift both ways. DOM markers are static semantics only — **no PII**.
 
-| 属性 | 来源 | 说明 |
+## DOM triple
+
+| Attribute | Source | Meaning |
 | :--- | :--- | :--- |
-| \`data-ai-role\` | \`contract.dataAi.role\` | 组件语义角色（= slug） |
-| \`data-ai-state\` | \`contract.dataAi.states\` | 当前状态，值域为契约 states 子集 |
-| \`data-ai-intent\` | \`contract.dataAi.intents[0]\` | 首要意图；完整意图集在契约中 |
+| \`data-ai-role\` | \`contract.dataAi.role\` | Semantic role (= component slug) |
+| \`data-ai-state\` | \`contract.dataAi.states\` | Current state; subset of contract states |
+| \`data-ai-intent\` | \`contract.dataAi.intents[0]\` | Primary intent; full set lives on the contract |
 
-## intent 词表（${sorted.length} 项）
+## Intent lexicon (${sorted.length})
 
-| intent | 语义 |
+| intent | Meaning |
 | :--- | :--- |
 ${rows}
 `
@@ -83,13 +84,13 @@ ${rows}
     ])
     if (existingJson !== json) throw new Error('data-ai-vocabulary.json is stale; rerun generator')
     if (existingMd !== markdown) throw new Error('data-ai-vocabulary.md is stale; rerun generator')
-    console.log('[vocabulary] docs/ai/data-ai-vocabulary.{json,md} up to date')
+    console.log('[vocabulary] chameleon-ui/docs/ai/data-ai-vocabulary.{json,md} up to date')
     return
   }
 
   await writeFile(join(docsDir, 'data-ai-vocabulary.json'), json, 'utf8')
   await writeFile(join(docsDir, 'data-ai-vocabulary.md'), markdown, 'utf8')
-  console.log(`[vocabulary] wrote ${sorted.length} intents to docs/ai/`)
+  console.log(`[vocabulary] wrote ${sorted.length} intents to chameleon-ui/docs/ai/`)
 }
 
 main().catch((error) => {

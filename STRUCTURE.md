@@ -2,7 +2,7 @@
 
 Paths relative to `chameleon-ui/`.
 
-**Ownership:** this checkout ships `@chameleon-ui/*` packages. Inner apps (docs site, demo, studio, market) are **not** in this repo.
+**Ownership:** this directory is the **library unit** intended to stand alone when split. It ships `@chameleon-ui/*` packages plus consume docs (`AGENTS.md`, `docs/ai/`), `templates/`, and `brand/`. Inner apps (docs site, demo, studio, market) are **not** in this tree.
 
 ## Root
 
@@ -10,9 +10,10 @@ Paths relative to `chameleon-ui/`.
 | :--- | :--- |
 | `README.md` | Library intro + consume entry |
 | `AGENTS.md` | AI consumer SSOT |
+| `docs/ai/` | Agent attach notes (consume, SchemaRenderer, vocabulary, …) |
 | `STRUCTURE.md` | This map |
 | `package.json` | `check` / `publish:check` / `ai:check` / pack+link+verify |
-| `pnpm-workspace.yaml` | `packages/*` · `../toolings/*` (toolings live at repo root) |
+| `pnpm-workspace.yaml` | `packages/*`; may also list `../toolings/*` when this tree sits in the full monorepo |
 | `turbo.json` | build / lint / typecheck / test |
 | `LICENSE` · `CONTRIBUTING.md` · `SECURITY.md` | MIT + contrib + telemetry |
 
@@ -43,7 +44,14 @@ Paths relative to `chameleon-ui/`.
 
 Library brand assets (e.g. `chameleon-logo.png`).
 
-Maintainer eslint / stylelint / tsconfig and size budgets live at the **repo root** (`../toolings/`, `../benchmarks/`), not in this library tree.
+## Optional monorepo neighbors
+
+When this tree still lives inside the full ChameleonUI monorepo, sibling **`../toolings/`** (eslint / stylelint / tsconfig) and **`../benchmarks/`** (size budgets) sit beside it. They are **maintainer transparency** — present in the full checkout, **may be absent** when only `chameleon-ui/` is published or cloned. Consumers do **not** need them; do not add them to an app `package.json`.
+
+| Data | Authority (when neighbors exist) |
+| :--- | :--- |
+| Size budgets (maintainer) | `../benchmarks/budgets.json` |
+| Lint configs (maintainer) | `../toolings/*` |
 
 ## Authority
 
@@ -53,5 +61,3 @@ Maintainer eslint / stylelint / tsconfig and size budgets live at the **repo roo
 | Contracts | `components/src/<slug>/contract.json` |
 | Design rules | `themes/<id>/design-rules.json` |
 | Disk writes | **only** `install-core` |
-| Size budgets (maintainer) | `../benchmarks/budgets.json` |
-| Lint configs (maintainer) | `../toolings/*` |

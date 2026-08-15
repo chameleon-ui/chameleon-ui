@@ -2,7 +2,7 @@
 
 You are editing an **external** Chameleon UI consumer (not the library monorepo).
 
-Full SSOT: monorepo [`chameleon-ui/AGENTS.md`](../../AGENTS.md). Attach notes: [`docs/ai/agent-consume.md`](../../../docs/ai/agent-consume.md). Bootstrap paste: [`docs/ai/consumer-agent-bootstrap.md`](../../../docs/ai/consumer-agent-bootstrap.md).
+Full SSOT: [`../../AGENTS.md`](../../AGENTS.md) (Start here in 60 seconds). Attach notes: [`../../docs/ai/agent-consume.md`](../../docs/ai/agent-consume.md). Bootstrap paste: [`../../docs/ai/consumer-agent-bootstrap.md`](../../docs/ai/consumer-agent-bootstrap.md).
 
 ## Must
 

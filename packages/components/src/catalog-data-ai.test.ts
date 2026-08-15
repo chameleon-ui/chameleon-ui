@@ -9,7 +9,7 @@ const here = path.dirname(fileURLToPath(import.meta.url))
 const srcRoot = process.env.CU_COMPONENTS_SRC ?? here
 // Vocabulary always resolves from this test file, not the temp fixture tree.
 const vocabulary = JSON.parse(
-  readFileSync(path.resolve(here, '../../../../docs/ai/data-ai-vocabulary.json'), 'utf8'),
+  readFileSync(path.resolve(here, '../../../docs/ai/data-ai-vocabulary.json'), 'utf8'),
 ) as { intents: Record<string, string> }
 
 /** Full catalog gate (catalog v2.0). Isolation n<=50 is retired now that P5/P6 contracts carry intents. */
@@ -91,7 +91,9 @@ describe('A5 catalog-wide data-ai attributes', () => {
       const { intents } = contractDataAi(component.slug)
       for (const intent of intents) {
         if (!Object.hasOwn(vocabulary.intents, intent)) {
-          unregistered.push(`${component.slug}: intent "${intent}" not in docs/ai/data-ai-vocabulary.json`)
+          unregistered.push(
+            `${component.slug}: intent "${intent}" not in chameleon-ui/docs/ai/data-ai-vocabulary.json`,
+          )
         }
       }
     }

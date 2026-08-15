@@ -21,7 +21,8 @@
     "pack:external": "node ./scripts/pack-external.mjs",
     "pack:source": "node ./scripts/pack-source.mjs",
     "verify:external": "node ./scripts/verify-external-templates.mjs",
-    "verify:external:build": "node ./scripts/verify-external-templates.mjs --build"
+    "verify:external:build": "node ./scripts/verify-external-templates.mjs --build",
+    "verify:vue-css": "node ./scripts/verify-vue-css-consume.mjs"
   },
   "devDependencies": {
     "@chameleon-ui/i18n": "workspace:*",

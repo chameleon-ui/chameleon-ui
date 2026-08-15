@@ -12,7 +12,7 @@
   "type": "module",
   "description": "Umbrella for Vue consumers: one dependency that pulls tokens, i18n, primitives-vue, themes, and components-vue.",
   "files": ["dist", "README.md", "LICENSE"],
-  "sideEffects": ["**/*.css", "./dist/css.js"],
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -20,8 +20,14 @@
     },
     "./css": {
       "types": "./dist/css.d.ts",
-      "import": "./dist/css.js",
-      "default": "./dist/css.js"
+      "style": "./dist/css.css",
+      "import": "./dist/css.css",
+      "default": "./dist/css.css"
+    },
+    "./themes/*/css": {
+      "style": "./dist/themes/*.css",
+      "import": "./dist/themes/*.css",
+      "default": "./dist/themes/*.css"
     },
     "./css-paths": {
       "types": "./dist/css-paths.d.ts",
@@ -29,7 +35,7 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node ./scripts/build-css.mjs",
     "dev": "tsc -p tsconfig.json --watch",
     "lint": "tsc -p tsconfig.json --noEmit",
     "test": "node --test ./scripts/smoke.test.mjs",

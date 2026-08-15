@@ -12,7 +12,6 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const workspace = join(root, '..')
 const skipContracts = process.argv.includes('--drift-only')
 
 const REQUIRED_MCP_TOOLS = [
@@ -32,6 +31,7 @@ const UNEXPORTED_THEME_CSS = '@chameleon-ui/themes/cupertino/variables.css'
 const COMPONENTS_IMPORT = 'from "@chameleon-ui/components"'
 const UMBRELLA_REACT_IMPORT = 'from "@chameleon-ui/react"'
 const UMBRELLA_REACT_CSS = '@chameleon-ui/react/css'
+const UMBRELLA_VUE_CSS = '@chameleon-ui/vue/css'
 
 const problems = []
 
@@ -52,10 +52,6 @@ function runNode(args) {
 
 async function readUtf8(relativeFromRoot) {
   return readFile(join(root, relativeFromRoot), 'utf8')
-}
-
-async function readWorkspace(relativeFromWorkspace) {
-  return readFile(join(workspace, relativeFromWorkspace), 'utf8')
 }
 
 function extractQuotedArray(source, exportName) {
@@ -118,14 +114,16 @@ async function checkMcpAndAgents() {
   }
 
   const agents = await readUtf8('AGENTS.md')
-  const consume = await readWorkspace('docs/ai/agent-consume.md')
+  const consume = await readUtf8('docs/ai/agent-consume.md')
   const mcpReadme = await readUtf8('packages/mcp-server/README.md')
-  const schemaDoc = await readWorkspace('docs/ai/schema-renderer.md')
+  const schemaDoc = await readUtf8('docs/ai/schema-renderer.md')
 
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_THEME_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, CANONICAL_TOKENS_CSS)
   mustContain('chameleon-ui/AGENTS.md', agents, UMBRELLA_REACT_IMPORT)
   mustContain('chameleon-ui/AGENTS.md', agents, UMBRELLA_REACT_CSS)
+  mustContain('chameleon-ui/AGENTS.md', agents, UMBRELLA_VUE_CSS)
+  mustContain('chameleon-ui/AGENTS.md', agents, 'dist/css.css')
   mustContain('chameleon-ui/AGENTS.md', agents, COMPONENTS_IMPORT)
   mustContain('chameleon-ui/AGENTS.md', agents, 'workspace:*')
   mustContain('chameleon-ui/AGENTS.md', agents, 'NEVER')
@@ -139,7 +137,7 @@ async function checkMcpAndAgents() {
   mustContain('docs/ai/schema-renderer.md', schemaDoc, 'SchemaRenderer')
 
   try {
-    const bootstrap = await readWorkspace('docs/ai/consumer-agent-bootstrap.md')
+    const bootstrap = await readUtf8('docs/ai/consumer-agent-bootstrap.md')
     mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, 'get_started')
     mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, UMBRELLA_REACT_CSS)
     mustContain('docs/ai/consumer-agent-bootstrap.md', bootstrap, 'ThemeProvider')
