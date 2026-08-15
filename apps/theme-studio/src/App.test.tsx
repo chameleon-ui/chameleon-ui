@@ -65,12 +65,13 @@ describe('createExportPayload', () => {
     const bundle = themeBundles['line']
     const edited = structuredClone(bundle.tokens) as Record<string, unknown>
     const radius = edited.radius as Record<string, unknown>
-    radius.md = { $value: { value: 8, unit: 'px' } }
+    // line baseline md is already 8px — bump to a distinct value so the delta is non-empty
+    radius.md = { $value: { value: 10, unit: 'px' } }
     delete radius.sm
 
     const payload = createExportPayload('line', bundle.designRules, edited, bundle.meta)
     expect(payload.extends).toBe('line')
-    expect(payload.tokens).toEqual({ radius: { md: { $value: { value: 8, unit: 'px' } } } })
+    expect(payload.tokens).toEqual({ radius: { md: { $value: { value: 10, unit: 'px' } } } })
     expect(payload.removedTokenPaths).toEqual(['radius.sm'])
   })
 })
