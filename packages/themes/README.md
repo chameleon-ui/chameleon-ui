@@ -64,3 +64,11 @@ pnpm --filter @chameleon-ui/themes validate-rules
 
 - `@chameleon-ui/tokens` — core 单源；overlay 通过 `compileThemeTokens` 合并
 - **禁止**依赖 React / Vue / Svelte
+
+## 创建自定义主题
+
+想添加自己的品牌主题？主题是一个 overlay（只覆盖 core token 子集）。完整分步教程见：
+
+[**docs/theming/creating-a-theme.md**](../../docs/theming/creating-a-theme.md)
+
+要点：新建 `src/<id>/`（`tokens.json` + `design-rules.json` + `meta.json` + 可选 `effects.css`）→ 把 `<id>` 加进 `build-themes.mjs` 的 `themeIds` → 构建 → 在 `exports` 加 `./<id>/css` 别名 → 用 `@chameleon-ui/themes/<id>/css` 引入。

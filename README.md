@@ -155,6 +155,8 @@ Chameleon UI 的核心体验是**一套组件自动适配三种视口**——390
 | `silver-arrow` `stuttgart` `corsa` `cupertino` `siren` `wechat` `ant-blue` | 致敬覆盖层 |
 | `community-focus-first` | 社区纪律包（`registry:rules`）种子 |
 
+想添加自己的主题？主题是 **overlay**（只覆盖 core token 子集）。分步教程：[**创建自定义主题**](./docs/theming/creating-a-theme.md)。
+
 ### 语言与 RTL
 
 - 21 个 locale（见 `catalog.json`）
