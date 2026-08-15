@@ -4,8 +4,8 @@ Scenario blocks for Chameleon UI. Each block is a composable page fragment
 built from `@chameleon-ui/components`, with a `contract.json`, a
 `manifest.json` (`registry:block`), Token-only CSS, and 21 locale files.
 
-Phase 7 scaffolding ships **twelve real blocks**. Remaining §7.3 work is
-install-core wiring, snapshots, and matrix coverage—not stubbed slugs.
+Phase 7 ships **twelve real blocks** with Registry sync (`registry/b`),
+install-core wiring, §7.4 matrix coverage, and `phase7:gates`.
 
 | slug | status |
 | :--- | :--- |
@@ -24,10 +24,15 @@ install-core wiring, snapshots, and matrix coverage—not stubbed slugs.
 
 Copy is authored for `en` and `zh-CN`. The other 19 locales are English ICU
 skeletons (`_cuSkeleton: true`) recorded in `locale-gap-table.json`. This is
-not a completed 21-language Blocks pack.
+not a completed 21-language Blocks pack. Honesty notes: `GAPS.md`. Matrix:
+`scenario-matrix.json`.
 
-Installation into an app still goes through `install-core` only. This package
-does not write files to a consumer project.
+Installation into an app goes through `install-core` only:
+
+```
+chameleon add-block login
+# MCP: install_block { "id": "login" }
+```
 
 Kanban movement is keyboard-first labeled buttons; this package does not ship
 a pointer-drag engine. Gantt bars are percentage layout on a date scale, not a

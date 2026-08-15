@@ -50,10 +50,20 @@ export function readThemeParam(value: string | null): ThemeId {
   return value && isThemeId(value) ? value : 'line'
 }
 
-export type DemoView = 'street' | 'live' | 'gallery' | 'suite' | 'lab' | 'blind' | 'three-end' | 'three-end-stage'
+export type DemoView = 'street' | 'live' | 'gallery' | 'blocks' | 'suite' | 'lab' | 'blind' | 'three-end' | 'three-end-stage'
 export type LabCase = 'narrow' | 'wide' | 'native'
 
-const DEMO_VIEWS: DemoView[] = ['street', 'live', 'gallery', 'suite', 'lab', 'blind', 'three-end', 'three-end-stage']
+const DEMO_VIEWS: DemoView[] = [
+  'street',
+  'live',
+  'gallery',
+  'blocks',
+  'suite',
+  'lab',
+  'blind',
+  'three-end',
+  'three-end-stage',
+]
 
 export function readViewParam(value: string | null): DemoView {
   if (value && DEMO_VIEWS.includes(value as DemoView)) return value as DemoView

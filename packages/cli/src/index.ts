@@ -27,6 +27,7 @@ function createTelemetryHook(): TelemetryHook | undefined {
 function usage(): void {
   console.log(`Usage:
   chameleon add <component[@version]>          install a component
+  chameleon add-block <block[@version]>        install a scenario block
   chameleon add-theme <theme[@version]>          install a theme
   chameleon bundle <component> <theme>   install component + theme together
   chameleon install-with-theme <component> <theme>
@@ -100,6 +101,25 @@ async function main(): Promise<void> {
         process.exit(1);
       }
       await installRef(client, itemId, targetDir, 'cli');
+      break;
+    }
+    case 'add-block': {
+      const itemId = args[1];
+      if (!itemId) {
+        console.error('Missing block id');
+        process.exit(1);
+      }
+      const prepared = await prepareInstall(client, itemId);
+      if (!prepared || prepared.item.type !== 'registry:block') {
+        console.error(`Unknown block: ${itemId}`);
+        process.exit(1);
+      }
+      const kernel = createInstallKernel(prepared.registry);
+      const result = await kernel.install(prepared.item, targetDir, {
+        telemetry: createTelemetryHook(),
+        source: 'cli',
+      });
+      console.log(JSON.stringify(result));
       break;
     }
     case 'add-theme': {

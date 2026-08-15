@@ -22,7 +22,7 @@ export interface RegistryFile {
 
 export interface RegistryItem {
   id: string;
-  type: 'registry:ui' | 'registry:theme' | (string & {});
+  type: 'registry:ui' | 'registry:theme' | 'registry:block' | (string & {});
   name: string;
   files: RegistryFile[];
   dependencies?: string[];

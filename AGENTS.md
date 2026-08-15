@@ -163,7 +163,7 @@ RTL: `ar` `ug` `ur` `fa`. Use `directionForLocale` from `@chameleon-ui/i18n`. Do
 
 ## MCP tools
 
-`search_components` (pass `intent` or `query`) · `get_component` · `get_contract` · `get_design_rules` · `get_import_specifiers` · `list_themes` · `install_component` · `install_theme` · `install_bundle` · `install_with_theme` · `telemetry_opt_out` · `record_intent`
+`search_components` (pass `intent` or `query`) · `get_component` · `get_contract` · `get_design_rules` · `get_import_specifiers` · `list_themes` · `install_component` · `install_block` · `install_theme` · `install_bundle` · `install_with_theme` · `telemetry_opt_out` · `record_intent`
 
 Attach snippet: `packages/mcp-server/README.md`.
 

@@ -64,6 +64,7 @@ export const MCP_TOOL_NAMES = [
   'get_design_rules',
   'get_import_specifiers',
   'install_component',
+  'install_block',
   'list_themes',
   'install_theme',
   'install_bundle',

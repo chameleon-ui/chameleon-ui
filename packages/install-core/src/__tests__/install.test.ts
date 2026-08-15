@@ -204,4 +204,26 @@ describe('install-core', () => {
       await rm(dir, { recursive: true, force: true });
     }
   });
+
+  it('resolves registry:block → component dependency graphs idempotently', async () => {
+    const dir = await makeTemp();
+    const loginBlock: RegistryItem = {
+      id: 'login',
+      type: 'registry:block',
+      name: 'Login',
+      files: [{ path: 'blocks/login/Login.tsx', content: 'export function Login() { return null }' }],
+      dependencies: ['button'],
+    };
+    try {
+      const kernel = createInstallKernel([buttonItem, loginBlock]);
+      const first = await kernel.install(loginBlock, dir, { source: 'cli' });
+      expect(first.installed).toEqual(['button', 'login']);
+      expect(first.written.sort()).toEqual(['Button.tsx', 'blocks/login/Login.tsx']);
+      const second = await kernel.install(loginBlock, dir, { source: 'cli' });
+      expect(second.written).toEqual([]);
+      expect(second.skipped.length).toBeGreaterThan(0);
+    } finally {
+      await rm(dir, { recursive: true, force: true });
+    }
+  });
 });

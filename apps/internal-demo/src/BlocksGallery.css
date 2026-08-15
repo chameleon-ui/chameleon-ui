@@ -1,0 +1,30 @@
+.cu-demo-blocks {
+  display: grid;
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-demo-blocks__lead {
+  margin-block: 0;
+}
+
+.cu-demo-blocks__section {
+  display: grid;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+}
+
+.cu-demo-blocks__title {
+  margin-block: 0;
+  font-size: 0.875rem;
+}
+
+.cu-demo-blocks__frame {
+  overflow: auto;
+}
