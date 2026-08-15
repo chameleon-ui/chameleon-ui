@@ -11,7 +11,7 @@ import InstallBlock from '@site/src/components/InstallBlock'
 
 <InstallBlock slug="button" />
 
-包已具備發布配置（MIT、`publishConfig.access=public`），版本是 0.1.0。本倉不執行 npm publish。
+包已具備發布配置（MIT、`publishConfig.access=public`），版本是 0.1.9。本倉不執行 npm publish。
 
 ```
 chameleon add button
@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## 本地 npm link（發布前）
 
-包版本是 `0.1.0`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：React 為 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 為 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 會失敗。
+包版本是 `0.1.9`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：React 為 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 為 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 會失敗。
 
 ```bash
 cd chameleon-ui
@@ -43,7 +43,7 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-發布預案：首發 git tag `v0.1.0`（owner **待指定**）；`pnpm publish -r` 時 pnpm 把 `workspace:*` 改成版本號。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
+發布預案：首發 git tag `v0.1.9`（owner **待指定**）；`pnpm publish -r` 時 pnpm 把 `workspace:*` 改成版本號。在此之前不要假定 registry 上能 `npm install @chameleon-ui/components`。
 
 ## 外部工程（非 pnpm workspace）
 

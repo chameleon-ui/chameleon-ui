@@ -11,7 +11,7 @@ Use the CLI or MCP. Both call **install-core**. There is no third installer on t
 
 <InstallBlock slug="button" />
 
-Packages are publish-ready (MIT, `publishConfig.access=public`) at version 0.1.0. This repo does not npm publish.
+Packages are publish-ready (MIT, `publishConfig.access=public`) at version 0.1.9. This repo does not npm publish.
 
 ```
 chameleon add button
@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## Local npm link (before publish)
 
-Packages are `0.1.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components` (React) or `tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (Vue). Linking only `components` / `components-vue` fails.
+Packages are `0.1.9`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components` (React) or `tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (Vue). Linking only `components` / `components-vue` fails.
 
 ```bash
 cd chameleon-ui
@@ -43,7 +43,7 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-Publish plan: first git tag `v0.1.0` (owner 待指定). `pnpm publish -r` rewrites `workspace:*` to versions. Until then, do not assume `npm install @chameleon-ui/components` works from the public registry.
+Publish plan: first git tag `v0.1.9` (owner 待指定). `pnpm publish -r` rewrites `workspace:*` to versions. Until then, do not assume `npm install @chameleon-ui/components` works from the public registry.
 
 ## External app (not a pnpm workspace)
 
