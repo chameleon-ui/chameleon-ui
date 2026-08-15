@@ -35,7 +35,7 @@
     "ci:phase7": "pnpm ci:phase6 && pnpm phase7:gates",
     "ci:phase8": "pnpm ci:phase4 && pnpm phase8:gates",
     "ci:phase9": "pnpm ci:phase8 && pnpm phase9:gates",
-    "phase1:gates": "node ./scripts/validate-german-expansion.mjs && node ./toolings/stylelint-config/scripts/lint-css.mjs \"./poc/ark-ui/src/**/*.css\" \"./poc/base-ui/src/**/*.css\" \"./packages/**/*.css\" \"./apps/**/*.css\" && pnpm --filter @chameleon-ui/visual-regression test:playwright && pnpm perf:size && pnpm perf:lhci",
+    "phase1:gates": "node ./scripts/validate-german-expansion.mjs && node ./toolings/stylelint-config/scripts/lint-css.mjs \"./poc/ark-ui/src/**/*.css\" \"./poc/base-ui/src/**/*.css\" \"./packages/**/*.css\" \"./apps/*/src/**/*.css\" && pnpm --filter @chameleon-ui/visual-regression test:playwright && pnpm perf:size && pnpm perf:lhci",
     "phase2:gates": "node ./scripts/run-genui-bench.mjs && corepack pnpm@9.15.0 --filter @chameleon-ui/docs build && node ./scripts/check-publish-ready.mjs",
     "phase3:gates": "node ./scripts/phase3-gates.mjs",
     "phase4:gates": "node ./scripts/phase4-gates.mjs",
