@@ -16,7 +16,8 @@ const cycleDirectory = path.join(packageRoot, "tests", "fixtures", "cycle");
 const expectedCssPath = path.join(packageRoot, "tests", "expected.css");
 
 async function testDeterministicSnapshot() {
-  const expected = await readFile(expectedCssPath, "utf8");
+  // Normalize CRLF from Windows checkouts; compiler always emits LF.
+  const expected = (await readFile(expectedCssPath, "utf8")).replace(/\r\n/g, "\n")
   const first = await compileTokenDirectory(coreDirectory);
   const second = await compileTokenDirectory(coreDirectory);
 
