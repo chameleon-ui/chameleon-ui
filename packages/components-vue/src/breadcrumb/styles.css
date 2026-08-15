@@ -1,0 +1,41 @@
+.cu-breadcrumb {
+  font-size: 0.875rem;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cu-space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cu-breadcrumb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+}
+
+.cu-breadcrumb__link {
+  color: var(--cu-color-palette-brand);
+  text-decoration: none;
+}
+
+/* Hover is gated so touch input never sticks in a hover style. */
+@media (hover: hover) {
+  .cu-breadcrumb__link:hover {
+    text-decoration: underline;
+  }
+}
+
+.cu-breadcrumb__current {
+  color: var(--cu-color-fg-default);
+  font-weight: 600;
+}
+
+.cu-breadcrumb__separator {
+  color: var(--cu-color-border-default);
+}

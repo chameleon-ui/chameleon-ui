@@ -1,5 +1,5 @@
 {
-  "$comment": "Phase 8 A2 frozen intent-search test set. Expected values were produced by searchByIntent on 2026-08-13 over the v0.2 contract catalog and are reproducible via: pnpm --filter @chameleon-ui/registry test -- src/__tests__/intent-search.test.ts",
+  "$comment": "Phase 8 A2 frozen intent-search test set. Reproducible via: pnpm --filter @chameleon-ui/registry test -- src/__tests__/intent-search.test.ts. 2026-08-15: 'upload file' top hit is upload after the complete Upload contract landed (file-input remains in top 3).",
   "version": "1.0",
   "frozenAt": "2026-08-13",
   "cases": [
@@ -15,8 +15,8 @@
     },
     {
       "intent": "upload file",
-      "expectFirst": "file-input",
-      "expectInTop3": ["file-input"]
+      "expectFirst": "upload",
+      "expectInTop3": ["upload", "file-input"]
     },
     {
       "intent": "show progress",

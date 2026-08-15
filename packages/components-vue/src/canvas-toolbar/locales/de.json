@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Werkzeugleiste der Zeichenfläche",
+    "zoomIn": "Ansicht vergrößern",
+    "zoomOut": "Ansicht verkleinern",
+    "resetView": "Ansicht zurücksetzen",
+    "fitView": "An die Zeichenfläche anpassen"
+  }
+}

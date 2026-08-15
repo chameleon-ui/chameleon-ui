@@ -1,0 +1,31 @@
+.cu-gauge {
+  display: inline-block;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-gauge__svg {
+  display: block;
+  inline-size: calc(var(--cu-space-3) * 20);
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.cu-gauge__track {
+  fill: none;
+  stroke: var(--cu-color-border-default);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.cu-gauge__fill {
+  fill: none;
+  stroke: var(--cu-color-palette-brand);
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.cu-gauge__value {
+  fill: var(--cu-color-fg-default);
+  font-size: 1.25rem;
+  font-weight: 600;
+}

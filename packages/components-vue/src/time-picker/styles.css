@@ -1,0 +1,34 @@
+.cu-time-picker {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--cu-space-1);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-time-picker__field {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--cu-space-1) / 2);
+}
+
+.cu-time-picker__label {
+  font-size: 0.875em;
+}
+
+.cu-time-picker__select {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: inherit;
+  font: inherit;
+}
+
+.cu-time-picker__select:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-time-picker__separator {
+  padding-block-end: var(--cu-space-2);
+}

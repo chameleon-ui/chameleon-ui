@@ -1,0 +1,25 @@
+.cu-skeleton {
+  display: block;
+  background: var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  animation: cu-skeleton-pulse 2s ease-in-out infinite;
+}
+
+.cu-skeleton--circle {
+  border-radius: 50%;
+}
+
+.cu-skeleton--rectangle {
+  border-radius: var(--cu-radius-md);
+}
+
+@keyframes cu-skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-skeleton {
+    animation: none;
+  }
+}

@@ -48,7 +48,7 @@ async function bundleSlug(build, vue, slug) {
         fileName: () => 'index.js',
       },
       rollupOptions: {
-        external: ['vue', '@chameleon-ui/primitives-vue', '@chameleon-ui/tokens'],
+        external: ['vue', '@chameleon-ui/i18n', '@chameleon-ui/primitives-vue', '@chameleon-ui/tokens'],
       },
     },
   })
@@ -97,10 +97,10 @@ async function main() {
   }
 
   const record = {
-    measuredAt: '2026-08-14',
+    measuredAt: '2026-08-15',
     tool: 'benchmarks/scripts/check-vue-size.mjs',
     unit: 'kb_gzip',
-    peerExternalized: ['vue', '@chameleon-ui/primitives-vue', '@chameleon-ui/tokens'],
+    peerExternalized: ['vue', '@chameleon-ui/i18n', '@chameleon-ui/primitives-vue', '@chameleon-ui/tokens'],
     metricId: 'S1',
     count: slugs.length,
     limitKbGzip: limit,

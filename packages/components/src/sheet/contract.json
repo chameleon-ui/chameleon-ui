@@ -119,7 +119,7 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,

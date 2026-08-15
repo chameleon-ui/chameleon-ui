@@ -1,0 +1,53 @@
+.cu-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-menu {
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  box-shadow: var(--cu-shadow-md, 0 1px 3px color-mix(in srgb, var(--cu-color-background-inverse) 12%, transparent));
+  z-index: 10;
+  min-inline-size: 10rem;
+}
+
+.cu-menu__list {
+  list-style: none;
+  margin: 0;
+  padding: var(--cu-space-1);
+}
+
+.cu-menu__item + .cu-menu__item {
+  border-block-start: 1px solid var(--cu-color-border-default);
+}
+
+.cu-menu__button {
+  display: flex;
+  inline-size: 100%;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-2);
+  border: 0;
+  background: transparent;
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
+}
+
+.cu-menu__button:focus-visible {
+  outline: 2px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+  border-radius: var(--cu-radius-sm);
+}

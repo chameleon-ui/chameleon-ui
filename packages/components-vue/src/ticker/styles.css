@@ -1,0 +1,46 @@
+.cu-ticker {
+  display: block;
+  border-block: 1px solid var(--cu-color-border-default);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  overflow: hidden;
+}
+
+.cu-ticker__strip {
+  display: flex;
+  gap: var(--cu-space-3);
+  list-style: none;
+  margin: 0;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  contain: layout style;
+}
+
+.cu-ticker__item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--cu-space-1);
+  white-space: nowrap;
+}
+
+.cu-ticker__value {
+  font-weight: 600;
+}
+
+.cu-ticker__trend--up {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, green);
+}
+
+.cu-ticker__trend--down {
+  color: color-mix(in srgb, var(--cu-color-palette-brand) 60%, red);
+}
+
+.cu-ticker__trend-text {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}

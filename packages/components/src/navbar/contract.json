@@ -54,8 +54,16 @@
     }
   ],
   "composition": {
-    "allowedParents": ["app-shell", "header", "page"],
-    "allowedChildren": ["link", "button", "text"],
+    "allowedParents": [
+      "app-shell",
+      "header",
+      "page"
+    ],
+    "allowedChildren": [
+      "link",
+      "button",
+      "text"
+    ],
     "requiredContext": []
   },
   "antiPatterns": [
@@ -71,7 +79,11 @@
     ],
     "focus": "Items are real links or buttons in document order with a visible focus ring.",
     "labeling": "The nav landmark has an accessible name; current page uses aria-current.",
-    "wcag": ["1.3.1", "2.4.1", "2.4.7"]
+    "wcag": [
+      "1.3.1",
+      "2.4.1",
+      "2.4.7"
+    ]
   },
   "responsive": {
     "strategy": "Root is a query container. Compact stacks items; tablet/desktop switch the list to a row. No viewport size media.",
@@ -84,7 +96,7 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,
@@ -93,7 +105,12 @@
   },
   "dataAi": {
     "role": "navbar",
-    "states": ["default", "active"],
-    "intents": ["navigate-sections"]
+    "states": [
+      "default",
+      "active"
+    ],
+    "intents": [
+      "navigate-sections"
+    ]
   }
 }

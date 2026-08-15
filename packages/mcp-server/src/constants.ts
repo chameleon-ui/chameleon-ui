@@ -45,6 +45,14 @@ export const LINK_RUNTIME_PACKAGES = [
   '@chameleon-ui/components',
 ] as const
 
+export const LINK_RUNTIME_PACKAGES_VUE = [
+  '@chameleon-ui/tokens',
+  '@chameleon-ui/i18n',
+  '@chameleon-ui/primitives-vue',
+  '@chameleon-ui/themes',
+  '@chameleon-ui/components-vue',
+] as const
+
 /**
  * MCP tool names. `tools/list`, README, AGENTS.md, and `pnpm ai:check` must
  * stay in lockstep with this list.

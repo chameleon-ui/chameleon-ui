@@ -1,0 +1,49 @@
+.cu-editor {
+  display: block;
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-editor__toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cu-space-1);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border-block-end: 1px solid var(--cu-color-border-default);
+}
+
+.cu-editor__command {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: var(--cu-space-3);
+  block-size: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  cursor: pointer;
+}
+
+.cu-editor__command:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}
+
+.cu-editor__region {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  min-block-size: calc(var(--cu-space-3) * 6);
+  outline: none;
+}
+
+.cu-editor__region:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--cu-color-palette-brand);
+}
+
+.cu-editor__region:empty::before {
+  content: attr(data-placeholder);
+  color: color-mix(in srgb, var(--cu-color-fg-default) 56%, transparent);
+}

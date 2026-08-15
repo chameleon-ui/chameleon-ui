@@ -1,0 +1,16 @@
+.cu-edge {
+  position: absolute;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.cu-edge__path {
+  fill: none;
+  stroke: var(--cu-color-border-default);
+  stroke-width: 2;
+}
+
+.cu-edge__label {
+  fill: var(--cu-color-fg-default);
+  font-size: 0.75rem;
+}

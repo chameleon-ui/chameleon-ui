@@ -7,7 +7,7 @@ description: 在消费方应用里用 MCP、契约与合法 import 生成 Chamel
 
 本文是 **编码 Agent 的产品规范**。仓库短清单是 `chameleon-ui/AGENTS.md`。接入笔记：仓库 `docs/ai/agent-consume.md`。
 
-面向：在 **非本 pnpm workspace** 的 React 应用里生成或修改 UI 的 Agent。不面向内测 Demo 操作员。
+面向：在 **非本 pnpm workspace** 的 React **或 Vue** 应用里生成或修改 UI 的 Agent。不面向内测 Demo 操作员。React 是主实现。Vue 走 `@chameleon-ui/components-vue`：catalog **103/103** + ThemeProvider。
 
 包版本 `0.1.0`，**尚未 npm publish**。在 registry 发布之前不要假定 `npm install @chameleon-ui/components` 可用。
 
@@ -96,9 +96,17 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chame
 
 只 link `components` 会失败。
 
-Windows + Vite 不要手写半页猜测配置。用仓库 `templates/external-vite-react`，或 `node ./scripts/link-external.mjs --print-vite`。版本矩阵、高度链、ThemeProvider、双轨说明：[外部接入](./consume.mdx)。
+Vue 五包：
 
-按需子路径（可选）：`import { Button } from "@chameleon-ui/components/button"`。
+```bash
+node ./scripts/link-external.mjs --vue --apply
+# 消费方：
+npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @chameleon-ui/themes @chameleon-ui/components-vue
+```
+
+Windows + Vite 不要手写半页猜测配置。用仓库 `templates/external-vite-react` 或 `templates/external-vite-vue`，或 `node ./scripts/link-external.mjs --print-vite` / `--print-vite-vue`。版本矩阵、高度链、ThemeProvider、双轨说明：[外部接入](./consume.mdx)。
+
+按需子路径（可选，**仅 React**）：`import { Button } from "@chameleon-ui/components/button"`。Vue：`import { Button } from "@chameleon-ui/components-vue"`，另可 `import "@chameleon-ui/components-vue/css"`。
 
 ## 5. 契约与 data-ai
 

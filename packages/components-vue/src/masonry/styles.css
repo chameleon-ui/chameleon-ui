@@ -1,0 +1,50 @@
+/*
+ * Query container: the root is the container; the track consumes it so
+ * column-count follows the masonry's own inline size (sidebar embed, split
+ * view) rather than the viewport. Compact is one column; @container only
+ * enhances. 48rem == breakpoint.tablet, 80rem == breakpoint.desktop
+ * (packages/tokens/src/core/breakpoint.json).
+ */
+.cu-masonry {
+  display: block;
+  color: var(--cu-color-fg-default);
+  container-type: inline-size;
+}
+
+.cu-masonry__track {
+  column-count: 1;
+  column-gap: var(--cu-space-2);
+}
+
+.cu-masonry--gap-sm .cu-masonry__track {
+  column-gap: var(--cu-space-1);
+}
+
+.cu-masonry--gap-md .cu-masonry__track {
+  column-gap: var(--cu-space-2);
+}
+
+.cu-masonry--gap-lg .cu-masonry__track {
+  column-gap: var(--cu-space-3);
+}
+
+.cu-masonry__track > * {
+  break-inside: avoid;
+  margin-block-end: var(--cu-space-2);
+}
+
+@container (min-width: 48rem) {
+  .cu-masonry__track {
+    column-count: 2;
+  }
+}
+
+@container (min-width: 80rem) {
+  .cu-masonry--columns-3 .cu-masonry__track {
+    column-count: 3;
+  }
+
+  .cu-masonry--columns-4 .cu-masonry__track {
+    column-count: 4;
+  }
+}

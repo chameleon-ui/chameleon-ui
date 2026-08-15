@@ -10,14 +10,15 @@
     "access": "public"
   },
   "type": "module",
-  "description": "Vue component implementations. Import primitives-vue and tokens; never @ark-ui/*.",
+  "description": "Vue catalog (103/103 slugs + ThemeProvider). Import primitives-vue, tokens, i18n; never @ark-ui/*.",
   "files": ["dist", "src", "README.md", "LICENSE"],
   "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
-    }
+    },
+    "./css": "./dist/index.css"
   },
   "scripts": {
     "build": "vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
@@ -30,6 +31,7 @@
     "vue": "^3.5.0"
   },
   "dependencies": {
+    "@chameleon-ui/i18n": "workspace:*",
     "@chameleon-ui/primitives-vue": "workspace:*",
     "@chameleon-ui/tokens": "workspace:*"
   },

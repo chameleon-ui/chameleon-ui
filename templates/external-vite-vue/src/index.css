@@ -1,0 +1,16 @@
+html,
+body,
+#app {
+  block-size: 100%;
+  margin: 0;
+}
+
+body {
+  min-block-size: 100%;
+  min-inline-size: 20rem;
+  font-family: system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}

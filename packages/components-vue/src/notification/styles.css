@@ -1,0 +1,51 @@
+.cu-notification {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--cu-space-2);
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-inline-start-width: 4px;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-notification--info {
+  border-inline-start-color: var(--cu-color-palette-brand);
+}
+
+.cu-notification--success {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, green);
+}
+
+.cu-notification--warning {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, orange);
+}
+
+.cu-notification--error {
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 50%, red);
+}
+
+.cu-notification__title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.cu-notification__message {
+  margin: var(--cu-space-1) 0 0;
+}
+
+.cu-notification__dismiss {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-notification__dismiss:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}

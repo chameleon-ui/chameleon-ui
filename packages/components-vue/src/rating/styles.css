@@ -1,0 +1,29 @@
+.cu-rating {
+  display: inline-flex;
+  gap: calc(var(--cu-space-1) / 2);
+}
+
+.cu-rating__star {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: var(--cu-space-3);
+  block-size: var(--cu-space-3);
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--cu-color-border-default);
+  cursor: pointer;
+}
+
+.cu-rating__star--filled {
+  color: var(--cu-color-palette-brand);
+}
+
+.cu-rating__star:disabled {
+  cursor: default;
+}
+
+.cu-rating__star:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+}

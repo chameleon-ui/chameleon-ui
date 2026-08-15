@@ -1,20 +1,23 @@
 <script lang="ts">
-export type ToastStatus = 'info' | 'success' | 'warning' | 'error'
+export type { ToastStatus } from './store'
 
 export interface ToastProps {
   title: string
-  description: string
-  status?: ToastStatus
+  description?: string
+  status?: import('./store').ToastStatus
   closeLabel: string
+  duration?: number
   class?: string
 }
 </script>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const props = withDefaults(defineProps<ToastProps>(), {
   status: 'info',
+  duration: 0,
+  description: '',
 })
 
 const open = defineModel<boolean>('open', { required: true })
@@ -27,6 +30,18 @@ const live = computed(() => (props.status === 'error' ? 'assertive' : 'polite'))
 function close() {
   open.value = false
 }
+
+watch(
+  () => [open.value, props.duration] as const,
+  ([isOpen, duration], _prev, onCleanup) => {
+    if (!isOpen || duration <= 0) return
+    const timer = window.setTimeout(() => {
+      open.value = false
+    }, duration)
+    onCleanup(() => window.clearTimeout(timer))
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
@@ -41,9 +56,9 @@ function close() {
     :aria-live="live"
   >
     <div class="cu-toast__title">{{ title }}</div>
-    <div class="cu-toast__description">{{ description }}</div>
+    <div v-if="description" class="cu-toast__description">{{ description }}</div>
     <button class="cu-toast__close" type="button" @click="close">{{ closeLabel }}</button>
   </div>
 </template>
 
-<style scoped src="./styles.css"></style>
+<style src="./styles.css"></style>

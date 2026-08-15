@@ -1,0 +1,29 @@
+.cu-inline-alert {
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-radius: var(--cu-radius-md);
+  border-inline-start: 4px solid var(--cu-color-border-default);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font-size: 0.875rem;
+}
+
+.cu-inline-alert--info {
+  border-inline-start-color: var(--cu-color-palette-brand);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 10%, var(--cu-color-background-default));
+}
+
+.cu-inline-alert--success {
+  border-inline-start-color: #16a34a;
+  background: color-mix(in srgb, #16a34a 10%, var(--cu-color-background-default));
+}
+
+.cu-inline-alert--warning {
+  border-inline-start-color: #f59e0b;
+  background: color-mix(in srgb, #f59e0b 10%, var(--cu-color-background-default));
+}
+
+.cu-inline-alert--error {
+  border-inline-start-color: #dc2626;
+  background: color-mix(in srgb, #dc2626 10%, var(--cu-color-background-default));
+}

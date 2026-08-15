@@ -46,7 +46,44 @@ export default defineConfig({
 export const VERSION_MATRIX = {
   node: '>=20.19.0',
   react: '^19.0.0',
+  vue: '^3.5.0',
   arkUi: '5.38.0',
+  arkUiVue: '5.38.1',
   intlMessageformat: '11.2.13',
   icuParser: '3.5.14',
 }
+
+export const VITE_CONSUMER_SNIPPET_VUE = `import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+const here = path.dirname(fileURLToPath(import.meta.url))
+const chameleonRoot = process.env.CU_MONOREPO ?? path.resolve(here, '../../chameleon-ui')
+
+export default defineConfig({
+  plugins: [vue()],
+  server: {
+    fs: {
+      allow: [here, chameleonRoot],
+    },
+  },
+  optimizeDeps: {
+    include: [
+      'vue',
+      '@ark-ui/vue',
+      'intl-messageformat',
+      '@formatjs/icu-messageformat-parser',
+    ],
+  },
+  resolve: {
+    preserveSymlinks: true,
+    dedupe: ['vue', '@ark-ui/vue', 'intl-messageformat'],
+    // Last-resort aliases if a file: install fails CSS exports. Prefer:
+    //   @chameleon-ui/themes/<id>/css
+    //   @chameleon-ui/tokens/css
+    //   @chameleon-ui/tokens/density.css
+    //   @chameleon-ui/components-vue/css
+  },
+})
+`

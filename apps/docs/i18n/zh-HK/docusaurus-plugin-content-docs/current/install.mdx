@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## 本地 npm link（發布前）
 
-包版本是 `0.1.0`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：`tokens` · `i18n` · `primitives` · `themes` · `components`。只 link `components` 會失敗。
+包版本是 `0.1.0`，本倉不 npm publish。`workspace:*` 只有 pnpm workspace 能解析。外部 npm 工程必須 **全量** link：React 為 `tokens` · `i18n` · `primitives` · `themes` · `components`；Vue 為 `tokens` · `i18n` · `primitives-vue` · `themes` · `components-vue`。只 link `components` / `components-vue` 會失敗。
 
 ```bash
 cd chameleon-ui
@@ -73,6 +73,6 @@ Node **≥ 20.19**，pnpm **9.15.0**。各可發包已聲明 `engines.node`。
 
 ## 雙軌與外部 Vite
 
-整包五件套或 `chameleon add` 拷源碼，先選一條。Windows Vite 模板：`templates/external-vite-react`。完整清單：[外部接入](./guides/consume.mdx)。
+整包五件套或 `chameleon add` 拷源碼，先選一條。Windows Vite 模板：`templates/external-vite-react` 與 `templates/external-vite-vue`。完整清單：[外部接入](./guides/consume.mdx)。
 
 

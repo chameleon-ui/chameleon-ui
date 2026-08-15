@@ -15,14 +15,23 @@
       "type": "enum",
       "required": false,
       "description": "Spacing token applied to the empty slot.",
-      "values": ["none", "sm", "md", "lg"],
+      "values": [
+        "none",
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md"
     },
     "axis": {
       "type": "enum",
       "required": false,
       "description": "Axis that receives the gap. Distinct from stack, which spaces children via flex gap.",
-      "values": ["block", "inline", "both"],
+      "values": [
+        "block",
+        "inline",
+        "both"
+      ],
       "default": "block"
     },
     "className": {
@@ -34,13 +43,22 @@
   "variants": [
     {
       "name": "size",
-      "values": ["none", "sm", "md", "lg"],
+      "values": [
+        "none",
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Spacing token applied to the empty slot."
     },
     {
       "name": "axis",
-      "values": ["block", "inline", "both"],
+      "values": [
+        "block",
+        "inline",
+        "both"
+      ],
       "default": "block",
       "description": "Axis that receives the gap."
     }
@@ -60,7 +78,13 @@
     }
   ],
   "composition": {
-    "allowedParents": ["stack", "grid", "container", "app-shell", "page"],
+    "allowedParents": [
+      "stack",
+      "grid",
+      "container",
+      "app-shell",
+      "page"
+    ],
     "allowedChildren": [],
     "requiredContext": []
   },
@@ -73,7 +97,9 @@
     "keyboard": [],
     "focus": "Not focusable; marked aria-hidden because it has no content.",
     "labeling": "Presentational spacer; children and siblings provide names.",
-    "wcag": ["1.3.2"]
+    "wcag": [
+      "1.3.2"
+    ]
   },
   "responsive": {
     "strategy": "Token-sized slot only. Breakpoint morph is not applicable; parents choose size.",
@@ -86,7 +112,7 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,
@@ -95,7 +121,13 @@
   },
   "dataAi": {
     "role": "space",
-    "states": ["block", "inline", "both"],
-    "intents": ["layout-flow"]
+    "states": [
+      "block",
+      "inline",
+      "both"
+    ],
+    "intents": [
+      "layout-flow"
+    ]
   }
 }

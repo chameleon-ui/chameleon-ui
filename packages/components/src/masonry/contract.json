@@ -26,7 +26,11 @@
       "type": "enum",
       "required": false,
       "description": "Column gap token.",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md"
     },
     "className": {
@@ -38,7 +42,11 @@
   "variants": [
     {
       "name": "gap",
-      "values": ["sm", "md", "lg"],
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ],
       "default": "md",
       "description": "Column gap token."
     }
@@ -50,8 +58,16 @@
     }
   ],
   "composition": {
-    "allowedParents": ["container", "app-shell", "page"],
-    "allowedChildren": ["card", "image", "article-card"],
+    "allowedParents": [
+      "container",
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "card",
+      "image",
+      "article-card"
+    ],
     "requiredContext": []
   },
   "antiPatterns": [
@@ -63,7 +79,10 @@
     "keyboard": [],
     "focus": "Children remain focusable in source order, which may not match visual column order.",
     "labeling": "Children provide their own labels.",
-    "wcag": ["1.3.1", "1.3.2"]
+    "wcag": [
+      "1.3.1",
+      "1.3.2"
+    ]
   },
   "responsive": {
     "strategy": "Root is a query container. Compact is one column; tablet is two; desktop uses the columns prop (3 or 4). No viewport size media.",
@@ -76,7 +95,7 @@
   "platforms": {
     "web": "supported",
     "react": "supported",
-    "vue": "planned"
+    "vue": "supported"
   },
   "rtl": {
     "supported": true,
@@ -85,7 +104,11 @@
   },
   "dataAi": {
     "role": "masonry",
-    "states": ["default"],
-    "intents": ["layout-columns"]
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "layout-columns"
+    ]
   }
 }

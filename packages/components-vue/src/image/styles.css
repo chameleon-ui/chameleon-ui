@@ -1,0 +1,28 @@
+.cu-image {
+  display: block;
+  margin: 0;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-image__img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-image__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: calc(var(--cu-space-3) * 8);
+  border: 1px dashed var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+}
+
+.cu-image__caption {
+  margin-block-start: var(--cu-space-1);
+  font-size: 0.875em;
+  color: color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent);
+}

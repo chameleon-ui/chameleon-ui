@@ -10,16 +10,18 @@ Chameleon UI 的一等公民是 **三端 App 壳 + Token/主题 overlay + 契约
 适合：多端产品壳、品牌主题、Agent 可生成 UI。  
 不适合的期望：企业级 Form / Table / Upload 开箱上线到 Ant Design 深度；也不要把换肤当成一线产品视觉方案。默认视觉旗舰是 `line`，内部演示默认页是产品台（`?view=street`），不是组件画廊。
 
-官方模板：仓库 `templates/external-vite-react`（Vite 6 + React 19，含 Windows）。
+官方模板：仓库 `templates/external-vite-react`（Vite 6 + React 19）与 `templates/external-vite-vue`（Vite 6 + Vue 3），含 Windows。
+
+React 是主实现。Vue 不是「还没支持」：消费方可装 `@chameleon-ui/components-vue`，用 ThemeProvider + AppShell + Navigation + Button，套 `line` 主题，做出产品壳。Catalog Vue 覆盖 **103/103**（另加 ThemeProvider）。契约 `platforms.vue: supported` 表示该 slug 在 Vue 包有实现。
 
 ## 双轨交付（先选一条）
 
 | 轨道 | 做法 | 何时 |
 | :--- | :--- | :--- |
-| **整包** | 依赖 `@chameleon-ui/components`（外加 tokens / i18n / primitives / themes） | 应用直接 import 组件 |
+| **整包** | 依赖 `@chameleon-ui/components`（外加 tokens / i18n / primitives / themes）或 Vue 的 `@chameleon-ui/components-vue`（tokens / i18n / primitives-vue / themes） | 应用直接 import 组件 |
 | **拷源码** | `chameleon add <slug>` 或 MCP `install_*` → install-core | 要把单个组件源码拷进自己的树（偏 shadcn） |
 
-不要把 `"workspace:*"` 写进非 pnpm workspace 的 `package.json`。不要只 link `components`。两条轨道都合法，混用「半套 link + 手写 workspace」会挂。
+不要把 `"workspace:*"` 写进非 pnpm workspace 的 `package.json`。不要只 link `components` 或 `components-vue`。两条轨道都合法，混用「半套 link + 手写 workspace」会挂。
 
 ## 发布前怎么装
 
@@ -36,22 +38,24 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chame
 克隆模板：
 
 ```bash
-cp -R chameleon-ui/templates/external-vite-react my-app
+cp -R chameleon-ui/templates/external-vite-react my-app   # 或 external-vite-vue
 cd my-app
 npm install
 npm run dev
 ```
 
+Vue 五包：`node ./scripts/link-external.mjs --vue --apply`，然后 `npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @chameleon-ui/themes @chameleon-ui/components-vue`。打 tarball 加 `--vue`。
+
 ## Windows + Vite（模板已写好）
 
-真实踩坑都收进 `templates/external-vite-react/vite.config.ts`：
+真实踩坑都收进 `templates/external-vite-react/vite.config.ts` 与 `templates/external-vite-vue/vite.config.ts`：
 
 1. `resolve.preserveSymlinks: true`
-2. `resolve.dedupe`：`react` · `react-dom` · `@ark-ui/react` · `intl-messageformat`
+2. `resolve.dedupe`：React 钉 `react` · `react-dom` · `@ark-ui/react` · `intl-messageformat`；Vue 钉 `vue` · `@ark-ui/vue` · `intl-messageformat`
 3. `optimizeDeps.include`：Ark + FormatJS
 4. `server.fs.allow` 含 Chameleon 仓（可用 `CU_MONOREPO`）
 5. **不要**把 `@ark-ui/react` alias 成目录，子路径会失效
-6. CSS 用 `themes/<id>/css`、`tokens/css`、`tokens/density.css`。打印应急 alias：`node ./scripts/link-external.mjs --print-vite`
+6. CSS 用 `themes/<id>/css`、`tokens/css`、`tokens/density.css`。打印应急 alias：`node ./scripts/link-external.mjs --print-vite`（Vue：`--print-vite-vue`）
 
 改库源码后必须先 build 对应包。消费的是 `dist`。
 
@@ -61,7 +65,9 @@ npm run dev
 | :--- | :--- |
 | Node | ≥ 20.19 |
 | `react` / `react-dom` | `^19`（peer；不含 React 18） |
+| `vue` | `^3.5`（Vue 消费方） |
 | `@ark-ui/react` | `5.38.0`（primitives 的 peer，应用根也要装） |
+| `@ark-ui/vue` | `5.38.1`（primitives-vue；Vue 应用根也要装） |
 | `intl-messageformat` | `11.2.13` |
 | `@formatjs/icu-messageformat-parser` | `3.5.14` |
 
@@ -81,6 +87,22 @@ import { ThemeProvider } from "@chameleon-ui/components";
 
 单主题：再静态 `import "@chameleon-ui/themes/cupertino/css"`。  
 多主题：把各主题 raw CSS 传给 `overlays`，运行时只改 `data-theme`，不要叠八份 `:root`。
+
+Vue：`ThemeProvider` / `ToastProvider` 从 `@chameleon-ui/components-vue` 引入，产品壳默认 `theme="line"`。
+
+## Vue 覆盖（诚实）
+
+Catalog Vue 覆盖 **103/103**（另加 ThemeProvider）。契约 `platforms.vue`：`supported` = `@chameleon-ui/components-vue` 有实现。SchemaRenderer 默认 map 仍挂在 React 包。
+
+| 消费面 | Vue | React |
+| :--- | :--- | :--- |
+| ThemeProvider（theme / density / locale / overlays） | 有 | 有 |
+| AppShell + Navigation + NavigationBar + `useTabStacks` | 有 | 有 |
+| Catalog 103 slugs（含 DataGrid / Chart / Editor / CommandPalette / Canvas） | 有 | 有 |
+| SchemaRenderer 默认 map | React 包 | React 包 |
+| 官方 Vite 模板 | `templates/external-vite-vue` | `templates/external-vite-react` |
+
+不要在文档或口头说「Vue 还没完全支持」。也不要说 Vue 已 103/103。
 
 ## AppShell 高度链（消费方 checklist）
 

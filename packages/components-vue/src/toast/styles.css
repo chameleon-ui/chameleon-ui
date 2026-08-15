@@ -1,36 +1,66 @@
+.cu-toaster {
+  position: fixed;
+  inset-block-end: var(--cu-space-4, var(--cu-space-3));
+  inset-inline-end: var(--cu-space-4, var(--cu-space-3));
+  z-index: 1100;
+  display: grid;
+  gap: var(--cu-space-2);
+  pointer-events: none;
+}
+
+.cu-toaster[data-placement='top-end'],
+.cu-toaster[data-placement='top-start'] {
+  inset-block-end: auto;
+  inset-block-start: var(--cu-space-4, var(--cu-space-3));
+}
+
+.cu-toaster[data-placement='bottom-start'],
+.cu-toaster[data-placement='top-start'] {
+  inset-inline-end: auto;
+  inset-inline-start: var(--cu-space-4, var(--cu-space-3));
+}
+
+.cu-toaster .cu-toast {
+  pointer-events: auto;
+}
+
 .cu-toast {
   display: grid;
   gap: var(--cu-space-1);
   min-inline-size: 16rem;
   max-inline-size: min(100%, 24rem);
-  padding-block: var(--cu-space-3);
-  padding-inline: var(--cu-space-3);
+  padding-block: var(--cu-space-4, var(--cu-space-3));
+  padding-inline: var(--cu-space-4, var(--cu-space-3));
   border-radius: var(--cu-radius-md);
-  border-inline-start: 4px solid var(--cu-color-palette-brand);
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  border-inline-start-width: 2px;
+  border-inline-start-color: var(--cu-color-palette-brand);
   color: var(--cu-color-fg-default);
-  background: var(--cu-color-background-default);
+  background: var(--cu-color-background-elevated, var(--cu-color-background-default));
   box-shadow: var(--cu-shadow-md);
 }
 
 .cu-toast--success {
-  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 70%, var(--cu-color-fg-default));
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, green);
 }
 
 .cu-toast--warning {
-  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 45%, var(--cu-color-fg-default));
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, orange);
 }
 
 .cu-toast--error {
-  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 40%, var(--cu-color-fg-default));
+  border-inline-start-color: color-mix(in srgb, var(--cu-color-palette-brand) 80%, red);
 }
 
 .cu-toast__title {
-  font-weight: 700;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.014em);
 }
 
 .cu-toast__description {
-  font-size: 0.9375rem;
-  line-height: 1.5;
+  font-size: var(--cu-typography-size-caption, 0.9375rem);
+  line-height: var(--cu-typography-line-height-body, 1.5);
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
 }
 
 .cu-toast__close {

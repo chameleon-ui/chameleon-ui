@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "Search",
+    "placeholder": "Search",
+    "clear": "Clear",
+    "submit": "Submit search"
+  }
+}

@@ -511,6 +511,9 @@ importers:
 
   packages/components-vue:
     dependencies:
+      '@chameleon-ui/i18n':
+        specifier: workspace:*
+        version: link:../i18n
       '@chameleon-ui/primitives-vue':
         specifier: workspace:*
         version: link:../primitives-vue

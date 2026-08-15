@@ -63,7 +63,7 @@
 | `primitives` | `@chameleon-ui/primitives` | **仅** Ark UI / Zag 薄封装；禁止 `@base-ui/react` |
 | `primitives-vue` | `@chameleon-ui/primitives-vue` | Vue Ark/Zag 薄封装；`components-vue` 禁止直接依赖 `@ark-ui/*` |
 | `components` | `@chameleon-ui/components` | React 主包；权威契约在 `src/<kebab>/contract.json`；冻结清单 `catalog.json` |
-| `components-vue` | `@chameleon-ui/components-vue` | Phase 3 Vue 子集（Button + Input）；包装 `primitives-vue` 与 `tokens` |
+| `components-vue` | `@chameleon-ui/components-vue` | Vue catalog 103/103 + ThemeProvider；包装 `primitives-vue`、`tokens`、`i18n` |
 | `install-core` | `@chameleon-ui/install-core` | **唯一写盘内核**：C6 依赖图 / 冲突检测 / 幂等写入；遥测默认关；`source` = `cli` \| `mcp` \| `docs` \| `market` |
 | `registry` | `@chameleon-ui/registry` | 目录；CLI/MCP/Bench 只读；不写盘。无 `CU_REGISTRY_URL` 时用 bundled；有 URL 则 HTTP 客户端 |
 | `registry-private` | `@chameleon-ui/registry-private` | 私有 Registry **服务**（`private: true`）：同 `RegistryItem` schema；Bearer Token；namespace + semver。默认 `127.0.0.1`。不写盘 |

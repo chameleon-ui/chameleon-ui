@@ -1,0 +1,52 @@
+.cu-drawer {
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  max-inline-size: 24rem;
+  block-size: 100%;
+  padding-block: var(--cu-space-3);
+  padding-inline: var(--cu-space-3);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-drawer--start {
+  margin-inline-end: auto;
+}
+
+.cu-drawer--end {
+  margin-inline-start: auto;
+}
+
+.cu-drawer__backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.cu-drawer__title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cu-drawer__body {
+  flex: 1;
+  overflow: auto;
+  margin-block: var(--cu-space-3);
+}
+
+.cu-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.75rem;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border: 1px solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+  font: inherit;
+  cursor: pointer;
+}

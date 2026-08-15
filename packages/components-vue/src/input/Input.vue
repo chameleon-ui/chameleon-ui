@@ -33,7 +33,7 @@ function updateValue(event: Event) {
 </script>
 
 <template>
-  <div class="cu-field" data-ai-role="input" :data-ai-state="dataAiState">
+  <div class="cu-field" data-ai-role="input" data-ai-intent="enter-text" :data-ai-state="dataAiState">
     <label :for="id" class="cu-field__label">{{ label }}</label>
     <InputPrimitive
       :id="id"

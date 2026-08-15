@@ -34,7 +34,7 @@ import "@chameleon-ui/tokens/density.css";
 
 ## Local npm link (before publish)
 
-Packages are `0.1.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components`. Linking only `components` fails.
+Packages are `0.1.0`; this repo does not npm publish. `workspace:*` only resolves inside a pnpm workspace. An external npm app must link **all** of `tokens`, `i18n`, `primitives`, `themes`, and `components` (React) or `tokens`, `i18n`, `primitives-vue`, `themes`, and `components-vue` (Vue). Linking only `components` / `components-vue` fails.
 
 ```bash
 cd chameleon-ui
@@ -73,13 +73,15 @@ Node **≥ 20.19**, pnpm **9.15.0**. Publishable packages declare `engines.node`
 
 ## Dual track and external Vite
 
-Pick package-five or `chameleon add` — not both half-done. Windows Vite (`preserveSymlinks`, `dedupe`, `fs.allow`) lives in `templates/external-vite-react`. Full checklist: [External consume](./guides/consume.mdx).
+Pick package-five or `chameleon add` — not both half-done. Windows Vite (`preserveSymlinks`, `dedupe`, `fs.allow`) lives in `templates/external-vite-react` and `templates/external-vite-vue`. Full checklist: [External consume](./guides/consume.mdx).
 
 ```bash
 node ./scripts/link-external.mjs --print-vite
+node ./scripts/link-external.mjs --print-vite-vue
 node ./scripts/pack-external.mjs
+node ./scripts/pack-external.mjs --vue
 ```
 
-Pin at the app root: `react@^19` · `@ark-ui/react@5.38.0` · `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range.
+Pin at the app root: React `react@^19` · `@ark-ui/react@5.38.0`; Vue `vue@^3.5` · `@ark-ui/vue@5.38.1`; plus `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range.
 
 
