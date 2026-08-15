@@ -1,6 +1,8 @@
 ﻿# npm publish blocker — 2026-08-15
 
-Status: **blocked on npm publish auth policy (2FA / granular token)**. In-repo packages remain ready at **0.1.9**; **no** package was published to the registry.
+Status: **deferred by owner（先不上架）** + previously **blocked on npm auth policy (2FA / granular token)**.  
+Formal A9.3 note: [`A9.3-npm-deferred.md`](./A9.3-npm-deferred.md).  
+In-repo packages remain ready at **0.1.9**; **no** package was published to the registry. Do **not** force `npm publish`.
 
 ## Retry session (after `npm login`)
 
@@ -29,6 +31,9 @@ Previous blocker was **ENEEDAUTH** (not logged in). Login is fixed; publish stil
 
 ## Publish set (ready at 0.1.9, not published)
 
+`publish:check` wouldPublish = **19** packages, including umbrellas:
+
+- `@chameleon-ui/react@0.1.9` / `@chameleon-ui/vue@0.1.9` (umbrellas; commit `2cd6db8`)
 - `@chameleon-ui/tokens@0.1.9`
 - `@chameleon-ui/i18n@0.1.9`
 - `@chameleon-ui/primitives@0.1.9`

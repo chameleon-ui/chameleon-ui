@@ -6,6 +6,8 @@
  * - VPAT file exists; draft is allowed; certified/signed claims without negation fail.
  * - VPAT published-internal status page exists; commercial claims must be denied.
  * - Blind-test pending + A9.5 decision: PROTOCOL-READY, rate null, not_run (no fake ≥80%).
+ * - A9.3 npm deferred note exists (do not claim published).
+ * - Slogan checklist (A9.6) + M9 report exist with honesty markers.
  * - Locale gap table exists (zero-gap is NOT required).
  * - publish:check dry run only.
  */
@@ -275,6 +277,46 @@ async function checkGapTable() {
   ok(`locale gap table present (gapCount=${table.gapCount}; zero-gap not required for this gate)`)
 }
 
+async function checkNpmDeferred() {
+  const deferred = join(repoRoot, 'docs/project/reports/A9.3-npm-deferred.md')
+  if (!(await exists(deferred))) return fail('missing docs/project/reports/A9.3-npm-deferred.md')
+  const text = await readFile(deferred, 'utf8')
+  if (!/deferred/i.test(text)) return fail('A9.3 note must say deferred')
+  if (!/先不上架/.test(text) && !/do not.*npm publish/i.test(text)) {
+    return fail('A9.3 note must record owner deferral (先不上架) or explicit do-not-publish')
+  }
+  if (/npm view[\s\S]{0,40}0\.1\.9/.test(text) && !/404/.test(text) && !/unpublished/i.test(text)) {
+    return fail('A9.3 note must not imply registry success without 404/unpublished honesty')
+  }
+  ok('A9.3 npm deferred note present (no forced publish)')
+}
+
+async function checkSloganAndM9() {
+  const slogan = join(repoRoot, 'docs/project/reports/Phase-9-口号核对表.md')
+  const m9 = join(repoRoot, 'docs/project/reports/M9-硬化与发布验收.md')
+  for (const file of [slogan, m9]) {
+    if (!(await exists(file))) return fail(`missing ${file}`)
+  }
+  const sloganText = await readFile(slogan, 'utf8')
+  for (const needle of ['不宣称', '二十一语言', '八大致敬主题', '三端', 'AI-Native', '性能']) {
+    if (!sloganText.includes(needle)) return fail(`口号核对表 missing section marker: ${needle}`)
+  }
+  if (!sloganText.includes('≥80%') || !/不宣称/.test(sloganText)) {
+    return fail('口号核对表 must keep ≥80% under 不宣称')
+  }
+  const m9Text = await readFile(m9, 'utf8')
+  if (!/A9\.3/.test(m9Text) || !/deferred/i.test(m9Text)) {
+    return fail('M9 report must record A9.3 deferred')
+  }
+  if (!/PROTOCOL-READY/.test(m9Text)) {
+    return fail('M9 report must keep A9.5 PROTOCOL-READY honesty')
+  }
+  if (!/先不上架/.test(m9Text)) {
+    return fail('M9 report must record 先不上架 for npm')
+  }
+  ok('A9.6 slogan checklist + M9 report present')
+}
+
 async function checkPublishDry() {
   await runPnpm(['publish:check'])
   ok('publish:check dry run (npm publish not executed)')
@@ -297,6 +339,14 @@ async function main() {
   await checkBlindTestHonesty()
   if (process.exitCode) return
 
+  console.log('\n[phase9:gates] A9.3 npm deferred (先不上架)')
+  await checkNpmDeferred()
+  if (process.exitCode) return
+
+  console.log('\n[phase9:gates] A9.6 slogan checklist + M9 report')
+  await checkSloganAndM9()
+  if (process.exitCode) return
+
   console.log('\n[phase9:gates] locale gap table exists')
   await checkGapTable()
   if (process.exitCode) return
@@ -314,10 +364,12 @@ async function main() {
           'vpat-file',
           'vpat-status-published-internal',
           'blind-test-protocol-ready',
+          'a93-npm-deferred',
+          'slogan-checklist-and-m9',
           'locale-gap-table',
           'publish-check-dry',
         ],
-        note: 'Phase 9 honesty gates. Does not npm publish, does not require VPAT certified, does not invent Lighthouse or recognition rates, does not require 21-locale gap zero. A9.5=PROTOCOL-READY rate=null.',
+        note: 'Phase 9 honesty gates. Does not npm publish (A9.3 deferred), does not require VPAT certified, does not invent Lighthouse or recognition rates, does not require 21-locale gap zero. A9.5=PROTOCOL-READY rate=null.',
       },
       null,
       2,

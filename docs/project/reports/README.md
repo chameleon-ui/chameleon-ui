@@ -12,6 +12,9 @@
 
 当前已落档：
 
+- [`M9-硬化与发布验收.md`](./M9-硬化与发布验收.md)（Phase 9 诚实收口；closed vs deferred）
+- [`Phase-9-口号核对表.md`](./Phase-9-口号核对表.md)（A9.6）
+- [`A9.3-npm-deferred.md`](./A9.3-npm-deferred.md)（先不上架；不强制 publish）
 - [`2026-08-15-release-0.1.9.md`](./2026-08-15-release-0.1.9.md)（**0.1.9 发布说明**；源码 zip / npm 未上架说明；Changelog：[`chameleon-ui/CHANGELOG.md`](../../../chameleon-ui/CHANGELOG.md)）
 - [`M0-基元POC与地基验收.md`](./M0-基元POC与地基验收.md)
 - [`Phase-1-开工检查.md`](./Phase-1-开工检查.md)
