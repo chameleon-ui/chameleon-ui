@@ -50,8 +50,8 @@ for (const name of packageDirs) {
   if (pkg.license !== 'MIT') fail(`${pkg.name} license must be MIT`)
   if (pkg.publishConfig?.access !== 'public') fail(`${pkg.name} needs publishConfig.access=public`)
   if (!(await exists(join(packagesRoot, name, 'LICENSE')))) fail(`${pkg.name} missing LICENSE file`)
-  if (pkg.version !== '0.1.0') {
-    fail(`${pkg.name} is ${pkg.version}; product version is 0.1.0. This repo still does not npm publish.`)
+  if (pkg.version !== '0.1.9') {
+    fail(`${pkg.name} is ${pkg.version}; product version is 0.1.9. This repo still does not npm publish.`)
   }
   if (pkg.engines?.node !== '>=20.19.0') {
     fail(`${pkg.name} engines.node must be >=20.19.0 (Node 18 is unsupported)`)
@@ -126,7 +126,7 @@ console.log(
     {
       plan: 'local-only',
       wouldPublish: publishable.sort(),
-      firstTag: 'v0.1.0',
+      firstTag: 'v0.1.9',
       npmPublish: false,
       note: 'pnpm publish -r is not run. workspace:* is rewritten to versions at publish. Pre-publish npm link of a single package fails; from chameleon-ui run node ./scripts/link-external.mjs (link all runtime packages).',
     },

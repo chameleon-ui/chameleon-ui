@@ -12,7 +12,7 @@ Phase 1：20 个 slug 均为 `implementation: complete`（含 `AppShell`）。
 
 ## 外部工程本地链接（npm link）
 
-`dependencies` 使用 pnpm 的 `workspace:*`。**尚未 npm 发布**（版本 `0.1.0`，首发 tag 仍是 `v0.1.0`）。在非 pnpm-workspace 的外部工程里只 `npm link` 本包会失败：npm 无法解析 `workspace:*`。
+`dependencies` 使用 pnpm 的 `workspace:*`。**尚未 npm 发布**（版本 `0.1.9`，首发 tag 仍是 `v0.1.9`）。在非 pnpm-workspace 的外部工程里只 `npm link` 本包会失败：npm 无法解析 `workspace:*`。
 
 必须把运行时图一次全部 link（tokens → i18n → primitives → themes → components）：
 

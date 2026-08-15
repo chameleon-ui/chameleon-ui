@@ -108,7 +108,7 @@ describe('MCP tool surface', () => {
     expect(result.preferred.componentVueSlug).toBe('@chameleon-ui/components-vue/button')
     expect(result.preferred.componentsVueCss).toBe('@chameleon-ui/components-vue/css')
     expect(result.preferred.schemaRendererVue).toBe('@chameleon-ui/schema-renderer/vue')
-    expect(result.unpublishedLink.note).toContain('0.1.0')
+    expect(result.unpublishedLink.note).toContain('0.1.9')
     expect(result.preferred.componentSlug).toBe('@chameleon-ui/components/button')
     expect(result.versionMatrix.arkUi).toBe('5.38.0')
     expect(result.versionMatrix.arkUiVue).toBe('5.38.1')
