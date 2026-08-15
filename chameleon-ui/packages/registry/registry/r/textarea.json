@@ -98,7 +98,7 @@
     },
     {
       "path": "components/textarea/README.md",
-      "content": "# Textarea\n\nFrozen Phase 1 stub for `textarea`.\n\n- Requirement: Same states as Input\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Textarea\n\nShipped. Multiline text field.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/textarea/styles.css",

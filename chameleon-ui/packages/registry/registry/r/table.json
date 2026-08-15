@@ -98,7 +98,7 @@
     },
     {
       "path": "components/table/README.md",
-      "content": "# Table\n\nFrozen Phase 1 stub for `table`.\n\n- Requirement: Basic table (not virtualized DataGrid)\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Table\n\nShipped. Semantic rows and columns.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/table/styles.css",

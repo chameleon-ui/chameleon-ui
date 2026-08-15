@@ -138,7 +138,7 @@ Dogfooding（stock-analyzer）失败点是 **Agent 从文档抄错 specifier**�
 | **A3** design-rules | 8/8 + 社区包 CI 硬门禁 | Agent 可 `get_design_rules`；社区上架仍走市场通路 | **done**（读规则）；社区创作/上架对外部 Agent 仍是 **partial**（文档在 `docs/ai/community-rules-pack-guide.md`，非默认消费路径） |
 | **A4** 协议适配 | SchemaRenderer 快照绿；a2ui/mcp-apps = supported；ag-ui = POC | SchemaRenderer 默认 map **仅 10 slug**；一页纸 `docs/ai/schema-renderer.md`。AG-UI **不要当 supported** | **partial**（10 slug 可生成；全 catalog / AG-UI 未开放给消费 Agent） |
 | **A5** data-ai-* | 全 catalog 三件套门禁 | 三件套在契约里，随 `get_contract` 可见 | **done** |
-| **A6** Bench | `generation_quality` **诚实 null**（无模型预算） | 无实测一次生成成功率。禁止手写分数 | **blocked** |
+| **A6** Bench | harness + 任务集 + template-baseline 实测入仓；默认 `generation_quality` **诚实 null**（无 LLM 预算） | 默认产物非 null 的 LLM 实测仍缺；禁止手写分数 | **partial**（基线可测；LLM blocked） |
 
 ### 本轮已补（Agent-facing，非伪造）
 
@@ -154,6 +154,6 @@ Dogfooding（stock-analyzer）失败点是 **Agent 从文档抄错 specifier**�
 | npm 首发，外部可 `npm install` 而不全量 link | 未做；本仓不 publish |
 | SchemaRenderer 默认 map 扩到全 catalog | 未做；诚实写明 10 slug |
 | AG-UI 升 supported / 协议认证 | 未做；保持 POC |
-| `bench.generation_quality` 非 null | **blocked**（无模型预算；null 合法） |
+| `bench.generation_quality` 非 null | **partial**（template-baseline 8/8 入仓；默认仍 null；LLM blocked） |
 | `chameleon-ui.dev` 公网 GET schema | pending（B1） |
 

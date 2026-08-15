@@ -6,6 +6,7 @@ const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '
 const workspaceRoot = path.resolve(packageRoot, '../..')
 const catalogPath = path.join(workspaceRoot, 'packages', 'components', 'catalog.json')
 const componentsSrc = path.join(workspaceRoot, 'packages', 'components', 'src')
+const blocksSrc = path.join(workspaceRoot, 'packages', 'blocks', 'src')
 const themesSrc = path.join(workspaceRoot, 'packages', 'themes', 'src')
 const registryRoot = path.join(packageRoot, 'registry')
 const themeIds = [
@@ -19,6 +20,20 @@ const themeIds = [
   'ant-blue',
 ]
 const rulesPackIds = ['community-focus-first']
+const blockSlugs = [
+  'login',
+  'register',
+  'crud-page',
+  'kanban',
+  'gantt',
+  'ticket-flow',
+  'approval-flow',
+  'im-chat',
+  'data-screen',
+  'trading-terminal',
+  'iot-panel',
+  'marketing-site',
+]
 const checkOnly = process.argv.includes('--check')
 
 function toPosix(filePath) {
@@ -74,6 +89,36 @@ async function writeItem(kind, item) {
     return
   }
   await writeFile(filePath, serialized, 'utf8')
+}
+
+async function buildBlockItem(slug) {
+  const sourceDir = path.join(blocksSrc, slug)
+  if (!(await pathExists(sourceDir))) {
+    throw new Error(`missing block source: ${sourceDir}`)
+  }
+  const manifest = JSON.parse(await readFile(path.join(sourceDir, 'manifest.json'), 'utf8'))
+  if (manifest.type !== 'registry:block') {
+    throw new Error(`block ${slug} manifest.type must be registry:block`)
+  }
+  if (manifest.slug !== slug) {
+    throw new Error(`block ${slug} manifest.slug mismatch (${manifest.slug})`)
+  }
+  const files = await collectFiles(sourceDir)
+  if (files.length === 0) {
+    throw new Error(`no installable files for block ${slug}`)
+  }
+  return {
+    id: slug,
+    type: 'registry:block',
+    name: manifest.name ?? slug,
+    dependencies: [...(manifest.dependencies ?? [])],
+    files: await Promise.all(
+      files.map(async (file) => ({
+        path: `blocks/${slug}/${file.relativePath}`,
+        content: await readFile(file.fullPath, 'utf8'),
+      })),
+    ),
+  }
 }
 
 async function buildComponentItem(component) {
@@ -149,6 +194,9 @@ async function main() {
   for (const component of components) {
     await writeItem('r', await buildComponentItem(component))
   }
+  for (const slug of blockSlugs) {
+    await writeItem('b', await buildBlockItem(slug))
+  }
   for (const themeId of themeIds) {
     await writeItem('t', await buildThemeItem(themeId))
   }
@@ -157,18 +205,24 @@ async function main() {
   }
 
   const rEntries = (await readdir(path.join(registryRoot, 'r'))).filter((name) => name.endsWith('.json'))
+  const bEntries = (await readdir(path.join(registryRoot, 'b'))).filter((name) => name.endsWith('.json'))
   const tEntries = (await readdir(path.join(registryRoot, 't'))).filter((name) => name.endsWith('.json'))
   const rulesEntries = (await readdir(path.join(registryRoot, 'rules'))).filter((name) =>
     name.endsWith('.json'),
   )
   const expectedR = components.map((item) => `${item.slug}.json`).sort()
+  const expectedB = blockSlugs.map((id) => `${id}.json`).sort()
   const expectedT = themeIds.map((id) => `${id}.json`).sort()
   const expectedRules = rulesPackIds.map((id) => `${id}.json`).sort()
   const actualR = [...rEntries].sort()
+  const actualB = [...bEntries].sort()
   const actualT = [...tEntries].sort()
   const actualRules = [...rulesEntries].sort()
   if (JSON.stringify(actualR) !== JSON.stringify(expectedR)) {
     throw new Error(`registry/r mismatch: expected ${expectedR.join(', ')} got ${actualR.join(', ')}`)
+  }
+  if (JSON.stringify(actualB) !== JSON.stringify(expectedB)) {
+    throw new Error(`registry/b mismatch: expected ${expectedB.join(', ')} got ${actualB.join(', ')}`)
   }
   if (JSON.stringify(actualT) !== JSON.stringify(expectedT)) {
     throw new Error(`registry/t mismatch: expected ${expectedT.join(', ')} got ${actualT.join(', ')}`)
@@ -180,7 +234,7 @@ async function main() {
   }
 
   console.log(
-    `[registry] ${checkOnly ? 'checked' : 'wrote'} ${components.length} components + ${themeIds.length} themes + ${rulesPackIds.length} rules packs`,
+    `[registry] ${checkOnly ? 'checked' : 'wrote'} ${components.length} components + ${blockSlugs.length} blocks + ${themeIds.length} themes + ${rulesPackIds.length} rules packs`,
   )
 }
 

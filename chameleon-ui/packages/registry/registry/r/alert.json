@@ -102,7 +102,7 @@
     },
     {
       "path": "components/alert/README.md",
-      "content": "# Alert\n\nFrozen Phase 1 stub for `alert`.\n\n- Requirement: Semantic color from tokens\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Alert\n\nShipped. Semantic status from tokens.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/alert/styles.css",

@@ -1,5 +1,6 @@
 import {
   getRegistryItem,
+  listBlocks,
   listComponents,
   listThemes,
   registry,
@@ -43,6 +44,7 @@ export interface RegistryClient {
   search(query?: string, options?: RegistryClientOptions): Promise<RegistryItem[]>;
   listThemes(options?: RegistryClientOptions): Promise<RegistryItem[]>;
   listComponents(options?: RegistryClientOptions): Promise<RegistryItem[]>;
+  listBlocks(options?: RegistryClientOptions): Promise<RegistryItem[]>;
   listRulesPacks(options?: RegistryClientOptions): Promise<RegistryItem[]>;
   listVersions(id: string, options?: RegistryClientOptions): Promise<string[]>;
   loadInstallGraph(id: string, options?: RegistryClientOptions): Promise<RegistryItem[]>;
@@ -99,6 +101,10 @@ export function createBundledRegistryClient(
     async listComponents(options) {
       const namespace = options?.namespace ?? defaultNamespace;
       return listComponents().filter((item) => matchesNamespace(item, namespace));
+    },
+    async listBlocks(options) {
+      const namespace = options?.namespace ?? defaultNamespace;
+      return listBlocks().filter((item) => matchesNamespace(item, namespace));
     },
     async listRulesPacks(options) {
       const namespace = options?.namespace ?? defaultNamespace;
@@ -210,6 +216,10 @@ export function createHttpRegistryClient(
     async listComponents(options) {
       const items = await this.search(undefined, options);
       return items.filter((item) => item.type === 'registry:ui');
+    },
+    async listBlocks(options) {
+      const items = await this.search(undefined, options);
+      return items.filter((item) => item.type === 'registry:block');
     },
     async listRulesPacks(options) {
       const items = await this.search(undefined, options);

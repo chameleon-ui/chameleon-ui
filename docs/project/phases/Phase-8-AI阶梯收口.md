@@ -127,9 +127,9 @@ T8.1 A1 schema v0.2 决议与硬门禁 · T8.2 A2 生产化（意图搜索 / ins
 ### 合入检查（Phase 8）
 
 - [x] 无协议逻辑渗进 L1/L2（import 边界测试）— `scripts/phase8-gates.mjs` `checkL1Boundary`
-- [ ] data-ai 三件套全量门禁绿，且有拦阻证据 — PRE-P5 n≤50 有门禁+红proof；P5/P6 被隔离，P6 不在 catalog，不算全库
-- [ ] Bench 报告含模型/日期/复现步骤 — `bench.generation_quality` 仍诚实 null（无模型预算）
-- [x] `$extends` 产物 8 主题回归绿 — `packages/themes/scripts/test-themes-regression.mjs` 在仓（本次未复跑）
+- [x] data-ai 三件套全量门禁绿，且有拦阻证据 — 当前 catalog 全量门禁 + 红proof（`phase8:gates`）；以看板 PHASE8.md 为准
+- [x] Bench 报告含模型/日期/复现步骤 — 默认 null 仍诚实；`generation-quality-template-baseline.json` 含 generator / measuredAt / 复现；见 `M8-AI阶梯收口验收.md`
+- [x] `$extends` 产物 8 主题回归绿 — `packages/themes/scripts/test-themes-regression.mjs` 经 `phase8:gates` 复跑
 
 ---
 

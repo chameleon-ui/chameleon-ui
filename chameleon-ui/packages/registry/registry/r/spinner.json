@@ -98,7 +98,7 @@
     },
     {
       "path": "components/spinner/README.md",
-      "content": "# Spinner\n\nFrozen Phase 1 stub for `spinner`.\n\n- Requirement: Loading feedback (Spinner / Progress)\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Spinner\n\nShipped. Indeterminate progress.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/spinner/Spinner.tsx",

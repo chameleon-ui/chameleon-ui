@@ -1,9 +1,10 @@
 {
-  "generatedAt": "2026-08-14T01:48:12.430Z",
+  "generatedAt": "2026-08-15T13:30:56.958Z",
   "harness": "genui-bench",
   "registry": {
-    "components": 101,
-    "themes": 8
+    "components": 103,
+    "themes": 8,
+    "blocks": 12
   },
   "telemetryDefaultOff": true,
   "metrics": [
@@ -11,32 +12,32 @@
       "id": "bench.install_success_rate",
       "value": 1,
       "unit": "rate",
-      "successes": 101,
-      "attempts": 101,
+      "successes": 103,
+      "attempts": 103,
       "note": "Single-item install through createInstallKernel (source=cli)."
     },
     {
       "id": "bench.bundle_install_success_rate",
       "value": 1,
       "unit": "rate",
-      "successes": 101,
-      "attempts": 101,
+      "successes": 103,
+      "attempts": 103,
       "note": "Component + theme ant-blue into the same target directory."
     },
     {
       "id": "bench.idempotent_reinstall_rate",
       "value": 1,
       "unit": "rate",
-      "successes": 101,
-      "attempts": 101,
+      "successes": 103,
+      "attempts": 103,
       "note": "Second install must skip identical files."
     },
     {
       "id": "bench.docs_cta_install_success_rate",
       "value": 1,
       "unit": "rate",
-      "successes": 101,
-      "attempts": 101,
+      "successes": 103,
+      "attempts": 103,
       "note": "Same kernel as the docs CTA, source=docs. Docs app itself does not write files."
     },
     {
@@ -46,6 +47,14 @@
       "successes": 1,
       "attempts": 1,
       "note": "Different on-disk content must throw InstallError before write."
+    },
+    {
+      "id": "bench.block_install_success_rate",
+      "value": 1,
+      "unit": "rate",
+      "successes": 12,
+      "attempts": 12,
+      "note": "registry:block install through createInstallKernel; second pass must be idempotent."
     },
     {
       "id": "bench.generation_quality",
@@ -59,7 +68,7 @@
   "generation": {
     "generator": null,
     "taskSetVersion": "1.0.0",
-    "measuredAt": "2026-08-14T01:48:12.430Z",
+    "measuredAt": "2026-08-15T13:30:56.958Z",
     "value": null,
     "successes": 0,
     "attempts": 0,

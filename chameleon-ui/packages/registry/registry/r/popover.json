@@ -102,7 +102,7 @@
     },
     {
       "path": "components/popover/README.md",
-      "content": "# Popover\n\nFrozen Phase 1 stub for `popover`.\n\n- Requirement: Desktop hover/click; compact click-to-open\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Popover\n\nShipped. Anchored overlay.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/popover/styles.css",

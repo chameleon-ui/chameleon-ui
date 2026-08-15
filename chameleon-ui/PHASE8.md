@@ -5,7 +5,7 @@
 > 第二期总览：[`../docs/project/phases/Phase-2-Overview.md`](../docs/project/phases/Phase-2-Overview.md)。  
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。
 
-## 看板（据树同步 2026-08-13）
+## 看板（据树同步 2026-08-15）
 
 ```
 P8  [x] T8.1 A1：contract schema v0.2（$id …/v0.2.json）+ 映射表 docs/ai/component-contract-v0.2-mapping.md + CI 硬门禁（全量 catalog；n≤50 隔离已撤）
@@ -14,16 +14,18 @@ P8  [x] T8.1 A1：contract schema v0.2（$id …/v0.2.json）+ 映射表 docs/ai
     [x] T8.3 A3：validate-rules 升硬门禁 + 红proof（phase8:gates）
     [x] T8.4 A4：adapter-ag-ui POC（DECISION.md owner 待指定；非协议认证）+ packages/schema-renderer 单测/快照
         + adapter-a2ui / adapter-mcp-apps README support level=supported
-    [x] T8.5 A5：intent 当前 catalog 全库（95）+ 三件套门禁 — A/B 6 目录不存在故未入 catalog；词汇表已扩；红proof 仍走 phase8:gates
-    [ ] T8.6 A6：bench.generation_quality null → 实测 — 仍诚实 null（无模型预算）；M8 不签字
+    [x] T8.5 A5：intent 当前 catalog 全库 + 三件套门禁 — 门禁+红proof 走 phase8:gates
+    [x] T8.6 A6：harness + 任务集 v1.0.0 + 季度机制 + template-baseline 实测入仓（8/8=1.0）
+        — 默认 bench:genui 仍诚实 null（无 LLM 预算）；M8 LLM 实测不签字；见 reports/M8-AI阶梯收口验收.md
     [x] T8.7 DTCG $extends：token-compiler + 8 主题回归脚本 + studio tokenDelta / ExportPage 差量导出
-    [x] ci:phase8 = ci:phase4 + phase8:gates — 脚本已落盘（根 package.json）；本次未复跑本机绿；ci:phase7 仍不存在
+    [x] ci:phase8 = ci:phase4 + phase8:gates — 脚本在根 package.json；本机 phase8:gates 复跑（无 ci:phase7）
 ```
 
 ## 命令
 
 ```
 corepack pnpm@9.15.0 bench:genui      # generation_quality 无模型时保持诚实 null
+# CU_BENCH_GENERATOR=template-baseline corepack pnpm@9.15.0 bench:genui
 corepack pnpm@9.15.0 ai:check         # 契约 + MCP + AGENTS.md + 安装文档 import 防漂移
 corepack pnpm@9.15.0 phase8:gates
 corepack pnpm@9.15.0 ci:phase8        # = ci:phase4 + phase8:gates（无 ci:phase7）
@@ -32,7 +34,7 @@ corepack pnpm@9.15.0 ci:phase8        # = ci:phase4 + phase8:gates（无 ci:phas
 ## 红线
 
 - 协议逻辑只在 L3/L4；L1/L2 禁止出现协议 if 分支（import 边界测试）。
-- Bench 数字由 harness 生成；无模型预算则 `generation_quality` 保持 null 且 **M8 不签字收口**（里程碑顺延）——null 合法，伪造非法。
+- Bench 数字由 harness 生成；无模型预算则默认 `generation_quality` 保持 null 且 **M8 LLM 不签字收口**（里程碑顺延）——null 合法，伪造非法。`template-baseline` 实测仅证明 harness，不代表模型质量。
 - data-ai 标注不塞 PII。
 
 ## 明确未做（禁止伪造）
@@ -40,12 +42,13 @@ corepack pnpm@9.15.0 ci:phase8        # = ci:phase4 + phase8:gates（无 ci:phas
 - GenUI-Bench 企业版（V4，运营期）
 - AI 主题生成器（愿景 §6.5，后续阶段）
 - AG-UI 若走观察路径：禁止空包冒充适配
+- 外部 LLM `generation_quality` 实测（无预算/端点）
 
 ## 合入检查
 
-- [x] 全量 catalog data-ai role+state+intent 门禁覆盖当前 95 slug — A/B 缺口未入 catalog；以 components 测试为准
-- [ ] Bench 报告含模型/日期/复现步骤 — generation_quality 仍 null
-- [x] `$extends` 产物 8 主题回归绿 — `test-themes-regression.mjs` 在仓（本次未复跑）
+- [x] 全量 catalog data-ai role+state+intent 门禁覆盖当前 catalog — 以 components 测试 + phase8:gates 为准
+- [x] Bench 报告含模型/日期/复现步骤 — 默认 null 报告含 measuredAt+taskSet+复现；template-baseline 存证含 generator+逐任务 outcomes
+- [x] `$extends` 产物 8 主题回归绿 — `test-themes-regression.mjs` 经 phase8:gates 复跑
 - [x] adapter-ag-ui 测试或观察报告签字 — `src/ag-ui.test.ts` 在；DECISION.md 为 POC，owner 待指定未签，OR 条款「测试」已满足
 
 ## 其它阶段

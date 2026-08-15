@@ -32,14 +32,14 @@ CU_BENCH_GENERATOR=external-llm CU_BENCH_LLM_ENDPOINT=<url> CU_BENCH_LLM_MODEL=<
 
 ## 3. 季度发布检查单
 
-- [ ] 任务集版本未静默漂移（diff 评审 + frozenAt 更新）
-- [ ] 报告含 generator（模型名/版本）、日期、复现命令
-- [ ] 数字可由上述命令复跑得到（抽查 ≥1 个任务）
-- [ ] 报告页可从文档站链接（docs `public/bench/latest.json` 随 collect-public 同步）
-- [ ] 未实测能力（企业版指标、LLM 实测）在发布文案中不宣称
+- [x] 任务集版本未静默漂移（diff 评审 + frozenAt 更新）— `taskSetVersion=1.0.0` / `frozenAt=2026-08-13`
+- [x] 报告含 generator（模型名/版本）、日期、复现命令 — 默认 null 报告含 measuredAt+复现；baseline 存证含 generator
+- [x] 数字可由上述命令复跑得到（抽查 ≥1 个任务）— `template-baseline` 8/8 可复跑
+- [x] 报告页可从文档站链接（docs `static/bench/latest.json` 随 collect-public / 本切片同步）
+- [x] 未实测能力（企业版指标、LLM 实测）在发布文案中不宣称
 
 ## 4. 首期状态（诚实声明）
 
 - 2026-08-13：harness、任务集、复现脚本入库并跑通；`bench.generation_quality` 在默认 `pnpm bench:genui` 产物中为 **null**——本环境无模型预算/端点（Phase 8 §13：null 合法，伪造非法）。
-- 模板基线（`template-baseline-v0`，确定性 intent-search 组装，非 LLM）实测 8/8 = 1.0000，仅证明 harness 全链路可用，**不代表任何模型生成质量**。
+- 2026-08-15：模板基线（`template-baseline-v0`，确定性 intent-search 组装，非 LLM）实测 **8/8 = 1.0000**，存证 `chameleon-ui/benchmarks/genui-bench/reports/generation-quality-template-baseline.json`；仅证明 harness 全链路可用，**不代表任何模型生成质量**。
 - M8 里程碑中 LLM 实测部分顺延（budget owner 待指定）；详见 `docs/project/reports/M8-AI阶梯收口验收.md`。

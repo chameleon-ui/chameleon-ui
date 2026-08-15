@@ -5,6 +5,7 @@ export const BENCH_METRIC_IDS = [
   'bench.idempotent_reinstall_rate',
   'bench.docs_cta_install_success_rate',
   'bench.conflict_reject_rate',
+  'bench.block_install_success_rate',
   'bench.generation_quality',
 ] as const
 

@@ -257,23 +257,70 @@ function runPnpmCapture(args, env = {}) {
 
 /* ---------- A6 ---------- */
 
+async function loadBenchReport() {
+  const candidates = [
+    join(root, 'benchmarks/genui-bench/reports/latest.json'),
+    join(root, 'apps/docs/static/bench/latest.json'),
+  ]
+  for (const path of candidates) {
+    if (await exists(path)) {
+      return { path, report: JSON.parse(await readFile(path, 'utf8')) }
+    }
+  }
+  return fail('A6: missing bench latest.json (run bench:genui or sync docs/static/bench)')
+}
+
 async function checkBenchHonesty() {
-  const report = JSON.parse(
-    await readFile(join(root, 'benchmarks/genui-bench/reports/latest.json'), 'utf8'),
-  )
+  const loaded = await loadBenchReport()
+  if (!loaded) return
+  const { path, report } = loaded
   const metric = report.metrics?.find((entry) => entry.id === 'bench.generation_quality')
   if (!metric) return fail('bench report missing bench.generation_quality')
+  if (!report.generatedAt || !report.generation?.measuredAt || !report.generation?.taskSetVersion) {
+    return fail('A6: bench report must record generatedAt + generation.measuredAt + taskSetVersion')
+  }
+  const note = String(metric.note ?? '')
+  if (!note.includes('pnpm bench:genui') && !note.includes('CU_BENCH_GENERATOR')) {
+    return fail('A6: bench note must include reproduce hint (pnpm bench:genui / CU_BENCH_GENERATOR)')
+  }
   if (metric.value === null) {
-    if (!metric.note.includes('CU_BENCH_GENERATOR') || !report.generation?.taskSetVersion) {
+    if (!note.includes('CU_BENCH_GENERATOR') || !report.generation?.taskSetVersion) {
       return fail('A6: null generation_quality must carry the honest-null note + task set version')
     }
-    ok('A6 generation_quality is honestly null (no model budget; slip note present)')
+    ok(`A6 generation_quality is honestly null (${path})`)
   } else {
     if (!report.generation?.generator || !report.generation?.taskSetVersion) {
       return fail('A6: measured generation_quality must record generator + taskSetVersion')
     }
     ok(`A6 generation_quality measured by ${report.generation.generator} = ${metric.value}`)
   }
+
+  const baselinePath = join(
+    root,
+    'benchmarks/genui-bench/reports/generation-quality-template-baseline.json',
+  )
+  if (!(await exists(baselinePath))) {
+    return fail(
+      'A6: missing committed template-baseline report (CU_BENCH_GENERATOR=template-baseline bench:genui → copy to generation-quality-template-baseline.json)',
+    )
+  }
+  const baseline = JSON.parse(await readFile(baselinePath, 'utf8'))
+  const baselineMetric = baseline.metrics?.find((entry) => entry.id === 'bench.generation_quality')
+  if (baselineMetric?.value === null || baselineMetric?.value === undefined) {
+    return fail('A6: template-baseline report must be a non-null harness measurement (not invented)')
+  }
+  if (!baseline.generation?.generator?.includes('template-baseline')) {
+    return fail('A6: template-baseline report must record generator id containing template-baseline')
+  }
+  if (!baseline.generation?.taskSetVersion || !baseline.generation?.measuredAt) {
+    return fail('A6: template-baseline report must record taskSetVersion + measuredAt')
+  }
+  if (!Array.isArray(baseline.generation?.outcomes) || baseline.generation.outcomes.length < 8) {
+    return fail('A6: template-baseline report must keep per-task outcomes (≥8) for 存证')
+  }
+  ok(
+    `A6 template-baseline measured ${baselineMetric.successes}/${baselineMetric.attempts} = ${baselineMetric.value} (task set v${baseline.generation.taskSetVersion})`,
+  )
 }
 
 /* ---------- §3.7 $extends ---------- */
@@ -342,7 +389,7 @@ async function main() {
           'extends-8-theme-byte-regression',
           'ai-consumer-ssot-drift',
         ],
-        note: 'Phase 8 AI-ladder gates. generation_quality is honestly null without a configured generator; AG-UI adapter is POC per DECISION.md. AI consumer SSOT is chameleon-ui/AGENTS.md.',
+        note: 'Phase 8 AI-ladder gates. Default generation_quality is honestly null without a configured generator; template-baseline measurement is committed separately. AG-UI adapter is POC per DECISION.md. AI consumer SSOT is chameleon-ui/AGENTS.md.',
       },
       null,
       2,

@@ -10,7 +10,7 @@
     },
     {
       "path": "components/form/Form.tsx",
-      "content": "import { Button } from '../button/Button.js'\nimport type { FormEvent, ReactNode } from 'react'\nimport './styles.css'\n\nexport interface FormProps {\n  onSubmit: (event: FormEvent<HTMLFormElement>) => void\n  submitLabel: string\n  children: ReactNode\n  className?: string\n}\n\nexport function Form({ onSubmit, submitLabel, children, className }: FormProps) {\n  const classes = ['cu-form', className].filter(Boolean).join(' ')\n\n  return (\n    <form className={classes} data-ai-role=\"form\" data-ai-intent=\"submit-data\" data-ai-state=\"default\" onSubmit={onSubmit}>\n      {children}\n      <div className=\"cu-form__actions\">\n        <Button type=\"submit\">{submitLabel}</Button>\n      </div>\n    </form>\n  )\n}\n"
+      "content": "import { Button } from '../button/Button.js'\nimport type { FormEvent, ReactNode } from 'react'\nimport './styles.css'\n\nexport interface FormProps {\n  onSubmit: (event: FormEvent<HTMLFormElement>) => void\n  submitLabel: string\n  /** Accessible name for the form landmark. Defaults to submitLabel context. */\n  label?: string\n  children: ReactNode\n  className?: string\n}\n\nexport function Form({ onSubmit, submitLabel, label, children, className }: FormProps) {\n  const classes = ['cu-form', className].filter(Boolean).join(' ')\n\n  return (\n    <form\n      className={classes}\n      aria-label={label ?? submitLabel}\n      data-ai-role=\"form\"\n      data-ai-intent=\"submit-data\"\n      data-ai-state=\"default\"\n      onSubmit={onSubmit}\n    >\n      {children}\n      <div className=\"cu-form__actions\">\n        <Button type=\"submit\">{submitLabel}</Button>\n      </div>\n    </form>\n  )\n}\n"
     },
     {
       "path": "components/form/index.ts",
@@ -102,7 +102,7 @@
     },
     {
       "path": "components/form/README.md",
-      "content": "# Form\n\nFrozen Phase 1 stub for `form`.\n\n- Requirement: Composes Input and related fields; built-in copy\n- Implementation: **stub** (README + `contract.json` only)\n- Do not import `@ark-ui/*` or `@base-ui/react` when this component is filled; go through `@chameleon-ui/primitives`.\n"
+      "content": "# Form\n\nShipped. Composes Input and related fields.\n\nDo not import `@ark-ui/*` or `@base-ui/react`; go through `@chameleon-ui/primitives`.\n"
     },
     {
       "path": "components/form/styles.css",

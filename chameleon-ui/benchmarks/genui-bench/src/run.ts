@@ -3,7 +3,7 @@ import {
   InstallError,
   type TelemetryHook,
 } from '@chameleon-ui/install-core'
-import { listComponents, listThemes, registry } from '@chameleon-ui/registry'
+import { listBlocks, listComponents, listThemes, registry } from '@chameleon-ui/registry'
 import { mkdtemp, mkdir, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -25,6 +25,7 @@ export interface BenchReport {
   registry: {
     components: number
     themes: number
+    blocks: number
   }
   telemetryDefaultOff: boolean
   metrics: BenchMetric[]
@@ -50,12 +51,16 @@ export async function runHarness(): Promise<BenchReport> {
   const kernel = createInstallKernel(registry)
   const components = listComponents()
   const themes = listThemes()
+  const blocks = listBlocks()
   const theme = themes[0]
   if (!theme) {
     throw new Error('GenUI-Bench cannot run: registry has no themes.')
   }
   if (components.length === 0) {
     throw new Error('GenUI-Bench cannot run: registry has no components.')
+  }
+  if (blocks.length === 0) {
+    throw new Error('GenUI-Bench cannot run: registry has no blocks.')
   }
 
   let installOk = 0
@@ -171,6 +176,26 @@ export async function runHarness(): Promise<BenchReport> {
     },
   ]
 
+  let blockOk = 0
+  for (const item of blocks) {
+    const ok = await withTemp(async (dir) => {
+      const first = await kernel.install(item, dir, { source: 'cli' })
+      if (!first.installed.includes(item.id)) return false
+      const second = await kernel.install(item, dir, { source: 'cli' })
+      return second.written.length === 0 && second.skipped.length > 0
+    }).catch(() => false)
+    if (ok) blockOk += 1
+  }
+
+  metrics.push({
+    id: 'bench.block_install_success_rate',
+    value: rate(blockOk, blocks.length),
+    unit: 'rate',
+    successes: blockOk,
+    attempts: blocks.length,
+    note: 'registry:block install through createInstallKernel; second pass must be idempotent.',
+  })
+
   const generation = await runGenerationQuality()
   metrics.push({
     id: 'bench.generation_quality',
@@ -191,6 +216,7 @@ export async function runHarness(): Promise<BenchReport> {
     registry: {
       components: components.length,
       themes: themes.length,
+      blocks: blocks.length,
     },
     telemetryDefaultOff,
     metrics,
