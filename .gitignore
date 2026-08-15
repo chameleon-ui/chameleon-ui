@@ -25,3 +25,9 @@ dist-release/
 dist-tarballs/
 .pnpm-shim/
 .ci-*-run.log
+
+# Legacy monorepo maintainer layers (post git-root migration to chameleon-ui)
+# Keep on disk for internal workflow, but do not track in the public library repo.
+.github/
+benchmarks/
+toolings/
