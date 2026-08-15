@@ -1,5 +1,7 @@
 # AI 工作原理
 
+> **简体中文 · [English](how-ai-works.en.md) · [繁體中文（香港）](how-ai-works.zh-HK.md) · [العربية](how-ai-works.ar.md)**
+
 本文说明 Chameleon UI 的 **AI 机制如何端到端工作**：AI（agent / 模型）如何"理解"组件、如何获得**合法且可靠**的用法、以及如何**安装**组件/主题。这是架构层面的机制说明；具体操作规则以 [`AGENTS.md`](../../AGENTS.md) 为唯一事实来源（SSOT）。
 
 > 一句话：Chameleon UI 让**机器可读的契约**驱动一切——AI 不是靠猜，而是通过查询契约与词表来组装所见即所得的组件，且写盘始终收敛到一个内核。

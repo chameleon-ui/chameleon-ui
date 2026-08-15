@@ -22,6 +22,8 @@
 | `ant-blue` | 金融蓝，卡片化圆角 |
 | `community-focus-first` | 社区原创可访问性纪律包（非致敬 id；`registry:rules`） |
 
+> **状态说明**：`line` 是**唯一经过完整验证的视觉旗舰**（默认外观，作为产品标准）。其余 8 套致敬覆盖层**仍在打磨中**，可作为灵感与探索；需要可靠默认主题请用 `line`。
+
 > 预留但**禁止空壳冒充**的 id：`aurora`、`nocturne`、`ember`、`cascade`、`horizon`、`prism`——仅文档预留，非正式主题。
 
 ## 每个主题目录

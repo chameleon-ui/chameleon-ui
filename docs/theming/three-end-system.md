@@ -1,5 +1,7 @@
 # 三端一体工作原理
 
+> **简体中文 · [English](three-end-system.en.md) · [繁體中文（香港）](three-end-system.zh-HK.md) · [العربية](three-end-system.ar.md)**
+
 "三端一体"指 Chameleon UI 用**同一套组件**自动适配**三种设备形态**——手机（390）、平板（768）、桌面（1280），而不是每个形态各写一套。本文讲清楚它的**真实机制**。
 
 > 配套：Token 如何编译见 [`token-system.md`](./token-system.md)；如何建主题见 [`creating-a-theme.md`](./creating-a-theme.md)。

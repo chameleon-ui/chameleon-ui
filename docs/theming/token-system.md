@@ -1,5 +1,7 @@
 # Token 工作原理
 
+> **简体中文 · [English](token-system.en.md) · [繁體中文（香港）](token-system.zh-HK.md) · [العربية](token-system.ar.md)**
+
 本文说明 Chameleon UI 的 **design token 系统**是如何工作的：从一份 DTCG 风格的 JSON 权威源，到浏览器可用的 CSS 自定义属性（`--cu-*`）。理解这个机制，是使用/覆盖 token、创建与继承主题的基础。
 
 > 配套：[创建自定义主题](./creating-a-theme.md) 讲了"怎么覆盖 token 做主题"；本文讲"token 系统本身如何运转"。

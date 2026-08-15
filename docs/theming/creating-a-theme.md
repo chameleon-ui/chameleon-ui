@@ -1,5 +1,7 @@
 # 创建自定义主题
 
+> **简体中文 · [English](creating-a-theme.en.md) · [繁體中文（香港）](creating-a-theme.zh-HK.md) · [العربية](creating-a-theme.ar.md)**
+
 本教程教你为 Chameleon UI 添加**自己的主题**。它基于真实机制：主题是一个**overlay**——只覆盖 core token 的某子集，而不复制整套设计 token；再由 `themes` 的构建脚本编译成一份 CSS 变量文件。
 
 > 前提：你已在本仓库根跑过 `pnpm install`，了解 `packages/themes` 与 `packages/tokens`。
