@@ -172,6 +172,7 @@ Chameleon UI 的核心体验是**一套组件自动适配三种视口**——390
 
 - [`AGENTS.md`](./AGENTS.md) — AI 消费的完整规则（CSS、JS 引入、安装、MCP、禁止项）
 - [`docs/ai/`](./docs/ai/) — 附加说明（消费流程、SchemaRenderer、词表、主题扩展、社区包）
+- [**AI 工作原理**](./docs/ai/how-ai-works.md) — 契约驱动、意图词表、MCP 链路、映射→渲染→安装 三层的端到端机制
 
 如果挂载了 MCP，标准的工具调用顺序为：
 

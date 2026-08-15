@@ -8,6 +8,7 @@ These files sit next to [`../AGENTS.md`](../AGENTS.md). **AGENTS.md is the SSOT*
 2. [`consumer-agent-bootstrap.md`](./consumer-agent-bootstrap.md) — paste into a consumer Cursor Rule / prompt
 3. [`agent-consume.md`](./agent-consume.md) — MCP attach (optional), tool order, App chrome, external install
 4. As needed:
+   - [`how-ai-works.md`](./how-ai-works.md) — system overview: contract-driven, intent lexicon, MCP chain, map/render/install layers
    - [`schema-renderer.md`](./schema-renderer.md) — JSON → tree (10-slug default map)
    - [`component-contract-v0.2-mapping.md`](./component-contract-v0.2-mapping.md) — contract key mapping
    - [`data-ai-vocabulary.md`](./data-ai-vocabulary.md) / [`.json`](./data-ai-vocabulary.json) — frozen `data-ai-intent` lexicon
@@ -26,5 +27,6 @@ These files sit next to [`../AGENTS.md`](../AGENTS.md). **AGENTS.md is the SSOT*
 | [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) | Machine lexicon for contracts / gates |
 | [`theme-extends.md`](./theme-extends.md) | DTCG `$extends` for derived themes |
 | [`community-rules-pack-guide.md`](./community-rules-pack-guide.md) | Create → validate → register → install rules packs |
+| [`how-ai-works.md`](./how-ai-works.md) | System overview: contract-driven, intent lexicon, MCP, map/render/install layers |
 
 Repo-root `docs/ai/` is a **pointer only**. Do not maintain a second copy there.
