@@ -24,41 +24,49 @@
       "import": "./dist/line/variables.css",
       "default": "./dist/line/variables.css"
     },
+    "./line/css?raw": "./dist/line/variables.css",
     "./silver-arrow/css": {
       "style": "./dist/silver-arrow/variables.css",
       "import": "./dist/silver-arrow/variables.css",
       "default": "./dist/silver-arrow/variables.css"
     },
+    "./silver-arrow/css?raw": "./dist/silver-arrow/variables.css",
     "./stuttgart/css": {
       "style": "./dist/stuttgart/variables.css",
       "import": "./dist/stuttgart/variables.css",
       "default": "./dist/stuttgart/variables.css"
     },
+    "./stuttgart/css?raw": "./dist/stuttgart/variables.css",
     "./corsa/css": {
       "style": "./dist/corsa/variables.css",
       "import": "./dist/corsa/variables.css",
       "default": "./dist/corsa/variables.css"
     },
+    "./corsa/css?raw": "./dist/corsa/variables.css",
     "./cupertino/css": {
       "style": "./dist/cupertino/variables.css",
       "import": "./dist/cupertino/variables.css",
       "default": "./dist/cupertino/variables.css"
     },
+    "./cupertino/css?raw": "./dist/cupertino/variables.css",
     "./siren/css": {
       "style": "./dist/siren/variables.css",
       "import": "./dist/siren/variables.css",
       "default": "./dist/siren/variables.css"
     },
+    "./siren/css?raw": "./dist/siren/variables.css",
     "./wechat/css": {
       "style": "./dist/wechat/variables.css",
       "import": "./dist/wechat/variables.css",
       "default": "./dist/wechat/variables.css"
     },
+    "./wechat/css?raw": "./dist/wechat/variables.css",
     "./ant-blue/css": {
       "style": "./dist/ant-blue/variables.css",
       "import": "./dist/ant-blue/variables.css",
       "default": "./dist/ant-blue/variables.css"
     },
+    "./ant-blue/css?raw": "./dist/ant-blue/variables.css",
     "./line/meta": "./dist/line/meta.json",
     "./line/design-rules": "./src/line/design-rules.json",
     "./line/tokens": "./src/line/tokens.json",

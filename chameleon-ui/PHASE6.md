@@ -4,13 +4,17 @@
 > 第二期总览：[`../docs/project/phases/Phase-2-Overview.md`](../docs/project/phases/Phase-2-Overview.md)。  
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。
 
+## 同步说明 2026-08-15（A6.2 全量 VR + freeze pack）
+
+本切片关闭 **A6.2 工程侧**：`p6-a62-fgh` + `p6-a62-cdeab` 覆盖 P6 新增 47 slug × 390/768/1280 × en/ar；`phase6:gates` 校验 spec + PNG 库存 ≥282。catalog / 预算 / Vue 范围 **湿墨签字仍开**（工程 freeze pack：[`Phase-6-catalog-v2.0-freeze-pack.md`](../docs/project/reports/Phase-6-catalog-v2.0-freeze-pack.md)）。Owner 待指定。未 npm publish。未伪造认出率。
+
 ## 同步说明 2026-08-14
 
 本切片关闭 **code-closable** 余项：`ci:phase6` / `phase6:gates` 落地；`budgets.json` 增 F/G 行并用 `check-size` **实测 gzip**（未发明限额，门限沿用 S1 8KB / S2 60KB）；catalog 101 slug 均从 `packages/components/src/index.ts` 导出；internal-demo gallery 按 catalog 八族渲染（含 DataGrid 1 万行与 Canvas 2D 小地图/吸附）；Vue 子集 **22** SFC，S1 同口径写入 `docs/project/reports/Phase-6-Vue-S1.json`；F/G/H 各抽 1 slug（chart / canvas-base / editor）拍 390/768/1280 × en/ar 实拍 PNG。Owner 一律 **待指定**。未 git commit。未 npm publish。未签冻结会/预算会/Vue 范围单。未把 19 语骨架冒充译完。
 
 上一则「据树同步 2026-08-13」已过期：A/B 六件与 Vue≥20 当时未勾，树里其实已在。
 
-## 看板（据树同步 2026-08-14）
+## 看板（据树同步 2026-08-15）
 
 ```
 P6  [x] F 可视化 ×6：chart / kpi-dashboard / ticker / sparkline / heatmap / gauge — tsx+test+contract+21语；catalog v2.0
@@ -21,7 +25,7 @@ P6  [x] F 可视化 ×6：chart / kpi-dashboard / ticker / sparkline / heatmap /
     [x] C 补 ×10：password-input / otp-input / multi-select / rating / date-picker / time-picker / calendar / color-picker / search-bar / upload
     [x] D 补 ×7：data-grid / tag / statistic / timeline / tree / image / carousel — S2 含 data-grid；gallery 万行演示
     [x] E 补 ×4：notification / confirm-dialog / result / loading-bar
-    [x] catalog v2.0 写入 — schemaVersion 2.0，101 unique slug（50+P5×4+P6×47）；冻结会未签（owner 待指定）
+    [x] catalog v2.0 写入 — schemaVersion 2.0，**103** unique slug；冻结会未签（owner 待指定；工程 pack 已落盘）
     [x] Vue 子集 ≥20 — 当时目标卡只要 ≥20；现已 catalog **103/103** + ThemeProvider（见文末）
     [x] ci:phase6 = ci:phase5 + phase6:gates — 脚本已落地；本机 `phase6:gates` 绿
 ```
@@ -30,12 +34,12 @@ DoD A6.1–A6.7（目标卡 §10–12；工程可测 vs 会议签字分开）：
 
 ```
     [x] A6.1 工程侧 MET — 愿景点名 slug 均在 catalog（G 基座为 canvas-base）；changeLog 有 P6 两批 add；冻结会未签
-    [ ] A6.2 全 47 过标准工序 — contract+21语+单测+S1/S2+data-ai 在；47 件全量三断点快照未铺（仅 F/G/H 各 1 件样本 VR）
+    [x] A6.2 工程侧 MET — contract+21语+单测+S1/S2+data-ai 在；全 47 件 390/768/1280 × en/ar 实拍 PNG（`p6-a62-fgh` + `p6-a62-cdeab`；phase6:gates 检 PNG≥282）。湿墨冻结会仍开
     [x] A6.3 MET — gallery `[data-demo=data-grid-10k]` 1 万行；S2 data-grid 1.146 KB gzip ≤60；CI 经 perf:size / phase6:gates
     [x] A6.4 MET — chart/styles.css 只消费 --cu-color-* / color-mix，无硬编码 hex 系列色
     [x] A6.5 MET — gallery canvas-base：Canvas 2D + showMinimap + snapToGrid + toolbar；禁止宣称 WebGL
     [x] A6.6 工程侧 MET — Vue 22≥20；S1 gzip 全 ≤8KB，记录入库；范围单未签
-    [x] A6.7 工程侧 MET — ci:phase6 = ci:phase5 + phase6:gates（catalog 101 + v0.2 + 族映射 + S2/F/G gzip + Vue≥20 + Vue S1 + lint）
+    [x] A6.7 工程侧 MET — ci:phase6 = ci:phase5 + phase6:gates（catalog 103 + v0.2 + 族映射 + S2/F/G gzip + Vue≥20 + Vue S1 + lint + A6.2 VR）
 ```
 
 ## 命令
@@ -53,14 +57,13 @@ node ./benchmarks/scripts/check-vue-size.mjs
 ## 红线
 
 - DataGrid / F / G 预算条目未进 `benchmarks/budgets.json` 前不得合入 — **条目已进**；修订会仍未签，禁止把 recordedKbGzip 说成会签限额。
-- 每个新组件走标准工序全量。47 件的三断点快照未铺满，禁止宣称 A6.2 全绿。
+- 每个新组件走标准工序全量。A6.2 工程侧已铺 47×3×2 PNG；禁止把湿墨冻结会未签说成 product freeze。
 - 21 语文件齐；除 zh-CN / en / de / ar 外，大量 locale JSON 与 `en.json` 字节相同（骨架）。禁止宣称 21 语译完。
 
 ## 明确未做（禁止伪造）
 
-- catalog v2.0 / 预算修订 / Vue 范围 / 砍单顺序 / Chart·Editor 选型 **冻结会签字**（owner 待指定）
-- 47 新组件全量 390/768/1280 快照（仅 chart、canvas-base、editor 样本 18 张 PNG）
-- 19 语翻译质量（phase6:gates 计 1309 个文件与 en 字节相同；zh-HK/ja/ko 等各 77）
+- catalog v2.0 / 预算修订 / Vue 范围 / 砍单顺序 / Chart·Editor 选型 **冻结会签字**（owner 待指定；工程 pack 已落盘）
+- 19 语翻译质量（phase6:gates 计 skeleton 字节相同；zh-HK/ja/ko 等）
 - Vue catalog 端口当时目标卡只要 ≥20；后续已补到 catalog **103/103**（另加 ThemeProvider）
 - Blocks（→ P7）；G 族 WebGL / Worker / LOD（本期 Canvas 2D）
 - R1–R3 实测（→ P9）
@@ -69,8 +72,8 @@ node ./benchmarks/scripts/check-vue-size.mjs
 
 ## 合入检查
 
-- [x] 新组件均有 catalog `changeLog` — P6 41 + A/B 6 两批 add；冻结会未签
-- [x] F/G/H 每族至少一个组件过全工序 — chart / canvas-base / editor：contract+21语+单测+`p6-family-sample.spec.ts` 实拍 390/768/1280 × en/ar（6/6 复跑绿）。不是 47 件全铺
+- [x] 新组件均有 catalog `changeLog` — P6 41 + A/B 6 两批 add；冻结会未签（见 freeze pack）
+- [x] F/G/H 每族至少一个组件过全工序 — chart / canvas-base / editor 样本仍在；另 A6.2 全 47 铺满
 - [x] Vue 与 React 无第二份 Token 权威 — `components-vue` 只依赖 `@chameleon-ui/tokens` + `primitives-vue`
 - [x] Chart 主题无硬编码色值（抽检）— `chart/styles.css` 只消费 `--cu-color-*`
 

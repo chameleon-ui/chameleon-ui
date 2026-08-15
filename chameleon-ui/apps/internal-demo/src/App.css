@@ -142,6 +142,13 @@ textarea {
   background: var(--cu-color-background-elevated, var(--cu-color-background-default));
 }
 
+.cu-demo-escape {
+  flex: none;
+  padding-block: var(--cu-space-2);
+  padding-inline: var(--cu-space-3);
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
 .cu-demo-adaptive > .cu-three-end-stage,
 .cu-demo-adaptive > .cu-app-shell {
   flex: 1 1 0;

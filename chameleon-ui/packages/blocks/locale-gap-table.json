@@ -1,10 +1,10 @@
 {
   "authored": [
     "en",
-    "zh-CN"
+    "zh-CN",
+    "zh-HK"
   ],
   "skeleton": [
-    "zh-HK",
     "ja",
     "ko",
     "ru",
@@ -26,5 +26,5 @@
   ],
   "eta": "pending",
   "owner": "pending",
-  "note": "Block copy is authored for en and zh-CN. Other locales ship English ICU skeletons (_cuSkeleton). This is not a completed 21-language Blocks pack."
+  "note": "Block copy is authored for en / zh-CN / zh-HK (zh-HK via SC→TC map over zh-CN). Other locales ship English ICU skeletons (_cuSkeleton). This is not a completed 21-language Blocks pack."
 }

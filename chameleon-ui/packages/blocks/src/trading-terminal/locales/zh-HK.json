@@ -1,20 +1,19 @@
 {
-  "_cuSkeleton": true,
   "trade": {
-    "title": "Trading terminal",
-    "subtitle": "Watch the tape, chart a symbol, and inspect working orders.",
-    "tickerLabel": "Markets",
-    "chartNamed": "Price · {symbol}",
-    "priceSeries": "Last",
-    "gridLabel": "Orders",
-    "emptyLabel": "No orders",
-    "colSymbol": "Symbol",
-    "colSide": "Side",
-    "colSize": "Size",
-    "colPrice": "Price",
-    "sideBuy": "Buy",
-    "sideSell": "Sell",
-    "selectSymbol": "Select {symbol}",
-    "orderCount": "{count, plural, =0 {No working orders} one {# working order} other {# working orders}}"
+    "title": "交易終端",
+    "subtitle": "查看行情、繪制標的，並檢查未完成訂單。",
+    "tickerLabel": "行情",
+    "chartNamed": "價格 · {symbol}",
+    "priceSeries": "最新",
+    "gridLabel": "訂單",
+    "emptyLabel": "沒有訂單",
+    "colSymbol": "標的",
+    "colSide": "方向",
+    "colSize": "數量",
+    "colPrice": "價格",
+    "sideBuy": "買入",
+    "sideSell": "賣出",
+    "selectSymbol": "選擇 {symbol}",
+    "orderCount": "{count, plural, =0 {沒有未完成訂單} other {# 筆未完成訂單}}"
   }
 }

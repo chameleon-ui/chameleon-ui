@@ -62,7 +62,7 @@
     },
     {
       "slug": "button",
-      "kbGzip": 1.685,
+      "kbGzip": 1.69,
       "limitKbGzip": 8,
       "ok": true
     },
@@ -236,7 +236,7 @@
     },
     {
       "slug": "form",
-      "kbGzip": 1.981,
+      "kbGzip": 1.985,
       "limitKbGzip": 8,
       "ok": true
     },
@@ -296,7 +296,7 @@
     },
     {
       "slug": "input",
-      "kbGzip": 1.389,
+      "kbGzip": 1.416,
       "limitKbGzip": 8,
       "ok": true
     },
@@ -608,7 +608,7 @@
     },
     {
       "slug": "toast",
-      "kbGzip": 1.979,
+      "kbGzip": 2.245,
       "limitKbGzip": 8,
       "ok": true
     },

@@ -27,4 +27,6 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/theme-studio preview
 | `/editor` | Theme selector, rules JSON, live schema issues |
 | `/export` | Download JSON bundle when valid |
 
-Pro capabilities (multi-file zip, PR bot, market listing) are reserved.
+Local market loop: download export → Marketplace **Apply → Import Theme Studio export** → Submit → Install. Studio does not call the market API.
+
+Pro capabilities (multi-file zip, PR bot, auto-submit from Studio) remain reserved.

@@ -111,7 +111,7 @@
     },
     {
       "path": "blocks/crud-page/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"crud\": {\n    \"title\": \"Records\",\n    \"subtitle\": \"Create, review, and update rows in this workspace.\",\n    \"create\": \"New record\",\n    \"dialogTitle\": \"Create record\",\n    \"dialogDescription\": \"Add a name to insert a row.\",\n    \"close\": \"Close\",\n    \"nameLabel\": \"Name\",\n    \"submit\": \"Save\",\n    \"emptyTitle\": \"No records yet\",\n    \"emptyDescription\": \"Create the first row to populate this table.\",\n    \"gridLabel\": \"Records\",\n    \"emptyLabel\": \"No data\",\n    \"colName\": \"Name\",\n    \"colStatus\": \"Status\",\n    \"statusActive\": \"Active\",\n    \"errorRequired\": \"Name is required.\",\n    \"itemCount\": \"{count, plural, =0 {No records} one {# record} other {# records}}\"\n  }\n}\n"
+      "content": "{\n  \"crud\": {\n    \"title\": \"記錄\",\n    \"subtitle\": \"在此工作區中創建、查看和更新行。\",\n    \"create\": \"新建記錄\",\n    \"dialogTitle\": \"創建記錄\",\n    \"dialogDescription\": \"填寫名稱以插入一行。\",\n    \"close\": \"關閉\",\n    \"nameLabel\": \"名稱\",\n    \"submit\": \"保存\",\n    \"emptyTitle\": \"還沒有記錄\",\n    \"emptyDescription\": \"創建第一行以填充此表。\",\n    \"gridLabel\": \"記錄\",\n    \"emptyLabel\": \"暫無數據\",\n    \"colName\": \"名稱\",\n    \"colStatus\": \"狀態\",\n    \"statusActive\": \"啟用\",\n    \"errorRequired\": \"名稱為必填項。\",\n    \"itemCount\": \"{count, plural, =0 {沒有記錄} other {# 條記錄}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/crud-page/manifest.json",

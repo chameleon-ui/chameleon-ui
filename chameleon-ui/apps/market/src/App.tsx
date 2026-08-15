@@ -20,11 +20,22 @@ export function App() {
   const [listings, setListings] = useState<ThemeListing[] | null>(null)
   const [error, setError] = useState<string | null>(null)
 
-  useEffect(() => {
-    fetch('/api/v1/listings')
+  function refreshListings() {
+    return fetch('/api/v1/listings')
       .then((res) => res.json())
-      .then((data: { listings: ThemeListing[] }) => setListings(data.listings))
-      .catch((err) => setError(err instanceof Error ? err.message : String(err)))
+      .then((data: { listings: ThemeListing[] }) => {
+        setListings(data.listings)
+        setError(null)
+        return data.listings
+      })
+      .catch((err) => {
+        setError(err instanceof Error ? err.message : String(err))
+        return null
+      })
+  }
+
+  useEffect(() => {
+    void refreshListings()
   }, [])
 
   useEffect(() => {
@@ -33,6 +44,15 @@ export function App() {
 
   function navigate(to: MarketPage) {
     setRoute(to)
+  }
+
+  async function onApplyDone(listingId?: string) {
+    await refreshListings()
+    if (listingId) {
+      navigate({ page: 'detail', id: listingId })
+      return
+    }
+    navigate({ page: 'browse' })
   }
 
   const header = (
@@ -78,7 +98,7 @@ export function App() {
   if (error) {
     content = <p className="cu-market-error" role="alert">Error: {error}</p>
   } else if (route.page === 'apply') {
-    content = <ApplyPage onDone={() => navigate({ page: 'browse' })} />
+    content = <ApplyPage onDone={(listingId) => void onApplyDone(listingId)} />
   } else if (route.page === 'detail') {
     const listing = listings?.find((l) => l.id === route.id)
     content = listing ? (

@@ -108,3 +108,9 @@ body {
 .cu-studio-export p {
   margin: 0;
 }
+
+.cu-studio-hint {
+  margin: 0;
+  color: var(--cu-color-fg-muted, #6b7280);
+  font-size: 0.875rem;
+}

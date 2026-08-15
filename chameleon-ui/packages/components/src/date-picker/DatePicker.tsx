@@ -8,6 +8,7 @@ export interface DatePickerProps {
   locale?: string
   previousMonthLabel?: string
   nextMonthLabel?: string
+  closeLabel?: string
   className?: string
 }
 
@@ -54,6 +55,7 @@ export function DatePicker({
   locale = 'en',
   previousMonthLabel = 'Previous month',
   nextMonthLabel = 'Next month',
+  closeLabel = 'Close calendar',
   className,
 }: DatePickerProps) {
   const [open, setOpen] = useState(false)
@@ -140,61 +142,64 @@ export function DatePicker({
         </button>
       </div>
       {open ? (
-        <div
-          className="cu-date-picker__popover"
-          role="dialog"
-          aria-label={headline}
-          onKeyDown={(event) => {
-            if (event.key === 'Escape') close()
-          }}
-        >
-          <div className="cu-date-picker__header">
-            <button type="button" className="cu-date-picker__nav" aria-label={previousMonthLabel} onClick={() => move(-1)}>
-              <span aria-hidden="true">‹</span>
-            </button>
-            <span className="cu-date-picker__headline">{headline}</span>
-            <button type="button" className="cu-date-picker__nav" aria-label={nextMonthLabel} onClick={() => move(1)}>
-              <span aria-hidden="true">›</span>
-            </button>
-          </div>
-          <div className="cu-date-picker__grid" role="grid" aria-label={headline}>
-            <div className="cu-date-picker__weekdays" role="row">
-              {weekdays.map((weekday, index) => (
-                <span key={weekday + index} className="cu-date-picker__weekday" role="columnheader">
-                  {weekday}
-                </span>
+        <div className="cu-date-picker__positioner">
+          <button type="button" className="cu-date-picker__backdrop" aria-label={closeLabel} onClick={close} />
+          <div
+            className="cu-date-picker__popover"
+            role="dialog"
+            aria-label={headline}
+            onKeyDown={(event) => {
+              if (event.key === 'Escape') close()
+            }}
+          >
+            <div className="cu-date-picker__header">
+              <button type="button" className="cu-date-picker__nav" aria-label={previousMonthLabel} onClick={() => move(-1)}>
+                <span aria-hidden="true">‹</span>
+              </button>
+              <span className="cu-date-picker__headline">{headline}</span>
+              <button type="button" className="cu-date-picker__nav" aria-label={nextMonthLabel} onClick={() => move(1)}>
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <div className="cu-date-picker__grid" role="grid" aria-label={headline}>
+              <div className="cu-date-picker__weekdays" role="row">
+                {weekdays.map((weekday, index) => (
+                  <span key={weekday + index} className="cu-date-picker__weekday" role="columnheader">
+                    {weekday}
+                  </span>
+                ))}
+              </div>
+              {weeks.map((week, weekIndex) => (
+                <div key={weekIndex} className="cu-date-picker__week" role="row">
+                  {week.map((day, dayIndex) =>
+                    day === null ? (
+                      <span
+                        key={`blank-${weekIndex}-${dayIndex}`}
+                        className="cu-date-picker__blank"
+                        role="gridcell"
+                        aria-hidden="true"
+                      />
+                    ) : (
+                      <span
+                        key={day}
+                        className="cu-date-picker__cell"
+                        role="gridcell"
+                        aria-selected={value === toISODate(view.year, view.month, day)}
+                      >
+                        <button
+                          type="button"
+                          className="cu-date-picker__day"
+                          aria-label={toISODate(view.year, view.month, day)}
+                          onClick={() => pick(day)}
+                        >
+                          {dayFormat.format(day)}
+                        </button>
+                      </span>
+                    ),
+                  )}
+                </div>
               ))}
             </div>
-            {weeks.map((week, weekIndex) => (
-              <div key={weekIndex} className="cu-date-picker__week" role="row">
-                {week.map((day, dayIndex) =>
-                  day === null ? (
-                    <span
-                      key={`blank-${weekIndex}-${dayIndex}`}
-                      className="cu-date-picker__blank"
-                      role="gridcell"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <span
-                      key={day}
-                      className="cu-date-picker__cell"
-                      role="gridcell"
-                      aria-selected={value === toISODate(view.year, view.month, day)}
-                    >
-                      <button
-                        type="button"
-                        className="cu-date-picker__day"
-                        aria-label={toISODate(view.year, view.month, day)}
-                        onClick={() => pick(day)}
-                      >
-                        {dayFormat.format(day)}
-                      </button>
-                    </span>
-                  ),
-                )}
-              </div>
-            ))}
           </div>
         </div>
       ) : null}

@@ -110,7 +110,7 @@
     },
     {
       "path": "blocks/iot-panel/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"iot\": {\n    \"title\": \"Device panel\",\n    \"subtitle\": \"Gauges and trends for connected equipment.\",\n    \"statusOnline\": \"Online\",\n    \"statusOffline\": \"Offline\",\n    \"statusAlert\": \"Alert\",\n    \"gaugeLabel\": \"Load {name}\",\n    \"chartLabel\": \"Trend {name}\",\n    \"acknowledge\": \"Acknowledge {name}\",\n    \"emptyTitle\": \"No devices\",\n    \"emptyDescription\": \"Connect a device to populate this panel.\",\n    \"emptyChart\": \"No data\",\n    \"seedAlpha\": \"Chiller A\",\n    \"seedBravo\": \"Pump B\",\n    \"seedCharlie\": \"Sensor C\",\n    \"deviceCount\": \"{count, plural, =0 {No devices} one {# device} other {# devices}}\"\n  }\n}\n"
+      "content": "{\n  \"iot\": {\n    \"title\": \"設備面板\",\n    \"subtitle\": \"已連接設備的儀表與趨勢。\",\n    \"statusOnline\": \"在線\",\n    \"statusOffline\": \"離線\",\n    \"statusAlert\": \"告警\",\n    \"gaugeLabel\": \"{name} 負載\",\n    \"chartLabel\": \"{name} 趨勢\",\n    \"acknowledge\": \"確認 {name}\",\n    \"emptyTitle\": \"沒有設備\",\n    \"emptyDescription\": \"連接設備以填充此面板。\",\n    \"emptyChart\": \"暫無數據\",\n    \"seedAlpha\": \"冷機 A\",\n    \"seedBravo\": \"泵 B\",\n    \"seedCharlie\": \"傳感器 C\",\n    \"deviceCount\": \"{count, plural, =0 {沒有設備} other {# 台設備}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/iot-panel/manifest.json",

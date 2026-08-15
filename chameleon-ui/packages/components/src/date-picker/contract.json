@@ -86,11 +86,11 @@
     ]
   },
   "responsive": {
-    "strategy": "Grid matches input width on compact; fixed measure on larger screens.",
+    "strategy": "Compact: block-end bottom sheet via viewport @container positioner (Dialog pattern). Medium/large: centered floating panel. Escape/backdrop dismiss. Field-inline calendar on large is future — do not claim it.",
     "breakpoints": {
-      "compact": "Full width grid.",
-      "medium": "Fixed measure.",
-      "large": "Fixed measure."
+      "compact": "Bottom sheet: full inline size, block-end dock, start-edge radii only.",
+      "medium": "Centered floating calendar panel.",
+      "large": "Centered floating calendar panel (inline-in-field not yet shipped)."
     }
   },
   "platforms": {

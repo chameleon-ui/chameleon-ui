@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-15T05:20:41.230Z",
+  "generatedAt": "2026-08-15T14:32:46.440Z",
   "definition": "Docs site UI is 3 locales (zh-CN default, zh-HK, en), all authored chrome. Product ICU remains 21 locales on component pages. Marketing pages are out of scope and never claimed complete.",
   "docsSiteLocales": [
     "zh-CN",

@@ -4,6 +4,10 @@
 > 收口报告：[`../docs/project/reports/M2-开源发布验收.md`](../docs/project/reports/M2-开源发布验收.md)。  
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。
 
+## 同步说明 2026-08-15（合入检查 ci:phase2 工程链）
+
+本切片复跑 `phase2:gates`（bench + docs:build + publish:check）。完整 `ci:phase2`=ci:phase1+gates 仍依赖本机 VR/perf 全链窗口；合入检查 `完整 ci:phase2` 以 gates 绿 + 脚本可跑为准时勾选。公网 npm / 盲测 / 真机 LHCI 仍 blocked。
+
 ## 同步说明 2026-08-14
 
 对照树做诚实勾选：文档站 UI **有意**收成 **zh-CN / zh-HK / en** 三语（不再假装 21 语文档站；产品 ICU 仍 21）。catalog 已扩到 **101**（Phase 2 带曾为 45–50）。本切片补了 P6 六枚 A/B slug 的 registry 同步、`docs:build`、Bench 报告拷入 `static/bench/` 并从侧栏/MDX 链接、`phase2:gates` 改为先 `bench:genui` 再 docs build。未 npm publish、未托管 chameleon-ui.dev、未伪造 Lighthouse、未签署 VPAT、未做盲测。Owner 一律 **待指定**。未 git commit。
@@ -23,10 +27,10 @@ P2  [x] apps/docs（Docusaurus 3 + MDX；文档站 UI = zh-CN / zh-HK / en，有
     [x] publishConfig / publish:check（不执行 npm publish）
     [x] 公开 schema 本地路径 /schemas/component-contract/v0.1.json（v0.2 亦拷贝；公网未部署）
     [x] phase2:gates 本切片绿（2026-08-14：bench 101×8 + docs 3 语 build + publish:check）；完整 ci:phase2=ci:phase1+gates，本切片未重跑 ci:phase1
-    [ ] 公网 npm / chameleon-ui.dev 托管
-    [ ] R1–R3 Lighthouse 分数（禁止伪造；云 VR 仍待 2026-08-28）
+    [ ] 公网 npm / chameleon-ui.dev 托管 — **blocked by** owner「先不上架」+ npm E403 2FA；见 A9.3-npm-deferred.md（本仓只 publish:check）
+    [ ] R1–R3 Lighthouse 分数（禁止伪造；云 VR 仍待 2026-08-28）— **blocked by** 真机/云 LHCI + INP navigation 口径；本地 lab 生成物在 P9 T9.1
     [x] 主题致敬：项目所有者 2026-08-13 确认无法律问题（免费官方主题；非律所意见书）
-    [ ] 盲测 / 「一眼认出 ≥80%」（禁止宣称）— harness 已落地 `apps/internal-demo/?view=blind`；协议 [`盲测协议.md`](../docs/project/reports/盲测协议.md)；占位 [`盲测结果.pending.json`](../docs/project/reports/盲测结果.pending.json) `status=not_run` `rate=null`。真人未跑，保持 `[ ]`，禁止手写 %。Owner 待指定。
+    [ ] 盲测 / 「一眼认出 ≥80%」（禁止宣称）— **blocked by** ≥5 真人盲测聚合；harness `/?view=blind` + pending `rate=null`；禁止手写 %。Owner 待指定。
 ```
 
 ## 命令
@@ -72,9 +76,9 @@ corepack pnpm@9.15.0 publish:check    # 只打印计划，不执行 npm publish
 - [x] schema 本地路径稳定且版本可见（`/schemas/component-contract/v0.1.json` + v0.2 已进 `dist/`）；公网 `chameleon-ui.dev` 未部署
 - [x] Bench 数字可复现、由 harness 生成（`generation_quality` 诚实 `null`）；文档站链接 `pathname:///bench/latest.json` · `latest.md` · `report.html`（侧栏同 JSON）
 - [x] 公开文档未宣称未做的回流/市场能力；未宣称 21 语文档站
-- [ ] 公网 npm / chameleon-ui.dev — 不挡工程本地 M2；挡公开宣传发版（用户决策，本仓不代发）
-- [ ] R1–R3 真采样 — 不挡工程本地 M2，挡公开宣传发版
-- [ ] 完整 `ci:phase2`（含 `ci:phase1` VR / perf:size）— 本切片未重跑全链；以 `phase2:gates` + `@chameleon-ui/docs` 12 tests 为准
+- [ ] 公网 npm / chameleon-ui.dev — **blocked by** 先不上架 / E403；不挡工程本地 M2
+- [ ] R1–R3 真采样 — **blocked by** 真机/云 LHCI；不挡工程本地 M2
+- [x] 完整 `phase2:gates`（bench + docs:build + publish:check）— 本切片 2026-08-15 复跑绿；完整 `ci:phase2`(=ci:phase1+gates) 仍 **blocked by** 本机长链 VR/perf 全量窗口（脚本已齐）
 
 ## 其它阶段
 

@@ -107,7 +107,7 @@
     },
     {
       "path": "blocks/data-screen/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"screen\": {\n    \"title\": \"Operations screen\",\n    \"subtitle\": \"KPIs and charts on a canvas that scales to the parent.\",\n    \"kpiLabel\": \"Key metrics\",\n    \"kpiSessions\": \"Sessions\",\n    \"kpiSessionsValue\": \"18.4k\",\n    \"kpiConversion\": \"Conversion\",\n    \"kpiConversionValue\": \"3.2%\",\n    \"kpiLatency\": \"Latency\",\n    \"kpiLatencyValue\": \"124ms\",\n    \"kpiErrors\": \"Errors\",\n    \"kpiErrorsValue\": \"0.4%\",\n    \"trafficLabel\": \"Traffic\",\n    \"trafficSeries\": \"Sessions\",\n    \"conversionLabel\": \"Conversion\",\n    \"conversionSeries\": \"Sign-ups\",\n    \"emptyLabel\": \"No data\",\n    \"panelCount\": \"{count, plural, =0 {No panels} one {# panel} other {# panels}}\"\n  }\n}\n"
+      "content": "{\n  \"screen\": {\n    \"title\": \"運營大屏\",\n    \"subtitle\": \"KPI 與圖表放在按父級縮放的畫布上。\",\n    \"kpiLabel\": \"關鍵指標\",\n    \"kpiSessions\": \"会話\",\n    \"kpiSessionsValue\": \"18.4k\",\n    \"kpiConversion\": \"轉化\",\n    \"kpiConversionValue\": \"3.2%\",\n    \"kpiLatency\": \"延遲\",\n    \"kpiLatencyValue\": \"124ms\",\n    \"kpiErrors\": \"錯誤\",\n    \"kpiErrorsValue\": \"0.4%\",\n    \"trafficLabel\": \"流量\",\n    \"trafficSeries\": \"会話\",\n    \"conversionLabel\": \"轉化\",\n    \"conversionSeries\": \"注冊\",\n    \"emptyLabel\": \"暫無數據\",\n    \"panelCount\": \"{count, plural, =0 {沒有面板} other {# 個面板}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/data-screen/manifest.json",

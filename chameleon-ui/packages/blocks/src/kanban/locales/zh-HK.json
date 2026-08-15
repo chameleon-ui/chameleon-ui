@@ -1,18 +1,17 @@
 {
-  "_cuSkeleton": true,
   "kanban": {
-    "title": "Board",
-    "subtitle": "Move work across columns with the keyboard. Pointer drag is not included.",
-    "colTodo": "To do",
-    "colDoing": "In progress",
-    "colDone": "Done",
-    "emptyTitle": "No cards",
-    "emptyDescription": "This column has no cards yet.",
-    "moveForward": "Move {name} forward",
-    "moveBack": "Move {name} back",
-    "priorityHigh": "High",
-    "priorityMedium": "Medium",
-    "priorityLow": "Low",
-    "cardCount": "{count, plural, =0 {No cards} one {# card} other {# cards}}"
+    "title": "看板",
+    "subtitle": "用鍵盤或原生 HTML5 拖放在列之間移動工作項。本 Block 不提供自研拖拽引擎。",
+    "colTodo": "待辦",
+    "colDoing": "進行中",
+    "colDone": "已完成",
+    "emptyTitle": "沒有卡片",
+    "emptyDescription": "此列暫無卡片。",
+    "moveForward": "將 {name} 前移",
+    "moveBack": "將 {name} 後移",
+    "priorityHigh": "高",
+    "priorityMedium": "中",
+    "priorityLow": "低",
+    "cardCount": "{count, plural, =0 {沒有卡片} other {# 張卡片}}"
   }
 }

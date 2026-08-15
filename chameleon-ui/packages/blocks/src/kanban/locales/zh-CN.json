@@ -1,7 +1,7 @@
 {
   "kanban": {
     "title": "看板",
-    "subtitle": "用键盘在列之间移动工作项。本 Block 不提供指针拖拽。",
+    "subtitle": "用键盘或原生 HTML5 拖放在列之间移动工作项。本 Block 不提供自研拖拽引擎。",
     "colTodo": "待办",
     "colDoing": "进行中",
     "colDone": "已完成",

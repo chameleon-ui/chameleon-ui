@@ -105,7 +105,7 @@
     },
     {
       "path": "blocks/trading-terminal/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"trade\": {\n    \"title\": \"Trading terminal\",\n    \"subtitle\": \"Watch the tape, chart a symbol, and inspect working orders.\",\n    \"tickerLabel\": \"Markets\",\n    \"chartNamed\": \"Price · {symbol}\",\n    \"priceSeries\": \"Last\",\n    \"gridLabel\": \"Orders\",\n    \"emptyLabel\": \"No orders\",\n    \"colSymbol\": \"Symbol\",\n    \"colSide\": \"Side\",\n    \"colSize\": \"Size\",\n    \"colPrice\": \"Price\",\n    \"sideBuy\": \"Buy\",\n    \"sideSell\": \"Sell\",\n    \"selectSymbol\": \"Select {symbol}\",\n    \"orderCount\": \"{count, plural, =0 {No working orders} one {# working order} other {# working orders}}\"\n  }\n}\n"
+      "content": "{\n  \"trade\": {\n    \"title\": \"交易終端\",\n    \"subtitle\": \"查看行情、繪制標的，並檢查未完成訂單。\",\n    \"tickerLabel\": \"行情\",\n    \"chartNamed\": \"價格 · {symbol}\",\n    \"priceSeries\": \"最新\",\n    \"gridLabel\": \"訂單\",\n    \"emptyLabel\": \"沒有訂單\",\n    \"colSymbol\": \"標的\",\n    \"colSide\": \"方向\",\n    \"colSize\": \"數量\",\n    \"colPrice\": \"價格\",\n    \"sideBuy\": \"買入\",\n    \"sideSell\": \"賣出\",\n    \"selectSymbol\": \"選擇 {symbol}\",\n    \"orderCount\": \"{count, plural, =0 {沒有未完成訂單} other {# 筆未完成訂單}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/trading-terminal/manifest.json",

@@ -1,7 +1,7 @@
 {
   "gantt": {
     "title": "进度计划",
-    "subtitle": "条形按起止日期计算宽度。这不是绘制引擎。",
+    "subtitle": "条形按起止日期计算宽度，并带日期刻度与可选今日标记。不是完整绘制引擎，也不做任务虚拟化。",
     "scaleLabel": "日期刻度",
     "rangeLabel": "刻度从 {start} 到 {end}",
     "emptyTitle": "没有任务",

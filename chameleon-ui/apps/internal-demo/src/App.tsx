@@ -6,7 +6,7 @@ import { BlindTestView } from './BlindTestView'
 import { BlocksGallery } from './BlocksGallery'
 import { ComponentGallery } from './ComponentGallery'
 import { LabPreview } from './LabPreview'
-import { ProductStudio } from './ProductStudio'
+import { ProductStudio, type StreetExit } from './ProductStudio'
 import { SuitePreview } from './SuitePreview'
 import { ThreeEndPlayground, ThreeEndStage, readEndParam, type ThreeEndKind } from './ThreeEndView'
 import {
@@ -19,6 +19,10 @@ import {
   type LabCase,
 } from './messages'
 import './App.css'
+
+/** Product-facing map entries (suite/lab stay VR-clean; lab stays URL-only). */
+const MAP_VIEWS = ['street', 'three-end', 'gallery', 'blocks', 'suite', 'blind'] as const
+type MapView = (typeof MAP_VIEWS)[number]
 
 function writeQuery(next: {
   locale: Phase2Locale
@@ -49,6 +53,10 @@ function writeQuery(next: {
   window.history.replaceState(null, '', `/?${params.toString()}`)
 }
 
+function isMapView(value: string): value is MapView {
+  return (MAP_VIEWS as readonly string[]).includes(value)
+}
+
 export function App() {
   const initial = useMemo(() => new URLSearchParams(window.location.search), [])
   const [locale, setLocale] = useState<Phase2Locale>(() => readLocaleParam(initial.get('locale')))
@@ -58,6 +66,11 @@ export function App() {
   const [end] = useState<ThreeEndKind>(() => readEndParam(initial.get('end')))
   const { t, dir } = useDemoMessages(locale)
 
+  // Legacy alias: inspector used to open `live` (stage-only). Product path is three-end.
+  useEffect(() => {
+    if (view === 'live') setView('three-end')
+  }, [view])
+
   document.documentElement.lang = locale
   document.documentElement.dir = dir
   document.documentElement.classList.toggle('cu-demo-vr', view === 'suite')
@@ -65,7 +78,10 @@ export function App() {
   document.documentElement.classList.toggle('cu-demo-blind', view === 'blind')
   document.documentElement.classList.toggle('cu-demo-three-end', view === 'three-end')
   document.documentElement.classList.toggle('cu-demo-three-end-stage', view === 'three-end-stage')
-  document.documentElement.classList.toggle('cu-demo-adaptive', view === 'gallery' || view === 'blocks' || view === 'live' || view === 'street')
+  document.documentElement.classList.toggle(
+    'cu-demo-adaptive',
+    view === 'gallery' || view === 'blocks' || view === 'street',
+  )
   if (view !== 'blind') document.documentElement.dataset.theme = theme
   if (view === 'lab') document.documentElement.dataset.labCase = labCase
   else delete document.documentElement.dataset.labCase
@@ -78,23 +94,30 @@ export function App() {
 
   const galleryNav = [
     { value: 'street', label: t('demo.streetNav') },
-    { value: 'live', label: t('demo.threeEndNav') },
+    { value: 'three-end', label: t('demo.threeEndNav') },
     { value: 'gallery', label: t('demo.overview') },
+    { value: 'blocks', label: t('demo.blocksNav') },
     { value: 'suite', label: t('demo.suiteNav') },
   ]
 
   function goNav(value: string) {
     if (
       value === 'street' ||
-      value === 'live' ||
       value === 'three-end' ||
       value === 'suite' ||
       value === 'gallery' ||
-      value === 'blocks'
+      value === 'blocks' ||
+      value === 'blind'
     ) {
       setView(value)
     }
   }
+
+  function onStreetExit(exit: StreetExit) {
+    setView(exit)
+  }
+
+  const mapValue: MapView = isMapView(view) ? view : 'street'
 
   const header = (
     <Stack align="center" direction="row" gap="2" justify="between">
@@ -103,6 +126,24 @@ export function App() {
         <Typography variant="heading-2">{t('demo.title')}</Typography>
       </div>
       <Stack align="center" direction="row" gap="2">
+        <label className="cu-demo-field">
+          {t('demo.mapLabel')}
+          <select
+            data-demo="map"
+            value={mapValue}
+            onChange={(event) => {
+              const next = event.currentTarget.value
+              if (isMapView(next)) setView(next)
+            }}
+          >
+            <option value="street">{t('demo.streetNav')}</option>
+            <option value="three-end">{t('demo.threeEndNav')}</option>
+            <option value="gallery">{t('demo.overview')}</option>
+            <option value="blocks">{t('demo.blocksNav')}</option>
+            <option value="suite">{t('demo.suiteNav')}</option>
+            <option value="blind">{t('demo.blindNav')}</option>
+          </select>
+        </label>
         <label className="cu-demo-field">
           {t('demo.themeLabel')}
           <select
@@ -131,19 +172,6 @@ export function App() {
             ))}
           </select>
         </label>
-        <Button size="sm" variant="outline" onClick={() => setView(view === 'street' ? 'gallery' : 'street')}>
-          {view === 'street' ? t('demo.overview') : t('demo.streetNav')}
-        </Button>
-        <Button size="sm" variant="ghost" onClick={() => setView(view === 'live' ? 'street' : 'live')}>
-          {view === 'live' ? t('demo.streetNav') : t('demo.threeEndNav')}
-        </Button>
-        <Button
-          size="sm"
-          variant="outline"
-          onClick={() => setView((current) => (current === 'suite' ? 'street' : 'suite'))}
-        >
-          {view === 'suite' ? t('demo.overview') : t('demo.suiteNav')}
-        </Button>
       </Stack>
     </Stack>
   )
@@ -157,10 +185,19 @@ export function App() {
   }
 
   if (view === 'blind') {
-    return <BlindTestView t={t} />
+    return (
+      <div data-demo="blind-shell">
+        <div className="cu-demo-escape" role="region" aria-label={t('demo.mapLabel')}>
+          <Button size="sm" variant="outline" onClick={() => setView('street')} data-demo="back-studio">
+            {t('demo.backToStudio')}
+          </Button>
+        </div>
+        <BlindTestView t={t} />
+      </div>
+    )
   }
 
-  if (view === 'three-end') {
+  if (view === 'three-end' || view === 'live') {
     return (
       <ThreeEndPlayground
         t={t}
@@ -209,21 +246,10 @@ export function App() {
   if (view === 'blocks') {
     return (
       <div className="cu-demo-adaptive" data-demo="blocks">
-        <div className="cu-demo-inspector" role="region" aria-label="Phase 7 Blocks">
+        <div className="cu-demo-inspector" role="region" aria-label={t('demo.blocksNav')}>
           {header}
         </div>
         <BlocksGallery locale={locale} />
-      </div>
-    )
-  }
-
-  if (view === 'live') {
-    return (
-      <div className="cu-demo-adaptive" data-demo="adaptive" data-cu-shell>
-        <div className="cu-demo-inspector" role="region" aria-label={t('demo.overview')}>
-          {header}
-        </div>
-        <ThreeEndStage t={t} end="phone" />
       </div>
     )
   }
@@ -233,7 +259,7 @@ export function App() {
       <div className="cu-demo-inspector" role="region" aria-label={t('demo.overview')}>
         {header}
       </div>
-      <ProductStudio t={t} />
+      <ProductStudio t={t} onNavigate={onStreetExit} />
     </div>
   )
 }

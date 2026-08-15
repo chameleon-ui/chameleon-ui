@@ -107,7 +107,7 @@
     },
     {
       "path": "blocks/ticket-flow/locales/zh-HK.json",
-      "content": "{\n  \"_cuSkeleton\": true,\n  \"ticket\": {\n    \"title\": \"Ticket\",\n    \"subtitle\": \"Advance a request through triage and keep notes on the timeline.\",\n    \"stepsLabel\": \"Ticket stages\",\n    \"stepOpen\": \"Open\",\n    \"stepTriage\": \"Triage\",\n    \"stepProgress\": \"In progress\",\n    \"stepResolved\": \"Resolved\",\n    \"noteLabel\": \"Add a note\",\n    \"submit\": \"Add note\",\n    \"advance\": \"Advance stage\",\n    \"emptyTitle\": \"No notes yet\",\n    \"emptyDescription\": \"Add the first note to start this request.\",\n    \"emptyTimeline\": \"No events yet\",\n    \"errorRequired\": \"A note is required.\",\n    \"eventAdvanced\": \"Moved to {stage}\",\n    \"noteCount\": \"{count, plural, =0 {No notes} one {# note} other {# notes}}\"\n  }\n}\n"
+      "content": "{\n  \"ticket\": {\n    \"title\": \"工單\",\n    \"subtitle\": \"按分診步驟推進請求，並在時間線上記錄備注。\",\n    \"stepsLabel\": \"工單階段\",\n    \"stepOpen\": \"待處理\",\n    \"stepTriage\": \"分診\",\n    \"stepProgress\": \"進行中\",\n    \"stepResolved\": \"已解決\",\n    \"noteLabel\": \"添加備注\",\n    \"submit\": \"添加備注\",\n    \"advance\": \"推進一步\",\n    \"emptyTitle\": \"還沒有備注\",\n    \"emptyDescription\": \"添加第一條備注以開始此請求。\",\n    \"emptyTimeline\": \"還沒有事件\",\n    \"errorRequired\": \"備注為必填項。\",\n    \"eventAdvanced\": \"已移至 {stage}\",\n    \"noteCount\": \"{count, plural, =0 {沒有備注} other {# 條備注}}\"\n  }\n}\n"
     },
     {
       "path": "blocks/ticket-flow/manifest.json",

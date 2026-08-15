@@ -4,6 +4,10 @@
 > 第二期总览：[`../docs/project/phases/Phase-2-Overview.md`](../docs/project/phases/Phase-2-Overview.md)。  
 > 目录注解：[`STRUCTURE.md`](./STRUCTURE.md)。
 
+## 同步说明 2026-08-15（density freeze pack + DatePicker 附录 C）
+
+工程 freeze pack：[`Phase-5-density-v1.1-freeze-pack.md`](../docs/project/reports/Phase-5-density-v1.1-freeze-pack.md)（清单 + 主题 inventory；**禁止伪签**）。DatePicker 契约/CSS 对齐附录 C：compact 底栏 sheet、medium/large 居中浮层（容器驱动；大屏 field-inline 仍未做，契约诚实标注）。密度湿墨仍开。Owner 待指定。
+
 ## 同步说明 2026-08-14（双控制器：NavigationBar 栈 + Navigation Tab）
 
 按 UIKit：顶栏是 `UINavigationBar`（栈：title / back=pop / bar items），底栏是 `UITabBarController`（根级 Tab，切换不 push）。Android Toolbar + BottomNavigation 同一原理。新增 `navigation-bar` slug；AppShell `header` 槽位就是栈铬件，不再塞网站工具条。`Navbar` 仍是营销链接行。演示把 theme/locale 放到壳外的 inspector。Owner 待指定。未 git commit。
@@ -25,7 +29,7 @@ P5  [x] T5.1 断点 Token（mobile <768 / tablet 768–1279 / desktop ≥1280）
     [x] T5.2 密度阶梯 compact/standard/comfortable — density.json + density.css 已接入 docs/internal-demo/theme-studio/market + poc + components test setup + adapter-a2ui demo；`--cu-density-active` / `--cu-control-size-active` 随断点与 [data-density] 切换。design-rules v1.1 迁移单未签字（owner 待指定；themes 仍 spacious vs standard）→ 合入检查仍开
     [x] T5.3 流体排版（clamp）Token — tokens/src/core/typography.json；variables.css 发 --cu-typography-size-* clamp() 与 line-height；compiler 单测绿
     [x] T5.4 容器查询基础设施 + 11 个硬编码媒体查询组件改造 — 规范 + @container 白名单 + stylelint；A5.3 成对测试已补
-    [x] T5.5 变形规则矩阵写入 contract.responsive — Dialog 同行已是单组件变形；Navigation 现为同一 DOM/同一 items（不再 sidebar+tab-bar 拼装）；table 已写；DatePicker 附录 C 底部弹出仍待对齐
+    [x] T5.5 变形规则矩阵写入 contract.responsive — Dialog 同行已是单组件变形；Navigation 现为同一 DOM/同一 items（不再 sidebar+tab-bar 拼装）；table 已写；DatePicker 附录 C compact 底栏 sheet + medium/large 浮层面板已对齐（field-inline large 仍诚实标 future）
     [x] T5.6 新组件 ×4：action-sheet / tab-bar / safe-area / sidebar — tsx + contract + 21 语 + 单测 + VR；safe-area 无断点变形，独立 VR 拍 wrapper + 0px fallback + ar RTL 文案
     [x] T5.7 输入模态：hover 门控在；`--cu-touch-target-min`=2.75rem→44px@16px 测量记录入库（清单 15/15）。新组件 tap 面过线。改造清单 checkbox/select/switch/radio 仍硬编码 2.25rem=36px，未改 P6，不宣称 100% ≥44px。虚拟键盘演示页保持。无 Lighthouse
     [x] T5.8 VR 矩阵扩展 — P5 白名单 app-shell/dialog/table/action-sheet/sidebar/tab-bar/safe-area × {390/768/1280} × {en ltr, ar rtl} 已进 visual-regression（p5-whitelist-morph.spec.ts + safe-area.spec.ts + 实拍 PNG）。POC Ark 对照仍保留
@@ -74,7 +78,7 @@ corepack pnpm@9.15.0 measure:touch-targets
 - 容器查询降级策略未验前，禁止宣称「三端一体」
 - 触控 44px 限本期清单；checkbox/select/switch/radio 仍 36px，禁止宣称全库达标
 - design-rules v1.1 未签字，禁止伪签
-- DatePicker 附录 C「底部弹出」契约对齐仍待 P6
+- DatePicker 大屏 field-inline 日历仍未交付（契约已标注 future）；compact 底栏 sheet 已落地
 - 未模拟设备刘海；禁止把 0px fallback 快照说成 inset 实测
 
 ## 合入检查
@@ -82,7 +86,7 @@ corepack pnpm@9.15.0 measure:touch-targets
 - [x] 组件 CSS 无新增断点字面量（stylelint）— 规则在；当前 components CSS 无视口 width @media；phase5:gates 复跑绿
 - [x] 容器查询改造有成对快照（容器驱动证据）— A5.3：`container-driven.spec.ts` 窄容器+宽视口 / 宽容器+窄视口实拍 PNG + 单元 CSS 接线
 - [x] catalog `changeLog` 含本阶段 4 条记录
-- [ ] 密度枚举迁移单已签字 — 草稿在规范 §3（LEGACY-2026-004），冻结会未签；owner 待指定
+- [ ] 密度枚举迁移单已签字 — **blocked by owner wet-ink**（工程 freeze pack 已落盘：[`Phase-5-density-v1.1-freeze-pack.md`](../docs/project/reports/Phase-5-density-v1.1-freeze-pack.md)；schema/themes 仍 v1.0；禁止伪签）
 
 ## 其它阶段
 

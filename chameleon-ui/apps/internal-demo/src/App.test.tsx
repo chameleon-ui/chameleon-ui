@@ -24,6 +24,42 @@ describe('Phase 2 inner demo', () => {
     expect(document.querySelector('[data-ai-role="empty-state"]')).toBeNull()
   })
 
+  it('exposes a demo map covering studio, three-end, catalog, blocks, suite, and blind', () => {
+    window.history.replaceState(null, '', '/?locale=en&theme=line')
+    render(<App />)
+    const map = document.querySelector('[data-demo="map"]') as HTMLSelectElement
+    expect(map).not.toBeNull()
+    expect([...map.options].map((o) => o.value)).toEqual([
+      'street',
+      'three-end',
+      'gallery',
+      'blocks',
+      'suite',
+      'blind',
+    ])
+    expect(document.querySelector('[data-street="explore"]')).not.toBeNull()
+  })
+
+  it('creates a draft issue and chooses files in the street studio', () => {
+    window.history.replaceState(null, '', '/?locale=en&theme=line')
+    render(<App />)
+    fireEvent.click(document.querySelector('[data-street="new-issue"]') as HTMLButtonElement)
+    expect(document.querySelector('[data-street-row="draft"]')).not.toBeNull()
+    fireEvent.click(document.querySelector('.cu-navigation__item[aria-label="Files"]') as HTMLButtonElement)
+    expect(document.querySelector('[data-ai-role="empty-state"]')).not.toBeNull()
+    fireEvent.click(document.querySelector('[data-street="choose-files"]') as HTMLButtonElement)
+    expect(document.querySelector('[data-street="files-ready"]')).not.toBeNull()
+  })
+
+  it('redirects legacy view=live to the three-end playground', async () => {
+    window.history.replaceState(null, '', '/?view=live&locale=en&theme=line')
+    render(<App />)
+    await waitFor(() => {
+      expect(document.querySelector('[data-three-end="playground"]')).not.toBeNull()
+      expect(new URLSearchParams(window.location.search).get('view')).toBe('three-end')
+    })
+  })
+
   it('exposes 21 product locales and 8 themes in chrome selectors', () => {
     window.history.replaceState(null, '', '/?view=gallery&locale=en&theme=line')
     render(<App />)
