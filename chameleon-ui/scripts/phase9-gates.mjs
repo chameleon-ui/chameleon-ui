@@ -4,6 +4,8 @@
  * - Lighthouse artifact exists and is either measured (with tool metadata) or
  *   explicit unmeasured (with a reason). Invented scores fail.
  * - VPAT file exists; draft is allowed; certified/signed claims without negation fail.
+ * - VPAT published-internal status page exists; commercial claims must be denied.
+ * - Blind-test pending + A9.5 decision: PROTOCOL-READY, rate null, not_run (no fake ≥80%).
  * - Locale gap table exists (zero-gap is NOT required).
  * - publish:check dry run only.
  */
@@ -168,11 +170,101 @@ async function checkVpat() {
   if (/\blegally signed\b/i.test(text) && !/not legally signed/i.test(text)) {
     return fail('VPAT must not present itself as legally signed')
   }
+  if (!/not a third-party cab/i.test(text)) {
+    return fail('VPAT must say Not a third-party CAB')
+  }
+  if (!/commercialClaimsAllowed=false/i.test(text) && !/commercial claims[\s\S]{0,80}not allowed/i.test(text)) {
+    return fail('VPAT must deny commercial accessibility/certification claims')
+  }
   if (declaredPublished) {
     ok('VPAT artifact present (**status=published** — still must say not certified)')
   } else {
-    ok('VPAT artifact present (**status=draft**; not certified)')
+    ok('VPAT artifact present (**status=draft**; not certified; commercial claims denied)')
   }
+}
+
+async function checkVpatStatusPage() {
+  const report = join(repoRoot, 'docs/project/reports/Phase-9-VPAT-status.md')
+  const site = join(root, 'apps/docs/static/compliance/VPAT-status.md')
+  for (const file of [report, site]) {
+    if (!(await exists(file))) return fail(`VPAT status page missing ${file}`)
+  }
+  const text = await readFile(report, 'utf8')
+  if (!/published-internal/i.test(text)) {
+    return fail('VPAT status page must declare publicationScope published-internal')
+  }
+  if (!/not a third-party cab/i.test(text)) {
+    return fail('VPAT status page must say Not a third-party CAB')
+  }
+  if (!/not evaluated/i.test(text)) {
+    return fail('VPAT status page must list Not Evaluated areas')
+  }
+  if (!/commercial[\s\S]{0,120}not allowed/i.test(text) && !/commercialClaimsAllowed=false/i.test(text)) {
+    return fail('VPAT status page must forbid commercial claims')
+  }
+  if (/\bcertified\b/i.test(text) && !/not certified/i.test(text)) {
+    return fail('VPAT status page must not present certification without negation')
+  }
+  ok('VPAT published-internal status page present (commercial claims denied)')
+}
+
+async function checkBlindTestHonesty() {
+  const decisionPath = join(repoRoot, 'docs/project/reports/A9.5-decision.json')
+  const pendingPath = join(repoRoot, 'docs/project/reports/盲测结果.pending.json')
+  const protocolPath = join(repoRoot, 'docs/project/reports/盲测协议.md')
+  const decisionMd = join(repoRoot, 'docs/project/reports/A9.5-盲测决策-PROTOCOL-READY.md')
+
+  for (const file of [decisionPath, pendingPath, protocolPath, decisionMd]) {
+    if (!(await exists(file))) return fail(`blind-test honesty missing ${file}`)
+  }
+
+  let decision
+  let pending
+  try {
+    decision = JSON.parse(await readFile(decisionPath, 'utf8'))
+    pending = JSON.parse(await readFile(pendingPath, 'utf8'))
+  } catch {
+    return fail('A9.5-decision.json or 盲测结果.pending.json is not valid JSON')
+  }
+
+  if (decision.decision !== 'PROTOCOL-READY') {
+    return fail('A9.5-decision.json decision must be PROTOCOL-READY (no silent waive; no fake complete)')
+  }
+  if (decision.waive === true) {
+    return fail('A9.5-decision.json must not set waive=true without a separate signed waive letter path')
+  }
+  if (decision.rate !== null) {
+    return fail('A9.5-decision.json rate must be null until real human trials exist')
+  }
+  if (decision.slogan80Allowed === true || decision.commercialClaimAllowed === true) {
+    return fail('A9.5-decision.json must keep slogan80/commercialClaimAllowed false')
+  }
+
+  if (pending.status !== 'not_run') {
+    return fail('盲测结果.pending.json status must remain not_run until a real session is filed')
+  }
+  if (pending.rate !== null) {
+    return fail('盲测结果.pending.json rate must be null (do not hand-type a percentage)')
+  }
+  if (pending.a95Decision !== 'PROTOCOL-READY') {
+    return fail('盲测结果.pending.json a95Decision must be PROTOCOL-READY')
+  }
+  if (Array.isArray(pending.trials) && pending.trials.length > 0) {
+    return fail('盲测结果.pending.json must not invent trials[]')
+  }
+  if (pending.slogan80Allowed === true || pending.commercialClaimAllowed === true) {
+    return fail('pending blind result must keep commercial/slogan claims false')
+  }
+
+  const protocol = await readFile(protocolPath, 'utf8')
+  if (!protocol.includes('PROTOCOL-READY')) {
+    return fail('盲测协议.md must reference PROTOCOL-READY for 0.1.9 A9.5')
+  }
+  if (!protocol.includes('禁止手打') && !protocol.includes('禁止手写')) {
+    return fail('盲测协议.md must keep the ban on hand-typed recognition rates')
+  }
+
+  ok('Blind-test honesty: PROTOCOL-READY + not_run + rate=null (no ≥80% claim)')
 }
 
 async function checkGapTable() {
@@ -197,6 +289,14 @@ async function main() {
   await checkVpat()
   if (process.exitCode) return
 
+  console.log('\n[phase9:gates] VPAT published-internal status page')
+  await checkVpatStatusPage()
+  if (process.exitCode) return
+
+  console.log('\n[phase9:gates] blind-test A9.5 PROTOCOL-READY honesty')
+  await checkBlindTestHonesty()
+  if (process.exitCode) return
+
   console.log('\n[phase9:gates] locale gap table exists')
   await checkGapTable()
   if (process.exitCode) return
@@ -212,10 +312,12 @@ async function main() {
         gates: [
           'lhci-artifact-measured-or-unmeasured',
           'vpat-file',
+          'vpat-status-published-internal',
+          'blind-test-protocol-ready',
           'locale-gap-table',
           'publish-check-dry',
         ],
-        note: 'Phase 9 hardening gates. Does not npm publish, does not require VPAT certified, does not invent Lighthouse scores, does not require 21-locale gap zero.',
+        note: 'Phase 9 honesty gates. Does not npm publish, does not require VPAT certified, does not invent Lighthouse or recognition rates, does not require 21-locale gap zero. A9.5=PROTOCOL-READY rate=null.',
       },
       null,
       2,

@@ -1,0 +1,18 @@
+{
+  "schema": "chameleon-ui/a95-decision/v1",
+  "decision": "PROTOCOL-READY",
+  "waive": false,
+  "signedWaiveLetter": null,
+  "rate": null,
+  "status": "not_run",
+  "commercialClaimAllowed": false,
+  "slogan80Allowed": false,
+  "legacy": "LEGACY-2026-008",
+  "protocol": "docs/project/reports/盲测协议.md",
+  "pendingResult": "docs/project/reports/盲测结果.pending.json",
+  "harness": "http://127.0.0.1:5175/?view=blind",
+  "themeQuantificationReport": "docs/project/reports/2026-08-15-theme-quantification.md (engineering measurables; recognition_rate=null — not a substitute for ≥80%)",
+  "decidedAt": "2026-08-15",
+  "owner": "待指定",
+  "note": "0.1.9 commercial-essentials honesty gate: no human aggregate blind session has been run; no owner-signed waive letter exists in-repo. A9.5 lands as PROTOCOL-READY with rate=null. Do not claim 一眼认出 ≥80%. Harness existence ≠ measured recognition."
+}

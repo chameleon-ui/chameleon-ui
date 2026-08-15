@@ -9,7 +9,7 @@ description: 在消费方应用里用 MCP、契约与合法 import 生成 Chamel
 
 面向：在 **非本 pnpm workspace** 的 React **或 Vue** 应用里生成或修改 UI 的 Agent。不面向内测 Demo 操作员。React 是主实现。Vue 走 `@chameleon-ui/components-vue`：catalog **103/103** + ThemeProvider。
 
-包版本 `0.1.0`，**尚未 npm publish**。在 registry 发布之前不要假定 `npm install @chameleon-ui/components` 可用。
+包版本 `0.1.9`，**尚未 npm publish**。在 registry 发布之前不要假定 `npm install @chameleon-ui/components` 可用。
 
 ## 1. 必须按这次序
 
@@ -21,7 +21,7 @@ description: 在消费方应用里用 MCP、契约与合法 import 生成 Chamel
 | 4 | 选密度、圆角、RTL 之前读纪律 | MCP `get_design_rules` |
 | 5 | 写盘只走 install-core | CLI `chameleon add` 或 MCP `install_*` |
 
-不要从记忆里编 import 路径。不要把 `workspace:*` 写进消费方 `package.json`。
+不要从记忆里编 import 路径。不要把 `workspace:*` 写进消费方 `package.json`。不要编造主题认出率（≥80% 未测，`rate=null`）。不要宣称 VPAT / WCAG / 508 认证（草稿 + published-internal；Not a third-party CAB；禁止商用无障碍宣称）。
 
 ## 2. 接入 MCP
 
@@ -73,15 +73,15 @@ Cursor `.cursor/mcp.json` 或 Claude Code `.mcp.json`：
 首选（`get_import_specifiers` 的 `preferred`）：
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 import { Button, Card, Table } from "@chameleon-ui/components";
 ```
 
-把 `cupertino` 换成 `list_themes` 返回的 id：`line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`。
+把 `line` 换成 `list_themes` 返回的 id：`line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`。
 
-也合法（同一文件）：`@chameleon-ui/themes/dist/cupertino/variables.css`、`@chameleon-ui/tokens/dist/css/variables.css`。
+也合法（同一文件）：`@chameleon-ui/themes/dist/line/variables.css`、`@chameleon-ui/tokens/dist/css/variables.css`。
 
 **禁止：** `@chameleon-ui/themes/cupertino/variables.css`（未导出）。只引 `tokens/css` 不引 `density.css` 时，密度停在 standard，不会随端切换。
 

@@ -6,6 +6,8 @@ Public docs (same rules, product tone): `chameleon-ui/apps/docs/docs/guides/for-
 
 Do not invent CSS specifiers. Do not copy `workspace:*` into a consumer `package.json`. `bench.generation_quality` is honestly `null` without a generator — do not fabricate a score.
 
+Do **not** invent theme recognition rates or imply 「一眼认出 ≥80%」. A9.5 is **PROTOCOL-READY** with `rate=null` (`docs/project/reports/A9.5-decision.json`). Do **not** claim VPAT / WCAG / 508 certification: artifact is `status=draft`, publication scope **published-internal**, **Not a third-party CAB**, commercial a11y claims **not allowed** (`docs/project/reports/Phase-9-VPAT-status.md`).
+
 ## Required order
 
 1. Call MCP `get_import_specifiers` before any import.
@@ -31,7 +33,7 @@ Native model: tab controller + per-tab stack. Not website chrome.
 One `items` list; CSS morphs TabBar ↔ rail ↔ sidebar. Do not compose `Sidebar` + `TabBar`. Switching tabs does not push; back pops (`useTabStacks`). Compact overflow is four pins + More.
 
 ```tsx
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
@@ -63,7 +65,7 @@ corepack pnpm@9.15.0 --filter @chameleon-ui/mcp-server build
 }
 ```
 
-Replace both paths. `npx @chameleon-ui/mcp-server` is not available until npm publish (packages are `0.1.0`, still unpublished).
+Replace both paths. `npx @chameleon-ui/mcp-server` is not available until npm publish (packages are `0.1.9`, still unpublished; use file: / link / pack-external tarballs).
 
 ## Tools the agent must use
 
@@ -87,7 +89,7 @@ node ./scripts/link-external.mjs --apply
 npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives @chameleon-ui/themes @chameleon-ui/components
 ```
 
-Official Vite + Windows templates: `chameleon-ui/templates/external-vite-react` and `chameleon-ui/templates/external-vite-vue`. Pin React `react@^19` / `@ark-ui/react@5.38.0`, or Vue `vue@^3.5` / `@ark-ui/vue@5.38.1`, plus FormatJS as in AGENTS.md. Height chain: `html, body, #root` (React) or `#app` (Vue) `{ block-size: 100% }`. Dual-track: package five vs `chameleon add` — docs `guides/consume.mdx`.
+Official Vite + Windows templates: `chameleon-ui/templates/external-vite-react` and `chameleon-ui/templates/external-vite-vue`. Pin React `react@^19` / `@ark-ui/react@5.38.0`, or Vue `vue@^3.5` / `@ark-ui/vue@5.38.1`, plus FormatJS as in AGENTS.md. Height chain: `html, body, #root` (React) or `#app` (Vue) `{ block-size: 100% }`. Dual-track: package five vs `chameleon add` — docs `guides/consume.mdx`. Pre-registry: `node ./scripts/pack-external.mjs` (add `--vue`) is first-class; verify with `pnpm verify:external`.
 
 Vue graph:
 
@@ -99,7 +101,7 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @c
 Copy-pasteable `App.tsx` that compiles outside this workspace:
 
 ```tsx
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 import { Alert, Button, Card } from "@chameleon-ui/components";

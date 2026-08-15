@@ -176,7 +176,7 @@ T9.1 R1–R3 实测 · T9.2 VPAT 正式 · T9.3 npm publish · T9.4 文档 21 �
 | A9.2 | VPAT status=published，例外项均有 `LEGACY-*`；版本化文件可公开访问 |
 | A9.3 | npm 首发成功；干净环境三通道安装复现记录入库 |
 | A9.4 | 缺口表 315 格全绿，或剩余格均有 ETA+owner 且无任何 `_cuSkeleton` 冒充整页译文 |
-| A9.5 | 盲测：方法与结果公布（样本量可查），或书面放弃函；README 不出现「≥80%」无证据表述 |
+| A9.5 | 盲测：方法与结果公布（样本量可查），或书面放弃函；README 不出现「≥80%」无证据表述。**0.1.9 已落盘 `PROTOCOL-READY`（非 waive）**：[`A9.5-decision.json`](../../reports/A9.5-decision.json) + pending `rate=null`；真人未跑，LEGACY-2026-008 仍开 |
 | A9.6 | 口号核对表每行有证据链接或「不宣称」标注 |
 | A9.7 | `ci:phase9` = `ci:phase8` + `phase9:gates`（lhci 实测门禁 + VPAT 状态检查 + 缺口表检查 + 发布复跑）本机绿 |
 

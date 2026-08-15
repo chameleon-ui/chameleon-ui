@@ -4,9 +4,11 @@
 **Version:** 0.0.0  
 **Report filename:** `VPAT-ChameleonUI-v0.0.0.pdf` (markdown stand-in; PDF binary export is LEGACY-2026-006)  
 **status=draft**  
-**Not certified.** **Not legally signed.** This is an engineering draft published on the local docs site. It is not an ITI-signed VPAT, not a third-party lab report, and not a Section 508 determination.
+**publicationScope=published-internal**  
+**Not certified.** **Not legally signed.** **Not a third-party CAB.**  
+**commercialClaimsAllowed=false**
 
-This file is the PDF-named artifact. Canonical markdown: `VPAT-ChameleonUI-v0.0.0.md`.
+This file is the PDF-named artifact. Canonical markdown: `VPAT-ChameleonUI-v0.0.0.md`. Status page: `VPAT-status.md`.
 
 | Field | Value |
 | :--- | :--- |
@@ -15,7 +17,8 @@ This file is the PDF-named artifact. Canonical markdown: `VPAT-ChameleonUI-v0.0.
 | Evaluation methods | Source/contract review against `packages/components/catalog.json` (101 complete slugs) + component `a11y` / `dataAi` contracts; `perf:size`; Playwright visual-regression (RTL, AppShell+common-10). Optional local Lighthouse accessibility category (axe) on the demo suite page — **not** an AT lab, **not** a VPAT score. See `docs/project/reports/Phase-9-Lighthouse-R1-R3.md` (generated). No assistive-technology lab session. |
 | Applicable | WCAG 2.1 AA (engineering target U1). Revised 508 / EN 301 549 tables not completed. |
 | Standard revision | VPAT® 2.5 structure (abridged) |
-| Auditor | Internal engineering draft. Owner 待指定. Not a third-party CAB. |
+| Auditor | Internal engineering draft. Owner 待指定. **Not a third-party CAB.** |
+| Commercial claims | **Not allowed** |
 
 ## Product description
 

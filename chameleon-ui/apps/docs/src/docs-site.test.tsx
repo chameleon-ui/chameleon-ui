@@ -190,10 +190,16 @@ describe('docs public artifacts', () => {
       path.join(staticRoot, 'compliance/VPAT-ChameleonUI-v0.0.0.pdf.md'),
       'utf8',
     )
+    const statusPage = await readFile(path.join(staticRoot, 'compliance/VPAT-status.md'), 'utf8')
     expect(md).toMatch(/status=draft/)
     expect(md).toMatch(/Not certified/)
+    expect(md).toMatch(/Not a third-party CAB/)
+    expect(md).toMatch(/commercialClaimsAllowed=false/)
     expect(md).not.toMatch(/status=certified/)
     expect(pdfNamed).toMatch(/VPAT-ChameleonUI-v0\.0\.0\.pdf/)
+    expect(statusPage).toMatch(/published-internal/)
+    expect(statusPage).toMatch(/Not a third-party CAB/)
+    expect(statusPage).toMatch(/not allowed/i)
   })
 
   it('authors chrome for the three docs-site locales only', async () => {
@@ -216,10 +222,12 @@ describe('docs public artifacts', () => {
     expect(agents).toContain('get_import_specifiers')
     expect(agents).toContain('get_contract')
     expect(agents).toContain('get_design_rules')
-    expect(agents).toContain('@chameleon-ui/themes/cupertino/css')
+    expect(agents).toContain('@chameleon-ui/themes/line/css')
     expect(agents).toContain('mcpServers')
     expect(agents).toContain('NavigationBar')
     expect(agents).toContain('useTabStacks')
+    expect(agents).toMatch(/rate=null|认出率未测|≥80%/)
+    expect(agents).toMatch(/published-internal|Not a third-party CAB/)
     expect(agents).not.toMatch(/30 秒/)
 
     const threeEnd = await readFile(path.join(here, '../docs/guides/three-end.mdx'), 'utf8')

@@ -4,7 +4,13 @@
 **Version:** 0.0.0  
 **Report filename:** `VPAT-ChameleonUI-v0.0.0.pdf` (markdown stand-in; PDF binary export is LEGACY-2026-006)  
 **status=draft**  
-**Not certified.** **Not legally signed.** This is an engineering draft published on the local docs site. It is not an ITI-signed VPAT, not a third-party lab report, and not a Section 508 determination.
+**publicationScope=published-internal** (visible on the local docs site; not A9.2 formal `status=published`)  
+**Not certified.** **Not legally signed.** **Not a third-party CAB.**  
+**commercialClaimsAllowed=false** — do not use this file for procurement “certified accessible” storytelling.
+
+Status page (evaluated vs Not Evaluated, claim rules): `docs/project/reports/Phase-9-VPAT-status.md` and `/compliance/VPAT-status.md`.
+
+This is an engineering draft. It is not an ITI-signed VPAT, not a third-party lab report, and not a Section 508 determination.
 
 | Field | Value |
 | :--- | :--- |
@@ -13,7 +19,8 @@
 | Evaluation methods | Source/contract review against `packages/components/catalog.json` (101 complete slugs) + component `a11y` / `dataAi` contracts; `perf:size`; Playwright visual-regression (RTL, AppShell+common-10). Optional local Lighthouse accessibility category (axe) on the demo suite page — **not** an AT lab, **not** a VPAT score. See `docs/project/reports/Phase-9-Lighthouse-R1-R3.md` (generated). No assistive-technology lab session. |
 | Applicable | WCAG 2.1 AA (engineering target U1). Revised 508 / EN 301 549 tables not completed. |
 | Standard revision | VPAT® 2.5 structure (abridged) |
-| Auditor | Internal engineering draft. Owner 待指定. Not a third-party CAB. |
+| Auditor | Internal engineering draft. Owner 待指定. **Not a third-party CAB.** |
+| Commercial claims | **Not allowed** (`commercialClaimsAllowed=false`) |
 
 ## Product description
 
@@ -55,8 +62,12 @@ Conformance: **Supports** / **Partially Supports** / **Does Not Support** / **No
 
 **Not Evaluated.** Do not treat this draft as a 508 or EN declaration.
 
+## Commercial claims
+
+**Not allowed.** Do not claim WCAG AA certification, Section 508 determination, third-party CAB audit, or “VPAT published / certified” from this draft. Lighthouse axe scores (when present) do not change this rule. Theme recognition ≥80% is separately **not run** (LEGACY-2026-008; A9.5 = PROTOCOL-READY).
+
 ## Legal
 
 VPAT® is a registered trademark of the Information Technology Industry Council (ITI). This document is an internal engineering draft and is **not** an official VPAT completed in the ITI template with vendor signature.
 
-Next revision reserved: after AT lab + contrast audit + PDF export (LEGACY-2026-006, LEGACY-2026-007). This file stays **status=draft** until those exist. Owner 待指定.
+Next revision reserved: after AT lab + contrast audit + PDF export (LEGACY-2026-006, LEGACY-2026-007). This file stays **status=draft** until those exist; docs-site scope remains **published-internal** only. Owner 待指定.

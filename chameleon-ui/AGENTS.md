@@ -11,20 +11,22 @@ SSOT for agents: this file. Product spec: docs site **编码 Agent 集成** (`ap
 - A second installer. Disk writes only via `chameleon add` / MCP `install_*` → `install-core`.
 - Treat AG-UI as supported. `@chameleon-ui/adapter-ag-ui` is **POC**.
 - Invent `bench.generation_quality` numbers. Honest value is `null` without a configured generator.
+- Claim theme recognition rates (「一眼认出 ≥80%」 or any %). Blind test is **PROTOCOL-READY / not_run**; `rate` is `null` until real human trials aggregate. See `docs/project/reports/A9.5-decision.json`.
+- Claim accessibility certification (VPAT certified, WCAG AA certified, Section 508, third-party CAB). Docs VPAT is **status=draft**, **published-internal**, **commercialClaimsAllowed=false**.
 
 ## CSS (copy exactly)
 
 Preferred:
 
 ```ts
-import "@chameleon-ui/themes/cupertino/css";
+import "@chameleon-ui/themes/line/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
 ```
 
-Also valid (same files): `@chameleon-ui/themes/dist/cupertino/variables.css`, `@chameleon-ui/tokens/dist/css/variables.css`.
+Also valid (same files): `@chameleon-ui/themes/dist/line/variables.css`, `@chameleon-ui/tokens/dist/css/variables.css`.
 
-Replace `cupertino` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
+Replace `line` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
 
 **`line` is the visual flagship.** The other seven are quantified tribute overlays (design-rules + tokens/effects/meta + S3 gzip; report: `docs/project/reports/2026-08-15-theme-quantification.md`). `recognition_rate` stays `null` until a blind test — do not invent rates or claim Linear parity. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
 
@@ -70,7 +72,7 @@ import { AppShell, Navigation, NavigationBar } from "@chameleon-ui/components";
 
 ## External app (not this pnpm workspace)
 
-Packages are `0.1.0` and **not on npm**. Node ≥ 20.19.
+Packages are `0.1.9` and **not on npm**. Node ≥ 20.19. Until registry publish, distribution is **file: / npm link / pack-external tarballs** (tarball is first-class).
 
 ```bash
 cd chameleon-ui
@@ -88,14 +90,14 @@ npm link @chameleon-ui/tokens @chameleon-ui/i18n @chameleon-ui/primitives-vue @c
 
 Link **all five** of the chosen graph. Linking only `components` / `components-vue` fails. After npm publish (not done): `npm install` those names instead.
 
-Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Tarballs: `node ./scripts/pack-external.mjs` (`--vue` for the Vue graph). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
+Official Vite + Windows templates: `templates/external-vite-react` · `templates/external-vite-vue`. Print the Vite snippet: `node ./scripts/link-external.mjs --print-vite` (add `-vue`). Tarballs: `node ./scripts/pack-external.mjs` (`--vue` for the Vue graph). Verify: `node ./scripts/verify-external-templates.mjs` (`--build` for vite build). Dual-track notes: docs **外部接入** (`apps/docs/docs/guides/consume.mdx`).
 
 Pin at the consumer root. React: `react@^19` · `@ark-ui/react@5.38.0`. Vue: `vue@^3.5` · `@ark-ui/vue@5.38.1`. Both: `intl-messageformat@11.2.13` · `@formatjs/icu-messageformat-parser@3.5.14`. React 18 is out of range. Node ≥ 20.19.
 
 ```tsx
 import { ThemeProvider, ToastProvider } from "@chameleon-ui/components";
 
-<ThemeProvider theme="cupertino" locale="zh-CN">
+<ThemeProvider theme="line" locale="zh-CN">
   <ToastProvider>{app}</ToastProvider>
 </ThemeProvider>
 ```
