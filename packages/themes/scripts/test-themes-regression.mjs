@@ -33,6 +33,11 @@ function sha256(content) {
   return createHash("sha256").update(content, "utf8").digest("hex");
 }
 
+/** Hash LF-normalized text so Windows CRLF checkouts match LF baselines. */
+function sha256Text(content) {
+  return sha256(String(content).replace(/\r\n/g, "\n"));
+}
+
 async function main() {
   const current = { generatedFrom: "packages/themes/dist (pre-$extends pipeline)", themes: {} };
   for (const themeId of themeIds) {
@@ -42,7 +47,7 @@ async function main() {
         path.join(packageRoot, "dist", themeId, artifact),
         "utf8",
       );
-      current.themes[themeId][artifact] = sha256(content);
+      current.themes[themeId][artifact] = sha256Text(content);
     }
   }
 
