@@ -1,7 +1,7 @@
 # Chameleon UI
 
 <p align="center">
-  <img src="./brand/chameleon-logo.png" alt="Chameleon UI logo" width="120" />
+  <img src="./brand/chameleon-logo.png" alt="Chameleon UI logo" width="200" />
 </p>
 
 > **简体中文 · [English](README.en.md) · [繁體中文（香港）](README.zh-HK.md) · [العربية](README.ar.md)**
