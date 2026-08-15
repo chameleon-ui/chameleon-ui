@@ -26,7 +26,7 @@ Also valid (same files): `@chameleon-ui/themes/dist/cupertino/variables.css`, `@
 
 Replace `cupertino` with one of: `line` · `silver-arrow` · `stuttgart` · `corsa` · `cupertino` · `siren` · `wechat` · `ant-blue`.
 
-**`line` is the visual flagship.** The others are tribute overlays. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
+**`line` is the visual flagship.** The other seven are quantified tribute overlays (design-rules + tokens/effects/meta + S3 gzip; report: `docs/project/reports/2026-08-15-theme-quantification.md`). `recognition_rate` stays `null` until a blind test — do not invent rates or claim Linear parity. Do not treat a theme id swap as a finished product look. Prefer `line` for product chrome unless the consumer named another homage.
 
 Before writing imports, call MCP `get_import_specifiers`.
 
