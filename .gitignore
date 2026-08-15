@@ -21,3 +21,8 @@ chameleon-ui/benchmarks/reports/.lhci-tmp/
 chameleon-ui/benchmarks/reports/.chrome-user-data/
 chameleon-ui/dist-tarballs/
 chameleon-ui/dist-release/
+
+# Chrome/CDP audit profiles under chameleon-ui
+chameleon-ui/.tmp-chrome-audit/
+chameleon-ui/.tmp-chrome-*/
+

@@ -34,3 +34,10 @@ apps/docs/static/inventory.json
 benchmarks/genui-bench/reports/latest.json
 benchmarks/genui-bench/reports/latest.md
 benchmarks/genui-bench/reports/index.html
+
+# Local audit / pack artifacts
+.tmp-chrome-audit/
+.tmp-chrome-*/
+dist-release/
+dist-tarballs/
+
