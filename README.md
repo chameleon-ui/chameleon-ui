@@ -135,6 +135,8 @@ Chameleon UI 的核心体验是**一套组件自动适配三种视口**——390
 
 三档相关组件：`AppShell` · `Navigation` · `NavigationBar` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`。
 
+三端一体的完整工作原理（断点 token、容器查询 vs `@media`、随端密度、Navigation 变形、以及"为什么分 React/Vue"）：[**三端一体工作原理**](./docs/theming/three-end-system.md)。
+
 ---
 
 ## 组件与主题
