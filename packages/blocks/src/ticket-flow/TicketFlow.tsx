@@ -1,5 +1,5 @@
-import { Button, Card, EmptyState, Form, Input, Steps, Timeline, Typography } from '@chameleon-ui/components'
-import type { TimelineItem } from '@chameleon-ui/components'
+import { Button, Card, EmptyState, Form, Input, Steps, Timeline, Typography } from '@chameleon-ui/components-react'
+import type { TimelineItem } from '@chameleon-ui/components-react'
 import { useState, type FormEvent } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { ticketFlowLocaleTrees } from './locale-map.js'

@@ -81,7 +81,7 @@ export const TOOL_DEFINITIONS = [
   {
     name: 'list_components',
     description:
-      'List catalog slugs grouped by family (from packages/components/catalog.json). Use for browsing; prefer search_components with intent when the user describes a need.',
+      'List catalog slugs grouped by family (from packages/components-react/catalog.json). Use for browsing; prefer search_components with intent when the user describes a need.',
     inputSchema: {
       type: 'object',
       properties: {
@@ -350,8 +350,8 @@ export async function handleToolCall(request: JsonRpcRequest): Promise<JsonRpcRe
         id: request.id,
         result: {
           slug,
-          path: `packages/components/src/${slug}/contract.json`,
-          export: `@chameleon-ui/components/contracts/${slug}`,
+          path: `packages/components-react/src/${slug}/contract.json`,
+          export: `@chameleon-ui/components-react/contracts/${slug}`,
           schemaVersion: (contract as { schemaVersion?: string }).schemaVersion,
           contract,
         },
@@ -508,7 +508,7 @@ export async function handleMessage(
         result: {
           protocolVersion: '2024-11-05',
           capabilities: { tools: {} },
-          serverInfo: { name: 'chameleon-ui-mcp', version: '0.2.0' },
+          serverInfo: { name: 'chameleon-ui-mcp', version: '0.4.0' },
           instructions: MCP_INSTRUCTIONS,
         },
       }

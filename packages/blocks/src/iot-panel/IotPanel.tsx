@@ -1,4 +1,4 @@
-import { Badge, Button, Card, Chart, EmptyState, Gauge, Typography } from '@chameleon-ui/components'
+import { Badge, Button, Card, Chart, EmptyState, Gauge, Typography } from '@chameleon-ui/components-react'
 import { useState } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { iotPanelLocaleTrees } from './locale-map.js'

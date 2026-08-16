@@ -2,7 +2,7 @@
 
 **L3 · 可组合的场景块（scenario blocks）。**
 
-每个 block 是一段可组合的页面片段，由 `@chameleon-ui/components` 构成，并带 `contract.json`、`manifest.json`（`registry:block`）、Token-only CSS 与 21 个 locale 文件。
+每个 block 是一段可组合的页面片段，由 `@chameleon-ui/components-react` 构成，并带 `contract.json`、`manifest.json`（`registry:block`）、Token-only CSS 与 21 个 locale 文件。
 
 ## Blocks（12 个，均 real）
 

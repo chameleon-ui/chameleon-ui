@@ -1,0 +1,39 @@
+{
+  "$description": "Apple dark scheme — manual switch via ThemeProvider colorScheme=\"dark\" ([data-color-scheme=\"dark\"]). Extends the light flagship tokens and flips surfaces / fg / fills / shadows to the iOS dark ramp (systemBlue #0A84FF, pure-black base, gray elevated surfaces).",
+  "$extends": "./tokens.json",
+  "color": {
+    "palette": {
+      "brand": { "$value": "#0A84FF", "$description": "iOS systemBlue (dark)." },
+      "ink": { "$value": "#000000" },
+      "paper": { "$value": "#000000" },
+      "danger": { "$value": "#FF453A", "$description": "iOS systemRed (dark)." }
+    },
+    "background": {
+      "default": { "$value": "#000000", "$description": "iOS systemBackground (dark) — pure black." },
+      "subtle": { "$value": "#1C1C1E", "$description": "iOS secondarySystemBackground (dark) / grouped canvas." },
+      "elevated": { "$value": "#2C2C2E", "$description": "iOS tertiarySystemBackground (dark) — cards, raised surfaces." },
+      "inverse": { "$value": "#FFFFFF" },
+      "translucent": { "$value": "color-mix(in srgb, #1d1d1d 82%, transparent)", "$description": "Dark bar material base." },
+      "translucent-thick": { "$value": "color-mix(in srgb, #1d1d1d 94%, transparent)", "$description": "Dark thick material base." }
+    },
+    "border": {
+      "default": { "$value": "rgba(84, 84, 88, 0.6)", "$description": "iOS separator (dark)." }
+    },
+    "fg": {
+      "default": { "$value": "#FFFFFF", "$description": "iOS label (dark)." },
+      "muted": { "$value": "rgba(235, 235, 245, 0.6)", "$description": "iOS secondaryLabel (dark)." },
+      "inverse": { "$value": "#000000" }
+    },
+    "fill": {
+      "default": { "$value": "rgba(120, 120, 128, 0.36)", "$description": "iOS systemFill (dark)." },
+      "secondary": { "$value": "rgba(120, 120, 128, 0.32)", "$description": "iOS secondarySystemFill (dark)." },
+      "tertiary": { "$value": "rgba(120, 120, 128, 0.24)", "$description": "iOS tertiarySystemFill (dark)." },
+      "quaternary": { "$value": "rgba(120, 120, 128, 0.18)", "$description": "iOS quaternarySystemFill (dark)." }
+    }
+  },
+  "shadow": {
+    "sm": { "$value": "0 1px 2px rgba(0, 0, 0, 0.3)" },
+    "md": { "$value": "0 4px 16px rgba(0, 0, 0, 0.4)" },
+    "lg": { "$value": "0 12px 40px rgba(0, 0, 0, 0.5)" }
+  }
+}

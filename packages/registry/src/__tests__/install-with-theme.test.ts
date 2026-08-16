@@ -14,26 +14,26 @@ describe('A2 install_with_theme playbook', () => {
     const dir = await makeTemp();
     try {
       const client = createBundledRegistryClient();
-      const result = await installWithTheme(client, 'button', 'cupertino', dir, {
+      const result = await installWithTheme(client, 'button', 'apple', dir, {
         source: 'cli',
       });
 
       expect(result.pieces.component).toBe('button');
-      expect(result.pieces.theme).toBe('cupertino');
-      expect(result.installed).toEqual(['bundle:button+cupertino']);
+      expect(result.pieces.theme).toBe('apple');
+      expect(result.installed).toEqual(['bundle:button+apple']);
 
       // component files
       const componentSource = await readFile(join(dir, 'components/button/Button.tsx'), 'utf8');
       expect(componentSource).toContain('data-ai-role');
       // token overlay
-      const tokens = JSON.parse(await readFile(join(dir, 'themes/cupertino/tokens.json'), 'utf8'));
+      const tokens = JSON.parse(await readFile(join(dir, 'themes/apple/tokens.json'), 'utf8'));
       expect(typeof tokens).toBe('object');
       // font configuration inside meta.json
-      const meta = JSON.parse(await readFile(join(dir, 'themes/cupertino/meta.json'), 'utf8'));
+      const meta = JSON.parse(await readFile(join(dir, 'themes/apple/meta.json'), 'utf8'));
       expect(meta.fonts).toBeDefined();
       // design rules
       const rules = JSON.parse(
-        await readFile(join(dir, 'themes/cupertino/design-rules.json'), 'utf8'),
+        await readFile(join(dir, 'themes/apple/design-rules.json'), 'utf8'),
       );
       expect(rules.version).toBe('1.0');
     } finally {
@@ -45,9 +45,9 @@ describe('A2 install_with_theme playbook', () => {
     const dir = await makeTemp();
     try {
       const client = createBundledRegistryClient();
-      const first = await installWithTheme(client, 'input', 'line', dir, { source: 'mcp' });
+      const first = await installWithTheme(client, 'input', 'linear', dir, { source: 'mcp' });
       expect(first.written.length).toBeGreaterThan(0);
-      const second = await installWithTheme(client, 'input', 'line', dir, { source: 'mcp' });
+      const second = await installWithTheme(client, 'input', 'linear', dir, { source: 'mcp' });
       expect(second.written).toEqual([]);
       expect(second.skipped.length).toBe(first.written.length);
     } finally {
@@ -59,13 +59,13 @@ describe('A2 install_with_theme playbook', () => {
     const dir = await makeTemp();
     try {
       const client = createBundledRegistryClient();
-      await expect(installWithTheme(client, 'nope', 'line', dir)).rejects.toThrow(
+      await expect(installWithTheme(client, 'nope', 'linear', dir)).rejects.toThrow(
         InstallWithThemeError,
       );
       await expect(installWithTheme(client, 'button', 'nope', dir)).rejects.toThrow(
         InstallWithThemeError,
       );
-      await expect(installWithTheme(client, 'line', 'button', dir)).rejects.toThrow(
+      await expect(installWithTheme(client, 'linear', 'button', dir)).rejects.toThrow(
         InstallWithThemeError,
       );
     } finally {
@@ -75,12 +75,12 @@ describe('A2 install_with_theme playbook', () => {
 
   it('plans a single flattened bundle with no duplicate file paths', async () => {
     const client = createBundledRegistryClient();
-    const plan = await planInstallWithTheme(client, 'button', 'line');
+    const plan = await planInstallWithTheme(client, 'button', 'linear');
     const paths = plan.bundle.files.map((file) => file.path);
     expect(new Set(paths).size).toBe(paths.length);
     expect(paths.some((path) => path.startsWith('components/button/'))).toBe(true);
-    expect(paths).toContain('themes/line/tokens.json');
-    expect(paths).toContain('themes/line/meta.json');
-    expect(paths).toContain('themes/line/design-rules.json');
+    expect(paths).toContain('themes/linear/tokens.json');
+    expect(paths).toContain('themes/linear/meta.json');
+    expect(paths).toContain('themes/linear/design-rules.json');
   });
 });

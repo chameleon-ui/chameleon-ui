@@ -10,14 +10,14 @@
 
 Chameleon UI 係一套面向 AI 時代嘅設計系統。佢以 **headless（無頭）原語**為基礎，喺同一套 token、契約同架構之上，為 **React 19** 同 **Vue 3.5** 提供完整一致嘅組件庫，並實現**三端一體**（手機 / 平板 / 桌面自適應）。同時透過契約驅動、MCP 同協定轉換器，令 **AI 代理（agent）可以「理解」並且可靠咁組裝或者安裝組件**。
 
-- **組件**：103 個目錄項目（React 同 Vue **框架雙端**對齊 `103/103`）
+- **組件**：116 個目錄項目（React 同 Vue **框架雙端**對齊 `116/116`）
 - **三端一體**：手機 390 / 平板 768 / 桌面 1280 視口自適應（密度、控件、排版隨端變化）
-- **主題**：9 套（`line` 視覺旗艦 + 8 套致敬覆蓋層）
+- **主題**：8 套（`linear` / `apple` 雙視覺旗艦 + 6 套致敬覆蓋層）
 - **語言**：21 個 locale（ICU MessageFormat），含 RTL（`ar` `ug` `ur` `fa`）
 - **Headless**：基於 **Ark UI / Zag**（`primitives` / `primitives-vue` 薄封裝）
 - **授權**：MIT。遙測預設關閉（`telemetry-notice.v1`）。
 
-> **現時版本：`0.2.0`（未發佈到 npm）**。喺 npm publish 之前，請用 `link-external` / `pack-external` 或者官方 Vite 模板接入。
+> **現時版本：`0.4.0`（未發佈到 npm）**。喺 npm publish 之前，請用 `link-external` / `pack-external` 或者官方 Vite 模板接入。
 
 ---
 
@@ -65,7 +65,7 @@ corepack pnpm@9.15.0 check      # lint + typecheck + test + build
 # 1. 打包成 tarball，再喺應用度安裝
 node ./scripts/pack-external.mjs            # React umbrella
 node ./scripts/pack-external.mjs --vue     # Vue umbrella
-npm install <path-to>/dist-tarballs/chameleon-ui-react-0.2.0.tgz
+npm install <path-to>/dist-tarballs/chameleon-ui-react-0.4.0.tgz
 
 # 2. 或者 npm link
 node ./scripts/link-external.mjs --vue --apply
@@ -100,12 +100,12 @@ node ./scripts/link-external.mjs --vue --apply
 | 套件 | 說明 |
 | :--- | :--- |
 | `@chameleon-ui/tokens` | DTCG 設計 token 權威源 + 確定性 CSS 變數編譯 |
-| `@chameleon-ui/themes` | 主題覆蓋層同 `design-rules`（`line` 旗艦 + 8 套致敬） |
+| `@chameleon-ui/themes` | 主題覆蓋層同 `design-rules`（`linear` / `apple` 雙旗艦 + 6 套致敬） |
 | `@chameleon-ui/contract` | 組件同設計規則嘅 JSON Schema + 校驗 |
 | `@chameleon-ui/i18n` | ICU MessageFormat 執行期、C3 Map 查詢、偽本地化工具 |
 | `@chameleon-ui/primitives` · `primitives-vue` | Ark UI / Zag 薄封裝（headless 內核） |
-| `@chameleon-ui/components` | React 組件實現（103 slugs + 契約檔案） |
-| `@chameleon-ui/components-vue` | Vue 組件（103/103 slugs + ThemeProvider） |
+| `@chameleon-ui/components-react` | React 組件實現（116 slugs + 契約檔案） |
+| `@chameleon-ui/components-vue` | Vue 組件（116/116 slugs + ThemeProvider） |
 | `@chameleon-ui/react` | React 消費傘包（統一入口） |
 | `@chameleon-ui/vue` | Vue 消費傘包（統一入口） |
 | `@chameleon-ui/install-core` | 唯一寫盤內核：依賴圖、衝突偵測、冪等複製 |
@@ -140,7 +140,7 @@ Chameleon UI 嘅核心體驗係**一套組件自動適應三種視口**——390
 - 消費 `@chameleon-ui/tokens/css` 時**必須同時**引入 `@chameleon-ui/tokens/density.css`，否則密度/控件尺寸唔會隨斷點切換。
 - 應用外殼同導航：`AppShell` 提供三檔應用骨架，`Navigation` 用同一個 `items` API，喺桌面側欄 / 平板可摺 / 手機底部 Tab 之間變形；`SafeArea` 處理劉海同手勢條安全區。
 
-三檔相關組件：`AppShell` · `Navigation` · `NavigationBar` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`。
+三檔相關組件：`AppShell` · `Navigation` · `NavigationTitle` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`。
 
 三端一體嘅完整工作原理（斷點 token、容器查詢 vs `@media`、隨端密度、Navigation 變形、以及「點解分 React/Vue」）：[**三端一體工作原理**](./docs/theming/three-end-system.zh-HK.md)。
 
@@ -150,21 +150,22 @@ Chameleon UI 嘅核心體驗係**一套組件自動適應三種視口**——390
 
 ### 組件（103）
 
-完整清單嘅單一權威來源：[`packages/components/catalog.json`](./packages/components/catalog.json)。每個組件仲帶一份機器可讀嘅契約：
+完整清單嘅單一權威來源：[`packages/components-react/catalog.json`](./packages/components-react/catalog.json)。每個組件仲帶一份機器可讀嘅契約：
 
 - `contract.json`（含 `dataAi.role` / `states` / `intents`）
 - 21 個 locale 嘅文案表
 - 樣式、類型、測試
 
-### 主題（9）
+### 主題（8）
 
 | 主題 | 說明 |
 | :--- | :--- |
-| `line` | **視覺旗艦**（產品預設外觀） |
-| `silver-arrow` `stuttgart` `corsa` `cupertino` `siren` `wechat` `ant-blue` | 致敬覆蓋層 |
+| `linear` | **視覺旗艦**（深色優先，Linear 值級復刻；產品預設外觀） |
+| `apple` | **視覺旗艦**（淺色優先，HIG / iOS 值級復刻；支援手動切深色） |
+| `mercedes` `porsche` `ferrari` `tiktok` `wechat` `alipay` | 致敬覆蓋層 |
 | `community-focus-first` | 社區紀律套件（`registry:rules`）種子 |
 
-> **狀態說明**：`line` 係**唯一經過完整驗證嘅視覺旗艦**（預設外觀，作為產品標準）。其餘 8 套致敬覆蓋層**仍在打磨中**，可作為靈感同探索使用；如需一個可靠嘅預設主題，請用 `line`。
+> **狀態說明**：`linear` 同 `apple` 係兩套經過完整斷言驗證嘅視覺旗艦（色值、動效、字級、圓角全部上鎖），預設用 `linear`；「似唔似原品」嘅觀感驗收仍以瀏覽器實測為準。其餘 6 套致敬覆蓋層**仍在打磨中**，可作為靈感同探索使用。
 
 - **Token 系統點樣工作**：由 DTCG 權威源到 `--cu-*` 編譯、引用解析、環偵測同 overlay/`$extends` 繼承機制，見 [**Token 工作原理**](./docs/theming/token-system.zh-HK.md)。
 - 想加自己嘅主題？主題係 **overlay**（只覆蓋 core token 子集）。分步教學：[**建立自訂主題**](./docs/theming/creating-a-theme.zh-HK.md)。

@@ -1,0 +1,8 @@
+{
+  "editor": {
+    "label": "Editor de texto enriquecido",
+    "bold": "Negrita",
+    "italic": "Cursiva",
+    "placeholder": "Escribe algo…"
+  }
+}

@@ -1,0 +1,358 @@
+/* cu-effects:apple — Apple 1:1 flagship. Light-first: pure-white base view over
+   the #F2F2F7 grouped canvas, systemBlue (#007AFF) accent, translucent bar
+   materials (saturate(180%) blur(20px)), hairline separators, pill CTAs,
+   17px body / 600 headline weight, 300ms UIKit ease-in-out motion, gentle
+   brightness hover and dim-on-press. Proprietary fonts and icon glyphs are
+   intentionally NOT replicated. Reference: Human Interface Guidelines (color,
+   typography, materials, motion). */
+:root {
+  --cu-focus-halo: color-mix(in srgb, var(--cu-color-palette-brand) 35%, transparent);
+  color-scheme: light;
+  -webkit-font-smoothing: antialiased;
+  background-color: var(--cu-color-background-subtle);
+}
+
+:root[data-color-scheme='dark'] {
+  color-scheme: dark;
+}
+
+:root .cu-app-shell {
+  background-color: var(--cu-color-background-subtle);
+}
+
+:root .cu-app-shell__main {
+  background-color: var(--cu-color-background-default);
+  background-image: none;
+}
+
+:root .cu-app-shell__footer {
+  background: transparent;
+  color: var(--cu-color-fg-muted);
+}
+
+/* Bar material: translucent + vibrancy on every piece of chrome */
+:root .cu-app-shell__header,
+:root .cu-navigation-title,
+:root .cu-navigation-bar,
+:root .cu-navbar,
+:root .cu-tab-bar,
+:root .cu-navigation,
+:root .cu-sidebar,
+:root .cu-app-shell__sidebar,
+:root .cu-three-end-chrome {
+  background: var(--cu-color-background-translucent);
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-frost));
+  backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-frost));
+}
+
+:root .cu-app-shell__header,
+:root .cu-navbar {
+  border-block-end: var(--cu-border-width-hairline) solid var(--cu-color-border-default);
+}
+
+:root .cu-tab-bar {
+  border-block-start: var(--cu-border-width-hairline) solid var(--cu-color-border-default);
+}
+
+/* iOS tab bar: active item takes the accent tint */
+:root .cu-tab-bar__item[data-state='active'] {
+  border-block-start-color: transparent;
+  color: var(--cu-color-palette-brand);
+  font-weight: var(--cu-font-weight-semibold);
+}
+
+:root .cu-sidebar,
+:root .cu-app-shell__sidebar {
+  border-inline-end: var(--cu-border-width-hairline) solid var(--cu-color-border-default);
+}
+
+/* Sidebar selection = systemFill wash, not accent paint */
+:root .cu-sidebar__item[aria-current='page'],
+:root .cu-navigation__item[aria-current='page'] {
+  border-inline-start: none;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-fill-secondary);
+  color: var(--cu-color-fg-default);
+  font-weight: var(--cu-typography-weight-semibold, 600);
+}
+
+@media (hover: hover) {
+  :root .cu-sidebar__item:hover,
+  :root .cu-navigation__item:hover {
+    background: var(--cu-color-fill-tertiary);
+  }
+}
+
+:root .cu-heading,
+:root .cu-typography--heading-1,
+:root .cu-typography--heading-2,
+:root .cu-navigation-title__title,
+:root .cu-navigation-bar__title {
+  font-weight: var(--cu-typography-weight-semibold, 600);
+}
+
+/* —— Buttons: pill CTAs (App Store "Get" pattern), restrained states —— */
+:root .cu-button {
+  border-radius: 9999px;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  transition:
+    background-color var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out),
+    color var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out),
+    opacity var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out),
+    filter var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out);
+}
+
+:root .cu-button:disabled {
+  opacity: 0.5;
+}
+
+/* Press = dim, like a UIControl highlight — no aggressive scale */
+:root .cu-button:active:not(:disabled) {
+  filter: brightness(0.92);
+}
+
+:root .cu-button--solid {
+  color: #ffffff;
+  background: var(--cu-color-palette-brand);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Secondary = gray fill pill (iOS tinted-button style) */
+:root .cu-button--outline {
+  color: var(--cu-color-palette-brand);
+  background: var(--cu-color-fill-tertiary);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+:root .cu-button--ghost {
+  color: var(--cu-color-palette-brand);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+:root .cu-button--tone-danger.cu-button--solid {
+  background: var(--cu-color-palette-danger);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+:root .cu-button--tone-danger.cu-button--outline,
+:root .cu-button--tone-danger.cu-button--ghost {
+  color: var(--cu-color-palette-danger);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+:root .cu-button--tone-danger.cu-button--outline {
+  background: color-mix(in srgb, var(--cu-color-palette-danger) 12%, transparent);
+}
+
+@media (hover: hover) {
+  :root .cu-button--solid:hover:not(:disabled),
+  :root .cu-upload__browse:hover {
+    filter: brightness(1.08); /* Gentle lift — desktop hover stays quiet */
+  }
+
+  :root .cu-button--outline:hover:not(:disabled),
+  :root .cu-button--ghost:hover:not(:disabled) {
+    background: var(--cu-color-fill-secondary);
+  }
+}
+
+/* macOS-style focus halo in the accent color */
+:root .cu-button:focus-visible,
+:root .cu-input:focus-visible,
+:root .cu-select__trigger:focus-visible,
+:root .cu-upload__dropzone:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--cu-focus-halo);
+}
+
+/* —— Upload: plain grouped-surface dropzone + solid blue pill browse CTA —— */
+:root .cu-upload__dropzone {
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-5, var(--cu-space-4));
+  padding-inline: var(--cu-space-4);
+  border: var(--cu-border-width-hairline, 1px) dashed var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+}
+
+:root .cu-upload--dragover .cu-upload__dropzone {
+  border-style: solid;
+  border-color: var(--cu-color-palette-brand);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, transparent);
+  box-shadow: none;
+}
+
+:root .cu-upload__browse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2.5rem;
+  min-block-size: 2.5rem;
+  padding-block: 0;
+  padding-inline: var(--cu-space-4);
+  border: var(--cu-border-width-default, 1px) solid transparent;
+  border-radius: 9999px;
+  background: var(--cu-color-palette-brand);
+  color: #ffffff;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  box-shadow: none;
+  transition:
+    background-color var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out),
+    opacity var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out),
+    filter var(--cu-motion-duration-fast, 150ms) var(--cu-motion-easing-standard, ease-in-out);
+}
+
+:root .cu-upload__browse:active {
+  filter: brightness(0.92);
+}
+
+:root .cu-upload__file {
+  border: none;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+}
+
+/* —— Surfaces: grouped cells sit flat on the gray canvas, no shadows —— */
+:root .cu-empty-state {
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-6, var(--cu-space-5));
+  padding-inline: var(--cu-space-5, var(--cu-space-4));
+  border: none;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+}
+
+:root .cu-empty-state__action {
+  margin-block-start: var(--cu-space-3);
+  inline-size: min(100%, 22rem);
+}
+
+:root .cu-empty-state__action .cu-upload,
+:root .cu-empty-state__action .cu-upload__dropzone {
+  inline-size: 100%;
+}
+
+:root .cu-empty-state__description,
+:root .cu-typography--caption,
+:root .cu-field__label {
+  color: var(--cu-color-fg-muted);
+}
+
+:root .cu-card,
+:root .cu-card--default {
+  border: none;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+}
+
+:root .cu-card--outlined {
+  border: var(--cu-border-width-hairline) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+}
+
+:root .cu-card--elevated {
+  border: none;
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+  box-shadow: var(--cu-shadow-md);
+}
+
+/* —— Overlays: thick material, alert radius, large soft shadow —— */
+:root .cu-dialog__backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+:root .cu-dialog__content,
+:root .cu-action-sheet__content,
+:root .cu-command-palette__content,
+:root .cu-sheet,
+:root .cu-drawer {
+  background: var(--cu-color-background-translucent-thick);
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-thick));
+  backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-thick));
+  box-shadow: var(--cu-shadow-overlay);
+  border-radius: var(--cu-radius-lg);
+}
+
+:root .cu-popover__content,
+:root .cu-menu,
+:root .cu-hover-card,
+:root .cu-toast {
+  background: var(--cu-color-background-translucent-thick);
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-frost));
+  backdrop-filter: saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-frost));
+  box-shadow: var(--cu-shadow-soft);
+  border-radius: var(--cu-radius-lg);
+  border-width: var(--cu-border-width-hairline);
+}
+
+:root .cu-input,
+:root .cu-select__trigger {
+  border: none;
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-fill-quaternary);
+}
+
+/* —— Transparent media: quiet checker on the light canvas —— */
+:root .cu-checkerboard-surface {
+  --cu-checkerboard-mix-a: 12%;
+  --cu-checkerboard-mix-b: 4%;
+}
+
+:root .cu-checkerboard-surface[data-contrast='strong'] {
+  --cu-checkerboard-mix-a: 18%;
+  --cu-checkerboard-mix-b: 6%;
+}
+
+:root .cu-mask-paint-canvas__stage {
+  --cu-mask-paint-stage-bg: var(--cu-color-background-subtle);
+}
+
+:root .cu-mask-paint-canvas__checker {
+  box-shadow: 0 0 0 var(--cu-border-width-hairline, 1px) var(--cu-color-border-default);
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  :root .cu-app-shell__header,
+  :root .cu-navigation-title,
+  :root .cu-navigation-bar,
+  :root .cu-navbar,
+  :root .cu-tab-bar,
+  :root .cu-navigation,
+  :root .cu-sidebar,
+  :root .cu-app-shell__sidebar,
+  :root .cu-three-end-chrome,
+  :root .cu-dialog__content,
+  :root .cu-action-sheet__content,
+  :root .cu-command-palette__content,
+  :root .cu-sheet,
+  :root .cu-drawer,
+  :root .cu-popover__content,
+  :root .cu-menu,
+  :root .cu-hover-card,
+  :root .cu-toast {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--cu-color-background-elevated);
+  }
+}
+
+/* Reduced motion: base guard loses specificity to the :root overrides above, so re-assert here. */
+@media (prefers-reduced-motion: reduce) {
+  :root .cu-button:active:not(:disabled),
+  :root .cu-upload__browse:active {
+    filter: none;
+  }
+}

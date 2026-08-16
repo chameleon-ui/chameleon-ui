@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "navigation-bar",
+  "name": "NavigationBar",
+  "family": "B",
+  "status": "deprecated",
+  "purpose": "Deprecated alias of NavigationTitle (slug navigation-title). Same stack chrome (title, back, bar items). Prefer NavigationTitle / contracts/navigation-title. Kept so contracts/navigation-bar and import path @chameleon-ui/components-react/navigation-bar keep resolving.",
+  "scenarios": [
+    "Legacy import path for stack title chrome after rename to NavigationTitle"
+  ],
+  "props": {
+    "title": {
+      "type": "node",
+      "required": true,
+      "description": "Current view-controller title. See NavigationTitle."
+    },
+    "backLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Previous controller title on the back control. Default Back.",
+      "default": "Back"
+    },
+    "onBack": {
+      "type": "event",
+      "required": false,
+      "description": "Pops the active tab stack.",
+      "payload": "() => void"
+    },
+    "leading": {
+      "type": "node",
+      "required": false,
+      "description": "Leading slot when there is no back control."
+    },
+    "trailing": {
+      "type": "node",
+      "required": false,
+      "description": "Trailing bar-button items."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "root",
+      "description": "Stack depth 1; no back control."
+    },
+    {
+      "name": "nested",
+      "description": "Stack depth > 1; back control pops to the previous title."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "header"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Prefer NavigationTitle (navigation-title) for new code; this slug is a deprecated alias.",
+    "Do not put root destinations here; those belong on Navigation."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [
+      "Tab moves through back and trailing controls",
+      "Enter/Space activates back"
+    ],
+    "focus": "Back is a real button; the title is a heading.",
+    "labeling": "The title is an h1 of the current screen; back uses the previous title as its label.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.1",
+      "2.4.6",
+      "2.5.5"
+    ]
+  },
+  "responsive": {
+    "strategy": "Same as NavigationTitle.",
+    "breakpoints": {
+      "compact": "Same as NavigationTitle.",
+      "medium": "Same as NavigationTitle.",
+      "large": "Same as NavigationTitle."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS; the back chevron mirrors under [dir=rtl].",
+    "mirroredValues": [
+      "back-chevron"
+    ]
+  },
+  "dataAi": {
+    "role": "navigation-title",
+    "states": [
+      "root",
+      "nested"
+    ],
+    "intents": [
+      "navigate-stack"
+    ]
+  },
+  "mechanics": "Deprecated alias of NavigationTitle. Implementation lives under packages/components-react/src/navigation-title. Import NavigationBar or NavigationTitle from the umbrella; both resolve to the same component. Prefer get_contract('navigation-title') and slug navigation-title for new agents.",
+  "usage": [
+    "Prefer NavigationTitle from @chameleon-ui/react or @chameleon-ui/vue.",
+    "NavigationBar remains exported as a deprecated alias for EraseLab and existing consumers."
+  ],
+  "exports": [
+    {
+      "name": "NavigationBar",
+      "kind": "component",
+      "signature": "const NavigationBar: typeof NavigationTitle",
+      "description": "Deprecated alias of NavigationTitle."
+    },
+    {
+      "name": "NavigationTitle",
+      "kind": "component",
+      "signature": "function NavigationTitle(props: NavigationTitleProps): JSX.Element",
+      "description": "Canonical stack chrome (re-exported)."
+    }
+  ]
+}

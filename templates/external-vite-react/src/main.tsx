@@ -7,7 +7,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider locale="zh-CN" theme="line">
+    <ThemeProvider locale="zh-CN" theme="linear">
       <App />
     </ThemeProvider>
   </StrictMode>,

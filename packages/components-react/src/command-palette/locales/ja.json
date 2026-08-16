@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "コマンドパレット",
+    "placeholder": "コマンドを入力",
+    "empty": "コマンドがありません",
+    "close": "閉じる"
+  }
+}

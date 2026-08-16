@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/react",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -12,7 +12,7 @@
   "type": "module",
   "description": "Umbrella for React consumers: one dependency that pulls tokens, i18n, primitives, themes, and components.",
   "files": ["dist", "README.md", "LICENSE"],
-  "sideEffects": ["**/*.css", "./dist/css.js"],
+  "sideEffects": ["**/*.css"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -20,8 +20,14 @@
     },
     "./css": {
       "types": "./dist/css.d.ts",
-      "import": "./dist/css.js",
-      "default": "./dist/css.js"
+      "style": "./dist/css.css",
+      "import": "./dist/css.css",
+      "default": "./dist/css.css"
+    },
+    "./themes/*/css": {
+      "style": "./dist/themes/*.css",
+      "import": "./dist/themes/*.css",
+      "default": "./dist/themes/*.css"
     },
     "./css-paths": {
       "types": "./dist/css-paths.d.ts",
@@ -29,7 +35,7 @@
     }
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsc -p tsconfig.json && node ./scripts/build-css.mjs",
     "dev": "tsc -p tsconfig.json --watch",
     "lint": "tsc -p tsconfig.json --noEmit",
     "test": "node --test ./scripts/smoke.test.mjs",
@@ -48,7 +54,7 @@
     "@formatjs/icu-messageformat-parser": { "optional": false }
   },
   "dependencies": {
-    "@chameleon-ui/components": "workspace:*",
+    "@chameleon-ui/components-react": "workspace:*",
     "@chameleon-ui/i18n": "workspace:*",
     "@chameleon-ui/primitives": "workspace:*",
     "@chameleon-ui/themes": "workspace:*",

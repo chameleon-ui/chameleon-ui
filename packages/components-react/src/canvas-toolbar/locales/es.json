@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Barra de herramientas del lienzo",
+    "zoomIn": "Acercar",
+    "zoomOut": "Alejar",
+    "resetView": "Restablecer vista",
+    "fitView": "Ajustar a la vista"
+  }
+}

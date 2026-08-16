@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/registry",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -10,7 +10,7 @@
     "access": "public"
   },
   "type": "module",
-  "description": "Registry catalog generated from packages/components + packages/blocks + official themes (8). Do not hand-edit published copies.",
+  "description": "Registry catalog generated from packages/components-react + packages/blocks + official themes (8). Do not hand-edit published copies.",
   "files": ["dist", "registry", "README.md", "LICENSE"],
   "exports": {
     ".": {

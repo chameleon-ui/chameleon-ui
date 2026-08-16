@@ -1,0 +1,7 @@
+{
+  "upload": {
+    "label": "Enviar",
+    "dropzone": "Arraste arquivos para cá",
+    "browse": "Procurar arquivos"
+  }
+}

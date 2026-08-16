@@ -29,7 +29,7 @@
 
 但呢兩條線**共享同一套設計層**，所以唔係「兩套隨機庫」，而係「一個設計系統 × 兩個渲染適配」：
 
-- **單一 catalog**：`components/catalog.json`（103 組件）係唯一權威，Vue **冇自己嘅 catalog**。
+- **單一 catalog**：`components/catalog.json`（109 組件）係唯一權威，Vue **冇自己嘅 catalog**。
 - **同一契約**：`contract.json` 被 React 同 Vue 共用（`Button` 嘅 props/a11y/RTL 行為完全一致）。
 - **同一 token / i18n / 主題**：`tokens`、`i18n`（21 語言）、`themes` 全部雙端共用。
 
@@ -120,7 +120,7 @@
 @container navigation (max-width: 20rem)  { /* Tab 形態 */ }
 ```
 
-配套三端組件：`AppShell`（三端應用骨架）· `SafeArea`（劉海/手勢條安全區）· `ActionSheet`（手機底部動作面板）· `Navbar` / `NavigationBar`（橫向列隊導航）。
+配套三端組件：`AppShell`（三端應用骨架）· `SafeArea`（劉海/手勢條安全區）· `ActionSheet`（手機底部動作面板）· `Navbar` / `NavigationTitle`（橫向列隊導航）。
 
 ---
 
@@ -150,7 +150,7 @@
 
 - 斷點/密度 token 源：`packages/tokens/src/core/breakpoint.json` · `density.json`
 - 密度產生腳本：`packages/tokens/scripts/density-css.mjs`
-- 三端導航樣式：`packages/components/src/navigation/styles.css`
-- 應用骨架樣式：`packages/components/src/app-shell/styles.css`
+- 三端導航樣式：`packages/components-react/src/navigation/styles.css`
+- 應用骨架樣式：`packages/components-react/src/app-shell/styles.css`
 - Token 工作原理：[`token-system.zh-HK.md`](./token-system.zh-HK.md)
 - Token 套件文件：[`packages/tokens/README.md`](../../packages/tokens/README.md)

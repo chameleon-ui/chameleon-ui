@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "Palette de commandes",
+    "placeholder": "Saisir une commande",
+    "empty": "Aucune commande disponible",
+    "close": "Fermer"
+  }
+}

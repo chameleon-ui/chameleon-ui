@@ -1,0 +1,115 @@
+/*
+ * Layout contract: host gives a definite block size, or this root fills its
+ * parent (block-size: 100%). Internal ResizeObserver re-fits contain.
+ * Do not depend on consumer 62vh hacks — min-block-size is the only fallback
+ * when the parent height is indefinite (e.g. content-sized scroll stacks).
+ *
+ * Checkerboard sits on the contain-fitted rect only; stage letterbox uses a
+ * distinct fill so the image silhouette is obvious against the stage.
+ */
+.cu-mask-paint-canvas {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: 100%;
+  min-block-size: 20rem;
+  flex: 1 1 auto;
+}
+
+.cu-mask-paint-canvas__surface,
+.cu-mask-paint-canvas__stage {
+  box-sizing: border-box;
+  flex: 1 1 auto;
+  inline-size: 100%;
+  min-inline-size: 0;
+  block-size: 100%;
+  min-block-size: 20rem;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background-color: var(
+    --cu-mask-paint-stage-bg,
+    var(--cu-color-background-subtle, var(--cu-color-background-default))
+  );
+}
+
+.cu-mask-paint-canvas__checker,
+.cu-mask-paint-canvas__stack-host {
+  box-sizing: border-box;
+  flex-shrink: 0;
+  border-radius: 0;
+}
+
+.cu-mask-paint-canvas__checker {
+  /* Hairline around fitted bounds — silhouette vs letterbox */
+  box-shadow: 0 0 0 var(--cu-border-width-hairline, 1px)
+    color-mix(in srgb, var(--cu-color-fg-default) 28%, transparent);
+}
+
+.cu-mask-paint-canvas__stack {
+  position: relative;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  line-height: 0;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.cu-mask-paint-canvas__layer,
+.cu-mask-paint-canvas__mask {
+  position: absolute;
+  inset: 0;
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+}
+
+.cu-mask-paint-canvas__hit {
+  touch-action: none;
+  cursor: none;
+  z-index: 1;
+}
+
+/* Pan affordances: Space held → grab; active pan drag → grabbing. */
+.cu-mask-paint-canvas__stage.is-pan-mode .cu-mask-paint-canvas__hit {
+  cursor: grab;
+}
+
+.cu-mask-paint-canvas__stage.is-panning .cu-mask-paint-canvas__hit {
+  cursor: grabbing;
+}
+
+.cu-mask-paint-canvas__stage.is-panning .cu-mask-paint-canvas__brush {
+  opacity: 0 !important;
+}
+
+.cu-mask-paint-canvas__mask {
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cu-mask-paint-canvas__brush {
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  border-radius: 999px;
+  pointer-events: none;
+  z-index: 3;
+  box-sizing: border-box;
+  border: 1.5px solid var(--cu-color-accent-default, var(--cu-color-palette-brand));
+  background: color-mix(
+    in srgb,
+    var(--cu-color-accent-default, var(--cu-color-palette-brand)) 18%,
+    transparent
+  );
+  will-change: transform;
+}
+
+.cu-mask-paint-canvas__brush.is-erase {
+  border-color: var(--cu-color-danger-default, #c62828);
+  background: color-mix(in srgb, var(--cu-color-danger-default, #c62828) 14%, transparent);
+}

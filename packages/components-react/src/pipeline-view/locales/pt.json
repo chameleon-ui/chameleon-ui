@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "Pipeline",
+    "statusPending": "Pendente",
+    "statusRunning": "Em execução",
+    "statusSuccess": "Concluído",
+    "statusFailed": "Falhou"
+  }
+}

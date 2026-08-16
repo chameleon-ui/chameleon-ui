@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "footer",
+  "name": "Footer",
+  "family": "A",
+  "status": "experimental",
+  "purpose": "First-class AppShell attribution chrome (credits, legal, links). Mount in AppShell footer / #footer — not Navigation sidebar foot.",
+  "scenarios": [
+    "Put product credits and repo links in AppShell footer with a recognizable Footer root",
+    "Keep attribution semantics distinct from AppShell layout chrome in DevTools / AI review"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": false,
+      "description": "Credits, legal copy, links, or multi-line attribution."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Attribution content is rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["app-shell", "page"],
+    "allowedChildren": ["typography", "link", "stack", "text"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not invent a consumer cu- Footer pretending to be a library export.",
+    "Do not put NavAccountCard or Navigation sidebar account chrome here — that is Navigation footer.",
+    "Do not rely on anonymous markup alone when a Footer root is needed for attribution semantics."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": ["Tab moves through focusable links inside the footer"],
+    "focus": "Focusable children participate in document order.",
+    "labeling": "Link text should be self-describing; optional aria-label on the host via consumer attrs is allowed.",
+    "wcag": ["1.3.1", "2.4.4"]
+  },
+  "responsive": {
+    "strategy": "Footer itself is not breakpoint-aware. AppShell footerPlacement controls whether the host row is shell chrome (≥48rem / shell) or flows in main scroll (compact / main).",
+    "breakpoints": {
+      "compact": "With AppShell footerPlacement auto (default), attribution flows at the end of main and scrolls away.",
+      "medium": "Shell-bottom chrome row outside the main scrollport.",
+      "large": "Same shell-bottom chrome as medium."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS; text alignment inherits document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "footer",
+    "states": ["default"],
+    "intents": ["show-attribution"]
+  },
+  "mechanics": "Export Footer and place it in AppShell footer (React) or #footer (Vue). Default surface transparent (no paper/subtle fill); AppShell __footer host matches. AppShell owns placement via footerPlacement default auto (compact → end of main scroll; ≥48rem → shell-bottom; shell|main force). Navigation sidebar foot is a different slot — use NavAccountCard there.",
+  "usage": [
+    "Import Footer from @chameleon-ui/components-react or the React/Vue umbrella.",
+    "Pass as AppShell footer / #footer children: <Footer>…credits…</Footer>.",
+    "Rely on AppShell footerPlacement auto unless you need shell or main forced.",
+    "Prefer Footer over anonymous <p> so DevTools / AI can attribute styles to Footer, not AppShell alone.",
+    "Do not put NavAccountCard here — that belongs in Navigation footer / #footer."
+  ],
+  "exports": [
+    {
+      "name": "Footer",
+      "kind": "component",
+      "signature": "function Footer(props: FooterProps): JSX.Element",
+      "description": "AppShell attribution chrome root."
+    },
+    {
+      "name": "FooterProps",
+      "kind": "type",
+      "signature": "interface FooterProps",
+      "description": "children and className."
+    }
+  ]
+}

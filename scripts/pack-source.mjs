@@ -19,7 +19,7 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const workspaceRoot = join(root, '..')
 const pkgVersion = JSON.parse(
-  await readFile(join(root, 'packages', 'components', 'package.json'), 'utf8'),
+  await readFile(join(root, 'packages', 'components-react', 'package.json'), 'utf8'),
 ).version
 
 const outDir = join(root, 'dist-release')

@@ -11,6 +11,8 @@ watchEffect(() => {
   root.dataset.theme = props.theme
   if (props.density) root.dataset.density = props.density
   else delete root.dataset.density
+  if (props.colorScheme) root.dataset.colorScheme = props.colorScheme
+  else delete root.dataset.colorScheme
   if (props.locale) {
     root.lang = props.locale
     root.dir = directionForLocale(props.locale)

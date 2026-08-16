@@ -1,0 +1,7 @@
+{
+  "upload": {
+    "label": "Subir",
+    "dropzone": "Arrastra archivos aquí",
+    "browse": "Examinar archivos"
+  }
+}

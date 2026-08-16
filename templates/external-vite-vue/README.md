@@ -1,14 +1,14 @@
 # External Vite + Vue consumer
 
-**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/vue/css` + `ThemeProvider theme="line"`. See [`AGENTS.md`](./AGENTS.md).
+**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/vue/css` + `ThemeProvider theme="linear"`. See [`AGENTS.md`](./AGENTS.md).
 
 Official template for an app **outside** the Chameleon pnpm workspace (Vite 6 + Vue 3, Windows included).
 
-React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`line`** theme via `@chameleon-ui/vue`.
+React is the primary implementation. This template is the Vue consume path: ThemeProvider + AppShell + Navigation + Button, **`linear`** theme via `@chameleon-ui/vue`.
 
-Packages are **0.2.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
+Packages are **0.4.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-This template depends on **one** package: `@chameleon-ui/vue` (`file:../../packages/vue`). Catalog Vue is **103/103** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`.
+This template depends on **one** package: `@chameleon-ui/vue` (`file:../../packages/vue`). Catalog Vue is **109/109** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`.
 
 ## Before `npm install`
 
@@ -39,7 +39,7 @@ pnpm verify:external:build    # typecheck + vite build
 
 1. **This template** (`file:` umbrella) -- best while iterating next to the monorepo.
 2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --vue --apply`, then `npm link @chameleon-ui/vue` in the app.
-3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs --vue`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.2.0.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
+3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs --vue`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-vue-0.4.0.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
@@ -48,7 +48,7 @@ pnpm verify:external:build    # typecheck + vite build
 - `optimizeDeps.include` for Ark + FormatJS
 - `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO` override)
 
-CSS (one import — real `dist/css.css`: tokens + density + `line` + components):
+CSS (one import — real `dist/css.css`: tokens + density + `linear` + components):
 
 ```ts
 import "@chameleon-ui/vue/css";

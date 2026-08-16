@@ -1,0 +1,116 @@
+{
+  "id": "navigation-title",
+  "type": "registry:ui",
+  "name": "NavigationTitle",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/navigation-title/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"navigation-title\",\n  \"name\": \"NavigationTitle\",\n  \"family\": \"B\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Stack chrome for the current view controller (UINavigationBar / Android Toolbar). Title, back, and bar items. Formerly NavigationBar — renamed to avoid confusion with Navigation (tab controller). Not a site link row — that is Navbar. Root tabs are Navigation. Not TitleBar (sidebar brand).\",\n  \"scenarios\": [\n    \"Show the current screen title at the top of AppShell\",\n    \"Pop the active tab's stack with a back control labeled by the previous title\",\n    \"Keep trailing bar-button items on the same bar as the title across three ends\"\n  ],\n  \"props\": {\n    \"title\": {\n      \"type\": \"node\",\n      \"required\": true,\n      \"description\": \"Current view-controller title.\"\n    },\n    \"backLabel\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Previous controller title on the back control. Default Back.\",\n      \"default\": \"Back\"\n    },\n    \"onBack\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Pops the active tab stack. Omit on the root controller so no back control is shown.\",\n      \"payload\": \"() => void\"\n    },\n    \"leading\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Leading slot when there is no back control.\"\n    },\n    \"trailing\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Trailing bar-button items.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"root\",\n      \"description\": \"Stack depth 1; no back control.\"\n    },\n    {\n      \"name\": \"nested\",\n      \"description\": \"Stack depth > 1; back control pops to the previous title.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"header\"\n    ],\n    \"allowedChildren\": [\n      \"text\",\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not put root destinations in NavigationTitle; those belong on Navigation (the tab controller).\",\n    \"Do not use Navbar (site links) as AppShell stack chrome.\",\n    \"Do not confuse NavigationTitle with TitleBar — TitleBar is sidebar brand in Navigation header.\",\n    \"Do not push onto the stack when switching tabs; switch the tab's own stack.\"\n  ],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [\n      \"Tab moves through back and trailing controls\",\n      \"Enter/Space activates back\"\n    ],\n    \"focus\": \"Back is a real button; the title is a heading.\",\n    \"labeling\": \"The title is an h1 of the current screen; back uses the previous title as its label.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"2.1.1\",\n      \"2.4.1\",\n      \"2.4.6\",\n      \"2.5.5\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"One bar. Compact centers the title. At 48rem the title leads. Safe-area top inset on the bar. No viewport size @media.\",\n    \"breakpoints\": {\n      \"compact\": \"Centered title, back on the leading edge, 44px hit area, safe-area top inset.\",\n      \"medium\": \"Leading title beside back, same controls.\",\n      \"large\": \"Same leading-title toolbar as medium.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS; the back chevron mirrors under [dir=rtl].\",\n    \"mirroredValues\": [\n      \"back-chevron\"\n    ]\n  },\n  \"dataAi\": {\n    \"role\": \"navigation-title\",\n    \"states\": [\n      \"root\",\n      \"nested\"\n    ],\n    \"intents\": [\n      \"navigate-stack\"\n    ]\n  },\n  \"mechanics\": \"NavigationTitle (formerly NavigationBar) is stack chrome (UINavigationBar / Toolbar) for the current view controller, not a site link row and not the tab controller (Navigation) and not sidebar brand (TitleBar). Mount in AppShell header / Vue #header. Title is an h1. When onBack is set, the leading edge is a back button labeled with the previous controller title; otherwise leading renders (React prop / Vue #leading). trailing is bar-button items (React prop / Vue #trailing). backLabel defaults to Back. Chrome row: .cu-navigation-title__frame uses min-block-size calc(var(--cu-control-size-active) + 2 * var(--cu-space-1)) — same formula as Navigation __header and NavAccountCard. Root also carries legacy .cu-navigation-bar class during transition. Compact centers the title; from 48rem the title leads. Pair with useTabStacks: selectTab does not push; onBack should call pop. NavigationBar remains a deprecated export alias of NavigationTitle.\",\n  \"usage\": [\n    \"Import NavigationTitle and useTabStacks from the React or Vue umbrella (NavigationBar still works as a deprecated alias).\",\n    \"Render title from stacks.current.title. Pass backLabel={stacks.previous?.title} and onBack={stacks.canPop ? stacks.pop : undefined}.\",\n    \"Place NavigationTitle in AppShell header / #header. Root destinations belong on Navigation; sidebar brand is TitleBar in Navigation header — not this component.\",\n    \"Call stacks.push when opening a nested screen. Call stacks.selectTab when the user picks a Navigation item — that must not push.\",\n    \"Do not hardcode rem bar heights; densify via --cu-control-size-active with density.css.\"\n  ],\n  \"exports\": [\n    {\n      \"name\": \"NavigationTitle\",\n      \"kind\": \"component\",\n      \"signature\": \"function NavigationTitle(props: NavigationTitleProps): JSX.Element\",\n      \"description\": \"Stack chrome: title, back, leading, and trailing bar items.\"\n    },\n    {\n      \"name\": \"NavigationBar\",\n      \"kind\": \"component\",\n      \"signature\": \"const NavigationBar: typeof NavigationTitle\",\n      \"description\": \"Deprecated alias of NavigationTitle (same component).\"\n    },\n    {\n      \"name\": \"useTabStacks\",\n      \"kind\": \"hook\",\n      \"signature\": \"useTabStacks(tabs: Array<{value: string; title: string}>, initialTab?: string)\",\n      \"description\": \"Per-tab stacks. selectTab does not push. pop is back.\"\n    },\n    {\n      \"name\": \"StackScreen\",\n      \"kind\": \"type\",\n      \"signature\": \"{ id: string; title: string }\",\n      \"description\": \"One screen on a tab stack. push() takes this shape.\"\n    },\n    {\n      \"name\": \"NavigationTitleProps\",\n      \"kind\": \"type\",\n      \"signature\": \"interface NavigationTitleProps\",\n      \"description\": \"Public props including title, backLabel, onBack, leading, trailing.\"\n    },\n    {\n      \"name\": \"NavigationBarProps\",\n      \"kind\": \"type\",\n      \"signature\": \"type NavigationBarProps = NavigationTitleProps\",\n      \"description\": \"Deprecated alias of NavigationTitleProps.\"\n    }\n  ]\n}\n"
+    },
+    {
+      "path": "components/navigation-title/index.ts",
+      "content": "export { NavigationTitle, NavigationBar } from './NavigationTitle.js'\nexport type { NavigationTitleProps, NavigationBarProps } from './NavigationTitle.js'\nexport { useTabStacks } from './stack.js'\nexport type { StackScreen } from './stack.js'\n"
+    },
+    {
+      "path": "components/navigation-title/locales/am.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"ተመለስ\"\n  },\n  \"navigationBar\": {\n    \"back\": \"ተመለስ\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ar.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"رجوع\"\n  },\n  \"navigationBar\": {\n    \"back\": \"رجوع\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/bn.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"ফিরুন\"\n  },\n  \"navigationBar\": {\n    \"back\": \"ফিরুন\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/de.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Zurück\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Zurück\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/en.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Back\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Back\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/es.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Atrás\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Atrás\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/fa.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"بازگشت\"\n  },\n  \"navigationBar\": {\n    \"back\": \"بازگشت\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/fr.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Retour\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Retour\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ha.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Baya\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Baya\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/hi.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"पीछे\"\n  },\n  \"navigationBar\": {\n    \"back\": \"पीछे\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/id.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Kembali\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Kembali\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ja.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"戻る\"\n  },\n  \"navigationBar\": {\n    \"back\": \"戻る\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ko.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"뒤로\"\n  },\n  \"navigationBar\": {\n    \"back\": \"뒤로\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/pt.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Voltar\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Voltar\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ru.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Назад\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Назад\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/sw.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Rudi\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Rudi\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ug.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"قايتىش\"\n  },\n  \"navigationBar\": {\n    \"back\": \"قايتىش\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/ur.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"واپس\"\n  },\n  \"navigationBar\": {\n    \"back\": \"واپس\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/vi.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"Quay lại\"\n  },\n  \"navigationBar\": {\n    \"back\": \"Quay lại\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/zh-CN.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"返回\"\n  },\n  \"navigationBar\": {\n    \"back\": \"返回\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/locales/zh-HK.json",
+      "content": "{\n  \"navigationTitle\": {\n    \"back\": \"返回\"\n  },\n  \"navigationBar\": {\n    \"back\": \"返回\"\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/NavigationTitle.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport interface NavigationTitleProps {\n  /** Current view-controller title (UINavigationBar.title). */\n  title: ReactNode\n  /** Previous controller title; shown on the back control when `onBack` is set. */\n  backLabel?: string\n  onBack?: () => void\n  leading?: ReactNode\n  trailing?: ReactNode\n  className?: string\n}\n\n/** @deprecated Use `NavigationTitleProps`. Kept for EraseLab / consumer continuity. */\nexport type NavigationBarProps = NavigationTitleProps\n\nexport function NavigationTitle({\n  title,\n  backLabel = 'Back',\n  onBack,\n  leading,\n  trailing,\n  className,\n}: NavigationTitleProps) {\n  const nested = Boolean(onBack)\n  // Dual root class during rename: cu-navigation-title canonical, cu-navigation-bar legacy.\n  const classes = ['cu-navigation-title', 'cu-navigation-bar', className].filter(Boolean).join(' ')\n\n  return (\n    <div\n      className={classes}\n      data-ai-role=\"navigation-title\"\n      data-ai-intent=\"navigate-stack\"\n      data-ai-state={nested ? 'nested' : 'root'}\n    >\n      <div className=\"cu-navigation-title__frame cu-navigation-bar__frame\">\n        <div className=\"cu-navigation-title__leading cu-navigation-bar__leading\">\n          {onBack ? (\n            <button\n              type=\"button\"\n              className=\"cu-navigation-title__back cu-navigation-bar__back\"\n              onClick={onBack}\n            >\n              <span aria-hidden=\"true\" className=\"cu-navigation-title__back-icon cu-navigation-bar__back-icon\">\n                <svg viewBox=\"0 0 24 24\" className=\"cu-navigation-title__back-svg cu-navigation-bar__back-svg\">\n                  <path\n                    d=\"M15 6l-6 6 6 6\"\n                    fill=\"none\"\n                    stroke=\"currentColor\"\n                    strokeLinecap=\"round\"\n                    strokeLinejoin=\"round\"\n                    strokeWidth={2}\n                  />\n                </svg>\n              </span>\n              <span className=\"cu-navigation-title__back-label cu-navigation-bar__back-label\">{backLabel}</span>\n            </button>\n          ) : (\n            leading\n          )}\n        </div>\n        <h1 className=\"cu-navigation-title__title cu-navigation-bar__title\">{title}</h1>\n        <div className=\"cu-navigation-title__trailing cu-navigation-bar__trailing\">{trailing}</div>\n      </div>\n    </div>\n  )\n}\n\n/** @deprecated Use `NavigationTitle`. Kept for EraseLab / consumer continuity. */\nexport const NavigationBar = NavigationTitle\n"
+    },
+    {
+      "path": "components/navigation-title/README.md",
+      "content": "# NavigationTitle\n\nStack chrome for the current view controller (UINavigationBar / Android Toolbar): **title**, optional **back**, leading / trailing bar items.\n\nFormerly **`NavigationBar`** — renamed so it is not confused with **`Navigation`** (tab controller / destinations). `NavigationBar` remains a deprecated export alias of the same component.\n\n## Where it goes\n\nPut `NavigationTitle` in **AppShell** `header` / Vue `#header`.\n\n| Component | Role | Slot |\n| :--- | :--- | :--- |\n| **Navigation** | Destination list (TabBar ↔ rail ↔ sidebar) | AppShell `navigation` / `#navigation` |\n| **NavigationTitle** | Stack title + back | AppShell `header` / `#header` |\n| **TitleBar** | Sidebar brand (logo + title) | **Navigation** `header` / `#header` (sidebar only) |\n\nFull shell recipe: [`../app-shell/README.md`](../app-shell/README.md).\n\n## Defaults\n\n| Prop | Default | Notes |\n| :--- | :--- | :--- |\n| `backLabel` | `'Back'` | Shown on the back control when `onBack` is set |\n| `onBack` | omitted | Omit on root controller → no back control |\n| Chrome row height | `calc(var(--cu-control-size-active) + 2 * var(--cu-space-1))` | `.cu-navigation-title__frame`; matches TitleBar host / NavAccountCard |\n\n## React vs Vue\n\n| Concern | React | Vue |\n| :--- | :--- | :--- |\n| `title` | `ReactNode` prop | `string` prop + optional `#title` slot |\n| `leading` / `trailing` | node props | `#leading` / `#trailing` slots |\n| Class | `className` | `class` |\n\n## Example\n\n```tsx\n<AppShell\n  header={\n    <NavigationTitle\n      title={stacks.current.title}\n      backLabel={stacks.previous?.title}\n      onBack={stacks.canPop ? stacks.pop : undefined}\n    />\n  }\n  navigation={…}\n>\n  {screen}\n</AppShell>\n```\n\nPair with `useTabStacks`: tab switch does not push; `onBack` calls `pop`.\n\n## NEVER\n\n- Put root destinations here — those belong on `Navigation`\n- Put sidebar brand here — that is `TitleBar` in Navigation `header`\n- Use site `Navbar` as AppShell stack chrome\n- Hardcode rem bar heights — use the shared chrome formula above\n"
+    },
+    {
+      "path": "components/navigation-title/stack.ts",
+      "content": "import { useState } from 'react'\n\nexport interface StackScreen {\n  id: string\n  title: string\n}\n\n/**\n * Per-tab navigation stacks (UITabBarController + one UINavigationController\n * per tab). Switching tabs does not push; it shows that tab's stack. Push/pop\n * only move the active tab's stack.\n */\nexport function useTabStacks(tabs: Array<{ value: string; title: string }>, initialTab?: string) {\n  const [tab, setTab] = useState(initialTab ?? tabs[0]?.value ?? '')\n  const [pushed, setPushed] = useState<Record<string, StackScreen[]>>({})\n  const tabMeta = tabs.find((item) => item.value === tab) ?? tabs[0]\n  const extra = tabMeta ? (pushed[tabMeta.value] ?? []) : []\n  const root: StackScreen = { id: tabMeta?.value ?? '', title: tabMeta?.title ?? '' }\n  const stack = [root, ...extra]\n  const current = stack[stack.length - 1] ?? root\n  const previous = stack.length > 1 ? stack[stack.length - 2] : undefined\n\n  return {\n    tab: tabMeta?.value ?? '',\n    selectTab: setTab,\n    current,\n    previous,\n    canPop: extra.length > 0,\n    push(screen: StackScreen) {\n      if (!tabMeta) return\n      setPushed((state) => ({\n        ...state,\n        [tabMeta.value]: [...(state[tabMeta.value] ?? []), screen],\n      }))\n    },\n    pop() {\n      if (!tabMeta) return\n      setPushed((state) => ({\n        ...state,\n        [tabMeta.value]: (state[tabMeta.value] ?? []).slice(0, -1),\n      }))\n    },\n  }\n}\n"
+    },
+    {
+      "path": "components/navigation-title/styles.css",
+      "content": "/*\n * Stack title chrome (formerly NavigationBar / UINavigationBar). Compact\n * centers the title (phone). At 48rem the title leads (tablet / desktop\n * toolbar). Root is the query container; only descendants are restyled (规范 §2).\n *\n * Dual selectors: .cu-navigation-title is canonical; .cu-navigation-bar is a\n * transition alias for theme/consumer CSS that still targets the old class.\n */\n.cu-navigation-title {\n  container-name: navigation-title;\n  container-type: inline-size;\n}\n\n.cu-navigation-title,\n.cu-navigation-bar {\n  padding-block-start: env(safe-area-inset-top, 0px);\n  color: var(--cu-color-fg-default);\n  background: var(\n    --cu-color-background-translucent,\n    var(--cu-color-background-elevated, var(--cu-color-background-default))\n  );\n  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));\n  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));\n}\n\n.cu-navigation-title__frame,\n.cu-navigation-bar__frame {\n  display: grid;\n  box-sizing: border-box;\n  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);\n  align-items: center;\n  /*\n   * Chrome row height — densifies with --cu-control-size-active (same formula\n   * as NavAccountCard). Mobile comfortable = touch floor; desktop compact shrinks.\n   */\n  min-block-size: calc(var(--cu-control-size-active) + 2 * var(--cu-space-1));\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  column-gap: var(--cu-space-2);\n}\n\n.cu-navigation-title__leading,\n.cu-navigation-bar__leading {\n  justify-self: start;\n  min-inline-size: 0;\n}\n\n.cu-navigation-title__title,\n.cu-navigation-bar__title {\n  justify-self: center;\n  margin: 0;\n  min-inline-size: 0;\n  max-inline-size: 100%;\n  overflow: hidden;\n  font-size: 1.0625rem;\n  font-weight: var(--cu-typography-weight-semibold, 600);\n  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);\n  line-height: 1.2;\n  text-align: center;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.cu-navigation-title__trailing,\n.cu-navigation-bar__trailing {\n  justify-self: end;\n  min-inline-size: 0;\n}\n\n.cu-navigation-title__back,\n.cu-navigation-bar__back {\n  display: inline-flex;\n  align-items: center;\n  gap: var(--cu-space-1);\n  min-block-size: var(--cu-control-size-active);\n  padding-block: var(--cu-space-1);\n  padding-inline: 0;\n  border: none;\n  background: transparent;\n  color: var(--cu-color-palette-brand);\n  font: inherit;\n  cursor: pointer;\n}\n\n.cu-navigation-title__back:focus-visible,\n.cu-navigation-bar__back:focus-visible {\n  outline: 2px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n\n.cu-navigation-title__back-icon,\n.cu-navigation-bar__back-icon {\n  display: inline-flex;\n  flex: none;\n}\n\n.cu-navigation-title__back-svg,\n.cu-navigation-bar__back-svg {\n  display: block;\n  inline-size: 1.25rem;\n  block-size: 1.25rem;\n}\n\n[dir='rtl'] .cu-navigation-title__back-icon,\n[dir='rtl'] .cu-navigation-bar__back-icon {\n  transform: scaleX(-1);\n}\n\n.cu-navigation-title__back-label,\n.cu-navigation-bar__back-label {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n@container navigation-title (min-width: 48rem) {\n  .cu-navigation-title__frame,\n  .cu-navigation-bar__frame {\n    grid-template-columns: auto minmax(0, 1fr) auto;\n  }\n\n  .cu-navigation-title__title,\n  .cu-navigation-bar__title {\n    justify-self: start;\n    text-align: start;\n  }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .cu-navigation-title__back,\n  .cu-navigation-bar__back,\n  .cu-navigation-title__title,\n  .cu-navigation-bar__title {\n    transition-duration: 0.01ms;\n  }\n}\n"
+    }
+  ]
+}

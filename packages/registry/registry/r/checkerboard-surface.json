@@ -1,0 +1,112 @@
+{
+  "id": "checkerboard-surface",
+  "type": "registry:ui",
+  "name": "CheckerboardSurface",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/checkerboard-surface/CheckerboardSurface.tsx",
+      "content": "import type { CSSProperties, ReactNode } from 'react'\nimport './styles.css'\n\nexport type CheckerboardCellSize = 'sm' | 'md' | 'lg'\n/** `default` is readable for transparent edges; `strong` for mask / inpaint editors. */\nexport type CheckerboardContrast = 'default' | 'strong'\n\nexport interface CheckerboardSurfaceProps {\n  children?: ReactNode\n  cellSize?: CheckerboardCellSize\n  /** Checker A/B contrast. Prefer `strong` for mask / inpaint stages. */\n  contrast?: CheckerboardContrast\n  className?: string\n  style?: CSSProperties\n}\n\nconst CELL: Record<CheckerboardCellSize, string> = {\n  sm: '0.5rem',\n  md: '0.75rem',\n  lg: '1rem',\n}\n\nexport function CheckerboardSurface({\n  children,\n  cellSize = 'md',\n  contrast = 'default',\n  className,\n  style,\n}: CheckerboardSurfaceProps) {\n  const classes = ['cu-checkerboard-surface', className].filter(Boolean).join(' ')\n  return (\n    <div\n      className={classes}\n      data-ai-role=\"checkerboard-surface\"\n      data-ai-intent=\"show-transparency\"\n      data-ai-state=\"default\"\n      data-cell-size={cellSize}\n      data-contrast={contrast}\n      style={{ ...style, ['--cu-checkerboard-cell' as string]: CELL[cellSize] }}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"checkerboard-surface\",\n  \"name\": \"CheckerboardSurface\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Token-colored checkerboard surface so transparent media edges remain readable against the stage.\",\n  \"scenarios\": [\n    \"Show alpha edges of transparent PNG / cutout media.\",\n    \"Shared backdrop for MaskPaintCanvas and ImageCompare.\",\n    \"High-contrast mask / inpaint editing with contrast=strong.\"\n  ],\n  \"props\": {\n    \"cellSize\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Checker cell size (0.5 / 0.75 / 1rem).\",\n      \"values\": [\"sm\", \"md\", \"lg\"],\n      \"default\": \"md\"\n    },\n    \"contrast\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"A/B contrast. Prefer strong for mask / inpaint editors.\",\n      \"values\": [\"default\", \"strong\"],\n      \"default\": \"default\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"contrast\",\n      \"values\": [\"default\", \"strong\"],\n      \"default\": \"default\",\n      \"description\": \"default is readable on line; strong for editing stages.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Default.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\",\n      \"stack\",\n      \"workspace-split\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Hand-rolling repeating-conic-gradient or overriding --cu-checkerboard-* just to reach readable contrast — raise library defaults / use contrast=strong instead.\"\n  ],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [],\n    \"focus\": \"Follows content.\",\n    \"labeling\": \"As needed.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"1.4.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fluid.\",\n    \"breakpoints\": {\n      \"compact\": \"Default.\",\n      \"medium\": \"Default.\",\n      \"large\": \"Default.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"checkerboard-surface\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"show-transparency\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/index.ts",
+      "content": "export { CheckerboardSurface } from './CheckerboardSurface.js'\nexport type {\n  CheckerboardCellSize,\n  CheckerboardContrast,\n  CheckerboardSurfaceProps,\n} from './CheckerboardSurface.js'\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/am.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ar.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/bn.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/de.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/en.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/es.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/fa.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/fr.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ha.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/hi.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/id.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ja.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ko.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/pt.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ru.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/sw.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ug.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/ur.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/vi.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/zh-CN.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/locales/zh-HK.json",
+      "content": "{\n  \"checkerboard-surface\": {\n    \"label\": \"Checkerboard\"\n  }\n}\n"
+    },
+    {
+      "path": "components/checkerboard-surface/README.md",
+      "content": "# CheckerboardSurface\n\nToken-colored checkerboard so transparent media edges stay visible against the stage.\n\n## Props\n\n| Prop | Default | Notes |\n| :--- | :--- | :--- |\n| `cellSize` | `md` | `sm` \\| `md` \\| `lg` (0.5 / 0.75 / 1rem cell) |\n| `contrast` | `default` | `default` \\| `strong` — use **`strong`** for mask / inpaint editors |\n\n## Tokens\n\n| Token | Role |\n| :--- | :--- |\n| `--cu-checkerboard-a` / `--cu-checkerboard-b` | Cell colors (theme may override) |\n| `--cu-checkerboard-mix-a` / `--cu-checkerboard-mix-b` | Fg mix % (defaults **40% / 5%**; `strong` **56% / 4%**) |\n| `--cu-checkerboard-cell` | Cell size (set via `cellSize`) |\n\nDark cell (A) mixes into `background-subtle`; light cell (B) into `background-elevated` so warm paper themes keep A/B apart. Themes can retune via `:root .cu-checkerboard-surface { --cu-checkerboard-mix-a: … }` (`linear` pushes strong to **~62% / 3%**). Consumers should **not** hand-roll `repeating-conic-gradient` for product chrome.\n\n## Compose\n\n`MaskPaintCanvas` and `ImageCompare` reuse this surface when `checkerboard` is on. Both default to `checkerboardContrast=\"strong\"`. MaskPaint places the checker on the contain-fitted rect only; stage letterbox uses `--cu-mask-paint-stage-bg`.\n"
+    },
+    {
+      "path": "components/checkerboard-surface/styles.css",
+      "content": "/*\n * Transparent-media checkerboard.\n * Themes may override --cu-checkerboard-a / --cu-checkerboard-b (or the mix\n * percentages) on :root .cu-checkerboard-surface. Mixes must keep large\n * transparent edges obvious on line / warm paper — prior ~22%/7% and\n * strong ~34%/12% were still too soft on elevated white.\n *\n * A mixes into subtle (warmer dark cell); B into elevated (near-paper light\n * cell) so A/B diverge even when mix % alone is modest.\n */\n.cu-checkerboard-surface {\n  --cu-checkerboard-mix-a: 40%;\n  --cu-checkerboard-mix-b: 5%;\n  --cu-checkerboard-a: color-mix(\n    in srgb,\n    var(--cu-color-fg-default) var(--cu-checkerboard-mix-a),\n    var(--cu-color-background-subtle, var(--cu-color-background-elevated, var(--cu-color-background-default)))\n  );\n  --cu-checkerboard-b: color-mix(\n    in srgb,\n    var(--cu-color-fg-default) var(--cu-checkerboard-mix-b),\n    var(--cu-color-background-elevated, var(--cu-color-background-default))\n  );\n  position: relative;\n  display: grid;\n  place-items: center;\n  overflow: hidden;\n  border-radius: var(--cu-radius-md);\n  background-color: var(--cu-checkerboard-b);\n  background-image: repeating-conic-gradient(\n    var(--cu-checkerboard-a) 0% 25%,\n    var(--cu-checkerboard-b) 0% 50%\n  );\n  background-size: calc(var(--cu-checkerboard-cell, 0.75rem) * 2) calc(var(--cu-checkerboard-cell, 0.75rem) * 2);\n}\n\n.cu-checkerboard-surface[data-contrast='strong'] {\n  --cu-checkerboard-mix-a: 56%;\n  --cu-checkerboard-mix-b: 4%;\n}\n"
+    }
+  ]
+}

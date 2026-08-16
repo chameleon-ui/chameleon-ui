@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "button-group",
+  "name": "ButtonGroup",
+  "status": "experimental",
+  "purpose": "Groups related Buttons into an attached/segmented or spaced control cluster for tool toggles and toolbar actions.",
+  "scenarios": [
+    "Exclusive tool toggles such as paint vs erase on a mask canvas",
+    "Horizontal toolbar action cluster with shared borders",
+    "Vertical stacked action group in a narrow tools pane"
+  ],
+  "props": {
+    "orientation": {
+      "type": "enum",
+      "required": false,
+      "description": "Main axis of the group.",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal"
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "attached shares borders (segmented); spaced uses a token gap.",
+      "values": [
+        "attached",
+        "spaced"
+      ],
+      "default": "attached"
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Size hint for nested Buttons (sm/md tokens).",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md"
+    },
+    "label": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible name for the group (aria-label)."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Marks the group disabled for assistive tech; still disable each Button.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "attached",
+        "spaced"
+      ],
+      "default": "attached",
+      "description": "Attached/segmented vs spaced cluster."
+    },
+    {
+      "name": "orientation",
+      "values": [
+        "horizontal",
+        "vertical"
+      ],
+      "default": "horizontal",
+      "description": "Main axis of the group."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Group is interactive."
+    },
+    {
+      "name": "disabled",
+      "description": "Group marked disabled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "stack",
+      "card",
+      "toolbar",
+      "canvas-toolbar",
+      "page",
+      "workspace-split"
+    ],
+    "allowedChildren": [
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hand-roll segmented borders around loose Buttons — use ButtonGroup variant=attached.",
+    "Do not put non-Button interactive controls inside the group.",
+    "Selection state stays on each Button (solid vs outline); ButtonGroup is visual grouping only."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [],
+    "focus": "Focus moves among child Buttons; group itself is not focusable.",
+    "labeling": "Pass label (aria-label) when there is no visible group legend.",
+    "wcag": [
+      "1.3.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Inline-flex cluster; wrap with Stack or switch orientation in narrow panes.",
+    "breakpoints": {
+      "compact": "Prefer horizontal attached groups in toolbars; stack vertically if needed.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical border-radius and margin on attached segments; row follows document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "button-group",
+    "states": [
+      "default",
+      "disabled"
+    ],
+    "intents": [
+      "select-single"
+    ]
+  }
+}

@@ -1,46 +1,46 @@
-# Theme `$extends` (compile-time)
+# 主题 `$extends`（编译期）
 
-Derived themes may declare DTCG `$extends` in `tokens.json`. Resolution happens at **build time**; output is still static CSS (no runtime inheritance).
+派生主题可以在 `tokens.json` 里声明 DTCG `$extends`。解析发生在构建期，产物仍是静态 CSS，没有运行时继承。
 
-## Usage
+## 用法
 
-Store only the delta. `$extends` is a string or array of paths relative to the theme directory:
+只存增量。`$extends` 是字符串或路径数组，相对主题目录解析：
 
 ```json
 {
-  "$extends": "../../src/line/tokens.json",
+  "$extends": "../../src/linear/tokens.json",
   "radius": { "md": { "$value": { "value": 2, "unit": "px" } } }
 }
 ```
 
-Rules:
+规则：
 
-- Paths resolve relative to the current theme dir; escaping `packages/themes` is a compile error.
-- Parents apply in array order; the derived document wins last. Leaves override; groups deep-merge; leaf↔group shape mismatch errors.
-- Cycles error with the chain printed (`start -> a.json -> b.json -> a.json`).
-- Max inheritance depth: 16.
+- 路径相对当前主题目录解析，逃逸出 `packages/themes` 是编译错误。
+- 父级按数组顺序应用，派生文档最后生效。叶子覆盖，组深合并，叶子和组形状不匹配直接报错。
+- 循环引用报错并打印链条（`start -> a.json -> b.json -> a.json`）。
+- 最大继承深度 16。
 
-`meta.json` may record the chain with an `extends` field.
+`meta.json` 可以用 `extends` 字段记录继承链。
 
-## Demo
+## 示例
 
-`packages/themes/examples/line-dense/` derives from `line` and overrides three radius variables:
+`packages/themes/examples/linear-dense/` 派生自 `linear`，覆盖三个 radius 变量：
 
 ```bash
 corepack pnpm@9.15.0 --filter @chameleon-ui/themes test
-# expects: $extends demo: line-dense derives from line with 3 overridden variables
+# 期望输出：$extends demo: linear-dense derives from line with 3 overridden variables
 ```
 
-## Official themes
+## 官方主题
 
-The eight official themes (`line`, `silver-arrow`, `stuttgart`, `corsa`, `cupertino`, `siren`, `wechat`, `ant-blue`) remain **self-contained**. `$extends` is available for derived / community themes; official sets are not switched to inheritance by default.
+八套官方主题（`linear`、`mercedes`、`porsche`、`ferrari`、`apple`、`tiktok`、`wechat`、`alipay`）保持自包含。`$extends` 面向派生和社区主题开放，官方集默认不切换为继承。
 
-Byte regression gate: `scripts/test-themes-regression.mjs` (variables.css + tokens.resolved.json vs baseline). Pipeline changes that alter bytes need an explicit `--write-baseline` and review.
+字节回归门禁：`scripts/test-themes-regression.mjs`（variables.css 和 tokens.resolved.json 对比基线）。会改变字节的管线改动需要显式 `--write-baseline` 并经过评审。
 
-## theme-studio export
+## theme-studio 导出
 
-Export payload shape: `$extends: <baseThemeId>` + `tokens: <delta>` + `removedTokenPaths` (deletes cannot be expressed via `$extends` alone). Unedited export → empty delta object.
+导出载荷形状：`$extends: <baseThemeId>` + `tokens: <增量>` + `removedTokenPaths`（删除操作无法仅靠 `$extends` 表达）。未编辑的导出是空增量对象。
 
-## Rollback
+## 回滚
 
-Remove `$extends` and fill full tokens to return to a self-contained theme.
+移除 `$extends` 并补全完整 tokens，即回到自包含主题。

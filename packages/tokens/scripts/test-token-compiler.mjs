@@ -294,7 +294,7 @@ async function testOverlayRestatesGroupType() {
     },
   };
   const resolved = await resolveThemeExtends(derived, loaderFor({ "base.json": base }), {
-    label: "line",
+    label: "linear",
   });
   assert.equal(resolved.blur.$type, "dimension", "restated $type is metadata, not a token");
   assert.deepEqual(resolved.blur.surface.$value, { value: 0, unit: "px" });

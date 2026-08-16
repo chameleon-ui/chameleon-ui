@@ -1,0 +1,7 @@
+{
+  "multi-select": {
+    "label": "다중 선택",
+    "selected": "선택됨",
+    "clear": "모두 지우기"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "قۇۋان لىنىيەسى",
+    "statusPending": "ساقلىنىۋاتىدۇ",
+    "statusRunning": "ئىجرا بولۇۋاتىدۇ",
+    "statusSuccess": "مۇۋەپپەقىيەتلىك",
+    "statusFailed": "مەغلۇب بولدى"
+  }
+}

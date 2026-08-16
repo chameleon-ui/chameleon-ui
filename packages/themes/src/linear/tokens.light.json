@@ -1,0 +1,30 @@
+{
+  "$description": "Linear light scheme — manual switch via ThemeProvider colorScheme=\"light\" ([data-color-scheme=\"light\"]). Extends the dark flagship tokens and flips only surfaces / fg / shadow.",
+  "$extends": "./tokens.json",
+  "color": {
+    "palette": {
+      "brand": { "$value": "#5e6ad2" },
+      "ink": { "$value": "#121213" },
+      "paper": { "$value": "#ffffff" }
+    },
+    "background": {
+      "default": { "$value": "#f9f9fa", "$description": "Linear app light canvas — evidence: --bg-base-color-light #f9f9fa." },
+      "subtle": { "$value": "#efeff0", "$description": "Linear app light sidebar / chrome — evidence: --bg-sidebar-light #efeff0. Darker than the canvas." },
+      "elevated": { "$value": "#ffffff" },
+      "inverse": { "$value": "#121213" }
+    },
+    "border": {
+      "default": { "$value": "#e2e2e2", "$description": "Linear app light hairline — evidence: --bg-border-color-light #e2e2e2." }
+    },
+    "fg": {
+      "default": { "$value": "#23252a", "$description": "Linear app light text-primary — evidence: --content-highlight-color-light #23252a." },
+      "muted": { "$value": "#6b6f76", "$description": "Linear secondary text (app dark muted #6b6f76 kept readable on light)." },
+      "inverse": { "$value": "#f7f8f8" }
+    }
+  },
+  "shadow": {
+    "sm": { "$value": "0 3px 6px -2px rgba(0, 0, 0, 0.02), 0 1px 1px rgba(0, 0, 0, 0.04)", "$description": "Evidence: --loading-error-secondary-shadow-light (#00000005 / #0000000a)." },
+    "md": { "$value": "0 4px 12px rgba(18, 18, 19, 0.08)" },
+    "lg": { "$value": "0 12px 32px rgba(18, 18, 19, 0.12)" }
+  }
+}

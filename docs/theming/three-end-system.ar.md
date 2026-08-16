@@ -29,7 +29,7 @@
 
 لكن الخطين **يشاركان نفس طبقة التصميم**، لذا ليسا «مكتبتين عشوائيتين» بل «**نظام تصميم واحد × محوّلي تقديم**»:
 
-- **فهرس واحد**: `components/catalog.json` (103 مكونات) هو المصدر الوحيد؛ و Vue **لا يملك فهرسًا خاصًا**.
+- **فهرس واحد**: `components/catalog.json` (109 مكونات) هو المصدر الوحيد؛ و Vue **لا يملك فهرسًا خاصًا**.
 - **عقود متطابقة**: يتشارك React و Vue `contract.json` (سلوك `Button` من حيث props/a11y/RTL متطابق).
 - **رموز / i18n / مواضيع واحدة**: `tokens` و`i18n` (21 لغة) و`themes` مشتركة بين الطرفين.
 
@@ -120,7 +120,7 @@
 @container navigation (max-width: 20rem)  { /* شكل التبويب */ }
 ```
 
-مكونات الأطراف الثلاثة المرافقة: `AppShell` (هيكل التطبيق الثلاثي) · `SafeArea` (حواف النوتش / شريط الإيماءات) · `ActionSheet` (لوحة الإجراءات السفلية للهاتف) · `Navbar` / `NavigationBar` (تنقل أفقي/متراكم).
+مكونات الأطراف الثلاثة المرافقة: `AppShell` (هيكل التطبيق الثلاثي) · `SafeArea` (حواف النوتش / شريط الإيماءات) · `ActionSheet` (لوحة الإجراءات السفلية للهاتف) · `Navbar` / `NavigationTitle` (تنقل أفقي/متراكم).
 
 ---
 
@@ -150,7 +150,7 @@
 
 - مصادري رموز نقاط القطع/الكثافة: `packages/tokens/src/core/breakpoint.json` · `density.json`
 - نص توليد الكثافة: `packages/tokens/scripts/density-css.mjs`
-- أنماط تنقل الأطراف الثلاثة: `packages/components/src/navigation/styles.css`
-- أنماط غلاف التطبيق: `packages/components/src/app-shell/styles.css`
+- أنماط تنقل الأطراف الثلاثة: `packages/components-react/src/navigation/styles.css`
+- أنماط غلاف التطبيق: `packages/components-react/src/app-shell/styles.css`
 - كيف تعمل الرموز: [`token-system.ar.md`](./token-system.ar.md)
 - وثيقة حزمة الرموز: [`packages/tokens/README.md`](../../packages/tokens/README.md)

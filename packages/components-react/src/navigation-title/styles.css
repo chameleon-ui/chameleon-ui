@@ -1,0 +1,136 @@
+/*
+ * Stack title chrome (formerly NavigationBar / UINavigationBar). Compact
+ * centers the title (phone). At 48rem the title leads (tablet / desktop
+ * toolbar). Root is the query container; only descendants are restyled (规范 §2).
+ *
+ * Dual selectors: .cu-navigation-title is canonical; .cu-navigation-bar is a
+ * transition alias for theme/consumer CSS that still targets the old class.
+ */
+.cu-navigation-title {
+  container-name: navigation-title;
+  container-type: inline-size;
+}
+
+.cu-navigation-title,
+.cu-navigation-bar {
+  padding-block-start: env(safe-area-inset-top, 0px);
+  color: var(--cu-color-fg-default);
+  background: var(
+    --cu-color-background-translucent,
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+  -webkit-backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+  backdrop-filter: saturate(var(--cu-saturate-frost, 1)) blur(var(--cu-blur-surface, 0px));
+}
+
+.cu-navigation-title__frame,
+.cu-navigation-bar__frame {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  /*
+   * Chrome row height — densifies with --cu-control-size-active (same formula
+   * as NavAccountCard). Mobile comfortable = touch floor; desktop compact shrinks.
+   */
+  min-block-size: calc(var(--cu-control-size-active) + 2 * var(--cu-space-1));
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  column-gap: var(--cu-space-2);
+}
+
+.cu-navigation-title__leading,
+.cu-navigation-bar__leading {
+  justify-self: start;
+  min-inline-size: 0;
+}
+
+.cu-navigation-title__title,
+.cu-navigation-bar__title {
+  justify-self: center;
+  margin: 0;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+  font-size: 1.0625rem;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
+  line-height: 1.2;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cu-navigation-title__trailing,
+.cu-navigation-bar__trailing {
+  justify-self: end;
+  min-inline-size: 0;
+}
+
+.cu-navigation-title__back,
+.cu-navigation-bar__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--cu-space-1);
+  min-block-size: var(--cu-control-size-active);
+  padding-block: var(--cu-space-1);
+  padding-inline: 0;
+  border: none;
+  background: transparent;
+  color: var(--cu-color-palette-brand);
+  font: inherit;
+  cursor: pointer;
+}
+
+.cu-navigation-title__back:focus-visible,
+.cu-navigation-bar__back:focus-visible {
+  outline: 2px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+}
+
+.cu-navigation-title__back-icon,
+.cu-navigation-bar__back-icon {
+  display: inline-flex;
+  flex: none;
+}
+
+.cu-navigation-title__back-svg,
+.cu-navigation-bar__back-svg {
+  display: block;
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+}
+
+[dir='rtl'] .cu-navigation-title__back-icon,
+[dir='rtl'] .cu-navigation-bar__back-icon {
+  transform: scaleX(-1);
+}
+
+.cu-navigation-title__back-label,
+.cu-navigation-bar__back-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@container navigation-title (min-width: 48rem) {
+  .cu-navigation-title__frame,
+  .cu-navigation-bar__frame {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .cu-navigation-title__title,
+  .cu-navigation-bar__title {
+    justify-self: start;
+    text-align: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cu-navigation-title__back,
+  .cu-navigation-bar__back,
+  .cu-navigation-title__title,
+  .cu-navigation-bar__title {
+    transition-duration: 0.01ms;
+  }
+}

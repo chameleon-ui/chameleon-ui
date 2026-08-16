@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Barre d'outils du canevas",
+    "zoomIn": "Zoomer",
+    "zoomOut": "Dézoomer",
+    "resetView": "Réinitialiser la vue",
+    "fitView": "Ajuster à la vue"
+  }
+}

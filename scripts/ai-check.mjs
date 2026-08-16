@@ -25,10 +25,10 @@ const REQUIRED_MCP_TOOLS = [
   'list_themes',
 ]
 
-const CANONICAL_THEME_CSS = '@chameleon-ui/themes/cupertino/css'
+const CANONICAL_THEME_CSS = '@chameleon-ui/themes/apple/css'
 const CANONICAL_TOKENS_CSS = '@chameleon-ui/tokens/css'
-const UNEXPORTED_THEME_CSS = '@chameleon-ui/themes/cupertino/variables.css'
-const COMPONENTS_IMPORT = 'from "@chameleon-ui/components"'
+const UNEXPORTED_THEME_CSS = '@chameleon-ui/themes/apple/variables.css'
+const COMPONENTS_IMPORT = 'from "@chameleon-ui/components-react"'
 const UMBRELLA_REACT_IMPORT = 'from "@chameleon-ui/react"'
 const UMBRELLA_REACT_CSS = '@chameleon-ui/react/css'
 const UMBRELLA_VUE_CSS = '@chameleon-ui/vue/css'

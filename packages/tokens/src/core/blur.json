@@ -3,11 +3,11 @@
     "$type": "dimension",
     "surface": {
       "$value": { "value": 0, "unit": "px" },
-      "$description": "Backdrop blur for frosted surfaces. Core and line are 0 (no frost); cupertino overlays a positive blur."
+      "$description": "Backdrop blur for frosted surfaces. Core and line are 0 (no frost); apple overlays a positive blur."
     },
     "thick": {
       "$value": { "value": 0, "unit": "px" },
-      "$description": "Heavier overlay blur. Core and line are 0; cupertino overlays 40px."
+      "$description": "Heavier overlay blur. Core and line are 0; apple overlays 40px."
     }
   }
 }

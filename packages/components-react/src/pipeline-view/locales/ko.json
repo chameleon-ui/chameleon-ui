@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "파이프라인",
+    "statusPending": "대기 중",
+    "statusRunning": "실행 중",
+    "statusSuccess": "성공",
+    "statusFailed": "실패"
+  }
+}

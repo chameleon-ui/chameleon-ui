@@ -3,7 +3,7 @@ import {
   AppShell,
   Card,
   Navigation,
-  NavigationBar,
+  NavigationTitle,
   ThemeProvider,
   ToastProvider,
   useTabStacks,
@@ -20,11 +20,11 @@ const navItems = tabs.map((item) => ({ value: item.value, label: item.title }))
 </script>
 
 <template>
-  <ThemeProvider theme="line" locale="zh-CN">
+  <ThemeProvider theme="linear" locale="zh-CN">
     <ToastProvider>
       <AppShell>
         <template #header>
-          <NavigationBar
+          <NavigationTitle
             :title="stacks.current.title"
             :back-label="stacks.previous?.title"
             :on-back="stacks.canPop ? stacks.pop : undefined"

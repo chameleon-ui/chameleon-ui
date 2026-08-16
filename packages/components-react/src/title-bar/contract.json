@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "title-bar",
+  "name": "TitleBar",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Official Navigation sidebar brand header: logo + title + subtitle with default home activation and brand chrome (no select / no context menu). Mount in Navigation header / #header — not AppShell header (that is NavigationTitle).",
+  "scenarios": [
+    "Put product logo + name + tagline above the Navigation destination list in the sidebar rail",
+    "Collapse the tablet rail so only the mark (or letter fallback) remains",
+    "Activate the brand to return home via homeHref or onBrandClick without consumer chrome CSS"
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Product name; accessible name of the brand control."
+    },
+    "subtitle": {
+      "type": "string",
+      "required": false,
+      "description": "Short tagline; hidden when density is compact or Navigation is collapsed."
+    },
+    "logoSrc": {
+      "type": "string",
+      "required": false,
+      "description": "Raster logo URL (png/jpeg/webp). Prefer logo / #logo for SVG or Icon."
+    },
+    "logoAlt": {
+      "type": "string",
+      "required": false,
+      "description": "Alt text for logoSrc; defaults to title."
+    },
+    "logo": {
+      "type": "node",
+      "required": false,
+      "description": "Custom mark (SVG/Icon). Wins over logoSrc. Vue: #logo slot."
+    },
+    "density": {
+      "type": "enum",
+      "required": false,
+      "description": "default shows title/subtitle; compact is mark-only. Collapsed Navigation also hides text via CSS.",
+      "values": ["default", "compact"],
+      "default": "default"
+    },
+    "homeHref": {
+      "type": "string",
+      "required": false,
+      "description": "Home URL. When set, root is an anchor. Click priority: onBrandClick first; link navigates unless preventDefault."
+    },
+    "onBrandClick": {
+      "type": "event",
+      "required": false,
+      "description": "Brand activation (SPA home / tab reset). Vue: brand-click. Runs before homeHref navigation.",
+      "payload": "(event) => void"
+    },
+    "brandInteractive": {
+      "type": "boolean",
+      "required": false,
+      "description": "When false, static chrome (no link / keyboard activation).",
+      "default": true
+    },
+    "preventContextMenu": {
+      "type": "boolean",
+      "required": false,
+      "description": "Suppress contextmenu on brand chrome.",
+      "default": true
+    },
+    "userSelectNone": {
+      "type": "boolean",
+      "required": false,
+      "description": "Apply user-select: none.",
+      "default": true
+    },
+    "homeLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible name override; defaults to title."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "density",
+      "values": ["default", "compact"],
+      "default": "default",
+      "description": "Full brand row vs mark-only."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Expanded brand row with title and optional subtitle."
+    },
+    {
+      "name": "compact",
+      "description": "Mark-only density (prop or collapsed Navigation rail)."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["navigation", "app-shell", "page"],
+    "allowedChildren": ["brand-mark", "icon", "text"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not mount TitleBar on the compact TabBar or duplicate logo+title+subtitle beside Navigation items — Navigation hides header below 48rem by design.",
+    "Do not put TitleBar in AppShell header; that slot is NavigationTitle (stack chrome).",
+    "Do not hand-roll user-select / contextmenu overrides for brand chrome — use the defaults or opt-out props.",
+    "Do not invent a consumer cu- TitleBar pretending to be a library export."
+  ],
+  "a11y": {
+    "role": "button or link",
+    "keyboard": [
+      "Enter/Space activate when interactive without homeHref",
+      "Tab focuses the interactive brand control"
+    ],
+    "focus": "Interactive brand is one tab stop; static mode is not focusable.",
+    "labeling": "Accessible name is homeLabel or title; compact mode keeps title via aria-label / title tooltip.",
+    "wcag": ["1.3.1", "2.1.1", "2.4.4", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "TitleBar itself is not breakpoint-aware. Visibility is owned by Navigation: sidebar/rail shows __header; compact TabBar hides it (formal DoD).",
+    "breakpoints": {
+      "compact": "Must not present TitleBar — Navigation __header is display:none.",
+      "medium": "Visible in Navigation header; collapsed rail hides text via CSS.",
+      "large": "Visible in Navigation header with full title/subtitle."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical flex row; text ellipsis follows document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "title-bar",
+    "states": ["default", "compact"],
+    "intents": ["navigate", "show-brand"]
+  },
+  "mechanics": "Export TitleBar and place it in Navigation header / #header — not AppShell header (that is NavigationTitle). Defaults: brandInteractive true, preventContextMenu true, userSelectNone true, density default. Click priority: onBrandClick (Vue brand-click) then homeHref unless preventDefault. Host chrome row (Navigation __header) uses min-block-size calc(var(--cu-control-size-active) + 2 * var(--cu-space-1)) to align with NavigationTitle. Compact TabBar must not show this — Navigation hides __header below 48rem.",
+  "usage": [
+    "Import TitleBar from @chameleon-ui/components-react or the React/Vue umbrella.",
+    "Pass as Navigation header (React) or #header slot (Vue) — never AppShell header.",
+    "Bind onBrandClick / brand-click to reset the home tab, and/or set homeHref.",
+    "Optional logo slot/node for SVG; otherwise logoSrc (BrandMark) or letter fallback."
+  ],
+  "exports": [
+    {
+      "name": "TitleBar",
+      "kind": "component",
+      "signature": "function TitleBar(props: TitleBarProps): JSX.Element",
+      "description": "Sidebar brand header for Navigation header / #header."
+    },
+    {
+      "name": "TitleBarProps",
+      "kind": "type",
+      "signature": "interface TitleBarProps",
+      "description": "Public props including density, homeHref, and brand chrome defaults."
+    },
+    {
+      "name": "TitleBarDensity",
+      "kind": "type",
+      "signature": "'default' | 'compact'",
+      "description": "Expanded vs mark-only density."
+    }
+  ]
+}

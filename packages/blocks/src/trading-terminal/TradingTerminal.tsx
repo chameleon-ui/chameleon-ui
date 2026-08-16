@@ -1,5 +1,5 @@
-import { Button, Card, Chart, DataGrid, Ticker, Typography } from '@chameleon-ui/components'
-import type { DataGridColumn, TickerItem } from '@chameleon-ui/components'
+import { Button, Card, Chart, DataGrid, Ticker, Typography } from '@chameleon-ui/components-react'
+import type { DataGridColumn, TickerItem } from '@chameleon-ui/components-react'
 import { useMemo, useState } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { tradingTerminalLocaleTrees } from './locale-map.js'

@@ -1,0 +1,109 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "image-compare",
+  "name": "ImageCompare",
+  "status": "experimental",
+  "purpose": "Before/after image compare with a draggable divider and optional token-colored checkerboard.",
+  "scenarios": [
+    "Before/after image compare with a draggable divider.",
+    "Transparent PNG results on a shared CheckerboardSurface."
+  ],
+  "props": {
+    "beforeSrc": {
+      "type": "string",
+      "required": true,
+      "description": "Before image URL."
+    },
+    "afterSrc": {
+      "type": "string",
+      "required": true,
+      "description": "After image URL."
+    },
+    "checkerboard": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wrap in CheckerboardSurface for transparent media.",
+      "default": true
+    },
+    "checkerboardContrast": {
+      "type": "enum",
+      "required": false,
+      "description": "Checker A/B contrast when checkerboard is on. Defaults to strong for transparent results.",
+      "values": ["default", "strong"],
+      "default": "strong"
+    },
+    "orientation": {
+      "type": "enum",
+      "required": false,
+      "description": "Divider axis.",
+      "values": ["horizontal", "vertical"],
+      "default": "horizontal"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Default."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card",
+      "stack",
+      "workspace-split"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Hand-rolling a consumer checkerboard instead of checkerboard / checkerboardContrast props."
+  ],
+  "a11y": {
+    "role": "slider",
+    "keyboard": [
+      "Arrow keys nudge the divider; Home/End jump to ends."
+    ],
+    "focus": "Root is focusable.",
+    "labeling": "Pass label / beforeAlt / afterAlt.",
+    "wcag": [
+      "1.3.1",
+      "1.4.1",
+      "2.1.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fluid.",
+    "breakpoints": {
+      "compact": "Default.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS; horizontal divider uses inset-inline.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "image-compare",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "compare-images"
+    ]
+  }
+}

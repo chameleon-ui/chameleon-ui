@@ -2,7 +2,7 @@
 
 **L1 · Headless / a11y 基元封装（React）。基于 Ark UI / Zag。**
 
-`primitives` 是 React 侧的 **headless 内核**层：它把 Ark UI / Zag 的"无头逻辑"薄封装成语义化的 Primitive 组件。`@chameleon-ui/components` 只依赖本包，**禁止**直接 `import "@ark-ui/*"`。
+`primitives` 是 React 侧的 **headless 内核**层：它把 Ark UI / Zag 的"无头逻辑"薄封装成语义化的 Primitive 组件。`@chameleon-ui/components-react` 只依赖本包，**禁止**直接 `import "@ark-ui/*"`。
 
 > **路线说明（O1 已裁定）**：正式路线只使用 **Ark UI / Zag**。Base UI 仅保留在 `poc/base-ui` 作 M0 对比证据，不得进入本包或 `components`。
 

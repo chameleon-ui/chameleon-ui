@@ -1,0 +1,112 @@
+{
+  "id": "brand-mark",
+  "type": "registry:ui",
+  "name": "BrandMark",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/brand-mark/BrandMark.tsx",
+      "content": "import type { ImgHTMLAttributes } from 'react'\nimport './styles.css'\n\nexport type BrandMarkSize = 'sm' | 'md'\n\nexport interface BrandMarkProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'size'> {\n  src: string\n  alt: string\n  size?: BrandMarkSize\n  className?: string\n}\n\nexport function BrandMark({ src, alt, size = 'md', className, ...rest }: BrandMarkProps) {\n  const classes = ['cu-brand-mark', `cu-brand-mark--${size}`, className].filter(Boolean).join(' ')\n  return (\n    <img\n      {...rest}\n      className={classes}\n      src={src}\n      alt={alt}\n      data-ai-role=\"brand-mark\"\n      data-ai-intent=\"show-brand\"\n      data-ai-state={size}\n    />\n  )\n}\n"
+    },
+    {
+      "path": "components/brand-mark/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"brand-mark\",\n  \"name\": \"BrandMark\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Sized brand image for NavigationTitle trailing / chrome.\",\n  \"scenarios\": [\n    \"Sized brand image for NavigationTitle trailing / chrome.\"\n  ],\n  \"props\": {\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Default.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\",\n      \"stack\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [],\n    \"focus\": \"Follows content.\",\n    \"labeling\": \"As needed.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fluid.\",\n    \"breakpoints\": {\n      \"compact\": \"Default.\",\n      \"medium\": \"Default.\",\n      \"large\": \"Default.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"brand-mark\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"show-brand\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/index.ts",
+      "content": "export { BrandMark } from './BrandMark.js'\nexport type { BrandMarkProps, BrandMarkSize } from './BrandMark.js'\n"
+    },
+    {
+      "path": "components/brand-mark/locales/am.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ar.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/bn.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/de.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/en.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/es.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/fa.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/fr.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ha.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/hi.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/id.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ja.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ko.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/pt.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ru.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/sw.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ug.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/ur.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/vi.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/zh-CN.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/locales/zh-HK.json",
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+    },
+    {
+      "path": "components/brand-mark/README.md",
+      "content": "# BrandMark\n\nShipped. EraseLab gap fill.\n"
+    },
+    {
+      "path": "components/brand-mark/styles.css",
+      "content": ".cu-brand-mark {\n  display: block;\n  inline-size: auto;\n  object-fit: contain;\n  flex: none;\n}\n\n.cu-brand-mark--sm {\n  block-size: 1.25rem;\n}\n\n.cu-brand-mark--md {\n  block-size: 1.75rem;\n}\n"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ const checkOnly = process.argv.includes('--check')
 
 async function main() {
   const catalog = JSON.parse(
-    await readFile(join(root, 'packages', 'components', 'catalog.json'), 'utf8'),
+    await readFile(join(root, 'packages', 'components-react', 'catalog.json'), 'utf8'),
   )
   const gated = catalog.components
   const usedIntents = new Set()
@@ -22,7 +22,7 @@ async function main() {
   for (const component of gated) {
     const contract = JSON.parse(
       await readFile(
-        join(root, 'packages', 'components', 'src', component.slug, 'contract.json'),
+        join(root, 'packages', 'components-react', 'src', component.slug, 'contract.json'),
         'utf8',
       ),
     )

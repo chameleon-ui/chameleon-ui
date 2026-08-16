@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "stack",
+  "name": "Stack",
+  "status": "experimental",
+  "purpose": "One-dimensional layout primitive for spacing, alignment, and optional fill/grow.",
+  "scenarios": [
+    "Stack form fields vertically with consistent spacing",
+    "Arrange toolbar actions horizontally",
+    "Stretch children across a workspace pane or fill a flex parent with grow"
+  ],
+  "props": {
+    "direction": {
+      "type": "enum",
+      "required": false,
+      "description": "Main axis of the flex container.",
+      "values": [
+        "row",
+        "column"
+      ],
+      "default": "column"
+    },
+    "gap": {
+      "type": "enum",
+      "required": false,
+      "description": "Spacing step applied to the gap.",
+      "values": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+      ],
+      "default": "2"
+    },
+    "align": {
+      "type": "enum",
+      "required": false,
+      "description": "Cross-axis alignment of children. stretch fills the cross axis (full inline size in a column stack).",
+      "values": [
+        "start",
+        "center",
+        "end",
+        "stretch"
+      ],
+      "default": "stretch"
+    },
+    "justify": {
+      "type": "enum",
+      "required": false,
+      "description": "Main-axis distribution of children.",
+      "values": [
+        "start",
+        "center",
+        "end",
+        "between"
+      ],
+      "default": "start"
+    },
+    "grow": {
+      "type": "boolean",
+      "required": false,
+      "description": "Grow to fill a flex/grid parent (panes, shell columns, toolbars). Sets flex: 1 1 auto and self stretch.",
+      "default": false
+    }
+  },
+  "variants": [
+    {
+      "name": "direction",
+      "values": [
+        "row",
+        "column"
+      ],
+      "default": "column",
+      "description": "Main axis of the flex container."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Flex container is rendered."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "dialog",
+      "form",
+      "page",
+      "workspace-split",
+      "scroll-pane",
+      "card"
+    ],
+    "allowedChildren": [
+      "any"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use physical margins; use the gap prop.",
+    "Do not nest deeply to avoid flexbox performance issues.",
+    "Do not freeze Stack direction=row for multi-column workspaces that must morph on phone — use WorkspaceSplit."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Stack is not focusable; it only affects layout.",
+    "labeling": "Children provide their own labels.",
+    "wcag": [
+      "1.3.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Direction can switch at breakpoints via the direction prop; spacing is token-based.",
+    "breakpoints": {
+      "compact": "Stacks stay within the viewport width; gap is preserved.",
+      "medium": "Direction may switch to row if space allows.",
+      "large": "Direction may switch to row if space allows."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir; row follows the flow.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "stack",
+    "states": [
+      "row",
+      "column"
+    ],
+    "intents": [
+      "layout-flow"
+    ]
+  }
+}

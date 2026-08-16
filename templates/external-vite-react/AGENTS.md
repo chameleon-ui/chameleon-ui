@@ -7,11 +7,11 @@ Full SSOT: [`../../AGENTS.md`](../../AGENTS.md) (Start here in 60 seconds). Atta
 ## Must
 
 1. MCP: call **`get_started`** first in the session, then **`get_import_specifiers`** before any import.
-2. CSS in the app entry: `import "@chameleon-ui/react/css"`.
-3. Root wrap: `<ThemeProvider theme="line" locale="zh-CN">` (see `src/main.tsx`).
+2. CSS in the app entry: `import "@chameleon-ui/react/css"` (package exports → real `dist/css.css`; do not add Vite aliases).
+3. Root wrap: `<ThemeProvider theme="linear" locale="zh-CN">` (see `src/main.tsx`).
 4. Components only from `@chameleon-ui/react` (this template). Do not add `@chameleon-ui/vue`.
 5. Never invent CSS paths, never `workspace:*`, never `.../variables.css`.
 
 ## Chrome
 
-`AppShell` + `Navigation` + `NavigationBar` + `useTabStacks`. Do not compose `Sidebar` + `TabBar`.
+`AppShell` + `Navigation` + `NavigationTitle` + `useTabStacks`. Do not compose `Sidebar` + `TabBar`.

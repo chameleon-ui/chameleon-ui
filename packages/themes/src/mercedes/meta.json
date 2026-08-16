@@ -1,0 +1,11 @@
+{
+  "id": "mercedes",
+  "label": "Mercedes",
+  "preview": {
+    "accent": "#5c6b7a",
+    "surface": "#f8fafc"
+  },
+  "fonts": {
+    "sans": "\"Segoe UI\", system-ui, sans-serif"
+  }
+}

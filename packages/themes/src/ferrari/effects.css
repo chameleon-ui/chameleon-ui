@@ -1,0 +1,131 @@
+/* cu-effects:ferrari — sport, no glass. Homage geometry only — no marks, no proprietary fonts. */
+
+:root {
+  font-family: var(--cu-font-family-sans, system-ui, sans-serif);
+  letter-spacing: var(--cu-font-tracking-tight, -0.04em);
+  font-weight: 650;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-button,
+:root .cu-badge,
+:root .cu-input,
+:root .cu-select__trigger,
+:root .cu-sheet__close,
+:root .cu-navbar__item,
+:root .cu-checkbox__control {
+  border-radius: var(--cu-radius-md);
+  box-shadow: var(--cu-shadow-sm);
+  transition-duration: var(--cu-motion-duration-fast);
+  transition-timing-function: var(--cu-motion-easing-standard);
+}
+
+:root .cu-button,
+:root .cu-badge {
+  text-transform: uppercase;
+  font-weight: 800;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--cu-color-border-default);
+}
+
+:root .cu-button--solid {
+  box-shadow: var(--cu-shadow-sm);
+}
+
+:root .cu-card,
+:root .cu-alert,
+:root .cu-toast,
+:root .cu-sheet,
+:root .cu-dialog__content,
+:root .cu-action-sheet__content,
+:root .cu-command-palette__content {
+  border-radius: var(--cu-radius-lg);
+  box-shadow: var(--cu-shadow-md);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background-color: var(--cu-color-background-elevated, var(--cu-color-background-default));
+}
+
+:root .cu-card--outlined,
+:root .cu-alert,
+:root .cu-toast,
+:root .cu-input,
+:root .cu-select__trigger {
+  border: 2px solid var(--cu-color-border-default);
+}
+
+:root .cu-alert,
+:root .cu-toast {
+  border-inline-start-width: 6px;
+  border-inline-start-color: var(--cu-color-palette-brand);
+}
+
+:root .cu-dialog__content,
+:root .cu-action-sheet__content {
+  border: 2px solid var(--cu-color-border-default);
+  box-shadow: var(--cu-shadow-lg);
+}
+
+:root .cu-dialog__backdrop,
+:root .cu-action-sheet__backdrop,
+:root .cu-sheet__backdrop,
+:root .cu-command-palette__backdrop {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: color-mix(in srgb, var(--cu-color-background-inverse) 72%, transparent);
+}
+
+:root .cu-app-shell__header,
+:root .cu-navbar,
+:root .cu-tab-bar {
+  background: var(--cu-color-background-inverse);
+  color: var(--cu-color-fg-inverse);
+  border-block-end: 4px solid var(--cu-color-palette-brand);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+}
+
+:root .cu-tab-bar {
+  border-block-end: 0;
+  border-block-start: 4px solid var(--cu-color-palette-brand);
+}
+
+:root .cu-app-shell__header .cu-heading,
+:root .cu-app-shell__header .cu-typography,
+:root .cu-app-shell__header .cu-demo-kicker,
+:root .cu-navbar .cu-heading,
+:root .cu-navbar .cu-typography,
+:root .cu-tab-bar__item {
+  color: var(--cu-color-fg-inverse);
+}
+
+:root .cu-tab-bar__item[data-state='active'] {
+  color: var(--cu-color-palette-brand);
+  border-block-start-color: var(--cu-color-palette-brand);
+}
+
+:root .cu-sidebar {
+  background: var(--cu-color-background-subtle);
+  border-inline-end: 2px solid var(--cu-color-border-default);
+}
+
+:root .cu-heading,
+:root .cu-typography--heading-1,
+:root .cu-typography--heading-2 {
+  font-weight: 800;
+  letter-spacing: var(--cu-font-tracking-tight, -0.04em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root .cu-button,
+  :root .cu-badge,
+  :root .cu-input,
+  :root .cu-select__trigger,
+  :root .cu-dialog__content,
+  :root .cu-action-sheet__content {
+    transition-duration: 0.01ms;
+  }
+}

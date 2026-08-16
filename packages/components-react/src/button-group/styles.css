@@ -1,0 +1,88 @@
+.cu-button-group {
+  display: inline-flex;
+  align-items: stretch;
+  vertical-align: middle;
+  /* Nested flex parents must be able to shrink. */
+  min-block-size: 0;
+  min-inline-size: 0;
+}
+
+.cu-button-group--horizontal {
+  flex-direction: row;
+}
+
+.cu-button-group--vertical {
+  flex-direction: column;
+}
+
+.cu-button-group--spaced {
+  gap: var(--cu-space-1);
+}
+
+.cu-button-group--attached {
+  gap: 0;
+}
+
+/*
+ * Attached / segmented: collapse shared borders and share one outer radius.
+ * Logical corners so RTL mirrors correctly.
+ */
+.cu-button-group--attached.cu-button-group--horizontal > .cu-button {
+  position: relative;
+  border-radius: 0;
+  margin-inline-start: calc(-1 * var(--cu-border-width-default, 1px));
+}
+
+.cu-button-group--attached.cu-button-group--horizontal > .cu-button:first-child {
+  margin-inline-start: 0;
+  border-start-start-radius: var(--cu-radius-md);
+  border-end-start-radius: var(--cu-radius-md);
+}
+
+.cu-button-group--attached.cu-button-group--horizontal > .cu-button:last-child {
+  border-start-end-radius: var(--cu-radius-md);
+  border-end-end-radius: var(--cu-radius-md);
+}
+
+.cu-button-group--attached.cu-button-group--horizontal > .cu-button:only-child {
+  border-radius: var(--cu-radius-md);
+  margin-inline-start: 0;
+}
+
+.cu-button-group--attached.cu-button-group--vertical > .cu-button {
+  position: relative;
+  border-radius: 0;
+  margin-block-start: calc(-1 * var(--cu-border-width-default, 1px));
+}
+
+.cu-button-group--attached.cu-button-group--vertical > .cu-button:first-child {
+  margin-block-start: 0;
+  border-start-start-radius: var(--cu-radius-md);
+  border-start-end-radius: var(--cu-radius-md);
+}
+
+.cu-button-group--attached.cu-button-group--vertical > .cu-button:last-child {
+  border-end-start-radius: var(--cu-radius-md);
+  border-end-end-radius: var(--cu-radius-md);
+}
+
+.cu-button-group--attached.cu-button-group--vertical > .cu-button:only-child {
+  border-radius: var(--cu-radius-md);
+  margin-block-start: 0;
+}
+
+.cu-button-group--attached > .cu-button:focus-visible {
+  z-index: 1;
+}
+
+/* Optional size hint for nested Buttons that omit size (matches Button tokens). */
+.cu-button-group--sm > .cu-button {
+  min-block-size: var(--cu-control-size-active);
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  font-size: var(--cu-typography-size-caption, 0.875rem);
+}
+
+.cu-button-group--md > .cu-button {
+  min-block-size: var(--cu-touch-target-min);
+}

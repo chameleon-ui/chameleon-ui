@@ -10,14 +10,14 @@
 
 تُعد Chameleon UI نظام تصميم موجَّهًا لعصر الذكاء الاصطناعي. يعتمد على **أوليات عديمة الشكل (headless primitives)** لتوفير مكتبة مكونات كاملة ومتسقة لكل من **React 19** و **Vue 3.5** فوق مجموعة واحدة مشتركة من الرموز (tokens) والعقود والبنية، مع تحقيق **تثليث الأطراف (ثلاثية الأجهزة / تلقائية التكيّف)**. ومن خلال التصميم القائم على العقود و MCP ومحوّلات البروتوكول، يمكن **لوكلاء الذكاء الاصطناعي أن «يفهموا» المكونات ويجمّعوها أو يثبّتوها بشكل موثوق**.
 
-- **المكونات**: 103 عنصرًا في الفهرس (تطابق بين React و Vue بالكامل `103/103`)
+- **المكونات**: 116 عنصرًا في الفهرس (تطابق بين React و Vue بالكامل `116/116`)
 - **ثلاثية الأطراف**: تكيّف مع نافذة عرض الهاتف 390 / التابلت 768 / سطح المكتب 1280 (الكثافة وحجم المكونات والخطوط تتغير حسب الطرف)
-- **المواضيع**: 9 (`line` الرائد بصريًا + 8 طبقات تكريم)
+- **المواضيع**: 8 (`linear` و`apple` رائدان بصريان + 6 طبقات تكريم)
 - **اللغات**: 21 لغة (ICU MessageFormat)، تشمل RTL (`ar` `ug` `ur` `fa`)
 - **الرأس عديم الشكل**: مبني على **Ark UI / Zag** (تغليفات رفيعة في `primitives` / `primitives-vue`)
 - **الترخيص**: MIT. القياس عن بُعد (telemetry) معطَّل افتراضيًا (`telemetry-notice.v1`).
 
-> **الإصدار الحالي: `0.2.0` (غير منشور على npm)**. حتى نشر npm، استخدم `link-external` / `pack-external` أو قوالب Vite الرسمية للوصول.
+> **الإصدار الحالي: `0.4.0` (غير منشور على npm)**. حتى نشر npm، استخدم `link-external` / `pack-external` أو قوالب Vite الرسمية للوصول.
 
 ---
 
@@ -65,7 +65,7 @@ corepack pnpm@9.15.0 check      # lint + typecheck + test + build
 # 1. تغليف إلى tarball ثم التثبيت في تطبيقك
 node ./scripts/pack-external.mjs            # React umbrella
 node ./scripts/pack-external.mjs --vue     # Vue umbrella
-npm install <path-to>/dist-tarballs/chameleon-ui-react-0.2.0.tgz
+npm install <path-to>/dist-tarballs/chameleon-ui-react-0.4.0.tgz
 
 # 2. أو npm link
 node ./scripts/link-external.mjs --vue --apply
@@ -100,12 +100,12 @@ node ./scripts/link-external.mjs --vue --apply
 | الحزمة | الوصف |
 | :--- | :--- |
 | `@chameleon-ui/tokens` | المصدر المعتمد لرموز التصميم DTCG + تجميع محدد لمتغيرات CSS |
-| `@chameleon-ui/themes` | طبقات المواضيع + `design-rules` (`line` الرائد + 8 تكريمات) |
+| `@chameleon-ui/themes` | طبقات المواضيع + `design-rules` (`linear` / `apple` رائدان + 6 تكريمات) |
 | `@chameleon-ui/contract` | JSON Schema + تحقق للمكونات وقواعد التصميم |
 | `@chameleon-ui/i18n` | وقت تشغيل ICU MessageFormat، بحث C3 Map، أدوات شبه الترجمة |
 | `@chameleon-ui/primitives` · `primitives-vue` | تغليفات رفيعة لـ Ark UI / Zag (النواة عديمة الشكل) |
-| `@chameleon-ui/components` | تطبيقات مكونات React (103 slugs + عقود) |
-| `@chameleon-ui/components-vue` | مكونات Vue (103/103 + ThemeProvider) |
+| `@chameleon-ui/components-react` | تطبيقات مكونات React (116 slugs + عقود) |
+| `@chameleon-ui/components-vue` | مكونات Vue (116/116 + ThemeProvider) |
 | `@chameleon-ui/react` | حزمة React الموحّدة |
 | `@chameleon-ui/vue` | حزمة Vue الموحّدة |
 | `@chameleon-ui/install-core` | الكاتب الوحيد: مخطط التبعيات، كشف التعارض، النسخ العجزي |
@@ -140,7 +140,7 @@ node ./scripts/link-external.mjs --vue --apply
 - استهلاك `@chameleon-ui/tokens/css` **يتطلب أيضًا استيراد `@chameleon-ui/tokens/density.css`**؛ وإلا لن تتغير الكثافة/حجم المكونات حسب نقاط القطع.
 - غلاف التطبيق والتنقل: يوفر `AppShell` هيكل التطبيق ثلاثي المستويات؛ يستخدم `Navigation` نفس واجهة `items` للتحول بين الشريط الجانبي لسطح المكتب / شريط التابلت القابل للطي / تتبويب الهاتف السفلي؛ ويعالج `SafeArea` الحواف (notch) وشريط الإيماءات.
 
-مكونات المستويات الثلاث: `AppShell` · `Navigation` · `NavigationBar` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`.
+مكونات المستويات الثلاث: `AppShell` · `Navigation` · `NavigationTitle` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`.
 
 آلية عمل التثليث الكاملة (رموز نقاط القطع، استعلامات الحاويات مقابل `@media`، الكثافة حسب الطرف، تحوّل Navigation، و«لماذا نفصل React/Vue»): [**نظام الأطراف الثلاثة**](./docs/theming/three-end-system.ar.md).
 
@@ -150,21 +150,22 @@ node ./scripts/link-external.mjs --vue --apply
 
 ### المكونات (103)
 
-القائمة الكاملة مصدرها المعتمد الواحد: [`packages/components/catalog.json`](./packages/components/catalog.json). كل مكوّن يرفق عقدًا قابلًا للقراءة آليًا:
+القائمة الكاملة مصدرها المعتمد الواحد: [`packages/components-react/catalog.json`](./packages/components-react/catalog.json). كل مكوّن يرفق عقدًا قابلًا للقراءة آليًا:
 
 - `contract.json` (مع `dataAi.role` / `states` / `intents`)
 - جداول نصوص 21 لغة
 - أنماط وأنواع واختبارات
 
-### المواضيع (9)
+### المواضيع (8)
 
 | الموضوع | ملاحظة |
 | :--- | :--- |
-| `line` | **الرائد بصريًا** (المظهر الافتراضي للمنتج) |
-| `silver-arrow` `stuttgart` `corsa` `cupertino` `siren` `wechat` `ant-blue` | طبقات تكريم |
+| `linear` | **الرائد بصريًا** (نسخة Linear بالقيم، داكن أولًا؛ المظهر الافتراضي للمنتج) |
+| `apple` | **الرائد بصريًا** (نسخة HIG/iOS بالقيم، فاتح أولًا؛ مع مخطط داكن يدوي) |
+| `mercedes` `porsche` `ferrari` `tiktok` `wechat` `alipay` | طبقات تكريم |
 | `community-focus-first` | بذرة حزمة قواعد المجتمع (`registry:rules`) |
 
-> **الحالة**: `line` هو **الرائد البصري الوحيد المُتحقَّق منه بالكامل** (المظهر الافتراضي؛ معيار المنتج). أما طبقات التكريم الثماني الأخرى فهي **ما زالت قيد الصقل**، وهي أنسب للإلهام والاستكشاف. للحصول على موضوع افتراضي موثوق استخدم `line`.
+> **الحالة**: `linear` و`apple` هما الرائدان البصريان المُتحقَّق منهما بالكامل (الألوان والحركة ومقياس الخط والزوايا مقفلة بالاختبارات)؛ استخدم `linear` كخيار افتراضي موثوق، ويبقى التقييم البصري النهائي بالعين في المتصفح. أما طبقات التكريم الست الأخرى فهي **ما زالت قيد الصقل**، وهي أنسب للإلهام والاستكشاف.
 
 - **كيف يعمل نظام الرموز**: من المصدر المعتمد DTCG إلى تجميع `--cu-*`، وحل المرجع، وكشف الدورة، وآلية overlay/`$extends` — راجع [**نظام الرموز**](./docs/theming/token-system.ar.md).
 - تريد موضوعًا خاصًا بك؟ الموضوع **طبقة** (يفوق فقط مجموعة فرعية من رموز core). دليل خطوة بخطوة: [**إنشاء موضوع مخصص**](./docs/theming/creating-a-theme.ar.md).

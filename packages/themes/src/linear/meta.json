@@ -1,0 +1,13 @@
+{
+  "id": "linear",
+  "label": "Linear",
+  "preview": {
+    "accent": "#5e6ad2",
+    "surface": "#121213"
+  },
+  "fonts": {
+    "sans": "system-ui, sans-serif"
+  },
+  "colorSchemes": ["dark", "light"],
+  "defaultColorScheme": "dark"
+}

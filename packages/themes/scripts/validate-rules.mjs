@@ -8,14 +8,14 @@ const schemaPath = path.resolve(packageRoot, "../contract/schemas/design-rules.s
 // CU_THEMES_SRC is a red-proof/test hook used by phase8:gates; production runs never set it.
 const themesRoot = process.env.CU_THEMES_SRC ?? path.join(packageRoot, "src");
 const themeIds = [
-  "line",
-  "silver-arrow",
-  "stuttgart",
-  "corsa",
-  "cupertino",
-  "siren",
+  "linear",
+  "mercedes",
+  "porsche",
+  "ferrari",
+  "apple",
+  "tiktok",
   "wechat",
-  "ant-blue",
+  "alipay",
 ];
 const communityRulesPackIds = ["community-focus-first"];
 

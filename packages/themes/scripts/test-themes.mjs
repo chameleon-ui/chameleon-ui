@@ -5,14 +5,14 @@ import { spawn } from "node:child_process";
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const themeIds = [
-  "line",
-  "silver-arrow",
-  "stuttgart",
-  "corsa",
-  "cupertino",
-  "siren",
+  "linear",
+  "mercedes",
+  "porsche",
+  "ferrari",
+  "apple",
+  "tiktok",
   "wechat",
-  "ant-blue",
+  "alipay",
 ];
 const phase3RuleGroups = [
   "typography",
@@ -62,16 +62,79 @@ async function main() {
     const meta = JSON.parse(await readFile(path.join(distDirectory, "meta.json"), "utf8"));
 
     assert(css.includes("--cu-"), `${themeId}: variables.css missing --cu-* output`);
-    if (themeId === "cupertino") {
-      assert(css.includes("backdrop-filter"), "cupertino: dist CSS must emit frosted-glass backdrop-filter");
-      assert(css.includes("-webkit-backdrop-filter"), "cupertino: dist CSS must emit -webkit-backdrop-filter");
-      assert(css.includes("--cu-blur-frost"), "cupertino: dist CSS must emit --cu-blur-frost");
-      assert(css.includes("--cu-shadow-soft"), "cupertino: dist CSS must emit --cu-shadow-soft");
-      assert(css.includes("--cu-radius-xl"), "cupertino: dist CSS must emit --cu-radius-xl");
-      assert(css.includes("Theme effects overlay"), "cupertino: effects.css must be concatenated into dist CSS");
-      assert(css.includes(".cu-app-shell__header"), "cupertino: frost app-shell header");
-      assert(css.includes(".cu-tab-bar"), "cupertino: frost tab-bar");
-      assert(css.includes(".cu-dialog__content"), "cupertino: frost dialog");
+    if (themeId === "apple") {
+      // Apple 1:1 flagship spec (light-first; reference: HIG color/typography/
+      // materials guidance, iOS system color ramp. SF Pro / SF Symbols excluded).
+      assert(css.includes("backdrop-filter"), "apple: dist CSS must emit frosted-glass backdrop-filter");
+      assert(css.includes("-webkit-backdrop-filter"), "apple: dist CSS must emit -webkit-backdrop-filter");
+      assert(css.includes("--cu-blur-frost"), "apple: dist CSS must emit --cu-blur-frost");
+      assert(css.includes("--cu-shadow-soft"), "apple: dist CSS must emit --cu-shadow-soft");
+      assert(css.includes("--cu-radius-xl"), "apple: dist CSS must emit --cu-radius-xl");
+      assert(css.includes("Theme effects overlay"), "apple: effects.css must be concatenated into dist CSS");
+      assert(css.includes(".cu-app-shell__header"), "apple: frost app-shell header");
+      assert(css.includes(".cu-tab-bar"), "apple: frost tab-bar");
+      assert(css.includes(".cu-dialog__content"), "apple: frost dialog");
+      assert(css.includes("cu-effects:apple"), "apple: effects.css marker");
+      assert(css.includes("color-scheme: light"), "apple: light-first native scheme");
+      assert(
+        css.includes(':root[data-color-scheme="dark"]'),
+        "apple: ships a manual dark scheme block (tokens.dark.json)",
+      );
+      // iOS light ramp
+      assert(css.includes("--cu-radius-sm: 8px"), "apple: control radius 8px");
+      assert(css.includes("--cu-radius-md: 10px"), "apple: grouped-cell radius 10px");
+      assert(css.includes("--cu-radius-lg: 14px"), "apple: alert radius 14px");
+      assert(css.includes("--cu-radius-xl: 20px"), "apple: sheet radius 20px");
+      assert(css.includes("--cu-color-palette-brand: #007AFF"), "apple: systemBlue (light)");
+      assert(css.includes("--cu-color-palette-danger: #FF3B30"), "apple: systemRed (light)");
+      assert(css.includes("--cu-color-background-default: #FFFFFF"), "apple: systemBackground (light)");
+      assert(css.includes("--cu-color-background-subtle: #F2F2F7"), "apple: systemGroupedBackground");
+      assert(css.includes("--cu-color-fg-default: #000000"), "apple: label (light) is pure black");
+      assert(
+        css.includes("--cu-color-fg-muted: rgba(60, 60, 67, 0.6)"),
+        "apple: secondaryLabel (light)",
+      );
+      assert(
+        css.includes("--cu-color-border-default: rgba(60, 60, 67, 0.29)"),
+        "apple: separator (light)",
+      );
+      assert(
+        css.includes("--cu-color-fill-secondary: rgba(120, 120, 128, 0.16)"),
+        "apple: secondarySystemFill (light)",
+      );
+      // iOS dark ramp
+      assert(css.includes("--cu-color-palette-brand: #0A84FF"), "apple: systemBlue (dark)");
+      assert(css.includes("--cu-color-palette-danger: #FF453A"), "apple: systemRed (dark)");
+      assert(css.includes("--cu-color-background-default: #000000"), "apple: systemBackground (dark) pure black");
+      assert(css.includes("--cu-color-background-elevated: #2C2C2E"), "apple: tertiarySystemBackground (dark)");
+      assert(
+        css.includes("--cu-color-border-default: rgba(84, 84, 88, 0.6)"),
+        "apple: separator (dark)",
+      );
+      // Materials stay ON (opposite of the zero-blur themes)
+      assert(
+        css.includes("saturate(var(--cu-saturate-frost)) blur(var(--cu-blur-frost))"),
+        "apple: chrome uses the bar material (saturate 180% + blur 20px)",
+      );
+      // Motion: UIKit 0.3s ease-in-out
+      assert(css.includes("--cu-motion-duration-base: 300ms"), "apple: 300ms base (UIKit default)");
+      assert(
+        css.includes("--cu-motion-easing-standard: cubic-bezier(0.42, 0, 0.58, 1)"),
+        "apple: UIKit ease-in-out",
+      );
+      assert(!hasOvershootBezier(css), "apple: motion must not use overshoot (no bounce easing)");
+      // Typography: 17px body, 34px Large Title, 22/17 line-height
+      assert(css.includes("--cu-typography-size-body: 1.0625rem"), "apple: 17px body");
+      assert(css.includes("--cu-typography-size-heading-1: 2.125rem"), "apple: 34px Large Title");
+      assert(css.includes("--cu-typography-line-height-body: 1.29"), "apple: 22/17 body line-height");
+      assert(!css.includes("SF Pro"), "apple: SF Pro must not be referenced (font not replicated)");
+      // Component-level DoD
+      assert(css.includes("border-radius: 9999px"), "apple: pill CTAs");
+      assert(css.includes("brightness(1.08)"), "apple: restrained hover lift");
+      assert(css.includes("brightness(0.92)"), "apple: dim-on-press (UIControl highlight)");
+      assert(css.includes("--cu-focus-halo"), "apple: accent focus halo");
+      assert(css.includes("cu-effects:apple"), "apple: effects overlay marker");
+      assert(designRules.typography.tracking === "normal", "apple: tracking stays normal (no tight display tracking)");
     }
     assert(meta.id === themeId, `${themeId}: meta.id mismatch`);
     assert(designRules.version === "1.0", `${themeId}: design-rules.json must be version 1.0`);
@@ -79,7 +142,7 @@ async function main() {
       assert(designRules[group], `${themeId}: design-rules.json missing ${group}`);
     }
 
-    if (themeId === "stuttgart" || themeId === "silver-arrow") {
+    if (themeId === "porsche" || themeId === "mercedes") {
       assert(
         !hasOvershootBezier(css),
         `${themeId}: motion must not use overshoot (no spring / bounce)`,
@@ -102,95 +165,125 @@ async function main() {
       );
     }
 
-    if (themeId === "stuttgart") {
-      assert(css.includes("--cu-radius-sm: 2px"), "stuttgart: precise sm radius 2px");
-      assert(css.includes("--cu-radius-md: 4px"), "stuttgart: surface md radius 4px");
-      assert(css.includes("--cu-radius-lg: 6px"), "stuttgart: lg radius 6px");
-      assert(css.includes("--cu-color-palette-brand: #bb0a30"), "stuttgart: brand highlight");
-      assert(css.includes("--cu-color-palette-paper: #0f0f0f"), "stuttgart: obsidian cabin");
-      assert(css.includes("--cu-motion-duration-base: 180ms"), "stuttgart: measured 180ms");
-      assert(css.includes("--cu-motion-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1)"), "stuttgart: ease, no overshoot");
-      assert(!css.includes("linear-gradient"), "stuttgart: gradientPolicy forbidden");
-      assert(css.includes("transform: none"), "stuttgart: no press bounce");
-      assert(designRules.colorBoundaries.gradientPolicy === "forbidden", "stuttgart: no gradients");
-      assert(designRules.composition.surfaceHierarchy === "elevation-over-border", "stuttgart: elevation language");
+    if (themeId === "porsche") {
+      assert(css.includes("--cu-radius-sm: 2px"), "porsche: precise sm radius 2px");
+      assert(css.includes("--cu-radius-md: 4px"), "porsche: surface md radius 4px");
+      assert(css.includes("--cu-radius-lg: 6px"), "porsche: lg radius 6px");
+      assert(css.includes("--cu-color-palette-brand: #bb0a30"), "porsche: brand highlight");
+      assert(css.includes("--cu-color-palette-paper: #0f0f0f"), "porsche: obsidian cabin");
+      assert(css.includes("--cu-motion-duration-base: 180ms"), "porsche: measured 180ms");
+      assert(css.includes("--cu-motion-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1)"), "porsche: ease, no overshoot");
+      assert(!css.includes("linear-gradient"), "porsche: gradientPolicy forbidden");
+      assert(css.includes("transform: none"), "porsche: no press bounce");
+      assert(designRules.colorBoundaries.gradientPolicy === "forbidden", "porsche: no gradients");
+      assert(designRules.composition.surfaceHierarchy === "elevation-over-border", "porsche: elevation language");
     }
 
-    if (themeId === "silver-arrow") {
-      assert(css.includes("--cu-radius-sm: 0px"), "silver-arrow: sharp interactive 0px");
-      assert(css.includes("--cu-radius-md: 2px"), "silver-arrow: md 2px");
-      assert(css.includes("--cu-radius-lg: 4px"), "silver-arrow: surface 4px");
-      assert(css.includes("--cu-color-palette-brand: #5c6b7a"), "silver-arrow: racing slate");
-      assert(css.includes("--cu-color-palette-paper: #f8fafc"), "silver-arrow: racing silver");
-      assert(css.includes("--cu-motion-duration-base: 100ms"), "silver-arrow: taut 100ms");
-      assert(css.includes("--cu-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1)"), "silver-arrow: taut decelerate");
-      assert(css.includes("linear-gradient"), "silver-arrow: subtle sheen allowed");
-      assert(css.includes("translateY(1px)"), "silver-arrow: taut 1px press, not bounce");
-      assert(designRules.colorBoundaries.gradientPolicy === "subtle-only", "silver-arrow: subtle sheen only");
-      assert(designRules.composition.surfaceHierarchy === "border-over-elevation", "silver-arrow: border language");
+    if (themeId === "mercedes") {
+      assert(css.includes("--cu-radius-sm: 0px"), "mercedes: sharp interactive 0px");
+      assert(css.includes("--cu-radius-md: 2px"), "mercedes: md 2px");
+      assert(css.includes("--cu-radius-lg: 4px"), "mercedes: surface 4px");
+      assert(css.includes("--cu-color-palette-brand: #5c6b7a"), "mercedes: racing slate");
+      assert(css.includes("--cu-color-palette-paper: #f8fafc"), "mercedes: racing silver");
+      assert(css.includes("--cu-motion-duration-base: 100ms"), "mercedes: taut 100ms");
+      assert(css.includes("--cu-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1)"), "mercedes: taut decelerate");
+      assert(css.includes("linear-gradient"), "mercedes: subtle sheen allowed");
+      assert(css.includes("translateY(1px)"), "mercedes: taut 1px press, not bounce");
+      assert(designRules.colorBoundaries.gradientPolicy === "subtle-only", "mercedes: subtle sheen only");
+      assert(designRules.composition.surfaceHierarchy === "border-over-elevation", "mercedes: border language");
     }
 
-    if (themeId === "line") {
-      assert(css.includes("--cu-radius-sm: 4px"), "line: hairline sm radius 4px");
-      assert(css.includes("--cu-radius-md: 8px"), "line: hairline md radius 8px");
-      assert(css.includes("--cu-radius-lg: 12px"), "line: hairline lg radius 12px");
-      assert(css.includes("--cu-blur-surface: 0px"), "line: blur must be zero (no glass)");
-      assert(css.includes("--cu-blur-overlay: 0px"), "line: overlay blur must be zero");
-      assert(css.includes("--cu-blur-thick: 0px"), "line: thick blur must be zero");
-      assert(css.includes("--cu-shadow-sm: 0 1px 2px"), "line: whisper elevation, not drop-shadow-heavy");
-      assert(!css.includes("--cu-shadow-sm: none"), "line: cards need a hairline shadow");
-      assert(css.includes("--cu-motion-duration-fast: 120ms"), "line: snappy 120ms");
-      assert(css.includes("--cu-motion-duration-base: 180ms"), "line: 180ms base, no bounce");
+    if (themeId === "linear") {
+      // Linear 1:1 flagship spec (dark-first; reference: linear.app extracted CSS vars).
+      assert(css.includes("--cu-radius-sm: 4px"), "linear: sm radius 4px");
+      assert(css.includes("--cu-radius-md: 6px"), "linear: control radius 6px");
+      assert(css.includes("--cu-radius-lg: 8px"), "linear: surface radius 8px");
+      assert(css.includes("--cu-radius-xl: 8px"), "linear: radius capped at 8px (pill CTAs excepted)");
+      assert(css.includes("--cu-blur-surface: 0px"), "linear: blur must be zero (no glass)");
+      assert(css.includes("--cu-blur-overlay: 0px"), "linear: overlay blur must be zero");
+      assert(css.includes("--cu-blur-thick: 0px"), "linear: thick blur must be zero");
+      assert(css.includes("inset"), "linear: elevation via inset highlight, not drop shadows");
+      assert(css.includes("--cu-motion-duration-fast: 100ms"), "linear: 100ms fast");
+      assert(css.includes("--cu-motion-duration-base: 160ms"), "linear: 160ms base, no bounce");
       assert(
-        css.includes("--cu-motion-easing-standard: cubic-bezier(0.25, 0.1, 0.25, 1)"),
-        "line: standard ease, no overshoot",
+        css.includes("--cu-motion-easing-standard: cubic-bezier(0.45, 0, 0.55, 1)"),
+        "linear: ease-in-out-quad standard (app evidence)",
       );
-      assert(css.includes("--cu-color-palette-brand: #171717"), "line: ink brand");
-      assert(css.includes("--cu-color-background-subtle: #f4f3ef"), "line: warm canvas");
-      assert(css.includes("--cu-color-background-elevated: #ffffff"), "line: paper rail");
-      assert(css.includes("cu-effects:line"), "line: effects.css must be concatenated");
-      assert(css.includes("Theme effects overlay"), "line: effects overlay marker");
-      assert(!css.includes("background-size: 16px 16px"), "line: no scaffold grid on main");
-      assert(!hasOvershootBezier(css), "line: motion must not use overshoot (no bounce easing)");
-      assert(!css.includes("linear-gradient"), "line: gradientPolicy forbidden");
       assert(
-        !/backdrop-filter:\s*(?!none)\s*(blur|saturate)/.test(css),
-        "line: must not ship frosted-glass blur",
+        css.includes("--cu-motion-easing-enter: cubic-bezier(0.25, 0.46, 0.45, 0.94)"),
+        "linear: ease-out-quad enter (Button.css evidence)",
       );
-      assert(designRules.colorBoundaries.gradientPolicy === "forbidden", "line: no gradients");
-      assert(designRules.composition.surfaceHierarchy === "flat", "line: flat hierarchy");
-      assert(designRules.forbiddenPatterns.includes("spring-easing"), "line: forbids spring-easing");
-      assert(designRules.forbiddenPatterns.includes("elastic-bounce"), "line: forbids elastic-bounce");
-      assert(designRules.forbiddenPatterns.includes("scaffold-grid"), "line: forbids scaffold grid");
-      assert(designRules.typography.tracking === "tight", "line: tight tracking");
+      assert(css.includes("--cu-color-palette-brand: #5e6ad2"), "linear: indigo accent #5e6ad2");
+      assert(css.includes("--cu-color-background-default: #121213"), "linear: app canvas #121213");
+      assert(css.includes("--cu-color-background-subtle: #09090a"), "linear: sidebar/chrome #09090a, darker than canvas");
+      assert(css.includes("--cu-color-background-elevated: #1c1c1d"), "linear: elevated dark surface #1c1c1d");
+      assert(css.includes("--cu-color-fg-default: #f7f8f8"), "linear: text-primary rgb(247,248,248)");
+      assert(css.includes("--cu-color-fg-muted: #8a8f98"), "linear: text-secondary rgb(138,143,152)");
+      assert(
+        css.includes("--cu-color-border-default: rgba(255, 255, 255, 0.08)"),
+        "linear: white-alpha hairline border",
+      );
+      assert(css.includes("--cu-typography-weight-medium: 510"), "linear: 510 medium axis");
+      assert(css.includes("--cu-typography-weight-semibold: 590"), "linear: 590 semibold axis");
+      assert(css.includes("--cu-typography-size-body: 0.875rem"), "linear: 14px body");
+      assert(css.includes("cu-effects:linear"), "linear: effects.css must be concatenated");
+      assert(css.includes("Theme effects overlay"), "linear: effects overlay marker");
+      assert(css.includes("color-scheme: dark"), "linear: dark-first native scheme");
+      assert(
+        css.includes(':root[data-color-scheme="light"]'),
+        "linear: ships a manual light scheme block",
+      );
+      assert(!css.includes("background-size: 16px 16px"), "linear: no scaffold grid on main");
+      assert(!hasOvershootBezier(css), "linear: motion must not use overshoot (no bounce easing)");
+      assert(!css.includes("linear-gradient"), "linear: gradientPolicy forbidden");
+      assert(
+        !/\.cu-(dialog__content|navigation|tab-bar|card|app-shell)[^}]*backdrop-filter:\s*(?!none)\s*(blur|saturate)/.test(css),
+        "linear: surfaces must not ship frosted-glass blur (button secondary blur(4px) is Linear evidence)",
+      );
+      /* Component-level DoD — evidence: linear.app Button.css + /login loading CSS. */
+      assert(css.includes("scale(0.97)"), "linear: scale(.97) press on buttons");
+      assert(css.includes("brightness(1.15)"), "linear: primary hover = brightness(115%)");
+      assert(css.includes("border-radius: 9999px"), "linear: pill CTAs (radius-rounded)");
+      assert(css.includes("#7180ff"), "linear: focus ring / selection blue #7180ff");
+      assert(css.includes("outline-offset: 3px"), "linear: focus outline offset 3px");
+      assert(
+        css.includes(":root[data-color-scheme='light'] .cu-button--outline"),
+        "linear: light-scheme secondary button override",
+      );
+      assert(designRules.colorBoundaries.gradientPolicy === "forbidden", "linear: no gradients");
+      assert(designRules.composition.surfaceHierarchy === "flat", "linear: flat hierarchy");
+      assert(designRules.forbiddenPatterns.includes("spring-easing"), "linear: forbids spring-easing");
+      assert(designRules.forbiddenPatterns.includes("elastic-bounce"), "linear: forbids elastic-bounce");
+      assert(designRules.forbiddenPatterns.includes("scaffold-grid"), "linear: forbids scaffold grid");
+      assert(designRules.typography.tracking === "tight", "linear: tight tracking");
     }
 
-    if (themeId === "ant-blue") {
-      assert(css.includes("--cu-radius-sm: 2px"), "ant-blue: historical 2px sm");
-      assert(css.includes("--cu-radius-md: 2px"), "ant-blue: historical 2px md");
-      assert(css.includes("--cu-radius-lg: 4px"), "ant-blue: modest 4px lg");
-      assert(css.includes("--cu-blur-surface: 0px"), "ant-blue: blur must be zero (no glass)");
-      assert(css.includes("--cu-blur-overlay: 0px"), "ant-blue: overlay blur must be zero");
-      assert(css.includes("--cu-blur-thick: 0px"), "ant-blue: thick blur must be zero");
-      assert(css.includes("--cu-motion-duration-base: 200ms"), "ant-blue: 200ms measured motion");
+    if (themeId === "alipay") {
+      assert(css.includes("--cu-radius-sm: 2px"), "alipay: historical 2px sm");
+      assert(css.includes("--cu-radius-md: 2px"), "alipay: historical 2px md");
+      assert(css.includes("--cu-radius-lg: 4px"), "alipay: modest 4px lg");
+      assert(css.includes("--cu-blur-surface: 0px"), "alipay: blur must be zero (no glass)");
+      assert(css.includes("--cu-blur-overlay: 0px"), "alipay: overlay blur must be zero");
+      assert(css.includes("--cu-blur-thick: 0px"), "alipay: thick blur must be zero");
+      assert(css.includes("--cu-motion-duration-base: 200ms"), "alipay: 200ms measured motion");
       assert(
         css.includes("--cu-motion-easing-standard: cubic-bezier(0.645, 0.045, 0.355, 1)"),
-        "ant-blue: standard ease-in-out, no bounce",
+        "alipay: standard ease-in-out, no bounce",
       );
-      assert(css.includes("--cu-color-palette-brand: #1677ff"), "ant-blue: brand blue");
-      assert(css.includes("--cu-color-background-subtle: #f5f5f5"), "ant-blue: layout gray");
-      assert(css.includes("--cu-color-background-inverse: #001529"), "ant-blue: dark sider");
-      assert(css.includes("--cu-color-border-default: #d9d9d9"), "ant-blue: hairline gray");
-      assert(css.includes("cu-effects:ant-blue"), "ant-blue: effects.css must be concatenated");
-      assert(css.includes("Theme effects overlay"), "ant-blue: effects overlay marker");
-      assert(!hasOvershootBezier(css), "ant-blue: motion must not use overshoot");
+      assert(css.includes("--cu-color-palette-brand: #1677ff"), "alipay: brand blue");
+      assert(css.includes("--cu-color-background-subtle: #f5f5f5"), "alipay: layout gray");
+      assert(css.includes("--cu-color-background-inverse: #001529"), "alipay: dark sider");
+      assert(css.includes("--cu-color-border-default: #d9d9d9"), "alipay: hairline gray");
+      assert(css.includes("cu-effects:alipay"), "alipay: effects.css must be concatenated");
+      assert(css.includes("Theme effects overlay"), "alipay: effects overlay marker");
+      assert(!hasOvershootBezier(css), "alipay: motion must not use overshoot");
       assert(
         !/backdrop-filter:\s*(?!none)\s*(blur|saturate)/.test(css),
-        "ant-blue: must not ship frosted-glass blur",
+        "alipay: must not ship frosted-glass blur",
       );
-      assert(designRules.composition.surfaceHierarchy === "elevation-over-border", "ant-blue: elevation hierarchy");
-      assert(designRules.forbiddenPatterns.includes("glass-morphism"), "ant-blue: forbids glass");
-      assert(designRules.forbiddenPatterns.includes("backdrop-blur"), "ant-blue: forbids backdrop-blur");
+      assert(designRules.composition.surfaceHierarchy === "elevation-over-border", "alipay: elevation hierarchy");
+      assert(designRules.forbiddenPatterns.includes("glass-morphism"), "alipay: forbids glass");
+      assert(designRules.forbiddenPatterns.includes("backdrop-blur"), "alipay: forbids backdrop-blur");
     }
 
     if (themeId === "wechat") {

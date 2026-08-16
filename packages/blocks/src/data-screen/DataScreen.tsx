@@ -1,5 +1,5 @@
-import { Chart, Grid, KpiDashboard, Typography } from '@chameleon-ui/components'
-import type { ChartSeries, KpiItem } from '@chameleon-ui/components'
+import { Chart, Grid, KpiDashboard, Typography } from '@chameleon-ui/components-react'
+import type { ChartSeries, KpiItem } from '@chameleon-ui/components-react'
 import { useEffect, useRef, useState } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { dataScreenLocaleTrees } from './locale-map.js'

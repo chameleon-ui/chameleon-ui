@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "Bảng lệnh",
+    "placeholder": "Nhập lệnh",
+    "empty": "Không có lệnh nào",
+    "close": "Đóng"
+  }
+}

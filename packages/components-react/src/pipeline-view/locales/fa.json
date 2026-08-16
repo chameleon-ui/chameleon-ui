@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "خط لوله",
+    "statusPending": "در انتظار",
+    "statusRunning": "در حال اجرا",
+    "statusSuccess": "موفق",
+    "statusFailed": "ناموفق"
+  }
+}

@@ -1,0 +1,1323 @@
+{
+  "$comment": "Phase 6 component catalog (v2.0). Repo SSOT for the component list, family mapping, and the S5 common-10 suite. Replacement of any slug requires a dated change note in changeLog. A/B named gaps (space, container, masonry, navbar, steps, command-palette) are on disk and registered. Freeze-meeting sign-off remains owner=待指定.",
+  "schemaVersion": "2.0",
+  "frozenAt": "2026-08-13",
+  "source": [
+    "docs/project/phases/Phase-1-MVP.md §3",
+    "Chameleon UI — 详细设计与验收说明书 v1.0 §3.3"
+  ],
+  "changePolicy": "Replacement requires a change note. Do not silently swap slugs.",
+  "changeLog": [
+    {
+      "date": "2026-08-16",
+      "phase": "EraseLab",
+      "action": "replace",
+      "slugs": [
+        "navigation-title"
+      ],
+      "from": "navigation-bar",
+      "note": "Rename NavigationBar → NavigationTitle (slug navigation-title) so stack chrome is not confused with Navigation (tab controller). NavigationBar remains a deprecated export + contracts/navigation-bar alias."
+    },
+    {
+      "date": "2026-08-16",
+      "phase": "EraseLab",
+      "action": "add",
+      "slugs": [
+        "footer",
+        "nav-account-card"
+      ],
+      "note": "AppShell Footer + footerPlacement auto/shell/main; Navigation #footer + NavAccountCard; sidebar scroll contract (list-only)."
+    },
+    {
+      "date": "2026-08-16",
+      "phase": "EraseLab",
+      "action": "add",
+      "slugs": [
+        "title-bar"
+      ],
+      "note": "Official Navigation sidebar brand header (logo+title+subtitle); home click + brand chrome defaults; compact TabBar must not show it."
+    },
+    {
+      "date": "2026-08-16",
+      "phase": "EraseLab",
+      "action": "add",
+      "slugs": [
+        "button-group"
+      ],
+      "note": "Segmented/attached Button cluster for tool toggles (paint vs erase); Stack grow/align stretch fix shipped alongside."
+    },
+    {
+      "date": "2026-08-16",
+      "phase": "EraseLab",
+      "action": "add",
+      "slugs": [
+        "checkerboard-surface",
+        "image-compare",
+        "scroll-pane",
+        "workspace-split",
+        "brand-mark",
+        "mask-paint-canvas",
+        "selectable-list-item",
+        "media-thumb-grid",
+        "processing-placeholder"
+      ],
+      "note": "EraseLab consumer gaps: sticky AppShell footer companion components plus paint/compare/checkerboard/scroll/workspace/brand/queue/thumb/busy primitives."
+    },
+    {
+      "date": "2026-08-14",
+      "slug": "navigation-bar",
+      "change": "added",
+      "reason": "Stack chrome (UINavigationBar / Android Toolbar). Root tabs stay on Navigation (UITabBarController). Navbar remains site/marketing links. Renamed 2026-08-16 to navigation-title / NavigationTitle; navigation-bar kept as deprecated alias."
+    },
+    {
+      "date": "2026-08-16",
+      "slug": "navigation-title",
+      "change": "renamed",
+      "from": "navigation-bar",
+      "reason": "Public rename NavigationBar → NavigationTitle to disambiguate from Navigation (destinations)."
+    },
+    {
+      "date": "2026-08-14",
+      "slug": "navigation",
+      "change": "added",
+      "reason": "Three-end Navigation: one items API morphs TabBar ↔ collapsible rail ↔ persistent sidebar via container queries. Sidebar + TabBar remain specialized single-form chrome, not a morph pair."
+    },
+    {
+      "date": "2026-08-13",
+      "slug": "action-sheet",
+      "change": "added",
+      "reason": "Phase 5 (M5) named component: mobile action panel; Dialog compact morph target. schemaVersion 1.0 -> 1.1 (additive append; no existing slug touched)."
+    },
+    {
+      "date": "2026-08-13",
+      "slug": "tab-bar",
+      "change": "added",
+      "reason": "Phase 5 (M5) named component: mobile bottom navigation; Navigation morph pair with sidebar."
+    },
+    {
+      "date": "2026-08-13",
+      "slug": "safe-area",
+      "change": "added",
+      "reason": "Phase 5 (M5) named component: env(safe-area-inset-*) wrapper with 0px fallback."
+    },
+    {
+      "date": "2026-08-13",
+      "slug": "sidebar",
+      "change": "added",
+      "reason": "Phase 5 (M5) named component: desktop persistent / tablet collapsible navigation; Navigation morph pair with tab-bar."
+    },
+    {
+      "date": "2026-08-13",
+      "phase": "P6",
+      "action": "add",
+      "slugs": [
+        "article-card",
+        "calendar",
+        "canvas-base",
+        "canvas-toolbar",
+        "carousel",
+        "chart",
+        "chat-bubble",
+        "code-block",
+        "color-picker",
+        "comment-thread",
+        "confirm-dialog",
+        "data-grid",
+        "date-picker",
+        "edge",
+        "editor",
+        "flow-node",
+        "gauge",
+        "graph-view",
+        "heatmap",
+        "image",
+        "kpi-dashboard",
+        "loading-bar",
+        "markdown-renderer",
+        "mind-map",
+        "multi-select",
+        "notification",
+        "otp-input",
+        "password-input",
+        "pipeline-view",
+        "rating",
+        "result",
+        "search-bar",
+        "share-panel",
+        "sparkline",
+        "statistic",
+        "tag",
+        "ticker",
+        "time-picker",
+        "timeline",
+        "tree",
+        "upload"
+      ],
+      "note": "Phase 6 breadth additions present on disk (contract + 21 locales + tests). F/G/H plus C/D/E named gaps. A/B family additions are not on disk. Not a freeze-meeting signature."
+    },
+    {
+      "date": "2026-08-13",
+      "phase": "P6",
+      "action": "family-backfill",
+      "slugs": [
+        "button",
+        "icon",
+        "typography",
+        "input",
+        "textarea",
+        "select",
+        "checkbox",
+        "radio",
+        "switch",
+        "form",
+        "dialog",
+        "toast",
+        "alert",
+        "tooltip",
+        "popover",
+        "tabs",
+        "table",
+        "app-shell",
+        "stack",
+        "spinner",
+        "accordion",
+        "avatar",
+        "badge",
+        "breadcrumb",
+        "card",
+        "chip",
+        "collapse",
+        "combobox",
+        "description-list",
+        "divider",
+        "drawer",
+        "empty-state",
+        "file-input",
+        "grid",
+        "heading",
+        "hover-card",
+        "inline-alert",
+        "kbd",
+        "label",
+        "link",
+        "list",
+        "menu",
+        "number-input",
+        "pagination",
+        "progress",
+        "radio-card",
+        "separator",
+        "sheet",
+        "skeleton",
+        "slider",
+        "action-sheet",
+        "tab-bar",
+        "safe-area",
+        "sidebar"
+      ],
+      "note": "Backfilled family (A-E, plus P5 safe-area/tab-bar/sidebar/action-sheet) on the frozen 50+P5 four per Phase 6 naming rules; mapping is a proposal pending freeze-meeting sign-off."
+    },
+    {
+      "date": "2026-08-13",
+      "phase": "P6",
+      "action": "add",
+      "slugs": [
+        "command-palette",
+        "container",
+        "masonry",
+        "navbar",
+        "space",
+        "steps"
+      ],
+      "note": "Phase 6 A/B named gaps now on disk (contract v0.2 + 21 locales + tests) and registered. Additive append n=96-101; no existing slug touched. Not a freeze-meeting signature."
+    }
+  ],
+  "locales": [
+    "zh-CN",
+    "zh-HK",
+    "ja",
+    "ko",
+    "ru",
+    "hi",
+    "en",
+    "de",
+    "ar",
+    "ug",
+    "sw",
+    "ha",
+    "am",
+    "es",
+    "fr",
+    "pt",
+    "bn",
+    "id",
+    "ur",
+    "fa",
+    "vi"
+  ],
+  "pseudoLocale": "en-XA",
+  "pseudoExpansion": 1.4,
+  "components": [
+    {
+      "n": 1,
+      "slug": "button",
+      "name": "Button",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "variants/sizes/states; complete contract",
+      "family": "C"
+    },
+    {
+      "n": 2,
+      "slug": "icon",
+      "name": "Icon",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "RTL mirror matrix (mirror | preserve | localized)",
+      "family": "D"
+    },
+    {
+      "n": 3,
+      "slug": "typography",
+      "name": "Typography",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Type scale follows breakpoints",
+      "family": "D"
+    },
+    {
+      "n": 4,
+      "slug": "input",
+      "name": "Input",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Validation, disabled, RTL",
+      "family": "C"
+    },
+    {
+      "n": 5,
+      "slug": "textarea",
+      "name": "Textarea",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Same states as Input",
+      "family": "C"
+    },
+    {
+      "n": 6,
+      "slug": "select",
+      "name": "Select",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Keyboard accessible",
+      "family": "C"
+    },
+    {
+      "n": 7,
+      "slug": "checkbox",
+      "name": "Checkbox",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "a11y",
+      "family": "C"
+    },
+    {
+      "n": 8,
+      "slug": "radio",
+      "name": "Radio",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "a11y",
+      "family": "C"
+    },
+    {
+      "n": 9,
+      "slug": "switch",
+      "name": "Switch",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "a11y",
+      "family": "C"
+    },
+    {
+      "n": 10,
+      "slug": "form",
+      "name": "Form",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Composes Input and related fields; built-in copy",
+      "family": "C"
+    },
+    {
+      "n": 11,
+      "slug": "dialog",
+      "name": "Dialog",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Desktop modal; compact → bottom sheet",
+      "family": "E"
+    },
+    {
+      "n": 12,
+      "slug": "toast",
+      "name": "Toast",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Non-blocking feedback",
+      "family": "E"
+    },
+    {
+      "n": 13,
+      "slug": "alert",
+      "name": "Alert",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Semantic color from tokens",
+      "family": "E"
+    },
+    {
+      "n": 14,
+      "slug": "tooltip",
+      "name": "Tooltip",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Precise pointer; touch fallback",
+      "family": "E"
+    },
+    {
+      "n": 15,
+      "slug": "popover",
+      "name": "Popover",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Desktop hover/click; compact click-to-open",
+      "family": "E"
+    },
+    {
+      "n": 16,
+      "slug": "tabs",
+      "name": "Tabs",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "RTL order",
+      "family": "B"
+    },
+    {
+      "n": 17,
+      "slug": "table",
+      "name": "Table",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Basic table (not virtualized DataGrid)",
+      "family": "D"
+    },
+    {
+      "n": 18,
+      "slug": "app-shell",
+      "name": "AppShell",
+      "tier": "shell",
+      "implementation": "complete",
+      "requirement": "Three-breakpoint application chrome",
+      "family": "A"
+    },
+    {
+      "n": 19,
+      "slug": "stack",
+      "name": "Stack",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Layout primitive (Stack / Space / Box)",
+      "family": "A"
+    },
+    {
+      "n": 20,
+      "slug": "spinner",
+      "name": "Spinner",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Loading feedback (Spinner / Progress)",
+      "family": "E"
+    },
+    {
+      "n": 21,
+      "slug": "accordion",
+      "name": "Accordion",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Stacks multiple collapsible sections where at most one is open at a time.",
+      "family": "D"
+    },
+    {
+      "n": 22,
+      "slug": "avatar",
+      "name": "Avatar",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Represents a user or entity with an image or initials fallback.",
+      "family": "D"
+    },
+    {
+      "n": 23,
+      "slug": "badge",
+      "name": "Badge",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Displays a compact status indicator or count.",
+      "family": "D"
+    },
+    {
+      "n": 24,
+      "slug": "breadcrumb",
+      "name": "Breadcrumb",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Shows the current page location within a hierarchy.",
+      "family": "B"
+    },
+    {
+      "n": 25,
+      "slug": "card",
+      "name": "Card",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Groups related content and actions in a contained surface.",
+      "family": "D"
+    },
+    {
+      "n": 26,
+      "slug": "chip",
+      "name": "Chip",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Compact label or tag that may represent a filter, selection, or attribute.",
+      "family": "D"
+    },
+    {
+      "n": 27,
+      "slug": "collapse",
+      "name": "Collapse",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Toggles the visibility of a content section with a single trigger.",
+      "family": "D"
+    },
+    {
+      "n": 28,
+      "slug": "combobox",
+      "name": "Combobox",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Combines a text input with a selectable dropdown list.",
+      "family": "C"
+    },
+    {
+      "n": 29,
+      "slug": "description-list",
+      "name": "DescriptionList",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Presents a list of term-description pairs.",
+      "family": "D"
+    },
+    {
+      "n": 30,
+      "slug": "divider",
+      "name": "Divider",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Visually separates content horizontally.",
+      "family": "A"
+    },
+    {
+      "n": 31,
+      "slug": "drawer",
+      "name": "Drawer",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Presents a sliding panel from an inline edge for secondary tasks.",
+      "family": "E"
+    },
+    {
+      "n": 32,
+      "slug": "empty-state",
+      "name": "EmptyState",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Communicates an empty data set and optionally prompts the next action.",
+      "family": "D"
+    },
+    {
+      "n": 33,
+      "slug": "file-input",
+      "name": "FileInput",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Allows a user to select a file from their device.",
+      "family": "C"
+    },
+    {
+      "n": 34,
+      "slug": "grid",
+      "name": "Grid",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Two-dimensional layout container for aligning child elements.",
+      "family": "A"
+    },
+    {
+      "n": 35,
+      "slug": "heading",
+      "name": "Heading",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Renders a semantic heading at a chosen level.",
+      "family": "D"
+    },
+    {
+      "n": 36,
+      "slug": "hover-card",
+      "name": "HoverCard",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Reveals supplementary content when the pointer hovers over a trigger.",
+      "family": "E"
+    },
+    {
+      "n": 37,
+      "slug": "inline-alert",
+      "name": "InlineAlert",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Displays a contextual message within a form or page.",
+      "family": "E"
+    },
+    {
+      "n": 38,
+      "slug": "kbd",
+      "name": "Kbd",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Represents a keyboard key or shortcut.",
+      "family": "D"
+    },
+    {
+      "n": 39,
+      "slug": "label",
+      "name": "Label",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Labels a form control with semantic association.",
+      "family": "C"
+    },
+    {
+      "n": 40,
+      "slug": "link",
+      "name": "Link",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Navigates to another resource or anchor.",
+      "family": "B"
+    },
+    {
+      "n": 41,
+      "slug": "list",
+      "name": "List",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Renders a group of related items as a list.",
+      "family": "D"
+    },
+    {
+      "n": 42,
+      "slug": "menu",
+      "name": "Menu",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Displays a list of actions or choices in a dropdown.",
+      "family": "B"
+    },
+    {
+      "n": 43,
+      "slug": "number-input",
+      "name": "NumberInput",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Captures a numeric value with increment and decrement controls.",
+      "family": "C"
+    },
+    {
+      "n": 44,
+      "slug": "pagination",
+      "name": "Pagination",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Navigates across a set of pages.",
+      "family": "B"
+    },
+    {
+      "n": 45,
+      "slug": "progress",
+      "name": "Progress",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Displays the completion progress of a task.",
+      "family": "E"
+    },
+    {
+      "n": 46,
+      "slug": "radio-card",
+      "name": "RadioCard",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Presents radio options as selectable cards.",
+      "family": "C"
+    },
+    {
+      "n": 47,
+      "slug": "separator",
+      "name": "Separator",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Visually and semantically separates content.",
+      "family": "A"
+    },
+    {
+      "n": 48,
+      "slug": "sheet",
+      "name": "Sheet",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Presents a modal panel anchored to an edge of the viewport.",
+      "family": "E"
+    },
+    {
+      "n": 49,
+      "slug": "skeleton",
+      "name": "Skeleton",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Placeholder preview for content that is loading.",
+      "family": "E"
+    },
+    {
+      "n": 50,
+      "slug": "slider",
+      "name": "Slider",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Selects a numeric value from a continuous range.",
+      "family": "C"
+    },
+    {
+      "n": 51,
+      "slug": "action-sheet",
+      "name": "ActionSheet",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Mobile action panel; Dialog compact morph target. Focus trap, Escape, drag-to-dismiss.",
+      "family": "E"
+    },
+    {
+      "n": 52,
+      "slug": "tab-bar",
+      "name": "TabBar",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Mobile bottom navigation; RTL order; safe-area bottom inset.",
+      "family": "B"
+    },
+    {
+      "n": 53,
+      "slug": "safe-area",
+      "name": "SafeArea",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "env(safe-area-inset-*) wrapper with 0px fallback for notch/gesture-bar edges.",
+      "family": "A"
+    },
+    {
+      "n": 54,
+      "slug": "sidebar",
+      "name": "Sidebar",
+      "tier": "base",
+      "implementation": "complete",
+      "requirement": "Specialized persistent or collapsible side panel. Three-end chrome uses Navigation, not a pair with tab-bar.",
+      "family": "B"
+    },
+    {
+      "n": 55,
+      "slug": "article-card",
+      "name": "ArticleCard",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Presents an article teaser with cover, title, excerpt, metadata, and read action."
+    },
+    {
+      "n": 56,
+      "slug": "calendar",
+      "name": "Calendar",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Shows a navigable month grid with selectable days; weekday and month names come from Intl."
+    },
+    {
+      "n": 57,
+      "slug": "canvas-base",
+      "name": "Canvas",
+      "tier": "heavy",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Zoomable and pannable canvas base with minimap and grid snapping; Canvas 2D grid backend with a DOM node layer."
+    },
+    {
+      "n": 58,
+      "slug": "canvas-toolbar",
+      "name": "CanvasToolbar",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Toolbar with zoom in, zoom out, reset, and fit actions for a canvas."
+    },
+    {
+      "n": 59,
+      "slug": "carousel",
+      "name": "Carousel",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Cycles through a sequence of slides with previous and next controls."
+    },
+    {
+      "n": 60,
+      "slug": "chart",
+      "name": "Chart",
+      "tier": "heavy",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Unified chart wrapper rendering bar, line, and area series as SVG with theme colors consumed only from tokens."
+    },
+    {
+      "n": 61,
+      "slug": "chat-bubble",
+      "name": "ChatBubble",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Presents a single chat message aligned and styled by its author role."
+    },
+    {
+      "n": 62,
+      "slug": "code-block",
+      "name": "CodeBlock",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Presents formatted source code with language label and a copy action."
+    },
+    {
+      "n": 63,
+      "slug": "color-picker",
+      "name": "ColorPicker",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Picks a color from a swatch grid or by entering a hex value."
+    },
+    {
+      "n": 64,
+      "slug": "comment-thread",
+      "name": "CommentThread",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Displays a nested thread of comments with author, timestamp, and reply affordance."
+    },
+    {
+      "n": 65,
+      "slug": "confirm-dialog",
+      "name": "ConfirmDialog",
+      "tier": "base",
+      "family": "E",
+      "implementation": "complete",
+      "requirement": "Interrupts the user with a modal confirmation before a consequential action."
+    },
+    {
+      "n": 66,
+      "slug": "data-grid",
+      "name": "DataGrid",
+      "tier": "heavy",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Virtualized data grid rendering tens of thousands of rows in a windowed viewport with a replaceable virtualization engine."
+    },
+    {
+      "n": 67,
+      "slug": "date-picker",
+      "name": "DatePicker",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Picks a calendar date through an input with a month-grid popover; formatting uses Intl."
+    },
+    {
+      "n": 68,
+      "slug": "edge",
+      "name": "Edge",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Draws a connection line between two canvas points with an optional label."
+    },
+    {
+      "n": 69,
+      "slug": "editor",
+      "name": "Editor",
+      "tier": "heavy",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Rich text editor with a minimal self-contained contentEditable kernel and a formatting toolbar."
+    },
+    {
+      "n": 70,
+      "slug": "flow-node",
+      "name": "FlowNode",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "A positioned node card for flow diagrams with input and output ports."
+    },
+    {
+      "n": 71,
+      "slug": "gauge",
+      "name": "Gauge",
+      "tier": "base",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Shows a single value on a semicircular dial against a maximum."
+    },
+    {
+      "n": 72,
+      "slug": "graph-view",
+      "name": "GraphView",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Renders nodes and links as a deterministic ring-layout relationship diagram."
+    },
+    {
+      "n": 73,
+      "slug": "heatmap",
+      "name": "Heatmap",
+      "tier": "base",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Renders a matrix of values as color-intensity cells over a token-derived scale."
+    },
+    {
+      "n": 74,
+      "slug": "image",
+      "name": "Image",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Renders an image with loading state, error fallback, and optional caption."
+    },
+    {
+      "n": 75,
+      "slug": "kpi-dashboard",
+      "name": "KpiDashboard",
+      "tier": "base",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Arranges a set of key performance indicators in a responsive metric grid."
+    },
+    {
+      "n": 76,
+      "slug": "loading-bar",
+      "name": "LoadingBar",
+      "tier": "base",
+      "family": "E",
+      "implementation": "complete",
+      "requirement": "Shows page-level loading progress as a thin bar pinned to the viewport start edge."
+    },
+    {
+      "n": 77,
+      "slug": "markdown-renderer",
+      "name": "MarkdownRenderer",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Renders Markdown text to semantic elements without raw HTML injection; friendly to streamed input."
+    },
+    {
+      "n": 78,
+      "slug": "mind-map",
+      "name": "MindMap",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Lays out a topic tree as a deterministic left-to-right mind map on the canvas base."
+    },
+    {
+      "n": 79,
+      "slug": "multi-select",
+      "name": "MultiSelect",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Selects multiple options from a listbox and shows the selection as removable chips."
+    },
+    {
+      "n": 80,
+      "slug": "notification",
+      "name": "Notification",
+      "tier": "base",
+      "family": "E",
+      "implementation": "complete",
+      "requirement": "Presents a persistent notification card with title, message, and dismiss control."
+    },
+    {
+      "n": 81,
+      "slug": "otp-input",
+      "name": "OtpInput",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Segmented one-time-code entry with automatic focus advance and paste support."
+    },
+    {
+      "n": 82,
+      "slug": "password-input",
+      "name": "PasswordInput",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Password field with a visibility toggle and the same states as Input."
+    },
+    {
+      "n": 83,
+      "slug": "pipeline-view",
+      "name": "PipelineView",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Shows CI/CD stages as an ordered flow with per-stage status."
+    },
+    {
+      "n": 84,
+      "slug": "rating",
+      "name": "Rating",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Captures or displays a star rating from one to a configurable maximum."
+    },
+    {
+      "n": 85,
+      "slug": "result",
+      "name": "Result",
+      "tier": "base",
+      "family": "E",
+      "implementation": "complete",
+      "requirement": "Presents the outcome of a process with status icon, title, description, and actions."
+    },
+    {
+      "n": 86,
+      "slug": "search-bar",
+      "name": "SearchBar",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Search input with submit and clear controls inside a search landmark."
+    },
+    {
+      "n": 87,
+      "slug": "share-panel",
+      "name": "SharePanel",
+      "tier": "base",
+      "family": "H",
+      "implementation": "complete",
+      "requirement": "Offers share targets and a copyable link for the current content."
+    },
+    {
+      "n": 88,
+      "slug": "sparkline",
+      "name": "Sparkline",
+      "tier": "base",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Renders a miniature trend line for inline placement beside metrics."
+    },
+    {
+      "n": 89,
+      "slug": "statistic",
+      "name": "Statistic",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Displays a single prominent metric with label, value, and optional trend indicator."
+    },
+    {
+      "n": 90,
+      "slug": "tag",
+      "name": "Tag",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Presents a compact, optionally removable label for categorizing content."
+    },
+    {
+      "n": 91,
+      "slug": "ticker",
+      "name": "Ticker",
+      "tier": "base",
+      "family": "F",
+      "implementation": "complete",
+      "requirement": "Shows a horizontally scrolling strip of compact market or status items."
+    },
+    {
+      "n": 92,
+      "slug": "time-picker",
+      "name": "TimePicker",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Picks a wall-clock time via hour and minute controls formatted with Intl."
+    },
+    {
+      "n": 93,
+      "slug": "timeline",
+      "name": "Timeline",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Presents a chronologically ordered list of events with markers and timestamps."
+    },
+    {
+      "n": 94,
+      "slug": "tree",
+      "name": "Tree",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Displays hierarchical data as an expandable and collapsible tree."
+    },
+    {
+      "n": 95,
+      "slug": "upload",
+      "name": "Upload",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Complete upload control with drag and drop, paste, multi-file list, and per-file progress."
+    },
+    {
+      "n": 96,
+      "slug": "command-palette",
+      "name": "CommandPalette",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Offers a searchable command list (⌘K pattern) with a reproducible default sort."
+    },
+    {
+      "n": 97,
+      "slug": "container",
+      "name": "Container",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Centers page content with a max inline-size and token padding that morphs by container query."
+    },
+    {
+      "n": 98,
+      "slug": "masonry",
+      "name": "Masonry",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Arranges uneven-height children into responsive CSS columns without a fixed row grid."
+    },
+    {
+      "n": 99,
+      "slug": "navbar",
+      "name": "Navbar",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Provides horizontal (or stacked, when narrow) primary navigation with an optional brand region."
+    },
+    {
+      "n": 100,
+      "slug": "space",
+      "name": "Space",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Inserts a token-sized empty gap on one or both axes without laying out children."
+    },
+    {
+      "n": 101,
+      "slug": "steps",
+      "name": "Steps",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Shows sequential progress through a named series of steps, optionally allowing jump selection."
+    },
+    {
+      "n": 102,
+      "slug": "navigation",
+      "name": "Navigation",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Single three-end tab controller: one items API morphs from compact TabBar to collapsible rail to persistent sidebar via container queries."
+    },
+    {
+      "n": 103,
+      "slug": "navigation-title",
+      "name": "NavigationTitle",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Stack chrome for the current view controller (title, back, bar items). Formerly NavigationBar. Root destinations stay on Navigation; sidebar brand is TitleBar."
+    },
+    {
+      "n": 104,
+      "slug": "checkerboard-surface",
+      "name": "CheckerboardSurface",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Token-colored checkerboard surface so transparent media edges remain readable (theme tokens + contrast=default|strong)."
+    },
+    {
+      "n": 105,
+      "slug": "image-compare",
+      "name": "ImageCompare",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Before/after image compare with a draggable, keyboard-accessible divider and optional checkerboard."
+    },
+    {
+      "n": 106,
+      "slug": "scroll-pane",
+      "name": "ScrollPane",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Single nested scroll host for regions inside AppShell main without fighting shell overflow."
+    },
+    {
+      "n": 107,
+      "slug": "workspace-split",
+      "name": "WorkspaceSplit",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "Master–detail (+ optional tools) workspace that stacks on compact and splits from tablet/desktop via container queries — not a frozen desktop Grid."
+    },
+    {
+      "n": 108,
+      "slug": "brand-mark",
+      "name": "BrandMark",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Sized brand image for NavigationTitle trailing chrome without consumer mark CSS."
+    },
+    {
+      "n": 109,
+      "slug": "mask-paint-canvas",
+      "name": "MaskPaintCanvas",
+      "tier": "base",
+      "family": "G",
+      "implementation": "complete",
+      "requirement": "Paint/erase mask over a source image and export a mask blob; not a pan/zoom world canvas."
+    },
+    {
+      "n": 110,
+      "slug": "selectable-list-item",
+      "name": "SelectableListItem",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Selectable queue/list row with selected highlight, meta, and inline actions."
+    },
+    {
+      "n": 111,
+      "slug": "media-thumb-grid",
+      "name": "MediaThumbGrid",
+      "tier": "base",
+      "family": "D",
+      "implementation": "complete",
+      "requirement": "Selectable thumbnail grid for PDF pages or media multi-select."
+    },
+    {
+      "n": 112,
+      "slug": "processing-placeholder",
+      "name": "ProcessingPlaceholder",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Centered busy placeholder with spinner, copy, and optional source thumbnail."
+    },
+    {
+      "n": 113,
+      "slug": "button-group",
+      "name": "ButtonGroup",
+      "tier": "base",
+      "family": "C",
+      "implementation": "complete",
+      "requirement": "Attached/segmented or spaced Button cluster for exclusive tool toggles and toolbar actions."
+    },
+    {
+      "n": 114,
+      "slug": "title-bar",
+      "name": "TitleBar",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Navigation sidebar brand header (logo+title+subtitle) with home activation and brand chrome defaults; sidebar-only DoD."
+    },
+    {
+      "n": 115,
+      "slug": "footer",
+      "name": "Footer",
+      "tier": "base",
+      "family": "A",
+      "implementation": "complete",
+      "requirement": "First-class AppShell attribution chrome for #footer; pair with footerPlacement auto/shell/main."
+    },
+    {
+      "n": 116,
+      "slug": "nav-account-card",
+      "name": "NavAccountCard",
+      "tier": "base",
+      "family": "B",
+      "implementation": "complete",
+      "requirement": "Navigation sidebar account + logout foot for #footer; sidebar-only; suppresses collapse toggle when mounted."
+    }
+  ],
+  "s5Suite": {
+    "metricId": "S5",
+    "appShell": "app-shell",
+    "common10": [
+      "button",
+      "icon",
+      "typography",
+      "input",
+      "select",
+      "checkbox",
+      "dialog",
+      "tabs",
+      "stack",
+      "spinner"
+    ],
+    "note": "S5 measures AppShell plus these 10. AppShell is not one of the 10. Phase 1 samples; Phase 2 is a release gate."
+  }
+}

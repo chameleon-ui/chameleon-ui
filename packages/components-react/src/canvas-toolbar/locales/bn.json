@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "ক্যানভাস টুলবার",
+    "zoomIn": "জুম ইন",
+    "zoomOut": "জুম আউট",
+    "resetView": "ভিউ রিসেট করুন",
+    "fitView": "ভিউতে ফিট করুন"
+  }
+}

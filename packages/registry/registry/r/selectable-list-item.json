@@ -1,0 +1,112 @@
+{
+  "id": "selectable-list-item",
+  "type": "registry:ui",
+  "name": "SelectableListItem",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/selectable-list-item/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"selectable-list-item\",\n  \"name\": \"SelectableListItem\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Selectable queue/list row with optional leading, meta, and inline actions.\",\n  \"scenarios\": [\n    \"Task queue row with selected highlight, status meta, and download/delete actions.\"\n  ],\n  \"props\": {\n    \"selected\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Whether the row is selected.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Disables selection.\"\n    },\n    \"onSelect\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Called when the row is activated (click / Enter / Space).\",\n      \"payload\": \"() => void\"\n    },\n    \"leading\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Optional leading media or icon. Vue slot: leading.\"\n    },\n    \"meta\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Secondary meta (status badge, caption). Vue slot: meta.\"\n    },\n    \"actions\": {\n      \"type\": \"node\",\n      \"required\": false,\n      \"description\": \"Inline action controls; clicks do not re-fire onSelect. Vue slot: actions.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Idle unselected row.\"\n    },\n    {\n      \"name\": \"selected\",\n      \"description\": \"Selected / active row.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Selection disabled.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"scroll-pane\",\n      \"workspace-split\",\n      \"stack\",\n      \"card\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not nest interactive controls that need row selection inside actions without stopPropagation — actions already stop propagation.\"\n  ],\n  \"a11y\": {\n    \"role\": \"option\",\n    \"keyboard\": [\n      \"Enter\",\n      \"Space\"\n    ],\n    \"focus\": \"Row is focusable when enabled.\",\n    \"labeling\": \"Children provide the accessible name; aria-selected reflects selection.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fluid row.\",\n    \"breakpoints\": {\n      \"compact\": \"Default.\",\n      \"medium\": \"Default.\",\n      \"large\": \"Default.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"selectable-list-item\",\n    \"states\": [\n      \"default\",\n      \"selected\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"select-single\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/index.ts",
+      "content": "export { SelectableListItem } from './SelectableListItem.js'\nexport type { SelectableListItemProps } from './SelectableListItem.js'\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/am.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ar.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/bn.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/de.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/en.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/es.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/fa.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/fr.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ha.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/hi.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/id.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ja.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ko.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/pt.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ru.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/sw.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ug.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/ur.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/vi.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/zh-CN.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/locales/zh-HK.json",
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/README.md",
+      "content": "# SelectableListItem\n\nSelectable queue / list row (EraseLab gap fill). Pass `selected`, optional `leading` / `meta` / `actions`, and `onSelect`.\n"
+    },
+    {
+      "path": "components/selectable-list-item/SelectableListItem.tsx",
+      "content": "import type { KeyboardEvent, MouseEvent, ReactNode } from 'react'\nimport './styles.css'\n\nexport interface SelectableListItemProps {\n  selected?: boolean\n  disabled?: boolean\n  onSelect?: () => void\n  leading?: ReactNode\n  meta?: ReactNode\n  actions?: ReactNode\n  children?: ReactNode\n  className?: string\n}\n\nexport function SelectableListItem({\n  selected = false,\n  disabled = false,\n  onSelect,\n  leading,\n  meta,\n  actions,\n  children,\n  className,\n}: SelectableListItemProps) {\n  const classes = ['cu-selectable-list-item', className].filter(Boolean).join(' ')\n\n  const activate = () => {\n    if (disabled) return\n    onSelect?.()\n  }\n\n  const onKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {\n    if (event.key === 'Enter' || event.key === ' ') {\n      event.preventDefault()\n      activate()\n    }\n  }\n\n  const onActionsClick = (event: MouseEvent<HTMLDivElement>) => {\n    event.stopPropagation()\n  }\n\n  return (\n    <div\n      className={classes}\n      role=\"option\"\n      tabIndex={disabled ? -1 : 0}\n      aria-selected={selected}\n      aria-disabled={disabled || undefined}\n      data-selected={selected ? 'true' : 'false'}\n      data-disabled={disabled ? 'true' : 'false'}\n      data-ai-role=\"selectable-list-item\"\n      data-ai-intent=\"select-single\"\n      data-ai-state={disabled ? 'disabled' : selected ? 'selected' : 'default'}\n      onClick={activate}\n      onKeyDown={onKeyDown}\n    >\n      <div className=\"cu-selectable-list-item__row\">\n        {leading ? <div className=\"cu-selectable-list-item__leading\">{leading}</div> : null}\n        <div className=\"cu-selectable-list-item__body\">\n          {children}\n          {meta ? <div className=\"cu-selectable-list-item__meta\">{meta}</div> : null}\n        </div>\n      </div>\n      {actions ? (\n        <div className=\"cu-selectable-list-item__actions\" onClick={onActionsClick}>\n          {actions}\n        </div>\n      ) : null}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/selectable-list-item/styles.css",
+      "content": ".cu-selectable-list-item {\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-2);\n  padding-block: var(--cu-space-2);\n  padding-inline: var(--cu-space-3);\n  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-elevated, var(--cu-color-background-default));\n  color: var(--cu-color-fg-default);\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-selectable-list-item[data-selected='true'] {\n  border-color: var(--cu-color-palette-brand);\n  box-shadow: inset 0 0 0 var(--cu-border-width-hairline, 1px) var(--cu-color-palette-brand);\n  background: color-mix(\n    in srgb,\n    var(--cu-color-palette-brand) 8%,\n    var(--cu-color-background-elevated, var(--cu-color-background-default))\n  );\n}\n\n.cu-selectable-list-item[data-disabled='true'] {\n  opacity: 0.56;\n  cursor: not-allowed;\n}\n\n.cu-selectable-list-item:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n\n.cu-selectable-list-item__row {\n  display: flex;\n  align-items: flex-start;\n  gap: var(--cu-space-2);\n  min-inline-size: 0;\n}\n\n.cu-selectable-list-item__leading {\n  flex: none;\n  display: inline-flex;\n  align-items: center;\n}\n\n.cu-selectable-list-item__body {\n  flex: 1 1 auto;\n  min-inline-size: 0;\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n}\n\n.cu-selectable-list-item__meta {\n  color: var(--cu-color-fg-muted, color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent));\n  font-size: var(--cu-typography-size-caption, 0.8125rem);\n}\n\n.cu-selectable-list-item__actions {\n  display: flex;\n  flex-wrap: wrap;\n  gap: var(--cu-space-1);\n}\n"
+    }
+  ]
+}

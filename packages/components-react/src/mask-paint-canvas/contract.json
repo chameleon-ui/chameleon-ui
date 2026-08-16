@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "mask-paint-canvas",
+  "name": "MaskPaintCanvas",
+  "status": "stable",
+  "purpose": "Paint/erase a natural-pixel mask over a contain-fitted source image with adaptive ResizeObserver fit, official zoom + pan, and optional checkerboard.",
+  "scenarios": [
+    "Watermark / inpaint mask editing with whole-image contain fit.",
+    "Transparent PNG editing with checkerboard backdrop.",
+    "Export mask blob at natural resolution matching on-screen strokes."
+  ],
+  "props": {
+    "src": {
+      "type": "string",
+      "required": true,
+      "description": "Source image URL."
+    },
+    "fit": {
+      "type": "enum",
+      "required": false,
+      "description": "Default contain: whole image visible and centered in the stage.",
+      "values": ["contain"],
+      "default": "contain"
+    },
+    "mode": {
+      "type": "enum",
+      "required": false,
+      "description": "Paint white mask strokes or erase them.",
+      "values": ["paint", "erase"],
+      "default": "paint"
+    },
+    "brushSize": {
+      "type": "number",
+      "required": false,
+      "description": "Brush diameter in CSS pixels (screen space)."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Disable pointer painting."
+    },
+    "checkerboard": {
+      "type": "boolean",
+      "required": false,
+      "description": "Show token-toned checkerboard for transparent media.",
+      "default": true
+    },
+    "checkerboardContrast": {
+      "type": "enum",
+      "required": false,
+      "description": "Checker A/B contrast when checkerboard is on. Defaults to strong for mask editing.",
+      "values": ["default", "strong"],
+      "default": "strong"
+    },
+    "zoom": {
+      "type": "number",
+      "required": false,
+      "description": "User zoom relative to contain-fit; 1 = fitted. Controlled when set (pair with zoomChange / onZoomChange). Handle: zoomIn/zoomOut/resetZoom/setZoom/getZoom."
+    },
+    "minZoom": {
+      "type": "number",
+      "required": false,
+      "description": "Lower zoom clamp.",
+      "default": 1
+    },
+    "maxZoom": {
+      "type": "number",
+      "required": false,
+      "description": "Upper zoom clamp.",
+      "default": 8
+    },
+    "wheelZoom": {
+      "type": "boolean",
+      "required": false,
+      "description": "Wheel to zoom inside the stage (preventDefault; no page-scroll conflict). Pan when zoomed: middle-drag or Space+drag.",
+      "default": false
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes on the stage."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Image loaded; no paint yet."
+    },
+    {
+      "name": "ready",
+      "description": "Mask has paint strokes."
+    },
+    {
+      "name": "disabled",
+      "description": "Pointer painting disabled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "workspace-split",
+      "card",
+      "stack",
+      "scroll-pane",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Sizing the stage with consumer 62vh / content-height hacks instead of a definite host or fill-parent.",
+    "Using Canvas / CanvasToolbar pan-zoom for mask paint export.",
+    "Faking zoom with consumer CSS transform scale() on the stage — it breaks pointer → natural-pixel mapping; use the built-in zoom API.",
+    "Nesting WorkspaceSplit inside detail for canvas|tools."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Pointer painting is the primary input; pair with labeled mode controls outside.",
+    "labeling": "Provide nearby labels for mode / brush / clear.",
+    "wcag": [
+      "1.3.1",
+      "1.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fill parent; ResizeObserver re-runs object-fit:contain math on stage resize.",
+    "breakpoints": {
+      "compact": "Same contain fit; host should still give a definite block size (e.g. WorkspaceSplit pane).",
+      "medium": "Same.",
+      "large": "Same; prefer tools in WorkspaceSplit #tools so detail height stays definite."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS; pointer math uses getBoundingClientRect.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "mask-paint-canvas",
+    "states": [
+      "default",
+      "ready",
+      "disabled"
+    ],
+    "intents": [
+      "paint-mask"
+    ]
+  }
+}

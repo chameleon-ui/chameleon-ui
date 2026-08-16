@@ -1,0 +1,7 @@
+{
+  "multi-select": {
+    "label": "複数選択",
+    "selected": "選択済み",
+    "clear": "すべてクリア"
+  }
+}

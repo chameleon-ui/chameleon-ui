@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "پالت دستور",
+    "placeholder": "دستور بنویسید",
+    "empty": "دستوری موجود نیست",
+    "close": "بستن"
+  }
+}

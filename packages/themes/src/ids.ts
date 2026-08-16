@@ -1,14 +1,14 @@
 /** Phase 2 theme ids — SSOT: 综合可行性研究报告 v3.0 §6.2 (folder names without theme- prefix). */
 
 export const themeIds = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ] as const
 
 /** Community discipline packs (Phase 4) — not homage theme ids. */

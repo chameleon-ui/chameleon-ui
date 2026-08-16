@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "tabs",
+  "name": "Tabs",
+  "status": "experimental",
+  "purpose": "Organizes content into a set of selectable tab panels.",
+  "scenarios": [
+    "Switch between settings sections",
+    "Browse content categories without leaving the page",
+    "Use arrow keys to move between tabs in RTL"
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of tabs with value, label, and content."
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "Uncontrolled initial tab value."
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled active tab value."
+    },
+    "onChange": {
+      "type": "event",
+      "required": false,
+      "description": "Receives the next active tab value.",
+      "payload": "(value: string) => void"
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "A tab is active and its panel is visible."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "dialog",
+      "app-shell",
+      "page"
+    ],
+    "allowedChildren": [
+      "text",
+      "input",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest tabs inside tabs.",
+    "Do not use tabs when the content should be visible at once."
+  ],
+  "a11y": {
+    "role": "tablist",
+    "keyboard": [
+      "Tab moves to the active tab",
+      "Arrow keys move between tabs",
+      "Tab moves into the tab panel"
+    ],
+    "focus": "Visible focus indicator on tab triggers; roving tabindex is handled by the primitive.",
+    "labeling": "Each tab is labelled by its visible text; each panel is associated with its tab.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Tab list scrolls horizontally when it overflows. Active tab stays visible.",
+    "breakpoints": {
+      "compact": "Tab list may overflow horizontally; users can swipe/scroll.",
+      "medium": "Tab list fits the available width.",
+      "large": "Tab list fits the available width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Tab order follows the document direction; arrow-key roving is handled by the primitive.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "tabs",
+    "states": [
+      "active"
+    ],
+    "intents": [
+      "switch-view"
+    ]
+  },
+  "mechanics": "Tabs organizes in-page panels. items is Array<{ value, label, content }>. value/onChange are controlled; defaultValue is uncontrolled. This is not the AppShell tab controller — root destinations use Navigation. Arrow keys move between tabs; order follows document direction.",
+  "usage": [
+    "Import Tabs from @chameleon-ui/components-react.",
+    "Pass items with value, label, and content. Use defaultValue or bind value and onChange.",
+    "Do not use Tabs as AppShell chrome. Root destinations belong on Navigation."
+  ],
+  "exports": [
+    {
+      "name": "Tabs",
+      "kind": "component",
+      "signature": "function Tabs(props: TabsProps): JSX.Element",
+      "description": "In-page tablist and panels. Not the AppShell tab controller."
+    },
+    {
+      "name": "TabsProps",
+      "kind": "type",
+      "signature": "interface TabsProps",
+      "description": "items, value, defaultValue, and onChange."
+    }
+  ]
+}

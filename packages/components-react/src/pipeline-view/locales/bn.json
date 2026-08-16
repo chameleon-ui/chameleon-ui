@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "পাইপলাইন",
+    "statusPending": "অপেক্ষমাণ",
+    "statusRunning": "চলছে",
+    "statusSuccess": "সফল",
+    "statusFailed": "ব্যর্থ"
+  }
+}

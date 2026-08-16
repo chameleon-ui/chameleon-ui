@@ -1,7 +1,7 @@
 # MCP Apps decision (Phase 4)
 
 > Date: 2026-08-13  
-> Card: [`docs/project/phases/Phase-4-v2.0.md`](../../../docs/project/phases/Phase-4-v2.0.md) §3.3  
+> Card: `docs/project/phases/Phase-4-v2.0.md` §3.3（该阶段文档未保留在仓库中）  
 > Decision tree: **evaluate protocol maturity → adapter POC with demo / observation report only**.
 
 ## Decision: **adapt** (small independent POC)

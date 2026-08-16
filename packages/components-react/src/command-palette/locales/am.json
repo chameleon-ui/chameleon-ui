@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "የትእዛዝ ፓሌት",
+    "placeholder": "ትእዛዝ ጻፍ",
+    "empty": "ትእዛዞች የሉም",
+    "close": "ዝጋ"
+  }
+}

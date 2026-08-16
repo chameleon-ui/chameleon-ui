@@ -1,5 +1,5 @@
-import { Card, DataGrid, Dialog, EmptyState, Form, Input, Pagination, Typography } from '@chameleon-ui/components'
-import type { DataGridColumn } from '@chameleon-ui/components'
+import { Card, DataGrid, Dialog, EmptyState, Form, Input, Pagination, Typography } from '@chameleon-ui/components-react'
+import type { DataGridColumn } from '@chameleon-ui/components-react'
 import { useState, type FormEvent } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { crudPageLocaleTrees } from './locale-map.js'

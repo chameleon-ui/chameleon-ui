@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "명령 팔레트",
+    "placeholder": "명령 입력",
+    "empty": "사용 가능한 명령 없음",
+    "close": "닫기"
+  }
+}

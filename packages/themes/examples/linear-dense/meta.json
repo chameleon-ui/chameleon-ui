@@ -1,0 +1,12 @@
+{
+  "id": "linear-dense",
+  "label": "Line Dense (derived demo)",
+  "extends": "linear",
+  "preview": {
+    "accent": "#111827",
+    "surface": "#ffffff"
+  },
+  "fonts": {
+    "sans": "system-ui, sans-serif"
+  }
+}

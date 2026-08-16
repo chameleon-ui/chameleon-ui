@@ -4,7 +4,7 @@
 
 ## 支持级别
 
-**supported**（Phase 8 起，由 POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档 / 非 `ui://` URI）抛定位到字段的 `McpAppsAdapterError`；测试在 CI（`phase4:gates` + `phase8:gates`）运行，非手工。**版本统一到 0.2.0**：`adapt` / `toUiResource` / `toolUiMeta` 签名在 0.2.0 内不破坏。
+**supported**（Phase 8 起，由 POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档 / 非 `ui://` URI）抛定位到字段的 `McpAppsAdapterError`；测试在 CI（`phase4:gates` + `phase8:gates`）运行，非手工。**版本统一到 0.4.0**：`adapt` / `toUiResource` / `toolUiMeta` 签名在 0.4.0 内不破坏。
 
 ## 决策
 

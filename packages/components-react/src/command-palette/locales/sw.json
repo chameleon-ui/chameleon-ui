@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "Paleti ya amri",
+    "placeholder": "Andika amri",
+    "empty": "Hakuna amri zinazopatikana",
+    "close": "Funga"
+  }
+}

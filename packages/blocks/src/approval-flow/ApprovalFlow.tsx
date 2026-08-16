@@ -1,5 +1,5 @@
-import { Card, Form, Radio, Result, Steps, Textarea, Typography } from '@chameleon-ui/components'
-import type { StepItem } from '@chameleon-ui/components'
+import { Card, Form, Radio, Result, Steps, Textarea, Typography } from '@chameleon-ui/components-react'
+import type { StepItem } from '@chameleon-ui/components-react'
 import { useState, type FormEvent } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { approvalFlowLocaleTrees } from './locale-map.js'

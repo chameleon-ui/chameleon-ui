@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/i18n",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -11,7 +11,11 @@
   },
   "type": "module",
   "description": "Shared ICU MessageFormat runtime, C3 Map catalog lookup, and pseudo-locale tools",
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -24,7 +28,8 @@
     "dev": "tsc -p tsconfig.json --noEmit",
     "lint": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
-    "typecheck": "tsc -p tsconfig.json --noEmit"
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "audit:locales": "node ./scripts/audit-locales.mjs"
   },
   "peerDependencies": {
     "@formatjs/icu-messageformat-parser": "3.5.14",

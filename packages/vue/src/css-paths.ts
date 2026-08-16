@@ -1,7 +1,7 @@
 /** Canonical CSS import paths for Vue umbrella consumers. */
 export const tokensCss = '@chameleon-ui/tokens/css' as const
 export const tokensDensityCss = '@chameleon-ui/tokens/density.css' as const
-export const defaultThemeCss = '@chameleon-ui/themes/line/css' as const
+export const defaultThemeCss = '@chameleon-ui/themes/linear/css' as const
 export const componentsVueCss = '@chameleon-ui/components-vue/css' as const
 /** Preferred single import — real CSS file after `pnpm build`. */
 export const umbrellaCss = '@chameleon-ui/vue/css' as const

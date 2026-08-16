@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "Cari",
+    "placeholder": "Cari",
+    "clear": "Hapus",
+    "submit": "Kirim pencarian"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "पाइपलाइन",
+    "statusPending": "लंबित",
+    "statusRunning": "चल रहा है",
+    "statusSuccess": "सफल",
+    "statusFailed": "विफल"
+  }
+}

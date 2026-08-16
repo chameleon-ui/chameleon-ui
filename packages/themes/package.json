@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/themes",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -19,78 +19,78 @@
       "import": "./dist/index.js"
     },
     "./dist/*": "./dist/*",
-    "./line/css": {
-      "style": "./dist/line/variables.css",
-      "import": "./dist/line/variables.css",
-      "default": "./dist/line/variables.css"
+    "./linear/css": {
+      "style": "./dist/linear/variables.css",
+      "import": "./dist/linear/variables.css",
+      "default": "./dist/linear/variables.css"
     },
-    "./line/css?raw": "./dist/line/variables.css",
-    "./silver-arrow/css": {
-      "style": "./dist/silver-arrow/variables.css",
-      "import": "./dist/silver-arrow/variables.css",
-      "default": "./dist/silver-arrow/variables.css"
+    "./linear/css?raw": "./dist/linear/variables.css",
+    "./mercedes/css": {
+      "style": "./dist/mercedes/variables.css",
+      "import": "./dist/mercedes/variables.css",
+      "default": "./dist/mercedes/variables.css"
     },
-    "./silver-arrow/css?raw": "./dist/silver-arrow/variables.css",
-    "./stuttgart/css": {
-      "style": "./dist/stuttgart/variables.css",
-      "import": "./dist/stuttgart/variables.css",
-      "default": "./dist/stuttgart/variables.css"
+    "./mercedes/css?raw": "./dist/mercedes/variables.css",
+    "./porsche/css": {
+      "style": "./dist/porsche/variables.css",
+      "import": "./dist/porsche/variables.css",
+      "default": "./dist/porsche/variables.css"
     },
-    "./stuttgart/css?raw": "./dist/stuttgart/variables.css",
-    "./corsa/css": {
-      "style": "./dist/corsa/variables.css",
-      "import": "./dist/corsa/variables.css",
-      "default": "./dist/corsa/variables.css"
+    "./porsche/css?raw": "./dist/porsche/variables.css",
+    "./ferrari/css": {
+      "style": "./dist/ferrari/variables.css",
+      "import": "./dist/ferrari/variables.css",
+      "default": "./dist/ferrari/variables.css"
     },
-    "./corsa/css?raw": "./dist/corsa/variables.css",
-    "./cupertino/css": {
-      "style": "./dist/cupertino/variables.css",
-      "import": "./dist/cupertino/variables.css",
-      "default": "./dist/cupertino/variables.css"
+    "./ferrari/css?raw": "./dist/ferrari/variables.css",
+    "./apple/css": {
+      "style": "./dist/apple/variables.css",
+      "import": "./dist/apple/variables.css",
+      "default": "./dist/apple/variables.css"
     },
-    "./cupertino/css?raw": "./dist/cupertino/variables.css",
-    "./siren/css": {
-      "style": "./dist/siren/variables.css",
-      "import": "./dist/siren/variables.css",
-      "default": "./dist/siren/variables.css"
+    "./apple/css?raw": "./dist/apple/variables.css",
+    "./tiktok/css": {
+      "style": "./dist/tiktok/variables.css",
+      "import": "./dist/tiktok/variables.css",
+      "default": "./dist/tiktok/variables.css"
     },
-    "./siren/css?raw": "./dist/siren/variables.css",
+    "./tiktok/css?raw": "./dist/tiktok/variables.css",
     "./wechat/css": {
       "style": "./dist/wechat/variables.css",
       "import": "./dist/wechat/variables.css",
       "default": "./dist/wechat/variables.css"
     },
     "./wechat/css?raw": "./dist/wechat/variables.css",
-    "./ant-blue/css": {
-      "style": "./dist/ant-blue/variables.css",
-      "import": "./dist/ant-blue/variables.css",
-      "default": "./dist/ant-blue/variables.css"
+    "./alipay/css": {
+      "style": "./dist/alipay/variables.css",
+      "import": "./dist/alipay/variables.css",
+      "default": "./dist/alipay/variables.css"
     },
-    "./ant-blue/css?raw": "./dist/ant-blue/variables.css",
-    "./line/meta": "./dist/line/meta.json",
-    "./line/design-rules": "./src/line/design-rules.json",
-    "./line/tokens": "./src/line/tokens.json",
-    "./silver-arrow/meta": "./dist/silver-arrow/meta.json",
-    "./silver-arrow/design-rules": "./src/silver-arrow/design-rules.json",
-    "./silver-arrow/tokens": "./src/silver-arrow/tokens.json",
-    "./stuttgart/meta": "./dist/stuttgart/meta.json",
-    "./stuttgart/design-rules": "./src/stuttgart/design-rules.json",
-    "./stuttgart/tokens": "./src/stuttgart/tokens.json",
-    "./corsa/meta": "./dist/corsa/meta.json",
-    "./corsa/design-rules": "./src/corsa/design-rules.json",
-    "./corsa/tokens": "./src/corsa/tokens.json",
-    "./cupertino/meta": "./dist/cupertino/meta.json",
-    "./cupertino/design-rules": "./src/cupertino/design-rules.json",
-    "./cupertino/tokens": "./src/cupertino/tokens.json",
-    "./siren/meta": "./dist/siren/meta.json",
-    "./siren/design-rules": "./src/siren/design-rules.json",
-    "./siren/tokens": "./src/siren/tokens.json",
+    "./alipay/css?raw": "./dist/alipay/variables.css",
+    "./linear/meta": "./dist/linear/meta.json",
+    "./linear/design-rules": "./src/linear/design-rules.json",
+    "./linear/tokens": "./src/linear/tokens.json",
+    "./mercedes/meta": "./dist/mercedes/meta.json",
+    "./mercedes/design-rules": "./src/mercedes/design-rules.json",
+    "./mercedes/tokens": "./src/mercedes/tokens.json",
+    "./porsche/meta": "./dist/porsche/meta.json",
+    "./porsche/design-rules": "./src/porsche/design-rules.json",
+    "./porsche/tokens": "./src/porsche/tokens.json",
+    "./ferrari/meta": "./dist/ferrari/meta.json",
+    "./ferrari/design-rules": "./src/ferrari/design-rules.json",
+    "./ferrari/tokens": "./src/ferrari/tokens.json",
+    "./apple/meta": "./dist/apple/meta.json",
+    "./apple/design-rules": "./src/apple/design-rules.json",
+    "./apple/tokens": "./src/apple/tokens.json",
+    "./tiktok/meta": "./dist/tiktok/meta.json",
+    "./tiktok/design-rules": "./src/tiktok/design-rules.json",
+    "./tiktok/tokens": "./src/tiktok/tokens.json",
     "./wechat/meta": "./dist/wechat/meta.json",
     "./wechat/design-rules": "./src/wechat/design-rules.json",
     "./wechat/tokens": "./src/wechat/tokens.json",
-    "./ant-blue/meta": "./dist/ant-blue/meta.json",
-    "./ant-blue/design-rules": "./src/ant-blue/design-rules.json",
-    "./ant-blue/tokens": "./src/ant-blue/tokens.json",
+    "./alipay/meta": "./dist/alipay/meta.json",
+    "./alipay/design-rules": "./src/alipay/design-rules.json",
+    "./alipay/tokens": "./src/alipay/tokens.json",
     "./community-focus-first/meta": "./src/community-focus-first/meta.json",
     "./community-focus-first/design-rules": "./src/community-focus-first/design-rules.json",
     "./community-focus-first/tokens": "./src/community-focus-first/tokens.json"
@@ -98,8 +98,8 @@
   "scripts": {
     "build": "node ./scripts/build-themes.mjs && tsc -p tsconfig.json",
     "dev": "node ./scripts/build-themes.mjs",
-    "lint": "node --check ./scripts/build-themes.mjs && node --check ./scripts/test-themes.mjs && node --check ./scripts/validate-rules.mjs && node --check ./scripts/test-themes-extends.mjs && node --check ./scripts/test-themes-regression.mjs && node --check ./scripts/test-themes-corsa-siren.mjs",
-    "test": "node ./scripts/build-themes.mjs && node ./scripts/test-themes.mjs && node ./scripts/test-themes-corsa-siren.mjs && node ./scripts/test-themes-extends.mjs && node ./scripts/test-themes-regression.mjs",
+    "lint": "node --check ./scripts/build-themes.mjs && node --check ./scripts/test-themes.mjs && node --check ./scripts/validate-rules.mjs && node --check ./scripts/test-themes-extends.mjs && node --check ./scripts/test-themes-regression.mjs && node --check ./scripts/test-themes-ferrari-tiktok.mjs",
+    "test": "node ./scripts/build-themes.mjs && node ./scripts/test-themes.mjs && node ./scripts/test-themes-ferrari-tiktok.mjs && node ./scripts/test-themes-extends.mjs && node ./scripts/test-themes-regression.mjs",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "validate-rules": "node ./scripts/validate-rules.mjs"
   },

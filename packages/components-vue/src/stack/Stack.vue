@@ -7,8 +7,15 @@ export type StackJustify = 'start' | 'center' | 'end' | 'between'
 export interface StackProps {
   direction?: StackDirection
   gap?: StackGap
+  /** Cross-axis alignment. Default `stretch` fills the cross axis (full width in a column stack). */
   align?: StackAlignment
+  /** Main-axis distribution. */
   justify?: StackJustify
+  /**
+   * Grow to fill a flex/grid parent (workspace panes, shell columns, toolbars).
+   * Sets `flex: 1 1 auto` + self stretch; pair with `align="stretch"` for children.
+   */
+  grow?: boolean
   class?: string
 }
 </script>
@@ -21,10 +28,19 @@ const props = withDefaults(defineProps<StackProps>(), {
   gap: '2',
   align: 'stretch',
   justify: 'start',
+  grow: false,
 })
 
 const classes = computed(() =>
-  ['cu-stack', `cu-stack--${props.direction}`, `cu-stack--gap-${props.gap}`, props.class]
+  [
+    'cu-stack',
+    `cu-stack--${props.direction}`,
+    `cu-stack--gap-${props.gap}`,
+    `cu-stack--align-${props.align}`,
+    `cu-stack--justify-${props.justify}`,
+    props.grow ? 'cu-stack--grow' : '',
+    props.class,
+  ]
     .filter(Boolean)
     .join(' '),
 )
@@ -40,9 +56,10 @@ const classes = computed(() =>
     :data-gap="gap"
     :data-align="align"
     :data-justify="justify"
+    :data-grow="grow ? 'true' : 'false'"
   >
     <slot />
   </div>
 </template>
 
-<style scoped src="./styles.css"></style>
+<style src="./styles.css"></style>

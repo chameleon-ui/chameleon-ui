@@ -1,0 +1,7 @@
+{
+  "upload": {
+    "label": "Téléverser",
+    "dropzone": "Glissez les fichiers ici",
+    "browse": "Parcourir les fichiers"
+  }
+}

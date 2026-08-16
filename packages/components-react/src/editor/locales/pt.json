@@ -1,0 +1,8 @@
+{
+  "editor": {
+    "label": "Editor de rich text",
+    "bold": "Negrito",
+    "italic": "Itálico",
+    "placeholder": "Escreva algo…"
+  }
+}

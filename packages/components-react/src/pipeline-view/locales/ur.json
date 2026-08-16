@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "پائپ لائن",
+    "statusPending": "زیر التوا",
+    "statusRunning": "چل رہا ہے",
+    "statusSuccess": "کامیاب",
+    "statusFailed": "ناکام"
+  }
+}

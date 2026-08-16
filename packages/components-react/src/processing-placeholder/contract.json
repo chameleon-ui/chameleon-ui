@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "processing-placeholder",
+  "name": "ProcessingPlaceholder",
+  "status": "experimental",
+  "purpose": "Centered busy placeholder with spinner, copy, optional thumbnail, and action.",
+  "scenarios": [
+    "Queued / processing job detail while AI work runs."
+  ],
+  "props": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "description": "Primary busy message."
+    },
+    "description": {
+      "type": "string",
+      "required": false,
+      "description": "Supporting message."
+    },
+    "thumbnailSrc": {
+      "type": "string",
+      "required": false,
+      "description": "Optional source thumbnail while processing."
+    },
+    "thumbnailAlt": {
+      "type": "string",
+      "required": false,
+      "description": "Alt text for the thumbnail."
+    },
+    "spinnerLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible spinner label."
+    },
+    "action": {
+      "type": "node",
+      "required": false,
+      "description": "Optional action. Vue slot: action."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "busy",
+      "description": "Indeterminate processing state."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "workspace-split",
+      "card",
+      "stack",
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for empty data — use EmptyState.",
+    "Do not use for determinate progress — use Progress / LoadingBar."
+  ],
+  "a11y": {
+    "role": "status",
+    "keyboard": [],
+    "focus": "Decorative; spinner carries aria-label.",
+    "labeling": "Title and spinner label communicate busy state.",
+    "wcag": [
+      "4.1.3"
+    ]
+  },
+  "responsive": {
+    "strategy": "Centered column.",
+    "breakpoints": {
+      "compact": "Default.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "processing-placeholder",
+    "states": [
+      "busy"
+    ],
+    "intents": [
+      "indicate-busy"
+    ]
+  }
+}

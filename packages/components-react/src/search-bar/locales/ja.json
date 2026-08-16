@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "検索",
+    "placeholder": "検索",
+    "clear": "クリア",
+    "submit": "検索を実行"
+  }
+}

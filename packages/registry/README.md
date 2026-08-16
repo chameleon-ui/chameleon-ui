@@ -11,7 +11,7 @@ CLI / MCP / GenUI-Bench 从本包读取组件、主题、纪律包条目，交�
 | 类别 | 目录 | 数量 |
 | :--- | :--- | :--- |
 | 组件 `registry:ui` | `registry/r/` | **103**（对齐 `catalog.json`） |
-| 主题 `registry:theme` | `registry/t/` | 8（`line`、`silver-arrow`、`stuttgart`、`corsa`、`cupertino`、`siren`、`wechat`、`ant-blue`） |
+| 主题 `registry:theme` | `registry/t/` | 8（`linear`、`mercedes`、`porsche`、`ferrari`、`apple`、`tiktok`、`wechat`、`alipay`） |
 | 纪律包 `registry:rules` | `registry/rules/` | 1（`community-focus-first`） |
 | Blocks `registry:block` | `registry/b/` | 12 |
 

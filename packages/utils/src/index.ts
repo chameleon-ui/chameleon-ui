@@ -7,4 +7,4 @@
 
 export * from './image/index.js';
 
-export const utilsVersion = '0.2.0' as const;
+export const utilsVersion = '0.4.0' as const;

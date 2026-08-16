@@ -1,0 +1,11 @@
+{
+  "id": "tiktok",
+  "label": "TikTok",
+  "preview": {
+    "accent": "#f5c400",
+    "surface": "#fff6c2"
+  },
+  "fonts": {
+    "sans": "system-ui, 'Segoe UI', sans-serif"
+  }
+}

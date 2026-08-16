@@ -1,12 +1,12 @@
 # External Vite + React consumer
 
-**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/react/css` + `ThemeProvider theme="line"`. See [`AGENTS.md`](./AGENTS.md).
+**AI:** Attach the Chameleon MCP server, call `get_started` first, then `get_import_specifiers` before imports. This template already has `@chameleon-ui/react/css` + `ThemeProvider theme="linear"`. See [`AGENTS.md`](./AGENTS.md).
 
 Official template for an app **outside** the Chameleon pnpm workspace (EraseLab shape: Vite 6 + React 19 + Windows).
 
-Packages are **0.2.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
+Packages are **0.4.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-This template depends on **one** package: `@chameleon-ui/react` (`file:../../packages/react`). Default product chrome: **`line`** via `import "@chameleon-ui/react/css"` + `ThemeProvider theme="line"`. SchemaRenderer default map is still **10 slugs**; import the rest from `@chameleon-ui/react`.
+This template depends on **one** package: `@chameleon-ui/react` (`file:../../packages/react`). Default product chrome: **`linear`** via `import "@chameleon-ui/react/css"` + `ThemeProvider theme="linear"`. SchemaRenderer default map is still **10 slugs**; import the rest from `@chameleon-ui/react`.
 
 ## Before `npm install`
 
@@ -37,7 +37,7 @@ pnpm verify:external:build    # typecheck + vite build
 
 1. **This template** (`file:` umbrella) -- best while iterating next to the monorepo.
 2. **npm link** -- from `chameleon-ui/` run `node ./scripts/link-external.mjs --apply`, then `npm link @chameleon-ui/react` in the app.
-3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.2.0.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
+3. **Umbrella tarball (first-class pre-registry)** -- `node ./scripts/pack-external.mjs`, then `npm install ../chameleon-ui/dist-tarballs/chameleon-ui-react-0.4.0.tgz`. Still not a registry publish. Legacy five-pack: `--legacy-five`.
 
 ## Windows + Vite (already in `vite.config.ts`)
 
@@ -47,14 +47,19 @@ pnpm verify:external:build    # typecheck + vite build
 - `server.fs.allow` includes the Chameleon checkout (`CU_MONOREPO` override).
 - **Do not** alias `@ark-ui/react` to a folder; subpaths (`/checkbox`, `/dialog`) break.
 
-CSS specifiers (do not guess):
+CSS (one import — real `dist/css.css`: tokens + density + `linear` + components):
 
 ```ts
 import "@chameleon-ui/react/css";
-// or theme-specific:
-import "@chameleon-ui/themes/line/css";
+```
+
+Also valid (same layers, split):
+
+```ts
+import "@chameleon-ui/themes/linear/css";
 import "@chameleon-ui/tokens/css";
 import "@chameleon-ui/tokens/density.css";
+import "@chameleon-ui/components-react/css";
 ```
 
 Never `@chameleon-ui/themes/*/variables.css` (unexported).

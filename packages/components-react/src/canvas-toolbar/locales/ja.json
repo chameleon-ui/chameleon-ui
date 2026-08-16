@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "キャンバスツールバー",
+    "zoomIn": "拡大",
+    "zoomOut": "縮小",
+    "resetView": "表示をリセット",
+    "fitView": "表示に合わせる"
+  }
+}

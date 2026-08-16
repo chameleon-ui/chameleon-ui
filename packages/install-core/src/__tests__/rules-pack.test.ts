@@ -82,8 +82,8 @@ describe('rules merge', () => {
 
 describe('rules paid policy', () => {
   it('blocks official homage ids from paid listings', () => {
-    expect(() => assertPaidRulesListingAllowed('line')).toThrow(RulesListingPolicyError);
-    expect(() => assertPaidRulesListingAllowed('ant-blue')).toThrow(RulesListingPolicyError);
+    expect(() => assertPaidRulesListingAllowed('linear')).toThrow(RulesListingPolicyError);
+    expect(() => assertPaidRulesListingAllowed('alipay')).toThrow(RulesListingPolicyError);
   });
 
   it('requires community- prefix for paid community packs', () => {
@@ -118,14 +118,14 @@ describe('rules download auth stub', () => {
 
   it('blocks paid downloads for homage ids before auth', async () => {
     await expect(
-      assertRulesDownloadAuthorized(port, 'line', {
+      assertRulesDownloadAuthorized(port, 'linear', {
         paid: true,
         token: 'license-ok',
       }),
     ).rejects.toBeInstanceOf(RulesListingPolicyError);
 
     await expect(
-      assertRulesDownloadAuthorized(port, 'line', {
+      assertRulesDownloadAuthorized(port, 'linear', {
         paid: true,
         token: 'license-ok',
       }),

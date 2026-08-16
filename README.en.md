@@ -10,14 +10,14 @@
 
 Chameleon UI is a design system built for the AI era. Built on **headless primitives**, it delivers a complete, consistent component library for **React 19** and **Vue 3.5** over one shared set of tokens, contracts, and architecture — and achieves **three-end (phone / tablet / desktop)** responsiveness. Through contract-driven design, MCP, and protocol adapters, **AI agents can "understand" and reliably assemble or install components**.
 
-- **Components**: 103 catalog entries (React and Vue **both** aligned `103/103`)
+- **Components**: 116 catalog entries (React and Vue **both** aligned `116/116`)
 - **Three-end**: phone 390 / tablet 768 / desktop 1280 viewport-adaptive (density, control sizes, typography vary by end)
-- **Themes**: 9 (`line` visual flagship + 8 tribute overlays)
+- **Themes**: 8 (`linear` + `apple` visual flagships + 6 tribute overlays)
 - **Languages**: 21 locales (ICU MessageFormat), incl. RTL (`ar` `ug` `ur` `fa`)
 - **Headless**: built on **Ark UI / Zag** (thin wrappers in `primitives` / `primitives-vue`)
 - **License**: MIT. Telemetry off by default (`telemetry-notice.v1`).
 
-> **Current version: `0.2.0` (not published to npm)**. Until npm publish, use `link-external` / `pack-external` or the official Vite templates.
+> **Current version: `0.4.0` (not published to npm)**. Until npm publish, use `link-external` / `pack-external` or the official Vite templates.
 
 ---
 
@@ -65,7 +65,7 @@ Either way (neither requires `workspace:*`):
 # 1. Pack a tarball, then install in your app
 node ./scripts/pack-external.mjs            # React umbrella
 node ./scripts/pack-external.mjs --vue     # Vue umbrella
-npm install <path-to>/dist-tarballs/chameleon-ui-react-0.2.0.tgz
+npm install <path-to>/dist-tarballs/chameleon-ui-react-0.4.0.tgz
 
 # 2. Or npm link
 node ./scripts/link-external.mjs --vue --apply
@@ -100,12 +100,12 @@ The repo is a **pnpm + Turborepo** monorepo with 21 `@chameleon-ui/*` packages o
 | Package | Description |
 | :--- | :--- |
 | `@chameleon-ui/tokens` | DTCG design-token authoritative source + deterministic CSS variable compile |
-| `@chameleon-ui/themes` | Theme overlays + `design-rules` (`line` flagship + 8 tributes) |
+| `@chameleon-ui/themes` | Theme overlays + `design-rules` (`linear` / `apple` flagships + 6 tributes) |
 | `@chameleon-ui/contract` | JSON Schema + validation for components and design rules |
 | `@chameleon-ui/i18n` | ICU MessageFormat runtime, C3 Map lookup, pseudo-locale tools |
 | `@chameleon-ui/primitives` · `primitives-vue` | Ark UI / Zag thin wrappers (headless core) |
-| `@chameleon-ui/components` | React component implementations (103 slugs + contracts) |
-| `@chameleon-ui/components-vue` | Vue components (103/103 slugs + ThemeProvider) |
+| `@chameleon-ui/components-react` | React component implementations (116 slugs + contracts) |
+| `@chameleon-ui/components-vue` | Vue components (116/116 slugs + ThemeProvider) |
 | `@chameleon-ui/react` | React consumer umbrella |
 | `@chameleon-ui/vue` | Vue consumer umbrella |
 | `@chameleon-ui/install-core` | Sole disk writer: dependency graph, conflict detection, idempotent copy |
@@ -140,7 +140,7 @@ Driver mechanisms:
 - Consuming `@chameleon-ui/tokens/css` **requires also importing `@chameleon-ui/tokens/density.css`**; otherwise density/control sizes won't switch by breakpoint.
 - App shell & navigation: `AppShell` provides the three-level app skeleton; `Navigation` uses the same `items` API to morph between desktop sidebar / collapsible tablet rail / phone bottom Tab; `SafeArea` handles notch and gesture-bar insets.
 
-Three-level components: `AppShell` · `Navigation` · `NavigationBar` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`.
+Three-level components: `AppShell` · `Navigation` · `NavigationTitle` · `Sidebar` · `TabBar` · `ActionSheet` · `SafeArea`.
 
 The full three-end how-it-works (breakpoint tokens, container queries vs `@media`, per-end density, Navigation morphing, and "why React/Vue are separate"): [**Three-end system**](./docs/theming/three-end-system.en.md).
 
@@ -150,21 +150,22 @@ The full three-end how-it-works (breakpoint tokens, container queries vs `@media
 
 ### Components (103)
 
-The complete list has one authoritative source: [`packages/components/catalog.json`](./packages/components/catalog.json). Each component also ships a machine-readable contract:
+The complete list has one authoritative source: [`packages/components-react/catalog.json`](./packages/components-react/catalog.json). Each component also ships a machine-readable contract:
 
 - `contract.json` (with `dataAi.role` / `states` / `intents`)
 - 21 locale message tables
 - Styles, types, tests
 
-### Themes (9)
+### Themes (8)
 
 | Theme | Note |
 | :--- | :--- |
-| `line` | **Visual flagship** (default product look) |
-| `silver-arrow` `stuttgart` `corsa` `cupertino` `siren` `wechat` `ant-blue` | Tribute overlays |
+| `linear` | **Visual flagship** (dark-first Linear replica; default product look) |
+| `apple` | **Visual flagship** (light-first HIG/iOS replica; manual dark scheme) |
+| `mercedes` `porsche` `ferrari` `tiktok` `wechat` `alipay` | Tribute overlays |
 | `community-focus-first` | Community rules pack (`registry:rules`) seed |
 
-> **Status**: `line` is the **only fully-verified visual flagship** (default look; serves as the product standard). The other 8 tribute overlays are **still being refined** and are best used as inspiration/exploration. For a reliable default theme, use `line`.
+> **Status**: `linear` and `apple` are the two fully-verified visual flagships (assertion-locked colors, motion, type scale, radii); use `linear` as the reliable default. Human eyeball acceptance in a browser remains the final visual check. The other 6 tribute overlays are **still being refined** and are best used as inspiration/exploration.
 
 - How the **token system works**: from DTCG authoritative source to `--cu-*` compilation, reference resolution, cycle detection, and overlay/`$extends` inheritance — see [**Token system**](./docs/theming/token-system.en.md).
 - Want your own theme? A theme is an **overlay** (only overrides a subset of core tokens). Step-by-step: [**Create a custom theme**](./docs/theming/creating-a-theme.en.md).

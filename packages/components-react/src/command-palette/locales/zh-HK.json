@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "命令面板",
+    "placeholder": "輸入命令",
+    "empty": "沒有可用命令",
+    "close": "關閉"
+  }
+}

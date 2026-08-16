@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "Layin aiki",
+    "statusPending": "A jira",
+    "statusRunning": "Yana aiki",
+    "statusSuccess": "Ya yi nasara",
+    "statusFailed": "Ya gaza"
+  }
+}

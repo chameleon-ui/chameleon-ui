@@ -4,20 +4,20 @@ import { fileURLToPath } from 'node:url'
 
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const workspaceRoot = path.resolve(packageRoot, '../..')
-const catalogPath = path.join(workspaceRoot, 'packages', 'components', 'catalog.json')
-const componentsSrc = path.join(workspaceRoot, 'packages', 'components', 'src')
+const catalogPath = path.join(workspaceRoot, 'packages', 'components-react', 'catalog.json')
+const componentsSrc = path.join(workspaceRoot, 'packages', 'components-react', 'src')
 const blocksSrc = path.join(workspaceRoot, 'packages', 'blocks', 'src')
 const themesSrc = path.join(workspaceRoot, 'packages', 'themes', 'src')
 const registryRoot = path.join(packageRoot, 'registry')
 const themeIds = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ]
 const rulesPackIds = ['community-focus-first']
 const blockSlugs = [

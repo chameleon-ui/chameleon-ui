@@ -19,7 +19,7 @@ function cssExportTarget(entry) {
 test('@chameleon-ui/vue package metadata', async () => {
   const pkg = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'))
   assert.equal(pkg.name, '@chameleon-ui/vue')
-  assert.equal(pkg.version, '0.2.0')
+  assert.equal(pkg.version, '0.4.0')
   assert.ok(pkg.dependencies['@chameleon-ui/components-vue'])
   assert.equal(cssExportTarget(pkg.exports['./css']), './dist/css.css')
   assert.ok(pkg.exports['./themes/*/css'])
@@ -39,7 +39,7 @@ test('@chameleon-ui/vue/css is a real CSS file with tokens + density + line + co
   const resolved = require.resolve('@chameleon-ui/vue/css')
   assert.equal(resolved, cssPath)
 
-  for (const id of ['line', 'cupertino', 'wechat']) {
+  for (const id of ['linear', 'apple', 'wechat']) {
     const themePath = join(root, 'dist', 'themes', `${id}.css`)
     await access(themePath)
     const themeResolved = require.resolve(`@chameleon-ui/vue/themes/${id}/css`)

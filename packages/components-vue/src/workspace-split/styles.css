@@ -1,0 +1,167 @@
+/*
+ * Master–detail (optional tools) workspace. The root is the query container;
+ * only `.cu-workspace-split__frame` (a descendant) is restyled — never the
+ * container itself (容器查询与三端规范 §2).
+ *
+ * Thresholds are on *this* container's inline size (often AppShell `__main`,
+ * which is already narrower than the shell when Navigation is a side rail).
+ *
+ * Compact (<48rem): single column (master → detail → tools).
+ * Tablet (48rem): master | detail; tools stacks under detail when present.
+ * Wide (80rem): master | detail | tools when tools is present — matches
+ * breakpoint.desktop. Nested math: 80rem shell − 16rem sidebar ≈ 64rem main,
+ * so three-pane stays closed at 1280 CSS px; needs ~96rem shell (or a
+ * standalone ≥80rem host) before tools sit beside detail.
+ *
+ * Nested `.cu-workspace-split` always stacks — outer owns the morph. Put tools
+ * on the outer `#tools` / `tools` slot instead of nesting another split.
+ *
+ * Scroll (data-scroll-mode):
+ * - shell (default): grow with content; AppShell `__main` is the scroll owner.
+ * - panes: fill the host; panes use overflow:auto (dashboard).
+ * - none: no default pane scroll; consumer owns overflow via ScrollPane / *Scroll.
+ */
+.cu-workspace-split {
+  container-name: workspace-split;
+  container-type: inline-size;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 0;
+  min-inline-size: 0;
+  overflow-x: clip;
+}
+
+.cu-workspace-split[data-scroll-mode='shell'],
+.cu-workspace-split[data-scroll-mode='none'] {
+  block-size: auto;
+  min-block-size: 100%;
+}
+
+.cu-workspace-split[data-scroll-mode='panes'] {
+  block-size: 100%;
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.cu-workspace-split__frame {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "master"
+    "detail";
+  gap: var(--cu-space-4, var(--cu-space-3));
+  block-size: 100%;
+  min-block-size: 0;
+  min-inline-size: 0;
+  align-items: stretch;
+  overflow-x: clip;
+}
+
+.cu-workspace-split[data-scroll-mode='shell'] .cu-workspace-split__frame,
+.cu-workspace-split[data-scroll-mode='none'] .cu-workspace-split__frame {
+  block-size: auto;
+  min-block-size: 100%;
+}
+
+.cu-workspace-split[data-scroll-mode='panes'] .cu-workspace-split__frame {
+  block-size: 100%;
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.cu-workspace-split:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+  grid-template-areas:
+    "master"
+    "detail"
+    "tools";
+}
+
+.cu-workspace-split__master,
+.cu-workspace-split__detail,
+.cu-workspace-split__tools {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 0;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.cu-workspace-split__master {
+  grid-area: master;
+}
+
+.cu-workspace-split__detail {
+  grid-area: detail;
+}
+
+.cu-workspace-split__tools {
+  grid-area: tools;
+}
+
+.cu-workspace-split__pane--scroll {
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: auto;
+}
+
+/*
+ * Nested split: always stack. Avoids queue|canvas|tools crush when a detail
+ * pane hosts another WorkspaceSplit (common consumer mistake).
+ */
+.cu-workspace-split .cu-workspace-split .cu-workspace-split__frame {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "master"
+    "detail";
+  grid-template-rows: none;
+}
+
+.cu-workspace-split .cu-workspace-split:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+  grid-template-areas:
+    "master"
+    "detail"
+    "tools";
+}
+
+@container workspace-split (min-width: 48rem) {
+  .cu-workspace-split__frame {
+    grid-template-columns: minmax(0, var(--cu-workspace-master-width, 16rem)) minmax(0, 1fr);
+    grid-template-areas: "master detail";
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .cu-workspace-split:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+    grid-template-columns: minmax(0, var(--cu-workspace-master-width, 16rem)) minmax(0, 1fr);
+    grid-template-areas:
+      "master detail"
+      "master tools";
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  /* Shell/none: rows size to content so AppShell `__main` can scroll. */
+  .cu-workspace-split[data-scroll-mode='shell'] .cu-workspace-split__frame,
+  .cu-workspace-split[data-scroll-mode='none'] .cu-workspace-split__frame {
+    grid-template-rows: auto;
+  }
+
+  .cu-workspace-split[data-scroll-mode='shell']:has(.cu-workspace-split__tools) .cu-workspace-split__frame,
+  .cu-workspace-split[data-scroll-mode='none']:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+    grid-template-rows: auto auto;
+  }
+}
+
+@container workspace-split (min-width: 80rem) {
+  .cu-workspace-split:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+    grid-template-columns:
+      minmax(0, var(--cu-workspace-master-width, 16rem))
+      minmax(0, 1fr)
+      minmax(0, var(--cu-workspace-tools-width, 16rem));
+    grid-template-areas: "master detail tools";
+    grid-template-rows: minmax(0, 1fr);
+  }
+
+  .cu-workspace-split[data-scroll-mode='shell']:has(.cu-workspace-split__tools) .cu-workspace-split__frame,
+  .cu-workspace-split[data-scroll-mode='none']:has(.cu-workspace-split__tools) .cu-workspace-split__frame {
+    grid-template-rows: auto;
+  }
+}

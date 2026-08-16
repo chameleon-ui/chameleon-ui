@@ -27,6 +27,7 @@ const isCollapsed = computed(() => props.collapsed ?? internalCollapsed.value)
 const current = computed(() => props.activeValue ?? internalActive.value)
 const split = computed(() => splitNavigationItems(props.items, props.maxCompactItems))
 const overflowActive = computed(() => split.value.overflow.some((item) => item.value === current.value))
+const showToggle = computed(() => props.collapsible && !slots.footer)
 const classes = computed(() =>
   ['cu-navigation', isCollapsed.value && 'cu-navigation--collapsed', props.class].filter(Boolean).join(' '),
 )
@@ -101,8 +102,11 @@ function onKeydown(event: KeyboardEvent) {
           </button>
         </li>
       </ul>
+      <div v-if="slots.footer" class="cu-navigation__footer">
+        <slot name="footer" />
+      </div>
       <button
-        v-if="collapsible"
+        v-if="showToggle"
         type="button"
         class="cu-navigation__toggle"
         :aria-expanded="!isCollapsed"

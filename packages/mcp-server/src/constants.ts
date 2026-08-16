@@ -1,13 +1,13 @@
 /** Official tribute theme ids. Must match `@chameleon-ui/themes` `themeIds`. */
 export const THEME_IDS = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ] as const
 
 /** Phase 2 shipping locales. Must match `@chameleon-ui/i18n` `PHASE_2_LOCALES`. */
@@ -42,7 +42,7 @@ export const LINK_RUNTIME_PACKAGES = [
   '@chameleon-ui/i18n',
   '@chameleon-ui/primitives',
   '@chameleon-ui/themes',
-  '@chameleon-ui/components',
+  '@chameleon-ui/components-react',
 ] as const
 
 export const LINK_RUNTIME_PACKAGES_VUE = [

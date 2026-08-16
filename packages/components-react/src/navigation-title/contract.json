@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "navigation-title",
+  "name": "NavigationTitle",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Stack chrome for the current view controller (UINavigationBar / Android Toolbar). Title, back, and bar items. Formerly NavigationBar — renamed to avoid confusion with Navigation (tab controller). Not a site link row — that is Navbar. Root tabs are Navigation. Not TitleBar (sidebar brand).",
+  "scenarios": [
+    "Show the current screen title at the top of AppShell",
+    "Pop the active tab's stack with a back control labeled by the previous title",
+    "Keep trailing bar-button items on the same bar as the title across three ends"
+  ],
+  "props": {
+    "title": {
+      "type": "node",
+      "required": true,
+      "description": "Current view-controller title."
+    },
+    "backLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Previous controller title on the back control. Default Back.",
+      "default": "Back"
+    },
+    "onBack": {
+      "type": "event",
+      "required": false,
+      "description": "Pops the active tab stack. Omit on the root controller so no back control is shown.",
+      "payload": "() => void"
+    },
+    "leading": {
+      "type": "node",
+      "required": false,
+      "description": "Leading slot when there is no back control."
+    },
+    "trailing": {
+      "type": "node",
+      "required": false,
+      "description": "Trailing bar-button items."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "root",
+      "description": "Stack depth 1; no back control."
+    },
+    {
+      "name": "nested",
+      "description": "Stack depth > 1; back control pops to the previous title."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "header"
+    ],
+    "allowedChildren": [
+      "text",
+      "button"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not put root destinations in NavigationTitle; those belong on Navigation (the tab controller).",
+    "Do not use Navbar (site links) as AppShell stack chrome.",
+    "Do not confuse NavigationTitle with TitleBar — TitleBar is sidebar brand in Navigation header.",
+    "Do not push onto the stack when switching tabs; switch the tab's own stack."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [
+      "Tab moves through back and trailing controls",
+      "Enter/Space activates back"
+    ],
+    "focus": "Back is a real button; the title is a heading.",
+    "labeling": "The title is an h1 of the current screen; back uses the previous title as its label.",
+    "wcag": [
+      "1.3.1",
+      "2.1.1",
+      "2.4.1",
+      "2.4.6",
+      "2.5.5"
+    ]
+  },
+  "responsive": {
+    "strategy": "One bar. Compact centers the title. At 48rem the title leads. Safe-area top inset on the bar. No viewport size @media.",
+    "breakpoints": {
+      "compact": "Centered title, back on the leading edge, 44px hit area, safe-area top inset.",
+      "medium": "Leading title beside back, same controls.",
+      "large": "Same leading-title toolbar as medium."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS; the back chevron mirrors under [dir=rtl].",
+    "mirroredValues": [
+      "back-chevron"
+    ]
+  },
+  "dataAi": {
+    "role": "navigation-title",
+    "states": [
+      "root",
+      "nested"
+    ],
+    "intents": [
+      "navigate-stack"
+    ]
+  },
+  "mechanics": "NavigationTitle (formerly NavigationBar) is stack chrome (UINavigationBar / Toolbar) for the current view controller, not a site link row and not the tab controller (Navigation) and not sidebar brand (TitleBar). Mount in AppShell header / Vue #header. Title is an h1. When onBack is set, the leading edge is a back button labeled with the previous controller title; otherwise leading renders (React prop / Vue #leading). trailing is bar-button items (React prop / Vue #trailing). backLabel defaults to Back. Chrome row: .cu-navigation-title__frame uses min-block-size calc(var(--cu-control-size-active) + 2 * var(--cu-space-1)) — same formula as Navigation __header and NavAccountCard. Root also carries legacy .cu-navigation-bar class during transition. Compact centers the title; from 48rem the title leads. Pair with useTabStacks: selectTab does not push; onBack should call pop. NavigationBar remains a deprecated export alias of NavigationTitle.",
+  "usage": [
+    "Import NavigationTitle and useTabStacks from the React or Vue umbrella (NavigationBar still works as a deprecated alias).",
+    "Render title from stacks.current.title. Pass backLabel={stacks.previous?.title} and onBack={stacks.canPop ? stacks.pop : undefined}.",
+    "Place NavigationTitle in AppShell header / #header. Root destinations belong on Navigation; sidebar brand is TitleBar in Navigation header — not this component.",
+    "Call stacks.push when opening a nested screen. Call stacks.selectTab when the user picks a Navigation item — that must not push.",
+    "Do not hardcode rem bar heights; densify via --cu-control-size-active with density.css."
+  ],
+  "exports": [
+    {
+      "name": "NavigationTitle",
+      "kind": "component",
+      "signature": "function NavigationTitle(props: NavigationTitleProps): JSX.Element",
+      "description": "Stack chrome: title, back, leading, and trailing bar items."
+    },
+    {
+      "name": "NavigationBar",
+      "kind": "component",
+      "signature": "const NavigationBar: typeof NavigationTitle",
+      "description": "Deprecated alias of NavigationTitle (same component)."
+    },
+    {
+      "name": "useTabStacks",
+      "kind": "hook",
+      "signature": "useTabStacks(tabs: Array<{value: string; title: string}>, initialTab?: string)",
+      "description": "Per-tab stacks. selectTab does not push. pop is back."
+    },
+    {
+      "name": "StackScreen",
+      "kind": "type",
+      "signature": "{ id: string; title: string }",
+      "description": "One screen on a tab stack. push() takes this shape."
+    },
+    {
+      "name": "NavigationTitleProps",
+      "kind": "type",
+      "signature": "interface NavigationTitleProps",
+      "description": "Public props including title, backLabel, onBack, leading, trailing."
+    },
+    {
+      "name": "NavigationBarProps",
+      "kind": "type",
+      "signature": "type NavigationBarProps = NavigationTitleProps",
+      "description": "Deprecated alias of NavigationTitleProps."
+    }
+  ]
+}

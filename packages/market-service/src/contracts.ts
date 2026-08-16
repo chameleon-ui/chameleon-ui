@@ -2,14 +2,14 @@ import type { RegistryFile, RegistryItem } from '@chameleon-ui/install-core';
 
 /** Official homage theme ids. They ship as free SKUs (not paid listings). */
 export const HOMAGE_THEME_IDS = new Set([
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ]);
 
 /** Required prefix for community-authored marketplace listings. */

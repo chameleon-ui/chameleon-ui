@@ -20,7 +20,7 @@ Do not add a second install path. Protocol mapping belongs in `packages/adapter-
 
 ## Version and publish
 
-- Packages are **0.2.0** (unpublished). This repo does not npm publish until maintainers freeze.
+- Packages are **0.4.0** (unpublished). This repo does not npm publish until maintainers freeze.
 - Use `pnpm publish:check` for the local dry-run.
 - Until registry publish, external apps use `link-external` / `pack-external` / official Vite templates.
 - Prefer **one** umbrella: `@chameleon-ui/react` **or** `@chameleon-ui/vue`. Never both.

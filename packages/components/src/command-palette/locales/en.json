@@ -1,8 +1,0 @@
-{
-  "command-palette": {
-    "label": "Command palette",
-    "placeholder": "Type a command",
-    "empty": "No commands",
-    "close": "Close"
-  }
-}

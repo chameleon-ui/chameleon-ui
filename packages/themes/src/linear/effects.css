@@ -1,0 +1,387 @@
+/* cu-effects:linear — Linear 1:1 flagship. Dark-first precision engineering:
+   near-black canvas (#121213) under darker chrome (#09090a), white-alpha
+   hairlines, single indigo accent (#5e6ad2), pill CTAs, 510/590 variable
+   weights, 160ms ease-out-quad motion, scale(.97) press, no bounce, no
+   gradients, no colored shadows. Fonts / icons intentionally NOT replicated.
+   Evidence: linear.app marketing Button.css + linear.app/login loading CSS. */
+:root {
+  --cu-tracking: -0.011em;
+  --cu-font-weight-heading: 590;
+  /* Linear focus / link blue — evidence: loading screen outline + ::selection. */
+  --cu-linear-focus: #7180ff;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root[data-color-scheme='light'] {
+  color-scheme: light;
+}
+
+::selection {
+  background-color: var(--cu-linear-focus);
+  color: #ffffff;
+}
+
+:root .cu-app-shell {
+  background-color: var(--cu-color-background-subtle);
+  letter-spacing: var(--cu-tracking);
+}
+
+:root .cu-app-shell__header {
+  background: var(--cu-color-background-subtle);
+  box-shadow: none;
+  border-block-end: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-app-shell__main {
+  background-color: var(--cu-color-background-default);
+  background-image: none;
+}
+
+:root .cu-app-shell__footer {
+  background: transparent;
+  color: var(--cu-color-fg-muted);
+  border-block-start: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+}
+
+:root .cu-app-shell__sidebar,
+:root .cu-sidebar,
+:root .cu-navigation__frame {
+  background: var(--cu-color-background-subtle);
+}
+
+/* Compact TabBar keeps block-start hairline from Navigation base CSS; do not force inline-end here. */
+
+:root .cu-navigation-title,
+:root .cu-navigation-bar {
+  background: var(--cu-color-background-subtle);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-sidebar__item[aria-current='page'],
+:root .cu-navigation__item[aria-current='page'] {
+  border-inline-start: none;
+  border-radius: var(--cu-radius-sm);
+  /* Linear active nav: white 6% wash, typographic weight, no accent paint */
+  background: color-mix(in srgb, var(--cu-color-fg-default) 6%, transparent);
+  color: var(--cu-color-fg-default);
+  font-weight: var(--cu-typography-weight-semibold, 590);
+}
+
+@media (hover: hover) {
+  :root .cu-sidebar__item:hover,
+  :root .cu-navigation__item:hover {
+    background: color-mix(in srgb, var(--cu-color-fg-default) 4%, transparent);
+  }
+}
+
+:root .cu-heading,
+:root .cu-typography--heading-1,
+:root .cu-typography--heading-2,
+:root .cu-navigation-title__title,
+:root .cu-navigation-bar__title,
+:root .cu-navigation__header {
+  font-weight: var(--cu-font-weight-heading, 590);
+  letter-spacing: var(--cu-typography-tracking-tight, -0.022em);
+}
+
+/* —— Button hierarchy (evidence: linear.app Button.css) ——
+   All buttons are pills (--button-corner-radius: var(--radius-rounded)).
+   Transition: 160ms ease-out-quad over border/background/color/shadow/opacity/filter/transform.
+   Press: scale(.97). Disabled: opacity .5. */
+:root .cu-button {
+  min-block-size: 2.5rem; /* Linear default/medium height: 40px */
+  padding-block: 0;
+  padding-inline: var(--cu-space-4); /* Linear default padding: 0 16px */
+  border-radius: 9999px;
+  font-weight: var(--cu-typography-weight-medium, 510);
+  letter-spacing: -0.014em;
+  transition:
+    border-color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    background-color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    box-shadow var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    opacity var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    filter var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    transform var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out);
+}
+
+:root .cu-button--sm {
+  min-block-size: 2rem; /* Linear small height: 32px */
+  padding-block: 0;
+  padding-inline: var(--cu-space-3); /* Linear small padding: 0 12px */
+  font-size: 0.8125rem; /* Linear small font-size: 13px */
+}
+
+:root .cu-button:disabled {
+  opacity: 0.5;
+}
+
+:root .cu-button:active:not(:disabled) {
+  transform: scale(0.97); /* Linear press — evidence: Button.css :active */
+}
+
+/* solid = the single indigo CTA; border:none + no shadow, hover = brightness(115%) */
+:root .cu-button--solid {
+  font-weight: var(--cu-typography-weight-medium, 510);
+  color: #ffffff;
+  background: var(--cu-color-palette-brand);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* outline = Linear "secondary": translucent fill + layered inset/outset rings, no border */
+:root .cu-button--outline {
+  font-weight: var(--cu-typography-weight-medium, 510);
+  color: var(--cu-color-fg-default);
+  background: color-mix(in srgb, var(--cu-color-fg-default) 5%, transparent);
+  border-color: transparent;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.031),
+    inset 0 1px 0 rgba(255, 255, 255, 0.039),
+    0 0 0 1px rgba(0, 0, 0, 0.6),
+    0 4px 4px rgba(0, 0, 0, 0.102);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Light-scheme secondary — evidence: [data-theme=light] variant-secondary */
+:root[data-color-scheme='light'] .cu-button--outline {
+  background: var(--cu-color-background-default);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.08),
+    var(--cu-shadow-sm);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* ghost = Linear tertiary-quiet: muted text, transparent, wash on hover */
+:root .cu-button--ghost {
+  color: var(--cu-color-fg-muted);
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  font-weight: var(--cu-typography-weight-medium, 510);
+}
+
+:root .cu-button--tone-danger.cu-button--solid {
+  background: #eb5757;
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+:root .cu-button--tone-danger.cu-button--outline,
+:root .cu-button--tone-danger.cu-button--ghost {
+  color: color-mix(in srgb, #eb5757 82%, var(--cu-color-fg-default));
+  border-color: color-mix(in srgb, #eb5757 42%, transparent);
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  :root .cu-button--solid:hover:not(:disabled) {
+    filter: brightness(1.15); /* Linear primary hover — evidence: Button.css */
+  }
+
+  :root .cu-button--outline:hover:not(:disabled) {
+    background: var(--cu-color-background-elevated); /* Linear: hover → bg-level-3 */
+  }
+
+  :root[data-color-scheme='light'] .cu-button--outline:hover:not(:disabled) {
+    background: var(--cu-color-background-subtle);
+  }
+
+  :root .cu-button--ghost:hover:not(:disabled) {
+    color: var(--cu-color-fg-default);
+    background: color-mix(in srgb, var(--cu-color-fg-default) 6%, transparent);
+  }
+
+  :root .cu-button--tone-danger.cu-button--solid:hover:not(:disabled) {
+    filter: brightness(1.15);
+  }
+
+  :root .cu-upload__browse:hover {
+    filter: brightness(1.15);
+  }
+}
+
+:root .cu-button--solid:active:not(:disabled),
+:root .cu-button--tone-danger.cu-button--solid:active:not(:disabled) {
+  filter: brightness(0.98); /* Linear primary active — evidence: Button.css */
+}
+
+/* —— Upload: finished dropzone + solid indigo pill browse CTA (matches Button solid) —— */
+:root .cu-upload__dropzone {
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-5, var(--cu-space-4));
+  padding-inline: var(--cu-space-4);
+  border: var(--cu-border-width-hairline, 1px) dashed
+    color-mix(in srgb, var(--cu-color-fg-default) 16%, transparent);
+  border-radius: var(--cu-radius-lg);
+  background: color-mix(in srgb, var(--cu-color-fg-default) 2%, transparent);
+  box-shadow: none;
+}
+
+:root .cu-upload--dragover .cu-upload__dropzone {
+  border-style: solid;
+  border-color: var(--cu-color-palette-brand);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 8%, transparent);
+  box-shadow: none;
+}
+
+:root .cu-upload__dropzone:focus-visible {
+  outline: 2px solid var(--cu-linear-focus);
+  outline-offset: 3px;
+}
+
+:root .cu-upload__browse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 2.5rem;
+  min-block-size: 2.5rem;
+  padding-block: 0;
+  padding-inline: var(--cu-space-4);
+  border: var(--cu-border-width-default, 1px) solid transparent;
+  border-radius: 9999px;
+  background: var(--cu-color-palette-brand);
+  color: #ffffff;
+  font-weight: var(--cu-typography-weight-medium, 510);
+  letter-spacing: -0.014em;
+  box-shadow: none;
+  transition:
+    border-color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    background-color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    color var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    box-shadow var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    opacity var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    filter var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out),
+    transform var(--cu-motion-duration-base, 160ms) var(--cu-motion-easing-enter, ease-out);
+}
+
+:root .cu-upload__browse:active {
+  transform: scale(0.97);
+}
+
+:root .cu-upload__file {
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated);
+}
+
+/* —— Surfaces: EmptyState / Card share chrome with shell —— */
+:root .cu-empty-state {
+  gap: var(--cu-space-3);
+  padding-block: var(--cu-space-6, var(--cu-space-5));
+  padding-inline: var(--cu-space-5, var(--cu-space-4));
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-lg);
+  background: var(--cu-color-background-elevated);
+  box-shadow: none;
+}
+
+:root .cu-empty-state__action {
+  margin-block-start: var(--cu-space-3);
+  inline-size: min(100%, 22rem);
+}
+
+:root .cu-empty-state__action .cu-upload {
+  inline-size: 100%;
+}
+
+:root .cu-empty-state__action .cu-upload__dropzone {
+  inline-size: 100%;
+}
+
+:root .cu-empty-state__description,
+:root .cu-typography--caption,
+:root .cu-field__label {
+  color: var(--cu-color-fg-muted);
+}
+
+:root .cu-card,
+:root .cu-card--default,
+:root .cu-card--outlined {
+  box-shadow: none;
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-card--elevated {
+  box-shadow: var(--cu-shadow-md);
+  border: var(--cu-border-width-hairline, 1px) solid
+    color-mix(in srgb, var(--cu-color-fg-default) 10%, transparent);
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-dialog__backdrop {
+  background: color-mix(in srgb, var(--cu-color-palette-ink) 60%, transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-dialog__content,
+:root .cu-tab-bar,
+:root .cu-navigation {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-tab-bar {
+  background: var(--cu-color-background-subtle);
+}
+
+:root .cu-input,
+:root .cu-select__trigger {
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  background: color-mix(in srgb, var(--cu-color-fg-default) 3%, transparent);
+}
+
+/* Linear focus ring — evidence: outline 2px solid #7180ff, offset 3px */
+:root .cu-input:focus-visible,
+:root .cu-select__trigger:focus-visible {
+  border-color: var(--cu-linear-focus);
+  outline: 2px solid var(--cu-linear-focus);
+  outline-offset: 3px;
+}
+
+:root .cu-button:focus-visible {
+  outline: 2px solid var(--cu-linear-focus);
+  outline-offset: 3px;
+}
+
+/* —— Transparent media: ruthless checker on the dark canvas (EraseLab DoD) —— */
+:root .cu-checkerboard-surface {
+  --cu-checkerboard-mix-a: 30%;
+  --cu-checkerboard-mix-b: 6%;
+}
+
+:root .cu-checkerboard-surface[data-contrast='strong'] {
+  --cu-checkerboard-mix-a: 46%;
+  --cu-checkerboard-mix-b: 5%;
+}
+
+/* Mask stage letterbox ≠ checker cells so contain-fit silhouette reads at a glance */
+:root .cu-mask-paint-canvas__stage {
+  --cu-mask-paint-stage-bg: var(--cu-color-background-subtle);
+}
+
+:root .cu-mask-paint-canvas__checker {
+  box-shadow: 0 0 0 var(--cu-border-width-hairline, 1px)
+    color-mix(in srgb, var(--cu-color-fg-default) 16%, transparent);
+}
+
+/* Reduced motion: base guard loses specificity to the :root overrides above, so re-assert here. */
+@media (prefers-reduced-motion: reduce) {
+  :root .cu-button:active:not(:disabled) {
+    transform: none;
+  }
+
+  :root .cu-upload__browse:active {
+    transform: none;
+  }
+}

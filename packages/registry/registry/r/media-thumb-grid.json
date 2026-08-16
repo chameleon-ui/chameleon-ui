@@ -1,0 +1,112 @@
+{
+  "id": "media-thumb-grid",
+  "type": "registry:ui",
+  "name": "MediaThumbGrid",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/media-thumb-grid/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"media-thumb-grid\",\n  \"name\": \"MediaThumbGrid\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Selectable thumbnail grid for PDF pages or media picks.\",\n  \"scenarios\": [\n    \"PDF page preview grid with multi-select before convert.\"\n  ],\n  \"props\": {\n    \"items\": {\n      \"type\": \"string\",\n      \"required\": true,\n      \"description\": \"Array of thumb items: { id, src, label, alt? }.\"\n    },\n    \"selectedIds\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Controlled selected id array.\"\n    },\n    \"defaultSelectedIds\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Uncontrolled initial selected id array.\"\n    },\n    \"onSelectedIdsChange\": {\n      \"type\": \"event\",\n      \"required\": false,\n      \"description\": \"Selection change callback. Vue: update:selectedIds.\",\n      \"payload\": \"(ids: string[]) => void\"\n    },\n    \"minThumbSize\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"CSS length for auto-fill minmax track (default 8.75rem).\"\n    },\n    \"selectable\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"When false, thumbs are display-only.\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Disables all toggles.\"\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Interactive grid.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Selection disabled.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"scroll-pane\",\n      \"workspace-split\",\n      \"card\",\n      \"stack\",\n      \"page\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not compose Grid + Card + Checkbox for page picks when this component covers selection chrome.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [\n      \"Enter\",\n      \"Space\"\n    ],\n    \"focus\": \"Each thumb is a focusable button when selectable.\",\n    \"labeling\": \"Item label / alt labels the thumb; aria-pressed reflects selection.\",\n    \"wcag\": [\n      \"2.1.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"CSS auto-fill grid with minThumbSize.\",\n    \"breakpoints\": {\n      \"compact\": \"Fewer columns.\",\n      \"medium\": \"More columns.\",\n      \"large\": \"More columns.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"media-thumb-grid\",\n    \"states\": [\n      \"default\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"toggle-option\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/index.ts",
+      "content": "export { MediaThumbGrid } from './MediaThumbGrid.js'\nexport type { MediaThumbGridProps, MediaThumbItem } from './MediaThumbGrid.js'\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/am.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ar.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/bn.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/de.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/en.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/es.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/fa.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/fr.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ha.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/hi.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/id.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ja.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ko.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/pt.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ru.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/sw.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ug.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/ur.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/vi.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/zh-CN.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/locales/zh-HK.json",
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/MediaThumbGrid.tsx",
+      "content": "import {\n  useState,\n  type CSSProperties,\n  type KeyboardEvent,\n  type ReactNode,\n} from 'react'\nimport './styles.css'\n\nexport interface MediaThumbItem {\n  id: string\n  src: string\n  label: string\n  alt?: string\n}\n\nexport interface MediaThumbGridProps {\n  items: MediaThumbItem[]\n  selectedIds?: string[]\n  defaultSelectedIds?: string[]\n  onSelectedIdsChange?: (ids: string[]) => void\n  minThumbSize?: string\n  selectable?: boolean\n  disabled?: boolean\n  errorLabel?: string\n  className?: string\n  children?: ReactNode\n}\n\nfunction toggleId(ids: string[], id: string): string[] {\n  return ids.includes(id) ? ids.filter((value) => value !== id) : [...ids, id]\n}\n\nfunction ThumbMedia({\n  src,\n  alt,\n  errorLabel,\n}: {\n  src: string\n  alt: string\n  errorLabel: string\n}) {\n  const [failed, setFailed] = useState(false)\n  if (failed) {\n    return (\n      <div className=\"cu-media-thumb-grid__fallback\" role=\"img\" aria-label={alt}>\n        {errorLabel}\n      </div>\n    )\n  }\n  return (\n    <img\n      className=\"cu-media-thumb-grid__media\"\n      src={src}\n      alt={alt}\n      loading=\"lazy\"\n      onError={() => setFailed(true)}\n    />\n  )\n}\n\nexport function MediaThumbGrid({\n  items,\n  selectedIds,\n  defaultSelectedIds = [],\n  onSelectedIdsChange,\n  minThumbSize = '8.75rem',\n  selectable = true,\n  disabled = false,\n  errorLabel = 'Image failed to load',\n  className,\n}: MediaThumbGridProps) {\n  const [uncontrolled, setUncontrolled] = useState(defaultSelectedIds)\n  const selected = selectedIds ?? uncontrolled\n  const classes = ['cu-media-thumb-grid', className].filter(Boolean).join(' ')\n  const style = {\n    ['--cu-media-thumb-min' as string]: minThumbSize,\n  } satisfies CSSProperties\n\n  const setSelected = (next: string[]) => {\n    if (selectedIds === undefined) setUncontrolled(next)\n    onSelectedIdsChange?.(next)\n  }\n\n  const activate = (id: string) => {\n    if (!selectable || disabled) return\n    setSelected(toggleId(selected, id))\n  }\n\n  const onKeyDown = (event: KeyboardEvent<HTMLButtonElement>, id: string) => {\n    if (event.key === 'Enter' || event.key === ' ') {\n      event.preventDefault()\n      activate(id)\n    }\n  }\n\n  return (\n    <div\n      className={classes}\n      role=\"group\"\n      data-ai-role=\"media-thumb-grid\"\n      data-ai-intent=\"toggle-option\"\n      data-ai-state={disabled ? 'disabled' : 'default'}\n      style={style}\n    >\n      {items.map((item) => {\n        const isSelected = selected.includes(item.id)\n        return (\n          <button\n            key={item.id}\n            type=\"button\"\n            className=\"cu-media-thumb-grid__item\"\n            data-selected={isSelected ? 'true' : 'false'}\n            data-disabled={disabled || !selectable ? 'true' : 'false'}\n            aria-pressed={selectable ? isSelected : undefined}\n            disabled={disabled || !selectable}\n            onClick={() => activate(item.id)}\n            onKeyDown={(event) => onKeyDown(event, item.id)}\n          >\n            <ThumbMedia src={item.src} alt={item.alt ?? item.label} errorLabel={errorLabel} />\n            <span className=\"cu-media-thumb-grid__label\">{item.label}</span>\n          </button>\n        )\n      })}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/media-thumb-grid/README.md",
+      "content": "# MediaThumbGrid\n\nSelectable media / PDF page thumbnail grid (EraseLab gap fill).\n"
+    },
+    {
+      "path": "components/media-thumb-grid/styles.css",
+      "content": ".cu-media-thumb-grid {\n  box-sizing: border-box;\n  display: grid;\n  gap: var(--cu-space-2);\n  grid-template-columns: repeat(\n    auto-fill,\n    minmax(var(--cu-media-thumb-min, 8.75rem), 1fr)\n  );\n}\n\n.cu-media-thumb-grid__item {\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  gap: var(--cu-space-1);\n  margin: 0;\n  padding: var(--cu-space-2);\n  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);\n  border-radius: var(--cu-radius-md);\n  background: var(--cu-color-background-elevated, var(--cu-color-background-default));\n  color: var(--cu-color-fg-default);\n  text-align: start;\n  cursor: pointer;\n}\n\n.cu-media-thumb-grid__item[data-selected='true'] {\n  border-color: var(--cu-color-palette-brand);\n  box-shadow: inset 0 0 0 var(--cu-border-width-hairline, 1px) var(--cu-color-palette-brand);\n  background: color-mix(\n    in srgb,\n    var(--cu-color-palette-brand) 8%,\n    var(--cu-color-background-elevated, var(--cu-color-background-default))\n  );\n}\n\n.cu-media-thumb-grid__item[data-disabled='true'] {\n  opacity: 0.56;\n  cursor: not-allowed;\n}\n\n.cu-media-thumb-grid__item:focus-visible {\n  outline: 3px solid var(--cu-color-palette-brand);\n  outline-offset: 2px;\n}\n\n.cu-media-thumb-grid__media {\n  display: block;\n  inline-size: 100%;\n  aspect-ratio: 3 / 4;\n  object-fit: contain;\n  border-radius: var(--cu-radius-sm, var(--cu-radius-md));\n  background: var(--cu-color-background-subtle, var(--cu-color-background-default));\n}\n\n.cu-media-thumb-grid__fallback {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  inline-size: 100%;\n  aspect-ratio: 3 / 4;\n  border-radius: var(--cu-radius-sm, var(--cu-radius-md));\n  background: var(--cu-color-background-subtle, var(--cu-color-background-default));\n  color: var(--cu-color-fg-muted, color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent));\n  font-size: var(--cu-typography-size-caption, 0.8125rem);\n  text-align: center;\n  padding: var(--cu-space-2);\n}\n\n.cu-media-thumb-grid__label {\n  font-size: var(--cu-typography-size-caption, 0.8125rem);\n  line-height: var(--cu-typography-line-height-snug, 1.25);\n  color: var(--cu-color-fg-muted, color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent));\n}\n"
+    }
+  ]
+}

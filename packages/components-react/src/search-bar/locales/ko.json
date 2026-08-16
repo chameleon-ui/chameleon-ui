@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "검색",
+    "placeholder": "검색",
+    "clear": "지우기",
+    "submit": "검색 실행"
+  }
+}

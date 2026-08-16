@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Thanh công cụ canvas",
+    "zoomIn": "Phóng to",
+    "zoomOut": "Thu nhỏ",
+    "resetView": "Đặt lại chế độ xem",
+    "fitView": "Vừa khung nhìn"
+  }
+}

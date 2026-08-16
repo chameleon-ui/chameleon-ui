@@ -1,5 +1,5 @@
-import { Card, EmptyState, Tag, Timeline, Typography } from '@chameleon-ui/components'
-import type { TimelineItem } from '@chameleon-ui/components'
+import { Card, EmptyState, Tag, Timeline, Typography } from '@chameleon-ui/components-react'
+import type { TimelineItem } from '@chameleon-ui/components-react'
 import { createBlockCopy } from '../copy.js'
 import { ganttLocaleTrees } from './locale-map.js'
 import './styles.css'

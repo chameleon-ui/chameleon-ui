@@ -1,0 +1,24 @@
+/*
+ * Footer — AppShell shell-bottom attribution (credits / legal / links).
+ * Mount in AppShell footer / #footer. Distinct from Navigation sidebar foot
+ * (NavAccountCard / Navigation #footer).
+ */
+.cu-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--cu-space-1);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: inherit;
+  /* No default fill — AppShell __footer host is also transparent. */
+  background: transparent;
+}
+
+.cu-footer a {
+  color: inherit;
+}

@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Sandar kayan aikin ƙwallo",
+    "zoomIn": "Ƙara girma",
+    "zoomOut": "Rage girma",
+    "resetView": "Sake saiti kallo",
+    "fitView": "Daidaita kallo"
+  }
+}

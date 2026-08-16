@@ -1,0 +1,24 @@
+.cu-scroll-pane {
+  box-sizing: border-box;
+  block-size: 100%;
+  min-block-size: 0;
+  min-inline-size: 0;
+  overscroll-behavior: contain;
+}
+
+.cu-scroll-pane--vertical {
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: auto;
+}
+
+.cu-scroll-pane--horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-gutter: auto;
+}
+
+.cu-scroll-pane--both {
+  overflow: auto;
+  scrollbar-gutter: auto;
+}

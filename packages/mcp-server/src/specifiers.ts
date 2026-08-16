@@ -6,7 +6,7 @@ import {
   THEME_IDS,
 } from './constants.js'
 
-export const DEFAULT_THEME_ID = 'line'
+export const DEFAULT_THEME_ID = 'linear'
 
 export function isThemeId(value: string): value is (typeof THEME_IDS)[number] {
   return (THEME_IDS as readonly string[]).includes(value)
@@ -16,7 +16,7 @@ export function isThemeId(value: string): value is (typeof THEME_IDS)[number] {
  * Legal import specifiers for an external (non-pnpm-workspace) consumer app.
  * Preferred path is the umbrella (`@chameleon-ui/react` / `@chameleon-ui/vue`).
  * Underlying package names remain valid. Preferred CSS is the umbrella `./css`
- * entry (tokens + density + line) or the `exports` theme alias.
+ * entry (tokens + density + line + components) or the `exports` theme alias.
  */
 export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'button') {
   const theme = isThemeId(themeId) ? themeId : DEFAULT_THEME_ID
@@ -28,22 +28,24 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       umbrellaVue: '@chameleon-ui/vue',
       umbrellaReactCss: '@chameleon-ui/react/css',
       umbrellaVueCss: '@chameleon-ui/vue/css',
+      umbrellaReactThemeCss: `@chameleon-ui/react/themes/${theme}/css`,
       umbrellaVueThemeCss: `@chameleon-ui/vue/themes/${theme}/css`,
       themeCss: `@chameleon-ui/themes/${theme}/css`,
       tokensCss: '@chameleon-ui/tokens/css',
       tokensDensityCss: '@chameleon-ui/tokens/density.css',
       components: '@chameleon-ui/react',
-      componentSlug: `@chameleon-ui/components/${slug}`,
+      componentSlug: `@chameleon-ui/components-react/${slug}`,
+      componentsCss: '@chameleon-ui/components-react/css',
       componentsVue: '@chameleon-ui/vue',
       componentVueSlug: `@chameleon-ui/components-vue/${slug}`,
       componentsVueCss: '@chameleon-ui/components-vue/css',
-      contract: `@chameleon-ui/components/contracts/${slug}`,
+      contract: `@chameleon-ui/components-react/contracts/${slug}`,
       designRules: `@chameleon-ui/themes/${theme}/design-rules`,
       schemaRenderer: '@chameleon-ui/schema-renderer',
       schemaRendererVue: '@chameleon-ui/schema-renderer/vue',
     },
     alsoValid: {
-      componentsPackage: '@chameleon-ui/components',
+      componentsPackage: '@chameleon-ui/components-react',
       componentsVuePackage: '@chameleon-ui/components-vue',
       themeCssDist: `@chameleon-ui/themes/dist/${theme}/variables.css`,
       tokensCssDist: '@chameleon-ui/tokens/dist/css/variables.css',
@@ -70,7 +72,7 @@ export function consumerImportSpecifiers(themeId = DEFAULT_THEME_ID, slug = 'but
       packTarballs: 'node ./scripts/pack-external.mjs',
       packTarballsVue: 'node ./scripts/pack-external.mjs --vue',
       packLegacyFive: 'node ./scripts/pack-external.mjs --legacy-five',
-      note: 'Packages are 0.2.0 and unpublished. Prefer one umbrella: @chameleon-ui/react or @chameleon-ui/vue (pack-external default bundles the five). workspace:* only works inside this pnpm workspace. Legacy five-pack: --legacy-five.',
+      note: 'Packages are 0.4.0 and unpublished. Prefer one umbrella: @chameleon-ui/react or @chameleon-ui/vue (pack-external default bundles the five). workspace:* only works inside this pnpm workspace. Legacy five-pack: --legacy-five.',
     },
     versionMatrix: {
       node: '>=20.19.0',

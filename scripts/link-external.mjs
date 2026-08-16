@@ -33,7 +33,7 @@ const legacyFive = process.argv.includes('--legacy-five')
 
 const runtimePackages = vue
   ? ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue']
-  : ['tokens', 'i18n', 'primitives', 'themes', 'components']
+  : ['tokens', 'i18n', 'primitives', 'themes', 'components-react']
 const umbrellaName = vue ? 'vue' : 'react'
 const umbrellaSpec = `@chameleon-ui/${umbrellaName}`
 
@@ -107,7 +107,7 @@ if (legacyFive) {
   if (vue) {
     console.log('Do not link only @chameleon-ui/components-vue. After npm publish, install from npm instead.')
   } else {
-    console.log('Do not link only @chameleon-ui/components. After npm publish, install from npm instead.')
+    console.log('Do not link only @chameleon-ui/components-react. After npm publish, install from npm instead.')
   }
 } else {
   console.log('In the external app (npm, not a pnpm workspace), link the umbrella only:')

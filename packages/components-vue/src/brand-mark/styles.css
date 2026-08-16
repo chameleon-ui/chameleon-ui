@@ -1,0 +1,14 @@
+.cu-brand-mark {
+  display: block;
+  inline-size: auto;
+  object-fit: contain;
+  flex: none;
+}
+
+.cu-brand-mark--sm {
+  block-size: 1.25rem;
+}
+
+.cu-brand-mark--md {
+  block-size: 1.75rem;
+}

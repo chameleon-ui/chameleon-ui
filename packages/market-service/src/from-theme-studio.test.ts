@@ -17,9 +17,9 @@ function studioExport(overrides: Partial<ThemeStudioExportPayload> = {}): ThemeS
   return {
     generator: 'theme-studio',
     exportedAt: '2026-08-15T00:00:00.000Z',
-    themeId: 'line',
+    themeId: 'linear',
     meta: { label: 'Line', description: 'Flagship line homage' },
-    extends: 'line',
+    extends: 'linear',
     tokens: { radius: { md: { $value: { value: 2, unit: 'px' } } } },
     removedTokenPaths: [],
     designRules: {
@@ -36,13 +36,13 @@ function studioExport(overrides: Partial<ThemeStudioExportPayload> = {}): ThemeS
 describe('listingApplicationFromThemeStudioExport', () => {
   it('maps studio export to a community ListingApplication that passes validators', () => {
     const application = listingApplicationFromThemeStudioExport(studioExport(), {
-      id: 'community-line-dense',
+      id: 'community-linear-dense',
       name: 'Line Dense',
       description: 'Studio-derived dense line',
       license: 'MIT',
     });
 
-    expect(application.id).toBe('community-line-dense');
+    expect(application.id).toBe('community-linear-dense');
     expect(application.type).toBe('registry:theme');
     expect(application.files.map((f) => f.path)).toEqual([
       'design-rules.json',
@@ -55,14 +55,14 @@ describe('listingApplicationFromThemeStudioExport', () => {
     const tokens = JSON.parse(
       application.files.find((f) => f.path === 'tokens.json')!.content,
     ) as Record<string, unknown>;
-    expect(tokens.$extends).toBe('line');
+    expect(tokens.$extends).toBe('linear');
     expect(tokens.radius).toBeTruthy();
 
     const meta = JSON.parse(
       application.files.find((f) => f.path === 'meta.json')!.content,
     ) as Record<string, unknown>;
     expect(meta.generator).toBe('theme-studio');
-    expect(meta.extends).toBe('line');
+    expect(meta.extends).toBe('linear');
 
     expect(checkRules(application).ok).toBe(true);
     expect(checkRtl(application).ok).toBe(true);
@@ -72,7 +72,7 @@ describe('listingApplicationFromThemeStudioExport', () => {
 
   it('rejects missing community- prefix', () => {
     expect(() =>
-      listingApplicationFromThemeStudioExport(studioExport(), { id: 'line-dense' }),
+      listingApplicationFromThemeStudioExport(studioExport(), { id: 'linear-dense' }),
     ).toThrow(CommunityPrefixError);
   });
 
@@ -106,7 +106,7 @@ describe('listingApplicationFromThemeStudioExport', () => {
       expect(installRes.status).toBe(200);
       const meta = await readFile(join(dir, 'meta.json'), 'utf-8');
       expect(meta).toContain('theme-studio');
-      expect(meta).toContain('"extends": "line"');
+      expect(meta).toContain('"extends": "linear"');
     } finally {
       await server.close();
       await rm(dir, { recursive: true, force: true });

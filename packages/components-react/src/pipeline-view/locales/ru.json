@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "Конвейер",
+    "statusPending": "В ожидании",
+    "statusRunning": "Выполняется",
+    "statusSuccess": "Успешно",
+    "statusFailed": "Ошибка"
+  }
+}

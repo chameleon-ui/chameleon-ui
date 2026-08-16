@@ -8,7 +8,14 @@
 
 ```ts
 import { Button, ThemeProvider } from "@chameleon-ui/react";
-import "@chameleon-ui/react/css";   // tokens + line 主题 + 组件基础样式
+import "@chameleon-ui/react/css";   // tokens + density + line 主题 + 组件基础样式（real dist/css.css）
+```
+
+多主题叠加时可用伞包主题出口（与 Vue 对齐）：
+
+```ts
+import "@chameleon-ui/react/themes/apple/css";
+// 或 @chameleon-ui/themes/apple/css
 ```
 
 ## 接入（npm 发布前）
@@ -16,7 +23,7 @@ import "@chameleon-ui/react/css";   // tokens + line 主题 + 组件基础样式
 ```bash
 node ../scripts/pack-external.mjs
 # 在消费者应用：
-npm install ../dist-tarballs/chameleon-ui-react-0.2.0.tgz
+npm install ../dist-tarballs/chameleon-ui-react-0.4.0.tgz
 ```
 
 ## 包要求：在你的应用根钉住 peers

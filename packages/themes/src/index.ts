@@ -153,10 +153,10 @@ export interface DesignRules {
  * Canonical CSS specifier for a tribute theme overlay.
  *
  * Use this (or the `exports` alias below). Do **not** invent a path such as
- * `@chameleon-ui/themes/cupertino/variables.css` — that specifier is not exported.
+ * `@chameleon-ui/themes/apple/variables.css` — that specifier is not exported.
  *
  * @example
- * import "@chameleon-ui/themes/cupertino/css"
+ * import "@chameleon-ui/themes/apple/css"
  */
 export function themeCssSpecifier(id: ThemeId): `@chameleon-ui/themes/${ThemeId}/css` {
   return `@chameleon-ui/themes/${id}/css`;
@@ -168,7 +168,7 @@ export function themeCssSpecifier(id: ThemeId): `@chameleon-ui/themes/${ThemeId}
  * does not throw `Missing specifier`.
  *
  * @example
- * import "@chameleon-ui/themes/dist/cupertino/variables.css"
+ * import "@chameleon-ui/themes/dist/apple/variables.css"
  */
 export function themeCssDistSpecifier(
   id: ThemeId,

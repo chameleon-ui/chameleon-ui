@@ -9,9 +9,9 @@ const schemaPath = path.join(packageRoot, 'schemas', 'component-contract.schema.
 
 // Test hooks for the Phase 8 red-proof gate; production runs never set these.
 const catalogPath =
-  process.env.CU_CATALOG_JSON ?? path.join(workspaceRoot, 'packages', 'components', 'catalog.json')
+  process.env.CU_CATALOG_JSON ?? path.join(workspaceRoot, 'packages', 'components-react', 'catalog.json')
 const componentsSrc =
-  process.env.CU_COMPONENTS_SRC ?? path.join(workspaceRoot, 'packages', 'components', 'src')
+  process.env.CU_COMPONENTS_SRC ?? path.join(workspaceRoot, 'packages', 'components-react', 'src')
 
 async function readJson(filePath) {
   try {

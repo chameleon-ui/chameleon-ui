@@ -10,8 +10,8 @@ Phase 3 workspace 包。延期包见 [../STRUCTURE.md](../STRUCTURE.md)。
 | [i18n](./i18n/) | `@chameleon-ui/i18n` | ICU / Locale |
 | [primitives](./primitives/) | `@chameleon-ui/primitives` | React Headless（Ark / Zag） |
 | [primitives-vue](./primitives-vue/) | `@chameleon-ui/primitives-vue` | Vue Headless（Ark / Zag） |
-| [components](./components/) | `@chameleon-ui/components` | React 主包；`catalog.json` |
-| [components-vue](./components-vue/) | `@chameleon-ui/components-vue` | Vue catalog 103/103 + ThemeProvider |
+| [components](./components/) | `@chameleon-ui/components-react` | React 主包；`catalog.json` |
+| [components-vue](./components-vue/) | `@chameleon-ui/components-vue` | Vue catalog 116/116 + ThemeProvider |
 | [install-core](./install-core/) | `@chameleon-ui/install-core` | 唯一写盘内核 |
 | [registry](./registry/) | `@chameleon-ui/registry` | 目录 + 可选 HTTP 客户端 |
 | [registry-private](./registry-private/) | `@chameleon-ui/registry-private` | 本机私有 Registry 服务（`private: true`） |

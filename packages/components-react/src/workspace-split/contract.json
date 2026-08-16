@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "workspace-split",
+  "name": "WorkspaceSplit",
+  "status": "experimental",
+  "purpose": "Master–detail (optional tools) workspace that morphs single-column ↔ split via container queries.",
+  "scenarios": [
+    "Queue + editor workspace that stacks on phone and splits from tablet",
+    "Queue + canvas + tools three-pane desktop layout without freezing CSS Grid"
+  ],
+  "props": {
+    "master": {
+      "type": "node",
+      "required": true,
+      "description": "Master / queue column."
+    },
+    "detail": {
+      "type": "node",
+      "required": true,
+      "description": "Detail / canvas column."
+    },
+    "tools": {
+      "type": "node",
+      "required": false,
+      "description": "Optional tools / inspector pane. Stacks on compact; under detail on tablet; third column at desktop."
+    },
+    "masterWidth": {
+      "type": "string",
+      "required": false,
+      "default": "16rem",
+      "description": "Preferred master column width from tablet up."
+    },
+    "toolsWidth": {
+      "type": "string",
+      "required": false,
+      "default": "16rem",
+      "description": "Preferred tools column width at desktop."
+    },
+    "collapseBelow": {
+      "type": "string",
+      "required": false,
+      "default": "48rem",
+      "description": "Documented threshold. Morph uses token breakpoints 48rem/80rem; custom lengths are not applied."
+    },
+    "scrollMode": {
+      "type": "enum",
+      "required": false,
+      "values": [
+        "shell",
+        "panes",
+        "none"
+      ],
+      "default": "shell",
+      "description": "Unique scroll owner. shell (default): AppShell __main scrolls, panes do not. panes: fill host and pane overflow:auto. none: no default pane scroll."
+    },
+    "masterScroll": {
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Per-pane override. null/omitted follows scrollMode (true only for panes). Explicit true/false wins."
+    },
+    "detailScroll": {
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Per-pane override. null/omitted follows scrollMode (true only for panes). Explicit true/false wins."
+    },
+    "toolsScroll": {
+      "type": "boolean",
+      "required": false,
+      "default": null,
+      "description": "Per-pane override. null/omitted follows scrollMode (true only for panes). Explicit true/false wins."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Default."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card",
+      "stack"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not freeze a desktop CSS Grid or Stack direction=row for the same master/detail job — that fights Navigation morph and squeezes columns on compact.",
+    "Do not nest a second AppShell Navigation inside a pane.",
+    "Do not enable pane *Scroll (or scrollMode=panes) and also fight AppShell __main with a second overflow:auto — one scroll owner only.",
+    "Do not nest a second WorkspaceSplit inside detail — nested splits always stack; use the outer tools slot."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Follows content.",
+    "labeling": "As needed.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Named container workspace-split restyles the inner frame. Compact is one column; 48rem opens master|detail; 80rem opens tools as a third column when present.",
+    "breakpoints": {
+      "compact": "Single column: master, then detail, then tools.",
+      "medium": "Master | detail; tools stacks under detail when present.",
+      "large": "Master | detail | tools when tools is present; otherwise master | detail."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "workspace-split",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "layout-split"
+    ]
+  }
+}

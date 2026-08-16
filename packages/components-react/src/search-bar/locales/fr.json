@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "Rechercher",
+    "placeholder": "Rechercher",
+    "clear": "Effacer",
+    "submit": "Lancer la recherche"
+  }
+}

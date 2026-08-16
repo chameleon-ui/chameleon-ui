@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Upau wa zana wa ubao",
+    "zoomIn": "Kuza",
+    "zoomOut": "Punguza",
+    "resetView": "Weka upya mtazamo",
+    "fitView": "Weka kwenye mtazamo"
+  }
+}

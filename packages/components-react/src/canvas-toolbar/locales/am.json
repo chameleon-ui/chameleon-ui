@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "የካንቫስ መሣሪያ አሞሌ",
+    "zoomIn": "አጉላ",
+    "zoomOut": "አሳንስ",
+    "resetView": "እይታ ዳግም አስጀምር",
+    "fitView": "ወደ እይታ አስማ"
+  }
+}

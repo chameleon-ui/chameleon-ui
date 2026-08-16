@@ -1,0 +1,98 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "checkerboard-surface",
+  "name": "CheckerboardSurface",
+  "status": "experimental",
+  "purpose": "Token-colored checkerboard surface so transparent media edges remain readable against the stage.",
+  "scenarios": [
+    "Show alpha edges of transparent PNG / cutout media.",
+    "Shared backdrop for MaskPaintCanvas and ImageCompare.",
+    "High-contrast mask / inpaint editing with contrast=strong."
+  ],
+  "props": {
+    "cellSize": {
+      "type": "enum",
+      "required": false,
+      "description": "Checker cell size (0.5 / 0.75 / 1rem).",
+      "values": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    "contrast": {
+      "type": "enum",
+      "required": false,
+      "description": "A/B contrast. Prefer strong for mask / inpaint editors.",
+      "values": ["default", "strong"],
+      "default": "default"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "contrast",
+      "values": ["default", "strong"],
+      "default": "default",
+      "description": "default is readable on line; strong for editing stages."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Default."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card",
+      "stack",
+      "workspace-split"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Hand-rolling repeating-conic-gradient or overriding --cu-checkerboard-* just to reach readable contrast — raise library defaults / use contrast=strong instead."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Follows content.",
+    "labeling": "As needed.",
+    "wcag": [
+      "1.3.1",
+      "1.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fluid.",
+    "breakpoints": {
+      "compact": "Default.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "checkerboard-surface",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "show-transparency"
+    ]
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "selectable-list-item",
+  "name": "SelectableListItem",
+  "status": "experimental",
+  "purpose": "Selectable queue/list row with optional leading, meta, and inline actions.",
+  "scenarios": [
+    "Task queue row with selected highlight, status meta, and download/delete actions."
+  ],
+  "props": {
+    "selected": {
+      "type": "boolean",
+      "required": false,
+      "description": "Whether the row is selected."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Disables selection."
+    },
+    "onSelect": {
+      "type": "event",
+      "required": false,
+      "description": "Called when the row is activated (click / Enter / Space).",
+      "payload": "() => void"
+    },
+    "leading": {
+      "type": "node",
+      "required": false,
+      "description": "Optional leading media or icon. Vue slot: leading."
+    },
+    "meta": {
+      "type": "node",
+      "required": false,
+      "description": "Secondary meta (status badge, caption). Vue slot: meta."
+    },
+    "actions": {
+      "type": "node",
+      "required": false,
+      "description": "Inline action controls; clicks do not re-fire onSelect. Vue slot: actions."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Idle unselected row."
+    },
+    {
+      "name": "selected",
+      "description": "Selected / active row."
+    },
+    {
+      "name": "disabled",
+      "description": "Selection disabled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "scroll-pane",
+      "workspace-split",
+      "stack",
+      "card",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not nest interactive controls that need row selection inside actions without stopPropagation — actions already stop propagation."
+  ],
+  "a11y": {
+    "role": "option",
+    "keyboard": [
+      "Enter",
+      "Space"
+    ],
+    "focus": "Row is focusable when enabled.",
+    "labeling": "Children provide the accessible name; aria-selected reflects selection.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fluid row.",
+    "breakpoints": {
+      "compact": "Default.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "selectable-list-item",
+    "states": [
+      "default",
+      "selected",
+      "disabled"
+    ],
+    "intents": [
+      "select-single"
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 {
   "id": "wechat",
   "type": "registry:theme",
-  "name": "Wechat",
+  "name": "WeChat",
   "dependencies": [],
   "files": [
     {
@@ -14,7 +14,7 @@
     },
     {
       "path": "themes/wechat/meta.json",
-      "content": "{\n  \"id\": \"wechat\",\n  \"label\": \"Wechat\",\n  \"preview\": {\n    \"accent\": \"#07c160\",\n    \"surface\": \"#ededed\"\n  },\n  \"fonts\": {\n    \"sans\": \"system-ui, -apple-system, BlinkMacSystemFont, \\\"Segoe UI\\\", \\\"PingFang SC\\\", \\\"Hiragino Sans GB\\\", \\\"Microsoft YaHei UI\\\", \\\"Microsoft YaHei\\\", sans-serif\"\n  }\n}\n"
+      "content": "{\n  \"id\": \"wechat\",\n  \"label\": \"WeChat\",\n  \"preview\": {\n    \"accent\": \"#07c160\",\n    \"surface\": \"#ededed\"\n  },\n  \"fonts\": {\n    \"sans\": \"system-ui, -apple-system, BlinkMacSystemFont, \\\"Segoe UI\\\", \\\"PingFang SC\\\", \\\"Hiragino Sans GB\\\", \\\"Microsoft YaHei UI\\\", \\\"Microsoft YaHei\\\", sans-serif\"\n  }\n}\n"
     },
     {
       "path": "themes/wechat/tokens.json",

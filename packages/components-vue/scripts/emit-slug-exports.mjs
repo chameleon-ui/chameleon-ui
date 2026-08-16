@@ -1,6 +1,6 @@
 /**
  * After the Vite barrel + vue-tsc declarations, emit per-slug JS that matches
- * React's `@chameleon-ui/components/<slug>` consume path.
+ * React's `@chameleon-ui/components-react/<slug>` consume path.
  */
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'

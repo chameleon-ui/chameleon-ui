@@ -1,6 +1,6 @@
 /**
  * Phase 8 §3.7: derived-theme demo proof + $extends regression.
- *  - compiles `examples/line-dense` (extends `line`, delta-only storage)
+ *  - compiles `examples/linear-dense` (extends `linear`, delta-only storage)
  *  - asserts the diff vs the parent is exactly the overridden variable set
  *  - asserts non-overridden tokens are byte-identical to the parent output
  * Run: node scripts/test-themes-extends.mjs
@@ -14,7 +14,7 @@ import { compileThemeTokens, resolveThemeExtends } from "@chameleon-ui/tokens/co
 const packageRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const themesRoot = path.join(packageRoot, "src");
 const coreDirectory = path.resolve(packageRoot, "../tokens/src/core");
-const exampleDirectory = path.join(packageRoot, "examples", "line-dense");
+const exampleDirectory = path.join(packageRoot, "examples", "linear-dense");
 
 function createFsLoader(baseDirectory) {
   return async (ref) => {
@@ -39,22 +39,22 @@ function cssVarMap(css) {
 
 async function main() {
   const parentOverlay = JSON.parse(
-    await readFile(path.join(themesRoot, "line", "tokens.json"), "utf8"),
+    await readFile(path.join(themesRoot, "linear", "tokens.json"), "utf8"),
   );
   const derivedDocument = JSON.parse(
     await readFile(path.join(exampleDirectory, "tokens.json"), "utf8"),
   );
-  assert.equal(derivedDocument.$extends, "../../src/line/tokens.json");
+  assert.equal(derivedDocument.$extends, "../../src/linear/tokens.json");
 
   const resolvedDerived = await resolveThemeExtends(
     derivedDocument,
     createFsLoader(exampleDirectory),
-    { label: "line-dense" },
+    { label: "linear-dense" },
   );
   assert.ok(!("$extends" in resolvedDerived), "$extends must be stripped after resolution");
 
-  const parent = await compileThemeTokens(coreDirectory, parentOverlay, "line");
-  const derived = await compileThemeTokens(coreDirectory, resolvedDerived, "line-dense");
+  const parent = await compileThemeTokens(coreDirectory, parentOverlay, "linear");
+  const derived = await compileThemeTokens(coreDirectory, resolvedDerived, "linear-dense");
 
   const parentVars = cssVarMap(parent.css);
   const derivedVars = cssVarMap(derived.css);
@@ -77,12 +77,12 @@ async function main() {
     `diff must be exactly the delta variables: ${expectedOverrides.join(", ")}`,
   );
   assert.equal(derivedVars.get("--cu-radius-md"), "2px", "derived radius delta applied");
-  assert.equal(parentVars.get("--cu-radius-md"), "8px", "parent stays untouched");
+  assert.equal(parentVars.get("--cu-radius-md"), "6px", "parent stays untouched");
 
   assert.ok(!derived.css.includes("$extends"), "compiled CSS is static (零运行时不破)");
 
   console.log(
-    `[@chameleon-ui/themes] $extends demo: line-dense derives from line with ${differences.length} overridden variables (${differences.join(", ")})`,
+    `[@chameleon-ui/themes] $extends demo: linear-dense derives from linear with ${differences.length} overridden variables (${differences.join(", ")})`,
   );
 }
 

@@ -12,7 +12,7 @@
 
 傳統組件庫對 AI 係「黑盒」——AI 只能由 README/例子估用法，好容易作造 import、錯 props 或者唔存在嘅路徑。Chameleon UI 反轉嚟：**每個組件都帶一份機器可讀嘅 `contract.json`**，AI 直接讀佢就可以攞到權威、可校驗嘅用法。
 
-每個組件嘅 `contract.json`（位於 `packages/components/src/<slug>/contract.json`）包含：
+每個組件嘅 `contract.json`（位於 `packages/components-react/src/<slug>/contract.json`）包含：
 
 - `slug` / `name` / `schemaVersion`
 - `props` / `variants` / `states`
@@ -120,11 +120,11 @@ AI 直接讀倉庫入面嘅 `AGENTS.md` 同 `docs/ai/`，由檔案系統攞契�
 
 ## 6. 工作流示例：AI 加一個登入表單
 
-1. `get_started` → 攞到主題 `line`、CSS 引入、工具順序。
+1. `get_started` → 攞到主題 `linear`、CSS 引入、工具順序。
 2. `search_components`(`intent: "authenticate"`)→ 命中 `login` / `input` / `password-input`。
 3. `get_import_specifiers` → 攞到呢組組件嘅**合法** import。
 4. `get_contract`(`input`)→ 攞到 props / a11y / antiPatterns。
-5. `get_design_rules`(`line`)→ 攞到密度 / RTL / 間距規則。
+5. `get_design_rules`(`linear`)→ 攞到密度 / RTL / 間距規則。
 6. 產出 JSX/SFC，用官方 specifier 引入，零 `resolve.alias`。
 7. 如需落盤：`install_with_theme`（經 install-core 冪等寫入）。
 

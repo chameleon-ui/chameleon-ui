@@ -1,4 +1,4 @@
-import { Button, Card, Checkbox, Form, Input, PasswordInput, Typography } from '@chameleon-ui/components'
+import { Button, Card, Checkbox, Form, Input, PasswordInput, Typography } from '@chameleon-ui/components-react'
 import { useState, type FormEvent } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { registerLocaleTrees } from './locale-map.js'

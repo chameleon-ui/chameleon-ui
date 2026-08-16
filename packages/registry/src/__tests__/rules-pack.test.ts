@@ -63,11 +63,11 @@ describe('registry discipline packs', () => {
   it('blocks homage ids from paid rules authorization', async () => {
     const homagePack = {
       ...getRegistryItem('community-focus-first')!,
-      id: 'line',
+      id: 'linear',
       type: 'registry:rules' as const,
       files: getRegistryItem('community-focus-first')!.files.map((file) => ({
         ...file,
-        path: file.path.replace('community-focus-first', 'line'),
+        path: file.path.replace('community-focus-first', 'linear'),
       })),
     };
     await expect(
@@ -81,7 +81,7 @@ describe('registry discipline packs', () => {
             return [homagePack];
           },
         },
-        'line',
+        'linear',
         { authContext: { paid: true, token: 'license-ok' } },
       ),
     ).rejects.toBeInstanceOf(RulesListingPolicyError);

@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "流水線",
+    "statusPending": "待處理",
+    "statusRunning": "執行中",
+    "statusSuccess": "已成功",
+    "statusFailed": "已失敗"
+  }
+}

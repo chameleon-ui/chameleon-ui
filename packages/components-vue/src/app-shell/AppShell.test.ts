@@ -37,6 +37,36 @@ describe('AppShell', () => {
     expect(wrapper.find('.cu-app-shell__tab-bar').exists()).toBe(false)
   })
 
+  it('renders an optional footer slot outside main so it adheres to the shell bottom', () => {
+    const wrapper = mount(AppShell, {
+      props: { footerPlacement: 'shell' },
+      slots: {
+        header: '<span>Header</span>',
+        navigation: '<nav>Nav</nav>',
+        footer: '<span data-testid="shell-footer">Credits</span>',
+        default: '<span>Main</span>',
+      },
+    })
+
+    expect(wrapper.attributes('data-cu-shell')).toBeDefined()
+    expect(wrapper.attributes('data-footer-placement')).toBe('shell')
+    expect(wrapper.find('footer.cu-app-shell__footer--chrome [data-testid="shell-footer"]').exists()).toBe(true)
+    expect(wrapper.find('main.cu-app-shell__main [data-testid="shell-footer"]').exists()).toBe(false)
+  })
+
+  it('defaults footerPlacement auto with dual hosts for compact↔wide morph', () => {
+    const wrapper = mount(AppShell, {
+      slots: {
+        header: '<span>Header</span>',
+        footer: '<span data-testid="credits">Credits</span>',
+        default: '<span>Main</span>',
+      },
+    })
+    expect(wrapper.attributes('data-footer-placement')).toBe('auto')
+    expect(wrapper.find('.cu-app-shell__footer--flow [data-testid="credits"]').exists()).toBe(true)
+    expect(wrapper.find('.cu-app-shell__footer--chrome [data-testid="credits"]').exists()).toBe(true)
+  })
+
   it('pins compact navigation to the block-end while main is the scrollport', () => {
     const css = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'styles.css'), 'utf8').replace(
       /\/\*[\s\S]*?\*\//g,
@@ -48,5 +78,14 @@ describe('AppShell', () => {
     expect(css).not.toMatch(/min-width:\s*\d+vw/)
     expect(css).toMatch(/\.cu-app-shell__nav\s*\{[^}]*position:\s*sticky/)
     expect(css).toMatch(/\.cu-app-shell__main\s*\{[^}]*overflow-y:\s*auto/)
+    expect(css).toMatch(/\.cu-app-shell__footer\s*\{/)
+    expect(css).toMatch(/grid-area:\s*footer/)
+    expect(css).toMatch(/inline-size:\s*100%/)
+    expect(css).toMatch(/\.cu-app-shell\s*\{[^}]*margin:\s*0/)
+    expect(css).toMatch(/\.cu-app-shell\s*\{[^}]*padding:\s*0/)
+    expect(css).toMatch(/\.cu-app-shell\s*\{[^}]*border-radius:\s*0/)
+    expect(css).toMatch(/\.cu-app-shell__main\s*>\s*\.cu-workspace-split/)
+    expect(css).toMatch(/cu-navigation--collapsed/)
+    expect(css).toMatch(/\.cu-app-shell__nav\s*\{[^}]*overflow:\s*hidden/)
   })
 })

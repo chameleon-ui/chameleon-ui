@@ -1,9 +1,0 @@
-{
-  "canvas-toolbar": {
-    "label": "Canvas toolbar",
-    "zoomIn": "Zoom in",
-    "zoomOut": "Zoom out",
-    "resetView": "Reset view",
-    "fitView": "Fit to view"
-  }
-}

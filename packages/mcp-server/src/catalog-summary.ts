@@ -18,11 +18,11 @@ export interface CatalogDocument {
 }
 
 function loadCatalog(): CatalogDocument {
-  const path = require.resolve('@chameleon-ui/components/catalog.json')
+  const path = require.resolve('@chameleon-ui/components-react/catalog.json')
   return JSON.parse(readFileSync(path, 'utf8')) as CatalogDocument
 }
 
-/** Family → slug list from packages/components/catalog.json (SSOT). */
+/** Family → slug list from packages/components-react/catalog.json (SSOT). */
 export function listComponentsByFamily(): {
   total: number
   families: Array<{ family: string; slugs: string[] }>

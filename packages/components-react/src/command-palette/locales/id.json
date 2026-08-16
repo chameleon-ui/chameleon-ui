@@ -1,0 +1,8 @@
+{
+  "command-palette": {
+    "label": "Palet perintah",
+    "placeholder": "Ketik perintah",
+    "empty": "Tidak ada perintah",
+    "close": "Tutup"
+  }
+}

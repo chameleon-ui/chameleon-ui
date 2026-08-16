@@ -1,6 +1,6 @@
 {
   "name": "@chameleon-ui/schema-renderer",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "private": false,
   "license": "MIT",
   "engines": {
@@ -40,7 +40,7 @@
     "vue": { "optional": true }
   },
   "dependencies": {
-    "@chameleon-ui/components": "workspace:*",
+    "@chameleon-ui/components-react": "workspace:*",
     "@chameleon-ui/components-vue": "workspace:*"
   },
   "devDependencies": {

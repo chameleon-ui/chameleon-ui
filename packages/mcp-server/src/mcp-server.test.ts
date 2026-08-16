@@ -28,7 +28,7 @@ describe('MCP tool surface', () => {
     const result = response?.result as { instructions?: string }
     expect(result.instructions).toContain('get_started')
     expect(result.instructions).toContain('@chameleon-ui/react/css')
-    expect(result.instructions).toContain('theme="line"')
+    expect(result.instructions).toContain('theme="linear"')
   })
 
   it('get_started returns catalog, line flagship, and CSS recipe', async () => {
@@ -39,13 +39,27 @@ describe('MCP tool surface', () => {
       catalogSummary: { total: number; common10: string[] }
       themes: { flagship: string }
       toolOrder: string[]
+      appChrome: {
+        slots: { header: string; navigation: string; footer: string }
+        defaults: { footerPlacement: string; workspaceSplitScrollMode: string }
+        chromeRowHeight: string
+        heightChain: string
+        navigationBar: string
+      }
     }
     expect(result.must.css.react).toBe('@chameleon-ui/react/css')
-    expect(result.must.themeProvider.theme).toBe('line')
-    expect(result.themes.flagship).toBe('line')
+    expect(result.must.themeProvider.theme).toBe('linear')
+    expect(result.themes.flagship).toBe('linear')
     expect(result.catalogSummary.total).toBeGreaterThan(50)
     expect(result.catalogSummary.common10).toContain('button')
     expect(result.toolOrder[0]).toBe('get_started')
+    expect(result.appChrome.slots.header).toContain('NavigationBar')
+    expect(result.appChrome.slots.footer).toContain('Footer')
+    expect(result.appChrome.defaults.footerPlacement).toContain('auto')
+    expect(result.appChrome.defaults.workspaceSplitScrollMode).toBe('shell')
+    expect(result.appChrome.chromeRowHeight).toContain('--cu-control-size-active')
+    expect(result.appChrome.heightChain).toContain('ToastProvider fill')
+    expect(result.appChrome.navigationBar).toContain('Deprecated alias of NavigationTitle')
   })
 
   it('list_components groups by family and filters', async () => {
@@ -87,7 +101,7 @@ describe('MCP tool surface', () => {
     expect(result.schemaVersion).toBe('0.2')
     expect(result.contract.dataAi.role).toBe('button')
     expect(result.contract.dataAi.intents).toContain('submit')
-    expect(result.export).toBe('@chameleon-ui/components/contracts/button')
+    expect(result.export).toBe('@chameleon-ui/components-react/contracts/button')
   })
 
   it('get_contract accepts id as an alias of slug', async () => {
@@ -102,15 +116,15 @@ describe('MCP tool surface', () => {
     expect(response?.error?.message).toMatch(/Unknown component/)
   })
 
-  it('get_design_rules returns cupertino rules with rtl', async () => {
-    const response = await call('get_design_rules', { theme_id: 'cupertino' })
+  it('get_design_rules returns apple rules with rtl', async () => {
+    const response = await call('get_design_rules', { theme_id: 'apple' })
     expect(response?.error).toBeUndefined()
     const result = response?.result as {
       id: string
       version: string
       rules: { rtl: { supported: boolean } }
     }
-    expect(result.id).toBe('cupertino')
+    expect(result.id).toBe('apple')
     expect(result.version).toBe('1.0')
     expect(result.rules.rtl.supported).toBe(true)
   })
@@ -120,54 +134,56 @@ describe('MCP tool surface', () => {
     const themes = (response?.result as { themes: Array<{ id: string }> }).themes
     expect(themes.map((item) => item.id).sort()).toEqual(
       [
-        'ant-blue',
-        'corsa',
-        'cupertino',
-        'line',
-        'silver-arrow',
-        'siren',
-        'stuttgart',
+        'alipay',
+        'ferrari',
+        'apple',
+        'linear',
+        'mercedes',
+        'tiktok',
+        'porsche',
         'wechat',
       ].sort(),
     )
   })
 
-  it('get_import_specifiers defaults to line and still accepts cupertino', async () => {
+  it('get_import_specifiers defaults to line and still accepts apple', async () => {
     const defaulted = await call('get_import_specifiers')
     const defaultResult = defaulted?.result as ReturnType<typeof consumerImportSpecifiers>
-    expect(defaultResult.themeId).toBe('line')
-    expect(defaultResult.preferred.themeCss).toBe('@chameleon-ui/themes/line/css')
+    expect(defaultResult.themeId).toBe('linear')
+    expect(defaultResult.preferred.themeCss).toBe('@chameleon-ui/themes/linear/css')
     expect(defaultResult.preferred.umbrellaReactCss).toBe('@chameleon-ui/react/css')
 
-    const response = await call('get_import_specifiers', { theme_id: 'cupertino' })
+    const response = await call('get_import_specifiers', { theme_id: 'apple' })
     const result = response?.result as ReturnType<typeof consumerImportSpecifiers>
-    expect(result.preferred.themeCss).toBe('@chameleon-ui/themes/cupertino/css')
+    expect(result.preferred.themeCss).toBe('@chameleon-ui/themes/apple/css')
     expect(result.preferred.tokensCss).toBe('@chameleon-ui/tokens/css')
     expect(result.preferred.umbrellaReact).toBe('@chameleon-ui/react')
     expect(result.preferred.umbrellaVue).toBe('@chameleon-ui/vue')
     expect(result.preferred.umbrellaReactCss).toBe('@chameleon-ui/react/css')
     expect(result.preferred.umbrellaVueCss).toBe('@chameleon-ui/vue/css')
-    expect(result.preferred.umbrellaVueThemeCss).toBe('@chameleon-ui/vue/themes/cupertino/css')
+    expect(result.preferred.umbrellaVueThemeCss).toBe('@chameleon-ui/vue/themes/apple/css')
+    expect(result.preferred.umbrellaReactThemeCss).toBe('@chameleon-ui/react/themes/apple/css')
     expect(result.preferred.components).toBe('@chameleon-ui/react')
     expect(result.alsoValid.themeCssDist).toBe(
-      '@chameleon-ui/themes/dist/cupertino/variables.css',
+      '@chameleon-ui/themes/dist/apple/variables.css',
     )
-    expect(result.never).toContain('@chameleon-ui/themes/cupertino/variables.css')
+    expect(result.never).toContain('@chameleon-ui/themes/apple/variables.css')
     expect(result.never).toContain('workspace:*')
     expect(result.unpublishedLink.inExternalApp).toBe('npm link @chameleon-ui/react')
     expect(result.unpublishedLink.inExternalAppVue).toBe('npm link @chameleon-ui/vue')
     expect(result.unpublishedLink.legacyFiveInExternalApp).toContain('@chameleon-ui/tokens')
-    expect(result.unpublishedLink.legacyFiveInExternalApp).toContain('@chameleon-ui/components')
+    expect(result.unpublishedLink.legacyFiveInExternalApp).toContain('@chameleon-ui/components-react')
     expect(result.unpublishedLink.viteTemplate).toBe('templates/external-vite-react')
     expect(result.unpublishedLink.viteTemplateVue).toBe('templates/external-vite-vue')
     expect(result.unpublishedLink.legacyFiveInExternalAppVue).toContain('@chameleon-ui/components-vue')
     expect(result.unpublishedLink.legacyFiveInExternalAppVue).toContain('@chameleon-ui/primitives-vue')
     expect(result.preferred.componentsVue).toBe('@chameleon-ui/vue')
     expect(result.preferred.componentVueSlug).toBe('@chameleon-ui/components-vue/button')
+    expect(result.preferred.componentsCss).toBe('@chameleon-ui/components-react/css')
     expect(result.preferred.componentsVueCss).toBe('@chameleon-ui/components-vue/css')
     expect(result.preferred.schemaRendererVue).toBe('@chameleon-ui/schema-renderer/vue')
-    expect(result.unpublishedLink.note).toContain('0.2.0')
-    expect(result.preferred.componentSlug).toBe('@chameleon-ui/components/button')
+    expect(result.unpublishedLink.note).toContain('0.4.0')
+    expect(result.preferred.componentSlug).toBe('@chameleon-ui/components-react/button')
     expect(result.versionMatrix.arkUi).toBe('5.38.0')
     expect(result.versionMatrix.arkUiVue).toBe('5.38.1')
     expect(result.versionMatrix.vue).toBe('^3.5.0')
@@ -195,12 +211,12 @@ describe('extract helpers', () => {
     expect(contract).toEqual({ schemaVersion: '0.2', slug: 'button' })
 
     const rules = extractDesignRules({
-      id: 'cupertino',
+      id: 'apple',
       type: 'registry:theme',
       name: 'Cupertino',
       files: [
         {
-          path: 'themes/cupertino/design-rules.json',
+          path: 'themes/apple/design-rules.json',
           content: '{"version":"1.0"}',
         },
       ],

@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Barra de ferramentas da tela",
+    "zoomIn": "Ampliar",
+    "zoomOut": "Reduzir",
+    "resetView": "Redefinir visualização",
+    "fitView": "Ajustar à tela"
+  }
+}

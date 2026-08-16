@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "nav-account-card",
+  "name": "NavAccountCard",
+  "family": "B",
+  "status": "experimental",
+  "purpose": "Official Navigation sidebar foot: avatar | username/nickname | logout. Mount in Navigation footer / #footer — not AppShell footer.",
+  "scenarios": [
+    "Pin account identity and a logout control at the bottom of the Navigation sidebar rail",
+    "Replace the default collapse toggle as the product foot chrome when an account foot is present",
+    "Keep the account card hidden on compact TabBar (<48rem)"
+  ],
+  "props": {
+    "username": {
+      "type": "string",
+      "required": true,
+      "description": "Primary display name."
+    },
+    "nickname": {
+      "type": "string",
+      "required": false,
+      "description": "Optional secondary line."
+    },
+    "avatarSrc": {
+      "type": "string",
+      "required": false,
+      "description": "Avatar image URL."
+    },
+    "avatarFallback": {
+      "type": "string",
+      "required": false,
+      "description": "Avatar fallback glyph; defaults to the first letter of username."
+    },
+    "logoutLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Logout control label and accessible name.",
+      "default": "Log out"
+    },
+    "onLogout": {
+      "type": "event",
+      "required": false,
+      "description": "Fired when logout is activated. Vue: logout.",
+      "payload": "() => void"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Expanded account row with name and logout."
+    }
+  ],
+  "composition": {
+    "allowedParents": ["navigation"],
+    "allowedChildren": ["avatar", "button", "text"],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not mount NavAccountCard on the compact TabBar — Navigation hides __footer below 48rem.",
+    "Do not put this in AppShell footer; that slot is credits/legal via Footer.",
+    "Do not use the logout control as a collapse toggle — rail density stays on collapsible API.",
+    "Do not invent a consumer cu- NavAccountCard pretending to be a library export."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": ["Tab to logout; Enter/Space activates logout"],
+    "focus": "Logout is one tab stop; avatar is decorative when alt matches username.",
+    "labeling": "Logout uses logoutLabel as aria-label; avatar alt is username.",
+    "wcag": ["1.3.1", "2.1.1", "4.1.2"]
+  },
+  "responsive": {
+    "strategy": "Card itself is not breakpoint-aware. Visibility is owned by Navigation: sidebar/rail shows __footer; compact TabBar hides it. Collapsed rail hides name text via CSS.",
+    "breakpoints": {
+      "compact": "Must not present NavAccountCard — Navigation __footer is display:none.",
+      "medium": "Visible in Navigation footer; collapsed rail shows avatar + icon logout.",
+      "large": "Visible in Navigation footer with full name row."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical flex row; logout sits on the inline-end via margin-inline-start:auto.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "nav-account-card",
+    "states": ["default"],
+    "intents": ["identify-user", "sign-out"]
+  },
+  "mechanics": "Export NavAccountCard and place it in Navigation footer / #footer — not AppShell footer (that is Footer/credits). When footer is set, Navigation does not render the collapse toggle. logoutLabel defaults to Log out. Chrome row height matches NavigationTitle: min-block-size calc(var(--cu-control-size-active) + 2 * var(--cu-space-1)). Scroll contract: only __list scrolls; header and footer stay pinned. Compact TabBar hides __footer.",
+  "usage": [
+    "Import NavAccountCard from @chameleon-ui/components-react or the React/Vue umbrella.",
+    "Pass as Navigation footer (React) or #footer (Vue) — never AppShell footer.",
+    "Bind onLogout / @logout for sign-out; do not reuse this button for rail collapse.",
+    "Do not hardcode rem row heights; densify via --cu-control-size-active."
+  ],
+  "exports": [
+    {
+      "name": "NavAccountCard",
+      "kind": "component",
+      "signature": "function NavAccountCard(props: NavAccountCardProps): JSX.Element",
+      "description": "Sidebar account + logout foot for Navigation footer."
+    },
+    {
+      "name": "NavAccountCardProps",
+      "kind": "type",
+      "signature": "interface NavAccountCardProps",
+      "description": "username, optional nickname/avatar, logoutLabel, onLogout."
+    }
+  ]
+}

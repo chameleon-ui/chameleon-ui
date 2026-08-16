@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "畫布工具列",
+    "zoomIn": "放大",
+    "zoomOut": "縮小",
+    "resetView": "重設檢視",
+    "fitView": "符合檢視"
+  }
+}

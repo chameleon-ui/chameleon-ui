@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "ፓይፕላይን",
+    "statusPending": "በጥበቃ ላይ",
+    "statusRunning": "በሚሰራ ላይ",
+    "statusSuccess": "ተሳክቷል",
+    "statusFailed": "አልተሳካም"
+  }
+}

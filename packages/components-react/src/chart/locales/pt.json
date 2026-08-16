@@ -1,0 +1,7 @@
+{
+  "chart": {
+    "label": "Gráfico",
+    "series": "Série",
+    "empty": "Sem dados"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "id": "scroll-pane",
+  "type": "registry:ui",
+  "name": "ScrollPane",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/scroll-pane/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"scroll-pane\",\n  \"name\": \"ScrollPane\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Single scroll host for nested regions inside AppShell main.\",\n  \"scenarios\": [\n    \"Single scroll host for nested regions inside AppShell main.\"\n  ],\n  \"props\": {\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Default.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"app-shell\",\n      \"page\",\n      \"card\",\n      \"stack\"\n    ],\n    \"allowedChildren\": [],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [],\n  \"a11y\": {\n    \"role\": \"generic\",\n    \"keyboard\": [],\n    \"focus\": \"Follows content.\",\n    \"labeling\": \"As needed.\",\n    \"wcag\": [\n      \"1.3.1\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Fluid.\",\n    \"breakpoints\": {\n      \"compact\": \"Default.\",\n      \"medium\": \"Default.\",\n      \"large\": \"Default.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical CSS.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"scroll-pane\",\n    \"states\": [\n      \"default\"\n    ],\n    \"intents\": [\n      \"scroll-region\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/index.ts",
+      "content": "export { ScrollPane } from './ScrollPane.js'\nexport type { ScrollPaneOrientation, ScrollPaneProps } from './ScrollPane.js'\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/am.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ar.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/bn.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/de.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/en.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/es.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/fa.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/fr.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ha.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/hi.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/id.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ja.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ko.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/pt.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ru.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/sw.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ug.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/ur.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/vi.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/zh-CN.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/locales/zh-HK.json",
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/README.md",
+      "content": "# ScrollPane\n\nSingle nested scroll host for a region inside AppShell `__main`.\n\nPrefer **one** scroll owner:\n\n| Placement | Effect |\n| :--- | :--- |\n| Direct child of `__main` | AppShell hides `__main` overflow; this pane owns scroll |\n| Inside a `WorkspaceSplit` pane | Use for a long list when `scrollMode=\"shell\"` (default) instead of turning on every pane |\n\nDo not wrap content in `ScrollPane` and also leave competing `overflow: auto` on `__main` ancestors you control — when this is a direct child, the library already disables `__main` scroll.\n"
+    },
+    {
+      "path": "components/scroll-pane/ScrollPane.tsx",
+      "content": "import type { CSSProperties, ReactNode } from 'react'\nimport './styles.css'\n\nexport type ScrollPaneOrientation = 'vertical' | 'horizontal' | 'both'\n\nexport interface ScrollPaneProps {\n  children: ReactNode\n  orientation?: ScrollPaneOrientation\n  overscrollBehavior?: CSSProperties['overscrollBehavior']\n  className?: string\n}\n\nexport function ScrollPane({\n  children,\n  orientation = 'vertical',\n  overscrollBehavior = 'contain',\n  className,\n}: ScrollPaneProps) {\n  const classes = ['cu-scroll-pane', `cu-scroll-pane--${orientation}`, className]\n    .filter(Boolean)\n    .join(' ')\n  return (\n    <div\n      className={classes}\n      data-ai-role=\"scroll-pane\"\n      data-ai-intent=\"scroll-region\"\n      data-ai-state=\"default\"\n      style={{ overscrollBehavior }}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/scroll-pane/styles.css",
+      "content": ".cu-scroll-pane {\n  box-sizing: border-box;\n  block-size: 100%;\n  min-block-size: 0;\n  min-inline-size: 0;\n  overscroll-behavior: contain;\n}\n\n.cu-scroll-pane--vertical {\n  overflow-x: hidden;\n  overflow-y: auto;\n  scrollbar-gutter: auto;\n}\n\n.cu-scroll-pane--horizontal {\n  overflow-x: auto;\n  overflow-y: hidden;\n  scrollbar-gutter: auto;\n}\n\n.cu-scroll-pane--both {\n  overflow: auto;\n  scrollbar-gutter: auto;\n}\n"
+    }
+  ]
+}

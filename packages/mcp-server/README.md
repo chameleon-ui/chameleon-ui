@@ -39,7 +39,7 @@ server 从 stdin 读 JSON-RPC，往 stdout 写响应；日志与遥测发到 std
 - `CU_TARGET_DIR` — `.` 把 `install_*` 写进消费者（相对 MCP 进程 cwd，通常是消费者工作区）。
 - 若 library 即 cwd：`"command": "pnpm"`、`"args": ["--filter", "@chameleon-ui/mcp-server", "exec", "chameleon-mcp"]`、`"cwd": "../chameleon-ui"`，并把 `CU_TARGET_DIR` 设为**相对该 library cwd** 的路径（如 `../my-app`）——不是 `.`。
 
-只读工具在目标目录为空时也用捆绑目录工作。包当前 `0.2.0` 未发布；`npx @chameleon-ui/mcp-server` 在 npm 发布前**不可用**。
+只读工具在目标目录为空时也用捆绑目录工作。包当前 `0.4.0` 未发布；`npx @chameleon-ui/mcp-server` 在 npm 发布前**不可用**。
 
 可直接复制的消费者规则：[`docs/ai/consumer-agent-bootstrap.md`](../../docs/ai/consumer-agent-bootstrap.md)。
 
@@ -47,14 +47,14 @@ server 从 stdin 读 JSON-RPC，往 stdout 写响应；日志与遥测发到 std
 
 | 工具 | 说明 |
 | :--- | :--- |
-| `get_started` | **先调用**。目录摘要、CSS + `ThemeProvider theme="line"`、工具顺序、模板、禁止项 |
+| `get_started` | **先调用**。目录摘要、CSS + `ThemeProvider theme="linear"`、工具顺序、模板、禁止项 |
 | `list_components` | 按 family 浏览 catalog（偏好 `search_components` + `intent`） |
 | `search_components` | 按 `query`（id/name）或 `intent`（契约驱动、可解释）搜索 |
 | `get_component` | 完整 registry 项（文件+依赖）；取 v0.2 JSON 用 `get_contract` |
 | `get_contract` | 按 slug 取 v0.2 `contract.json` |
 | `get_design_rules` | 按 theme id（或社区 rules pack id）取 `design-rules.json` |
-| `get_import_specifiers` | 外部工程合法 CSS/JS specifier；默认主题 `line`。写 import 前调用 |
-| `list_themes` | 8 套官方致敬主题（旗舰：`line`） |
+| `get_import_specifiers` | 外部工程合法 CSS/JS specifier；默认主题 `linear`。写 import 前调用 |
+| `list_themes` | 8 套官方致敬主题（旗舰：`linear`） |
 | `install_component` | 经 install-core 装一个组件 |
 | `install_block` | 经 install-core 装一个场景块（`registry:block`）+ 组件依赖 |
 | `install_theme` | 经 install-core 装一个主题 |

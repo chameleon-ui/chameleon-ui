@@ -1,26 +1,28 @@
-# Consumer agent bootstrap
+# 消费者 Agent 引导
 
-Paste the block below into a **consumer** app (Cursor Rule, `AGENTS.md`, or opening prompt).
+把下面的规则块原样粘贴进消费者应用（Cursor Rule、`AGENTS.md` 或开场 prompt）。
 
-Full SSOT: [`../AGENTS.md`](../AGENTS.md). Composition notes: [`agent-consume.md`](./agent-consume.md).
+完整规则以 [`../AGENTS.md`](../AGENTS.md) 为准，组合说明见 [`agent-consume.md`](./agent-consume.md)。
 
-## Cursor Rule / opening prompt (copy)
+规则块保持英文：它面向消费者侧的 AI agent，与 AGENTS.md 同语言，避免规则在翻译中失真。
+
+## Cursor Rule / 开场 prompt（复制）
 
 ```
 This app consumes Chameleon UI only.
 
 1. Pick one umbrella: @chameleon-ui/react OR @chameleon-ui/vue. Never both.
 2. Import umbrella CSS in the app entry:
-   - React: import "@chameleon-ui/react/css"
-   - Vue: import "@chameleon-ui/vue/css"  (real file: dist/css.css — tokens + density + line + components)
-3. Wrap the root in <ThemeProvider theme="line" locale="zh-CN"> (or the locale the user asked for).
+   - React: import "@chameleon-ui/react/css"  (real file: dist/css.css — tokens + density + linear + components)
+   - Vue: import "@chameleon-ui/vue/css"  (real file: dist/css.css — tokens + density + linear + components)
+3. Wrap the root in <ThemeProvider theme="linear" locale="zh-CN"> (or the locale the user asked for).
 4. If MCP chameleon-ui is attached: call get_started first, then get_import_specifiers before any import.
 5. Prefer search_components with intent; browse with list_components; get_contract before emitting JSX/SFC.
 6. Never invent CSS paths. Never write workspace:*. Never import .../variables.css (not exported).
 7. Do not substitute Tailwind or other UI kits for Chameleon theme CSS.
 ```
 
-## Correct entry (React)
+## 正确入口（React）
 
 ```tsx
 import "@chameleon-ui/react/css";
@@ -28,14 +30,14 @@ import { ThemeProvider, Button } from "@chameleon-ui/react";
 
 export function Root() {
   return (
-    <ThemeProvider theme="line" locale="zh-CN">
+    <ThemeProvider theme="linear" locale="zh-CN">
       <Button>OK</Button>
     </ThemeProvider>
   );
 }
 ```
 
-## Correct entry (Vue)
+## 正确入口（Vue）
 
 ```ts
 import { createApp } from "vue";
@@ -51,16 +53,16 @@ import { ThemeProvider, Button } from "@chameleon-ui/vue";
 </script>
 
 <template>
-  <ThemeProvider theme="line" locale="zh-CN">
+  <ThemeProvider theme="linear" locale="zh-CN">
     <Button>OK</Button>
   </ThemeProvider>
 </template>
 ```
 
-Official templates (already wired): `templates/external-vite-react` · `templates/external-vite-vue`.
+官方模板（已接好线）：`templates/external-vite-react` · `templates/external-vite-vue`。
 
-## MCP attach (optional)
+## MCP 挂载（可选）
 
-Only needed when the consumer attaches the Chameleon MCP server. Build once from this library checkout, then point the consumer at `packages/mcp-server/dist/index.js` with a **relative** path. Snippet and tool list: [`agent-consume.md`](./agent-consume.md) · [`../../packages/mcp-server/README.md`](../../packages/mcp-server/README.md).
+仅当消费者挂载 Chameleon MCP server 时需要。在本库检出中构建一次，然后用相对路径指向 `packages/mcp-server/dist/index.js`。配置片段与工具清单见 [`agent-consume.md`](./agent-consume.md) 和 [`packages/mcp-server/README.md`](../../packages/mcp-server/README.md)。
 
-Packages are `0.2.0` and **not on npm** — `npx @chameleon-ui/mcp-server` is unavailable until publish.
+包版本 `0.4.0`，未上 npm，发布前 `npx @chameleon-ui/mcp-server` 不可用。

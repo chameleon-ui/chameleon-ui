@@ -12,7 +12,7 @@
 
 المكتبات التقليدية «صندوق أسود» للذكاء الاصطناعي — لا يمكنه إلا تخمين الاستخدام من README/الأمثلة، مخترعًا استيرادات أو props خاطئة أو مسارات غير موجودة. عكس ذلك في Chameleon UI: **كل مكوّن يحمل `contract.json` قابلًا للقراءة آليًا** — يقرأه الذكاء الاصطناعي مباشرة ليحصل على استخدام معتمد وقابل للتحقق.
 
-كل `contract.json` (في `packages/components/src/<slug>/contract.json`) يتضمن:
+كل `contract.json` (في `packages/components-react/src/<slug>/contract.json`) يتضمن:
 
 - `slug` / `name` / `schemaVersion`
 - `props` / `variants` / `states`
@@ -120,11 +120,11 @@
 
 ## 6. مثال سير عمل: يضيف AI نموذج تسجيل دخول
 
-1. `get_started` → يحصل على الموضوع `line` واستيرادات CSS وترتيب الأدوات.
+1. `get_started` → يحصل على الموضوع `linear` واستيرادات CSS وترتيب الأدوات.
 2. `search_components`(`intent: "authenticate"`) → يصل إلى `login` / `input` / `password-input`.
 3. `get_import_specifiers` → يحصل على الاستيرادات **الصالحة** لهذه المجموعة.
 4. `get_contract`(`input`) → يحصل على props / a11y / antiPatterns.
-5. `get_design_rules`(`line`) → يحصل على قواعد الكثافة / RTL / التباعد.
+5. `get_design_rules`(`linear`) → يحصل على قواعد الكثافة / RTL / التباعد.
 6. يُصدر JSX/SFC بمُحدِّدات رسمية، وبدون `resolve.alias`.
 7. للكتابة على القرص: `install_with_theme` (عجز عبر install-core).
 

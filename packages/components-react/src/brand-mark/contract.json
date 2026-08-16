@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "brand-mark",
+  "name": "BrandMark",
+  "status": "experimental",
+  "purpose": "Sized brand image for NavigationTitle trailing / chrome.",
+  "scenarios": [
+    "Sized brand image for NavigationTitle trailing / chrome."
+  ],
+  "props": {
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Default."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "app-shell",
+      "page",
+      "card",
+      "stack"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [],
+    "focus": "Follows content.",
+    "labeling": "As needed.",
+    "wcag": [
+      "1.3.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Fluid.",
+    "breakpoints": {
+      "compact": "Default.",
+      "medium": "Default.",
+      "large": "Default."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "brand-mark",
+    "states": [
+      "default"
+    ],
+    "intents": [
+      "show-brand"
+    ]
+  }
+}

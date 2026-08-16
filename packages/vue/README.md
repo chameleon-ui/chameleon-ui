@@ -14,7 +14,7 @@ import "@chameleon-ui/vue/css";   // tokens + density + line 主题 + 组件基�
 其他主题（同一包）：
 
 ```ts
-import "@chameleon-ui/vue/themes/cupertino/css";   // 或 @chameleon-ui/themes/<id>/css
+import "@chameleon-ui/vue/themes/apple/css";   // 或 @chameleon-ui/themes/<id>/css
 ```
 
 ## 接入（npm 发布前）
@@ -23,7 +23,7 @@ import "@chameleon-ui/vue/themes/cupertino/css";   // 或 @chameleon-ui/themes/<
 corepack pnpm@9.15.0 --filter @chameleon-ui/vue... build
 node ../scripts/pack-external.mjs --vue
 # 在消费者应用：
-npm install ../dist-tarballs/chameleon-ui-vue-0.2.0.tgz
+npm install ../dist-tarballs/chameleon-ui-vue-0.4.0.tgz
 ```
 
 ## 包要求：在你的应用根钉住 peers

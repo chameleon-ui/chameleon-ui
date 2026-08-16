@@ -1,0 +1,73 @@
+.cu-image-compare__surface {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 16rem;
+  flex: 1 1 auto;
+}
+
+.cu-image-compare {
+  position: relative;
+  inline-size: 100%;
+  block-size: 100%;
+  min-block-size: 16rem;
+  flex: 1 1 auto;
+  overflow: hidden;
+  touch-action: none;
+  cursor: ew-resize;
+  user-select: none;
+  border-radius: var(--cu-radius-md);
+}
+
+.cu-image-compare--vertical {
+  cursor: ns-resize;
+}
+
+.cu-image-compare__img {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.cu-image-compare__divider {
+  position: absolute;
+  z-index: 2;
+  pointer-events: none;
+  background: var(--cu-color-accent-default, var(--cu-color-palette-brand));
+}
+
+.cu-image-compare--horizontal .cu-image-compare__divider {
+  inset-block: 0;
+  inline-size: 2px;
+  transform: translateX(-50%);
+}
+
+.cu-image-compare--vertical .cu-image-compare__divider {
+  inset-inline: 0;
+  block-size: 2px;
+  transform: translateY(-50%);
+}
+
+.cu-image-compare__divider[data-show-knob='true']::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  inline-size: 1rem;
+  block-size: 1rem;
+  border-radius: 999px;
+  border: 2px solid var(--cu-color-accent-default, var(--cu-color-palette-brand));
+  background: var(--cu-color-background-elevated, var(--cu-color-background-default));
+  box-shadow: var(--cu-shadow-sm, 0 1px 2px rgb(0 0 0 / 12%));
+  transform: translate(-50%, -50%);
+}
+
+.cu-image-compare:focus-visible {
+  outline: 2px solid var(--cu-color-accent-default, var(--cu-color-palette-brand));
+  outline-offset: 2px;
+}

@@ -1,20 +1,27 @@
 const THEME_IDS = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ] as const
 
 export type ThemeId = (typeof THEME_IDS)[number]
 export type ThemeDensity = 'compact' | 'standard' | 'comfortable'
+export type ThemeColorScheme = 'dark' | 'light'
 
 export interface ThemeProviderProps {
   theme: ThemeId
   density?: ThemeDensity
+  /**
+   * Manual dark / light switch. Omit to use the theme's default scheme
+   * (linear defaults to dark). Schemes ship per theme as
+   * `[data-color-scheme]` overrides inside the theme CSS.
+   */
+  colorScheme?: ThemeColorScheme
   locale?: string
   /**
    * Raw CSS keyed by theme id (`import "@chameleon-ui/themes/<id>/css?raw"`).

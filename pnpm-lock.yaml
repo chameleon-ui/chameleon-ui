@@ -83,9 +83,9 @@ importers:
 
   packages/blocks:
     dependencies:
-      '@chameleon-ui/components':
+      '@chameleon-ui/components-react':
         specifier: workspace:*
-        version: link:../components
+        version: link:../components-react
       '@chameleon-ui/i18n':
         specifier: workspace:*
         version: link:../i18n
@@ -155,7 +155,7 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
 
-  packages/components:
+  packages/components-react:
     dependencies:
       '@chameleon-ui/i18n':
         specifier: workspace:*
@@ -308,9 +308,9 @@ importers:
 
   packages/mcp-server:
     dependencies:
-      '@chameleon-ui/components':
+      '@chameleon-ui/components-react':
         specifier: workspace:*
-        version: link:../components
+        version: link:../components-react
       '@chameleon-ui/install-core':
         specifier: workspace:*
         version: link:../install-core
@@ -395,9 +395,9 @@ importers:
       '@ark-ui/react':
         specifier: 5.38.0
         version: 5.38.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@chameleon-ui/components':
+      '@chameleon-ui/components-react':
         specifier: workspace:*
-        version: link:../components
+        version: link:../components-react
       '@chameleon-ui/i18n':
         specifier: workspace:*
         version: link:../i18n
@@ -470,9 +470,9 @@ importers:
 
   packages/schema-renderer:
     dependencies:
-      '@chameleon-ui/components':
+      '@chameleon-ui/components-react':
         specifier: workspace:*
-        version: link:../components
+        version: link:../components-react
       '@chameleon-ui/components-vue':
         specifier: workspace:*
         version: link:../components-vue

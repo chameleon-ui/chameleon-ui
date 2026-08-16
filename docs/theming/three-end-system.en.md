@@ -29,7 +29,7 @@ Because the underlying **headless core (Ark UI / Zag) is packaged per framework*
 
 But the two lines **share the same design layer**, so they are not "two random libraries" but "**one design system × two render adapters**":
 
-- **Single catalog**: `components/catalog.json` (103 components) is the only authority; Vue has **no catalog of its own**.
+- **Single catalog**: `components/catalog.json` (109 components) is the only authority; Vue has **no catalog of its own**.
 - **Same contracts**: `contract.json` is shared by React and Vue (a `Button`'s props/a11y/RTL behavior is identical).
 - **Same tokens / i18n / themes**: `tokens`, `i18n` (21 languages), `themes` are shared by both.
 
@@ -120,7 +120,7 @@ Implementation: `Navigation`'s CSS uses container queries to switch form by `min
 @container navigation (max-width: 20rem)  { /* Tab form */ }
 ```
 
-Companion three-end components: `AppShell` (three-end app skeleton) · `SafeArea` (notch / gesture-bar insets) · `ActionSheet` (phone bottom action panel) · `Navbar` / `NavigationBar` (horizontal stacked navigation).
+Companion three-end components: `AppShell` (three-end app skeleton) · `SafeArea` (notch / gesture-bar insets) · `ActionSheet` (phone bottom action panel) · `Navbar` / `NavigationTitle` (horizontal stacked navigation).
 
 ---
 
@@ -150,7 +150,7 @@ So "three-end" is not three implementations but **one contract + one interaction
 
 - Breakpoint/density token sources: `packages/tokens/src/core/breakpoint.json` · `density.json`
 - Density generation script: `packages/tokens/scripts/density-css.mjs`
-- Three-end navigation styles: `packages/components/src/navigation/styles.css`
-- App-shell styles: `packages/components/src/app-shell/styles.css`
+- Three-end navigation styles: `packages/components-react/src/navigation/styles.css`
+- App-shell styles: `packages/components-react/src/app-shell/styles.css`
 - How tokens work: [`token-system.md`](./token-system.en.md)
 - Tokens package doc: [`packages/tokens/README.md`](../../packages/tokens/README.md)

@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "app-shell",
+  "name": "AppShell",
+  "status": "experimental",
+  "purpose": "Application chrome: NavigationTitle is the stack (UINavigationBar); Navigation is the tab controller (UITabBarController) that morphs TabBar ↔ sidebar; Footer is attribution.",
+  "scenarios": [
+    "Host NavigationTitle, one Navigation, and optional Footer so stack, tabs, and credits stay distinct",
+    "Morph that Navigation from a block-end tab bar to a side column as the shell widens",
+    "Keep specialized Sidebar or TabBar slots only when the chrome is intentionally single-form"
+  ],
+  "props": {
+    "header": {
+      "type": "node",
+      "required": true,
+      "description": "Stack chrome. Pass NavigationTitle (title, back, bar items). Vue: #header. Not TitleBar or site Navbar."
+    },
+    "navigation": {
+      "type": "node",
+      "required": false,
+      "description": "Tab controller. Pass Navigation once; optional TitleBar/NavAccountCard inside it. Vue: #navigation."
+    },
+    "sidebar": {
+      "type": "node",
+      "required": false,
+      "description": "Specialized side chrome that does not morph. Prefer navigation. Vue: #sidebar."
+    },
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Main page content (screens, WorkspaceSplit, ScrollPane). Vue: default slot."
+    },
+    "footer": {
+      "type": "node",
+      "required": false,
+      "description": "Attribution (credits, legal). Prefer Footer. Not NavAccountCard. Vue: #footer. Placement: footerPlacement."
+    },
+    "footerPlacement": {
+      "type": "enum",
+      "required": false,
+      "description": "Where footer lives relative to the main scrollport.",
+      "values": ["auto", "shell", "main"],
+      "default": "auto"
+    },
+    "tabBar": {
+      "type": "node",
+      "required": false,
+      "description": "Specialized compact chrome that does not morph. Prefer navigation. Vue: #tabBar. Hidden at 80rem."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes on the named app-shell container. Vue prop: class."
+    },
+    "sidebarLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Accessible label for the sidebar region.",
+      "default": "Sidebar"
+    },
+    "landmarks": {
+      "type": "boolean",
+      "required": false,
+      "description": "React only. When false, header/main/footer are plain divs for nested demos. Vue always uses landmarks.",
+      "default": true
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Shell is rendered with the current breakpoint layout."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "page"
+    ],
+    "allowedChildren": [
+      "navigation-title",
+      "navigation",
+      "title-bar",
+      "nav-account-card",
+      "footer",
+      "workspace-split",
+      "scroll-pane",
+      "header",
+      "aside",
+      "main",
+      "tab-bar"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not compose Sidebar and TabBar for three-end chrome — pass Navigation once.",
+    "Do not put root destinations in the header; header is NavigationTitle (stack), Navigation is the tab controller.",
+    "Do not put TitleBar in AppShell header — TitleBar belongs in Navigation header / #header.",
+    "Do not put NavAccountCard in AppShell footer — that is Navigation footer; AppShell footer is Footer.",
+    "Do not make the side column overlap the main content without an explicit dismiss action.",
+    "Do not rewrite AppShell grid CSS to move footer — use footerPlacement.",
+    "Do not set min-block-size: 100dvh on AppShell or wrap it in a second data-cu-shell."
+  ],
+  "a11y": {
+    "role": "generic",
+    "keyboard": [
+      "Tab moves through the header, sidebar, and main content in order"
+    ],
+    "focus": "Focus follows the document order; the sidebar is labelled.",
+    "labeling": "Sidebar has an aria-label; main content is a main landmark.",
+    "wcag": [
+      "1.3.1",
+      "2.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "Named container app-shell drives chrome. Compact pins Navigation at the block-end. From 48rem the same cell is a full-height start-edge sidebar; NavigationTitle sits over main.",
+    "breakpoints": {
+      "compact": "Header + main scrollport + Navigation at block-end. footerPlacement auto: Footer flows in main and scrolls away.",
+      "medium": "12rem start-edge nav (4.5rem collapsed); Footer is shell chrome when placement is auto/shell. Nav overflow hidden.",
+      "large": "16rem start-edge sidebar, same pin; legacy TabBar slot is hidden."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. The sidebar border is on the inline-end; grid follows the document direction.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "app-shell",
+    "states": [
+      "compact",
+      "medium",
+      "large"
+    ],
+    "intents": [
+      "layout-shell",
+      "navigate-sections"
+    ]
+  },
+  "mechanics": "AppShell is the named container app-shell (also data-cu-shell). header/Vue #header is stack chrome (pass NavigationTitle). navigation/Vue #navigation is the tab controller (pass Navigation once; optional TitleBar in Navigation header, NavAccountCard in Navigation footer). children/default slot is main. footer/Vue #footer hosts attribution — prefer Footer. footerPlacement default auto: compact → end of main scroll; ≥48rem → shell-bottom; shell|main force one mode. Dual hosts (--flow/--chrome) swap via container query. Sidebar nav cell overflow:hidden so only Navigation __list scrolls. Chrome row height shared by NavigationTitle __frame, Navigation __header, and NavAccountCard: min-block-size calc(var(--cu-control-size-active) + 2 * var(--cu-space-1)). ≥48rem Navigation __frame top is safe-area only so TitleBar aligns with NavigationTitle. Footer/__footer default transparent. Shell fills parent (not min-block-size 100dvh). Prefer ToastProvider fill. WorkspaceSplit inside main defaults scrollMode shell. Pair header NavigationTitle with useTabStacks.",
+  "usage": [
+    "Import AppShell, Navigation, NavigationTitle, TitleBar, NavAccountCard, Footer, and useTabStacks from the React or Vue umbrella.",
+    "Pass NavigationTitle as header / #header and one Navigation as navigation / #navigation. Children / default slot are the main landmark.",
+    "Optional: TitleBar in Navigation header / #header; NavAccountCard in Navigation footer / #footer (not AppShell footer).",
+    "Pass credits/legal as AppShell footer / #footer wrapped in Footer. Prefer Footer over anonymous markup.",
+    "Use footerPlacement auto (default) so compact credits scroll with main; set shell or main to force.",
+    "Drive Navigation with stacks.tab / stacks.selectTab. Drive NavigationTitle with stacks.current, previous, canPop, and pop.",
+    "Height chain: html/body/#root|#app at 100%. Prefer ToastProvider fill. Do not add a second data-cu-shell wrapper.",
+    "Do not compose Sidebar plus TabBar. Do not put Navbar (site links) or TitleBar in AppShell header."
+  ],
+  "exports": [
+    {
+      "name": "AppShell",
+      "kind": "component",
+      "signature": "function AppShell(props: AppShellProps): JSX.Element",
+      "description": "Named container for stack chrome, optional Footer, and the tab controller."
+    },
+    {
+      "name": "AppShellProps",
+      "kind": "type",
+      "signature": "interface AppShellProps",
+      "description": "header, children, navigation, footer, footerPlacement, plus legacy sidebar and tabBar slots."
+    },
+    {
+      "name": "AppShellFooterPlacement",
+      "kind": "type",
+      "signature": "'auto' | 'shell' | 'main'",
+      "description": "Footer placement relative to the main scrollport. Default auto."
+    }
+  ]
+}

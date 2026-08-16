@@ -1,0 +1,13 @@
+{
+  "id": "apple",
+  "label": "Apple",
+  "preview": {
+    "accent": "#007AFF",
+    "surface": "#F2F2F7"
+  },
+  "fonts": {
+    "sans": "system-ui, sans-serif"
+  },
+  "colorSchemes": ["light", "dark"],
+  "defaultColorScheme": "light"
+}

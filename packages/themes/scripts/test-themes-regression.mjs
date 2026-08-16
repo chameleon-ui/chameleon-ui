@@ -17,14 +17,14 @@ const baselinePath = path.join(packageRoot, "scripts", "theme-artifacts-baseline
 const writeBaseline = process.argv.includes("--write-baseline");
 
 const themeIds = [
-  "line",
-  "silver-arrow",
-  "stuttgart",
-  "corsa",
-  "cupertino",
-  "siren",
+  "linear",
+  "mercedes",
+  "porsche",
+  "ferrari",
+  "apple",
+  "tiktok",
   "wechat",
-  "ant-blue",
+  "alipay",
 ];
 
 const artifacts = ["variables.css", "tokens.resolved.json"];

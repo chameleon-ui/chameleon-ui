@@ -9,7 +9,7 @@ import {
   Input,
   Stack,
   Typography,
-} from '@chameleon-ui/components'
+} from '@chameleon-ui/components-react'
 import { createElement, useMemo, type ComponentType, type ReactNode } from 'react'
 import {
   compileSchema,

@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "Pipeline",
+    "statusPending": "Đang chờ",
+    "statusRunning": "Đang chạy",
+    "statusSuccess": "Thành công",
+    "statusFailed": "Thất bại"
+  }
+}

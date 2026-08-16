@@ -1,13 +1,13 @@
 /** Official homage theme ids — free SKUs; not sold as paid discipline packs. The market may still list paid community packs. */
 export const OFFICIAL_HOMAGE_RULES_IDS = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ] as const;
 
 export type OfficialHomageRulesId = (typeof OFFICIAL_HOMAGE_RULES_IDS)[number];

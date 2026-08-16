@@ -1,4 +1,4 @@
-import { Button, Card, EmptyState, List, Tag, Typography } from '@chameleon-ui/components'
+import { Button, Card, EmptyState, List, Tag, Typography } from '@chameleon-ui/components-react'
 import { useState, type DragEvent } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { kanbanLocaleTrees } from './locale-map.js'

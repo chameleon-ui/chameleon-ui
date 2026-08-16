@@ -1,0 +1,7 @@
+{
+  "multi-select": {
+    "label": "Selección múltiple",
+    "selected": "seleccionados",
+    "clear": "Borrar todo"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "search-bar": {
+    "label": "Pesquisar",
+    "placeholder": "Pesquisar",
+    "clear": "Limpar",
+    "submit": "Enviar pesquisa"
+  }
+}

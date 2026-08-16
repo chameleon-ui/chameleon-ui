@@ -420,7 +420,7 @@ export async function resolveThemeExtends(document, loadRef, options = {}) {
     throw new TokenCompilerError(
       label,
       "$extends must be a non-empty string or array of strings",
-      'use e.g. { "$extends": "../line/tokens.json" }',
+      'use e.g. { "$extends": "../linear/tokens.json" }',
     );
   }
   if (chain.length > MAX_EXTENDS_DEPTH) {

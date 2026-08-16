@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const repoRoot = join(root, '..')
 const packagesRoot = join(root, 'packages')
-const PRODUCT_VERSION = '0.2.0'
+const PRODUCT_VERSION = '0.4.0'
 
 async function exists(path) {
   try {
@@ -70,14 +70,14 @@ function cssExportTarget(entry) {
 }
 
 const themeIds = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ]
 const themesPkg = JSON.parse(await readFile(join(packagesRoot, 'themes', 'package.json'), 'utf8'))
 if (themesPkg.exports?.['./dist/*'] !== './dist/*') {
@@ -103,12 +103,12 @@ if (!Array.isArray(tokensPkg.sideEffects) || !tokensPkg.sideEffects.includes('**
   fail('@chameleon-ui/tokens must declare sideEffects for CSS')
 }
 
-const componentsPkg = JSON.parse(await readFile(join(packagesRoot, 'components', 'package.json'), 'utf8'))
+const componentsPkg = JSON.parse(await readFile(join(packagesRoot, 'components-react', 'package.json'), 'utf8'))
 if (!Array.isArray(componentsPkg.sideEffects) || !componentsPkg.sideEffects.includes('**/*.css')) {
-  fail('@chameleon-ui/components must declare sideEffects for CSS')
+  fail('@chameleon-ui/components-react must declare sideEffects for CSS')
 }
 if (!componentsPkg.exports?.['./*']) {
-  fail('@chameleon-ui/components must export ./* for per-slug imports')
+  fail('@chameleon-ui/components-react must export ./* for per-slug imports')
 }
 
 const vuePkg = JSON.parse(await readFile(join(packagesRoot, 'vue', 'package.json'), 'utf8'))

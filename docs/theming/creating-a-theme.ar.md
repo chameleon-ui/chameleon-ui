@@ -85,7 +85,7 @@ mkdir packages/themes/src/my-brand
 
 ### 2.3 `design-rules.json` (مطلوب)
 
-قارن البنية الكاملة للمواضيع الرسمية (مثل `packages/themes/src/line/design-rules.json`). نسخة أدنى صالحة:
+قارن البنية الكاملة للمواضيع الرسمية (مثل `packages/themes/src/linear/design-rules.json`). نسخة أدنى صالحة:
 
 ```json
 {
@@ -142,7 +142,7 @@ mkdir packages/themes/src/my-brand
 
 ```js
 const themeIds = [
-  "line", "silver-arrow", "stuttgart", "corsa", "cupertino", "siren", "wechat", "ant-blue",
+  "linear", "mercedes", "porsche", "ferrari", "apple", "tiktok", "wechat", "alipay",
   "my-brand", // ← جديد
 ];
 ```
@@ -212,7 +212,7 @@ import { ThemeProvider } from '@chameleon-ui/vue'
 
 ## المراجع
 
-- أمثلة المواضيع الرسمية: `packages/themes/src/line/` (أدنى)، `packages/themes/src/cupertino/` (مع `effects.css`)
+- أمثلة المواضيع الرسمية: `packages/themes/src/linear/` (أدنى)، `packages/themes/src/apple/` (مع `effects.css`)
 - مصدر core المعتمد: `packages/tokens/src/core/*.json`
 - وثيقة حزمة المواضيع: [`packages/themes/README.md`](../../packages/themes/README.md)
 - آلية ترجمة الرموز: [`packages/tokens/README.md`](../../packages/tokens/README.md)

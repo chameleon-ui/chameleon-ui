@@ -1,7 +1,7 @@
 {
   "name": "chameleon-external-vite-react",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.4.0",
   "type": "module",
   "description": "Official Vite 6 + React 19 consumer template for unpublished @chameleon-ui/react (Windows included).",
   "engines": {

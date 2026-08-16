@@ -4,7 +4,7 @@
 
 ## 支持级别
 
-**supported**（Phase 8 起，由 POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档）抛定位到元素路径的 `A2UIAdapterError`；测试在 CI 运行（`phase3:gates` + `phase8:gates`），非手工。**版本统一到 0.2.0**：`adapt` / `SchemaRenderer` 签名在 0.2.0 内不破坏，映射表新增键向后兼容。
+**supported**（Phase 8 起，由 POC 晋升）。错误路径（未知类型 / 缺失注册项 / 非法文档）抛定位到元素路径的 `A2UIAdapterError`；测试在 CI 运行（`phase3:gates` + `phase8:gates`），非手工。**版本统一到 0.4.0**：`adapt` / `SchemaRenderer` 签名在 0.4.0 内不破坏，映射表新增键向后兼容。
 
 ## 规则
 

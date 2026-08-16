@@ -1,14 +1,14 @@
 # SchemaRenderer
 
-Package: `@chameleon-ui/schema-renderer`. Renders a JSON tree into components using a **fixed default map of 10 slugs**.
+包：`@chameleon-ui/schema-renderer`。把 JSON 树渲染成真实组件，默认映射固定为 10 个 slug。
 
-| Adapter | Status |
+| 适配器 | 状态 |
 | :--- | :--- |
 | `@chameleon-ui/adapter-a2ui` | supported |
 | `@chameleon-ui/adapter-mcp-apps` | supported |
-| `@chameleon-ui/adapter-ag-ui` | **POC** — do not treat as supported |
+| `@chameleon-ui/adapter-ag-ui` | POC，不要当作 supported |
 
-## Emit this shape
+## 数据形状
 
 ```json
 {
@@ -32,11 +32,11 @@ Package: `@chameleon-ui/schema-renderer`. Renders a JSON tree into components us
 }
 ```
 
-Committed examples: `packages/schema-renderer/examples/` (`login-form.json`, `status-card.json`, `empty-results.json`). Copy into the consumer — the package does not export an `examples` subpath.
+已提交的示例在 `packages/schema-renderer/examples/`（`login-form.json`、`status-card.json`、`empty-results.json`）。直接拷进消费者工程，包本身不导出 `examples` 子路径。
 
-## Render
+## 渲染
 
-### React
+React：
 
 ```tsx
 import { SchemaRenderer } from "@chameleon-ui/schema-renderer";
@@ -47,23 +47,23 @@ export function Page() {
 }
 ```
 
-### Vue
+Vue：
 
 ```ts
 import { SchemaRenderer } from "@chameleon-ui/schema-renderer/vue";
 ```
 
-Same 10-slug default map.
+同样只有 10-slug 默认映射。
 
-## Default map (10 slugs only)
+## 默认映射（仅 10 个 slug）
 
 `alert` · `badge` · `button` · `card` · `divider` · `empty-state` · `heading` · `input` · `stack` · `typography`
 
-Unknown slugs render a `data-schema-error` placeholder (no white screen). Limits: depth ≤ 32, nodes ≤ 500.
+未知 slug 渲染为带 `data-schema-error` 的占位符，不会白屏。限制：深度 ≤ 32，节点 ≤ 500。
 
-`table`, `chart`, `kpi-dashboard`, `tabs`, `grid`, and the rest of the catalog are **not** in the default map. Import them from `@chameleon-ui/react` or `@chameleon-ui/vue` (or pass a custom `map` prop). Do **not** claim full-catalog SchemaRenderer coverage.
+`table`、`chart`、`kpi-dashboard`、`tabs`、`grid` 以及目录里其余组件不在默认映射内，从 `@chameleon-ui/react` 或 `@chameleon-ui/vue` 引入（也可以传自定义 `map` prop）。不要宣称 SchemaRenderer 覆盖完整目录。
 
-## Not this package
+## 不归这个包管
 
-- Wire formats (A2UI / MCP Apps / AG-UI) → matching `adapter-*` (AG-UI remains POC).
-- File scaffolding → `install-core` / `chameleon add`. SchemaRenderer only renders.
+- 线协议格式（A2UI / MCP Apps / AG-UI）由对应的 `adapter-*` 处理（AG-UI 仍是 POC）。
+- 文件脚手架由 `install-core` / `chameleon add` 处理。SchemaRenderer 只负责渲染。

@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "button",
+  "name": "Button",
+  "status": "experimental",
+  "purpose": "Triggers a user-initiated action with a clear accessible name.",
+  "scenarios": [
+    "Submit a form",
+    "Open a dialog",
+    "Confirm or cancel a reversible action"
+  ],
+  "props": {
+    "children": {
+      "type": "node",
+      "required": true,
+      "description": "Visible label. Prefer text over an unlabeled icon."
+    },
+    "onClick": {
+      "type": "event",
+      "required": false,
+      "description": "Runs after an enabled button is activated by pointer, Enter, or Space.",
+      "payload": "() => void"
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Prevents interaction while preserving semantic disabled state.",
+      "default": false
+    },
+    "loading": {
+      "type": "boolean",
+      "required": false,
+      "description": "Shows a spinner, sets aria-busy, and blocks activation until the request ends.",
+      "default": false
+    },
+    "icon": {
+      "type": "node",
+      "required": false,
+      "description": "Optional leading visual. Keep a visible text child or pass aria-label."
+    },
+    "type": {
+      "type": "enum",
+      "required": false,
+      "description": "Native button type.",
+      "values": [
+        "button",
+        "submit",
+        "reset"
+      ],
+      "default": "button"
+    },
+    "variant": {
+      "type": "enum",
+      "required": false,
+      "description": "Visual emphasis without changing button semantics.",
+      "values": [
+        "solid",
+        "outline",
+        "ghost"
+      ],
+      "default": "solid"
+    },
+    "tone": {
+      "type": "enum",
+      "required": false,
+      "description": "Semantic color. danger is for destructive actions; role stays button.",
+      "values": [
+        "brand",
+        "danger"
+      ],
+      "default": "brand"
+    },
+    "size": {
+      "type": "enum",
+      "required": false,
+      "description": "Density control. Compact viewports keep a 44px target.",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "variant",
+      "values": [
+        "solid",
+        "outline",
+        "ghost"
+      ],
+      "default": "solid",
+      "description": "Controls visual emphasis without changing semantics."
+    },
+    {
+      "name": "tone",
+      "values": [
+        "brand",
+        "danger"
+      ],
+      "default": "brand",
+      "description": "Semantic color overlay. Does not change the button role."
+    },
+    {
+      "name": "size",
+      "values": [
+        "sm",
+        "md"
+      ],
+      "default": "md",
+      "description": "Controls density while retaining the target-size requirement."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Enabled and idle."
+    },
+    {
+      "name": "loading",
+      "description": "Request in flight; activation is blocked."
+    },
+    {
+      "name": "disabled",
+      "description": "Unavailable for interaction."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "form",
+      "dialog",
+      "toolbar"
+    ],
+    "allowedChildren": [
+      "text",
+      "icon"
+    ],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not use for navigation when a semantic link is appropriate.",
+    "Do not hide the accessible name behind an unlabeled icon."
+  ],
+  "a11y": {
+    "role": "button",
+    "keyboard": [
+      "Tab focuses",
+      "Enter activates",
+      "Space activates"
+    ],
+    "focus": "Shows a visible focus indicator and remains in document order.",
+    "labeling": "Has visible text or an explicit accessible name.",
+    "wcag": [
+      "2.1.1",
+      "2.4.7",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "Keep behavior stable. Compact viewports enforce a 44px minimum target even for size=sm.",
+    "breakpoints": {
+      "compact": "Minimum target 44px in both axes.",
+      "medium": "Uses content width; sm may be denser.",
+      "large": "Uses content width; sm may be denser."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Do not mirror label text or symmetric icons.",
+    "mirroredValues": [
+      "directional-icon"
+    ]
+  },
+  "dataAi": {
+    "role": "button",
+    "states": [
+      "default",
+      "loading",
+      "disabled"
+    ],
+    "intents": [
+      "submit",
+      "confirm",
+      "cancel"
+    ]
+  },
+  "mechanics": "Button is a native <button>. variant, tone, and size are CSS classes; they do not change role. loading sets aria-busy, shows a CSS spinner, and disables activation. disabled sets aria-disabled via the primitive. Compact CSS keeps a 44px minimum target even when size=sm. onClick fires from pointer, Enter, and Space. Use type=submit only inside a Form.",
+  "usage": [
+    "Import Button from @chameleon-ui/components-react. Pass a visible text child as the accessible name.",
+    "Handle activation with onClick. Set type=submit inside Form; keep the default type=button elsewhere.",
+    "Use variant=outline or ghost for secondary actions, tone=danger for destructive actions, and loading while a request is in flight."
+  ],
+  "exports": [
+    {
+      "name": "Button",
+      "kind": "component",
+      "signature": "function Button(props: ButtonProps): JSX.Element",
+      "description": "Action control with variant, tone, size, loading, icon, type, disabled, and onClick."
+    },
+    {
+      "name": "ButtonProps",
+      "kind": "type",
+      "signature": "interface ButtonProps",
+      "description": "Extends the primitive button props with variant, tone, size, loading, icon, and className."
+    }
+  ]
+}

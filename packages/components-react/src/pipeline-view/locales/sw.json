@@ -1,0 +1,9 @@
+{
+  "pipeline-view": {
+    "label": "Mfereji",
+    "statusPending": "Inasubiri",
+    "statusRunning": "Inaendelea",
+    "statusSuccess": "Imefanikiwa",
+    "statusFailed": "Imeshindwa"
+  }
+}

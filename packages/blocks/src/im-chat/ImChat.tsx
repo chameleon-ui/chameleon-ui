@@ -1,4 +1,4 @@
-import { Button, Card, ChatBubble, Editor, EmptyState, List, MarkdownRenderer, Typography } from '@chameleon-ui/components'
+import { Button, Card, ChatBubble, Editor, EmptyState, List, MarkdownRenderer, Typography } from '@chameleon-ui/components-react'
 import { useState } from 'react'
 import { createBlockCopy } from '../copy.js'
 import { imChatLocaleTrees } from './locale-map.js'

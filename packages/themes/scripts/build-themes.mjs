@@ -13,14 +13,14 @@ const distRoot = path.join(packageRoot, "dist");
 const coreDirectory = path.resolve(packageRoot, "../tokens/src/core");
 
 const themeIds = [
-  "line",
-  "silver-arrow",
-  "stuttgart",
-  "corsa",
-  "cupertino",
-  "siren",
+  "linear",
+  "mercedes",
+  "porsche",
+  "ferrari",
+  "apple",
+  "tiktok",
   "wechat",
-  "ant-blue",
+  "alipay",
 ];
 
 async function readOptionalUtf8(filePath) {
@@ -83,6 +83,41 @@ async function buildTheme(themeId) {
   await mkdir(outputDirectory, { recursive: true });
 
   let css = compiled.css;
+
+  // Optional manual-switch scheme: tokens.light.json compiles into a
+  // `:root[data-color-scheme="light"]` block. ThemeProvider sets
+  // documentElement[data-color-scheme]; omitting it keeps the theme default.
+  const lightSource = await readOptionalUtf8(path.join(themeDirectory, "tokens.light.json"));
+  if (lightSource && lightSource.trim()) {
+    let lightOverlay = JSON.parse(lightSource);
+    if (lightOverlay.$extends !== undefined) {
+      lightOverlay = await resolveThemeExtends(lightOverlay, createFsExtendsLoader(themeDirectory), {
+        label: `${themeId} (light)`,
+      });
+    }
+    const lightCompiled = await compileThemeTokens(coreDirectory, lightOverlay, `${themeId}-light`);
+    css += `\n/* Theme light scheme (manual [data-color-scheme="light"] switch) */\n${lightCompiled.css
+      .trim()
+      .replaceAll(":root", ':root[data-color-scheme="light"]')}\n`;
+  }
+
+  // Mirror for light-first themes: tokens.dark.json compiles into a
+  // `:root[data-color-scheme="dark"]` block so ThemeProvider colorScheme="dark"
+  // flips a theme whose base tokens are light.
+  const darkSource = await readOptionalUtf8(path.join(themeDirectory, "tokens.dark.json"));
+  if (darkSource && darkSource.trim()) {
+    let darkOverlay = JSON.parse(darkSource);
+    if (darkOverlay.$extends !== undefined) {
+      darkOverlay = await resolveThemeExtends(darkOverlay, createFsExtendsLoader(themeDirectory), {
+        label: `${themeId} (dark)`,
+      });
+    }
+    const darkCompiled = await compileThemeTokens(coreDirectory, darkOverlay, `${themeId}-dark`);
+    css += `\n/* Theme dark scheme (manual [data-color-scheme="dark"] switch) */\n${darkCompiled.css
+      .trim()
+      .replaceAll(":root", ':root[data-color-scheme="dark"]')}\n`;
+  }
+
   const languageCssFiles = ["radius.css", "shadow.css", "motion.css", "effects.css"];
   for (const fileName of languageCssFiles) {
     const source = await readOptionalUtf8(path.join(themeDirectory, fileName));

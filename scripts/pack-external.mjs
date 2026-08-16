@@ -36,7 +36,7 @@ const umbrella = !legacyFive || umbrellaExplicit
 
 const runtimePackages = vue
   ? ['tokens', 'i18n', 'primitives-vue', 'themes', 'components-vue']
-  : ['tokens', 'i18n', 'primitives', 'themes', 'components']
+  : ['tokens', 'i18n', 'primitives', 'themes', 'components-react']
 const umbrellaName = vue ? 'vue' : 'react'
 const umbrellaSpec = `@chameleon-ui/${umbrellaName}`
 
@@ -113,7 +113,7 @@ async function packStaged(staging) {
 }
 
 function tarballName(npmName) {
-  // @chameleon-ui/react → chameleon-ui-react-0.2.0.tgz
+  // @chameleon-ui/react → chameleon-ui-react-0.4.0.tgz
   return `${npmName.replace(/^@/, '').replace('/', '-')}-${version}.tgz`
 }
 

@@ -1,4 +1,4 @@
-import { Accordion, Button, Card, Typography } from '@chameleon-ui/components'
+import { Accordion, Button, Card, Typography } from '@chameleon-ui/components-react'
 import { createBlockCopy } from '../copy.js'
 import { marketingSiteLocaleTrees } from './locale-map.js'
 import './styles.css'

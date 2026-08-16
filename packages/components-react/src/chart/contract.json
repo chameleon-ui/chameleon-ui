@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "chart",
+  "name": "Chart",
+  "family": "F",
+  "status": "experimental",
+  "purpose": "Unified chart wrapper rendering bar, line, and area series as SVG with theme colors consumed only from tokens.",
+  "scenarios": [
+    "Show monthly revenue as bars",
+    "Display latency as a line series",
+    "Compare two metrics as areas"
+  ],
+  "props": {
+    "type": {
+      "type": "enum",
+      "required": false,
+      "description": "Series rendering mode.",
+      "values": [
+        "bar",
+        "line",
+        "area"
+      ],
+      "default": "line"
+    },
+    "series": {
+      "type": "string",
+      "required": true,
+      "description": "Array of { name, data: number[] } series."
+    },
+    "labels": {
+      "type": "string",
+      "required": false,
+      "description": "Category labels for the x axis."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "description": "Accessible chart description."
+    },
+    "emptyLabel": {
+      "type": "string",
+      "required": false,
+      "description": "Text shown when no series has data."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [
+    {
+      "name": "type",
+      "values": [
+        "bar",
+        "line",
+        "area"
+      ],
+      "default": "line",
+      "description": "Series rendering mode."
+    }
+  ],
+  "states": [
+    {
+      "name": "default",
+      "description": "Chart rendered with data."
+    },
+    {
+      "name": "empty",
+      "description": "No data to plot."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "card",
+      "kpi-dashboard",
+      "page",
+      "app-shell"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not hardcode hex colors; series paint comes from tokens.",
+    "Do not render more than eight series in one chart."
+  ],
+  "a11y": {
+    "role": "img",
+    "keyboard": [],
+    "focus": "Chart is not focusable; provide a data table alternative for screen readers.",
+    "labeling": "aria-label summarizes the chart; a visually hidden table may mirror the data.",
+    "wcag": [
+      "1.1.1",
+      "1.4.1"
+    ]
+  },
+  "responsive": {
+    "strategy": "SVG scales to container width via viewBox; height keeps a 2:1 ratio.",
+    "breakpoints": {
+      "compact": "Full width, reduced padding.",
+      "medium": "Full width.",
+      "large": "Full width."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS only. Direction inherits from document lang/dir.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "chart",
+    "states": [
+      "default",
+      "empty",
+      "bar",
+      "line",
+      "area"
+    ],
+    "intents": [
+      "visualize-data"
+    ]
+  },
+  "mechanics": "Chart paints SVG. Series longer than 96 points are downsampled (first and last samples kept) so DOM node count stays O(paint budget), not O(data). Color comes from token classes, not hex in markup. This is not a WebGL engine.",
+  "usage": [
+    "Import Chart from @chameleon-ui/components-react. Pass label and series: Array<{ name, data }>.",
+    "Use type bar, line, or area. Long feeds are downsampled for paint; do not claim per-sample SVG nodes."
+  ]
+}

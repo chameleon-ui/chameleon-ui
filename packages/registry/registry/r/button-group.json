@@ -1,0 +1,112 @@
+{
+  "id": "button-group",
+  "type": "registry:ui",
+  "name": "ButtonGroup",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "components/button-group/ButtonGroup.tsx",
+      "content": "import type { ReactNode } from 'react'\nimport './styles.css'\n\nexport type ButtonGroupOrientation = 'horizontal' | 'vertical'\n/** `attached` = segmented / shared border; `spaced` = token gap between buttons. */\nexport type ButtonGroupVariant = 'attached' | 'spaced'\nexport type ButtonGroupSize = 'sm' | 'md'\n\nexport interface ButtonGroupProps {\n  /** Main axis of the group. Default `horizontal`. */\n  orientation?: ButtonGroupOrientation\n  /**\n   * Visual grouping. `attached` shares borders (segmented tool toggles);\n   * `spaced` keeps a token gap.\n   */\n  variant?: ButtonGroupVariant\n  /** Size hint applied to nested `.cu-button` when children omit size. */\n  size?: ButtonGroupSize\n  /** Accessible name for the group (required when no visible legend). */\n  label?: string\n  disabled?: boolean\n  children: ReactNode\n  className?: string\n}\n\nexport function ButtonGroup({\n  orientation = 'horizontal',\n  variant = 'attached',\n  size = 'md',\n  label,\n  disabled = false,\n  children,\n  className,\n}: ButtonGroupProps) {\n  const classes = [\n    'cu-button-group',\n    `cu-button-group--${orientation}`,\n    `cu-button-group--${variant}`,\n    `cu-button-group--${size}`,\n    className,\n  ]\n    .filter(Boolean)\n    .join(' ')\n\n  return (\n    <div\n      className={classes}\n      role=\"group\"\n      aria-label={label}\n      aria-disabled={disabled || undefined}\n      data-orientation={orientation}\n      data-variant={variant}\n      data-size={size}\n      data-disabled={disabled ? 'true' : 'false'}\n      data-ai-role=\"button-group\"\n      data-ai-intent=\"select-single\"\n      data-ai-state={disabled ? 'disabled' : 'default'}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    },
+    {
+      "path": "components/button-group/contract.json",
+      "content": "{\n  \"schemaVersion\": \"0.2\",\n  \"slug\": \"button-group\",\n  \"name\": \"ButtonGroup\",\n  \"status\": \"experimental\",\n  \"purpose\": \"Groups related Buttons into an attached/segmented or spaced control cluster for tool toggles and toolbar actions.\",\n  \"scenarios\": [\n    \"Exclusive tool toggles such as paint vs erase on a mask canvas\",\n    \"Horizontal toolbar action cluster with shared borders\",\n    \"Vertical stacked action group in a narrow tools pane\"\n  ],\n  \"props\": {\n    \"orientation\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Main axis of the group.\",\n      \"values\": [\n        \"horizontal\",\n        \"vertical\"\n      ],\n      \"default\": \"horizontal\"\n    },\n    \"variant\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"attached shares borders (segmented); spaced uses a token gap.\",\n      \"values\": [\n        \"attached\",\n        \"spaced\"\n      ],\n      \"default\": \"attached\"\n    },\n    \"size\": {\n      \"type\": \"enum\",\n      \"required\": false,\n      \"description\": \"Size hint for nested Buttons (sm/md tokens).\",\n      \"values\": [\n        \"sm\",\n        \"md\"\n      ],\n      \"default\": \"md\"\n    },\n    \"label\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Accessible name for the group (aria-label).\"\n    },\n    \"disabled\": {\n      \"type\": \"boolean\",\n      \"required\": false,\n      \"description\": \"Marks the group disabled for assistive tech; still disable each Button.\",\n      \"default\": false\n    },\n    \"className\": {\n      \"type\": \"string\",\n      \"required\": false,\n      \"description\": \"Additional CSS classes.\"\n    }\n  },\n  \"variants\": [\n    {\n      \"name\": \"variant\",\n      \"values\": [\n        \"attached\",\n        \"spaced\"\n      ],\n      \"default\": \"attached\",\n      \"description\": \"Attached/segmented vs spaced cluster.\"\n    },\n    {\n      \"name\": \"orientation\",\n      \"values\": [\n        \"horizontal\",\n        \"vertical\"\n      ],\n      \"default\": \"horizontal\",\n      \"description\": \"Main axis of the group.\"\n    }\n  ],\n  \"states\": [\n    {\n      \"name\": \"default\",\n      \"description\": \"Group is interactive.\"\n    },\n    {\n      \"name\": \"disabled\",\n      \"description\": \"Group marked disabled.\"\n    }\n  ],\n  \"composition\": {\n    \"allowedParents\": [\n      \"stack\",\n      \"card\",\n      \"toolbar\",\n      \"canvas-toolbar\",\n      \"page\",\n      \"workspace-split\"\n    ],\n    \"allowedChildren\": [\n      \"button\"\n    ],\n    \"requiredContext\": []\n  },\n  \"antiPatterns\": [\n    \"Do not hand-roll segmented borders around loose Buttons — use ButtonGroup variant=attached.\",\n    \"Do not put non-Button interactive controls inside the group.\",\n    \"Selection state stays on each Button (solid vs outline); ButtonGroup is visual grouping only.\"\n  ],\n  \"a11y\": {\n    \"role\": \"group\",\n    \"keyboard\": [],\n    \"focus\": \"Focus moves among child Buttons; group itself is not focusable.\",\n    \"labeling\": \"Pass label (aria-label) when there is no visible group legend.\",\n    \"wcag\": [\n      \"1.3.1\",\n      \"4.1.2\"\n    ]\n  },\n  \"responsive\": {\n    \"strategy\": \"Inline-flex cluster; wrap with Stack or switch orientation in narrow panes.\",\n    \"breakpoints\": {\n      \"compact\": \"Prefer horizontal attached groups in toolbars; stack vertically if needed.\",\n      \"medium\": \"Default.\",\n      \"large\": \"Default.\"\n    }\n  },\n  \"platforms\": {\n    \"web\": \"supported\",\n    \"react\": \"supported\",\n    \"vue\": \"supported\"\n  },\n  \"rtl\": {\n    \"supported\": true,\n    \"strategy\": \"Logical border-radius and margin on attached segments; row follows document direction.\",\n    \"mirroredValues\": []\n  },\n  \"dataAi\": {\n    \"role\": \"button-group\",\n    \"states\": [\n      \"default\",\n      \"disabled\"\n    ],\n    \"intents\": [\n      \"select-single\"\n    ]\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/index.ts",
+      "content": "export { ButtonGroup } from './ButtonGroup.js'\nexport type {\n  ButtonGroupOrientation,\n  ButtonGroupProps,\n  ButtonGroupSize,\n  ButtonGroupVariant,\n} from './ButtonGroup.js'\n"
+    },
+    {
+      "path": "components/button-group/locales/am.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ar.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/bn.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/de.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/en.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/es.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/fa.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/fr.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ha.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/hi.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/id.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ja.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ko.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/pt.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ru.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/sw.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ug.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/ur.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/vi.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/zh-CN.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/locales/zh-HK.json",
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+    },
+    {
+      "path": "components/button-group/README.md",
+      "content": "# ButtonGroup\n\nGroups related `Button` children into an **attached/segmented** or **spaced** cluster (EraseLab-style tool toggles: paint vs erase).\n\n```tsx\nimport { Button, ButtonGroup } from '@chameleon-ui/react'\n\n<ButtonGroup label=\"Mask tools\" size=\"sm\" variant=\"attached\">\n  <Button size=\"sm\" variant={mode === 'paint' ? 'solid' : 'outline'} onClick={() => setMode('paint')}>\n    Paint\n  </Button>\n  <Button size=\"sm\" variant={mode === 'erase' ? 'solid' : 'outline'} onClick={() => setMode('erase')}>\n    Erase\n  </Button>\n</ButtonGroup>\n```\n\n| Prop | Default | Notes |\n| :--- | :--- | :--- |\n| `orientation` | `horizontal` | `horizontal` \\| `vertical` |\n| `variant` | `attached` | `attached` (shared borders) \\| `spaced` (token gap) |\n| `size` | `md` | Size hint for nested `.cu-button` |\n| `label` | — | `aria-label` for the group |\n| `disabled` | `false` | Group-level `aria-disabled`; still disable each Button |\n\nSelection state stays on each `Button` (`solid` vs `outline`). Uses existing Button tokens; CSS prefix `cu-button-group`.\n"
+    },
+    {
+      "path": "components/button-group/styles.css",
+      "content": ".cu-button-group {\n  display: inline-flex;\n  align-items: stretch;\n  vertical-align: middle;\n  /* Nested flex parents must be able to shrink. */\n  min-block-size: 0;\n  min-inline-size: 0;\n}\n\n.cu-button-group--horizontal {\n  flex-direction: row;\n}\n\n.cu-button-group--vertical {\n  flex-direction: column;\n}\n\n.cu-button-group--spaced {\n  gap: var(--cu-space-1);\n}\n\n.cu-button-group--attached {\n  gap: 0;\n}\n\n/*\n * Attached / segmented: collapse shared borders and share one outer radius.\n * Logical corners so RTL mirrors correctly.\n */\n.cu-button-group--attached.cu-button-group--horizontal > .cu-button {\n  position: relative;\n  border-radius: 0;\n  margin-inline-start: calc(-1 * var(--cu-border-width-default, 1px));\n}\n\n.cu-button-group--attached.cu-button-group--horizontal > .cu-button:first-child {\n  margin-inline-start: 0;\n  border-start-start-radius: var(--cu-radius-md);\n  border-end-start-radius: var(--cu-radius-md);\n}\n\n.cu-button-group--attached.cu-button-group--horizontal > .cu-button:last-child {\n  border-start-end-radius: var(--cu-radius-md);\n  border-end-end-radius: var(--cu-radius-md);\n}\n\n.cu-button-group--attached.cu-button-group--horizontal > .cu-button:only-child {\n  border-radius: var(--cu-radius-md);\n  margin-inline-start: 0;\n}\n\n.cu-button-group--attached.cu-button-group--vertical > .cu-button {\n  position: relative;\n  border-radius: 0;\n  margin-block-start: calc(-1 * var(--cu-border-width-default, 1px));\n}\n\n.cu-button-group--attached.cu-button-group--vertical > .cu-button:first-child {\n  margin-block-start: 0;\n  border-start-start-radius: var(--cu-radius-md);\n  border-start-end-radius: var(--cu-radius-md);\n}\n\n.cu-button-group--attached.cu-button-group--vertical > .cu-button:last-child {\n  border-end-start-radius: var(--cu-radius-md);\n  border-end-end-radius: var(--cu-radius-md);\n}\n\n.cu-button-group--attached.cu-button-group--vertical > .cu-button:only-child {\n  border-radius: var(--cu-radius-md);\n  margin-block-start: 0;\n}\n\n.cu-button-group--attached > .cu-button:focus-visible {\n  z-index: 1;\n}\n\n/* Optional size hint for nested Buttons that omit size (matches Button tokens). */\n.cu-button-group--sm > .cu-button {\n  min-block-size: var(--cu-control-size-active);\n  padding-block: var(--cu-space-1);\n  padding-inline: var(--cu-space-2);\n  font-size: var(--cu-typography-size-caption, 0.875rem);\n}\n\n.cu-button-group--md > .cu-button {\n  min-block-size: var(--cu-touch-target-min);\n}\n"
+    }
+  ]
+}

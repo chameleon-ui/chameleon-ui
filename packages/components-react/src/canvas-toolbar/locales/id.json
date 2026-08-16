@@ -1,0 +1,9 @@
+{
+  "canvas-toolbar": {
+    "label": "Bilah alat kanvas",
+    "zoomIn": "Perbesar",
+    "zoomOut": "Perkecil",
+    "resetView": "Atur ulang tampilan",
+    "fitView": "Pas ke tampilan"
+  }
+}

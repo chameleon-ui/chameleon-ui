@@ -85,7 +85,7 @@ Only write the tokens you want to change. The `$type`/key style and the `{...}` 
 
 ### 2.3 `design-rules.json` (required)
 
-Compare the full structure of the official themes (e.g. `packages/themes/src/line/design-rules.json`). Minimal usable version:
+Compare the full structure of the official themes (e.g. `packages/themes/src/linear/design-rules.json`). Minimal usable version:
 
 ```json
 {
@@ -142,7 +142,7 @@ The theme build script `packages/themes/scripts/build-themes.mjs` holds a **hard
 
 ```js
 const themeIds = [
-  "line", "silver-arrow", "stuttgart", "corsa", "cupertino", "siren", "wechat", "ant-blue",
+  "linear", "mercedes", "porsche", "ferrari", "apple", "tiktok", "wechat", "alipay",
   "my-brand", // ← new
 ];
 ```
@@ -212,7 +212,7 @@ import { ThemeProvider } from '@chameleon-ui/vue'
 
 ## References
 
-- Official theme examples: `packages/themes/src/line/` (minimal), `packages/themes/src/cupertino/` (with `effects.css`)
+- Official theme examples: `packages/themes/src/linear/` (minimal), `packages/themes/src/apple/` (with `effects.css`)
 - core token authoritative source: `packages/tokens/src/core/*.json`
 - Themes package doc: [`packages/themes/README.md`](../../packages/themes/README.md)
 - Token compile mechanism: [`packages/tokens/README.md`](../../packages/tokens/README.md)

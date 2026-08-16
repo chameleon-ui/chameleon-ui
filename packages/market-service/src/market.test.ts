@@ -83,7 +83,7 @@ describe('market-service', () => {
     const server = await createMarketServer({ store });
     try {
       const application: ListingApplication = {
-        ...goodApplication('line'),
+        ...goodApplication('linear'),
         pricing: 'paid',
       };
       const res = await fetch(`${server.url}/v1/listings/apply`, {
@@ -104,7 +104,7 @@ describe('market-service', () => {
     const server = await createMarketServer({ store });
     try {
       const application: ListingApplication = {
-        ...goodApplication('line'),
+        ...goodApplication('linear'),
         pricing: 'free',
         name: 'Line',
         description: 'Official homage theme listed as free.',
@@ -116,7 +116,7 @@ describe('market-service', () => {
       });
       expect(res.status).toBe(201);
       const body = (await res.json()) as { listing: { id: string; pricing: string; status: string } };
-      expect(body.listing.id).toBe('line');
+      expect(body.listing.id).toBe('linear');
       expect(body.listing.pricing).toBe('free');
       expect(body.listing.status).toBe('approved');
     } finally {
@@ -249,7 +249,7 @@ describe('market-service', () => {
     const server = await createMarketServer({ store });
     try {
       const application: ListingApplication = {
-        ...goodApplication('line'),
+        ...goodApplication('linear'),
         type: 'registry:rules',
         pricing: 'paid',
       };

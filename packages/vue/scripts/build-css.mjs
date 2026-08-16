@@ -2,7 +2,7 @@
  * Emit a real CSS artifact for `@chameleon-ui/vue/css`.
  *
  * Consumers (and Vite) must resolve a .css file — not a JS re-export that
- * re-imports workspace packages. Bundle tokens + density + default `line`
+ * re-imports workspace packages. Bundle tokens + density + default `linear`
  * theme + components-vue base styles into dist/css.css. Also copy each theme
  * overlay into dist/themes/<id>.css for `@chameleon-ui/vue/themes/<id>/css`.
  *
@@ -17,14 +17,14 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const require = createRequire(join(root, 'package.json'))
 
 const THEME_IDS = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ]
 
 function resolveCss(specifier) {
@@ -45,7 +45,7 @@ async function readCss(specifier) {
 const layers = [
   { label: '@chameleon-ui/tokens/css', specifier: '@chameleon-ui/tokens/css' },
   { label: '@chameleon-ui/tokens/density.css', specifier: '@chameleon-ui/tokens/density.css' },
-  { label: '@chameleon-ui/themes/line/css', specifier: '@chameleon-ui/themes/line/css' },
+  { label: '@chameleon-ui/themes/linear/css', specifier: '@chameleon-ui/themes/linear/css' },
   { label: '@chameleon-ui/components-vue/css', specifier: '@chameleon-ui/components-vue/css' },
 ]
 

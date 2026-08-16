@@ -1,0 +1,86 @@
+/*
+ * NavAccountCard — Navigation sidebar account + logout foot.
+ * Mount in Navigation footer / #footer. Compact TabBar hides that slot
+ * (`.cu-navigation__footer { display: none }` below 48rem).
+ *
+ * Row height matches NavigationTitle `__frame` (shared chrome formula:
+ * --cu-control-size-active + 2 × --cu-space-1).
+ */
+.cu-nav-account-card {
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--cu-space-2);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  min-block-size: calc(var(--cu-control-size-active) + 2 * var(--cu-space-1));
+  padding-block: var(--cu-space-1);
+  padding-inline: var(--cu-space-2);
+  border: var(--cu-border-width-hairline, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-sm);
+  background: var(--cu-color-background-default);
+  color: var(--cu-color-fg-default);
+}
+
+.cu-nav-account-card__avatar {
+  flex: none;
+}
+
+.cu-nav-account-card__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-inline-size: 0;
+}
+
+.cu-nav-account-card__username,
+.cu-nav-account-card__nickname {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cu-nav-account-card__username {
+  font-size: 0.875rem;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  line-height: 1.25;
+}
+
+.cu-nav-account-card__nickname {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
+  opacity: 0.72;
+}
+
+.cu-nav-account-card__logout {
+  flex: none;
+  margin-inline-start: auto;
+}
+
+.cu-nav-account-card__logout-svg {
+  inline-size: 1em;
+  block-size: 1em;
+}
+
+/* Collapsed rail: avatar + icon logout only. */
+.cu-navigation--collapsed .cu-nav-account-card {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--cu-space-1);
+  padding-inline: var(--cu-space-1);
+}
+
+.cu-navigation--collapsed .cu-nav-account-card__text,
+.cu-navigation--collapsed .cu-nav-account-card__logout-label {
+  display: none;
+}
+
+.cu-navigation--collapsed .cu-nav-account-card__logout {
+  margin-inline-start: 0;
+}

@@ -60,7 +60,7 @@ if (!vueOnly) {
   templates.push({
     id: 'react',
     dir: join(root, 'templates/external-vite-react'),
-    packages: ['tokens', 'i18n', 'primitives', 'themes', 'components', 'react'],
+    packages: ['tokens', 'i18n', 'primitives', 'themes', 'components-react', 'react'],
     typecheck: ['run', 'typecheck'],
     build: ['run', 'build'],
   })

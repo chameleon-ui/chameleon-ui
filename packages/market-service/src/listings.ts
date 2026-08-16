@@ -128,24 +128,24 @@ export function createListingStore(options: CreateListingStoreOptions = {}): Lis
 
 const OFFICIAL_FREE_THEME_LABELS: Record<string, string> = {
   line: 'Line',
-  'silver-arrow': 'Silver Arrow',
-  stuttgart: 'Stuttgart',
-  corsa: 'Corsa',
-  cupertino: 'Cupertino',
-  siren: 'Siren',
+  'mercedes': 'Silver Arrow',
+  porsche: 'Stuttgart',
+  ferrari: 'Corsa',
+  apple: 'Cupertino',
+  tiktok: 'Siren',
   wechat: 'Wechat',
-  'ant-blue': 'Ant Blue',
+  'alipay': 'Ant Blue',
 };
 
 const OFFICIAL_FREE_THEME_ORDER = [
-  'line',
-  'silver-arrow',
-  'stuttgart',
-  'corsa',
-  'cupertino',
-  'siren',
+  'linear',
+  'mercedes',
+  'porsche',
+  'ferrari',
+  'apple',
+  'tiktok',
   'wechat',
-  'ant-blue',
+  'alipay',
 ] as const;
 
 export function seedOfficialFreeListings(): ThemeListing[] {

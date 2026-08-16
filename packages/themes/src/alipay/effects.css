@@ -1,0 +1,102 @@
+/* cu-effects:alipay — admin hierarchy: 2px radius, layout gray, dark sider, no glass. */
+:root {
+  --cu-tracking: 0em;
+  --cu-font-weight-heading: 600;
+}
+
+:root .cu-app-shell {
+  background: var(--cu-color-background-subtle);
+}
+
+:root .cu-app-shell__header {
+  background: var(--cu-color-background-elevated);
+  box-shadow: var(--cu-shadow-sm);
+  border-block-end: none;
+}
+
+:root .cu-app-shell__main {
+  background: var(--cu-color-background-subtle);
+}
+
+:root .cu-app-shell__sidebar,
+:root .cu-sidebar {
+  background: var(--cu-color-background-inverse);
+  color: var(--cu-color-fg-inverse);
+  border-inline-end: none;
+}
+
+:root .cu-sidebar__header,
+:root .cu-sidebar__toggle {
+  color: var(--cu-color-fg-inverse);
+}
+
+:root .cu-sidebar__toggle {
+  border-color: color-mix(in srgb, var(--cu-color-fg-inverse) 22%, transparent);
+}
+
+:root .cu-sidebar__item {
+  border-radius: var(--cu-radius-sm);
+  color: color-mix(in srgb, var(--cu-color-fg-inverse) 72%, transparent);
+}
+
+:root .cu-sidebar__item[aria-current='page'] {
+  background: var(--cu-color-palette-brand);
+  color: var(--cu-color-fg-inverse);
+  font-weight: 600;
+}
+
+@media (hover: hover) {
+  :root .cu-sidebar__item:hover:not([aria-current='page']),
+  :root .cu-sidebar__toggle:hover {
+    background: color-mix(in srgb, var(--cu-color-fg-inverse) 8%, transparent);
+  }
+}
+
+:root .cu-button {
+  font-weight: 400;
+}
+
+:root .cu-card {
+  background: var(--cu-color-background-elevated);
+}
+
+:root .cu-card--elevated {
+  box-shadow: var(--cu-shadow-md);
+  border: none;
+}
+
+:root .cu-card--outlined {
+  box-shadow: none;
+  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);
+}
+
+:root .cu-dialog__backdrop {
+  background: rgb(0 0 0 / 45%);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+:root .cu-dialog__content {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--cu-color-background-elevated);
+  box-shadow: var(--cu-shadow-lg);
+}
+
+:root .cu-tab-bar {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: var(--cu-color-background-elevated);
+  box-shadow: var(--cu-shadow-sm);
+}
+
+:root .cu-input:focus-visible {
+  outline: none;
+  border-color: var(--cu-color-palette-brand);
+  box-shadow: 0 0 0 2px var(--cu-color-background-brand-subtle, color-mix(in srgb, var(--cu-color-palette-brand) 20%, transparent));
+}
+
+:root .cu-button:focus-visible {
+  outline: 2px solid var(--cu-color-palette-brand);
+  outline-offset: 1px;
+}

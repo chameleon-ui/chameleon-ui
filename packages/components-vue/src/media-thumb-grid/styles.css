@@ -1,0 +1,73 @@
+.cu-media-thumb-grid {
+  box-sizing: border-box;
+  display: grid;
+  gap: var(--cu-space-2);
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--cu-media-thumb-min, 8.75rem), 1fr)
+  );
+}
+
+.cu-media-thumb-grid__item {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--cu-space-1);
+  margin: 0;
+  padding: var(--cu-space-2);
+  border: var(--cu-border-width-default, 1px) solid var(--cu-color-border-default);
+  border-radius: var(--cu-radius-md);
+  background: var(--cu-color-background-elevated, var(--cu-color-background-default));
+  color: var(--cu-color-fg-default);
+  text-align: start;
+  cursor: pointer;
+}
+
+.cu-media-thumb-grid__item[data-selected='true'] {
+  border-color: var(--cu-color-palette-brand);
+  box-shadow: inset 0 0 0 var(--cu-border-width-hairline, 1px) var(--cu-color-palette-brand);
+  background: color-mix(
+    in srgb,
+    var(--cu-color-palette-brand) 8%,
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+}
+
+.cu-media-thumb-grid__item[data-disabled='true'] {
+  opacity: 0.56;
+  cursor: not-allowed;
+}
+
+.cu-media-thumb-grid__item:focus-visible {
+  outline: 3px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+}
+
+.cu-media-thumb-grid__media {
+  display: block;
+  inline-size: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  border-radius: var(--cu-radius-sm, var(--cu-radius-md));
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+}
+
+.cu-media-thumb-grid__fallback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--cu-radius-sm, var(--cu-radius-md));
+  background: var(--cu-color-background-subtle, var(--cu-color-background-default));
+  color: var(--cu-color-fg-muted, color-mix(in srgb, var(--cu-color-fg-default) 72%, transparent));
+  font-size: var(--cu-typography-size-caption, 0.8125rem);
+  text-align: center;
+  padding: var(--cu-space-2);
+}
+
+.cu-media-thumb-grid__label {
+  font-size: var(--cu-typography-size-caption, 0.8125rem);
+  line-height: var(--cu-typography-line-height-snug, 1.25);
+  color: var(--cu-color-fg-muted, color-mix(in srgb, var(--cu-color-fg-default) 80%, transparent));
+}

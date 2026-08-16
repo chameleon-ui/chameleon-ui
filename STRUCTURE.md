@@ -26,7 +26,7 @@ Paths relative to the repository root.
 | `contract` | `@chameleon-ui/contract` | schemas + validate |
 | `i18n` | `@chameleon-ui/i18n` | ICU · 21 locales |
 | `primitives` / `primitives-vue` | `@chameleon-ui/primitives(-vue)` | Ark/Zag thin wrap |
-| `components` / `components-vue` | `@chameleon-ui/components(-vue)` | catalog + contracts |
+| `components` / `components-vue` | `@chameleon-ui/components-react(-vue)` | catalog + contracts |
 | `react` / `vue` | `@chameleon-ui/react` / `@chameleon-ui/vue` | consumer umbrellas |
 | `install-core` | `@chameleon-ui/install-core` | sole disk writer |
 | `registry` / `registry-private` | `@chameleon-ui/registry(-private)` | catalog / private HTTP |
@@ -52,7 +52,7 @@ Maintainer eslint / stylelint / tsconfig and size budgets are **not part of this
 
 | Data | Authority |
 | :--- | :--- |
-| Catalog | `packages/components/catalog.json` |
+| Catalog | `packages/components-react/catalog.json` |
 | Contracts | `components/src/<slug>/contract.json` |
 | Design rules | `themes/<id>/design-rules.json` |
 | Disk writes | **only** `install-core` |

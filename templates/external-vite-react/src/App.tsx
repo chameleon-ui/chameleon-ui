@@ -4,7 +4,7 @@ import {
   Button,
   Card,
   Navigation,
-  NavigationBar,
+  NavigationTitle,
   Stack,
   ToastProvider,
   useTabStacks,
@@ -31,7 +31,7 @@ function Shell() {
   return (
     <AppShell
       header={
-        <NavigationBar
+        <NavigationTitle
           backLabel={stacks.previous?.title}
           onBack={stacks.canPop ? stacks.pop : undefined}
           title={stacks.current.title}

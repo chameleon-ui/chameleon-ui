@@ -85,7 +85,7 @@ mkdir packages/themes/src/my-brand
 
 ### 2.3 `design-rules.json`（必填）
 
-對照官方主題嘅完整結構（如 `packages/themes/src/line/design-rules.json`）。最小可用版：
+對照官方主題嘅完整結構（如 `packages/themes/src/linear/design-rules.json`）。最小可用版：
 
 ```json
 {
@@ -142,7 +142,7 @@ mkdir packages/themes/src/my-brand
 
 ```js
 const themeIds = [
-  "line", "silver-arrow", "stuttgart", "corsa", "cupertino", "siren", "wechat", "ant-blue",
+  "linear", "mercedes", "porsche", "ferrari", "apple", "tiktok", "wechat", "alipay",
   "my-brand", // ← 新增
 ];
 ```
@@ -212,7 +212,7 @@ import { ThemeProvider } from '@chameleon-ui/vue'
 
 ## 參考
 
-- 官方主題示例：`packages/themes/src/line/`（最細）、`packages/themes/src/cupertino/`（含 `effects.css`）
+- 官方主題示例：`packages/themes/src/linear/`（最細）、`packages/themes/src/apple/`（含 `effects.css`）
 - core token 權威源：`packages/tokens/src/core/*.json`
 - 主題套件文件：[`packages/themes/README.md`](../../packages/themes/README.md)
 - token 編譯機制：[`packages/tokens/README.md`](../../packages/tokens/README.md)

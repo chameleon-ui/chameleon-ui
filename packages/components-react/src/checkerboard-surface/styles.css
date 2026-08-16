@@ -1,0 +1,40 @@
+/*
+ * Transparent-media checkerboard.
+ * Themes may override --cu-checkerboard-a / --cu-checkerboard-b (or the mix
+ * percentages) on :root .cu-checkerboard-surface. Mixes must keep large
+ * transparent edges obvious on line / warm paper — prior ~22%/7% and
+ * strong ~34%/12% were still too soft on elevated white.
+ *
+ * A mixes into subtle (warmer dark cell); B into elevated (near-paper light
+ * cell) so A/B diverge even when mix % alone is modest.
+ */
+.cu-checkerboard-surface {
+  --cu-checkerboard-mix-a: 40%;
+  --cu-checkerboard-mix-b: 5%;
+  --cu-checkerboard-a: color-mix(
+    in srgb,
+    var(--cu-color-fg-default) var(--cu-checkerboard-mix-a),
+    var(--cu-color-background-subtle, var(--cu-color-background-elevated, var(--cu-color-background-default)))
+  );
+  --cu-checkerboard-b: color-mix(
+    in srgb,
+    var(--cu-color-fg-default) var(--cu-checkerboard-mix-b),
+    var(--cu-color-background-elevated, var(--cu-color-background-default))
+  );
+  position: relative;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: var(--cu-radius-md);
+  background-color: var(--cu-checkerboard-b);
+  background-image: repeating-conic-gradient(
+    var(--cu-checkerboard-a) 0% 25%,
+    var(--cu-checkerboard-b) 0% 50%
+  );
+  background-size: calc(var(--cu-checkerboard-cell, 0.75rem) * 2) calc(var(--cu-checkerboard-cell, 0.75rem) * 2);
+}
+
+.cu-checkerboard-surface[data-contrast='strong'] {
+  --cu-checkerboard-mix-a: 56%;
+  --cu-checkerboard-mix-b: 4%;
+}

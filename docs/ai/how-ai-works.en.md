@@ -12,7 +12,7 @@ This document explains how Chameleon UI's **AI mechanism works end-to-end**: how
 
 Traditional component libraries are a "black box" to AI — AI can only guess usage from README/examples, often inventing imports, wrong props, or non-existent paths. Chameleon UI's opposite: **every component carries a machine-readable `contract.json`** — AI reads it directly to get authoritative, checkable usage.
 
-Each component's `contract.json` (at `packages/components/src/<slug>/contract.json`) includes:
+Each component's `contract.json` (at `packages/components-react/src/<slug>/contract.json`) includes:
 
 - `slug` / `name` / `schemaVersion`
 - `props` / `variants` / `states`
@@ -120,11 +120,11 @@ These aren't suggestions — they're hard constraints enforced by CI/gates.
 
 ## 6. Workflow example: AI adds a login form
 
-1. `get_started` → get theme `line`, CSS imports, tool order.
+1. `get_started` → get theme `linear`, CSS imports, tool order.
 2. `search_components`(`intent: "authenticate"`) → hits `login` / `input` / `password-input`.
 3. `get_import_specifiers` → get the **valid** imports for this set.
 4. `get_contract`(`input`) → get props / a11y / antiPatterns.
-5. `get_design_rules`(`line`) → get density / RTL / spacing rules.
+5. `get_design_rules`(`linear`) → get density / RTL / spacing rules.
 6. Produce JSX/SFC with official specifiers, zero `resolve.alias`.
 7. To write to disk: `install_with_theme` (idempotent via install-core).
 

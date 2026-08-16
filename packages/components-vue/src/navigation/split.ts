@@ -10,6 +10,10 @@ export interface NavigationProps {
   defaultValue?: string
   maxCompactItems?: number
   moreLabel?: string
+  /**
+   * Render the tablet collapse toggle. Ignored when `#footer` slot is set —
+   * account logout owns the foot chrome.
+   */
   collapsible?: boolean
   collapsed?: boolean
   defaultCollapsed?: boolean

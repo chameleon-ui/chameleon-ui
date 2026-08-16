@@ -12,7 +12,7 @@ Machine copy: [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) (same direc
 | `data-ai-state` | `contract.dataAi.states` | Current state; subset of contract states |
 | `data-ai-intent` | `contract.dataAi.intents[0]` | Primary intent; full set lives on the contract |
 
-## Intent lexicon (70)
+## Intent lexicon (78)
 
 | intent | Meaning |
 | :--- | :--- |
@@ -22,6 +22,7 @@ Machine copy: [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) (same direc
 | `choose-option` | Pick one option from a predefined list. |
 | `collapse-section` | Hide an expandable content section. |
 | `collect-input` | Gather structured input from the user in a modal flow. |
+| `compare-images` | Compare two images with a draggable before/after divider. |
 | `compare-options` | Present richly described options for a single choice. |
 | `compose-rich-text` | Author rich text with inline formatting commands. |
 | `confirm` | Confirm a reversible action. |
@@ -49,6 +50,7 @@ Machine copy: [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) (same direc
 | `layout-columns` | Arrange content in a responsive column layout. |
 | `layout-flow` | Stack content with consistent rhythm. |
 | `layout-shell` | Provide the application frame and primary regions. |
+| `layout-split` | Split a region into master and detail panes. |
 | `name-field` | Associate a caption with a form control. |
 | `navigate` | Follow a hyperlink to another location. |
 | `navigate-detail` | Open the detail view of a grouped item. |
@@ -59,6 +61,7 @@ Machine copy: [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) (same direc
 | `navigate-stack` | Move back or forward within the current tab's navigation stack. |
 | `notify-status` | Communicate a persistent status message. |
 | `notify-transient` | Communicate a transient confirmation or alert. |
+| `paint-mask` | Paint or erase a mask over a source image. |
 | `pan-canvas` | Pan, zoom, or inspect a 2D canvas surface. |
 | `pick-datetime` | Pick a calendar date and/or clock time. |
 | `present-overlay` | Present modal or side-sheet content above the page. |
@@ -68,13 +71,18 @@ Machine copy: [`data-ai-vocabulary.json`](./data-ai-vocabulary.json) (same direc
 | `render-markup` | Render Markdown or other markup as readable content. |
 | `reveal-context` | Reveal contextual content anchored to a trigger. |
 | `reveal-detail` | Reveal detail in a dismissible panel. |
+| `scroll-region` | Own nested scrolling for a region inside a shell. |
 | `search-select` | Search within options and select one. |
 | `select-single` | Select exactly one option from a small set. |
 | `separate-items` | Separate sibling items in a list or toolbar. |
 | `separate-sections` | Separate content sections visually. |
 | `share-content` | Share a URL or content payload to a chosen target. |
+| `show-attribution` | Show credits, legal, or other attribution chrome. |
+| `show-brand` | Show a sized brand mark in chrome. |
 | `show-progress` | Show determinate progress toward completion. |
 | `show-shortcut` | Document a keyboard shortcut. |
+| `show-transparency` | Reveal transparent media edges on a checkerboard surface. |
+| `sign-out` | End the current user session from chrome. |
 | `signal-meaning` | Convey meaning through a glyph. |
 | `structure-content` | Structure content with hierarchical headings. |
 | `style-text` | Style inline or block text with the type scale. |

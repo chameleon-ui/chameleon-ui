@@ -5,17 +5,26 @@ export type { ActionSheetProps, ActionSheetAction } from './action-sheet/index.j
 export { Alert } from './alert/index.js'
 export type { AlertProps, AlertStatus } from './alert/index.js'
 export { AppShell } from './app-shell/index.js'
-export type { AppShellProps } from './app-shell/index.js'
+export type { AppShellFooterPlacement, AppShellProps } from './app-shell/index.js'
 export { ArticleCard } from './article-card/index.js'
 export type { ArticleCardProps } from './article-card/index.js'
 export { Avatar } from './avatar/index.js'
 export type { AvatarProps } from './avatar/index.js'
 export { Badge } from './badge/index.js'
 export type { BadgeProps } from './badge/index.js'
+export { BrandMark } from './brand-mark/index.js'
+export type { BrandMarkProps, BrandMarkSize } from './brand-mark/index.js'
 export { Breadcrumb } from './breadcrumb/index.js'
 export type { BreadcrumbProps, BreadcrumbItem } from './breadcrumb/index.js'
 export { Button } from './button/index.js'
 export type { ButtonProps, ButtonSize, ButtonTone, ButtonVariant } from './button/index.js'
+export { ButtonGroup } from './button-group/index.js'
+export type {
+  ButtonGroupOrientation,
+  ButtonGroupProps,
+  ButtonGroupSize,
+  ButtonGroupVariant,
+} from './button-group/index.js'
 export { Calendar } from './calendar/index.js'
 export type { CalendarProps } from './calendar/index.js'
 export { Canvas, snapToGridValue } from './canvas-base/index.js'
@@ -28,6 +37,12 @@ export { Carousel } from './carousel/index.js'
 export type { CarouselProps } from './carousel/index.js'
 export { Chart } from './chart/index.js'
 export type { ChartProps, ChartSeries } from './chart/index.js'
+export { CheckerboardSurface } from './checkerboard-surface/index.js'
+export type {
+  CheckerboardCellSize,
+  CheckerboardContrast,
+  CheckerboardSurfaceProps,
+} from './checkerboard-surface/index.js'
 export { ChatBubble } from './chat-bubble/index.js'
 export type { ChatBubbleProps } from './chat-bubble/index.js'
 export { Checkbox } from './checkbox/index.js'
@@ -72,6 +87,8 @@ export { FileInput } from './file-input/index.js'
 export type { FileInputProps } from './file-input/index.js'
 export { FlowNode } from './flow-node/index.js'
 export type { FlowNodeProps } from './flow-node/index.js'
+export { Footer } from './footer/index.js'
+export type { FooterProps } from './footer/index.js'
 export { Form } from './form/index.js'
 export type { FormProps } from './form/index.js'
 export { Gauge } from './gauge/index.js'
@@ -90,6 +107,8 @@ export { Icon } from './icon/index.js'
 export type { IconProps } from './icon/index.js'
 export { Image } from './image/index.js'
 export type { ImageProps } from './image/index.js'
+export { ImageCompare } from './image-compare/index.js'
+export type { ImageCompareOrientation, ImageCompareProps } from './image-compare/index.js'
 export { InlineAlert } from './inline-alert/index.js'
 export type { InlineAlertProps } from './inline-alert/index.js'
 export { Input } from './input/index.js'
@@ -108,8 +127,17 @@ export { LoadingBar } from './loading-bar/index.js'
 export type { LoadingBarProps } from './loading-bar/index.js'
 export { MarkdownRenderer } from './markdown-renderer/index.js'
 export type { MarkdownRendererProps } from './markdown-renderer/index.js'
+export { MaskPaintCanvas } from './mask-paint-canvas/index.js'
+export type {
+  MaskPaintCanvasHandle,
+  MaskPaintCanvasProps,
+  MaskPaintFit,
+  MaskPaintMode,
+} from './mask-paint-canvas/index.js'
 export { Masonry } from './masonry/index.js'
 export type { MasonryProps, MasonryGap } from './masonry/index.js'
+export { MediaThumbGrid } from './media-thumb-grid/index.js'
+export type { MediaThumbGridProps, MediaThumbItem } from './media-thumb-grid/index.js'
 export { Menu } from './menu/index.js'
 export type { MenuProps, MenuItem } from './menu/index.js'
 export { MindMap } from './mind-map/index.js'
@@ -118,10 +146,21 @@ export { MultiSelect } from './multi-select/index.js'
 export type { MultiSelectProps, MultiSelectOption } from './multi-select/index.js'
 export { Navbar } from './navbar/index.js'
 export type { NavbarProps, NavbarItem } from './navbar/index.js'
+export { NavAccountCard } from './nav-account-card/index.js'
+export type { NavAccountCardProps } from './nav-account-card/index.js'
 export { Navigation, splitNavigationItems } from './navigation/index.js'
 export type { NavigationItem, NavigationProps } from './navigation/index.js'
-export { NavigationBar, useTabStacks } from './navigation-bar/index.js'
-export type { NavigationBarProps, StackScreen, TabStacks } from './navigation-bar/index.js'
+export {
+  NavigationTitle,
+  NavigationBar,
+  useTabStacks,
+} from './navigation-title/index.js'
+export type {
+  NavigationTitleProps,
+  NavigationBarProps,
+  StackScreen,
+  TabStacks,
+} from './navigation-title/index.js'
 export { Notification } from './notification/index.js'
 export type { NotificationProps } from './notification/index.js'
 export { NumberInput } from './number-input/index.js'
@@ -136,6 +175,8 @@ export { PipelineView } from './pipeline-view/index.js'
 export type { PipelineViewProps, PipelineStage } from './pipeline-view/index.js'
 export { Popover } from './popover/index.js'
 export type { PopoverProps } from './popover/index.js'
+export { ProcessingPlaceholder } from './processing-placeholder/index.js'
+export type { ProcessingPlaceholderProps } from './processing-placeholder/index.js'
 export { Progress } from './progress/index.js'
 export type { ProgressProps } from './progress/index.js'
 export { Radio } from './radio/index.js'
@@ -150,8 +191,12 @@ export { SafeArea } from './safe-area/index.js'
 export type { SafeAreaProps } from './safe-area/index.js'
 export { SearchBar } from './search-bar/index.js'
 export type { SearchBarProps } from './search-bar/index.js'
+export { ScrollPane } from './scroll-pane/index.js'
+export type { ScrollPaneOrientation, ScrollPaneProps } from './scroll-pane/index.js'
 export { Select } from './select/index.js'
 export type { SelectProps, SelectOption } from './select/index.js'
+export { SelectableListItem } from './selectable-list-item/index.js'
+export type { SelectableListItemProps } from './selectable-list-item/index.js'
 export { Separator } from './separator/index.js'
 export type { SeparatorProps } from './separator/index.js'
 export { SharePanel } from './share-panel/index.js'
@@ -196,6 +241,8 @@ export { TimePicker } from './time-picker/index.js'
 export type { TimePickerProps } from './time-picker/index.js'
 export { Timeline } from './timeline/index.js'
 export type { TimelineProps, TimelineItem } from './timeline/index.js'
+export { TitleBar } from './title-bar/index.js'
+export type { TitleBarDensity, TitleBarProps } from './title-bar/index.js'
 export { Toast, Toaster, ToastProvider, createToaster, useToast } from './toast/index.js'
 export type {
   ToastPlacement,
@@ -213,6 +260,8 @@ export type { TreeNode, TreeProps } from './tree/index.js'
 export { Typography } from './typography/index.js'
 export type { TypographyProps, TypographyTag, TypographyVariant } from './typography/index.js'
 export { Upload } from './upload/index.js'
+export { WorkspaceSplit } from './workspace-split/index.js'
+export type { WorkspaceSplitProps, WorkspaceSplitScrollMode } from './workspace-split/index.js'
 export type {
   UploadFileItem,
   UploadFileStatus,

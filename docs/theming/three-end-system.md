@@ -29,7 +29,7 @@
 
 但这两条线**共享同一套设计层**，所以不是"两套随机库"，而是"一个设计系统 × 两个渲染适配"：
 
-- **单一 catalog**：`components/catalog.json`（103 组件）是唯一权威，Vue **没有自己的 catalog**。
+- **单一 catalog**：`components/catalog.json`（116 组件）是唯一权威，Vue **没有自己的 catalog**。
 - **同一契约**：`contract.json` 被 React 与 Vue 共用（`Button` 的 props/a11y/RTL 行为完全相同）。
 - **同一 token / i18n / 主题**：`tokens`、`i18n`（21 语言）、`themes` 全双端共用。
 
@@ -48,6 +48,17 @@
 | desktop | `breakpoint.desktop` | `80rem` | `≥ 1280px` |
 
 断点用 **rem**（而非 px）表达，保证跟随根字号缩放、放大不失真。这也是 `390 / 768 / 1280` 这些数字的来源（@16px root）。
+
+**常见真机 CSS 宽 → 期望形态：**
+
+| 设备示例 | CSS 宽 | Navigation | WorkspaceSplit（自身宽度） |
+| :--- | :--- | :--- | :--- |
+| iPhone SE / 12 / 14–16 Pro Max、Pixel 7–10、Galaxy S | 375–430 | 底栏 TabBar | 单列 |
+| Nest Hub / iPad Mini 竖屏 | ~768 | 平板 rail | 嵌在 AppShell 时主区常仍单列；独立 ≥48rem 才 master\|detail |
+| iPad Air / Pro、Surface | ~1024 | rail | master\|detail（tools 在 detail 下）— 不开三栏 |
+| 桌面 | ≥1280 | 持久侧栏 | 主区仍多为 master\|detail；三栏仅当主区 ≥80rem（约 96rem shell） |
+
+WorkspaceSplit 三栏阈值是 **80rem**（与 `breakpoint.desktop` 对齐）。先前的 64rem 会在 1280 扣掉侧栏后仍挤出三栏。不要在 `detail` 里再嵌一层 `WorkspaceSplit`。
 
 ---
 
@@ -120,7 +131,7 @@
 @container navigation (max-width: 20rem)  { /* Tab 形态 */ }
 ```
 
-配套三端组件：`AppShell`（三端应用骨架）· `SafeArea`（刘海/手势条安全区）· `ActionSheet`（手机底部动作面板）· `Navbar` / `NavigationBar`（横向列队导航）。
+配套三端组件：`AppShell`（三端应用骨架）· `SafeArea`（刘海/手势条安全区）· `ActionSheet`（手机底部动作面板）· `Navbar` / `NavigationTitle`（横向列队导航）。
 
 ---
 
@@ -150,7 +161,7 @@
 
 - 断点/密度 token 源：`packages/tokens/src/core/breakpoint.json` · `density.json`
 - 密度生成脚本：`packages/tokens/scripts/density-css.mjs`
-- 三端导航样式：`packages/components/src/navigation/styles.css`
-- 应用骨架样式：`packages/components/src/app-shell/styles.css`
+- 三端导航样式：`packages/components-react/src/navigation/styles.css`
+- 应用骨架样式：`packages/components-react/src/app-shell/styles.css`
 - Token 工作原理：[`token-system.md`](./token-system.md)
 - Token 包文档：[`packages/tokens/README.md`](../../packages/tokens/README.md)

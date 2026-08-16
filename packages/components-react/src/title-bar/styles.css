@@ -1,0 +1,113 @@
+/*
+ * TitleBar — Navigation sidebar brand header (logo + title + subtitle).
+ * Mount in Navigation `header` / `#header`. Compact TabBar hides that slot
+ * (`.cu-navigation__header { display: none }` below 48rem) — DoD: never
+ * duplicate this structure on the mobile TabBar.
+ */
+.cu-title-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--cu-space-2);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  text-decoration: none;
+}
+
+.cu-title-bar--no-select {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.cu-title-bar--interactive {
+  cursor: pointer;
+}
+
+.cu-title-bar--interactive:focus-visible {
+  outline: 2px solid var(--cu-color-palette-brand);
+  outline-offset: 2px;
+  border-radius: var(--cu-radius-sm);
+}
+
+.cu-title-bar__mark {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  min-inline-size: 1.25rem;
+  min-block-size: 1.25rem;
+}
+
+.cu-title-bar__letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  inline-size: 1.75rem;
+  block-size: 1.75rem;
+  border-radius: var(--cu-radius-sm);
+  background: color-mix(in srgb, var(--cu-color-palette-brand) 14%, transparent);
+  color: var(--cu-color-palette-brand);
+  font-size: 0.875rem;
+  font-weight: var(--cu-typography-weight-bold, 700);
+  line-height: 1;
+}
+
+.cu-title-bar--compact .cu-title-bar__letter,
+.cu-navigation--collapsed .cu-title-bar .cu-title-bar__letter {
+  inline-size: 1.25rem;
+  block-size: 1.25rem;
+  font-size: 0.75rem;
+}
+
+.cu-title-bar__text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  min-inline-size: 0;
+}
+
+.cu-title-bar__title,
+.cu-title-bar__subtitle {
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cu-title-bar__title {
+  font-size: 1rem;
+  font-weight: var(--cu-typography-weight-semibold, 600);
+  line-height: 1.25;
+  color: var(--cu-color-fg-default);
+}
+
+.cu-title-bar__subtitle {
+  font-size: 0.75rem;
+  line-height: 1.3;
+  color: var(--cu-color-fg-muted, var(--cu-color-fg-default));
+  opacity: 0.72;
+}
+
+/* Prop density + Navigation collapsed rail — mark only. */
+.cu-title-bar--compact .cu-title-bar__text,
+.cu-navigation--collapsed .cu-title-bar .cu-title-bar__text {
+  display: none;
+}
+
+.cu-title-bar--compact,
+.cu-navigation--collapsed .cu-title-bar {
+  justify-content: center;
+}
+
+.cu-navigation--collapsed .cu-title-bar .cu-brand-mark--md {
+  block-size: 1.25rem;
+}

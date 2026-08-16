@@ -68,7 +68,7 @@ mkdir packages/themes/src/my-brand
 **关键规则**
 - 引用用 `{...}` 指向已有 token，如 `{color.palette.ink}`；会被编译器展开，避免重复字面量。
 - 你**不需要**枚举整个 core——只写要改的。
-- 若想**继承另一个主题**而非 core，可在顶层加 `"$extends": "./line/tokens.json"`（ref 必须解析到 `packages/themes/src` 内，不允许逃逸）。
+- 若想**继承另一个主题**而非 core，可在顶层加 `"$extends": "../linear/tokens.json"`（ref 必须解析到 `packages/themes/src` 内，不允许逃逸）。
 
 ### 2.2 `meta.json`（必填，id 必须等于目录名）
 
@@ -85,7 +85,7 @@ mkdir packages/themes/src/my-brand
 
 ### 2.3 `design-rules.json`（必填）
 
-对照官方主题的完整结构（如 `packages/themes/src/line/design-rules.json`）。最小可用版：
+对照官方主题的完整结构（如 `packages/themes/src/linear/design-rules.json`）。最小可用版：
 
 ```json
 {
@@ -142,7 +142,7 @@ mkdir packages/themes/src/my-brand
 
 ```js
 const themeIds = [
-  "line", "silver-arrow", "stuttgart", "corsa", "cupertino", "siren", "wechat", "ant-blue",
+  "linear", "mercedes", "porsche", "ferrari", "apple", "tiktok", "wechat", "alipay",
   "my-brand", // ← 新增
 ];
 ```
@@ -213,7 +213,7 @@ import { ThemeProvider } from '@chameleon-ui/vue'
 ## 参考
 
 - Token 工作原理（编译 / 引用 / overlay / `$extends`）：[`token-system.md`](./token-system.md)
-- 官方主题示例：`packages/themes/src/line/`（最小）、`packages/themes/src/cupertino/`（含 `effects.css`）
+- 官方主题示例：`packages/themes/src/linear/`（最小）、`packages/themes/src/apple/`（含 `effects.css`）
 - core token 权威源：`packages/tokens/src/core/*.json`
 - 主题包文档：[`packages/themes/README.md`](../../packages/themes/README.md)
 - token 编译机制：[`packages/tokens/README.md`](../../packages/tokens/README.md)

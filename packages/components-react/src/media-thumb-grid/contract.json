@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "0.2",
+  "slug": "media-thumb-grid",
+  "name": "MediaThumbGrid",
+  "status": "experimental",
+  "purpose": "Selectable thumbnail grid for PDF pages or media picks.",
+  "scenarios": [
+    "PDF page preview grid with multi-select before convert."
+  ],
+  "props": {
+    "items": {
+      "type": "string",
+      "required": true,
+      "description": "Array of thumb items: { id, src, label, alt? }."
+    },
+    "selectedIds": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled selected id array."
+    },
+    "defaultSelectedIds": {
+      "type": "string",
+      "required": false,
+      "description": "Uncontrolled initial selected id array."
+    },
+    "onSelectedIdsChange": {
+      "type": "event",
+      "required": false,
+      "description": "Selection change callback. Vue: update:selectedIds.",
+      "payload": "(ids: string[]) => void"
+    },
+    "minThumbSize": {
+      "type": "string",
+      "required": false,
+      "description": "CSS length for auto-fill minmax track (default 8.75rem)."
+    },
+    "selectable": {
+      "type": "boolean",
+      "required": false,
+      "description": "When false, thumbs are display-only."
+    },
+    "disabled": {
+      "type": "boolean",
+      "required": false,
+      "description": "Disables all toggles."
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes."
+    }
+  },
+  "variants": [],
+  "states": [
+    {
+      "name": "default",
+      "description": "Interactive grid."
+    },
+    {
+      "name": "disabled",
+      "description": "Selection disabled."
+    }
+  ],
+  "composition": {
+    "allowedParents": [
+      "scroll-pane",
+      "workspace-split",
+      "card",
+      "stack",
+      "page"
+    ],
+    "allowedChildren": [],
+    "requiredContext": []
+  },
+  "antiPatterns": [
+    "Do not compose Grid + Card + Checkbox for page picks when this component covers selection chrome."
+  ],
+  "a11y": {
+    "role": "group",
+    "keyboard": [
+      "Enter",
+      "Space"
+    ],
+    "focus": "Each thumb is a focusable button when selectable.",
+    "labeling": "Item label / alt labels the thumb; aria-pressed reflects selection.",
+    "wcag": [
+      "2.1.1",
+      "4.1.2"
+    ]
+  },
+  "responsive": {
+    "strategy": "CSS auto-fill grid with minThumbSize.",
+    "breakpoints": {
+      "compact": "Fewer columns.",
+      "medium": "More columns.",
+      "large": "More columns."
+    }
+  },
+  "platforms": {
+    "web": "supported",
+    "react": "supported",
+    "vue": "supported"
+  },
+  "rtl": {
+    "supported": true,
+    "strategy": "Logical CSS.",
+    "mirroredValues": []
+  },
+  "dataAi": {
+    "role": "media-thumb-grid",
+    "states": [
+      "default",
+      "disabled"
+    ],
+    "intents": [
+      "toggle-option"
+    ]
+  }
+}

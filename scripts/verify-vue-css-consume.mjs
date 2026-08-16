@@ -174,7 +174,7 @@ import { Button, ThemeProvider } from '@chameleon-ui/vue'
 </script>
 
 <template>
-  <ThemeProvider theme="line" locale="zh-CN">
+  <ThemeProvider theme="linear" locale="zh-CN">
     <Button>Accept</Button>
   </ThemeProvider>
 </template>
