@@ -14,7 +14,7 @@
     },
     {
       "path": "components/sheet/locales/am.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"ሉህ\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/sheet/locales/bn.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"শিট\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/de.json",
@@ -34,55 +34,55 @@
     },
     {
       "path": "components/sheet/locales/es.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Hoja\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/fa.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"برگ\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/fr.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Feuille\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ha.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Shafi\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/hi.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"शीट\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/id.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Lembar\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ja.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"シート\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ko.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"시트\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/pt.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Folha\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ru.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Лист\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/sw.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"Karatasi\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ug.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"تاختا\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/ur.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"شیٹ\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/locales/vi.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/sheet/locales/zh-HK.json",
-      "content": "{\n  \"sheet\": {\n    \"label\": \"Sheet\"\n  }\n}\n"
+      "content": "{\n  \"sheet\": {\n    \"label\": \"面板\"\n  }\n}\n"
     },
     {
       "path": "components/sheet/Sheet.tsx",

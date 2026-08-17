@@ -14,7 +14,7 @@
     },
     {
       "path": "components/share-panel/locales/am.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"አጋራ\",\n    \"copyLink\": \"አገናኝ ቅዳ\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/share-panel/locales/bn.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"শেয়ার করুন\",\n    \"copyLink\": \"লিংক কপি করুন\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/share-panel/locales/es.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Compartir\",\n    \"copyLink\": \"Copiar enlace\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/fa.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"اشتراک‌گذاری\",\n    \"copyLink\": \"کپی پیوند\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/fr.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Partager\",\n    \"copyLink\": \"Copier le lien\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ha.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Raba\",\n    \"copyLink\": \"Kwafi hanyar haɗi\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/hi.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"साझा करें\",\n    \"copyLink\": \"लिंक कॉपी करें\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/id.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Bagikan\",\n    \"copyLink\": \"Salin tautan\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ja.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"共有\",\n    \"copyLink\": \"リンクをコピー\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ko.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"공유\",\n    \"copyLink\": \"링크 복사\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/pt.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Compartilhar\",\n    \"copyLink\": \"Copiar link\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ru.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Поделиться\",\n    \"copyLink\": \"Копировать ссылку\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/sw.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Shiriki\",\n    \"copyLink\": \"Nakili kiungo\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ug.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"ھەمبەھىرلەش\",\n    \"copyLink\": \"ئۇلانمىنى كۆچۈرۈش\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/ur.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"شیئر کریں\",\n    \"copyLink\": \"لنک کاپی کریں\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/vi.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"Chia sẻ\",\n    \"copyLink\": \"Sao chép liên kết\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/share-panel/locales/zh-HK.json",
-      "content": "{\n  \"share-panel\": {\n    \"label\": \"Share\",\n    \"copyLink\": \"Copy link\"\n  }\n}\n"
+      "content": "{\n  \"share-panel\": {\n    \"label\": \"分享\",\n    \"copyLink\": \"複製連結\"\n  }\n}\n"
     },
     {
       "path": "components/share-panel/SharePanel.tsx",

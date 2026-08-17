@@ -18,7 +18,7 @@
     },
     {
       "path": "components/edge/locales/am.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"ጠርዝ\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/edge/locales/bn.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"এজ\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/edge/locales/es.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Arista\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/fa.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"یال\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/fr.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Arête\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ha.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Dahaɗi\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/hi.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"एज\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/id.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Sisi\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ja.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"エッジ\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ko.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"연결선\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/pt.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Aresta\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ru.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Ребро\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/sw.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Ukingo\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ug.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"ئۇلىنىش سىزىقى\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/ur.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"ایج\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/vi.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"Cạnh\"\n  }\n}\n"
     },
     {
       "path": "components/edge/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/edge/locales/zh-HK.json",
-      "content": "{\n  \"edge\": {\n    \"label\": \"Edge\"\n  }\n}\n"
+      "content": "{\n  \"edge\": {\n    \"label\": \"連線\"\n  }\n}\n"
     },
     {
       "path": "components/edge/styles.css",

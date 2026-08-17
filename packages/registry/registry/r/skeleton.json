@@ -14,7 +14,7 @@
     },
     {
       "path": "components/skeleton/locales/am.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"አጽናኝ\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/skeleton/locales/bn.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"স্কেলেটন\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/de.json",
@@ -34,23 +34,23 @@
     },
     {
       "path": "components/skeleton/locales/es.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Esqueleto\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/fa.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"اسکلت\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/fr.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Squelette\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ha.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Kashin ƙasusuwa\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/hi.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"स्केलेटन\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/id.json",
@@ -58,31 +58,31 @@
     },
     {
       "path": "components/skeleton/locales/ja.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"スケルトン\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ko.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"스켈레톤\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/pt.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Esqueleto\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ru.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Скелетон\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/sw.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"Mifupa\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ug.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"ئۇل چىراي\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/ur.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"اسکیلیٹن\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/locales/vi.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/skeleton/locales/zh-HK.json",
-      "content": "{\n  \"skeleton\": {\n    \"label\": \"Skeleton\"\n  }\n}\n"
+      "content": "{\n  \"skeleton\": {\n    \"label\": \"骨架屏\"\n  }\n}\n"
     },
     {
       "path": "components/skeleton/Skeleton.tsx",

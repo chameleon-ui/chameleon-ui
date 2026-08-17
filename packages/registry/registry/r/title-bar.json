@@ -14,19 +14,19 @@
     },
     {
       "path": "components/title-bar/locales/am.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"የርዕስ አሞሌ\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ar.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"شريط العنوان\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/bn.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"শিরোনাম বার\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/de.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Titelleiste\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/title-bar/locales/es.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Barra de título\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/fa.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"نوار عنوان\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/fr.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Barre de titre\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ha.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Sandar take\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/hi.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"शीर्षक पट्टी\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/id.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Bilah judul\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ja.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"タイトルバー\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ko.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"제목 표시줄\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/pt.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Barra de título\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ru.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Строка заголовка\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/sw.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Upau wa kichwa\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ug.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"تېما ستونى\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/ur.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"عنوان بار\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/vi.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"Thanh tiêu đề\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/zh-CN.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"标题栏\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/locales/zh-HK.json",
-      "content": "{\n  \"title-bar\": {\n    \"label\": \"Title bar\"\n  }\n}\n"
+      "content": "{\n  \"title-bar\": {\n    \"label\": \"標題列\"\n  }\n}\n"
     },
     {
       "path": "components/title-bar/README.md",

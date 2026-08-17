@@ -14,19 +14,19 @@
     },
     {
       "path": "components/mask-paint-canvas/locales/am.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"የማስክ ስዕል ካንቫስ\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ar.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"لوحة رسم القناع\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/bn.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"মাস্ক পেইন্ট ক্যানভাস\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/de.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Masken-Zeichenfläche\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/mask-paint-canvas/locales/es.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Lienzo de máscara\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/fa.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"بوم نقاشی ماسک\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/fr.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Canevas de masque\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ha.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Ƙwallon zanen mask\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/hi.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"मास्क पेंट कैनवास\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/id.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Kanvas masker\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ja.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"マスクペイントキャンバス\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ko.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"마스크 페인트 캔버스\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/pt.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Tela de máscara\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ru.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Холст маски\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/sw.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Ubao wa kuchora mask\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ug.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"ماسكا سىزىش تاختايسى\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/ur.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"ماسک پینٹ کینوس\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/vi.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Canvas tô mặt nạ\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/zh-CN.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"蒙版画布\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/locales/zh-HK.json",
-      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"Mask paint canvas\"\n  }\n}\n"
+      "content": "{\n  \"mask-paint-canvas\": {\n    \"label\": \"蒙版畫布\"\n  }\n}\n"
     },
     {
       "path": "components/mask-paint-canvas/MaskPaintCanvas.tsx",

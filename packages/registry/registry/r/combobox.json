@@ -18,7 +18,7 @@
     },
     {
       "path": "components/combobox/locales/am.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"ኮምቦ ሳጥን\",\n    \"placeholder\": \"ፈልግ ወይም ምረጥ\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/combobox/locales/bn.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"কম্বো বক্স\",\n    \"placeholder\": \"খুঁজুন বা নির্বাচন করুন\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/combobox/locales/es.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Cuadro combinado\",\n    \"placeholder\": \"Buscar o seleccionar\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/fa.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"جعبه ترکیبی\",\n    \"placeholder\": \"جستجو یا انتخاب\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/fr.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Zone de liste modifiable\",\n    \"placeholder\": \"Rechercher ou sélectionner\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ha.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Akwati hada-gwiwa\",\n    \"placeholder\": \"Nemo ko zaɓa\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/hi.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"कॉम्बो बॉक्स\",\n    \"placeholder\": \"खोजें या चुनें\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/id.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Kotak kombo\",\n    \"placeholder\": \"Cari atau pilih\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ja.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"コンボボックス\",\n    \"placeholder\": \"検索または選択\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ko.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"콤보 상자\",\n    \"placeholder\": \"검색 또는 선택\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/pt.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Caixa de combinação\",\n    \"placeholder\": \"Pesquisar ou selecionar\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ru.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Поле со списком\",\n    \"placeholder\": \"Поиск или выбор\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/sw.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Kisanduku changamano\",\n    \"placeholder\": \"Tafuta au chagua\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ug.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"بىرلەشمە رامكا\",\n    \"placeholder\": \"ئىزدەش ياكى تاللاش\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/ur.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"کومبو باکس\",\n    \"placeholder\": \"تلاش یا انتخاب کریں\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/vi.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"Hộp kết hợp\",\n    \"placeholder\": \"Tìm hoặc chọn\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/combobox/locales/zh-HK.json",
-      "content": "{\n  \"combobox\": {\n    \"label\": \"Combobox\",\n    \"placeholder\": \"Search or select\"\n  }\n}\n"
+      "content": "{\n  \"combobox\": {\n    \"label\": \"組合框\",\n    \"placeholder\": \"搜尋或選擇\"\n  }\n}\n"
     },
     {
       "path": "components/combobox/styles.css",

@@ -8,7 +8,7 @@ React is the primary implementation. This template is the Vue consume path: Them
 
 Packages are **0.4.0** (see `packages/*/package.json`) and **not on npm**. Do not write `workspace:*` here.
 
-This template depends on **one** package: `@chameleon-ui/vue` (`file:../../packages/vue`). Catalog Vue is **109/109** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`.
+This template depends on **one** package: `@chameleon-ui/vue` (`file:../../packages/vue`). Catalog Vue is **116/116** (plus ThemeProvider). SchemaRenderer default map is still **10 slugs**; Vue import is `@chameleon-ui/schema-renderer/vue`.
 
 ## Before `npm install`
 

@@ -14,7 +14,7 @@
     },
     {
       "path": "components/otp-input/locales/am.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"የአንዴ ኮድ\",\n    \"digit\": \"አሃዝ\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/otp-input/locales/bn.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"একবারের কোড\",\n    \"digit\": \"অঙ্ক\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/otp-input/locales/es.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Código de un solo uso\",\n    \"digit\": \"Dígito\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/fa.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"کد یکبارمصرف\",\n    \"digit\": \"رقم\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/fr.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Code à usage unique\",\n    \"digit\": \"Chiffre\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ha.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Lambar sau ɗaya\",\n    \"digit\": \"Dijitu\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/hi.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"एकबारगी कोड\",\n    \"digit\": \"अंक\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/id.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Kode sekali pakai\",\n    \"digit\": \"Digit\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ja.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"ワンタイムコード\",\n    \"digit\": \"桁\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ko.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"일회용 코드\",\n    \"digit\": \"자리\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/pt.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Código de uso único\",\n    \"digit\": \"Dígito\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ru.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Одноразовый код\",\n    \"digit\": \"Цифра\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/sw.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Msimbo wa mara moja\",\n    \"digit\": \"K tarakimu\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ug.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"بىر قېتىملىق كود\",\n    \"digit\": \"خانە\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/ur.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"ایک بار کا کوڈ\",\n    \"digit\": \"ہندسہ\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/vi.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"Mã dùng một lần\",\n    \"digit\": \"Chữ số\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/otp-input/locales/zh-HK.json",
-      "content": "{\n  \"otp-input\": {\n    \"label\": \"One-time code\",\n    \"digit\": \"Digit\"\n  }\n}\n"
+      "content": "{\n  \"otp-input\": {\n    \"label\": \"一次性驗證碼\",\n    \"digit\": \"位\"\n  }\n}\n"
     },
     {
       "path": "components/otp-input/OtpInput.tsx",

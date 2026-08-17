@@ -18,7 +18,7 @@
     },
     {
       "path": "components/divider/locales/am.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"መካፈያ\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/divider/locales/bn.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"বিভাজক\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/divider/locales/es.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Divisor\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/fa.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"جداکننده\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/fr.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Séparateur\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ha.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Mabangi\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/hi.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"विभाजक\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/id.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Pembatas\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ja.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"区切り線\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ko.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"구분선\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/pt.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Divisor\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ru.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Разделитель\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/sw.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Kigawanyo\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ug.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"ئايرىش سىزىقى\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/ur.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"جدا کرنے والا\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/vi.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"Đường phân cách\"\n  }\n}\n"
     },
     {
       "path": "components/divider/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/divider/locales/zh-HK.json",
-      "content": "{\n  \"divider\": {\n    \"label\": \"Divider\"\n  }\n}\n"
+      "content": "{\n  \"divider\": {\n    \"label\": \"分隔線\"\n  }\n}\n"
     },
     {
       "path": "components/divider/styles.css",

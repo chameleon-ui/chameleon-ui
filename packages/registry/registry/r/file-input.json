@@ -18,7 +18,7 @@
     },
     {
       "path": "components/file-input/locales/am.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"ፋይል ምረጥ\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/file-input/locales/bn.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"ফাইল নির্বাচন\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/file-input/locales/es.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Selector de archivo\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/fa.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"انتخاب فایل\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/fr.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Sélecteur de fichier\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ha.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Zaɓin fayil\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/hi.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"फ़ाइल चयन\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/id.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Pemilih file\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ja.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"ファイル選択\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ko.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"파일 선택\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/pt.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Seleção de arquivo\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ru.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Выбор файла\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/sw.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Uteuzi wa faili\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ug.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"ھۆججەت تاللاش\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/ur.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"فائل منتخب کریں\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/vi.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"Chọn tệp\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/file-input/locales/zh-HK.json",
-      "content": "{\n  \"file-input\": {\n    \"label\": \"File input\"\n  }\n}\n"
+      "content": "{\n  \"file-input\": {\n    \"label\": \"檔案選擇\"\n  }\n}\n"
     },
     {
       "path": "components/file-input/styles.css",

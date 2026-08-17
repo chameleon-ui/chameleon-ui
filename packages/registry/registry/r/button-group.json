@@ -18,19 +18,19 @@
     },
     {
       "path": "components/button-group/locales/am.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"የተኮፍ ቡድን\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ar.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"مجموعة الأزرار\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/bn.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"বোতাম গোষ্ঠী\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/de.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Schaltflächengruppe\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/en.json",
@@ -38,67 +38,67 @@
     },
     {
       "path": "components/button-group/locales/es.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Grupo de botones\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/fa.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"گروه دکمه\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/fr.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Groupe de boutons\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ha.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Ƙungiyar maballan\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/hi.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"बटन समूह\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/id.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Grup tombol\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ja.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"ボタングループ\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ko.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"버튼 그룹\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/pt.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Grupo de botões\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ru.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Группа кнопок\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/sw.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Kikundi cha vitufe\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ug.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"كۇنۇپكا گۇرۇپپىسى\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/ur.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"بٹن گروپ\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/vi.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"Nhóm nút\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/zh-CN.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"按钮组\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/locales/zh-HK.json",
-      "content": "{\n  \"button-group\": {\n    \"label\": \"Button group\"\n  }\n}\n"
+      "content": "{\n  \"button-group\": {\n    \"label\": \"按鈕群組\"\n  }\n}\n"
     },
     {
       "path": "components/button-group/README.md",

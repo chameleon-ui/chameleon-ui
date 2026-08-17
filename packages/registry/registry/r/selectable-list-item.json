@@ -14,19 +14,19 @@
     },
     {
       "path": "components/selectable-list-item/locales/am.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"ሊመረጥ የሚችል የዝርዝር ንጥረ ነገር\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ar.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"عنصر قائمة قابل للتحديد\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/bn.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"নির্বাচনযোগ্য তালিকা আইটেম\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/de.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Auswählbares Listenelement\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/selectable-list-item/locales/es.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Elemento de lista seleccionable\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/fa.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"مورد فهرست قابل انتخاب\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/fr.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Élément de liste sélectionnable\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ha.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Abun jeri da za a zaɓa\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/hi.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"चयन योग्य सूची आइटम\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/id.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Item daftar yang dapat dipilih\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ja.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"選択可能なリスト項目\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ko.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"선택 가능한 목록 항목\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/pt.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Item de lista selecionável\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ru.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Выбираемый элемент списка\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/sw.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Kipengee cha orodha kinachochagulika\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ug.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"تاللىغىلى بولىدىغان تۈر\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/ur.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"قابل انتخاب فہرست آئٹم\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/vi.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Mục danh sách có thể chọn\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/zh-CN.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"可选列表项\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/locales/zh-HK.json",
-      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"Selectable list item\"\n  }\n}\n"
+      "content": "{\n  \"selectable-list-item\": {\n    \"label\": \"可選列表項\"\n  }\n}\n"
     },
     {
       "path": "components/selectable-list-item/README.md",

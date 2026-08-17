@@ -18,7 +18,7 @@
     },
     {
       "path": "components/data-grid/locales/am.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"የውሂብ ፍየል\",\n    \"rows\": \"ረድፎች\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/data-grid/locales/bn.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"ডেটা গ্রিড\",\n    \"rows\": \"সারি\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/data-grid/locales/es.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Cuadrícula de datos\",\n    \"rows\": \"filas\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/fa.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"شبکه داده\",\n    \"rows\": \"ردیف\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/fr.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Grille de données\",\n    \"rows\": \"lignes\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ha.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Gridin bayanai\",\n    \"rows\": \"sassa\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/hi.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"डेटा ग्रिड\",\n    \"rows\": \"पंक्तियाँ\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/id.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Kisi data\",\n    \"rows\": \"baris\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ja.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"データグリッド\",\n    \"rows\": \"行\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ko.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"데이터 그리드\",\n    \"rows\": \"행\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/pt.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Grade de dados\",\n    \"rows\": \"linhas\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ru.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Таблица данных\",\n    \"rows\": \"строк\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/sw.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Gridi ya data\",\n    \"rows\": \"mistari\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ug.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"سانلىق مەلۇمات جەدۋىلى\",\n    \"rows\": \"قۇر\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/ur.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"ڈیٹا گرڈ\",\n    \"rows\": \"قطاریں\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/vi.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"Lưới dữ liệu\",\n    \"rows\": \"hàng\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/data-grid/locales/zh-HK.json",
-      "content": "{\n  \"data-grid\": {\n    \"label\": \"Data grid\",\n    \"rows\": \"rows\"\n  }\n}\n"
+      "content": "{\n  \"data-grid\": {\n    \"label\": \"數據表格\",\n    \"rows\": \"行\"\n  }\n}\n"
     },
     {
       "path": "components/data-grid/styles.css",

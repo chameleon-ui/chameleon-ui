@@ -18,7 +18,7 @@
     },
     {
       "path": "components/command-palette/locales/am.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"የትእዛዝ ፓሌት\",\n    \"placeholder\": \"ትእዛዝ ጻፍ\",\n    \"empty\": \"ትእዛዞች የሉም\",\n    \"close\": \"ዝጋ\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/command-palette/locales/bn.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"কমান্ড প্যালেট\",\n    \"placeholder\": \"কমান্ড টাইপ করুন\",\n    \"empty\": \"কোনো কমান্ড নেই\",\n    \"close\": \"বন্ধ করুন\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/command-palette/locales/es.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Paleta de comandos\",\n    \"placeholder\": \"Escribe un comando\",\n    \"empty\": \"No hay comandos disponibles\",\n    \"close\": \"Cerrar\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/fa.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"پالت دستور\",\n    \"placeholder\": \"دستور بنویسید\",\n    \"empty\": \"دستوری موجود نیست\",\n    \"close\": \"بستن\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/fr.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Palette de commandes\",\n    \"placeholder\": \"Saisir une commande\",\n    \"empty\": \"Aucune commande disponible\",\n    \"close\": \"Fermer\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ha.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Filin umarni\",\n    \"placeholder\": \"Rubuta umarni\",\n    \"empty\": \"Babu umarni\",\n    \"close\": \"Rufe\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/hi.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"कमांड पैलेट\",\n    \"placeholder\": \"कमांड टाइप करें\",\n    \"empty\": \"कोई कमांड उपलब्ध नहीं\",\n    \"close\": \"बंद करें\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/id.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Palet perintah\",\n    \"placeholder\": \"Ketik perintah\",\n    \"empty\": \"Tidak ada perintah\",\n    \"close\": \"Tutup\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ja.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"コマンドパレット\",\n    \"placeholder\": \"コマンドを入力\",\n    \"empty\": \"コマンドがありません\",\n    \"close\": \"閉じる\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ko.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"명령 팔레트\",\n    \"placeholder\": \"명령 입력\",\n    \"empty\": \"사용 가능한 명령 없음\",\n    \"close\": \"닫기\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/pt.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Paleta de comandos\",\n    \"placeholder\": \"Digite um comando\",\n    \"empty\": \"Nenhum comando disponível\",\n    \"close\": \"Fechar\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ru.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Палитра команд\",\n    \"placeholder\": \"Введите команду\",\n    \"empty\": \"Нет доступных команд\",\n    \"close\": \"Закрыть\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/sw.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Paleti ya amri\",\n    \"placeholder\": \"Andika amri\",\n    \"empty\": \"Hakuna amri zinazopatikana\",\n    \"close\": \"Funga\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ug.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"بۇيرۇق تاختايسى\",\n    \"placeholder\": \"بۇيرۇق كىرگۈزۈڭ\",\n    \"empty\": \"ئىشلەتكۈدەك بۇيرۇق يوق\",\n    \"close\": \"تاقاش\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/ur.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"کمانڈ پیلٹ\",\n    \"placeholder\": \"کمانڈ ٹائپ کریں\",\n    \"empty\": \"کوئی کمانڈ دستیاب نہیں\",\n    \"close\": \"بند کریں\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/vi.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"Bảng lệnh\",\n    \"placeholder\": \"Nhập lệnh\",\n    \"empty\": \"Không có lệnh nào\",\n    \"close\": \"Đóng\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/command-palette/locales/zh-HK.json",
-      "content": "{\n  \"command-palette\": {\n    \"label\": \"Command palette\",\n    \"placeholder\": \"Type a command\",\n    \"empty\": \"No commands\",\n    \"close\": \"Close\"\n  }\n}\n"
+      "content": "{\n  \"command-palette\": {\n    \"label\": \"命令面板\",\n    \"placeholder\": \"輸入命令\",\n    \"empty\": \"沒有可用命令\",\n    \"close\": \"關閉\"\n  }\n}\n"
     },
     {
       "path": "components/command-palette/styles.css",

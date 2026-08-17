@@ -14,7 +14,7 @@
     },
     {
       "path": "components/space/locales/am.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"ክፍተት\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/space/locales/bn.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"ফাঁক\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/space/locales/es.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Espacio\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/fa.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"فاصله\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/fr.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Espacement\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ha.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Tsaki\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/hi.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"रिक्ति\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/id.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Jarak\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ja.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"スペース\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ko.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"간격\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/pt.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Espaçamento\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ru.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Интервал\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/sw.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Nafasi\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ug.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"ئارىلىق\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/ur.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"فاصلہ\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/vi.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"Khoảng cách\"\n  }\n}\n"
     },
     {
       "path": "components/space/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/space/locales/zh-HK.json",
-      "content": "{\n  \"space\": {\n    \"label\": \"Space\"\n  }\n}\n"
+      "content": "{\n  \"space\": {\n    \"label\": \"間距\"\n  }\n}\n"
     },
     {
       "path": "components/space/Space.tsx",

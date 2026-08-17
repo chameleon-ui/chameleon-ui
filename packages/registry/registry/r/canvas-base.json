@@ -18,7 +18,7 @@
     },
     {
       "path": "components/canvas-base/locales/am.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"ካንቫስ\",\n    \"resetView\": \"እይታ ዳግም አስጀምር\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/canvas-base/locales/bn.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"ক্যানভাস\",\n    \"resetView\": \"ভিউ রিসেট করুন\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/canvas-base/locales/es.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Lienzo\",\n    \"resetView\": \"Restablecer vista\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/fa.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"بوم\",\n    \"resetView\": \"بازنشانی نما\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/fr.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canevas\",\n    \"resetView\": \"Réinitialiser la vue\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ha.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Ƙwallon zane\",\n    \"resetView\": \"Sake saiti kallo\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/hi.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"कैनवास\",\n    \"resetView\": \"दृश्य रीसेट करें\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/id.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Kanvas\",\n    \"resetView\": \"Atur ulang tampilan\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ja.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"キャンバス\",\n    \"resetView\": \"表示をリセット\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ko.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"캔버스\",\n    \"resetView\": \"보기 초기화\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/pt.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Tela\",\n    \"resetView\": \"Redefinir visualização\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ru.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Холст\",\n    \"resetView\": \"Сбросить вид\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/sw.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Ubao\",\n    \"resetView\": \"Weka upya mtazamo\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ug.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"رەسىم تاختاي\",\n    \"resetView\": \"كۆرۈنۈشنى ئەسلىگە قايتۇرۇش\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/ur.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"کینوس\",\n    \"resetView\": \"منظر ری سیٹ کریں\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/vi.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Đặt lại chế độ xem\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/canvas-base/locales/zh-HK.json",
-      "content": "{\n  \"canvas-base\": {\n    \"label\": \"Canvas\",\n    \"resetView\": \"Reset view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-base\": {\n    \"label\": \"畫布\",\n    \"resetView\": \"重設檢視\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-base/styles.css",

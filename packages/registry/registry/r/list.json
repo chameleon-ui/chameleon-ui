@@ -18,7 +18,7 @@
     },
     {
       "path": "components/list/locales/am.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"ዝርዝር\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/list/locales/bn.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"তালিকা\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/list/locales/es.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Lista\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/fa.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"فهرست\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/fr.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Liste\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ha.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Jerin\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/hi.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"सूची\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/id.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Daftar\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ja.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"リスト\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ko.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"목록\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/pt.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Lista\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ru.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Список\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/sw.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Orodha\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ug.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"تىزىملىك\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/ur.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"فہرست\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/vi.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"Danh sách\"\n  }\n}\n"
     },
     {
       "path": "components/list/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/list/locales/zh-HK.json",
-      "content": "{\n  \"list\": {\n    \"label\": \"List\"\n  }\n}\n"
+      "content": "{\n  \"list\": {\n    \"label\": \"列表\"\n  }\n}\n"
     },
     {
       "path": "components/list/styles.css",

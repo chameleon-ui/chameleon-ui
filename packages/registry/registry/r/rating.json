@@ -14,7 +14,7 @@
     },
     {
       "path": "components/rating/locales/am.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"ደረጃ\",\n    \"star\": \"ኮከብ\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/rating/locales/bn.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"রেটিং\",\n    \"star\": \"তারা\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/rating/locales/es.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Valoración\",\n    \"star\": \"Estrella\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/fa.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"امتیاز\",\n    \"star\": \"ستاره\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/fr.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Note\",\n    \"star\": \"Étoile\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ha.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Ƙima\",\n    \"star\": \"Tauraro\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/hi.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"रेटिंग\",\n    \"star\": \"तारा\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/id.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Bintang\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ja.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"評価\",\n    \"star\": \"星\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ko.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"평점\",\n    \"star\": \"별\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/pt.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Avaliação\",\n    \"star\": \"Estrela\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ru.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Рейтинг\",\n    \"star\": \"Звезда\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/sw.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Ukadiriaji\",\n    \"star\": \"Nyota\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ug.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"باھالاش\",\n    \"star\": \"يۇلتۇز\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/ur.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"درجہ بندی\",\n    \"star\": \"ستارہ\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/vi.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"Đánh giá\",\n    \"star\": \"Sao\"\n  }\n}\n"
     },
     {
       "path": "components/rating/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/rating/locales/zh-HK.json",
-      "content": "{\n  \"rating\": {\n    \"label\": \"Rating\",\n    \"star\": \"Star\"\n  }\n}\n"
+      "content": "{\n  \"rating\": {\n    \"label\": \"評分\",\n    \"star\": \"星\"\n  }\n}\n"
     },
     {
       "path": "components/rating/Rating.tsx",

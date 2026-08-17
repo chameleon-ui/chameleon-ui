@@ -18,7 +18,7 @@
     },
     {
       "path": "components/container/locales/am.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"መያዣ\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/container/locales/bn.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"কন্টেইনার\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/container/locales/es.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Contenedor\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/fa.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"ظرف\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/fr.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Conteneur\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ha.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Mazugi\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/hi.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"कंटेनर\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/id.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Kontainer\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ja.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"コンテナ\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ko.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"컨테이너\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/pt.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Contêiner\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ru.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Контейнер\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/sw.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Chombo\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ug.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"قاچا\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/ur.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"کنٹینر\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/vi.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"Vùng chứa\"\n  }\n}\n"
     },
     {
       "path": "components/container/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/container/locales/zh-HK.json",
-      "content": "{\n  \"container\": {\n    \"label\": \"Container\"\n  }\n}\n"
+      "content": "{\n  \"container\": {\n    \"label\": \"容器\"\n  }\n}\n"
     },
     {
       "path": "components/container/styles.css",

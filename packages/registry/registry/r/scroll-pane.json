@@ -14,19 +14,19 @@
     },
     {
       "path": "components/scroll-pane/locales/am.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"የመሸብለል ክፍል\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ar.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"لوحة التمرير\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/bn.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"স্ক্রোল পেন\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/de.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scrollbereich\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/scroll-pane/locales/es.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Panel de desplazamiento\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/fa.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"قاب پیمایش\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/fr.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Panneau de défilement\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ha.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Yankin naɗewa\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/hi.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"स्क्रॉल पेन\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/id.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Panel gulir\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ja.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"スクロールペイン\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ko.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"스크롤 패인\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/pt.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Painel de rolagem\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ru.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Область прокрутки\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/sw.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Paneli ya kusokota\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ug.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"سىيرىلما رايون\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/ur.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"سکرول پین\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/vi.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Khung cuộn\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/zh-CN.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"滚动面板\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/locales/zh-HK.json",
-      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"Scroll pane\"\n  }\n}\n"
+      "content": "{\n  \"scroll-pane\": {\n    \"label\": \"捲動面板\"\n  }\n}\n"
     },
     {
       "path": "components/scroll-pane/README.md",

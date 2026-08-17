@@ -14,7 +14,7 @@
     },
     {
       "path": "components/masonry/locales/am.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"ማሶንሪ\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/masonry/locales/bn.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"মেসনরি\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/de.json",
@@ -34,15 +34,15 @@
     },
     {
       "path": "components/masonry/locales/es.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"Mosaico\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/fa.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"چیدمان آجری\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/fr.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"Maçonnerie\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/ha.json",
@@ -50,7 +50,7 @@
     },
     {
       "path": "components/masonry/locales/hi.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"मेसनरी\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/id.json",
@@ -58,11 +58,11 @@
     },
     {
       "path": "components/masonry/locales/ja.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"マソンリー\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/ko.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"메이슨리\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/pt.json",
@@ -70,19 +70,19 @@
     },
     {
       "path": "components/masonry/locales/ru.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"Кирпичная раскладка\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/sw.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"Mpangilio wa mawe\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/ug.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"شارقىراتما ئورۇنلاشتۇرۇش\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/ur.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"میسنری\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/locales/vi.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/masonry/locales/zh-HK.json",
-      "content": "{\n  \"masonry\": {\n    \"label\": \"Masonry\"\n  }\n}\n"
+      "content": "{\n  \"masonry\": {\n    \"label\": \"瀑布流\"\n  }\n}\n"
     },
     {
       "path": "components/masonry/Masonry.tsx",

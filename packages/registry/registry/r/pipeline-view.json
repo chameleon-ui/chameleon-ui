@@ -14,7 +14,7 @@
     },
     {
       "path": "components/pipeline-view/locales/am.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"ፓይፕላይን\",\n    \"statusPending\": \"በጥበቃ ላይ\",\n    \"statusRunning\": \"በሚሰራ ላይ\",\n    \"statusSuccess\": \"ተሳክቷል\",\n    \"statusFailed\": \"አልተሳካም\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/pipeline-view/locales/bn.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"পাইপলাইন\",\n    \"statusPending\": \"অপেক্ষমাণ\",\n    \"statusRunning\": \"চলছে\",\n    \"statusSuccess\": \"সফল\",\n    \"statusFailed\": \"ব্যর্থ\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/pipeline-view/locales/es.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pendiente\",\n    \"statusRunning\": \"En ejecución\",\n    \"statusSuccess\": \"Completado\",\n    \"statusFailed\": \"Fallido\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/fa.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"خط لوله\",\n    \"statusPending\": \"در انتظار\",\n    \"statusRunning\": \"در حال اجرا\",\n    \"statusSuccess\": \"موفق\",\n    \"statusFailed\": \"ناموفق\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/fr.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"En attente\",\n    \"statusRunning\": \"En cours\",\n    \"statusSuccess\": \"Réussi\",\n    \"statusFailed\": \"Échoué\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ha.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Layin aiki\",\n    \"statusPending\": \"A jira\",\n    \"statusRunning\": \"Yana aiki\",\n    \"statusSuccess\": \"Ya yi nasara\",\n    \"statusFailed\": \"Ya gaza\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/hi.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"पाइपलाइन\",\n    \"statusPending\": \"लंबित\",\n    \"statusRunning\": \"चल रहा है\",\n    \"statusSuccess\": \"सफल\",\n    \"statusFailed\": \"विफल\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/id.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Tertunda\",\n    \"statusRunning\": \"Berjalan\",\n    \"statusSuccess\": \"Berhasil\",\n    \"statusFailed\": \"Gagal\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ja.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"パイプライン\",\n    \"statusPending\": \"保留中\",\n    \"statusRunning\": \"実行中\",\n    \"statusSuccess\": \"成功\",\n    \"statusFailed\": \"失敗\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ko.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"파이프라인\",\n    \"statusPending\": \"대기 중\",\n    \"statusRunning\": \"실행 중\",\n    \"statusSuccess\": \"성공\",\n    \"statusFailed\": \"실패\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/pt.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pendente\",\n    \"statusRunning\": \"Em execução\",\n    \"statusSuccess\": \"Concluído\",\n    \"statusFailed\": \"Falhou\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ru.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Конвейер\",\n    \"statusPending\": \"В ожидании\",\n    \"statusRunning\": \"Выполняется\",\n    \"statusSuccess\": \"Успешно\",\n    \"statusFailed\": \"Ошибка\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/sw.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Mfereji\",\n    \"statusPending\": \"Inasubiri\",\n    \"statusRunning\": \"Inaendelea\",\n    \"statusSuccess\": \"Imefanikiwa\",\n    \"statusFailed\": \"Imeshindwa\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ug.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"قۇۋان لىنىيەسى\",\n    \"statusPending\": \"ساقلىنىۋاتىدۇ\",\n    \"statusRunning\": \"ئىجرا بولۇۋاتىدۇ\",\n    \"statusSuccess\": \"مۇۋەپپەقىيەتلىك\",\n    \"statusFailed\": \"مەغلۇب بولدى\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/ur.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"پائپ لائن\",\n    \"statusPending\": \"زیر التوا\",\n    \"statusRunning\": \"چل رہا ہے\",\n    \"statusSuccess\": \"کامیاب\",\n    \"statusFailed\": \"ناکام\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/vi.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Đang chờ\",\n    \"statusRunning\": \"Đang chạy\",\n    \"statusSuccess\": \"Thành công\",\n    \"statusFailed\": \"Thất bại\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/pipeline-view/locales/zh-HK.json",
-      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"Pipeline\",\n    \"statusPending\": \"Pending\",\n    \"statusRunning\": \"Running\",\n    \"statusSuccess\": \"Succeeded\",\n    \"statusFailed\": \"Failed\"\n  }\n}\n"
+      "content": "{\n  \"pipeline-view\": {\n    \"label\": \"流水線\",\n    \"statusPending\": \"待處理\",\n    \"statusRunning\": \"執行中\",\n    \"statusSuccess\": \"已成功\",\n    \"statusFailed\": \"已失敗\"\n  }\n}\n"
     },
     {
       "path": "components/pipeline-view/PipelineView.tsx",

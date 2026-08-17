@@ -18,7 +18,7 @@
     },
     {
       "path": "components/date-picker/locales/am.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"ቀን\",\n    \"previousMonth\": \"ቀዳሚ ወር\",\n    \"nextMonth\": \"ቀጣይ ወር\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/date-picker/locales/bn.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"তারিখ\",\n    \"previousMonth\": \"আগের মাস\",\n    \"nextMonth\": \"পরের মাস\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/date-picker/locales/es.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Fecha\",\n    \"previousMonth\": \"Mes anterior\",\n    \"nextMonth\": \"Mes siguiente\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/fa.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"تاریخ\",\n    \"previousMonth\": \"ماه قبل\",\n    \"nextMonth\": \"ماه بعد\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/fr.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Mois précédent\",\n    \"nextMonth\": \"Mois suivant\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ha.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Kwanan wata\",\n    \"previousMonth\": \"Watan da ya gabata\",\n    \"nextMonth\": \"Watan gaba\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/hi.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"तारीख\",\n    \"previousMonth\": \"पिछला महीना\",\n    \"nextMonth\": \"अगला महीना\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/id.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Tanggal\",\n    \"previousMonth\": \"Bulan sebelumnya\",\n    \"nextMonth\": \"Bulan berikutnya\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ja.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"日付\",\n    \"previousMonth\": \"前の月\",\n    \"nextMonth\": \"次の月\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ko.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"날짜\",\n    \"previousMonth\": \"이전 달\",\n    \"nextMonth\": \"다음 달\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/pt.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Data\",\n    \"previousMonth\": \"Mês anterior\",\n    \"nextMonth\": \"Próximo mês\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ru.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Дата\",\n    \"previousMonth\": \"Предыдущий месяц\",\n    \"nextMonth\": \"Следующий месяц\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/sw.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Tarehe\",\n    \"previousMonth\": \"Mwezi uliopita\",\n    \"nextMonth\": \"Mwezi ujao\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ug.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"چېسلا\",\n    \"previousMonth\": \"ئالدىنقى ئاي\",\n    \"nextMonth\": \"كېيىنكى ئاي\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/ur.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"تاریخ\",\n    \"previousMonth\": \"پچھلا مہینہ\",\n    \"nextMonth\": \"اگلا مہینہ\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/vi.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"Ngày\",\n    \"previousMonth\": \"Tháng trước\",\n    \"nextMonth\": \"Tháng sau\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/date-picker/locales/zh-HK.json",
-      "content": "{\n  \"date-picker\": {\n    \"label\": \"Date\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"date-picker\": {\n    \"label\": \"日期\",\n    \"previousMonth\": \"上一個月\",\n    \"nextMonth\": \"下一個月\"\n  }\n}\n"
     },
     {
       "path": "components/date-picker/styles.css",

@@ -14,7 +14,7 @@
     },
     {
       "path": "components/separator/locales/am.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"መለያ\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/separator/locales/bn.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"বিভাজক\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/separator/locales/es.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separador\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/fa.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"جداگر\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/fr.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Séparateur\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ha.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Mabangi\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/hi.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"विभाजक\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/id.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Pemisah\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ja.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"セパレーター\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ko.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"구분자\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/pt.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Separador\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ru.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Разделитель\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/sw.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Kitenganishi\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ug.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"ئايرىغۇچ\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/ur.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"جداکار\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/vi.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"Dấu phân tách\"\n  }\n}\n"
     },
     {
       "path": "components/separator/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/separator/locales/zh-HK.json",
-      "content": "{\n  \"separator\": {\n    \"label\": \"Separator\"\n  }\n}\n"
+      "content": "{\n  \"separator\": {\n    \"label\": \"分隔符\"\n  }\n}\n"
     },
     {
       "path": "components/separator/Separator.tsx",

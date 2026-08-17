@@ -14,7 +14,7 @@
     },
     {
       "path": "components/multi-select/locales/am.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"ብዙ ምርጫ\",\n    \"selected\": \"ተመርጧል\",\n    \"clear\": \"ሁሉንም አጽዳ\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/multi-select/locales/bn.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"একাধিক নির্বাচন\",\n    \"selected\": \"নির্বাচিত\",\n    \"clear\": \"সব মুছুন\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/multi-select/locales/es.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Selección múltiple\",\n    \"selected\": \"seleccionados\",\n    \"clear\": \"Borrar todo\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/fa.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"چندانتخابی\",\n    \"selected\": \"انتخاب‌شده\",\n    \"clear\": \"پاک کردن همه\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/fr.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Sélection multiple\",\n    \"selected\": \"sélectionnés\",\n    \"clear\": \"Tout effacer\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ha.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Zaɓi da yawa\",\n    \"selected\": \"an zaɓa\",\n    \"clear\": \"Goge duka\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/hi.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"बहु-चयन\",\n    \"selected\": \"चयनित\",\n    \"clear\": \"सभी हटाएं\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/id.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Pilihan ganda\",\n    \"selected\": \"dipilih\",\n    \"clear\": \"Hapus semua\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ja.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"複数選択\",\n    \"selected\": \"選択済み\",\n    \"clear\": \"すべてクリア\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ko.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"다중 선택\",\n    \"selected\": \"선택됨\",\n    \"clear\": \"모두 지우기\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/pt.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Seleção múltipla\",\n    \"selected\": \"selecionados\",\n    \"clear\": \"Limpar tudo\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ru.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Множественный выбор\",\n    \"selected\": \"выбрано\",\n    \"clear\": \"Очистить всё\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/sw.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Uchaguzi mwingi\",\n    \"selected\": \"imechaguliwa\",\n    \"clear\": \"Futa yote\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ug.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"كۆپ تاللاش\",\n    \"selected\": \"تاللانغان\",\n    \"clear\": \"ھەممىنى تازىلاش\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/ur.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"کثیر انتخاب\",\n    \"selected\": \"منتخب شدہ\",\n    \"clear\": \"سب صاف کریں\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/vi.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"Chọn nhiều\",\n    \"selected\": \"đã chọn\",\n    \"clear\": \"Xóa tất cả\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/multi-select/locales/zh-HK.json",
-      "content": "{\n  \"multi-select\": {\n    \"label\": \"Multi select\",\n    \"selected\": \"selected\",\n    \"clear\": \"Clear all\"\n  }\n}\n"
+      "content": "{\n  \"multi-select\": {\n    \"label\": \"多選\",\n    \"selected\": \"已選擇\",\n    \"clear\": \"全部清除\"\n  }\n}\n"
     },
     {
       "path": "components/multi-select/MultiSelect.tsx",

@@ -14,7 +14,7 @@
     },
     {
       "path": "components/mind-map/locales/am.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"የአዕምሮ ካርታ\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/mind-map/locales/bn.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"মাইন্ড ম্যাপ\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/mind-map/locales/es.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mapa mental\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/fa.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"نقشه ذهنی\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/fr.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Carte mentale\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ha.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Taswirar tunani\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/hi.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"माइंड मैप\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/id.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Peta pikiran\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ja.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"マインドマップ\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ko.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"마인드맵\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/pt.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mapa mental\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ru.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Интеллект-карта\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/sw.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Ramani ya mawazo\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ug.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"تەپەككۇر خەرىتىسى\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/ur.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"مائنڈ میپ\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/vi.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"Sơ đồ tư duy\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/mind-map/locales/zh-HK.json",
-      "content": "{\n  \"mind-map\": {\n    \"label\": \"Mind map\"\n  }\n}\n"
+      "content": "{\n  \"mind-map\": {\n    \"label\": \"心智圖\"\n  }\n}\n"
     },
     {
       "path": "components/mind-map/MindMap.tsx",

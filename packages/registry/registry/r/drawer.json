@@ -18,7 +18,7 @@
     },
     {
       "path": "components/drawer/locales/am.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"መዝግቦ\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/drawer/locales/bn.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"ড্রয়ার\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/drawer/locales/es.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Cajón\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/fa.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"کشو\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/fr.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Tiroir\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ha.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Jaka\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/hi.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"दराज\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/id.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Laci\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ja.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"ドロワー\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ko.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"드로어\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/pt.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Gaveta\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ru.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Панель\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/sw.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Droo\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ug.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"تارتمىسى\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/ur.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"دراز\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/vi.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"Ngăn kéo\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/drawer/locales/zh-HK.json",
-      "content": "{\n  \"drawer\": {\n    \"label\": \"Drawer\"\n  }\n}\n"
+      "content": "{\n  \"drawer\": {\n    \"label\": \"抽屜\"\n  }\n}\n"
     },
     {
       "path": "components/drawer/styles.css",

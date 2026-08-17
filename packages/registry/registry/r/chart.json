@@ -18,7 +18,7 @@
     },
     {
       "path": "components/chart/locales/am.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"ገበታ\",\n    \"series\": \"ተከተል\",\n    \"empty\": \"ውሂብ የለም\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/chart/locales/bn.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"চার্ট\",\n    \"series\": \"সিরিজ\",\n    \"empty\": \"কোনো ডেটা নেই\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/chart/locales/es.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Gráfico\",\n    \"series\": \"Serie\",\n    \"empty\": \"Sin datos\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/fa.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"نمودار\",\n    \"series\": \"سری\",\n    \"empty\": \"داده‌ای نیست\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/fr.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Graphique\",\n    \"series\": \"Série\",\n    \"empty\": \"Aucune donnée\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ha.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Zane\",\n    \"series\": \"Jerin\",\n    \"empty\": \"Babu bayanai\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/hi.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"चार्ट\",\n    \"series\": \"श्रृंखला\",\n    \"empty\": \"कोई डेटा नहीं\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/id.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Grafik\",\n    \"series\": \"Seri\",\n    \"empty\": \"Tidak ada data\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ja.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"グラフ\",\n    \"series\": \"系列\",\n    \"empty\": \"データがありません\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ko.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"차트\",\n    \"series\": \"계열\",\n    \"empty\": \"데이터 없음\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/pt.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Gráfico\",\n    \"series\": \"Série\",\n    \"empty\": \"Sem dados\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ru.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Диаграмма\",\n    \"series\": \"Ряд\",\n    \"empty\": \"Нет данных\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/sw.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Chati\",\n    \"series\": \"Mfululizo\",\n    \"empty\": \"Hakuna data\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ug.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"دىئاگرامما\",\n    \"series\": \"يۈرۈشلۈك\",\n    \"empty\": \"سانلىق مەلۇمات يوق\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/ur.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"چارٹ\",\n    \"series\": \"سلسلہ\",\n    \"empty\": \"کوئی ڈیٹا نہیں\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/vi.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"Biểu đồ\",\n    \"series\": \"Chuỗi dữ liệu\",\n    \"empty\": \"Không có dữ liệu\"\n  }\n}\n"
     },
     {
       "path": "components/chart/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/chart/locales/zh-HK.json",
-      "content": "{\n  \"chart\": {\n    \"label\": \"Chart\",\n    \"series\": \"Series\",\n    \"empty\": \"No data\"\n  }\n}\n"
+      "content": "{\n  \"chart\": {\n    \"label\": \"圖表\",\n    \"series\": \"數據系列\",\n    \"empty\": \"暫無數據\"\n  }\n}\n"
     },
     {
       "path": "components/chart/styles.css",

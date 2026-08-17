@@ -14,19 +14,19 @@
     },
     {
       "path": "components/media-thumb-grid/locales/am.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"የሚዲያ አጆች ፍየል\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ar.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"شبكة مصغرات الوسائط\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/bn.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"মিডিয়া থাম্বনেইল গ্রিড\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/de.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Medien-Miniaturraster\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/media-thumb-grid/locales/es.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Cuadrícula de miniaturas\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/fa.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"شبکه بندانگشتی رسانه\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/fr.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Grille de vignettes\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ha.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Gridin ƙananan hotuna\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/hi.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"मीडिया थंबनेल ग्रिड\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/id.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Kisi thumbnail media\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ja.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"メディアサムネイルグリッド\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ko.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"미디어 썸네일 그리드\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/pt.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Grade de miniaturas\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ru.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Сетка миниатюр\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/sw.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Gridi ya vijipicha\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ug.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"تىرەنچىك تورى\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/ur.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"میڈیا تھمب نیل گرڈ\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/vi.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Lưới thumbnail\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/zh-CN.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"媒体缩略图网格\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/locales/zh-HK.json",
-      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"Media thumb grid\"\n  }\n}\n"
+      "content": "{\n  \"media-thumb-grid\": {\n    \"label\": \"媒體縮圖網格\"\n  }\n}\n"
     },
     {
       "path": "components/media-thumb-grid/MediaThumbGrid.tsx",

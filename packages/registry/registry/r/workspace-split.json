@@ -14,19 +14,19 @@
     },
     {
       "path": "components/workspace-split/locales/am.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"የስራ ቦታ ክፍል\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ar.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"تقسيم مساحة العمل\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/bn.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"ওয়ার্কস্পেস বিভাজন\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/de.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Arbeitsbereich-Teilung\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/workspace-split/locales/es.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"División del espacio de trabajo\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/fa.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"تقسیم فضای کاری\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/fr.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Division de l'espace de travail\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ha.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Raba wurin aiki\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/hi.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"वर्कस्पेस विभाजन\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/id.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Pemisah ruang kerja\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ja.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"ワークスペース分割\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ko.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"작업 영역 분할\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/pt.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Divisão do espaço de trabalho\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ru.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Разделение рабочей области\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/sw.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Mgawanyiko wa eneo la kazi\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ug.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"خىزمەت رايونى بۆلۈشى\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/ur.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"ورک اسپیس تقسیم\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/vi.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Chia không gian làm việc\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/zh-CN.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"工作区分栏\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/locales/zh-HK.json",
-      "content": "{\n  \"workspace-split\": {\n    \"label\": \"Workspace split\"\n  }\n}\n"
+      "content": "{\n  \"workspace-split\": {\n    \"label\": \"工作區分割\"\n  }\n}\n"
     },
     {
       "path": "components/workspace-split/README.md",

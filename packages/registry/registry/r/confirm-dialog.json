@@ -18,7 +18,7 @@
     },
     {
       "path": "components/confirm-dialog/locales/am.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"የማረጋገጫ ካርድ\",\n    \"confirm\": \"አረጋግጥ\",\n    \"cancel\": \"ሰርዝ\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/confirm-dialog/locales/bn.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"নিশ্চিতকরণ ডায়ালগ\",\n    \"confirm\": \"নিশ্চিত করুন\",\n    \"cancel\": \"বাতিল\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/confirm-dialog/locales/es.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Diálogo de confirmación\",\n    \"confirm\": \"Confirmar\",\n    \"cancel\": \"Cancelar\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/fa.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"پنجره تأیید\",\n    \"confirm\": \"تأیید\",\n    \"cancel\": \"لغو\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/fr.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Boîte de confirmation\",\n    \"confirm\": \"Confirmer\",\n    \"cancel\": \"Annuler\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ha.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Akwatin tabbaci\",\n    \"confirm\": \"Tabbatar\",\n    \"cancel\": \"Soke\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/hi.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"पुष्टि संवाद\",\n    \"confirm\": \"पुष्टि करें\",\n    \"cancel\": \"रद्द करें\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/id.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Dialog konfirmasi\",\n    \"confirm\": \"Konfirmasi\",\n    \"cancel\": \"Batal\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ja.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"確認ダイアログ\",\n    \"confirm\": \"確認\",\n    \"cancel\": \"キャンセル\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ko.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"확인 대화 상자\",\n    \"confirm\": \"확인\",\n    \"cancel\": \"취소\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/pt.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Diálogo de confirmação\",\n    \"confirm\": \"Confirmar\",\n    \"cancel\": \"Cancelar\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ru.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Диалог подтверждения\",\n    \"confirm\": \"Подтвердить\",\n    \"cancel\": \"Отмена\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/sw.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Kisanduku cha uthibitisho\",\n    \"confirm\": \"Thibitisha\",\n    \"cancel\": \"Ghairi\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ug.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"جەزملەش كۆزنىكى\",\n    \"confirm\": \"جەزملەش\",\n    \"cancel\": \"ۋاز كېچىش\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/ur.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"تصدیقی ڈائیلاگ\",\n    \"confirm\": \"تصدیق کریں\",\n    \"cancel\": \"منسوخ کریں\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/vi.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Hộp xác nhận\",\n    \"confirm\": \"Xác nhận\",\n    \"cancel\": \"Hủy\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/confirm-dialog/locales/zh-HK.json",
-      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"Confirmation\",\n    \"confirm\": \"Confirm\",\n    \"cancel\": \"Cancel\"\n  }\n}\n"
+      "content": "{\n  \"confirm-dialog\": {\n    \"label\": \"確認對話框\",\n    \"confirm\": \"確認\",\n    \"cancel\": \"取消\"\n  }\n}\n"
     },
     {
       "path": "components/confirm-dialog/styles.css",

@@ -14,7 +14,7 @@
     },
     {
       "path": "components/timeline/locales/am.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"የጊዜ መስመር\",\n    \"empty\": \"እስካሁን ክስተቶች የሉም\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/timeline/locales/bn.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"টাইমলাইন\",\n    \"empty\": \"এখনও কোনো ঘটনা নেই\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/timeline/locales/es.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Cronología\",\n    \"empty\": \"Aún no hay eventos\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/fa.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"خط زمانی\",\n    \"empty\": \"هنوز رویدادی نیست\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/fr.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Chronologie\",\n    \"empty\": \"Aucun événement pour le moment\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ha.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Jadawalin lokaci\",\n    \"empty\": \"Babu abubuwa tukuna\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/hi.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"टाइमलाइन\",\n    \"empty\": \"अभी कोई घटना नहीं\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/id.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Linimasa\",\n    \"empty\": \"Belum ada peristiwa\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ja.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"タイムライン\",\n    \"empty\": \"イベントはまだありません\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ko.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"타임라인\",\n    \"empty\": \"아직 이벤트가 없습니다\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/pt.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Linha do tempo\",\n    \"empty\": \"Ainda não há eventos\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ru.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Хронология\",\n    \"empty\": \"Пока нет событий\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/sw.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Mstari wa muda\",\n    \"empty\": \"Bado hakuna matukio\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ug.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"ۋاقىت سىزىقى\",\n    \"empty\": \"تېخى ۋەقە يوق\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/ur.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"ٹائم لائن\",\n    \"empty\": \"ابھی کوئی واقعہ نہیں\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/vi.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"Dòng thời gian\",\n    \"empty\": \"Chưa có sự kiện nào\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/timeline/locales/zh-HK.json",
-      "content": "{\n  \"timeline\": {\n    \"label\": \"Timeline\",\n    \"empty\": \"No events yet\"\n  }\n}\n"
+      "content": "{\n  \"timeline\": {\n    \"label\": \"時間線\",\n    \"empty\": \"暫無事件\"\n  }\n}\n"
     },
     {
       "path": "components/timeline/styles.css",

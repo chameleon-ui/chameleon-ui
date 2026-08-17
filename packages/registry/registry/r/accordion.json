@@ -18,7 +18,7 @@
     },
     {
       "path": "components/accordion/locales/am.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"አከርዲየን\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/accordion/locales/bn.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"অ্যাকর্ডিয়ন\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/de.json",
@@ -38,55 +38,55 @@
     },
     {
       "path": "components/accordion/locales/es.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Acordeón\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/fa.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"آکوردئون\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/fr.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordéon\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ha.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Naɗewa\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/hi.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"अकॉर्डियन\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/id.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Akordeon\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ja.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"アコーディオン\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ko.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"아코디언\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/pt.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Acordeão\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ru.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Аккордеон\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/sw.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"Akordion\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ug.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"ئاككوردېئون\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/ur.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"اکورڈین\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/locales/vi.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/accordion/locales/zh-HK.json",
-      "content": "{\n  \"accordion\": {\n    \"label\": \"Accordion\"\n  }\n}\n"
+      "content": "{\n  \"accordion\": {\n    \"label\": \"摺疊面板\"\n  }\n}\n"
     },
     {
       "path": "components/accordion/styles.css",

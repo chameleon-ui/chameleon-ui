@@ -18,7 +18,7 @@
     },
     {
       "path": "components/editor/locales/am.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"በረከት ጽሑፍ አርታይ\",\n    \"bold\": \"ጠቆረ\",\n    \"italic\": \"ወሰን\",\n    \"placeholder\": \"የሆነ ነገር ጻፍ…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/editor/locales/bn.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"রিচ টেক্সট এডিটর\",\n    \"bold\": \"বোল্ড\",\n    \"italic\": \"ইটালিক\",\n    \"placeholder\": \"কিছু লিখুন…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/editor/locales/es.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Editor de texto enriquecido\",\n    \"bold\": \"Negrita\",\n    \"italic\": \"Cursiva\",\n    \"placeholder\": \"Escribe algo…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/fa.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"ویرایشگر متن غنی\",\n    \"bold\": \"پررنگ\",\n    \"italic\": \"کج\",\n    \"placeholder\": \"چیزی بنویسید…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/fr.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Éditeur de texte enrichi\",\n    \"bold\": \"Gras\",\n    \"italic\": \"Italique\",\n    \"placeholder\": \"Écrire quelque chose…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ha.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Editan rubutu arziki\",\n    \"bold\": \"Dauri\",\n    \"italic\": \"Karkace\",\n    \"placeholder\": \"Rubuta wani abu…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/hi.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"रिच टेक्स्ट एडिटर\",\n    \"bold\": \"बोल्ड\",\n    \"italic\": \"इटैलिक\",\n    \"placeholder\": \"कुछ लिखें…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/id.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Editor rich text\",\n    \"bold\": \"Tebal\",\n    \"italic\": \"Miring\",\n    \"placeholder\": \"Tulis sesuatu…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ja.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"リッチテキストエディター\",\n    \"bold\": \"太字\",\n    \"italic\": \"斜体\",\n    \"placeholder\": \"内容を入力…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ko.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"리치 텍스트 편집기\",\n    \"bold\": \"굵게\",\n    \"italic\": \"기울임\",\n    \"placeholder\": \"내용을 입력하세요…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/pt.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Editor de rich text\",\n    \"bold\": \"Negrito\",\n    \"italic\": \"Itálico\",\n    \"placeholder\": \"Escreva algo…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ru.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Текстовый редактор\",\n    \"bold\": \"Жирный\",\n    \"italic\": \"Курсив\",\n    \"placeholder\": \"Введите текст…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/sw.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Kihariri cha maandishi tajiri\",\n    \"bold\": \"Nzito\",\n    \"italic\": \"Mlaty\",\n    \"placeholder\": \"Andika kitu…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ug.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"مول تېكىست تەھرىرلىگۈچ\",\n    \"bold\": \"توم\",\n    \"italic\": \"يانتۇ\",\n    \"placeholder\": \"بىر نەرسە يېزىڭ…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/ur.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"رچ ٹیکسٹ ایڈیٹر\",\n    \"bold\": \"بولڈ\",\n    \"italic\": \"ترچھا\",\n    \"placeholder\": \"کچھ لکھیں…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/vi.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"Trình soạn thảo rich text\",\n    \"bold\": \"Đậm\",\n    \"italic\": \"Nghiêng\",\n    \"placeholder\": \"Viết gì đó…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/editor/locales/zh-HK.json",
-      "content": "{\n  \"editor\": {\n    \"label\": \"Rich text editor\",\n    \"bold\": \"Bold\",\n    \"italic\": \"Italic\",\n    \"placeholder\": \"Write something\"\n  }\n}\n"
+      "content": "{\n  \"editor\": {\n    \"label\": \"富文本編輯器\",\n    \"bold\": \"粗體\",\n    \"italic\": \"斜體\",\n    \"placeholder\": \"寫點什麼…\"\n  }\n}\n"
     },
     {
       "path": "components/editor/styles.css",

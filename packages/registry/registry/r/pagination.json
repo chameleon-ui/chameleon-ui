@@ -14,7 +14,7 @@
     },
     {
       "path": "components/pagination/locales/am.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"ገጽ ክፍል\",\n    \"previous\": \"ቀዳሚ\",\n    \"next\": \"ቀጣይ\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/pagination/locales/bn.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"পৃষ্ঠা সংখ্যাকরণ\",\n    \"previous\": \"আগের\",\n    \"next\": \"পরের\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/pagination/locales/es.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Paginación\",\n    \"previous\": \"Anterior\",\n    \"next\": \"Siguiente\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/fa.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"صفحه‌بندی\",\n    \"previous\": \"قبلی\",\n    \"next\": \"بعدی\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/fr.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Précédent\",\n    \"next\": \"Suivant\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ha.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Raba shafuka\",\n    \"previous\": \"Baya\",\n    \"next\": \"Gaba\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/hi.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"पृष्ठांकन\",\n    \"previous\": \"पिछला\",\n    \"next\": \"अगला\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/id.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Paginasi\",\n    \"previous\": \"Sebelumnya\",\n    \"next\": \"Berikutnya\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ja.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"ページネーション\",\n    \"previous\": \"前へ\",\n    \"next\": \"次へ\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ko.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"페이지네이션\",\n    \"previous\": \"이전\",\n    \"next\": \"다음\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/pt.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Paginação\",\n    \"previous\": \"Anterior\",\n    \"next\": \"Próximo\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ru.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Разбивка на страницы\",\n    \"previous\": \"Назад\",\n    \"next\": \"Вперёд\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/sw.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Uwekaji kurasa\",\n    \"previous\": \"Iliyopita\",\n    \"next\": \"Inayofuata\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ug.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"بەت ئايرىش\",\n    \"previous\": \"ئالدىنقى\",\n    \"next\": \"كېيىنكى\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/ur.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"صفحہ بندی\",\n    \"previous\": \"پچھلا\",\n    \"next\": \"اگلا\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/vi.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"Phân trang\",\n    \"previous\": \"Trước\",\n    \"next\": \"Sau\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/pagination/locales/zh-HK.json",
-      "content": "{\n  \"pagination\": {\n    \"label\": \"Pagination\",\n    \"previous\": \"Previous\",\n    \"next\": \"Next\"\n  }\n}\n"
+      "content": "{\n  \"pagination\": {\n    \"label\": \"分頁\",\n    \"previous\": \"上一頁\",\n    \"next\": \"下一頁\"\n  }\n}\n"
     },
     {
       "path": "components/pagination/Pagination.tsx",

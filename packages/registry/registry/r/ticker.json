@@ -14,7 +14,7 @@
     },
     {
       "path": "components/ticker/locales/am.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"ቲከር\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/ticker/locales/bn.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"টিকার\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/de.json",
@@ -34,23 +34,23 @@
     },
     {
       "path": "components/ticker/locales/es.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Cinta informativa\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/fa.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"نوار متحرک\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/fr.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Bandeau défilant\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ha.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Labari mai gudana\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/hi.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"टिकर\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/id.json",
@@ -58,35 +58,35 @@
     },
     {
       "path": "components/ticker/locales/ja.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"ティッカー\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ko.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"티커\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/pt.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Letreiro\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ru.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Бегущая строка\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/sw.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Mtiliiko wa habari\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ug.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"ئېقىم ئۇقتۇرۇشى\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/ur.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"ٹکر\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/vi.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"Bảng tin chạy\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/ticker/locales/zh-HK.json",
-      "content": "{\n  \"ticker\": {\n    \"label\": \"Ticker\"\n  }\n}\n"
+      "content": "{\n  \"ticker\": {\n    \"label\": \"滾動播報\"\n  }\n}\n"
     },
     {
       "path": "components/ticker/styles.css",

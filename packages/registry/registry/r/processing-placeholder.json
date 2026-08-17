@@ -14,19 +14,19 @@
     },
     {
       "path": "components/processing-placeholder/locales/am.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"የማስኬጃ ቦታ ይዚ\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ar.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"عنصر نائب للمعالجة\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/bn.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"প্রসেসিং প্লেসহোল্ডার\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/de.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Verarbeitungs-Platzhalter\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/en.json",
@@ -34,67 +34,67 @@
     },
     {
       "path": "components/processing-placeholder/locales/es.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Marcador de procesamiento\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/fa.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"جای‌نگهدار پردازش\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/fr.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Espace réservé de traitement\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ha.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Mai riƙe wurin sarrafawa\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/hi.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"प्रोसेसिंग प्लेसहोल्डर\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/id.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Placeholder pemrosesan\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ja.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"処理中のプレースホルダー\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ko.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"처리 중 플레이스홀더\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/pt.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Espaço reservado de processamento\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ru.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Заполнитель обработки\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/sw.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Kishikilia nafasi cha usindikaji\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ug.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"بىر تەرەپ قىلىش ئورۇن بەلگىسى\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/ur.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"پروسیسنگ پلیس ہولڈر\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/vi.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Placeholder đang xử lý\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/zh-CN.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"处理中占位\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/locales/zh-HK.json",
-      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"Processing placeholder\"\n  }\n}\n"
+      "content": "{\n  \"processing-placeholder\": {\n    \"label\": \"處理中佔位\"\n  }\n}\n"
     },
     {
       "path": "components/processing-placeholder/ProcessingPlaceholder.tsx",

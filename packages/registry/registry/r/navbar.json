@@ -14,7 +14,7 @@
     },
     {
       "path": "components/navbar/locales/am.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"የዳሰሳ አሞሌ\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/navbar/locales/bn.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"নেভবার\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/navbar/locales/es.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Barra de navegación\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/fa.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"نوار ناوبری\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/fr.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Barre de navigation\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ha.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Sandar kewayawa\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/hi.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"नेवबार\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/id.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Bilah navigasi\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ja.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"ナビゲーションバー\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ko.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"내비게이션 바\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/pt.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Barra de navegação\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ru.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Панель навигации\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/sw.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Upau wa urambazaji\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ug.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"يولباشچى ستونى\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/ur.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"نیوبار\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/vi.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"Thanh điều hướng\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/navbar/locales/zh-HK.json",
-      "content": "{\n  \"navbar\": {\n    \"label\": \"Navbar\"\n  }\n}\n"
+      "content": "{\n  \"navbar\": {\n    \"label\": \"導覽列\"\n  }\n}\n"
     },
     {
       "path": "components/navbar/Navbar.tsx",

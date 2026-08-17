@@ -14,7 +14,7 @@
     },
     {
       "path": "components/radio-card/locales/am.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"የሬዲዮ ካርድ\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/radio-card/locales/bn.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"রেডিও কার্ড\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/radio-card/locales/es.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Tarjeta de opción\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/fa.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"کارت رادیویی\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/fr.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Carte d'option\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ha.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Katin zaɓi\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/hi.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"रेडियो कार्ड\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/id.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Kartu radio\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ja.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"ラジオカード\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ko.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"라디오 카드\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/pt.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Cartão de opção\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ru.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Карточка выбора\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/sw.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Kadi ya redio\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ug.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"تاللاش كارتىسى\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/ur.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"ریڈیو کارڈ\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/vi.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"Thẻ radio\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/radio-card/locales/zh-HK.json",
-      "content": "{\n  \"radio-card\": {\n    \"label\": \"Radio card\"\n  }\n}\n"
+      "content": "{\n  \"radio-card\": {\n    \"label\": \"單選卡片\"\n  }\n}\n"
     },
     {
       "path": "components/radio-card/RadioCard.tsx",

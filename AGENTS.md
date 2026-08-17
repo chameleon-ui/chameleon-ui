@@ -351,6 +351,15 @@ Default map **10 slugs only**: `alert` `badge` `button` `card` `divider` `empty-
 
 ---
 
+## Task Master
+
+- Project task configuration lives in `.taskmaster/config.json`; it uses the `openai-compatible` provider.
+- Use the configured Task Master MCP server or `task-master` CLI to inspect and update planned work. Do not create a second task-management store.
+- Before starting a tracked task, review its details and dependencies. Mark it complete only after the relevant validation has passed.
+- Keep API keys out of repository files. The Task Master MCP server receives `OPENAI_COMPATIBLE_API_KEY` from the Codex host environment.
+
+---
+
 ## Appendix: library maintainers
 
 For people building **this** checkout — not the default path for consumer AIs.

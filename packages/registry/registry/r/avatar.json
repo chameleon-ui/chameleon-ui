@@ -18,7 +18,7 @@
     },
     {
       "path": "components/avatar/locales/am.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"አቫታር\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/avatar/locales/bn.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"অবতার\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/de.json",
@@ -42,7 +42,7 @@
     },
     {
       "path": "components/avatar/locales/fa.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"آواتار\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/fr.json",
@@ -50,11 +50,11 @@
     },
     {
       "path": "components/avatar/locales/ha.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Hoton mutum\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/hi.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"अवतार\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/id.json",
@@ -62,11 +62,11 @@
     },
     {
       "path": "components/avatar/locales/ja.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"アバター\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/ko.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"아바타\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/pt.json",
@@ -74,7 +74,7 @@
     },
     {
       "path": "components/avatar/locales/ru.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Аватар\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/sw.json",
@@ -82,15 +82,15 @@
     },
     {
       "path": "components/avatar/locales/ug.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"باش سۈرەت\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/ur.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"اوتار\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/vi.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"Ảnh đại diện\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/avatar/locales/zh-HK.json",
-      "content": "{\n  \"avatar\": {\n    \"label\": \"Avatar\"\n  }\n}\n"
+      "content": "{\n  \"avatar\": {\n    \"label\": \"頭像\"\n  }\n}\n"
     },
     {
       "path": "components/avatar/styles.css",

@@ -111,8 +111,8 @@ pnpm + Turborepo monorepo，22 个 `@chameleon-ui/*` 包按分层组织。
 | `@chameleon-ui/schema-renderer` | JSON Schema → 组件树渲染（默认映射 10 slugs） |
 | `@chameleon-ui/blocks` | 可组合业务场景块 |
 | `@chameleon-ui/adapter-a2ui` | A2UI 协议适配 |
-| `@chameleon-ui/adapter-ag-ui` | AG-UI 协议适配（POC，非正式支持） |
-| `@chameleon-ui/adapter-mcp-apps` | MCP Apps（SEP-1865）协议适配（POC） |
+| `@chameleon-ui/adapter-ag-ui` | AG-UI 协议适配（POC，仅仓库内试验） |
+| `@chameleon-ui/adapter-mcp-apps` | MCP Apps（SEP-1865）协议适配（已支持，非主机认证） |
 | `@chameleon-ui/market-service` | 主题市场 / 社区纪律包服务 |
 | `@chameleon-ui/utils` | 通用工具（PNG/图像基本操作，纯 JS 零原生依赖） |
 

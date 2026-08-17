@@ -14,7 +14,7 @@
     },
     {
       "path": "components/search-bar/locales/am.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"ፈልግ\",\n    \"placeholder\": \"ፈልግ\",\n    \"clear\": \"አጽዳ\",\n    \"submit\": \"ፍለጋ ላክ\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/search-bar/locales/bn.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"খুঁজুন\",\n    \"placeholder\": \"খুঁজুন\",\n    \"clear\": \"মুছুন\",\n    \"submit\": \"অনুসন্ধান জমা দিন\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/search-bar/locales/es.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Buscar\",\n    \"placeholder\": \"Buscar\",\n    \"clear\": \"Borrar\",\n    \"submit\": \"Enviar búsqueda\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/fa.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"جستجو\",\n    \"placeholder\": \"جستجو\",\n    \"clear\": \"پاک کردن\",\n    \"submit\": \"ارسال جستجو\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/fr.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Rechercher\",\n    \"placeholder\": \"Rechercher\",\n    \"clear\": \"Effacer\",\n    \"submit\": \"Lancer la recherche\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ha.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Nemo\",\n    \"placeholder\": \"Nemo\",\n    \"clear\": \"Goge\",\n    \"submit\": \"Aika bincike\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/hi.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"खोजें\",\n    \"placeholder\": \"खोजें\",\n    \"clear\": \"साफ़ करें\",\n    \"submit\": \"खोज सबमिट करें\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/id.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Cari\",\n    \"placeholder\": \"Cari\",\n    \"clear\": \"Hapus\",\n    \"submit\": \"Kirim pencarian\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ja.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"検索\",\n    \"placeholder\": \"検索\",\n    \"clear\": \"クリア\",\n    \"submit\": \"検索を実行\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ko.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"검색\",\n    \"placeholder\": \"검색\",\n    \"clear\": \"지우기\",\n    \"submit\": \"검색 실행\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/pt.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Pesquisar\",\n    \"placeholder\": \"Pesquisar\",\n    \"clear\": \"Limpar\",\n    \"submit\": \"Enviar pesquisa\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ru.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Поиск\",\n    \"placeholder\": \"Поиск\",\n    \"clear\": \"Очистить\",\n    \"submit\": \"Найти\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/sw.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Tafuta\",\n    \"placeholder\": \"Tafuta\",\n    \"clear\": \"Futa\",\n    \"submit\": \"Wasilisha utafutaji\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ug.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"ئىزدەش\",\n    \"placeholder\": \"ئىزدەش\",\n    \"clear\": \"تازىلاش\",\n    \"submit\": \"ئىزدەشنى يوللاش\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/ur.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"تلاش کریں\",\n    \"placeholder\": \"تلاش کریں\",\n    \"clear\": \"صاف کریں\",\n    \"submit\": \"تلاش جمع کریں\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/vi.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"Tìm kiếm\",\n    \"placeholder\": \"Tìm kiếm\",\n    \"clear\": \"Xóa\",\n    \"submit\": \"Gửi tìm kiếm\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/search-bar/locales/zh-HK.json",
-      "content": "{\n  \"search-bar\": {\n    \"label\": \"Search\",\n    \"placeholder\": \"Search\",\n    \"clear\": \"Clear\",\n    \"submit\": \"Submit search\"\n  }\n}\n"
+      "content": "{\n  \"search-bar\": {\n    \"label\": \"搜尋\",\n    \"placeholder\": \"搜尋\",\n    \"clear\": \"清除\",\n    \"submit\": \"提交搜尋\"\n  }\n}\n"
     },
     {
       "path": "components/search-bar/SearchBar.tsx",

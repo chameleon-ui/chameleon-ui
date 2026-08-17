@@ -16,7 +16,7 @@ function pascalToSlug(name: string) {
 }
 
 function importedComponents(source: string) {
-  const names = [...source.matchAll(/import\s+\{([^}]+)\}\s+from\s+'@chameleon-ui\/components'/g)].flatMap((match) =>
+  const names = [...source.matchAll(/import\s+\{([^}]+)\}\s+from\s+'@chameleon-ui\/components-react'/g)].flatMap((match) =>
     (match[1] ?? '')
       .split(',')
       .map((part) => part.trim())

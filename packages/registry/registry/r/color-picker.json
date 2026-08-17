@@ -18,7 +18,7 @@
     },
     {
       "path": "components/color-picker/locales/am.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"ቀለም\",\n    \"hexValue\": \"Hex እሴት\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/color-picker/locales/bn.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"রং\",\n    \"hexValue\": \"হেক্স মান\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/color-picker/locales/es.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Valor hexadecimal\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/fa.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"رنگ\",\n    \"hexValue\": \"مقدار هگز\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/fr.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Couleur\",\n    \"hexValue\": \"Valeur hexadécimale\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ha.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Launi\",\n    \"hexValue\": \"Ƙimar hex\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/hi.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"रंग\",\n    \"hexValue\": \"हेक्स मान\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/id.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Warna\",\n    \"hexValue\": \"Nilai hex\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ja.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"カラー\",\n    \"hexValue\": \"Hex 値\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ko.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"색상\",\n    \"hexValue\": \"Hex 값\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/pt.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Cor\",\n    \"hexValue\": \"Valor hexadecimal\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ru.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Цвет\",\n    \"hexValue\": \"Hex-значение\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/sw.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Rangi\",\n    \"hexValue\": \"Thamani ya hex\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ug.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"رەڭ\",\n    \"hexValue\": \"Hex قىممىتى\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/ur.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"رنگ\",\n    \"hexValue\": \"ہیکس ویلیو\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/vi.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"Màu\",\n    \"hexValue\": \"Giá trị hex\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/color-picker/locales/zh-HK.json",
-      "content": "{\n  \"color-picker\": {\n    \"label\": \"Color\",\n    \"hexValue\": \"Hex value\"\n  }\n}\n"
+      "content": "{\n  \"color-picker\": {\n    \"label\": \"顏色\",\n    \"hexValue\": \"Hex 值\"\n  }\n}\n"
     },
     {
       "path": "components/color-picker/styles.css",

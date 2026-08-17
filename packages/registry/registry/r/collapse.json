@@ -18,7 +18,7 @@
     },
     {
       "path": "components/collapse/locales/am.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"ሰብስብ\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/collapse/locales/bn.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"সংকুচিত করুন\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/collapse/locales/es.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Contraer\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/fa.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"جمع کردن\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/fr.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Replier\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ha.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Naɗe\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/hi.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"समेटें\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/id.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Ciutkan\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ja.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"折りたたみ\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ko.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"접기\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/pt.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Recolher\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ru.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Свернуть\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/sw.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Kunja\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ug.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"يىغىش\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/ur.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"سمیٹیں\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/vi.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"Thu gọn\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/collapse/locales/zh-HK.json",
-      "content": "{\n  \"collapse\": {\n    \"label\": \"Collapse\"\n  }\n}\n"
+      "content": "{\n  \"collapse\": {\n    \"label\": \"摺疊\"\n  }\n}\n"
     },
     {
       "path": "components/collapse/styles.css",

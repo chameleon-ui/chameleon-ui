@@ -59,7 +59,7 @@ export function getStartedPayload() {
       ...specifiers.never,
       'Invent Tailwind/custom CSS as a substitute for Chameleon theme CSS',
       'Compose Sidebar + TabBar instead of Navigation',
-      'Treat adapter-ag-ui as supported (POC only)',
+      'Do not treat adapter-ag-ui as supported; it is a POC only',
     ],
     appChrome: {
       model: 'Tab controller + per-tab stack. Not a marketing navbar.',

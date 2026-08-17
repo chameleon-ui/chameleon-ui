@@ -18,7 +18,7 @@
     },
     {
       "path": "components/card/locales/am.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"ካርድ\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/card/locales/bn.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"কার্ড\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/card/locales/es.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Tarjeta\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/fa.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"کارت\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/fr.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Carte\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ha.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Kati\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/hi.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"कार्ड\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/id.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Kartu\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ja.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"カード\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ko.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"카드\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/pt.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Cartão\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ru.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Карточка\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/sw.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Kadi\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ug.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"كارتا\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/ur.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"کارڈ\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/vi.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"Thẻ\"\n  }\n}\n"
     },
     {
       "path": "components/card/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/card/locales/zh-HK.json",
-      "content": "{\n  \"card\": {\n    \"label\": \"Card\"\n  }\n}\n"
+      "content": "{\n  \"card\": {\n    \"label\": \"卡片\"\n  }\n}\n"
     },
     {
       "path": "components/card/styles.css",

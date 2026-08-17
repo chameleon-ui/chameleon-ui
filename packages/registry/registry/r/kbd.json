@@ -18,7 +18,7 @@
     },
     {
       "path": "components/kbd/locales/am.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"ቁልፍ\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/kbd/locales/bn.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"কী\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/kbd/locales/es.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Tecla\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/fa.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"کلید\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/fr.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Touche\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ha.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Maballi\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/hi.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"कुंजी\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/id.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Tombol\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ja.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"キー\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ko.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"키\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/pt.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Tecla\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ru.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Клавиша\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/sw.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Kitufe\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ug.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"كۇنۇپكا\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/ur.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"کلید\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/vi.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"Phím\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/kbd/locales/zh-HK.json",
-      "content": "{\n  \"kbd\": {\n    \"label\": \"Keyboard key\"\n  }\n}\n"
+      "content": "{\n  \"kbd\": {\n    \"label\": \"按鍵\"\n  }\n}\n"
     },
     {
       "path": "components/kbd/styles.css",

@@ -18,7 +18,7 @@
     },
     {
       "path": "components/image/locales/am.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"ምስል\",\n    \"loadError\": \"ምስል መጫን አልተሳካም\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/image/locales/bn.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"ছবি\",\n    \"loadError\": \"ছবি লোড হয়নি\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/image/locales/es.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Imagen\",\n    \"loadError\": \"La imagen no se pudo cargar\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/fa.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"تصویر\",\n    \"loadError\": \"تصویر بارگذاری نشد\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/fr.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Échec du chargement de l'image\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ha.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Hoto\",\n    \"loadError\": \"Hoto ya kasa loda\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/hi.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"छवि\",\n    \"loadError\": \"छवि लोड नहीं हो सकी\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/id.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Gambar\",\n    \"loadError\": \"Gambar gagal dimuat\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ja.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"画像\",\n    \"loadError\": \"画像を読み込めませんでした\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ko.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"이미지\",\n    \"loadError\": \"이미지를 불러오지 못했습니다\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/pt.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Imagem\",\n    \"loadError\": \"Falha ao carregar a imagem\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ru.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Изображение\",\n    \"loadError\": \"Не удалось загрузить изображение\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/sw.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Picha\",\n    \"loadError\": \"Picha imeshindwa kupakiwa\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ug.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"رەسىم\",\n    \"loadError\": \"رەسىم يۈكلەنمىدى\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/ur.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"تصویر\",\n    \"loadError\": \"تصویر لوڈ نہیں ہو سکی\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/vi.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"Hình ảnh\",\n    \"loadError\": \"Không tải được hình ảnh\"\n  }\n}\n"
     },
     {
       "path": "components/image/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/image/locales/zh-HK.json",
-      "content": "{\n  \"image\": {\n    \"label\": \"Image\",\n    \"loadError\": \"Image failed to load\"\n  }\n}\n"
+      "content": "{\n  \"image\": {\n    \"label\": \"圖片\",\n    \"loadError\": \"圖片載入失敗\"\n  }\n}\n"
     },
     {
       "path": "components/image/styles.css",

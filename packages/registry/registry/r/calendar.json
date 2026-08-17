@@ -22,7 +22,7 @@
     },
     {
       "path": "components/calendar/locales/am.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"የቀን መቁጠሪያ\",\n    \"previousMonth\": \"ቀዳሚ ወር\",\n    \"nextMonth\": \"ቀጣይ ወር\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ar.json",
@@ -30,7 +30,7 @@
     },
     {
       "path": "components/calendar/locales/bn.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"ক্যালেন্ডার\",\n    \"previousMonth\": \"আগের মাস\",\n    \"nextMonth\": \"পরের মাস\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/de.json",
@@ -42,59 +42,59 @@
     },
     {
       "path": "components/calendar/locales/es.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendario\",\n    \"previousMonth\": \"Mes anterior\",\n    \"nextMonth\": \"Mes siguiente\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/fa.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"تقویم\",\n    \"previousMonth\": \"ماه قبل\",\n    \"nextMonth\": \"ماه بعد\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/fr.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendrier\",\n    \"previousMonth\": \"Mois précédent\",\n    \"nextMonth\": \"Mois suivant\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ha.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Kalandar\",\n    \"previousMonth\": \"Watan da ya gabata\",\n    \"nextMonth\": \"Watan gaba\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/hi.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"कैलेंडर\",\n    \"previousMonth\": \"पिछला महीना\",\n    \"nextMonth\": \"अगला महीना\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/id.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Kalender\",\n    \"previousMonth\": \"Bulan sebelumnya\",\n    \"nextMonth\": \"Bulan berikutnya\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ja.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"カレンダー\",\n    \"previousMonth\": \"前の月\",\n    \"nextMonth\": \"次の月\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ko.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"캘린더\",\n    \"previousMonth\": \"이전 달\",\n    \"nextMonth\": \"다음 달\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/pt.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendário\",\n    \"previousMonth\": \"Mês anterior\",\n    \"nextMonth\": \"Próximo mês\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ru.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Календарь\",\n    \"previousMonth\": \"Предыдущий месяц\",\n    \"nextMonth\": \"Следующий месяц\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/sw.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Kalenda\",\n    \"previousMonth\": \"Mwezi uliopita\",\n    \"nextMonth\": \"Mwezi ujao\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ug.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"كالېندار\",\n    \"previousMonth\": \"ئالدىنقى ئاي\",\n    \"nextMonth\": \"كېيىنكى ئاي\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/ur.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"کیلنڈر\",\n    \"previousMonth\": \"پچھلا مہینہ\",\n    \"nextMonth\": \"اگلا مہینہ\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/vi.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"Lịch\",\n    \"previousMonth\": \"Tháng trước\",\n    \"nextMonth\": \"Tháng sau\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/locales/zh-CN.json",
@@ -102,7 +102,7 @@
     },
     {
       "path": "components/calendar/locales/zh-HK.json",
-      "content": "{\n  \"calendar\": {\n    \"label\": \"Calendar\",\n    \"previousMonth\": \"Previous month\",\n    \"nextMonth\": \"Next month\"\n  }\n}\n"
+      "content": "{\n  \"calendar\": {\n    \"label\": \"日曆\",\n    \"previousMonth\": \"上一個月\",\n    \"nextMonth\": \"下一個月\"\n  }\n}\n"
     },
     {
       "path": "components/calendar/styles.css",

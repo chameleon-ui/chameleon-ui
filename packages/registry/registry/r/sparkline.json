@@ -14,7 +14,7 @@
     },
     {
       "path": "components/sparkline/locales/am.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"አነስተኛ ገበታ\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/sparkline/locales/bn.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"স্পার্কলাইন\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/de.json",
@@ -34,23 +34,23 @@
     },
     {
       "path": "components/sparkline/locales/es.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"Minigráfico\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/fa.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"نمودار جرقه‌ای\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/fr.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"Graphique sparkline\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/ha.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"Ƙaramin zane\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/hi.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"स्पार्कलाइन\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/id.json",
@@ -58,19 +58,19 @@
     },
     {
       "path": "components/sparkline/locales/ja.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"スパークライン\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/ko.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"스파크라인\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/pt.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"Minigráfico\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/ru.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"Спарклайн\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/sw.json",
@@ -78,11 +78,11 @@
     },
     {
       "path": "components/sparkline/locales/ug.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"مىنى دىئاگرامما\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/ur.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"اسپارک لائن\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/locales/vi.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/sparkline/locales/zh-HK.json",
-      "content": "{\n  \"sparkline\": {\n    \"label\": \"Sparkline\"\n  }\n}\n"
+      "content": "{\n  \"sparkline\": {\n    \"label\": \"迷你圖\"\n  }\n}\n"
     },
     {
       "path": "components/sparkline/Sparkline.tsx",

@@ -18,7 +18,7 @@
     },
     {
       "path": "components/breadcrumb/locales/am.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"የነዳጅ መስመር\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/breadcrumb/locales/bn.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"ব্রেডক্রাম্ব\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/de.json",
@@ -38,23 +38,23 @@
     },
     {
       "path": "components/breadcrumb/locales/es.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Migas de pan\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/fa.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"مسیر ناوبری\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/fr.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Fil d'Ariane\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ha.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Shawarar hanya\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/hi.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"ब्रेडक्रंब\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/id.json",
@@ -62,31 +62,31 @@
     },
     {
       "path": "components/breadcrumb/locales/ja.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"パンくずリスト\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ko.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"브레드크럼\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/pt.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Trilha de navegação\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ru.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Хлебные крошки\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/sw.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Mkate wa njia\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ug.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"يول كۆرسەتكۈچ\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/ur.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"بریڈکرمب\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/locales/vi.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/breadcrumb/locales/zh-HK.json",
-      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"Breadcrumb\"\n  }\n}\n"
+      "content": "{\n  \"breadcrumb\": {\n    \"label\": \"麵包屑\"\n  }\n}\n"
     },
     {
       "path": "components/breadcrumb/styles.css",

@@ -18,7 +18,7 @@
     },
     {
       "path": "components/label/locales/am.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"መለያ\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/label/locales/bn.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"লেবেল\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/de.json",
@@ -38,23 +38,23 @@
     },
     {
       "path": "components/label/locales/es.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Etiqueta\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/fa.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"برچسب\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/fr.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Étiquette\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ha.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Rubutu\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/hi.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"लेबल\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/id.json",
@@ -62,35 +62,35 @@
     },
     {
       "path": "components/label/locales/ja.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"ラベル\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ko.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"레이블\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/pt.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Rótulo\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ru.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Метка\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/sw.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Lebo\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ug.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"بەلگە\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/ur.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"لیبل\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/vi.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"Nhãn\"\n  }\n}\n"
     },
     {
       "path": "components/label/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/label/locales/zh-HK.json",
-      "content": "{\n  \"label\": {\n    \"label\": \"Label\"\n  }\n}\n"
+      "content": "{\n  \"label\": {\n    \"label\": \"表單標籤\"\n  }\n}\n"
     },
     {
       "path": "components/label/styles.css",

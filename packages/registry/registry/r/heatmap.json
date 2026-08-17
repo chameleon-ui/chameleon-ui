@@ -18,7 +18,7 @@
     },
     {
       "path": "components/heatmap/locales/am.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"የሙቀት ካርታ\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/heatmap/locales/bn.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"হিটম্যাপ\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/heatmap/locales/es.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Mapa de calor\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/fa.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"نقشه حرارتی\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/fr.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Carte de chaleur\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ha.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Taswirar zafi\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/hi.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"हीटमैप\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/id.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Peta panas\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ja.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"ヒートマップ\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ko.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"히트맵\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/pt.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Mapa de calor\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ru.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Тепловая карта\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/sw.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Ramani ya joto\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ug.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"ئىسسىقلىق خەرىتىسى\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/ur.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"ہیٹ میپ\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/vi.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"Bản đồ nhiệt\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/heatmap/locales/zh-HK.json",
-      "content": "{\n  \"heatmap\": {\n    \"label\": \"Heatmap\"\n  }\n}\n"
+      "content": "{\n  \"heatmap\": {\n    \"label\": \"熱力圖\"\n  }\n}\n"
     },
     {
       "path": "components/heatmap/styles.css",

@@ -18,19 +18,19 @@
     },
     {
       "path": "components/brand-mark/locales/am.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"የምርት ምልክት\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ar.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"علامة العلامة التجارية\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/bn.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"ব্র্যান্ড মার্ক\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/de.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Markenzeichen\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/en.json",
@@ -38,67 +38,67 @@
     },
     {
       "path": "components/brand-mark/locales/es.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Marca\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/fa.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"نشان برند\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/fr.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Logo de marque\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ha.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Alamar samfuri\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/hi.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"ब्रांड चिह्न\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/id.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Merek\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ja.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"ブランドマーク\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ko.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"브랜드 마크\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/pt.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Marca\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ru.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Логотип\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/sw.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Alama ya chapa\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ug.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"ماركا بەلگىسى\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/ur.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"برانڈ مارک\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/vi.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Dấu thương hiệu\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/zh-CN.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"品牌标识\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/locales/zh-HK.json",
-      "content": "{\n  \"brand-mark\": {\n    \"label\": \"Brand mark\"\n  }\n}\n"
+      "content": "{\n  \"brand-mark\": {\n    \"label\": \"品牌標誌\"\n  }\n}\n"
     },
     {
       "path": "components/brand-mark/README.md",

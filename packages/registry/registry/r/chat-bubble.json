@@ -18,7 +18,7 @@
     },
     {
       "path": "components/chat-bubble/locales/am.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"የውይይት መልእክት\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/chat-bubble/locales/bn.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"চ্যাট বার্তা\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/chat-bubble/locales/es.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Mensaje de chat\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/fa.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"پیام گفتگو\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/fr.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Message de discussion\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ha.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Saƙon hira\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/hi.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"चैट संदेश\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/id.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Pesan obrolan\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ja.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"チャットメッセージ\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ko.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"채팅 메시지\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/pt.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Mensagem de chat\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ru.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Сообщение чата\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/sw.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Ujumbe wa gumzo\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ug.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"پاراڭ ئۇچۇرى\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/ur.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"چیٹ پیغام\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/vi.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Tin nhắn trò chuyện\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/chat-bubble/locales/zh-HK.json",
-      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"Chat message\"\n  }\n}\n"
+      "content": "{\n  \"chat-bubble\": {\n    \"label\": \"聊天訊息\"\n  }\n}\n"
     },
     {
       "path": "components/chat-bubble/styles.css",

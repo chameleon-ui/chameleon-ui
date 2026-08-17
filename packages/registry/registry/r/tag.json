@@ -14,7 +14,7 @@
     },
     {
       "path": "components/tag/locales/am.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"መለያ\",\n    \"remove\": \"መለያ አስወግድ\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/tag/locales/bn.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"ট্যাগ\",\n    \"remove\": \"ট্যাগ সরান\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/tag/locales/es.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Etiqueta\",\n    \"remove\": \"Quitar etiqueta\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/fa.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"برچسب\",\n    \"remove\": \"حذف برچسب\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/fr.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Étiquette\",\n    \"remove\": \"Supprimer l'étiquette\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ha.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Alama\",\n    \"remove\": \"Cire alama\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/hi.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"टैग\",\n    \"remove\": \"टैग हटाएं\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/id.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Hapus tag\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ja.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"タグ\",\n    \"remove\": \"タグを削除\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ko.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"태그\",\n    \"remove\": \"태그 삭제\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/pt.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remover tag\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ru.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Тег\",\n    \"remove\": \"Удалить тег\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/sw.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Lebo\",\n    \"remove\": \"Ondoa lebo\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ug.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"بەلگە\",\n    \"remove\": \"بەلگىنى ئۆچۈرۈش\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/ur.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"ٹیگ\",\n    \"remove\": \"ٹیگ ہٹائیں\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/vi.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"Thẻ\",\n    \"remove\": \"Xóa thẻ\"\n  }\n}\n"
     },
     {
       "path": "components/tag/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/tag/locales/zh-HK.json",
-      "content": "{\n  \"tag\": {\n    \"label\": \"Tag\",\n    \"remove\": \"Remove tag\"\n  }\n}\n"
+      "content": "{\n  \"tag\": {\n    \"label\": \"標籤\",\n    \"remove\": \"移除標籤\"\n  }\n}\n"
     },
     {
       "path": "components/tag/styles.css",

@@ -14,7 +14,7 @@
     },
     {
       "path": "components/steps/locales/am.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"ደረጃዎች\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/steps/locales/bn.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"ধাপ\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/steps/locales/es.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Pasos\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/fa.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"مراحل\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/fr.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Étapes\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ha.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Matakai\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/hi.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"चरण\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/id.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Langkah\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ja.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"ステップ\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ko.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"단계\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/pt.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Etapas\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ru.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Шаги\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/sw.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Hatua\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ug.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"باسقۇچ\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/ur.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"مراحل\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/vi.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"Các bước\"\n  }\n}\n"
     },
     {
       "path": "components/steps/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/steps/locales/zh-HK.json",
-      "content": "{\n  \"steps\": {\n    \"label\": \"Steps\"\n  }\n}\n"
+      "content": "{\n  \"steps\": {\n    \"label\": \"步驟條\"\n  }\n}\n"
     },
     {
       "path": "components/steps/Steps.tsx",

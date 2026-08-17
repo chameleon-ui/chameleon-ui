@@ -18,7 +18,7 @@
     },
     {
       "path": "components/kpi-dashboard/locales/am.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI ዳሽቦርድ\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/kpi-dashboard/locales/bn.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI ড্যাশবোর্ড\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/kpi-dashboard/locales/es.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Panel de KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/fa.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"داشبورد KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/fr.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Tableau de bord KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ha.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Allon KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/hi.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI डैशबोर्ड\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/id.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Dasbor KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ja.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI ダッシュボード\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ko.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI 대시보드\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/pt.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Painel de KPIs\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ru.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Панель KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/sw.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Dashibodi ya KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ug.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI تاختىسى\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/ur.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI ڈیش بورڈ\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/vi.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"Bảng KPI\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/kpi-dashboard/locales/zh-HK.json",
-      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI dashboard\"\n  }\n}\n"
+      "content": "{\n  \"kpi-dashboard\": {\n    \"label\": \"KPI 儀表板\"\n  }\n}\n"
     },
     {
       "path": "components/kpi-dashboard/styles.css",

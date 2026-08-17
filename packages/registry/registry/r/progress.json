@@ -14,7 +14,7 @@
     },
     {
       "path": "components/progress/locales/am.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"እድገት\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/progress/locales/bn.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"অগ্রগতি\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/progress/locales/es.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Progreso\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/fa.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"پیشرفت\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/fr.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Progression\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ha.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Ci gaba\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/hi.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"प्रगति\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/id.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Progres\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ja.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"進捗\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ko.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"진행\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/pt.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Progresso\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ru.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Прогресс\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/sw.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Maendeleo\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ug.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"ئىلگىرىلەش\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/ur.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"پیش رفت\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/vi.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"Tiến độ\"\n  }\n}\n"
     },
     {
       "path": "components/progress/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/progress/locales/zh-HK.json",
-      "content": "{\n  \"progress\": {\n    \"label\": \"Progress\"\n  }\n}\n"
+      "content": "{\n  \"progress\": {\n    \"label\": \"進度\"\n  }\n}\n"
     },
     {
       "path": "components/progress/Progress.tsx",

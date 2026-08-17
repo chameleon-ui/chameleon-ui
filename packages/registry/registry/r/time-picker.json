@@ -14,7 +14,7 @@
     },
     {
       "path": "components/time-picker/locales/am.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"ሰዓት\",\n    \"hour\": \"ሰዓት\",\n    \"minute\": \"ደቂቃ\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/time-picker/locales/bn.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"সময়\",\n    \"hour\": \"ঘণ্টা\",\n    \"minute\": \"মিনিট\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/time-picker/locales/es.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Hora\",\n    \"hour\": \"Hora\",\n    \"minute\": \"Minuto\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/fa.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"زمان\",\n    \"hour\": \"ساعت\",\n    \"minute\": \"دقیقه\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/fr.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Heure\",\n    \"hour\": \"Heure\",\n    \"minute\": \"Minute\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ha.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Lokaci\",\n    \"hour\": \"Aw'a\",\n    \"minute\": \"Minti\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/hi.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"समय\",\n    \"hour\": \"घंटा\",\n    \"minute\": \"मिनट\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/id.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Waktu\",\n    \"hour\": \"Jam\",\n    \"minute\": \"Menit\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ja.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"時刻\",\n    \"hour\": \"時\",\n    \"minute\": \"分\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ko.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"시간\",\n    \"hour\": \"시\",\n    \"minute\": \"분\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/pt.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Hora\",\n    \"hour\": \"Hora\",\n    \"minute\": \"Minuto\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ru.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Время\",\n    \"hour\": \"Час\",\n    \"minute\": \"Минута\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/sw.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Muda\",\n    \"hour\": \"Saa\",\n    \"minute\": \"Dakika\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ug.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"ۋاقىت\",\n    \"hour\": \"سائەت\",\n    \"minute\": \"مىنۇت\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/ur.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"وقت\",\n    \"hour\": \"گھنٹہ\",\n    \"minute\": \"منٹ\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/vi.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"Thời gian\",\n    \"hour\": \"Giờ\",\n    \"minute\": \"Phút\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/time-picker/locales/zh-HK.json",
-      "content": "{\n  \"time-picker\": {\n    \"label\": \"Time\",\n    \"hour\": \"Hour\",\n    \"minute\": \"Minute\"\n  }\n}\n"
+      "content": "{\n  \"time-picker\": {\n    \"label\": \"時間\",\n    \"hour\": \"時\",\n    \"minute\": \"分\"\n  }\n}\n"
     },
     {
       "path": "components/time-picker/styles.css",

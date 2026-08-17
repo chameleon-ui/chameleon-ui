@@ -18,7 +18,7 @@
     },
     {
       "path": "components/canvas-toolbar/locales/am.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"የካንቫስ መሣሪያ አሞሌ\",\n    \"zoomIn\": \"አጉላ\",\n    \"zoomOut\": \"አሳንስ\",\n    \"resetView\": \"እይታ ዳግም አስጀምር\",\n    \"fitView\": \"ወደ እይታ አስማ\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/canvas-toolbar/locales/bn.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"ক্যানভাস টুলবার\",\n    \"zoomIn\": \"জুম ইন\",\n    \"zoomOut\": \"জুম আউট\",\n    \"resetView\": \"ভিউ রিসেট করুন\",\n    \"fitView\": \"ভিউতে ফিট করুন\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/canvas-toolbar/locales/es.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Barra de herramientas del lienzo\",\n    \"zoomIn\": \"Acercar\",\n    \"zoomOut\": \"Alejar\",\n    \"resetView\": \"Restablecer vista\",\n    \"fitView\": \"Ajustar a la vista\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/fa.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"نوار ابزار بوم\",\n    \"zoomIn\": \"بزرگ‌نمایی\",\n    \"zoomOut\": \"کوچک‌نمایی\",\n    \"resetView\": \"بازنشانی نما\",\n    \"fitView\": \"تناسب با نما\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/fr.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Barre d'outils du canevas\",\n    \"zoomIn\": \"Zoomer\",\n    \"zoomOut\": \"Dézoomer\",\n    \"resetView\": \"Réinitialiser la vue\",\n    \"fitView\": \"Ajuster à la vue\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ha.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Sandar kayan aikin ƙwallo\",\n    \"zoomIn\": \"Ƙara girma\",\n    \"zoomOut\": \"Rage girma\",\n    \"resetView\": \"Sake saiti kallo\",\n    \"fitView\": \"Daidaita kallo\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/hi.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"कैनवास टूलबार\",\n    \"zoomIn\": \"ज़ूम इन\",\n    \"zoomOut\": \"ज़ूम आउट\",\n    \"resetView\": \"दृश्य रीसेट करें\",\n    \"fitView\": \"दृश्य में फ़िट करें\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/id.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Bilah alat kanvas\",\n    \"zoomIn\": \"Perbesar\",\n    \"zoomOut\": \"Perkecil\",\n    \"resetView\": \"Atur ulang tampilan\",\n    \"fitView\": \"Pas ke tampilan\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ja.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"キャンバスツールバー\",\n    \"zoomIn\": \"拡大\",\n    \"zoomOut\": \"縮小\",\n    \"resetView\": \"表示をリセット\",\n    \"fitView\": \"表示に合わせる\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ko.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"캔버스 도구 모음\",\n    \"zoomIn\": \"확대\",\n    \"zoomOut\": \"축소\",\n    \"resetView\": \"보기 초기화\",\n    \"fitView\": \"화면에 맞추기\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/pt.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Barra de ferramentas da tela\",\n    \"zoomIn\": \"Ampliar\",\n    \"zoomOut\": \"Reduzir\",\n    \"resetView\": \"Redefinir visualização\",\n    \"fitView\": \"Ajustar à tela\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ru.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Панель инструментов холста\",\n    \"zoomIn\": \"Увеличить\",\n    \"zoomOut\": \"Уменьшить\",\n    \"resetView\": \"Сбросить вид\",\n    \"fitView\": \"По размеру окна\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/sw.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Upau wa zana wa ubao\",\n    \"zoomIn\": \"Kuza\",\n    \"zoomOut\": \"Punguza\",\n    \"resetView\": \"Weka upya mtazamo\",\n    \"fitView\": \"Weka kwenye mtazamo\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ug.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"تاختاي قورال ستونى\",\n    \"zoomIn\": \"چوڭايتىش\",\n    \"zoomOut\": \"كىچىكلەتىش\",\n    \"resetView\": \"كۆرۈنۈشنى ئەسلىگە قايتۇرۇش\",\n    \"fitView\": \"كۆرۈنۈشكە ماسلاشتۇرۇش\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/ur.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"کینوس ٹول بار\",\n    \"zoomIn\": \"بڑا کریں\",\n    \"zoomOut\": \"چھوٹا کریں\",\n    \"resetView\": \"منظر ری سیٹ کریں\",\n    \"fitView\": \"منظر میں فٹ کریں\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/vi.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Thanh công cụ canvas\",\n    \"zoomIn\": \"Phóng to\",\n    \"zoomOut\": \"Thu nhỏ\",\n    \"resetView\": \"Đặt lại chế độ xem\",\n    \"fitView\": \"Vừa khung nhìn\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/canvas-toolbar/locales/zh-HK.json",
-      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"Canvas toolbar\",\n    \"zoomIn\": \"Zoom in\",\n    \"zoomOut\": \"Zoom out\",\n    \"resetView\": \"Reset view\",\n    \"fitView\": \"Fit to view\"\n  }\n}\n"
+      "content": "{\n  \"canvas-toolbar\": {\n    \"label\": \"畫布工具列\",\n    \"zoomIn\": \"放大\",\n    \"zoomOut\": \"縮小\",\n    \"resetView\": \"重設檢視\",\n    \"fitView\": \"符合檢視\"\n  }\n}\n"
     },
     {
       "path": "components/canvas-toolbar/styles.css",

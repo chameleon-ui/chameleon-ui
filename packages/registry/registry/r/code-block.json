@@ -18,7 +18,7 @@
     },
     {
       "path": "components/code-block/locales/am.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"የኮድ ብሎክ\",\n    \"copy\": \"ኮድ ቅዳ\",\n    \"copied\": \"ተቀድቷል\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/code-block/locales/bn.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"কোড ব্লক\",\n    \"copy\": \"কোড কপি করুন\",\n    \"copied\": \"কপি হয়েছে\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/code-block/locales/es.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Bloque de código\",\n    \"copy\": \"Copiar código\",\n    \"copied\": \"Copiado\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/fa.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"بلوک کد\",\n    \"copy\": \"کپی کد\",\n    \"copied\": \"کپی شد\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/fr.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Bloc de code\",\n    \"copy\": \"Copier le code\",\n    \"copied\": \"Copié\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ha.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Tubulin lambar\",\n    \"copy\": \"Kwafi lambar\",\n    \"copied\": \"An kwafa\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/hi.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"कोड ब्लॉक\",\n    \"copy\": \"कोड कॉपी करें\",\n    \"copied\": \"कॉपी हो गया\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/id.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Blok kode\",\n    \"copy\": \"Salin kode\",\n    \"copied\": \"Tersalin\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ja.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"コードブロック\",\n    \"copy\": \"コードをコピー\",\n    \"copied\": \"コピーしました\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ko.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"코드 블록\",\n    \"copy\": \"코드 복사\",\n    \"copied\": \"복사됨\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/pt.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Bloco de código\",\n    \"copy\": \"Copiar código\",\n    \"copied\": \"Copiado\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ru.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Блок кода\",\n    \"copy\": \"Копировать код\",\n    \"copied\": \"Скопировано\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/sw.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Kizuizi cha msimbo\",\n    \"copy\": \"Nakili msimbo\",\n    \"copied\": \"Imenakiliwa\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ug.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"كود بۆلۈمى\",\n    \"copy\": \"كودنى كۆچۈرۈش\",\n    \"copied\": \"كۆچۈرۈلدى\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/ur.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"کوڈ بلاک\",\n    \"copy\": \"کوڈ کاپی کریں\",\n    \"copied\": \"کاپی ہو گیا\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/vi.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"Khối mã\",\n    \"copy\": \"Sao chép mã\",\n    \"copied\": \"Đã sao chép\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/code-block/locales/zh-HK.json",
-      "content": "{\n  \"code-block\": {\n    \"label\": \"Code block\",\n    \"copy\": \"Copy code\",\n    \"copied\": \"Copied\"\n  }\n}\n"
+      "content": "{\n  \"code-block\": {\n    \"label\": \"程式碼區塊\",\n    \"copy\": \"複製程式碼\",\n    \"copied\": \"已複製\"\n  }\n}\n"
     },
     {
       "path": "components/code-block/styles.css",

@@ -18,7 +18,7 @@
     },
     {
       "path": "components/loading-bar/locales/am.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"በመጫን ላይ\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/loading-bar/locales/bn.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"লোড হচ্ছে\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/loading-bar/locales/es.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Cargando\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/fa.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"در حال بارگذاری\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/fr.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Chargement\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ha.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Ana loda\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/hi.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"लोड हो रहा है\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/id.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Memuat\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ja.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"読み込み中\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ko.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"로딩 중\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/pt.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Carregando\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ru.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Загрузка\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/sw.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Inapakia\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ug.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"يۈكلىنىۋاتىدۇ\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/ur.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"لوڈ ہو رہا ہے\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/vi.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Đang tải\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/loading-bar/locales/zh-HK.json",
-      "content": "{\n  \"loading-bar\": {\n    \"label\": \"Loading\"\n  }\n}\n"
+      "content": "{\n  \"loading-bar\": {\n    \"label\": \"載入中\"\n  }\n}\n"
     },
     {
       "path": "components/loading-bar/styles.css",

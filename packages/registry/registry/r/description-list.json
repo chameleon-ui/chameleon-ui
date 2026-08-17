@@ -18,7 +18,7 @@
     },
     {
       "path": "components/description-list/locales/am.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"የመግለጫ ዝርዝር\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/description-list/locales/bn.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"বিবরণ তালিকা\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/description-list/locales/es.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Lista de descripción\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/fa.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"فهرست توصیفی\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/fr.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Liste de descriptions\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ha.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Jerin bayani\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/hi.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"विवरण सूची\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/id.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Daftar deskripsi\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ja.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"説明リスト\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ko.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"설명 목록\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/pt.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Lista de descrição\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ru.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Список описаний\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/sw.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Orodha ya maelezo\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ug.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"چۈشەندۈرۈش تىزىمى\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/ur.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"تفصیلی فہرست\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/vi.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"Danh sách mô tả\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/description-list/locales/zh-HK.json",
-      "content": "{\n  \"description-list\": {\n    \"label\": \"Description list\"\n  }\n}\n"
+      "content": "{\n  \"description-list\": {\n    \"label\": \"描述列表\"\n  }\n}\n"
     },
     {
       "path": "components/description-list/styles.css",

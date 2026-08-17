@@ -14,7 +14,7 @@
     },
     {
       "path": "components/statistic/locales/am.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"ስታቲስቲክ\",\n    \"trend\": \"ዝምታ\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/statistic/locales/bn.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"পরিসংখ্যান\",\n    \"trend\": \"প্রবণতা\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/de.json",
@@ -34,59 +34,59 @@
     },
     {
       "path": "components/statistic/locales/es.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Estadística\",\n    \"trend\": \"Tendencia\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/fa.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"آمار\",\n    \"trend\": \"روند\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/fr.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistique\",\n    \"trend\": \"Tendance\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ha.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Ƙididdiga\",\n    \"trend\": \"Yanayi\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/hi.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"सांख्यिकी\",\n    \"trend\": \"रुझान\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/id.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistik\",\n    \"trend\": \"Tren\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ja.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"統計\",\n    \"trend\": \"トレンド\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ko.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"통계\",\n    \"trend\": \"추세\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/pt.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Estatística\",\n    \"trend\": \"Tendência\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ru.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Статистика\",\n    \"trend\": \"Тенденция\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/sw.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Takwimu\",\n    \"trend\": \"Mwelekeo\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ug.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"ستاتىستىكا\",\n    \"trend\": \"يۈزلىنىش\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/ur.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"شماریات\",\n    \"trend\": \"رجحان\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/vi.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"Thống kê\",\n    \"trend\": \"Xu hướng\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/statistic/locales/zh-HK.json",
-      "content": "{\n  \"statistic\": {\n    \"label\": \"Statistic\",\n    \"trend\": \"Trend\"\n  }\n}\n"
+      "content": "{\n  \"statistic\": {\n    \"label\": \"統計\",\n    \"trend\": \"趨勢\"\n  }\n}\n"
     },
     {
       "path": "components/statistic/Statistic.tsx",

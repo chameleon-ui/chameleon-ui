@@ -18,7 +18,7 @@
     },
     {
       "path": "components/carousel/locales/am.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"ካሩሴል\",\n    \"previousSlide\": \"ቀዳሚ ስላይድ\",\n    \"nextSlide\": \"ቀጣይ ስላይድ\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/carousel/locales/bn.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"ক্যারোসেল\",\n    \"previousSlide\": \"আগের স্লাইড\",\n    \"nextSlide\": \"পরের স্লাইড\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/carousel/locales/es.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carrusel\",\n    \"previousSlide\": \"Diapositiva anterior\",\n    \"nextSlide\": \"Diapositiva siguiente\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/fa.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"چرخ‌وفلک\",\n    \"previousSlide\": \"اسلاید قبلی\",\n    \"nextSlide\": \"اسلاید بعدی\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/fr.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carrousel\",\n    \"previousSlide\": \"Diapositive précédente\",\n    \"nextSlide\": \"Diapositive suivante\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ha.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Na'ura mai juyawa\",\n    \"previousSlide\": \"Slaid baya\",\n    \"nextSlide\": \"Slaid gaba\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/hi.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"कैरोसेल\",\n    \"previousSlide\": \"पिछली स्लाइड\",\n    \"nextSlide\": \"अगली स्लाइड\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/id.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Karusel\",\n    \"previousSlide\": \"Slide sebelumnya\",\n    \"nextSlide\": \"Slide berikutnya\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ja.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"カルーセル\",\n    \"previousSlide\": \"前のスライド\",\n    \"nextSlide\": \"次のスライド\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ko.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"캐러셀\",\n    \"previousSlide\": \"이전 슬라이드\",\n    \"nextSlide\": \"다음 슬라이드\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/pt.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Carrossel\",\n    \"previousSlide\": \"Slide anterior\",\n    \"nextSlide\": \"Próximo slide\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ru.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Карусель\",\n    \"previousSlide\": \"Предыдущий слайд\",\n    \"nextSlide\": \"Следующий слайд\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/sw.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Karuseli\",\n    \"previousSlide\": \"Slaidi iliyopita\",\n    \"nextSlide\": \"Slaidi inayofuata\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ug.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"رەسىم ئايلانمىسى\",\n    \"previousSlide\": \"ئالدىنقى سلايد\",\n    \"nextSlide\": \"كېيىنكى سلايد\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/ur.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"کروسل\",\n    \"previousSlide\": \"پچھلی سلائیڈ\",\n    \"nextSlide\": \"اگلی سلائیڈ\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/vi.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"Băng chuyền\",\n    \"previousSlide\": \"Trang trước\",\n    \"nextSlide\": \"Trang sau\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/carousel/locales/zh-HK.json",
-      "content": "{\n  \"carousel\": {\n    \"label\": \"Carousel\",\n    \"previousSlide\": \"Previous slide\",\n    \"nextSlide\": \"Next slide\"\n  }\n}\n"
+      "content": "{\n  \"carousel\": {\n    \"label\": \"輪播\",\n    \"previousSlide\": \"上一張\",\n    \"nextSlide\": \"下一張\"\n  }\n}\n"
     },
     {
       "path": "components/carousel/styles.css",

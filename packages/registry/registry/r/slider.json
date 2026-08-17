@@ -14,7 +14,7 @@
     },
     {
       "path": "components/slider/locales/am.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"ተንሸራታች\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ar.json",
@@ -22,7 +22,7 @@
     },
     {
       "path": "components/slider/locales/bn.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"স্লাইডার\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/de.json",
@@ -34,23 +34,23 @@
     },
     {
       "path": "components/slider/locales/es.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Control deslizante\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/fa.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"لغزنده\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/fr.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Curseur\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ha.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Mai ɗaushe\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/hi.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"स्लाइडर\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/id.json",
@@ -58,35 +58,35 @@
     },
     {
       "path": "components/slider/locales/ja.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"スライダー\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ko.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"슬라이더\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/pt.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Controle deslizante\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ru.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Ползунок\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/sw.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Kitelezi\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ug.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"سىيرىلغۇچ\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/ur.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"سلائیڈر\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/vi.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"Thanh trượt\"\n  }\n}\n"
     },
     {
       "path": "components/slider/locales/zh-CN.json",
@@ -94,7 +94,7 @@
     },
     {
       "path": "components/slider/locales/zh-HK.json",
-      "content": "{\n  \"slider\": {\n    \"label\": \"Slider\"\n  }\n}\n"
+      "content": "{\n  \"slider\": {\n    \"label\": \"滑桿\"\n  }\n}\n"
     },
     {
       "path": "components/slider/Slider.tsx",

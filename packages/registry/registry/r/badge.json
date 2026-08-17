@@ -18,7 +18,7 @@
     },
     {
       "path": "components/badge/locales/am.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"ባጅ\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/badge/locales/bn.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"ব্যাজ\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/de.json",
@@ -38,11 +38,11 @@
     },
     {
       "path": "components/badge/locales/es.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Insignia\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/fa.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"نشان\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/fr.json",
@@ -50,47 +50,47 @@
     },
     {
       "path": "components/badge/locales/ha.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Lamba\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/hi.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"बैज\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/id.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Lencana\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ja.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"バッジ\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ko.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"배지\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/pt.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Distintivo\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ru.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Значок\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/sw.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Beji\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ug.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"تاپانچا\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/ur.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"بیج\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/vi.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"Huy hiệu\"\n  }\n}\n"
     },
     {
       "path": "components/badge/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/badge/locales/zh-HK.json",
-      "content": "{\n  \"badge\": {\n    \"label\": \"Badge\"\n  }\n}\n"
+      "content": "{\n  \"badge\": {\n    \"label\": \"徽章\"\n  }\n}\n"
     },
     {
       "path": "components/badge/styles.css",

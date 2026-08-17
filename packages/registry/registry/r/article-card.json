@@ -18,7 +18,7 @@
     },
     {
       "path": "components/article-card/locales/am.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"ጽሁፍ\",\n    \"readMore\": \"ጽሁፍ አንብብ\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/article-card/locales/bn.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"নিবন্ধ\",\n    \"readMore\": \"নিবন্ধ পড়ুন\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/article-card/locales/es.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Artículo\",\n    \"readMore\": \"Leer artículo\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/fa.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"مقاله\",\n    \"readMore\": \"خواندن مقاله\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/fr.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Lire l'article\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ha.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Labari\",\n    \"readMore\": \"Karanta labari\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/hi.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"लेख\",\n    \"readMore\": \"लेख पढ़ें\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/id.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Artikel\",\n    \"readMore\": \"Baca artikel\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ja.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"記事\",\n    \"readMore\": \"記事を読む\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ko.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"글\",\n    \"readMore\": \"글 읽기\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/pt.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Artigo\",\n    \"readMore\": \"Ler artigo\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ru.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Статья\",\n    \"readMore\": \"Читать статью\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/sw.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Makala\",\n    \"readMore\": \"Soma makala\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ug.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"ماقالە\",\n    \"readMore\": \"ماقالە ئوقۇش\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/ur.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"مضمون\",\n    \"readMore\": \"مضمون پڑھیں\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/vi.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"Bài viết\",\n    \"readMore\": \"Đọc bài viết\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/article-card/locales/zh-HK.json",
-      "content": "{\n  \"article-card\": {\n    \"label\": \"Article\",\n    \"readMore\": \"Read article\"\n  }\n}\n"
+      "content": "{\n  \"article-card\": {\n    \"label\": \"文章\",\n    \"readMore\": \"閱讀文章\"\n  }\n}\n"
     },
     {
       "path": "components/article-card/styles.css",

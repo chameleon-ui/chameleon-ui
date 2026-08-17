@@ -3,7 +3,6 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const repoRoot = join(root, '..')
 const packagesRoot = join(root, 'packages')
 const PRODUCT_VERSION = '0.4.0'
 
@@ -22,9 +21,6 @@ function fail(message) {
 }
 
 const requiredFiles = [
-  join(repoRoot, 'LICENSE'),
-  join(repoRoot, 'CONTRIBUTING.md'),
-  join(repoRoot, 'SECURITY.md'),
   join(root, 'LICENSE'),
   join(root, 'CONTRIBUTING.md'),
   join(root, 'SECURITY.md'),

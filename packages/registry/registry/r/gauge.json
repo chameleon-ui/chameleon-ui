@@ -18,7 +18,7 @@
     },
     {
       "path": "components/gauge/locales/am.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"መለኪያ\",\n    \"value\": \"እሴት\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ar.json",
@@ -26,7 +26,7 @@
     },
     {
       "path": "components/gauge/locales/bn.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"গেজ\",\n    \"value\": \"মান\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/de.json",
@@ -38,59 +38,59 @@
     },
     {
       "path": "components/gauge/locales/es.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Medidor\",\n    \"value\": \"Valor\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/fa.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"گیج\",\n    \"value\": \"مقدار\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/fr.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Jauge\",\n    \"value\": \"Valeur\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ha.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Ma'auni\",\n    \"value\": \"Ƙima\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/hi.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"गेज\",\n    \"value\": \"मान\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/id.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Nilai\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ja.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"ゲージ\",\n    \"value\": \"値\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ko.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"게이지\",\n    \"value\": \"값\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/pt.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Medidor\",\n    \"value\": \"Valor\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ru.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Шкала\",\n    \"value\": \"Значение\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/sw.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Kipimo\",\n    \"value\": \"Thamani\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ug.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"ئۆلچەك\",\n    \"value\": \"قىممەت\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/ur.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"گیج\",\n    \"value\": \"قدر\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/vi.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"Đồng hồ đo\",\n    \"value\": \"Giá trị\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/locales/zh-CN.json",
@@ -98,7 +98,7 @@
     },
     {
       "path": "components/gauge/locales/zh-HK.json",
-      "content": "{\n  \"gauge\": {\n    \"label\": \"Gauge\",\n    \"value\": \"Value\"\n  }\n}\n"
+      "content": "{\n  \"gauge\": {\n    \"label\": \"儀表\",\n    \"value\": \"數值\"\n  }\n}\n"
     },
     {
       "path": "components/gauge/styles.css",
